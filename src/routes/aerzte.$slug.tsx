@@ -76,7 +76,7 @@ function DoctorDetail() {
       </div>
 
       <section className="mx-auto max-w-7xl px-5 lg:px-8 pb-12">
-        <div className="grid gap-10 lg:grid-cols-[280px,1fr]">
+        <div className="grid gap-10 lg:grid-cols-[280px_1fr]">
           <div>
             <div className="aspect-[4/5] rounded-2xl overflow-hidden bg-[#263044] shadow-lg max-w-[280px]">
               {d.photo ? (
