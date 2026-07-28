@@ -10,7 +10,7 @@ import {
 import { SiteNav } from "@/components/SiteNav";
 
 
-const BOOKING_URL = "https://onlinerezeption.vercel.app";
+
 
 export const Route = createFileRoute("/aerzte/")({
   head: () => ({
