@@ -54,21 +54,8 @@ function DoctorDetail() {
 
   return (
     <div className="min-h-screen bg-[#F8F8F6]">
-      <header className="sticky top-0 z-40 bg-white shadow-sm">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 lg:px-8">
-          <Link to="/" className="flex items-center gap-3">
-            <img src={logoAsset.url} alt="WZAS" className="h-10 w-auto" />
-          </Link>
-          <a
-            href={BOOKING_URL}
-            target="_blank"
-            rel="noreferrer"
-            className="inline-flex items-center rounded-full bg-[#AC8F52] px-5 py-2.5 text-sm font-semibold text-[#1E2535] hover:brightness-105 transition"
-          >
-            Termin vereinbaren
-          </a>
-        </div>
-      </header>
+      <SiteNav />
+
 
       <div className="mx-auto max-w-7xl px-5 lg:px-8 py-6">
         <Link to="/aerzte" className="inline-flex items-center gap-2 text-sm text-[#8C939B] hover:text-[#1E2535]">
