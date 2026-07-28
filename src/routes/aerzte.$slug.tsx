@@ -48,7 +48,7 @@ function DoctorNotFound() {
 }
 
 function DoctorDetail() {
-  const { doctor: d } = Route.useLoaderData();
+  const { doctor: d } = Route.useLoaderData() as { doctor: import("@/lib/doctors").Doctor };
   const related = doctors.filter((x) => x.slug !== d.slug && x.specialties.some((s) => d.specialties.includes(s))).slice(0, 3);
 
   return (

@@ -9,38 +9,72 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as AerzteRouteImport } from './routes/aerzte'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AerzteIndexRouteImport } from './routes/aerzte.index'
+import { Route as AerzteSlugRouteImport } from './routes/aerzte.$slug'
 
+const AerzteRoute = AerzteRouteImport.update({
+  id: '/aerzte',
+  path: '/aerzte',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AerzteIndexRoute = AerzteIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => AerzteRoute,
+} as any)
+const AerzteSlugRoute = AerzteSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => AerzteRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/aerzte': typeof AerzteRouteWithChildren
+  '/aerzte/$slug': typeof AerzteSlugRoute
+  '/aerzte/': typeof AerzteIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/aerzte/$slug': typeof AerzteSlugRoute
+  '/aerzte': typeof AerzteIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/aerzte': typeof AerzteRouteWithChildren
+  '/aerzte/$slug': typeof AerzteSlugRoute
+  '/aerzte/': typeof AerzteIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/aerzte' | '/aerzte/$slug' | '/aerzte/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/aerzte/$slug' | '/aerzte'
+  id: '__root__' | '/' | '/aerzte' | '/aerzte/$slug' | '/aerzte/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AerzteRoute: typeof AerzteRouteWithChildren
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/aerzte': {
+      id: '/aerzte'
+      path: '/aerzte'
+      fullPath: '/aerzte'
+      preLoaderRoute: typeof AerzteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -48,11 +82,39 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/aerzte/': {
+      id: '/aerzte/'
+      path: '/'
+      fullPath: '/aerzte/'
+      preLoaderRoute: typeof AerzteIndexRouteImport
+      parentRoute: typeof AerzteRoute
+    }
+    '/aerzte/$slug': {
+      id: '/aerzte/$slug'
+      path: '/$slug'
+      fullPath: '/aerzte/$slug'
+      preLoaderRoute: typeof AerzteSlugRouteImport
+      parentRoute: typeof AerzteRoute
+    }
   }
 }
 
+interface AerzteRouteChildren {
+  AerzteSlugRoute: typeof AerzteSlugRoute
+  AerzteIndexRoute: typeof AerzteIndexRoute
+}
+
+const AerzteRouteChildren: AerzteRouteChildren = {
+  AerzteSlugRoute: AerzteSlugRoute,
+  AerzteIndexRoute: AerzteIndexRoute,
+}
+
+const AerzteRouteWithChildren =
+  AerzteRoute._addFileChildren(AerzteRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AerzteRoute: AerzteRouteWithChildren,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
