@@ -484,23 +484,25 @@ function Aktuelles() {
           {items.map((i) => (
             <div
               key={i.title}
-              className={`bg-white rounded-xl p-6 md:p-7 border-t-4 ${i.color} shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-200 grid gap-4 md:grid-cols-[auto_1fr_auto] md:items-center`}
+              className={`bg-white rounded-xl overflow-hidden border-t-4 ${i.color} shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-200 grid gap-4 md:grid-cols-[180px_1fr_auto] md:items-center`}
             >
-              <div className="flex items-center gap-3">
-                <span className={`text-[11px] font-semibold tracking-widest px-2.5 py-1 rounded ${i.badge}`}>
-                  {i.type}
-                </span>
-                <span className="text-xs text-[#8C939B]">{i.date}</span>
-              </div>
-              <div>
-                <h3 className="font-semibold text-lg text-[#1E2535]">{i.title}</h3>
+              <img src={i.image} alt={i.title} className="h-full w-full object-cover aspect-[4/3] md:aspect-auto md:h-32" />
+              <div className="px-6 md:px-0 py-4 md:py-5">
+                <div className="flex items-center gap-3">
+                  <span className={`text-[11px] font-semibold tracking-widest px-2.5 py-1 rounded ${i.badge}`}>
+                    {i.type}
+                  </span>
+                  <span className="text-xs text-[#8C939B]">{i.date}</span>
+                </div>
+                <h3 className="mt-2 font-semibold text-lg text-[#1E2535]">{i.title}</h3>
                 <p className="mt-1 text-sm text-[#8C939B]">{i.detail}</p>
               </div>
-              <a href="#" className={`text-sm font-semibold ${i.link} hover:underline whitespace-nowrap`}>
+              <a href="#" className={`px-6 md:px-7 pb-5 md:pb-0 text-sm font-semibold ${i.link} hover:underline whitespace-nowrap`}>
                 Mehr erfahren →
               </a>
             </div>
           ))}
+
         </div>
         <div className="mt-10">
           <a href="#" className="text-sm font-semibold text-[#1E2535] hover:text-[#AC8F52]">
