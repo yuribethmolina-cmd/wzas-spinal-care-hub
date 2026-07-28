@@ -1,5 +1,6 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
+import { doctors as allDoctors } from "@/lib/doctors";
 import logoAsset from "@/assets/wzas/logo.png.asset.json";
 import heroAsset from "@/assets/wzas/hero.webp.asset.json";
 import drMedele from "@/assets/wzas/dr-medele.webp.asset.json";
@@ -298,28 +299,12 @@ function Weg() {
 }
 
 function Team() {
-  const filters = ["Alle", "Wirbelsäulenchirurgie", "Schmerztherapie", "Neurochirurgie", "Orthopädie"];
-  const [active, setActive] = useState("Alle");
-  const doctors = [
-    {
-      name: "Dr. med. Ralph Medele",
-      role: "Wirbelsäulenchirurgie · Ärztlicher Direktor",
-      photo: drMedele.url,
-      points: ["Minimalinvasive Wirbelsäulenchirurgie", "Bandscheibenvorfälle", "Wirbelkanalstenose"],
-    },
-    {
-      name: "Dr. med. Christian Eröss",
-      role: "Neurochirurgie · Leitender Oberarzt",
-      photo: drEroes.url,
-      points: ["Zervikale Wirbelsäule", "Mikrochirurgische Eingriffe", "Schmerztherapie"],
-    },
-    {
-      name: "Dr. Wing Mann Ho",
-      role: "Neurochirurgie · Wirbelsäulenspezialist",
-      photo: drHo.url,
-      points: ["Lumbale Erkrankungen", "Nervenwurzelkompression", "Konservative Therapie"],
-    },
-  ];
+  const filters = ["Alle", "Wirbelsäulenchirurgie", "Schmerztherapie", "Neurochirurgie", "Orthopädie"] as const;
+  const [active, setActive] = useState<(typeof filters)[number]>("Alle");
+
+  const doctors = allDoctors
+    .filter((d) => active === "Alle" || d.specialties.includes(active as never))
+    .slice(0, 3);
 
   return (
     <section id="team" className="bg-[#F8F8F6] py-24">
@@ -346,35 +331,46 @@ function Team() {
         </div>
         <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {doctors.map((d) => (
-            <div key={d.name} className="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-200">
+            <div key={d.slug} className="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-200">
               <div className="aspect-[3/4] bg-[#263044] overflow-hidden">
-                <img src={d.photo} alt={d.name} className="h-full w-full object-cover" />
+                {d.photo ? (
+                  <img src={d.photo} alt={d.name} className="h-full w-full object-cover" />
+                ) : (
+                  <div className="h-full w-full flex items-center justify-center text-4xl font-bold text-[#AC8F52]">
+                    {d.initials}
+                  </div>
+                )}
               </div>
 
               <div className="p-6">
                 <h3 className="font-semibold text-lg text-[#1E2535]">{d.name}</h3>
                 <p className="mt-1 text-xs uppercase tracking-wide text-[#AC8F52] font-medium">{d.role}</p>
                 <ul className="mt-4 space-y-1 text-sm text-[#8C939B]">
-                  {d.points.map((p) => (
+                  {d.focus.slice(0, 3).map((p) => (
                     <li key={p}>· {p}</li>
                   ))}
                 </ul>
-                <button className="mt-6 w-full rounded-full border border-[#1E2535] py-2.5 text-sm font-semibold text-[#1E2535] hover:bg-[#1E2535] hover:text-white transition">
+                <Link
+                  to="/aerzte/$slug"
+                  params={{ slug: d.slug }}
+                  className="mt-6 block text-center rounded-full border border-[#1E2535] py-2.5 text-sm font-semibold text-[#1E2535] hover:bg-[#1E2535] hover:text-white transition"
+                >
                   Profil ansehen
-                </button>
+                </Link>
               </div>
             </div>
           ))}
         </div>
         <div className="mt-10">
-          <a href="#" className="text-sm font-semibold text-[#1E2535] hover:text-[#AC8F52]">
-            Alle 12 Spezialisten ansehen →
-          </a>
+          <Link to="/aerzte" className="text-sm font-semibold text-[#1E2535] hover:text-[#AC8F52]">
+            Alle {allDoctors.length} Spezialisten ansehen →
+          </Link>
         </div>
       </div>
     </section>
   );
 }
+
 
 function Termin() {
   return (
