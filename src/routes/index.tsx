@@ -302,21 +302,25 @@ function Team() {
   const [active, setActive] = useState("Alle");
   const doctors = [
     {
-      name: "Dr. med. Ralph Miederer",
+      name: "Dr. med. Ralph Medele",
       role: "Wirbelsäulenchirurgie · Ärztlicher Direktor",
+      photo: drMedele.url,
       points: ["Minimalinvasive Wirbelsäulenchirurgie", "Bandscheibenvorfälle", "Wirbelkanalstenose"],
     },
     {
       name: "Dr. med. Christian Eröss",
       role: "Neurochirurgie · Leitender Oberarzt",
+      photo: drEroes.url,
       points: ["Zervikale Wirbelsäule", "Mikrochirurgische Eingriffe", "Schmerztherapie"],
     },
     {
       name: "Dr. Wing Mann Ho",
       role: "Neurochirurgie · Wirbelsäulenspezialist",
+      photo: drHo.url,
       points: ["Lumbale Erkrankungen", "Nervenwurzelkompression", "Konservative Therapie"],
     },
   ];
+
   return (
     <section id="team" className="bg-[#F8F8F6] py-24">
       <div className="mx-auto max-w-7xl px-5 lg:px-8">
