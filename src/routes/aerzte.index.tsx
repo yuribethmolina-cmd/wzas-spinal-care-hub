@@ -7,7 +7,8 @@ import {
   type Specialty,
   type Availability,
 } from "@/lib/doctors";
-import logoAsset from "@/assets/wzas/logo.png.asset.json";
+import { SiteNav } from "@/components/SiteNav";
+
 
 const BOOKING_URL = "https://onlinerezeption.vercel.app";
 
