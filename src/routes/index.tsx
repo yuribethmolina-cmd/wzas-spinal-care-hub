@@ -347,9 +347,10 @@ function Team() {
         <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {doctors.map((d) => (
             <div key={d.name} className="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-200">
-              <div className="aspect-[3/4] bg-[#263044] flex items-center justify-center text-[#8C939B] text-sm">
-                [ Foto ]
+              <div className="aspect-[3/4] bg-[#263044] overflow-hidden">
+                <img src={d.photo} alt={d.name} className="h-full w-full object-cover" />
               </div>
+
               <div className="p-6">
                 <h3 className="font-semibold text-lg text-[#1E2535]">{d.name}</h3>
                 <p className="mt-1 text-xs uppercase tracking-wide text-[#AC8F52] font-medium">{d.role}</p>
