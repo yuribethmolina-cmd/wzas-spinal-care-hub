@@ -147,20 +147,20 @@ function Nav() {
   const t = useT({
     de: {
       links: [
-        ["Rückenerkrankungen", "#beschwerden"],
+        ["Rückenerkrankungen", "/beschwerden"],
         ["Ärzteteam", "/aerzte"],
-        ["Behandlungen", "#weg"],
-        ["Aktuelles", "#aktuelles"],
+        ["Behandlungen", "/behandlungen"],
+        ["Aktuelles", "/aktuelles"],
       ] as [string, string][],
       book: "Termin vereinbaren",
       menu: "Menü",
     },
     en: {
       links: [
-        ["Spine conditions", "#beschwerden"],
+        ["Spine conditions", "/beschwerden"],
         ["Our doctors", "/aerzte"],
-        ["Treatments", "#weg"],
-        ["News", "#aktuelles"],
+        ["Treatments", "/behandlungen"],
+        ["News", "/aktuelles"],
       ] as [string, string][],
       book: "Book appointment",
       menu: "Menu",
@@ -197,7 +197,7 @@ function Nav() {
             href.startsWith("/") ? (
               <Link
                 key={label}
-                to={href as "/aerzte"}
+                to={href as "/aerzte" | "/beschwerden" | "/behandlungen" | "/aktuelles"}
                 className={linkClass}
                 activeProps={{ "aria-current": "page" } as never}
               >
@@ -251,7 +251,7 @@ function Nav() {
           href.startsWith("/") ? (
             <Link
               key={label}
-              to={href as "/aerzte"}
+              to={href as "/aerzte" | "/beschwerden" | "/behandlungen" | "/aktuelles"}
               onClick={() => setOpen(false)}
               className="block text-sm font-medium text-[#1E2535] py-2"
               activeProps={{ "aria-current": "page" } as never}
