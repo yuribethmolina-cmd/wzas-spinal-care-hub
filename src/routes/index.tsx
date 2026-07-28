@@ -154,10 +154,13 @@ function Hero() {
           </div>
         </div>
         <div className="relative">
-          <div className="aspect-[4/3] rounded-2xl bg-[#263044] flex items-center justify-center text-[#8C939B] text-sm">
-            [ Foto: Ärzteteam wzas.de ]
-          </div>
+          <img
+            src={heroAsset.url}
+            alt="Wirbelsäulenzentrum am Stiglmaierplatz — Praxisräume"
+            className="aspect-[4/3] w-full rounded-2xl object-cover shadow-2xl"
+          />
         </div>
+
       </div>
 
       <div className="absolute inset-x-0 bottom-0 bg-[#1E2535]/90 backdrop-blur border-t border-white/10">
