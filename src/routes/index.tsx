@@ -1,5 +1,16 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
+import logoAsset from "@/assets/wzas/logo.png.asset.json";
+import heroAsset from "@/assets/wzas/hero.webp.asset.json";
+import drMedele from "@/assets/wzas/dr-medele.webp.asset.json";
+import drEroes from "@/assets/wzas/dr-eroes.webp.asset.json";
+import drHo from "@/assets/wzas/dr-ho.jpg.asset.json";
+import vortraegeImg from "@/assets/wzas/vortraege.webp.asset.json";
+import thumbBandscheibe from "@/assets/wzas/thumb-bandscheibe.webp.asset.json";
+import aktuellesImg from "@/assets/wzas/aktuelles.jpg.asset.json";
+import focusImg from "@/assets/wzas/focus.jpeg.asset.json";
+import isoImg from "@/assets/wzas/iso.png.asset.json";
+
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -18,16 +29,15 @@ const BOOKING_URL = "https://onlinerezeption.vercel.app";
 function Logo({ light = false }: { light?: boolean }) {
   return (
     <div className="flex items-center gap-3">
-      <div className="h-9 w-1 bg-[#AC8F52]" />
-      <div className="leading-tight">
-        <div className={`font-bold tracking-tight text-xl ${light ? "text-white" : "text-[#1E2535]"}`}>WZAS</div>
-        <div className={`font-light text-[11px] tracking-wide ${light ? "text-[#8C939B]" : "text-[#8C939B]"}`}>
-          Wirbelsäulenzentrum
-        </div>
-      </div>
+      <img
+        src={logoAsset.url}
+        alt="WZAS Wirbelsäulenzentrum am Stiglmaierplatz"
+        className={`h-11 w-auto ${light ? "brightness-0 invert" : ""}`}
+      />
     </div>
   );
 }
+
 
 function Nav() {
   const [scrolled, setScrolled] = useState(false);
@@ -144,10 +154,13 @@ function Hero() {
           </div>
         </div>
         <div className="relative">
-          <div className="aspect-[4/3] rounded-2xl bg-[#263044] flex items-center justify-center text-[#8C939B] text-sm">
-            [ Foto: Ärzteteam wzas.de ]
-          </div>
+          <img
+            src={heroAsset.url}
+            alt="Wirbelsäulenzentrum am Stiglmaierplatz — Praxisräume"
+            className="aspect-[4/3] w-full rounded-2xl object-cover shadow-2xl"
+          />
         </div>
+
       </div>
 
       <div className="absolute inset-x-0 bottom-0 bg-[#1E2535]/90 backdrop-blur border-t border-white/10">
@@ -289,21 +302,25 @@ function Team() {
   const [active, setActive] = useState("Alle");
   const doctors = [
     {
-      name: "Dr. med. Ralph Miederer",
+      name: "Dr. med. Ralph Medele",
       role: "Wirbelsäulenchirurgie · Ärztlicher Direktor",
+      photo: drMedele.url,
       points: ["Minimalinvasive Wirbelsäulenchirurgie", "Bandscheibenvorfälle", "Wirbelkanalstenose"],
     },
     {
       name: "Dr. med. Christian Eröss",
       role: "Neurochirurgie · Leitender Oberarzt",
+      photo: drEroes.url,
       points: ["Zervikale Wirbelsäule", "Mikrochirurgische Eingriffe", "Schmerztherapie"],
     },
     {
       name: "Dr. Wing Mann Ho",
       role: "Neurochirurgie · Wirbelsäulenspezialist",
+      photo: drHo.url,
       points: ["Lumbale Erkrankungen", "Nervenwurzelkompression", "Konservative Therapie"],
     },
   ];
+
   return (
     <section id="team" className="bg-[#F8F8F6] py-24">
       <div className="mx-auto max-w-7xl px-5 lg:px-8">
@@ -330,9 +347,10 @@ function Team() {
         <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {doctors.map((d) => (
             <div key={d.name} className="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-200">
-              <div className="aspect-[3/4] bg-[#263044] flex items-center justify-center text-[#8C939B] text-sm">
-                [ Foto ]
+              <div className="aspect-[3/4] bg-[#263044] overflow-hidden">
+                <img src={d.photo} alt={d.name} className="h-full w-full object-cover" />
               </div>
+
               <div className="p-6">
                 <h3 className="font-semibold text-lg text-[#1E2535]">{d.name}</h3>
                 <p className="mt-1 text-xs uppercase tracking-wide text-[#AC8F52] font-medium">{d.role}</p>
@@ -430,6 +448,7 @@ function Aktuelles() {
       date: "15. September 2026",
       title: "Rücken ohne OP: Wann ist Chirurgie wirklich nötig?",
       detail: "Gasteig HP8 · München · 19:00 Uhr",
+      image: vortraegeImg.url,
     },
     {
       type: "VIDEO",
@@ -438,7 +457,8 @@ function Aktuelles() {
       link: "text-purple-600",
       date: "Online verfügbar",
       title: "Bandscheibenvorfall verstehen: Diagnose & Behandlung",
-      detail: "45 Min. · Dr. med. Ralph Miederer",
+      detail: "45 Min. · Dr. med. Ralph Medele",
+      image: thumbBandscheibe.url,
     },
     {
       type: "ARTIKEL",
@@ -448,8 +468,10 @@ function Aktuelles() {
       date: "Juli 2026",
       title: "Neue minimalinvasive Techniken in der Wirbelsäulenchirurgie",
       detail: "Fachbeitrag · Neurochirurgie aktuell",
+      image: aktuellesImg.url,
     },
   ];
+
   return (
     <section id="aktuelles" className="bg-[#F8F8F6] py-24">
       <div className="mx-auto max-w-7xl px-5 lg:px-8">
@@ -462,23 +484,25 @@ function Aktuelles() {
           {items.map((i) => (
             <div
               key={i.title}
-              className={`bg-white rounded-xl p-6 md:p-7 border-t-4 ${i.color} shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-200 grid gap-4 md:grid-cols-[auto_1fr_auto] md:items-center`}
+              className={`bg-white rounded-xl overflow-hidden border-t-4 ${i.color} shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-200 grid gap-4 md:grid-cols-[180px_1fr_auto] md:items-center`}
             >
-              <div className="flex items-center gap-3">
-                <span className={`text-[11px] font-semibold tracking-widest px-2.5 py-1 rounded ${i.badge}`}>
-                  {i.type}
-                </span>
-                <span className="text-xs text-[#8C939B]">{i.date}</span>
-              </div>
-              <div>
-                <h3 className="font-semibold text-lg text-[#1E2535]">{i.title}</h3>
+              <img src={i.image} alt={i.title} className="h-full w-full object-cover aspect-[4/3] md:aspect-auto md:h-32" />
+              <div className="px-6 md:px-0 py-4 md:py-5">
+                <div className="flex items-center gap-3">
+                  <span className={`text-[11px] font-semibold tracking-widest px-2.5 py-1 rounded ${i.badge}`}>
+                    {i.type}
+                  </span>
+                  <span className="text-xs text-[#8C939B]">{i.date}</span>
+                </div>
+                <h3 className="mt-2 font-semibold text-lg text-[#1E2535]">{i.title}</h3>
                 <p className="mt-1 text-sm text-[#8C939B]">{i.detail}</p>
               </div>
-              <a href="#" className={`text-sm font-semibold ${i.link} hover:underline whitespace-nowrap`}>
+              <a href="#" className={`px-6 md:px-7 pb-5 md:pb-0 text-sm font-semibold ${i.link} hover:underline whitespace-nowrap`}>
                 Mehr erfahren →
               </a>
             </div>
           ))}
+
         </div>
         <div className="mt-10">
           <a href="#" className="text-sm font-semibold text-[#1E2535] hover:text-[#AC8F52]">
@@ -536,6 +560,14 @@ function Footer() {
           </div>
         ))}
       </div>
+      <div className="border-t border-white/10">
+        <div className="mx-auto max-w-7xl px-5 lg:px-8 py-8 flex flex-wrap items-center gap-8">
+          <span className="text-[11px] font-medium tracking-[0.2em] uppercase text-[#8C939B]">Ausgezeichnet</span>
+          <img src={focusImg.url} alt="Focus Top-Mediziner" className="h-14 w-auto bg-white/95 rounded p-2" />
+          <img src={isoImg.url} alt="ISO 9001 zertifiziert" className="h-14 w-auto bg-white/95 rounded p-2" />
+        </div>
+      </div>
+
       <div className="border-t border-white/10">
         <div className="mx-auto max-w-7xl px-5 lg:px-8 py-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-3 text-xs text-[#8C939B]">
           <div>© 2026 Wirbelsäulenzentrum am Stiglmaierplatz · Alle Rechte vorbehalten</div>
