@@ -301,7 +301,7 @@ function Hero() {
           >
             {t.h1a}
             <br />
-            <em className="italic" style={{ fontWeight: 400 }}>
+            <em style={{ fontStyle: "normal", fontWeight: 600 }}>
               {t.h1b}
             </em>
             <br />
@@ -465,7 +465,7 @@ function BeschwerdenCard({
       </div>
       <div>
         <h3
-          className="font-display italic text-[#1E2535] leading-snug"
+          className="font-display text-[#1E2535] leading-snug"
           style={{ fontSize: "1.25rem", fontWeight: 500 }}
         >
           {name}
@@ -522,7 +522,7 @@ function Beschwerden() {
             className="mt-4 font-display text-[#1E2535] leading-tight"
             style={{ fontSize: "clamp(2rem, 4vw, 3rem)", fontWeight: 500 }}
           >
-            {t.h2a}<em className="italic" style={{ fontWeight: 400 }}>{t.h2b}</em>
+            {t.h2a}<em style={{ fontStyle: "normal", fontWeight: 600 }}>{t.h2b}</em>
           </h2>
           <p className="mt-4 max-w-2xl text-[#8C939B] leading-relaxed">{t.lead}</p>
         </div>
@@ -555,7 +555,7 @@ function WegStep({
   return (
     <div ref={ref} style={style} className="relative bg-[#263044] rounded-xl p-8 border-t-2 border-[#AC8F52]">
       <div
-        className="font-display italic text-[#AC8F52] leading-none mb-6"
+        className="font-display text-[#AC8F52] leading-none mb-6"
         style={{ fontSize: "clamp(2.5rem, 5vw, 3.5rem)", fontWeight: 400, opacity: 0.65 }}
       >
         {n}
@@ -630,7 +630,7 @@ function Weg() {
             className="mt-4 font-display text-white leading-tight"
             style={{ fontSize: "clamp(2rem, 4vw, 3rem)", fontWeight: 500 }}
           >
-            {t.h2a}<em className="italic" style={{ fontWeight: 400 }}>{t.h2b}</em>
+            {t.h2a}<em style={{ fontStyle: "normal", fontWeight: 600 }}>{t.h2b}</em>
           </h2>
         </div>
         <div className="mt-14 grid gap-8 lg:grid-cols-3 lg:gap-6 relative">
@@ -685,7 +685,7 @@ function Kompetenzzentrum() {
               className="mt-4 font-display text-[#1E2535] leading-tight"
               style={{ fontSize: "clamp(1.6rem, 3vw, 2.2rem)", fontWeight: 500 }}
             >
-              {t.h2a}<em className="italic" style={{ fontWeight: 400 }}>{t.h2b}</em>
+              {t.h2a}<em style={{ fontStyle: "normal", fontWeight: 600 }}>{t.h2b}</em>
             </h2>
             <p className="mt-3 text-sm text-[#8C939B] leading-relaxed max-w-xs">{t.lead}</p>
           </div>
@@ -736,7 +736,7 @@ function DoctorCard({ d, delay, cta }: { d: (typeof allDoctors)[0]; delay: numbe
         ) : (
           <div className="h-full w-full flex items-center justify-center">
             <span
-              className="font-display italic text-[#AC8F52]"
+              className="font-display text-[#AC8F52]"
               style={{ fontSize: "3rem", fontWeight: 400 }}
             >
               {d.initials}
@@ -746,7 +746,7 @@ function DoctorCard({ d, delay, cta }: { d: (typeof allDoctors)[0]; delay: numbe
       </div>
       <div className="p-6 border-t-2 border-[#E2E4E7] group-hover:border-[#AC8F52] transition-colors duration-300">
         <h3
-          className="font-display italic text-[#1E2535] leading-snug"
+          className="font-display text-[#1E2535] leading-snug"
           style={{ fontSize: "1.3rem", fontWeight: 500 }}
         >
           {d.name}
@@ -824,7 +824,7 @@ function Team() {
             className="mt-4 font-display text-[#1E2535] leading-tight"
             style={{ fontSize: "clamp(2rem, 4vw, 3rem)", fontWeight: 500 }}
           >
-            {t.h2a}<em className="italic" style={{ fontWeight: 400 }}>{t.h2b}</em>
+            {t.h2a}<em style={{ fontStyle: "normal", fontWeight: 600 }}>{t.h2b}</em>
           </h2>
           <p className="mt-4 max-w-2xl text-[#8C939B] leading-relaxed">{t.lead}</p>
         </div>
@@ -905,7 +905,7 @@ function Termin() {
             className="font-display text-white leading-tight"
             style={{ fontSize: "clamp(2rem, 4vw, 3rem)", fontWeight: 500 }}
           >
-            {t.h2a}<em className="italic" style={{ fontWeight: 400 }}>{t.h2b}</em>
+            {t.h2a}<em style={{ fontStyle: "normal", fontWeight: 600 }}>{t.h2b}</em>
           </h2>
           <p className="mt-4 text-[#C8CBD2] leading-relaxed max-w-lg">{t.lead}</p>
           <div className="mt-8 rounded-xl bg-[#263044] p-7 border-t-2 border-[#AC8F52]">
@@ -1028,7 +1028,7 @@ function AktuellesCard({ item, delay, cta }: { item: AktuellesItem; delay: numbe
           <span className="text-xs text-[#8C939B]">{item.date}</span>
         </div>
         <h3
-          className="mt-2 font-display italic text-[#1E2535] leading-snug"
+          className="mt-2 font-display text-[#1E2535] leading-snug"
           style={{ fontSize: "1.15rem", fontWeight: 500 }}
         >
           {item.title}
@@ -1091,7 +1091,7 @@ function Aktuelles() {
             className="mt-4 font-display text-[#1E2535] leading-tight"
             style={{ fontSize: "clamp(2rem, 4vw, 3rem)", fontWeight: 500 }}
           >
-            {t.h2a}<em className="italic" style={{ fontWeight: 400 }}>{t.h2b}</em>
+            {t.h2a}<em style={{ fontStyle: "normal", fontWeight: 600 }}>{t.h2b}</em>
           </h2>
           <p className="mt-4 max-w-2xl text-[#8C939B] leading-relaxed">{t.lead}</p>
         </div>
