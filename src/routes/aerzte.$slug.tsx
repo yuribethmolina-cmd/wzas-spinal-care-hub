@@ -171,9 +171,9 @@ function DoctorDetail() {
                   params={{ slug: r.slug }}
                   className="group bg-[#F8F8F6] rounded-xl overflow-hidden hover:shadow-lg transition"
                 >
-                  <div className="aspect-[3/2] bg-[#263044] overflow-hidden">
+                  <div className="aspect-[4/5] bg-[#263044] overflow-hidden">
                     {r.photo ? (
-                      <img src={r.photo} alt={r.name} className="h-full w-full object-cover" />
+                      <img src={r.photo} alt={r.name} className="h-full w-full object-cover object-top" />
                     ) : (
                       <div className="h-full w-full flex items-center justify-center text-3xl font-bold text-[#AC8F52]">{r.initials}</div>
                     )}
