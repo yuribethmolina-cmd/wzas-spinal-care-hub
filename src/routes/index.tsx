@@ -201,15 +201,15 @@ function Hero() {
         className="absolute inset-0 pointer-events-none opacity-[0.04] -z-10"
         style={{ backgroundImage: NOISE, backgroundSize: "256px 256px" }}
       />
-      <div className="relative mx-auto max-w-7xl px-5 lg:px-8 pt-16 pb-40 lg:pt-24 lg:pb-48 min-h-[85vh] grid lg:grid-cols-2 gap-12 items-center">
+      <div className="relative mx-auto max-w-7xl px-5 lg:px-8 pt-10 pb-14 lg:pt-24 lg:pb-48 lg:min-h-[85vh] grid lg:grid-cols-2 gap-12 items-center">
         <div>
           <p className="text-[11px] font-medium tracking-[0.2em] uppercase text-[#AC8F52] flex items-center gap-2">
             <span className="inline-block w-6 h-px bg-[#AC8F52]" />
-            Wirbelsäulenzentrum am Stiglmaierplatz · München
+            <span className="min-w-0">Wirbelsäulenzentrum am Stiglmaierplatz · München</span>
           </p>
           <h1
             className="mt-6 leading-[1.02] tracking-tight text-white font-display"
-            style={{ fontSize: "clamp(3.4rem, 7.5vw, 5.8rem)", fontWeight: 500 }}
+            style={{ fontSize: "clamp(2.6rem, 7.5vw, 5.8rem)", fontWeight: 500 }}
           >
             Rücken-
             <br />
@@ -219,7 +219,7 @@ function Hero() {
             <br />
             für München.
           </h1>
-          <p className="mt-6 text-lg text-[#D8DBE2] leading-relaxed max-w-xl whitespace-pre-line">
+          <p className="mt-6 text-base sm:text-lg text-[#D8DBE2] leading-relaxed max-w-xl whitespace-pre-line">
             20 Jahre Erfahrung.{"\u00a0"}{"\n"}
             12 Spezialisten.{"\u00a0"}{"\n"}
             Konservative Behandlung zuerst{"\u00a0"}{"\n"}
@@ -265,7 +265,7 @@ function Hero() {
 
 
       {/* Stats bar */}
-      <div className="absolute inset-x-0 bottom-0 bg-[#1E2535]/90 backdrop-blur border-t border-white/10">
+      <div className="relative lg:absolute lg:inset-x-0 lg:bottom-0 bg-[#1E2535]/90 backdrop-blur border-t border-white/10">
         <div className="mx-auto max-w-7xl px-5 lg:px-8 grid grid-cols-2 md:grid-cols-4 gap-6 py-6">
           {(
             [
@@ -402,7 +402,7 @@ function Beschwerden() {
   ];
   const { ref, style } = useFadeUp(0);
   return (
-    <section id="beschwerden" className="bg-[#F8F8F6] py-24">
+    <section id="beschwerden" className="bg-[#F8F8F6] py-16 lg:py-24">
       <div className="mx-auto max-w-7xl px-5 lg:px-8">
         <div ref={ref} style={style}>
           <SectionLabel>Behandlungsgebiete</SectionLabel>
@@ -480,7 +480,7 @@ function Weg() {
   ];
   const { ref: headRef, style: headStyle } = useFadeUp(0);
   return (
-    <section id="weg" className="relative bg-[#1E2535] py-24 overflow-hidden">
+    <section id="weg" className="relative bg-[#1E2535] py-16 lg:py-24 overflow-hidden">
       <div
         className="absolute inset-0 pointer-events-none opacity-[0.03]"
         style={{ backgroundImage: NOISE, backgroundSize: "256px 256px" }}
@@ -653,7 +653,7 @@ function Team() {
     .slice(0, 3);
 
   return (
-    <section id="team" className="bg-[#F8F8F6] py-24">
+    <section id="team" className="bg-[#F8F8F6] py-16 lg:py-24">
       <div className="mx-auto max-w-7xl px-5 lg:px-8">
         <div ref={headRef} style={headStyle}>
           <SectionLabel>Unser Ärzteteam</SectionLabel>
@@ -706,7 +706,7 @@ function Team() {
 function Termin() {
   const { ref, style } = useFadeUp(0);
   return (
-    <section id="termin" className="relative bg-[#1E2535] py-24 border-t-4 border-[#AC8F52] overflow-hidden">
+    <section id="termin" className="relative bg-[#1E2535] py-16 lg:py-24 border-t-4 border-[#AC8F52] overflow-hidden">
       <div
         className="absolute inset-0 pointer-events-none opacity-[0.03]"
         style={{ backgroundImage: NOISE, backgroundSize: "256px 256px" }}
@@ -895,7 +895,7 @@ function Aktuelles() {
     },
   ];
   return (
-    <section id="aktuelles" className="bg-[#F8F8F6] py-24">
+    <section id="aktuelles" className="bg-[#F8F8F6] py-16 lg:py-24">
       <div className="mx-auto max-w-7xl px-5 lg:px-8">
         <div ref={headRef} style={headStyle}>
           <SectionLabel>Aktuelles</SectionLabel>
