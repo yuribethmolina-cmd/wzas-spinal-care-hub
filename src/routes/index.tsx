@@ -402,7 +402,7 @@ function Beschwerden() {
   ];
   const { ref, style } = useFadeUp(0);
   return (
-    <section id="beschwerden" className="bg-[#F8F8F6] py-24">
+    <section id="beschwerden" className="bg-[#F8F8F6] py-16 lg:py-24">
       <div className="mx-auto max-w-7xl px-5 lg:px-8">
         <div ref={ref} style={style}>
           <SectionLabel>Behandlungsgebiete</SectionLabel>
@@ -480,7 +480,7 @@ function Weg() {
   ];
   const { ref: headRef, style: headStyle } = useFadeUp(0);
   return (
-    <section id="weg" className="relative bg-[#1E2535] py-24 overflow-hidden">
+    <section id="weg" className="relative bg-[#1E2535] py-16 lg:py-24 overflow-hidden">
       <div
         className="absolute inset-0 pointer-events-none opacity-[0.03]"
         style={{ backgroundImage: NOISE, backgroundSize: "256px 256px" }}
@@ -653,7 +653,7 @@ function Team() {
     .slice(0, 3);
 
   return (
-    <section id="team" className="bg-[#F8F8F6] py-24">
+    <section id="team" className="bg-[#F8F8F6] py-16 lg:py-24">
       <div className="mx-auto max-w-7xl px-5 lg:px-8">
         <div ref={headRef} style={headStyle}>
           <SectionLabel>Unser Ärzteteam</SectionLabel>
@@ -706,7 +706,7 @@ function Team() {
 function Termin() {
   const { ref, style } = useFadeUp(0);
   return (
-    <section id="termin" className="relative bg-[#1E2535] py-24 border-t-4 border-[#AC8F52] overflow-hidden">
+    <section id="termin" className="relative bg-[#1E2535] py-16 lg:py-24 border-t-4 border-[#AC8F52] overflow-hidden">
       <div
         className="absolute inset-0 pointer-events-none opacity-[0.03]"
         style={{ backgroundImage: NOISE, backgroundSize: "256px 256px" }}
@@ -895,7 +895,7 @@ function Aktuelles() {
     },
   ];
   return (
-    <section id="aktuelles" className="bg-[#F8F8F6] py-24">
+    <section id="aktuelles" className="bg-[#F8F8F6] py-16 lg:py-24">
       <div className="mx-auto max-w-7xl px-5 lg:px-8">
         <div ref={headRef} style={headStyle}>
           <SectionLabel>Aktuelles</SectionLabel>
