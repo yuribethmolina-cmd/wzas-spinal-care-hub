@@ -465,7 +465,7 @@ function BeschwerdenCard({
       </div>
       <div>
         <h3
-          className="font-display italic text-[#1E2535] leading-snug"
+          className="font-display text-[#1E2535] leading-snug"
           style={{ fontSize: "1.25rem", fontWeight: 500 }}
         >
           {name}
@@ -555,7 +555,7 @@ function WegStep({
   return (
     <div ref={ref} style={style} className="relative bg-[#263044] rounded-xl p-8 border-t-2 border-[#AC8F52]">
       <div
-        className="font-display italic text-[#AC8F52] leading-none mb-6"
+        className="font-display text-[#AC8F52] leading-none mb-6"
         style={{ fontSize: "clamp(2.5rem, 5vw, 3.5rem)", fontWeight: 400, opacity: 0.65 }}
       >
         {n}
@@ -736,7 +736,7 @@ function DoctorCard({ d, delay, cta }: { d: (typeof allDoctors)[0]; delay: numbe
         ) : (
           <div className="h-full w-full flex items-center justify-center">
             <span
-              className="font-display italic text-[#AC8F52]"
+              className="font-display text-[#AC8F52]"
               style={{ fontSize: "3rem", fontWeight: 400 }}
             >
               {d.initials}
@@ -746,7 +746,7 @@ function DoctorCard({ d, delay, cta }: { d: (typeof allDoctors)[0]; delay: numbe
       </div>
       <div className="p-6 border-t-2 border-[#E2E4E7] group-hover:border-[#AC8F52] transition-colors duration-300">
         <h3
-          className="font-display italic text-[#1E2535] leading-snug"
+          className="font-display text-[#1E2535] leading-snug"
           style={{ fontSize: "1.3rem", fontWeight: 500 }}
         >
           {d.name}
@@ -1028,7 +1028,7 @@ function AktuellesCard({ item, delay, cta }: { item: AktuellesItem; delay: numbe
           <span className="text-xs text-[#8C939B]">{item.date}</span>
         </div>
         <h3
-          className="mt-2 font-display italic text-[#1E2535] leading-snug"
+          className="mt-2 font-display text-[#1E2535] leading-snug"
           style={{ fontSize: "1.15rem", fontWeight: 500 }}
         >
           {item.title}
