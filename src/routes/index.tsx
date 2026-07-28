@@ -96,7 +96,7 @@ function Nav() {
     return () => window.removeEventListener("scroll", on);
   }, []);
   const links: [string, string][] = [
-    ["Rückenschmerzen", "#beschwerden"],
+    ["Rückenerkrankungen", "#beschwerden"],
     ["Ärzteteam", "/aerzte"],
     ["Behandlungen", "#weg"],
     ["Aktuelles", "#aktuelles"],
