@@ -1,8 +1,9 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { doctors, getDoctorBySlug } from "@/lib/doctors";
-import logoAsset from "@/assets/wzas/logo.png.asset.json";
+import { SiteNav } from "@/components/SiteNav";
 
 const BOOKING_URL = "https://onlinerezeption.vercel.app";
+
 
 export const Route = createFileRoute("/aerzte/$slug")({
   loader: ({ params }) => {
