@@ -96,9 +96,15 @@ function Logo({ light = false }: { light?: boolean }) {
 function LangToggle({ compact = false }: { compact?: boolean }) {
   const { lang, setLang } = useLang();
   const btn = (l: Lang) =>
-    `px-2.5 py-1 text-xs font-semibold uppercase tracking-wide rounded-full transition-colors ${
+    `px-2.5 py-1 text-xs font-semibold uppercase tracking-wide rounded-full transition-colors min-h-8 ${
       lang === l ? "bg-[#1E2535] text-white" : "text-[#1E2535] hover:text-[#AC8F52]"
     }`;
+  const onKey = (e: React.KeyboardEvent<HTMLDivElement>) => {
+    if (e.key === "ArrowRight" || e.key === "ArrowLeft") {
+      e.preventDefault();
+      setLang(lang === "de" ? "en" : "de");
+    }
+  };
   return (
     <div
       className={`inline-flex items-center gap-1 rounded-full border border-[#E2E4E7] p-1 ${
@@ -106,16 +112,32 @@ function LangToggle({ compact = false }: { compact?: boolean }) {
       }`}
       role="group"
       aria-label="Sprache auswählen / Choose language"
+      onKeyDown={onKey}
     >
-      <button onClick={() => setLang("de")} className={btn("de")} aria-pressed={lang === "de"}>
+      <button
+        type="button"
+        onClick={() => setLang("de")}
+        className={btn("de")}
+        aria-pressed={lang === "de"}
+        aria-label="Deutsch"
+        lang="de"
+      >
         DE
       </button>
-      <button onClick={() => setLang("en")} className={btn("en")} aria-pressed={lang === "en"}>
+      <button
+        type="button"
+        onClick={() => setLang("en")}
+        className={btn("en")}
+        aria-pressed={lang === "en"}
+        aria-label="English"
+        lang="en"
+      >
         EN
       </button>
     </div>
   );
 }
+
 
 /* ─── Nav ───────────────────────────────────────────────────────── */
 
