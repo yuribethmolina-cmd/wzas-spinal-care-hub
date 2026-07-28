@@ -126,19 +126,19 @@ function Directory() {
               </button>
             </div>
           ) : (
-            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 items-stretch">
               {filtered.map((d) => (
                 <Link
                   key={d.slug}
                   to="/aerzte/$slug"
                   params={{ slug: d.slug }}
-                  className="group bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-200 flex flex-col"
+                  className="group h-full bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-200 flex flex-col"
                 >
-                  <div className="aspect-[3/4] bg-[#263044] overflow-hidden relative">
+                  <div className="relative aspect-[4/5] w-full bg-[#263044] overflow-hidden shrink-0">
                     {d.photo ? (
-                      <img src={d.photo} alt={d.name} className="h-full w-full object-cover group-hover:scale-[1.02] transition-transform duration-300" />
+                      <img src={d.photo} alt={d.name} className="absolute inset-0 h-full w-full object-cover object-top group-hover:scale-[1.02] transition-transform duration-300" />
                     ) : (
-                      <div className="h-full w-full flex items-center justify-center text-4xl font-bold text-[#AC8F52]">
+                      <div className="absolute inset-0 flex items-center justify-center text-4xl font-bold text-[#AC8F52]">
                         {d.initials}
                       </div>
                     )}
@@ -147,14 +147,14 @@ function Directory() {
                     </div>
                   </div>
                   <div className="p-6 flex flex-col flex-1">
-                    <h3 className="font-semibold text-lg text-[#1E2535]">{d.name}</h3>
-                    <p className="mt-1 text-xs uppercase tracking-wide text-[#AC8F52] font-medium">{d.role}</p>
-                    <div className="mt-3 flex flex-wrap gap-1.5">
+                    <h3 className="font-semibold text-lg text-[#1E2535] line-clamp-1">{d.name}</h3>
+                    <p className="mt-1 text-xs uppercase tracking-wide text-[#AC8F52] font-medium line-clamp-1">{d.role}</p>
+                    <div className="mt-3 flex flex-wrap gap-1.5 min-h-[28px]">
                       {d.specialties.slice(0, 2).map((s) => (
                         <span key={s} className="rounded-full bg-[#F8F8F6] px-2.5 py-1 text-[11px] text-[#1E2535]">{s}</span>
                       ))}
                     </div>
-                    <p className="mt-4 text-sm text-[#8C939B] leading-relaxed flex-1">
+                    <p className="mt-4 text-sm text-[#8C939B] leading-relaxed line-clamp-2 min-h-[2.75rem] flex-1">
                       {d.focus.slice(0, 2).join(" · ")}
                     </p>
                     <div className="mt-5 pt-4 border-t border-[#E2E4E7] flex items-center justify-between">
@@ -169,6 +169,7 @@ function Directory() {
                   </div>
                 </Link>
               ))}
+
             </div>
           )}
         </div>
