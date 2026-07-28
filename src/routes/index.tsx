@@ -51,7 +51,7 @@ function Nav() {
   }, []);
   const links = [
     ["Rückenschmerzen", "#beschwerden"],
-    ["Arzt finden", "#team"],
+    ["Arzt finden", "/aerzte"],
     ["Behandlungen", "#weg"],
     ["Aktuelles", "#aktuelles"],
   ];
