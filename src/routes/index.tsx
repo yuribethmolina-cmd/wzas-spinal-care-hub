@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import React, { useEffect, useRef, useState } from "react";
 import { doctors as allDoctors } from "@/lib/doctors";
+import { useLang, useT, type Lang } from "@/lib/lang";
 import logoAsset from "@/assets/wzas/logo.png.asset.json";
 
 import heroBgAsset from "@/assets/wzas/hero-consultation.webp.asset.json";
@@ -12,6 +13,12 @@ import thumbBandscheibe from "@/assets/wzas/thumb-bandscheibe.webp.asset.json";
 import aktuellesImg from "@/assets/wzas/aktuelles.jpg.asset.json";
 import focusImg from "@/assets/wzas/focus.jpeg.asset.json";
 import isoImg from "@/assets/wzas/iso.png.asset.json";
+
+import partnerRadiologie from "@/assets/wzas/partners/radiologie.png.asset.json";
+import partnerOms from "@/assets/wzas/partners/oms.png.asset.json";
+import partnerHand from "@/assets/wzas/partners/bl-handchirurgie.png.asset.json";
+import partnerOberland from "@/assets/wzas/partners/wz-oberland.png.asset.json";
+import partnerWz from "@/assets/wzas/partners/wz-stiglmaier.png.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -84,23 +91,65 @@ function Logo({ light = false }: { light?: boolean }) {
   );
 }
 
+/* ─── Language toggle ───────────────────────────────────────────── */
+
+function LangToggle({ compact = false }: { compact?: boolean }) {
+  const { lang, setLang } = useLang();
+  const btn = (l: Lang) =>
+    `px-2.5 py-1 text-xs font-semibold uppercase tracking-wide rounded-full transition-colors ${
+      lang === l ? "bg-[#1E2535] text-white" : "text-[#1E2535] hover:text-[#AC8F52]"
+    }`;
+  return (
+    <div
+      className={`inline-flex items-center gap-1 rounded-full border border-[#E2E4E7] p-1 ${
+        compact ? "" : ""
+      }`}
+      role="group"
+      aria-label="Sprache auswählen / Choose language"
+    >
+      <button onClick={() => setLang("de")} className={btn("de")} aria-pressed={lang === "de"}>
+        DE
+      </button>
+      <button onClick={() => setLang("en")} className={btn("en")} aria-pressed={lang === "en"}>
+        EN
+      </button>
+    </div>
+  );
+}
+
 /* ─── Nav ───────────────────────────────────────────────────────── */
 
 function Nav() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const t = useT({
+    de: {
+      links: [
+        ["Rückenerkrankungen", "#beschwerden"],
+        ["Ärzteteam", "/aerzte"],
+        ["Behandlungen", "#weg"],
+        ["Aktuelles", "#aktuelles"],
+      ] as [string, string][],
+      book: "Termin vereinbaren",
+      menu: "Menü",
+    },
+    en: {
+      links: [
+        ["Spine conditions", "#beschwerden"],
+        ["Our doctors", "/aerzte"],
+        ["Treatments", "#weg"],
+        ["News", "#aktuelles"],
+      ] as [string, string][],
+      book: "Book appointment",
+      menu: "Menu",
+    },
+  });
   useEffect(() => {
     const on = () => setScrolled(window.scrollY > 8);
     on();
     window.addEventListener("scroll", on, { passive: true });
     return () => window.removeEventListener("scroll", on);
   }, []);
-  const links: [string, string][] = [
-    ["Rückenerkrankungen", "#beschwerden"],
-    ["Ärzteteam", "/aerzte"],
-    ["Behandlungen", "#weg"],
-    ["Aktuelles", "#aktuelles"],
-  ];
   return (
     <header
       className={`sticky top-0 z-50 bg-white transition-shadow duration-300 ${
@@ -110,7 +159,7 @@ function Nav() {
       <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 lg:px-8">
         <Logo />
         <nav className="hidden lg:flex items-center gap-8">
-          {links.map(([label, href]) =>
+          {t.links.map(([label, href]) =>
             href.startsWith("/") ? (
               <Link
                 key={label}
@@ -130,7 +179,8 @@ function Nav() {
             )
           )}
         </nav>
-        <div className="hidden lg:block">
+        <div className="hidden lg:flex items-center gap-4">
+          <LangToggle />
           <a
             href={BOOKING_URL}
             target="_blank"
@@ -140,22 +190,25 @@ function Nav() {
             onMouseEnter={(e) => (e.currentTarget.style.filter = "brightness(1.08)")}
             onMouseLeave={(e) => (e.currentTarget.style.filter = "")}
           >
-            Termin vereinbaren
+            {t.book}
           </a>
         </div>
-        <button
-          className="lg:hidden inline-flex items-center justify-center rounded-md p-2 text-[#1E2535]"
-          onClick={() => setOpen((v) => !v)}
-          aria-label="Menü"
-        >
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-            {open ? <path d="M6 6l12 12M6 18L18 6" /> : <path d="M4 7h16M4 12h16M4 17h16" />}
-          </svg>
-        </button>
+        <div className="flex items-center gap-3 lg:hidden">
+          <LangToggle />
+          <button
+            className="inline-flex items-center justify-center rounded-md p-2 text-[#1E2535]"
+            onClick={() => setOpen((v) => !v)}
+            aria-label={t.menu}
+          >
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              {open ? <path d="M6 6l12 12M6 18L18 6" /> : <path d="M4 7h16M4 12h16M4 17h16" />}
+            </svg>
+          </button>
+        </div>
       </div>
       {open && (
         <div className="lg:hidden border-t border-[#E2E4E7] bg-white px-5 py-4 space-y-3">
-          {links.map(([label, href]) =>
+          {t.links.map(([label, href]) =>
             href.startsWith("/") ? (
               <Link key={label} to={href as "/aerzte"} className="block text-sm font-medium text-[#1E2535]">
                 {label}
@@ -172,7 +225,7 @@ function Nav() {
             rel="noreferrer"
             className="block text-center rounded-full bg-[#AC8F52] px-5 py-3 text-sm font-semibold text-[#1E2535]"
           >
-            Termin vereinbaren
+            {t.book}
           </a>
         </div>
       )}
@@ -183,18 +236,53 @@ function Nav() {
 /* ─── Hero ──────────────────────────────────────────────────────── */
 
 function Hero() {
-  const chips = ["Akuter Rückenschmerz", "Chronische Schmerzen", "Bandscheibenvorfall", "Ischias", "Nach OP"];
+  const t = useT({
+    de: {
+      kicker: "Wirbelsäulenzentrum am Stiglmaierplatz · München",
+      h1a: "Rücken-",
+      h1b: "gesundheit",
+      h1c: "für München.",
+      sub: "20 Jahre Erfahrung.\u00a0\n12 Spezialisten.\u00a0\nKonservative Behandlung zuerst\u00a0\nOperation nur wenn nötig.",
+      chipsLabel: "Was führt Sie zu uns?",
+      chips: ["Akuter Rückenschmerz", "Chronische Schmerzen", "Bandscheibenvorfall", "Ischias", "Nach OP"],
+      book: "Termin vereinbaren",
+      more: "Mehr erfahren",
+      alt: "Ärztliches Beratungsgespräch mit Wirbelsäulenmodell im Wirbelsäulenzentrum am Stiglmaierplatz",
+      stats: [
+        ["30.000+", "Patienten pro Jahr"],
+        ["90%", "ohne Operation behandelt"],
+        ["20+", "Jahre Erfahrung"],
+        ["12", "Wirbelsäulenspezialisten"],
+      ] as [string, string][],
+    },
+    en: {
+      kicker: "Spine Center at Stiglmaierplatz · Munich",
+      h1a: "Back-",
+      h1b: "health",
+      h1c: "for Munich.",
+      sub: "20 years of experience.\u00a0\n12 specialists.\u00a0\nConservative treatment first —\u00a0\nsurgery only when necessary.",
+      chipsLabel: "What brings you to us?",
+      chips: ["Acute back pain", "Chronic pain", "Herniated disc", "Sciatica", "Post-surgery"],
+      book: "Book appointment",
+      more: "Learn more",
+      alt: "Doctor consultation with a spine model at the Spine Center at Stiglmaierplatz",
+      stats: [
+        ["30,000+", "patients per year"],
+        ["90%", "treated without surgery"],
+        ["20+", "years of experience"],
+        ["12", "spine specialists"],
+      ] as [string, string][],
+    },
+  });
   return (
     <section className="relative bg-[#1E2535] text-white overflow-hidden isolate">
-      {/* Background image */}
       <img
         src={heroBgAsset.url}
-        alt="Ärztliches Beratungsgespräch mit Wirbelsäulenmodell im Wirbelsäulenzentrum am Stiglmaierplatz"
+        alt={t.alt}
         className="absolute inset-0 h-full w-full object-cover object-center -z-10"
         loading="eager"
         fetchPriority="high"
       />
-      {/* Overlays: dark base + left gradient for text legibility */}
       <div className="absolute inset-0 -z-10 bg-[#1E2535]/55" />
       <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[#1E2535]/95 via-[#1E2535]/70 to-transparent" />
       <div
@@ -205,32 +293,29 @@ function Hero() {
         <div>
           <p className="text-[11px] font-medium tracking-[0.2em] uppercase text-[#AC8F52] flex items-center gap-2">
             <span className="inline-block w-6 h-px bg-[#AC8F52]" />
-            <span className="min-w-0">Wirbelsäulenzentrum am Stiglmaierplatz · München</span>
+            <span className="min-w-0">{t.kicker}</span>
           </p>
           <h1
             className="mt-6 leading-[1.02] tracking-tight text-white font-display"
             style={{ fontSize: "clamp(2.6rem, 7.5vw, 5.8rem)", fontWeight: 500 }}
           >
-            Rücken-
+            {t.h1a}
             <br />
             <em className="italic" style={{ fontWeight: 400 }}>
-              gesundheit
+              {t.h1b}
             </em>
             <br />
-            für München.
+            {t.h1c}
           </h1>
           <p className="mt-6 text-base sm:text-lg text-[#D8DBE2] leading-relaxed max-w-xl whitespace-pre-line">
-            20 Jahre Erfahrung.{"\u00a0"}{"\n"}
-            12 Spezialisten.{"\u00a0"}{"\n"}
-            Konservative Behandlung zuerst{"\u00a0"}{"\n"}
-            Operation nur wenn nötig.
+            {t.sub}
           </p>
           <div className="mt-10">
             <p className="text-xs font-medium tracking-[0.15em] uppercase text-[#B8BEC6] mb-3">
-              Was führt Sie zu uns?
+              {t.chipsLabel}
             </p>
             <div className="flex flex-wrap gap-2">
-              {chips.map((c) => (
+              {t.chips.map((c) => (
                 <button
                   key={c}
                   className="rounded-full border border-white/25 bg-white/5 backdrop-blur-sm px-4 py-2 text-sm text-white/90 hover:border-white/60 hover:bg-white/10 transition-colors duration-200 cursor-pointer"
@@ -250,31 +335,22 @@ function Hero() {
               onMouseEnter={(e) => (e.currentTarget.style.filter = "brightness(1.08)")}
               onMouseLeave={(e) => (e.currentTarget.style.filter = "")}
             >
-              Termin vereinbaren
+              {t.book}
             </a>
             <a
               href="#beschwerden"
               className="inline-flex items-center rounded-full border border-white/40 bg-white/5 backdrop-blur-sm px-6 py-3 text-sm font-semibold text-white hover:bg-white/15 transition-colors duration-200"
             >
-              Mehr erfahren
+              {t.more}
             </a>
           </div>
         </div>
         <div aria-hidden className="hidden lg:block" />
       </div>
 
-
-      {/* Stats bar */}
       <div className="relative lg:absolute lg:inset-x-0 lg:bottom-0 bg-[#1E2535]/90 backdrop-blur border-t border-white/10">
         <div className="mx-auto max-w-7xl px-5 lg:px-8 grid grid-cols-2 md:grid-cols-4 gap-6 py-6">
-          {(
-            [
-              ["30.000+", "Patienten pro Jahr"],
-              ["90%", "ohne Operation behandelt"],
-              ["20+", "Jahre Erfahrung"],
-              ["12", "Wirbelsäulenspezialisten"],
-            ] as [string, string][]
-          ).map(([n, l]) => (
+          {t.stats.map(([n, l]) => (
             <div key={l}>
               <div className="font-display text-2xl md:text-3xl text-[#AC8F52]" style={{ fontWeight: 600 }}>
                 {n}
@@ -351,11 +427,13 @@ function BeschwerdenCard({
   iconKey,
   name,
   sub,
+  cta,
   delay,
 }: {
   iconKey: string;
   name: string;
   sub: string;
+  cta: string;
   delay: number;
 }) {
   const { ref, style } = useFadeUp(delay);
@@ -385,41 +463,62 @@ function BeschwerdenCard({
         <p className="mt-2 text-sm text-[#8C939B] leading-relaxed">{sub}</p>
       </div>
       <a href="#" className="mt-auto text-sm font-semibold text-[#AC8F52] hover:underline underline-offset-2">
-        Behandlungsoptionen ansehen →
+        {cta} →
       </a>
     </div>
   );
 }
 
 function Beschwerden() {
-  const items = [
-    { iconKey: "akut", name: "Akuter Rückenschmerz", sub: "Plötzlicher Beginn · Verletzung · Muskelkrampf" },
-    { iconKey: "chronisch", name: "Chronische Rückenschmerzen", sub: "3+ Monate · Wiederkehrend · Degenerativ" },
-    { iconKey: "bandscheibe", name: "Bandscheibenvorfall", sub: "L4/L5 · L5/S1 · Zervikal" },
-    { iconKey: "ischias", name: "Ischias / Lumboischialgie", sub: "Ausstrahlende Schmerzen · Beinschwäche" },
-    { iconKey: "reha", name: "Reha nach Operation", sub: "Rehabilitation · Nachsorge" },
-    { iconKey: "sport", name: "Sport- & Aktivverletzungen", sub: "Sportler · Hochbelastende Aktivität" },
-  ];
+  const t = useT({
+    de: {
+      label: "Behandlungsgebiete",
+      h2a: "Was führt ",
+      h2b: "Sie zu uns?",
+      lead: "Finden Sie Ihr Beschwerdebild und erfahren Sie, wie unsere Spezialisten helfen können — ohne unnötige Operationen.",
+      cta: "Behandlungsoptionen ansehen",
+      items: [
+        { iconKey: "akut", name: "Akuter Rückenschmerz", sub: "Plötzlicher Beginn · Verletzung · Muskelkrampf" },
+        { iconKey: "chronisch", name: "Chronische Rückenschmerzen", sub: "3+ Monate · Wiederkehrend · Degenerativ" },
+        { iconKey: "bandscheibe", name: "Bandscheibenvorfall", sub: "L4/L5 · L5/S1 · Zervikal" },
+        { iconKey: "ischias", name: "Ischias / Lumboischialgie", sub: "Ausstrahlende Schmerzen · Beinschwäche" },
+        { iconKey: "reha", name: "Reha nach Operation", sub: "Rehabilitation · Nachsorge" },
+        { iconKey: "sport", name: "Sport- & Aktivverletzungen", sub: "Sportler · Hochbelastende Aktivität" },
+      ],
+    },
+    en: {
+      label: "Areas of treatment",
+      h2a: "What brings ",
+      h2b: "you to us?",
+      lead: "Find your condition and see how our specialists can help — without unnecessary surgery.",
+      cta: "View treatment options",
+      items: [
+        { iconKey: "akut", name: "Acute back pain", sub: "Sudden onset · injury · muscle spasm" },
+        { iconKey: "chronisch", name: "Chronic back pain", sub: "3+ months · recurring · degenerative" },
+        { iconKey: "bandscheibe", name: "Herniated disc", sub: "L4/L5 · L5/S1 · Cervical" },
+        { iconKey: "ischias", name: "Sciatica / lumboischialgia", sub: "Radiating pain · leg weakness" },
+        { iconKey: "reha", name: "Post-surgery rehab", sub: "Rehabilitation · aftercare" },
+        { iconKey: "sport", name: "Sports & activity injuries", sub: "Athletes · high-load activity" },
+      ],
+    },
+  });
   const { ref, style } = useFadeUp(0);
   return (
     <section id="beschwerden" className="bg-[#F8F8F6] py-16 lg:py-24">
       <div className="mx-auto max-w-7xl px-5 lg:px-8">
         <div ref={ref} style={style}>
-          <SectionLabel>Behandlungsgebiete</SectionLabel>
+          <SectionLabel>{t.label}</SectionLabel>
           <h2
             className="mt-4 font-display text-[#1E2535] leading-tight"
             style={{ fontSize: "clamp(2rem, 4vw, 3rem)", fontWeight: 500 }}
           >
-            Was führt <em className="italic" style={{ fontWeight: 400 }}>Sie zu uns?</em>
+            {t.h2a}<em className="italic" style={{ fontWeight: 400 }}>{t.h2b}</em>
           </h2>
-          <p className="mt-4 max-w-2xl text-[#8C939B] leading-relaxed">
-            Finden Sie Ihr Beschwerdebild und erfahren Sie, wie unsere Spezialisten helfen können — ohne unnötige Operationen.
-          </p>
+          <p className="mt-4 max-w-2xl text-[#8C939B] leading-relaxed">{t.lead}</p>
         </div>
-        {/* Editorial separator grid — gap-px creates hairline dividers */}
         <div className="mt-12 grid gap-px bg-[#E2E4E7] sm:grid-cols-2 lg:grid-cols-3">
-          {items.map((item, i) => (
-            <BeschwerdenCard key={item.iconKey} {...item} delay={150 + i * 80} />
+          {t.items.map((item, i) => (
+            <BeschwerdenCard key={item.iconKey} {...item} cta={t.cta} delay={150 + i * 80} />
           ))}
         </div>
       </div>
@@ -461,23 +560,52 @@ function WegStep({
 }
 
 function Weg() {
-  const steps = [
-    {
-      n: "01",
-      title: "Beschwerdebild wählen",
-      desc: "Suchen oder stöbern Sie nach Symptomen — unsere Übersicht hilft Ihnen zu verstehen, welche Behandlungsoptionen für Ihren Fall geeignet sind.",
+  const t = useT({
+    de: {
+      label: "Ihr Weg zur Besserung",
+      h2a: "Vom ersten Klick ",
+      h2b: "zum Termin",
+      steps: [
+        {
+          n: "01",
+          title: "Beschwerdebild wählen",
+          desc: "Suchen oder stöbern Sie nach Symptomen — unsere Übersicht hilft Ihnen zu verstehen, welche Behandlungsoptionen für Ihren Fall geeignet sind.",
+        },
+        {
+          n: "02",
+          title: "Den richtigen Spezialisten finden",
+          desc: "Filtern Sie unser Team aus 12 Spezialisten nach Fachgebiet. Jedes Profil zeigt die behandelten Erkrankungen und den Behandlungsansatz.",
+        },
+        {
+          n: "03",
+          title: "In 60 Sekunden buchen",
+          desc: "Nutzen Sie unser Online-Buchungssystem und wählen Sie einen passenden Termin. Ersttermine meist innerhalb von 5 Werktagen. Kein Anruf nötig.",
+        },
+      ],
     },
-    {
-      n: "02",
-      title: "Den richtigen Spezialisten finden",
-      desc: "Filtern Sie unser Team aus 12 Spezialisten nach Fachgebiet. Jedes Profil zeigt die behandelten Erkrankungen und den Behandlungsansatz.",
+    en: {
+      label: "Your path to recovery",
+      h2a: "From first click ",
+      h2b: "to appointment",
+      steps: [
+        {
+          n: "01",
+          title: "Pick your condition",
+          desc: "Search or browse by symptom — our overview helps you understand which treatment options fit your case.",
+        },
+        {
+          n: "02",
+          title: "Find the right specialist",
+          desc: "Filter our 12-specialist team by expertise. Each profile shows the conditions treated and the treatment approach.",
+        },
+        {
+          n: "03",
+          title: "Book in 60 seconds",
+          desc: "Use our online booking system and pick a time that suits you. Most first appointments within 5 working days. No phone call needed.",
+        },
+      ],
     },
-    {
-      n: "03",
-      title: "In 60 Sekunden buchen",
-      desc: "Nutzen Sie unser Online-Buchungssystem und wählen Sie einen passenden Termin. Ersttermine meist innerhalb von 5 Werktagen. Kein Anruf nötig.",
-    },
-  ];
+  });
   const { ref: headRef, style: headStyle } = useFadeUp(0);
   return (
     <section id="weg" className="relative bg-[#1E2535] py-16 lg:py-24 overflow-hidden">
@@ -487,17 +615,17 @@ function Weg() {
       />
       <div className="relative mx-auto max-w-7xl px-5 lg:px-8">
         <div ref={headRef} style={headStyle}>
-          <SectionLabel gold={false}>Ihr Weg zur Besserung</SectionLabel>
+          <SectionLabel gold={false}>{t.label}</SectionLabel>
           <h2
             className="mt-4 font-display text-white leading-tight"
             style={{ fontSize: "clamp(2rem, 4vw, 3rem)", fontWeight: 500 }}
           >
-            Vom ersten Klick <em className="italic" style={{ fontWeight: 400 }}>zum Termin</em>
+            {t.h2a}<em className="italic" style={{ fontWeight: 400 }}>{t.h2b}</em>
           </h2>
         </div>
         <div className="mt-14 grid gap-8 lg:grid-cols-3 lg:gap-6 relative">
-          {steps.map((step, i) => (
-            <WegStep key={step.n} {...step} delay={200 + i * 100} isLast={i === steps.length - 1} />
+          {t.steps.map((step, i) => (
+            <WegStep key={step.n} {...step} delay={200 + i * 100} isLast={i === t.steps.length - 1} />
           ))}
         </div>
       </div>
@@ -509,74 +637,62 @@ function Weg() {
 
 function Kompetenzzentrum() {
   const { ref, style } = useFadeUp(0);
-  const partners = [
-    {
-      icon: (
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5 text-[#AC8F52]">
-          <circle cx="12" cy="12" r="10" /><path d="M12 8v4l3 3" />
-        </svg>
-      ),
-      name: "Radiologiezentrum am Stiglmaierplatz",
-      short: "MRT · CT · Neuroradiologie direkt vor Ort",
+  const t = useT({
+    de: {
+      label: "Kompetenzzentrum",
+      h2a: "Alles unter ",
+      h2b: "einem Dach",
+      lead: "Wirbelsäulenchirurgie, Radiologie und Orthopädie arbeiten hier Hand in Hand — kürzere Wege, schnellere Diagnosen, lückenlose Behandlung ohne externe Termine.",
+      partners: [
+        { logo: partnerWz.url, alt: "Wirbelsäulenzentrum am Stiglmaierplatz", name: "Wirbelsäulenzentrum am Stiglmaierplatz", short: "Wirbelsäulenchirurgie · Schmerztherapie" },
+        { logo: partnerRadiologie.url, alt: "Radiologie am Stiglmaierplatz", name: "Radiologie am Stiglmaierplatz", short: "MRT · CT · Neuroradiologie vor Ort" },
+        { logo: partnerOms.url, alt: "Orthopädie München-Schwabing", name: "Orthopädie München-Schwabing", short: "Arthrose · Knie · Hüfte · Schulter" },
+        { logo: partnerHand.url, alt: "BL Handchirurgie Bayern", name: "BL Handchirurgie Bayern", short: "Hand · Handgelenk · Unterarm" },
+        { logo: partnerOberland.url, alt: "Wirbelsäulenzentrum Oberland", name: "Wirbelsäulenzentrum Oberland", short: "Schwesterpraxis · Bayern" },
+      ],
     },
-    {
-      icon: (
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5 text-[#AC8F52]">
-          <path d="M18 8h1a4 4 0 0 1 0 8h-1" /><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z" /><line x1="6" y1="1" x2="6" y2="4" /><line x1="10" y1="1" x2="10" y2="4" /><line x1="14" y1="1" x2="14" y2="4" />
-        </svg>
-      ),
-      name: "Orthopädie München-Schwabing",
-      short: "Arthrose · Knie · Hüfte · Schulter",
+    en: {
+      label: "Competence network",
+      h2a: "Everything under ",
+      h2b: "one roof",
+      lead: "Spine surgery, radiology and orthopaedics work hand in hand — shorter distances, faster diagnostics and seamless care without outside appointments.",
+      partners: [
+        { logo: partnerWz.url, alt: "Spine Center at Stiglmaierplatz", name: "Spine Center at Stiglmaierplatz", short: "Spine surgery · pain therapy" },
+        { logo: partnerRadiologie.url, alt: "Radiology at Stiglmaierplatz", name: "Radiology at Stiglmaierplatz", short: "MRI · CT · neuroradiology on site" },
+        { logo: partnerOms.url, alt: "Orthopaedics Munich-Schwabing", name: "Orthopaedics Munich-Schwabing", short: "Arthritis · knee · hip · shoulder" },
+        { logo: partnerHand.url, alt: "BL Hand Surgery Bavaria", name: "BL Hand Surgery Bavaria", short: "Hand · wrist · forearm" },
+        { logo: partnerOberland.url, alt: "Spine Center Oberland", name: "Spine Center Oberland", short: "Sister practice · Bavaria" },
+      ],
     },
-    {
-      icon: (
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5 text-[#AC8F52]">
-          <path d="M18 11V6a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v0" /><path d="M14 10V4a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v2" /><path d="M10 10.5V6a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v8" /><path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15" />
-        </svg>
-      ),
-      name: "Handchirurgie am Stiglmaierplatz",
-      short: "Hand · Handgelenk · Unterarm",
-    },
-    {
-      icon: (
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5 text-[#AC8F52]">
-          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /><polyline points="9 22 9 12 15 12 15 22" />
-        </svg>
-      ),
-      name: "Wirbelsäulenzentrum im Oberland",
-      short: "Schwester­praxis Penzberg · Bayern",
-    },
-  ];
+  });
   return (
     <section className="bg-white border-y border-[#E2E4E7] py-16">
       <div className="mx-auto max-w-7xl px-5 lg:px-8">
         <div ref={ref} style={style} className="lg:flex lg:items-start lg:gap-16">
-          {/* Left: benefit message */}
           <div className="lg:w-80 shrink-0 mb-10 lg:mb-0">
-            <SectionLabel>Kompetenzzentrum</SectionLabel>
+            <SectionLabel>{t.label}</SectionLabel>
             <h2
               className="mt-4 font-display text-[#1E2535] leading-tight"
               style={{ fontSize: "clamp(1.6rem, 3vw, 2.2rem)", fontWeight: 500 }}
             >
-              Alles unter{" "}
-              <em className="italic" style={{ fontWeight: 400 }}>
-                einem Dach
-              </em>
+              {t.h2a}<em className="italic" style={{ fontWeight: 400 }}>{t.h2b}</em>
             </h2>
-            <p className="mt-3 text-sm text-[#8C939B] leading-relaxed max-w-xs">
-              Wirbelsäulenchirurgie, Radiologie und Orthopädie arbeiten hier Hand in Hand — kürzere Wege, schnellere Diagnosen, lückenlose Behandlung ohne externe Termine.
-            </p>
+            <p className="mt-3 text-sm text-[#8C939B] leading-relaxed max-w-xs">{t.lead}</p>
           </div>
-          {/* Right: partner grid */}
-          <div className="grid gap-px bg-[#E2E4E7] sm:grid-cols-2 lg:grid-cols-4 flex-1">
-            {partners.map((p) => (
-              <div key={p.name} className="bg-white p-6 flex flex-col gap-3">
-                <div className="w-9 h-9 rounded-lg bg-[#AC8F52]/10 flex items-center justify-center">
-                  {p.icon}
+          <div className="grid gap-px bg-[#E2E4E7] sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 flex-1">
+            {t.partners.map((p) => (
+              <div key={p.name} className="bg-white p-6 flex flex-col items-center text-center gap-4 min-h-[180px]">
+                <div className="h-14 w-full flex items-center justify-center">
+                  <img
+                    src={p.logo}
+                    alt={p.alt}
+                    className="max-h-14 max-w-[160px] w-auto object-contain"
+                    loading="lazy"
+                  />
                 </div>
-                <div>
-                  <p className="text-sm font-semibold text-[#1E2535] leading-snug">{p.name}</p>
-                  <p className="mt-1 text-xs text-[#8C939B] leading-relaxed">{p.short}</p>
+                <div className="mt-auto">
+                  <p className="text-xs font-semibold text-[#1E2535] leading-snug">{p.name}</p>
+                  <p className="mt-1 text-[11px] text-[#8C939B] leading-relaxed">{p.short}</p>
                 </div>
               </div>
             ))}
@@ -595,7 +711,7 @@ const doctorPhotoMap: Record<string, string> = {
   "dr-ho": drHo.url,
 };
 
-function DoctorCard({ d, delay }: { d: (typeof allDoctors)[0]; delay: number }) {
+function DoctorCard({ d, delay, cta }: { d: (typeof allDoctors)[0]; delay: number; cta: string }) {
   const { ref, style } = useFadeUp(delay);
   const photo = d.photo || doctorPhotoMap[d.slug] || null;
   return (
@@ -636,7 +752,7 @@ function DoctorCard({ d, delay }: { d: (typeof allDoctors)[0]; delay: number }) 
           params={{ slug: d.slug }}
           className="mt-6 block text-center border border-[#1E2535] py-2.5 text-sm font-semibold text-[#1E2535] hover:bg-[#1E2535] hover:text-white transition-colors duration-200"
         >
-          Profil ansehen
+          {cta}
         </Link>
       </div>
     </div>
@@ -644,8 +760,31 @@ function DoctorCard({ d, delay }: { d: (typeof allDoctors)[0]; delay: number }) 
 }
 
 function Team() {
-  const filters = ["Alle", "Wirbelsäulenchirurgie", "Schmerztherapie", "Neurochirurgie", "Orthopädie"] as const;
-  const [active, setActive] = useState<(typeof filters)[number]>("Alle");
+  const t = useT({
+    de: {
+      label: "Unser Ärzteteam",
+      h2a: "12 Spezialisten, ",
+      h2b: "ein Ziel",
+      lead: "Jeder Patient wird von Anfang an dem richtigen Spezialisten zugeordnet.",
+      filters: ["Alle", "Wirbelsäulenchirurgie", "Schmerztherapie", "Neurochirurgie", "Orthopädie"] as const,
+      viewProfile: "Profil ansehen",
+      seeAll: (n: number) => `Alle ${n} Spezialisten ansehen →`,
+    },
+    en: {
+      label: "Our medical team",
+      h2a: "12 specialists, ",
+      h2b: "one goal",
+      lead: "Every patient is matched with the right specialist from the start.",
+      filters: ["Alle", "Wirbelsäulenchirurgie", "Schmerztherapie", "Neurochirurgie", "Orthopädie"] as const,
+      viewProfile: "View profile",
+      seeAll: (n: number) => `View all ${n} specialists →`,
+    },
+  });
+  const filterLabels: Record<string, string> = useLang().lang === "en"
+    ? { Alle: "All", Wirbelsäulenchirurgie: "Spine surgery", Schmerztherapie: "Pain therapy", Neurochirurgie: "Neurosurgery", Orthopädie: "Orthopaedics" }
+    : { Alle: "Alle", Wirbelsäulenchirurgie: "Wirbelsäulenchirurgie", Schmerztherapie: "Schmerztherapie", Neurochirurgie: "Neurochirurgie", Orthopädie: "Orthopädie" };
+
+  const [active, setActive] = useState<(typeof t.filters)[number]>("Alle");
   const { ref: headRef, style: headStyle } = useFadeUp(0);
 
   const doctors = allDoctors
@@ -656,19 +795,17 @@ function Team() {
     <section id="team" className="bg-[#F8F8F6] py-16 lg:py-24">
       <div className="mx-auto max-w-7xl px-5 lg:px-8">
         <div ref={headRef} style={headStyle}>
-          <SectionLabel>Unser Ärzteteam</SectionLabel>
+          <SectionLabel>{t.label}</SectionLabel>
           <h2
             className="mt-4 font-display text-[#1E2535] leading-tight"
             style={{ fontSize: "clamp(2rem, 4vw, 3rem)", fontWeight: 500 }}
           >
-            12 Spezialisten, <em className="italic" style={{ fontWeight: 400 }}>ein Ziel</em>
+            {t.h2a}<em className="italic" style={{ fontWeight: 400 }}>{t.h2b}</em>
           </h2>
-          <p className="mt-4 max-w-2xl text-[#8C939B] leading-relaxed">
-            Jeder Patient wird von Anfang an dem richtigen Spezialisten zugeordnet.
-          </p>
+          <p className="mt-4 max-w-2xl text-[#8C939B] leading-relaxed">{t.lead}</p>
         </div>
         <div className="mt-8 flex flex-wrap gap-2">
-          {filters.map((f) => (
+          {t.filters.map((f) => (
             <button
               key={f}
               onClick={() => setActive(f)}
@@ -678,14 +815,13 @@ function Team() {
                   : "border border-[#E2E4E7] text-[#1E2535] hover:border-[#AC8F52] hover:text-[#AC8F52]"
               }`}
             >
-              {f}
+              {filterLabels[f]}
             </button>
           ))}
         </div>
-        {/* Editorial separator grid */}
         <div className="mt-12 grid gap-px bg-[#E2E4E7] md:grid-cols-2 lg:grid-cols-3">
           {doctors.map((d, i) => (
-            <DoctorCard key={d.slug} d={d} delay={150 + i * 100} />
+            <DoctorCard key={d.slug} d={d} delay={150 + i * 100} cta={t.viewProfile} />
           ))}
         </div>
         <div className="mt-10">
@@ -693,7 +829,7 @@ function Team() {
             to="/aerzte"
             className="text-sm font-semibold text-[#1E2535] hover:text-[#AC8F52] transition-colors"
           >
-            Alle {allDoctors.length} Spezialisten ansehen →
+            {t.seeAll(allDoctors.length)}
           </Link>
         </div>
       </div>
@@ -704,6 +840,34 @@ function Team() {
 /* ─── Termin ────────────────────────────────────────────────────── */
 
 function Termin() {
+  const t = useT({
+    de: {
+      h2a: "Wir sind ",
+      h2b: "für Sie da.",
+      lead: "Die meisten Ersttermine sind innerhalb von 5 Werktagen verfügbar. Für die meisten Beschwerden ist keine Überweisung erforderlich.",
+      onlineKicker: "Online buchen",
+      onlineTitle: "Termin online vereinbaren",
+      onlineSub: "Integriert über onlinerezeption.vercel.app",
+      book: "Termin buchen",
+      otherTitle: "Weitere Kontaktmöglichkeiten",
+      phoneSub: "Mo–Fr · 08:00–18:00 Uhr",
+      mailSub: "Antwort innerhalb eines Werktags",
+      city: "80335 München",
+    },
+    en: {
+      h2a: "We are ",
+      h2b: "here for you.",
+      lead: "Most first appointments are available within 5 working days. No referral is needed for most conditions.",
+      onlineKicker: "Book online",
+      onlineTitle: "Schedule an appointment online",
+      onlineSub: "Powered by onlinerezeption.vercel.app",
+      book: "Book appointment",
+      otherTitle: "Other ways to reach us",
+      phoneSub: "Mon–Fri · 8:00 am – 6:00 pm",
+      mailSub: "Reply within one business day",
+      city: "80335 Munich",
+    },
+  });
   const { ref, style } = useFadeUp(0);
   return (
     <section id="termin" className="relative bg-[#1E2535] py-16 lg:py-24 border-t-4 border-[#AC8F52] overflow-hidden">
@@ -717,18 +881,16 @@ function Termin() {
             className="font-display text-white leading-tight"
             style={{ fontSize: "clamp(2rem, 4vw, 3rem)", fontWeight: 500 }}
           >
-            Wir sind <em className="italic" style={{ fontWeight: 400 }}>für Sie da.</em>
+            {t.h2a}<em className="italic" style={{ fontWeight: 400 }}>{t.h2b}</em>
           </h2>
-          <p className="mt-4 text-[#C8CBD2] leading-relaxed max-w-lg">
-            Die meisten Ersttermine sind innerhalb von 5 Werktagen verfügbar. Für die meisten Beschwerden ist keine Überweisung erforderlich.
-          </p>
+          <p className="mt-4 text-[#C8CBD2] leading-relaxed max-w-lg">{t.lead}</p>
           <div className="mt-8 rounded-xl bg-[#263044] p-7 border-t-2 border-[#AC8F52]">
             <p className="text-[11px] uppercase tracking-[0.2em] text-[#AC8F52] font-medium flex items-center gap-2">
               <span className="inline-block w-4 h-px bg-[#AC8F52]" />
-              Online buchen
+              {t.onlineKicker}
             </p>
-            <p className="mt-3 text-white font-semibold text-lg">Termin online vereinbaren</p>
-            <p className="mt-2 text-sm text-[#8C939B]">Integriert über onlinerezeption.vercel.app</p>
+            <p className="mt-3 text-white font-semibold text-lg">{t.onlineTitle}</p>
+            <p className="mt-2 text-sm text-[#8C939B]">{t.onlineSub}</p>
             <a
               href={BOOKING_URL}
               target="_blank"
@@ -738,12 +900,12 @@ function Termin() {
               onMouseEnter={(e) => (e.currentTarget.style.filter = "brightness(1.08)")}
               onMouseLeave={(e) => (e.currentTarget.style.filter = "")}
             >
-              Termin buchen
+              {t.book}
             </a>
           </div>
         </div>
         <div className="rounded-xl bg-[#263044] p-7">
-          <h3 className="text-white font-semibold text-lg">Weitere Kontaktmöglichkeiten</h3>
+          <h3 className="text-white font-semibold text-lg">{t.otherTitle}</h3>
           <div className="mt-6 space-y-6 text-sm">
             {[
               {
@@ -753,7 +915,7 @@ function Termin() {
                   </svg>
                 ),
                 primary: "+49 (0)89-54 34 30 30",
-                secondary: "Mo–Fr · 08:00–18:00 Uhr",
+                secondary: t.phoneSub,
               },
               {
                 icon: (
@@ -763,7 +925,7 @@ function Termin() {
                   </svg>
                 ),
                 primary: "info@wzas.de",
-                secondary: "Antwort innerhalb eines Werktags",
+                secondary: t.mailSub,
               },
               {
                 icon: (
@@ -773,7 +935,7 @@ function Termin() {
                   </svg>
                 ),
                 primary: "Nymphenburger Str. 1",
-                secondary: "80335 München",
+                secondary: t.city,
               },
             ].map(({ icon, primary, secondary }) => (
               <div key={primary} className="flex gap-3">
@@ -804,7 +966,7 @@ type AktuellesItem = {
   image: string;
 };
 
-function AktuellesCard({ item, delay }: { item: AktuellesItem; delay: number }) {
+function AktuellesCard({ item, delay, cta }: { item: AktuellesItem; delay: number; cta: string }) {
   const { ref, style } = useFadeUp(delay);
   const [hovered, setHovered] = useState(false);
   return (
@@ -854,72 +1016,69 @@ function AktuellesCard({ item, delay }: { item: AktuellesItem; delay: number }) 
         className="px-6 md:px-7 pb-5 md:pb-0 text-sm font-semibold whitespace-nowrap hover:underline underline-offset-2"
         style={{ color: item.accentColor }}
       >
-        Mehr erfahren →
+        {cta} →
       </a>
     </div>
   );
 }
 
 function Aktuelles() {
-  const { ref: headRef, style: headStyle } = useFadeUp(0);
-  const items: AktuellesItem[] = [
-    {
-      type: "VORTRAG",
-      accentColor: "#2563EB",
-      badgeBg: "rgba(37,99,235,0.1)",
-      badgeText: "#1d4ed8",
-      date: "15. September 2026",
-      title: "Rücken ohne OP: Wann ist Chirurgie wirklich nötig?",
-      detail: "Gasteig HP8 · München · 19:00 Uhr",
-      image: vortraegeImg.url,
+  const t = useT({
+    de: {
+      label: "Aktuelles",
+      h2a: "Vorträge, Veranstaltungen ",
+      h2b: "& Wissen",
+      lead: "Bleiben Sie informiert — unsere Spezialisten teilen ihr Wissen in öffentlichen Vorträgen und Fachbeiträgen.",
+      cta: "Mehr erfahren",
+      all: "Alle Veranstaltungen & Inhalte ansehen →",
+      items: [
+        { type: "VORTRAG", date: "15. September 2026", title: "Rücken ohne OP: Wann ist Chirurgie wirklich nötig?", detail: "Gasteig HP8 · München · 19:00 Uhr" },
+        { type: "VIDEO", date: "Online verfügbar", title: "Bandscheibenvorfall verstehen: Diagnose & Behandlung", detail: "45 Min. · Dr. med. Ralph Medele" },
+        { type: "ARTIKEL", date: "Juli 2026", title: "Neue minimalinvasive Techniken in der Wirbelsäulenchirurgie", detail: "Fachbeitrag · Neurochirurgie aktuell" },
+      ],
     },
-    {
-      type: "VIDEO",
-      accentColor: "#7C3AED",
-      badgeBg: "rgba(124,58,237,0.1)",
-      badgeText: "#6d28d9",
-      date: "Online verfügbar",
-      title: "Bandscheibenvorfall verstehen: Diagnose & Behandlung",
-      detail: "45 Min. · Dr. med. Ralph Medele",
-      image: thumbBandscheibe.url,
+    en: {
+      label: "News",
+      h2a: "Talks, events ",
+      h2b: "& knowledge",
+      lead: "Stay informed — our specialists share their knowledge in public talks and articles.",
+      cta: "Learn more",
+      all: "View all events & articles →",
+      items: [
+        { type: "TALK", date: "15 September 2026", title: "A back without surgery: when is an operation really needed?", detail: "Gasteig HP8 · Munich · 7:00 pm" },
+        { type: "VIDEO", date: "Available online", title: "Understanding a herniated disc: diagnosis & treatment", detail: "45 min · Dr. Ralph Medele" },
+        { type: "ARTICLE", date: "July 2026", title: "New minimally invasive techniques in spine surgery", detail: "Article · Neurochirurgie aktuell" },
+      ],
     },
-    {
-      type: "ARTIKEL",
-      accentColor: "#059669",
-      badgeBg: "rgba(5,150,105,0.1)",
-      badgeText: "#047857",
-      date: "Juli 2026",
-      title: "Neue minimalinvasive Techniken in der Wirbelsäulenchirurgie",
-      detail: "Fachbeitrag · Neurochirurgie aktuell",
-      image: aktuellesImg.url,
-    },
+  });
+  const meta = [
+    { accentColor: "#2563EB", badgeBg: "rgba(37,99,235,0.1)", badgeText: "#1d4ed8", image: vortraegeImg.url },
+    { accentColor: "#7C3AED", badgeBg: "rgba(124,58,237,0.1)", badgeText: "#6d28d9", image: thumbBandscheibe.url },
+    { accentColor: "#059669", badgeBg: "rgba(5,150,105,0.1)", badgeText: "#047857", image: aktuellesImg.url },
   ];
+  const items: AktuellesItem[] = t.items.map((it, i) => ({ ...it, ...meta[i] }));
+  const { ref: headRef, style: headStyle } = useFadeUp(0);
   return (
     <section id="aktuelles" className="bg-[#F8F8F6] py-16 lg:py-24">
       <div className="mx-auto max-w-7xl px-5 lg:px-8">
         <div ref={headRef} style={headStyle}>
-          <SectionLabel>Aktuelles</SectionLabel>
+          <SectionLabel>{t.label}</SectionLabel>
           <h2
             className="mt-4 font-display text-[#1E2535] leading-tight"
             style={{ fontSize: "clamp(2rem, 4vw, 3rem)", fontWeight: 500 }}
           >
-            Vorträge, Veranstaltungen{" "}
-            <em className="italic" style={{ fontWeight: 400 }}>
-              & Wissen
-            </em>
+            {t.h2a}<em className="italic" style={{ fontWeight: 400 }}>{t.h2b}</em>
           </h2>
-          <p className="mt-4 max-w-2xl text-[#8C939B] leading-relaxed">
-            Bleiben Sie informiert — unsere Spezialisten teilen ihr Wissen in öffentlichen Vorträgen und Fachbeiträgen.
-          </p>
+          <p className="mt-4 max-w-2xl text-[#8C939B] leading-relaxed">{t.lead}</p>
         </div>
         <div className="mt-12 flex flex-col gap-px bg-[#E2E4E7]">
           {items.map((item, i) => (
-            <AktuellesCard key={item.title} item={item} delay={150 + i * 100} />
+            <AktuellesCard key={item.title} item={item} delay={150 + i * 100} cta={t.cta} />
           ))}
         </div>
         <div className="mt-10">
           <a href="#" className="text-sm font-semibold text-[#1E2535] hover:text-[#AC8F52] transition-colors">
-            Alle Veranstaltungen & Inhalte ansehen →
+            {t.all}
           </a>
         </div>
       </div>
@@ -930,24 +1089,32 @@ function Aktuelles() {
 /* ─── Footer ────────────────────────────────────────────────────── */
 
 function Footer() {
-  const cols = [
-    {
-      title: "Beschwerdebilder",
-      items: ["Akuter Rückenschmerz", "Chronische Schmerzen", "Bandscheibenvorfall", "Ischias", "Reha nach OP"],
+  const t = useT({
+    de: {
+      cols: [
+        { title: "Beschwerdebilder", items: ["Akuter Rückenschmerz", "Chronische Schmerzen", "Bandscheibenvorfall", "Ischias", "Reha nach OP"] },
+        { title: "Behandlungen", items: ["Konservative Therapie", "Minimalinvasiv", "Wirbelsäulenop.", "Schmerztherapie", "Rehabilitation"] },
+        { title: "Über uns", items: ["Unser Team", "Die Praxis", "Leitbild & Werte", "Aktuelles", "Karriere"] },
+        { title: "Für Patienten", items: ["Termin vereinbaren", "Häufige Fragen", "Barrierefreiheit", "Datenschutz"] },
+      ],
+      awarded: "Ausgezeichnet",
+      copy: "© 2026 Wirbelsäulenzentrum am Stiglmaierplatz · Alle Rechte vorbehalten",
+      legal: ["Impressum", "Datenschutz", "Barrierefreiheit"],
+      city: "80335 München",
     },
-    {
-      title: "Behandlungen",
-      items: ["Konservative Therapie", "Minimalinvasiv", "Wirbelsäulenop.", "Schmerztherapie", "Rehabilitation"],
+    en: {
+      cols: [
+        { title: "Conditions", items: ["Acute back pain", "Chronic pain", "Herniated disc", "Sciatica", "Post-surgery rehab"] },
+        { title: "Treatments", items: ["Conservative therapy", "Minimally invasive", "Spine surgery", "Pain therapy", "Rehabilitation"] },
+        { title: "About us", items: ["Our team", "The practice", "Mission & values", "News", "Careers"] },
+        { title: "For patients", items: ["Book appointment", "FAQ", "Accessibility", "Privacy"] },
+      ],
+      awarded: "Awarded",
+      copy: "© 2026 Spine Center at Stiglmaierplatz · All rights reserved",
+      legal: ["Imprint", "Privacy", "Accessibility"],
+      city: "80335 Munich",
     },
-    {
-      title: "Über uns",
-      items: ["Unser Team", "Die Praxis", "Leitbild & Werte", "Aktuelles", "Karriere"],
-    },
-    {
-      title: "Für Patienten",
-      items: ["Termin vereinbaren", "Häufige Fragen", "Barrierefreiheit", "Datenschutz"],
-    },
-  ];
+  });
   return (
     <footer className="bg-[#1E2535] border-t-2 border-[#AC8F52] text-[#C8CBD2]">
       <div className="mx-auto max-w-7xl px-5 lg:px-8 py-16 grid gap-10 md:grid-cols-2 lg:grid-cols-5">
@@ -955,12 +1122,12 @@ function Footer() {
           <Logo light />
           <div className="mt-5 space-y-1 text-sm text-[#8C939B]">
             <div>Nymphenburger Str. 1</div>
-            <div>80335 München</div>
+            <div>{t.city}</div>
             <div className="mt-3">+49 (0)89-54 34 30 30</div>
             <div>info@wzas.de</div>
           </div>
         </div>
-        {cols.map((c) => (
+        {t.cols.map((c) => (
           <div key={c.title}>
             <h4 className="text-white font-semibold text-sm tracking-wide">{c.title}</h4>
             <ul className="mt-4 space-y-2 text-sm text-[#8C939B]">
@@ -976,10 +1143,9 @@ function Footer() {
         ))}
       </div>
 
-      {/* Trust badges */}
       <div className="border-t border-white/10">
         <div className="mx-auto max-w-7xl px-5 lg:px-8 py-8 flex flex-wrap items-center gap-8">
-          <span className="text-[11px] font-medium tracking-[0.2em] uppercase text-[#8C939B]">Ausgezeichnet</span>
+          <span className="text-[11px] font-medium tracking-[0.2em] uppercase text-[#8C939B]">{t.awarded}</span>
           <img src={focusImg.url} alt="Focus Top-Mediziner" className="h-14 w-auto bg-white/95 rounded p-2" />
           <img src={isoImg.url} alt="ISO 9001 zertifiziert" className="h-14 w-auto bg-white/95 rounded p-2" />
         </div>
@@ -987,11 +1153,11 @@ function Footer() {
 
       <div className="border-t border-white/10">
         <div className="mx-auto max-w-7xl px-5 lg:px-8 py-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-3 text-xs text-[#8C939B]">
-          <div>© 2026 Wirbelsäulenzentrum am Stiglmaierplatz · Alle Rechte vorbehalten</div>
+          <div>{t.copy}</div>
           <div className="flex gap-4">
-            <a href="#" className="hover:text-[#AC8F52] transition-colors">Impressum</a>
-            <a href="#" className="hover:text-[#AC8F52] transition-colors">Datenschutz</a>
-            <a href="#" className="hover:text-[#AC8F52] transition-colors">Barrierefreiheit</a>
+            {t.legal.map((l) => (
+              <a key={l} href="#" className="hover:text-[#AC8F52] transition-colors">{l}</a>
+            ))}
           </div>
         </div>
       </div>
