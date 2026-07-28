@@ -1194,8 +1194,11 @@ function Footer() {
 function Home() {
   return (
     <div className="min-h-screen bg-[#F8F8F6]">
+      <a href="#main-content" className="skip-link">
+        Zum Inhalt springen
+      </a>
       <Nav />
-      <main>
+      <main id="main-content" tabIndex={-1}>
         <Hero />
         <Beschwerden />
         <Weg />
@@ -1208,3 +1211,4 @@ function Home() {
     </div>
   );
 }
+
