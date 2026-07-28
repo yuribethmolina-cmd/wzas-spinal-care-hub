@@ -3,6 +3,8 @@ import React, { useEffect, useRef, useState } from "react";
 import { doctors as allDoctors } from "@/lib/doctors";
 import { useLang, useT, type Lang } from "@/lib/lang";
 import logoAsset from "@/assets/wzas/logo.png.asset.json";
+import { SiteNav } from "@/components/SiteNav";
+
 
 import heroBgAsset from "@/assets/wzas/hero-consultation.webp.asset.json";
 import drMedele from "@/assets/wzas/dr-medele.webp.asset.json";
