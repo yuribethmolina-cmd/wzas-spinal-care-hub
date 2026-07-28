@@ -1,5 +1,16 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
+import logoAsset from "@/assets/wzas/logo.png.asset.json";
+import heroAsset from "@/assets/wzas/hero.webp.asset.json";
+import drMedele from "@/assets/wzas/dr-medele.webp.asset.json";
+import drEroes from "@/assets/wzas/dr-eroes.webp.asset.json";
+import drHo from "@/assets/wzas/dr-ho.jpg.asset.json";
+import vortraegeImg from "@/assets/wzas/vortraege.webp.asset.json";
+import thumbBandscheibe from "@/assets/wzas/thumb-bandscheibe.webp.asset.json";
+import aktuellesImg from "@/assets/wzas/aktuelles.jpg.asset.json";
+import focusImg from "@/assets/wzas/focus.jpeg.asset.json";
+import isoImg from "@/assets/wzas/iso.png.asset.json";
+
 
 export const Route = createFileRoute("/")({
   head: () => ({
