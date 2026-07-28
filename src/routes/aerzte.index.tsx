@@ -7,9 +7,10 @@ import {
   type Specialty,
   type Availability,
 } from "@/lib/doctors";
-import logoAsset from "@/assets/wzas/logo.png.asset.json";
+import { SiteNav } from "@/components/SiteNav";
 
-const BOOKING_URL = "https://onlinerezeption.vercel.app";
+
+
 
 export const Route = createFileRoute("/aerzte/")({
   head: () => ({
@@ -43,21 +44,8 @@ function Directory() {
 
   return (
     <div className="min-h-screen bg-[#F8F8F6]">
-      <header className="sticky top-0 z-40 bg-white shadow-sm">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 lg:px-8">
-          <Link to="/" className="flex items-center gap-3">
-            <img src={logoAsset.url} alt="WZAS" className="h-10 w-auto" />
-          </Link>
-          <a
-            href={BOOKING_URL}
-            target="_blank"
-            rel="noreferrer"
-            className="inline-flex items-center rounded-full bg-[#AC8F52] px-5 py-2.5 text-sm font-semibold text-[#1E2535] hover:brightness-105 transition"
-          >
-            Termin vereinbaren
-          </a>
-        </div>
-      </header>
+      <SiteNav />
+
 
       <section className="bg-[#1E2535] py-16 text-white">
         <div className="mx-auto max-w-7xl px-5 lg:px-8">
