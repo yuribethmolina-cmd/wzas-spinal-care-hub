@@ -1250,7 +1250,7 @@ function Home() {
       <a href="#main-content" className="skip-link">
         Zum Inhalt springen
       </a>
-      <Nav />
+      <SiteNav />
       <main id="main-content" tabIndex={-1}>
         <Hero />
         <Beschwerden />
