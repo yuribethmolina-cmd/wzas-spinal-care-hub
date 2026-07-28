@@ -29,16 +29,15 @@ const BOOKING_URL = "https://onlinerezeption.vercel.app";
 function Logo({ light = false }: { light?: boolean }) {
   return (
     <div className="flex items-center gap-3">
-      <div className="h-9 w-1 bg-[#AC8F52]" />
-      <div className="leading-tight">
-        <div className={`font-bold tracking-tight text-xl ${light ? "text-white" : "text-[#1E2535]"}`}>WZAS</div>
-        <div className={`font-light text-[11px] tracking-wide ${light ? "text-[#8C939B]" : "text-[#8C939B]"}`}>
-          Wirbelsäulenzentrum
-        </div>
-      </div>
+      <img
+        src={logoAsset.url}
+        alt="WZAS Wirbelsäulenzentrum am Stiglmaierplatz"
+        className={`h-11 w-auto ${light ? "brightness-0 invert" : ""}`}
+      />
     </div>
   );
 }
+
 
 function Nav() {
   const [scrolled, setScrolled] = useState(false);
