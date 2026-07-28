@@ -561,6 +561,14 @@ function Footer() {
         ))}
       </div>
       <div className="border-t border-white/10">
+        <div className="mx-auto max-w-7xl px-5 lg:px-8 py-8 flex flex-wrap items-center gap-8">
+          <span className="text-[11px] font-medium tracking-[0.2em] uppercase text-[#8C939B]">Ausgezeichnet</span>
+          <img src={focusImg.url} alt="Focus Top-Mediziner" className="h-14 w-auto bg-white/95 rounded p-2" />
+          <img src={isoImg.url} alt="ISO 9001 zertifiziert" className="h-14 w-auto bg-white/95 rounded p-2" />
+        </div>
+      </div>
+
+      <div className="border-t border-white/10">
         <div className="mx-auto max-w-7xl px-5 lg:px-8 py-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-3 text-xs text-[#8C939B]">
           <div>© 2026 Wirbelsäulenzentrum am Stiglmaierplatz · Alle Rechte vorbehalten</div>
           <div className="flex gap-4">
