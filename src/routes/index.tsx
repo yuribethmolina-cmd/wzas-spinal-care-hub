@@ -201,15 +201,15 @@ function Hero() {
         className="absolute inset-0 pointer-events-none opacity-[0.04] -z-10"
         style={{ backgroundImage: NOISE, backgroundSize: "256px 256px" }}
       />
-      <div className="relative mx-auto max-w-7xl px-5 lg:px-8 pt-16 pb-40 lg:pt-24 lg:pb-48 min-h-[85vh] grid lg:grid-cols-2 gap-12 items-center">
+      <div className="relative mx-auto max-w-7xl px-5 lg:px-8 pt-10 pb-14 lg:pt-24 lg:pb-48 lg:min-h-[85vh] grid lg:grid-cols-2 gap-12 items-center">
         <div>
           <p className="text-[11px] font-medium tracking-[0.2em] uppercase text-[#AC8F52] flex items-center gap-2">
             <span className="inline-block w-6 h-px bg-[#AC8F52]" />
-            Wirbelsäulenzentrum am Stiglmaierplatz · München
+            <span className="min-w-0">Wirbelsäulenzentrum am Stiglmaierplatz · München</span>
           </p>
           <h1
             className="mt-6 leading-[1.02] tracking-tight text-white font-display"
-            style={{ fontSize: "clamp(3.4rem, 7.5vw, 5.8rem)", fontWeight: 500 }}
+            style={{ fontSize: "clamp(2.6rem, 7.5vw, 5.8rem)", fontWeight: 500 }}
           >
             Rücken-
             <br />
@@ -219,7 +219,7 @@ function Hero() {
             <br />
             für München.
           </h1>
-          <p className="mt-6 text-lg text-[#D8DBE2] leading-relaxed max-w-xl whitespace-pre-line">
+          <p className="mt-6 text-base sm:text-lg text-[#D8DBE2] leading-relaxed max-w-xl whitespace-pre-line">
             20 Jahre Erfahrung.{"\u00a0"}{"\n"}
             12 Spezialisten.{"\u00a0"}{"\n"}
             Konservative Behandlung zuerst{"\u00a0"}{"\n"}
