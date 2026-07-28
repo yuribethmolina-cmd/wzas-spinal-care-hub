@@ -3,6 +3,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { doctors as allDoctors } from "@/lib/doctors";
 import logoAsset from "@/assets/wzas/logo.png.asset.json";
 import heroAsset from "@/assets/wzas/hero.webp.asset.json";
+import heroBgAsset from "@/assets/wzas/hero-consultation.webp.asset.json";
 import drMedele from "@/assets/wzas/dr-medele.webp.asset.json";
 import drEroes from "@/assets/wzas/dr-eroes.webp.asset.json";
 import drHo from "@/assets/wzas/dr-ho.jpg.asset.json";
