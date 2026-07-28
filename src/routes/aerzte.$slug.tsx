@@ -76,13 +76,13 @@ function DoctorDetail() {
       </div>
 
       <section className="mx-auto max-w-7xl px-5 lg:px-8 pb-12">
-        <div className="grid gap-10 lg:grid-cols-[380px,1fr]">
+        <div className="grid gap-10 lg:grid-cols-[280px,1fr]">
           <div>
-            <div className="aspect-[3/4] rounded-2xl overflow-hidden bg-[#263044] shadow-lg">
+            <div className="aspect-[4/5] rounded-2xl overflow-hidden bg-[#263044] shadow-lg max-w-[280px]">
               {d.photo ? (
-                <img src={d.photo} alt={d.name} className="h-full w-full object-cover" />
+                <img src={d.photo} alt={d.name} className="h-full w-full object-cover object-top" />
               ) : (
-                <div className="h-full w-full flex items-center justify-center text-6xl font-bold text-[#AC8F52]">
+                <div className="h-full w-full flex items-center justify-center text-5xl font-bold text-[#AC8F52]">
                   {d.initials}
                 </div>
               )}
