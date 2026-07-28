@@ -448,6 +448,7 @@ function Aktuelles() {
       date: "15. September 2026",
       title: "Rücken ohne OP: Wann ist Chirurgie wirklich nötig?",
       detail: "Gasteig HP8 · München · 19:00 Uhr",
+      image: vortraegeImg.url,
     },
     {
       type: "VIDEO",
@@ -456,7 +457,8 @@ function Aktuelles() {
       link: "text-purple-600",
       date: "Online verfügbar",
       title: "Bandscheibenvorfall verstehen: Diagnose & Behandlung",
-      detail: "45 Min. · Dr. med. Ralph Miederer",
+      detail: "45 Min. · Dr. med. Ralph Medele",
+      image: thumbBandscheibe.url,
     },
     {
       type: "ARTIKEL",
@@ -466,8 +468,10 @@ function Aktuelles() {
       date: "Juli 2026",
       title: "Neue minimalinvasive Techniken in der Wirbelsäulenchirurgie",
       detail: "Fachbeitrag · Neurochirurgie aktuell",
+      image: aktuellesImg.url,
     },
   ];
+
   return (
     <section id="aktuelles" className="bg-[#F8F8F6] py-24">
       <div className="mx-auto max-w-7xl px-5 lg:px-8">
