@@ -185,9 +185,20 @@ function Nav() {
 function Hero() {
   const chips = ["Akuter Rückenschmerz", "Chronische Schmerzen", "Bandscheibenvorfall", "Ischias", "Nach OP"];
   return (
-    <section className="relative bg-[#1E2535] text-white overflow-hidden">
+    <section className="relative bg-[#1E2535] text-white overflow-hidden isolate">
+      {/* Background image */}
+      <img
+        src={heroBgAsset.url}
+        alt="Ärztliches Beratungsgespräch mit Wirbelsäulenmodell im Wirbelsäulenzentrum am Stiglmaierplatz"
+        className="absolute inset-0 h-full w-full object-cover object-center -z-10"
+        loading="eager"
+        fetchPriority="high"
+      />
+      {/* Overlays: dark base + left gradient for text legibility */}
+      <div className="absolute inset-0 -z-10 bg-[#1E2535]/55" />
+      <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[#1E2535]/95 via-[#1E2535]/70 to-transparent" />
       <div
-        className="absolute inset-0 pointer-events-none opacity-[0.03]"
+        className="absolute inset-0 pointer-events-none opacity-[0.04] -z-10"
         style={{ backgroundImage: NOISE, backgroundSize: "256px 256px" }}
       />
       <div className="relative mx-auto max-w-7xl px-5 lg:px-8 pt-16 pb-40 lg:pt-24 lg:pb-48 min-h-[85vh] grid lg:grid-cols-2 gap-12 items-center">
@@ -208,18 +219,18 @@ function Hero() {
             <br />
             für München.
           </h1>
-          <p className="mt-6 text-lg text-[#C8CBD2] leading-relaxed max-w-xl">
+          <p className="mt-6 text-lg text-[#D8DBE2] leading-relaxed max-w-xl">
             20 Jahre Erfahrung. 12 Spezialisten. Konservative Behandlung zuerst — Operation nur wenn nötig.
           </p>
           <div className="mt-10">
-            <p className="text-xs font-medium tracking-[0.15em] uppercase text-[#8C939B] mb-3">
+            <p className="text-xs font-medium tracking-[0.15em] uppercase text-[#B8BEC6] mb-3">
               Was führt Sie zu uns?
             </p>
             <div className="flex flex-wrap gap-2">
               {chips.map((c) => (
                 <button
                   key={c}
-                  className="rounded-full border border-white/20 px-4 py-2 text-sm text-white/80 hover:border-white/50 hover:text-white transition-colors duration-200 cursor-pointer"
+                  className="rounded-full border border-white/25 bg-white/5 backdrop-blur-sm px-4 py-2 text-sm text-white/90 hover:border-white/60 hover:bg-white/10 transition-colors duration-200 cursor-pointer"
                 >
                   {c}
                 </button>
@@ -240,21 +251,15 @@ function Hero() {
             </a>
             <a
               href="#beschwerden"
-              className="inline-flex items-center rounded-full border border-white/30 px-6 py-3 text-sm font-semibold text-white hover:bg-white/10 transition-colors duration-200"
+              className="inline-flex items-center rounded-full border border-white/40 bg-white/5 backdrop-blur-sm px-6 py-3 text-sm font-semibold text-white hover:bg-white/15 transition-colors duration-200"
             >
               Mehr erfahren
             </a>
           </div>
         </div>
-        <div className="relative">
-          <img
-            src={heroAsset.url}
-            alt="Wirbelsäulenzentrum am Stiglmaierplatz — Praxisräume"
-            className="aspect-[4/3] w-full rounded-2xl object-cover shadow-2xl"
-          />
-          <div className="absolute -bottom-4 -left-4 w-32 h-32 rounded-xl bg-[#AC8F52]/15 blur-2xl pointer-events-none" />
-        </div>
+        <div aria-hidden className="hidden lg:block" />
       </div>
+
 
       {/* Stats bar */}
       <div className="absolute inset-x-0 bottom-0 bg-[#1E2535]/90 backdrop-blur border-t border-white/10">
