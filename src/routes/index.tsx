@@ -219,8 +219,11 @@ function Hero() {
             <br />
             für München.
           </h1>
-          <p className="mt-6 text-lg text-[#D8DBE2] leading-relaxed max-w-xl">
-            20 Jahre Erfahrung. 12 Spezialisten. Konservative Behandlung zuerst — Operation nur wenn nötig.
+          <p className="mt-6 text-lg text-[#D8DBE2] leading-relaxed max-w-xl whitespace-pre-line">
+            20 Jahre Erfahrung.{"\u00a0"}{"\n"}
+            12 Spezialisten.{"\u00a0"}{"\n"}
+            Konservative Behandlung zuerst{"\u00a0"}{"\n"}
+            Operation nur wenn nötig.
           </p>
           <div className="mt-10">
             <p className="text-xs font-medium tracking-[0.15em] uppercase text-[#B8BEC6] mb-3">
