@@ -505,6 +505,88 @@ function Weg() {
   );
 }
 
+/* ─── Kompetenzzentrum ──────────────────────────────────────────── */
+
+function Kompetenzzentrum() {
+  const { ref, style } = useFadeUp(0);
+  const partners = [
+    {
+      icon: (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5 text-[#AC8F52]">
+          <circle cx="12" cy="12" r="10" /><path d="M12 8v4l3 3" />
+        </svg>
+      ),
+      name: "Radiologiezentrum am Stiglmaierplatz",
+      short: "MRT · CT · Neuroradiologie direkt vor Ort",
+    },
+    {
+      icon: (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5 text-[#AC8F52]">
+          <path d="M18 8h1a4 4 0 0 1 0 8h-1" /><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z" /><line x1="6" y1="1" x2="6" y2="4" /><line x1="10" y1="1" x2="10" y2="4" /><line x1="14" y1="1" x2="14" y2="4" />
+        </svg>
+      ),
+      name: "Orthopädie München-Schwabing",
+      short: "Arthrose · Knie · Hüfte · Schulter",
+    },
+    {
+      icon: (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5 text-[#AC8F52]">
+          <path d="M18 11V6a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v0" /><path d="M14 10V4a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v2" /><path d="M10 10.5V6a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v8" /><path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15" />
+        </svg>
+      ),
+      name: "Handchirurgie am Stiglmaierplatz",
+      short: "Hand · Handgelenk · Unterarm",
+    },
+    {
+      icon: (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5 text-[#AC8F52]">
+          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /><polyline points="9 22 9 12 15 12 15 22" />
+        </svg>
+      ),
+      name: "Wirbelsäulenzentrum im Oberland",
+      short: "Schwester­praxis Penzberg · Bayern",
+    },
+  ];
+  return (
+    <section className="bg-white border-y border-[#E2E4E7] py-16">
+      <div className="mx-auto max-w-7xl px-5 lg:px-8">
+        <div ref={ref} style={style} className="lg:flex lg:items-start lg:gap-16">
+          {/* Left: benefit message */}
+          <div className="lg:w-80 shrink-0 mb-10 lg:mb-0">
+            <SectionLabel>Kompetenzzentrum</SectionLabel>
+            <h2
+              className="mt-4 font-display text-[#1E2535] leading-tight"
+              style={{ fontSize: "clamp(1.6rem, 3vw, 2.2rem)", fontWeight: 500 }}
+            >
+              Alles unter{" "}
+              <em className="italic" style={{ fontWeight: 400 }}>
+                einem Dach
+              </em>
+            </h2>
+            <p className="mt-3 text-sm text-[#8C939B] leading-relaxed max-w-xs">
+              Wirbelsäulenchirurgie, Radiologie und Orthopädie arbeiten hier Hand in Hand — kürzere Wege, schnellere Diagnosen, lückenlose Behandlung ohne externe Termine.
+            </p>
+          </div>
+          {/* Right: partner grid */}
+          <div className="grid gap-px bg-[#E2E4E7] sm:grid-cols-2 lg:grid-cols-4 flex-1">
+            {partners.map((p) => (
+              <div key={p.name} className="bg-white p-6 flex flex-col gap-3">
+                <div className="w-9 h-9 rounded-lg bg-[#AC8F52]/10 flex items-center justify-center">
+                  {p.icon}
+                </div>
+                <div>
+                  <p className="text-sm font-semibold text-[#1E2535] leading-snug">{p.name}</p>
+                  <p className="mt-1 text-xs text-[#8C939B] leading-relaxed">{p.short}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 /* ─── Team ──────────────────────────────────────────────────────── */
 
 const doctorPhotoMap: Record<string, string> = {
@@ -927,6 +1009,7 @@ function Home() {
         <Hero />
         <Beschwerden />
         <Weg />
+        <Kompetenzzentrum />
         <Team />
         <Termin />
         <Aktuelles />
