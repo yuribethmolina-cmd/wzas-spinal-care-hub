@@ -344,6 +344,16 @@ function Hero() {
               {t.more}
             </a>
           </div>
+          <p className="mt-6 text-xs text-[#8C939B] flex items-center gap-2 flex-wrap">
+            <span className="inline-block w-4 h-px bg-[#8C939B]" />
+            Se habla español
+            <span className="text-white/20">·</span>
+            English spoken
+            <span className="text-white/20">·</span>
+            Magyar
+            <span className="text-white/20">·</span>
+            廣東話
+          </p>
         </div>
         <div aria-hidden className="hidden lg:block" />
       </div>
@@ -747,6 +757,20 @@ function DoctorCard({ d, delay, cta }: { d: (typeof allDoctors)[0]; delay: numbe
             <li key={p}>· {p}</li>
           ))}
         </ul>
+        {d.languages && d.languages.filter((l) => l !== "Deutsch").length > 0 && (
+          <div className="mt-4 flex flex-wrap gap-1.5">
+            {d.languages
+              .filter((l) => l !== "Deutsch")
+              .map((l) => (
+                <span
+                  key={l}
+                  className="text-[10px] font-medium px-2 py-0.5 rounded bg-[#AC8F52]/10 text-[#AC8F52] tracking-wide"
+                >
+                  {l}
+                </span>
+              ))}
+          </div>
+        )}
         <Link
           to="/aerzte/$slug"
           params={{ slug: d.slug }}
