@@ -136,7 +136,7 @@ function Directory() {
                 >
                   <div className="relative aspect-[4/5] w-full bg-[#263044] overflow-hidden shrink-0">
                     {d.photo ? (
-                      <img src={d.photo} alt={d.name} className="absolute inset-0 h-full w-full object-cover object-top group-hover:scale-[1.02] transition-transform duration-300" />
+                      <img src={d.photo} alt={d.name} className="absolute inset-0 h-full w-full object-cover object-top transition-transform duration-500 ease-out group-hover:scale-[1.04]" />
                     ) : (
                       <div className="absolute inset-0 flex items-center justify-center text-4xl font-bold text-[#AC8F52]">
                         {d.initials}

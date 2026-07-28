@@ -173,11 +173,12 @@ function DoctorDetail() {
                 >
                   <div className="aspect-square sm:aspect-[4/5] bg-[#263044] overflow-hidden">
                     {r.photo ? (
-                      <img src={r.photo} alt={r.name} className="h-full w-full object-cover object-top" />
+                      <img src={r.photo} alt={r.name} className="h-full w-full object-cover object-top transition-transform duration-500 ease-out group-hover:scale-[1.04]" />
                     ) : (
                       <div className="h-full w-full flex items-center justify-center text-3xl font-bold text-[#AC8F52]">{r.initials}</div>
                     )}
                   </div>
+
                   <div className="p-5">
                     <p className="text-xs uppercase tracking-wide text-[#AC8F52] font-medium">{r.specialties[0]}</p>
                     <p className="mt-2 font-semibold text-[#1E2535] group-hover:text-[#AC8F52] transition">{r.name}</p>
