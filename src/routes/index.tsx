@@ -301,7 +301,7 @@ function Hero() {
           >
             {t.h1a}
             <br />
-            <em className="italic" style={{ fontWeight: 400 }}>
+            <em style={{ fontStyle: "normal", fontWeight: 600 }}>
               {t.h1b}
             </em>
             <br />
@@ -522,7 +522,7 @@ function Beschwerden() {
             className="mt-4 font-display text-[#1E2535] leading-tight"
             style={{ fontSize: "clamp(2rem, 4vw, 3rem)", fontWeight: 500 }}
           >
-            {t.h2a}<em className="italic" style={{ fontWeight: 400 }}>{t.h2b}</em>
+            {t.h2a}<em style={{ fontStyle: "normal", fontWeight: 600 }}>{t.h2b}</em>
           </h2>
           <p className="mt-4 max-w-2xl text-[#8C939B] leading-relaxed">{t.lead}</p>
         </div>
@@ -630,7 +630,7 @@ function Weg() {
             className="mt-4 font-display text-white leading-tight"
             style={{ fontSize: "clamp(2rem, 4vw, 3rem)", fontWeight: 500 }}
           >
-            {t.h2a}<em className="italic" style={{ fontWeight: 400 }}>{t.h2b}</em>
+            {t.h2a}<em style={{ fontStyle: "normal", fontWeight: 600 }}>{t.h2b}</em>
           </h2>
         </div>
         <div className="mt-14 grid gap-8 lg:grid-cols-3 lg:gap-6 relative">
@@ -685,7 +685,7 @@ function Kompetenzzentrum() {
               className="mt-4 font-display text-[#1E2535] leading-tight"
               style={{ fontSize: "clamp(1.6rem, 3vw, 2.2rem)", fontWeight: 500 }}
             >
-              {t.h2a}<em className="italic" style={{ fontWeight: 400 }}>{t.h2b}</em>
+              {t.h2a}<em style={{ fontStyle: "normal", fontWeight: 600 }}>{t.h2b}</em>
             </h2>
             <p className="mt-3 text-sm text-[#8C939B] leading-relaxed max-w-xs">{t.lead}</p>
           </div>
@@ -824,7 +824,7 @@ function Team() {
             className="mt-4 font-display text-[#1E2535] leading-tight"
             style={{ fontSize: "clamp(2rem, 4vw, 3rem)", fontWeight: 500 }}
           >
-            {t.h2a}<em className="italic" style={{ fontWeight: 400 }}>{t.h2b}</em>
+            {t.h2a}<em style={{ fontStyle: "normal", fontWeight: 600 }}>{t.h2b}</em>
           </h2>
           <p className="mt-4 max-w-2xl text-[#8C939B] leading-relaxed">{t.lead}</p>
         </div>
@@ -905,7 +905,7 @@ function Termin() {
             className="font-display text-white leading-tight"
             style={{ fontSize: "clamp(2rem, 4vw, 3rem)", fontWeight: 500 }}
           >
-            {t.h2a}<em className="italic" style={{ fontWeight: 400 }}>{t.h2b}</em>
+            {t.h2a}<em style={{ fontStyle: "normal", fontWeight: 600 }}>{t.h2b}</em>
           </h2>
           <p className="mt-4 text-[#C8CBD2] leading-relaxed max-w-lg">{t.lead}</p>
           <div className="mt-8 rounded-xl bg-[#263044] p-7 border-t-2 border-[#AC8F52]">
@@ -1091,7 +1091,7 @@ function Aktuelles() {
             className="mt-4 font-display text-[#1E2535] leading-tight"
             style={{ fontSize: "clamp(2rem, 4vw, 3rem)", fontWeight: 500 }}
           >
-            {t.h2a}<em className="italic" style={{ fontWeight: 400 }}>{t.h2b}</em>
+            {t.h2a}<em style={{ fontStyle: "normal", fontWeight: 600 }}>{t.h2b}</em>
           </h2>
           <p className="mt-4 max-w-2xl text-[#8C939B] leading-relaxed">{t.lead}</p>
         </div>
