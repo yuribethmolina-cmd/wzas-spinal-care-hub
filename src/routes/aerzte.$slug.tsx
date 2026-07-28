@@ -76,13 +76,13 @@ function DoctorDetail() {
       </div>
 
       <section className="mx-auto max-w-7xl px-5 lg:px-8 pb-12">
-        <div className="grid gap-10 lg:grid-cols-[280px_1fr]">
+        <div className="grid gap-10 lg:grid-cols-[260px_1fr] xl:grid-cols-[300px_1fr]">
           <div>
-            <div className="aspect-[4/5] rounded-2xl overflow-hidden bg-[#263044] shadow-lg max-w-[280px]">
+            <div className="mx-auto aspect-square w-40 sm:w-52 md:w-60 lg:w-full lg:aspect-[4/5] lg:max-w-[300px] rounded-2xl overflow-hidden bg-[#263044] shadow-lg">
               {d.photo ? (
                 <img src={d.photo} alt={d.name} className="h-full w-full object-cover object-top" />
               ) : (
-                <div className="h-full w-full flex items-center justify-center text-5xl font-bold text-[#AC8F52]">
+                <div className="h-full w-full flex items-center justify-center text-4xl lg:text-5xl font-bold text-[#AC8F52]">
                   {d.initials}
                 </div>
               )}
@@ -171,7 +171,7 @@ function DoctorDetail() {
                   params={{ slug: r.slug }}
                   className="group bg-[#F8F8F6] rounded-xl overflow-hidden hover:shadow-lg transition"
                 >
-                  <div className="aspect-[4/5] bg-[#263044] overflow-hidden">
+                  <div className="aspect-square sm:aspect-[4/5] bg-[#263044] overflow-hidden">
                     {r.photo ? (
                       <img src={r.photo} alt={r.name} className="h-full w-full object-cover object-top" />
                     ) : (
