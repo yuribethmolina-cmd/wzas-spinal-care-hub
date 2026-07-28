@@ -97,7 +97,7 @@ function Nav() {
   }, []);
   const links: [string, string][] = [
     ["Rückenschmerzen", "#beschwerden"],
-    ["Arzt finden", "/aerzte"],
+    ["Ärzteteam", "/aerzte"],
     ["Behandlungen", "#weg"],
     ["Aktuelles", "#aktuelles"],
   ];
