@@ -4,9 +4,6 @@ import { doctors as allDoctors } from "@/lib/doctors";
 import { useLang, useT, type Lang } from "@/lib/lang";
 import logoAsset from "@/assets/wzas/logo.png.asset.json";
 import { SiteNav } from "@/components/SiteNav";
-
-
-import heroBgAsset from "@/assets/wzas/hero-consultation.webp.asset.json";
 import drMedele from "@/assets/wzas/dr-medele.webp.asset.json";
 import drEroes from "@/assets/wzas/dr-eroes.webp.asset.json";
 import drHo from "@/assets/wzas/dr-ho.jpg.asset.json";
@@ -21,6 +18,8 @@ import partnerOms from "@/assets/wzas/partners/oms.png.asset.json";
 import partnerHand from "@/assets/wzas/partners/bl-handchirurgie.png.asset.json";
 import partnerOberland from "@/assets/wzas/partners/wz-oberland.png.asset.json";
 import partnerWz from "@/assets/wzas/partners/wz-stiglmaier.png.asset.json";
+
+const HERO_BG = "/clinic-exterior.webp";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -330,7 +329,7 @@ function Hero() {
   return (
     <section className="relative bg-[#1E2535] text-white overflow-hidden isolate">
       <img
-        src={heroBgAsset.url}
+        src={HERO_BG}
         alt={t.alt}
         className="absolute inset-0 h-full w-full object-cover object-center -z-10"
         loading="eager"
