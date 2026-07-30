@@ -1,10 +1,15 @@
 // src/components/wzas/PageFooter.tsx
 import { Link } from "@tanstack/react-router";
 import logoAsset from "@/assets/wzas/logo.png.asset.json";
+import { useT } from "@/lib/lang";
 
 const BOOKING_URL = "https://onlinerezeption.vercel.app";
 
 export function PageFooter() {
+  const t = useT({
+    de: { cta: "Termin vereinbaren →" },
+    en: { cta: "Book appointment →" },
+  });
   return (
     <footer className="bg-[#1E2535] text-white py-10">
       <div className="mx-auto max-w-7xl px-5 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
@@ -20,7 +25,7 @@ export function PageFooter() {
           rel="noreferrer"
           className="text-xs font-semibold text-[#AC8F52] hover:brightness-110 transition"
         >
-          Termin vereinbaren →
+          {t.cta}
         </a>
       </div>
     </footer>

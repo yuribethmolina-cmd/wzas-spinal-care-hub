@@ -1,4 +1,6 @@
 // src/components/wzas/BookingCTA.tsx
+import { useT } from "@/lib/lang";
+
 const BOOKING_URL = "https://onlinerezeption.vercel.app";
 
 interface BookingCTAProps {
@@ -12,10 +14,12 @@ interface BookingCTAProps {
 export function BookingCTA({
   heading,
   body,
-  ctaCopy = "Online buchen",
+  ctaCopy,
   secondaryLabel,
   secondaryHref,
 }: BookingCTAProps) {
+  const defaultCta = useT({ de: "Online buchen", en: "Book online" });
+  const resolvedCta = ctaCopy ?? defaultCta;
   return (
     <section className="bg-[#1E2535] py-16 lg:py-20 relative overflow-hidden">
       <div
@@ -34,7 +38,7 @@ export function BookingCTA({
             rel="noreferrer"
             className="inline-flex items-center gap-2 rounded-full bg-[#AC8F52] px-7 py-3.5 text-sm font-semibold text-[#1E2535] hover:brightness-105 transition"
           >
-            {ctaCopy}
+            {resolvedCta}
           </a>
           {secondaryLabel && secondaryHref && (
             <a
