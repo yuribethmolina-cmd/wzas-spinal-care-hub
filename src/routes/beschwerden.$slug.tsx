@@ -3,7 +3,8 @@ import React, { useEffect, useRef, useState } from "react";
 import { PageHeader } from "@/components/wzas/PageHeader";
 import { PageFooter } from "@/components/wzas/PageFooter";
 import { BookingCTA } from "@/components/wzas/BookingCTA";
-import { getCondition, CONDITIONS, TREATMENT_LABELS, type Condition } from "@/lib/conditions";
+import { getCondition, getConditionContent, CONDITIONS, TREATMENT_LABELS, type Condition } from "@/lib/conditions";
+import { useLang, useT } from "@/lib/lang";
 
 const EASE = "cubic-bezier(0.23, 1, 0.32, 1)";
 
@@ -31,8 +32,9 @@ function useFadeUp(delay = 0) {
   };
 }
 
-function RelatedCard({ condition }: { condition: Condition }) {
+function RelatedCard({ condition, lang }: { condition: Condition; lang: "de" | "en" }) {
   const [hovered, setHovered] = useState(false);
+  const content = getConditionContent(condition, lang);
   return (
     <Link
       to="/beschwerden/$slug"
@@ -51,8 +53,8 @@ function RelatedCard({ condition }: { condition: Condition }) {
       />
       <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent" />
       <div className="absolute bottom-0 left-0 p-4">
-        <p className="text-white font-display font-semibold text-lg leading-tight">{condition.name}</p>
-        {condition.subtitle && <p className="text-white/70 text-xs mt-0.5">({condition.subtitle})</p>}
+        <p className="text-white font-display font-semibold text-lg leading-tight">{content.name}</p>
+        {content.subtitle && <p className="text-white/70 text-xs mt-0.5">({content.subtitle})</p>}
       </div>
     </Link>
   );
@@ -65,11 +67,47 @@ export const Route = createFileRoute("/beschwerden/$slug")({
 function BeschwerdenDetail() {
   const { slug } = Route.useParams();
   const condition = getCondition(slug);
+  const { lang } = useLang();
 
   // Hooks must be called unconditionally, before any early return
   const { ref: overviewRef, style: overviewStyle } = useFadeUp(0);
   const { ref: treatRef, style: treatStyle } = useFadeUp(100);
   const { ref: relRef, style: relStyle } = useFadeUp(150);
+
+  const t = useT({
+    de: {
+      breadcrumb: "Rückenerkrankungen",
+      whatIsIt: "Was ist das?",
+      atAGlance: "Auf einen Blick",
+      region: "Region:",
+      frequency: "Häufigkeit:",
+      symptoms: "Symptome:",
+      howWetreat: "So behandeln wir",
+      relatedConditions: "Ähnliche Erkrankungen",
+      doctorHeading: "Ihr Spezialist für dieses Krankheitsbild",
+      doctorLink: "Zum Arztprofil",
+      backLink: "← Zurück zu den Erkrankungen",
+      notFound: "Erkrankung nicht gefunden",
+      bookingBody: "Vereinbaren Sie jetzt einen Termin. Ersttermine meist innerhalb von 5 Werktagen — ohne Überweisung.",
+      bookingCta: "Online buchen",
+    },
+    en: {
+      breadcrumb: "Spine conditions",
+      whatIsIt: "What is it?",
+      atAGlance: "At a glance",
+      region: "Affected area:",
+      frequency: "Frequency:",
+      symptoms: "Symptoms:",
+      howWetreat: "How we treat it",
+      relatedConditions: "Related conditions",
+      doctorHeading: "Your specialist for this condition",
+      doctorLink: "View profile",
+      backLink: "← Back to conditions",
+      notFound: "Condition not found",
+      bookingBody: "Book an appointment now. Most first appointments within 5 working days — no referral needed.",
+      bookingCta: "Book online",
+    },
+  });
 
   if (!condition) {
     return (
@@ -77,9 +115,9 @@ function BeschwerdenDetail() {
         <PageHeader activeRoute="/beschwerden" />
         <div className="flex items-center justify-center py-40">
           <div className="text-center">
-            <p className="font-display text-3xl text-[#1E2535] mb-4">Seite nicht gefunden</p>
+            <p className="font-display text-3xl text-[#1E2535] mb-4">{t.notFound}</p>
             <Link to="/beschwerden" className="text-sm text-[#AC8F52] hover:underline">
-              ← Zurück zu Rückenerkrankungen
+              {t.backLink}
             </Link>
           </div>
         </div>
@@ -87,6 +125,8 @@ function BeschwerdenDetail() {
       </div>
     );
   }
+
+  const content = getConditionContent(condition, lang);
 
   const relatedConditions = condition.relatedIds
     .map((id) => CONDITIONS.find((c) => c.id === id))
@@ -113,15 +153,15 @@ function BeschwerdenDetail() {
               to="/beschwerden"
               className="text-xs text-white/60 hover:text-white transition-colors tracking-wide"
             >
-              ← Rückenerkrankungen
+              ← {t.breadcrumb}
             </Link>
           </div>
           <div className="absolute bottom-0 left-0 px-5 pb-10 lg:px-12 lg:pb-14 max-w-7xl mx-auto w-full">
             <h1 className="font-display text-4xl lg:text-6xl font-semibold text-white leading-tight">
-              {condition.name}
+              {content.name}
             </h1>
-            {condition.subtitle && (
-              <p className="mt-2 text-white/70 text-lg italic font-display">({condition.subtitle})</p>
+            {content.subtitle && (
+              <p className="mt-2 text-white/70 text-lg italic font-display">({content.subtitle})</p>
             )}
           </div>
         </section>
@@ -130,27 +170,27 @@ function BeschwerdenDetail() {
         <section className="py-14 lg:py-20 bg-white">
           <div ref={overviewRef} style={overviewStyle} className="mx-auto max-w-6xl px-5 lg:px-8 grid grid-cols-1 lg:grid-cols-3 gap-10 lg:gap-16">
             <div className="lg:col-span-2">
-              <h2 className="font-display text-3xl font-semibold text-[#1E2535] mb-5">Was ist das?</h2>
-              <p className="text-lg text-[#4A5568] leading-relaxed">{condition.bodyText}</p>
+              <h2 className="font-display text-3xl font-semibold text-[#1E2535] mb-5">{t.whatIsIt}</h2>
+              <p className="text-lg text-[#4A5568] leading-relaxed">{content.bodyText}</p>
             </div>
             <div>
               <div className="border-l-4 border-[#AC8F52] pl-5 py-2">
                 <p className="text-[10px] font-semibold tracking-[0.2em] uppercase text-[#AC8F52] mb-4">
-                  Auf einen Blick
+                  {t.atAGlance}
                 </p>
                 <div className="space-y-3">
                   <div>
-                    <p className="text-xs text-[#8C939B] uppercase tracking-wider mb-0.5">Region</p>
-                    <p className="text-sm font-medium text-[#1E2535]">{condition.bullets.region}</p>
+                    <p className="text-xs text-[#8C939B] uppercase tracking-wider mb-0.5">{t.region}</p>
+                    <p className="text-sm font-medium text-[#1E2535]">{content.bullets.region}</p>
                   </div>
                   <div>
-                    <p className="text-xs text-[#8C939B] uppercase tracking-wider mb-0.5">Häufigkeit</p>
-                    <p className="text-sm font-medium text-[#1E2535]">{condition.bullets.frequency}</p>
+                    <p className="text-xs text-[#8C939B] uppercase tracking-wider mb-0.5">{t.frequency}</p>
+                    <p className="text-sm font-medium text-[#1E2535]">{content.bullets.frequency}</p>
                   </div>
                   <div>
-                    <p className="text-xs text-[#8C939B] uppercase tracking-wider mb-1">Symptome</p>
+                    <p className="text-xs text-[#8C939B] uppercase tracking-wider mb-1">{t.symptoms}</p>
                     <ul className="space-y-1">
-                      {condition.bullets.symptoms.map((s) => (
+                      {content.bullets.symptoms.map((s) => (
                         <li key={s} className="text-sm text-[#1E2535] flex gap-2">
                           <span className="text-[#AC8F52] mt-0.5">–</span>
                           {s}
@@ -169,7 +209,7 @@ function BeschwerdenDetail() {
           <section className="py-12 lg:py-16 bg-[#F8F8F6]">
             <div ref={treatRef} style={treatStyle} className="mx-auto max-w-6xl px-5 lg:px-8">
               <h2 className="font-display text-2xl lg:text-3xl font-semibold text-[#1E2535] mb-6">
-                So behandeln wir
+                {t.howWetreat}
               </h2>
               <div className="flex flex-wrap gap-3">
                 {condition.treatmentIds.map((id) => (
@@ -178,7 +218,7 @@ function BeschwerdenDetail() {
                     to="/behandlungen"
                     className="group inline-flex items-center gap-2 rounded-full border border-[#AC8F52] px-5 py-2.5 text-sm font-medium text-[#AC8F52] transition-all hover:bg-[#AC8F52] hover:text-[#1E2535]"
                   >
-                    {TREATMENT_LABELS[id] ?? id}
+                    {TREATMENT_LABELS[id]?.[lang] ?? id}
                     <span
                       className="transition-transform group-hover:translate-x-1"
                       aria-hidden
@@ -195,7 +235,7 @@ function BeschwerdenDetail() {
           <section className="py-12 bg-white">
             <div className="mx-auto max-w-6xl px-5 lg:px-8">
               <p className="text-[10px] font-semibold tracking-[0.2em] uppercase text-[#AC8F52] mb-4">
-                Ihr Spezialist für dieses Krankheitsbild
+                {t.doctorHeading}
               </p>
               <div className="flex flex-wrap gap-4">
                 {condition.doctorSlugs.map((docSlug) => (
@@ -205,7 +245,7 @@ function BeschwerdenDetail() {
                     params={{ slug: docSlug }}
                     className="flex items-center gap-4 bg-white border border-[#E2E4E7] rounded-xl p-4 hover:border-[#AC8F52] transition-colors"
                   >
-                    <p className="text-sm font-semibold text-[#1E2535]">Zum Arztprofil →</p>
+                    <p className="text-sm font-semibold text-[#1E2535]">{t.doctorLink} →</p>
                   </Link>
                 ))}
               </div>
@@ -218,11 +258,11 @@ function BeschwerdenDetail() {
           <section className="py-12 lg:py-16 bg-[#F8F8F6]">
             <div ref={relRef} style={relStyle} className="mx-auto max-w-6xl px-5 lg:px-8">
               <h2 className="font-display text-2xl font-semibold text-[#1E2535] mb-6">
-                Ähnliche Erkrankungen
+                {t.relatedConditions}
               </h2>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                 {relatedConditions.map((rel) => (
-                  <RelatedCard key={rel.id} condition={rel} />
+                  <RelatedCard key={rel.id} condition={rel} lang={lang} />
                 ))}
               </div>
             </div>
@@ -230,9 +270,9 @@ function BeschwerdenDetail() {
         )}
 
         <BookingCTA
-          heading={condition.ctaCopy}
-          body="Ersttermine meist innerhalb von 5 Werktagen. Konservative Behandlung wenn möglich, Operation wenn nötig."
-          ctaCopy="Jetzt Termin vereinbaren"
+          heading={content.ctaCopy}
+          body={t.bookingBody}
+          ctaCopy={t.bookingCta}
           secondaryLabel="+49 (0)89-54 34 30 30"
           secondaryHref="tel:+498954343030"
         />

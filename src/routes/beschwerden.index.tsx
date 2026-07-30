@@ -3,7 +3,8 @@ import React, { useEffect, useRef, useState } from "react";
 import { PageHeader } from "@/components/wzas/PageHeader";
 import { PageFooter } from "@/components/wzas/PageFooter";
 import { BookingCTA } from "@/components/wzas/BookingCTA";
-import { CONDITIONS } from "@/lib/conditions";
+import { CONDITIONS, getConditionContent } from "@/lib/conditions";
+import { useLang } from "@/lib/lang";
 
 const EASE = "cubic-bezier(0.23, 1, 0.32, 1)";
 const HERO_PHOTO = "https://www.wzas.de/wp-content/uploads/2026/06/Header-WZAS-Rueckenerkrankungen.webp";
@@ -48,8 +49,10 @@ function ConditionCard({ condition, index, large = false }: {
   large?: boolean;
 }) {
   const { ref, style } = useFadeUp(index * 40);
+  const { lang } = useLang();
   const [hovered, setHovered] = useState(false);
-  const lines = condition.name.split("\n");
+  const content = getConditionContent(condition, lang);
+  const lines = content.name.split("\n");
 
   return (
     <Link
@@ -77,8 +80,8 @@ function ConditionCard({ condition, index, large = false }: {
         {lines[1] && (
           <p className="text-white/80 text-sm mt-1">{lines[1]}</p>
         )}
-        {condition.subtitle && !lines[1] && (
-          <p className="text-white/70 text-sm mt-1">({condition.subtitle})</p>
+        {content.subtitle && !lines[1] && (
+          <p className="text-white/70 text-sm mt-1">({content.subtitle})</p>
         )}
         <p
           className="mt-3 text-xs font-semibold tracking-widest text-[#AC8F52] uppercase flex items-center gap-1"
