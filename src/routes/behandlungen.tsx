@@ -17,7 +17,7 @@ const BASE_CATEGORIES = [
 
 const CATEGORY_PHOTOS: Record<string, string> = {
   "ohne-operation": "/gallery/praxis-01.webp",
-  "minimalinvasiv": "/gallery/praxis-05.webp",
+  "minimalinvasiv": "/treatment-minimalinvasiv.webp",
   "chirurgie": "/wolfart-klinik.jpg",
 };
 
