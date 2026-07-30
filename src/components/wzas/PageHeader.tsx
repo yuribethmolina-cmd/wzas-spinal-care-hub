@@ -42,6 +42,7 @@ export function PageHeader({ activeRoute }: { activeRoute?: string }) {
         ["Rückenerkrankungen", "/beschwerden"],
         ["Ärzteteam", "/aerzte"],
         ["Behandlungen", "/behandlungen"],
+        ["FAQ", "/faq"],
         ["Aktuelles", "/aktuelles"],
       ] as [string, string][],
       book: "Termin vereinbaren",
@@ -52,6 +53,7 @@ export function PageHeader({ activeRoute }: { activeRoute?: string }) {
         ["Spine conditions", "/beschwerden"],
         ["Our doctors", "/aerzte"],
         ["Treatments", "/behandlungen"],
+        ["FAQ", "/faq"],
         ["News", "/aktuelles"],
       ] as [string, string][],
       book: "Book appointment",
@@ -76,7 +78,7 @@ export function PageHeader({ activeRoute }: { activeRoute?: string }) {
   const navLink = (to: string, label: string) => (
     <Link
       key={to}
-      to={to as "/beschwerden" | "/aerzte" | "/behandlungen" | "/aktuelles"}
+      to={to as "/beschwerden" | "/aerzte" | "/behandlungen" | "/faq" | "/aktuelles"}
       className={`text-sm transition-colors ${
         activeRoute === to
           ? "font-semibold text-[#AC8F52]"
@@ -139,7 +141,7 @@ export function PageHeader({ activeRoute }: { activeRoute?: string }) {
         {t.links.map(([label, to]) => (
           <Link
             key={to}
-            to={to as "/beschwerden" | "/aerzte" | "/behandlungen" | "/aktuelles"}
+            to={to as "/beschwerden" | "/aerzte" | "/behandlungen" | "/faq" | "/aktuelles"}
             onClick={() => setOpen(false)}
             className="block text-sm font-medium text-[#1E2535] py-2"
           >

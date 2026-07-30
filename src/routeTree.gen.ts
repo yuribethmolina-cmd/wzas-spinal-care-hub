@@ -14,6 +14,9 @@ import { Route as AerzteRouteImport } from './routes/aerzte'
 import { Route as AktuellesRouteImport } from './routes/aktuelles'
 import { Route as BehandlungenRouteImport } from './routes/behandlungen'
 import { Route as BeschwerdenRouteImport } from './routes/beschwerden'
+import { Route as FaqRouteImport } from './routes/faq'
+import { Route as WolfartRouteImport } from './routes/wolfart'
+import { Route as KarriereRouteImport } from './routes/karriere'
 import { Route as AerzteIndexRouteImport } from './routes/aerzte.index'
 import { Route as AerzteSlugRouteImport } from './routes/aerzte.$slug'
 import { Route as BeschwerdenIndexRouteImport } from './routes/beschwerden.index'
@@ -44,6 +47,21 @@ const BeschwerdenRoute = BeschwerdenRouteImport.update({
   path: '/beschwerden',
   getParentRoute: () => rootRouteImport,
 } as any)
+const FaqRoute = FaqRouteImport.update({
+  id: '/faq',
+  path: '/faq',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WolfartRoute = WolfartRouteImport.update({
+  id: '/wolfart',
+  path: '/wolfart',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const KarriereRoute = KarriereRouteImport.update({
+  id: '/karriere',
+  path: '/karriere',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AerzteIndexRoute = AerzteIndexRouteImport.update({
   id: '/',
   path: '/',
@@ -71,6 +89,9 @@ export interface FileRoutesByFullPath {
   '/aktuelles': typeof AktuellesRoute
   '/behandlungen': typeof BehandlungenRoute
   '/beschwerden': typeof BeschwerdenRouteWithChildren
+  '/faq': typeof FaqRoute
+  '/wolfart': typeof WolfartRoute
+  '/karriere': typeof KarriereRoute
   '/aerzte/$slug': typeof AerzteSlugRoute
   '/beschwerden/$slug': typeof BeschwerdenSlugRoute
   '/aerzte/': typeof AerzteIndexRoute
@@ -80,6 +101,9 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/aktuelles': typeof AktuellesRoute
   '/behandlungen': typeof BehandlungenRoute
+  '/faq': typeof FaqRoute
+  '/wolfart': typeof WolfartRoute
+  '/karriere': typeof KarriereRoute
   '/aerzte/$slug': typeof AerzteSlugRoute
   '/beschwerden/$slug': typeof BeschwerdenSlugRoute
   '/aerzte': typeof AerzteIndexRoute
@@ -92,6 +116,9 @@ export interface FileRoutesById {
   '/aktuelles': typeof AktuellesRoute
   '/behandlungen': typeof BehandlungenRoute
   '/beschwerden': typeof BeschwerdenRouteWithChildren
+  '/faq': typeof FaqRoute
+  '/wolfart': typeof WolfartRoute
+  '/karriere': typeof KarriereRoute
   '/aerzte/$slug': typeof AerzteSlugRoute
   '/beschwerden/$slug': typeof BeschwerdenSlugRoute
   '/aerzte/': typeof AerzteIndexRoute
@@ -105,6 +132,9 @@ export interface FileRouteTypes {
     | '/aktuelles'
     | '/behandlungen'
     | '/beschwerden'
+    | '/faq'
+    | '/wolfart'
+    | '/karriere'
     | '/aerzte/$slug'
     | '/beschwerden/$slug'
     | '/aerzte/'
@@ -114,6 +144,9 @@ export interface FileRouteTypes {
     | '/'
     | '/aktuelles'
     | '/behandlungen'
+    | '/faq'
+    | '/wolfart'
+    | '/karriere'
     | '/aerzte/$slug'
     | '/beschwerden/$slug'
     | '/aerzte'
@@ -125,6 +158,9 @@ export interface FileRouteTypes {
     | '/aktuelles'
     | '/behandlungen'
     | '/beschwerden'
+    | '/faq'
+    | '/wolfart'
+    | '/karriere'
     | '/aerzte/$slug'
     | '/beschwerden/$slug'
     | '/aerzte/'
@@ -137,6 +173,9 @@ export interface RootRouteChildren {
   AktuellesRoute: typeof AktuellesRoute
   BehandlungenRoute: typeof BehandlungenRoute
   BeschwerdenRoute: typeof BeschwerdenRouteWithChildren
+  FaqRoute: typeof FaqRoute
+  WolfartRoute: typeof WolfartRoute
+  KarriereRoute: typeof KarriereRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -174,6 +213,27 @@ declare module '@tanstack/react-router' {
       path: '/beschwerden'
       fullPath: '/beschwerden'
       preLoaderRoute: typeof BeschwerdenRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/faq': {
+      id: '/faq'
+      path: '/faq'
+      fullPath: '/faq'
+      preLoaderRoute: typeof FaqRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/wolfart': {
+      id: '/wolfart'
+      path: '/wolfart'
+      fullPath: '/wolfart'
+      preLoaderRoute: typeof WolfartRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/karriere': {
+      id: '/karriere'
+      path: '/karriere'
+      fullPath: '/karriere'
+      preLoaderRoute: typeof KarriereRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/aerzte/': {
@@ -240,6 +300,9 @@ const rootRouteChildren: RootRouteChildren = {
   AktuellesRoute: AktuellesRoute,
   BehandlungenRoute: BehandlungenRoute,
   BeschwerdenRoute: BeschwerdenRouteWithChildren,
+  FaqRoute: FaqRoute,
+  WolfartRoute: WolfartRoute,
+  KarriereRoute: KarriereRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

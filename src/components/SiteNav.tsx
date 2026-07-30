@@ -41,6 +41,7 @@ export function SiteNav() {
         ["Rückenerkrankungen", "/beschwerden"],
         ["Ärzteteam", "/aerzte"],
         ["Behandlungen", "/behandlungen"],
+        ["FAQ", "/faq"],
         ["Aktuelles", "/aktuelles"],
       ] as [string, string][],
       book: "Termin vereinbaren",
@@ -52,6 +53,7 @@ export function SiteNav() {
         ["Spine conditions", "/beschwerden"],
         ["Our doctors", "/aerzte"],
         ["Treatments", "/behandlungen"],
+        ["FAQ", "/faq"],
         ["News", "/aktuelles"],
       ] as [string, string][],
       book: "Book appointment",
@@ -82,7 +84,7 @@ export function SiteNav() {
           {t.links.map(([label, href]) => (
             <Link
               key={label}
-              to={href as "/" | "/aerzte" | "/beschwerden" | "/behandlungen" | "/aktuelles"}
+              to={href as "/" | "/aerzte" | "/beschwerden" | "/behandlungen" | "/faq" | "/aktuelles"}
               className={linkClass}
               activeOptions={{ exact: href === "/" }}
               activeProps={{ "aria-current": "page" } as never}
@@ -131,7 +133,7 @@ export function SiteNav() {
         {t.links.map(([label, href]) => (
           <Link
             key={label}
-            to={href as "/" | "/aerzte" | "/beschwerden" | "/behandlungen" | "/aktuelles"}
+            to={href as "/" | "/aerzte" | "/beschwerden" | "/behandlungen" | "/faq" | "/aktuelles"}
             onClick={() => setOpen(false)}
             className="block text-sm font-medium text-[#1E2535] py-2"
             activeOptions={{ exact: href === "/" }}
