@@ -44,6 +44,142 @@ const BOOKING_URL = "https://onlinerezeption.vercel.app";
 const EASE = "cubic-bezier(0.23, 1, 0.32, 1)";
 const NOISE = `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`;
 
+const STAT_DEFS = [
+  { value: 30000, suffix: "+", labelDe: "Patienten pro Jahr", labelEn: "patients per year" },
+  { value: 90, suffix: "%", labelDe: "ohne Operation behandelt", labelEn: "treated without surgery" },
+  { value: 20, suffix: "+", labelDe: "Jahre Erfahrung", labelEn: "years of experience" },
+  { value: 12, suffix: "", labelDe: "Wirbelsäulenspezialisten", labelEn: "spine specialists" },
+] as const;
+
+const SPINE_ZONES = [
+  { id: "cervical", de: "Halswirbelsäule", en: "Cervical spine", subDe: "Nacken · Arm · Kopf", subEn: "Neck · arm · head", href: "/beschwerden", flex: 1 },
+  { id: "thoracic", de: "Brustwirbelsäule", en: "Thoracic spine", subDe: "Oberer & mittlerer Rücken", subEn: "Upper & mid back", href: "/beschwerden/facettengelenksarthrose", flex: 2 },
+  { id: "lumbar", de: "LWS · Bandscheiben", en: "Lumbar · discs", subDe: "Unterer Rücken · L4/L5", subEn: "Lower back · L4/L5", href: "/beschwerden/bandscheibenvorfall", flex: 1.8 },
+  { id: "sacrum", de: "Sakrum · ISG", en: "Sacrum · SIJ", subDe: "Becken · Hüfte · Bein", subEn: "Pelvis · hip · leg", href: "/beschwerden/iliosakralsyndrom", flex: 1.2 },
+];
+
+const WEG_ICONS: React.ReactNode[] = [
+  <svg key="search" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" className="w-full h-full" aria-hidden><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>,
+  <svg key="team" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" className="w-full h-full" aria-hidden><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>,
+  <svg key="cal" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" className="w-full h-full" aria-hidden><rect width="18" height="18" x="3" y="4" rx="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/><path d="m9 16 2 2 4-4"/></svg>,
+];
+
+/* ─── Spine locator ─────────────────────────────────────────────── */
+
+function SpineLocator() {
+  const { lang } = useLang();
+  const [activeId, setActiveId] = useState<string | null>(null);
+  const header = lang === "de" ? "Wo tut es weh?" : "Where does it hurt?";
+  const hint = lang === "de" ? "Bereich anklicken" : "Click an area";
+
+  return (
+    <div className="hidden lg:flex flex-col justify-center items-end h-full">
+      <div
+        className="rounded-2xl border border-white/20 overflow-hidden"
+        style={{ width: 264, background: "rgba(255,255,255,0.07)", backdropFilter: "blur(12px)" }}
+      >
+        <div className="px-5 py-3.5 border-b border-white/10 flex items-center justify-between">
+          <p className="text-[10px] font-semibold tracking-[0.2em] uppercase text-[#AC8F52]">{header}</p>
+          <p className="text-[10px] text-white/30">{hint}</p>
+        </div>
+        <div className="flex gap-3 p-4" style={{ height: 288 }}>
+          <div className="flex flex-col gap-1.5 w-8 shrink-0">
+            {SPINE_ZONES.map((z) => {
+              const active = activeId === z.id;
+              return (
+                <a
+                  key={z.id}
+                  href={z.href}
+                  tabIndex={-1}
+                  aria-hidden
+                  className="block rounded cursor-pointer"
+                  style={{
+                    flex: z.flex,
+                    background: active ? "#AC8F52" : "rgba(255,255,255,0.13)",
+                    border: `1px solid ${active ? "#AC8F52" : "rgba(255,255,255,0.22)"}`,
+                    transition: "background 200ms, border-color 200ms",
+                  }}
+                  onMouseEnter={() => setActiveId(z.id)}
+                  onMouseLeave={() => setActiveId(null)}
+                />
+              );
+            })}
+          </div>
+          <div className="flex flex-col gap-1.5 flex-1">
+            {SPINE_ZONES.map((z) => {
+              const active = activeId === z.id;
+              const label = lang === "de" ? z.de : z.en;
+              const sub = lang === "de" ? z.subDe : z.subEn;
+              return (
+                <a
+                  key={z.id}
+                  href={z.href}
+                  className="flex flex-col justify-center"
+                  style={{ flex: z.flex, textDecoration: "none" }}
+                  onMouseEnter={() => setActiveId(z.id)}
+                  onMouseLeave={() => setActiveId(null)}
+                >
+                  <p className={`text-xs font-semibold leading-tight transition-colors duration-200 ${active ? "text-[#AC8F52]" : "text-white/70"}`}>
+                    {label}
+                  </p>
+                  <p className={`text-[10px] leading-snug transition-colors duration-200 ${active ? "text-[#C9A76D]" : "text-white/30"}`}>
+                    {sub}
+                  </p>
+                </a>
+              );
+            })}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* ─── Stat counter ──────────────────────────────────────────────── */
+
+function StatCounter({ value, suffix }: { value: number; suffix: string }) {
+  const { lang } = useLang();
+  const [count, setCount] = useState(0);
+  const [started, setStarted] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(
+      ([e]) => { if (e.isIntersecting && !started) { setStarted(true); obs.unobserve(el); } },
+      { threshold: 0.1 }
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, [started]);
+
+  useEffect(() => {
+    if (!started) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) { setCount(value); return; }
+    const duration = 1400;
+    const start = performance.now();
+    let rafId: number;
+    const tick = (now: number) => {
+      const p = Math.min((now - start) / duration, 1);
+      setCount(Math.round((1 - Math.pow(1 - p, 3)) * value));
+      if (p < 1) rafId = requestAnimationFrame(tick);
+    };
+    rafId = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(rafId);
+  }, [started, value]);
+
+  const display = value >= 1000
+    ? count.toLocaleString(lang === "de" ? "de-DE" : "en-US")
+    : count.toString();
+
+  return (
+    <div ref={ref} className="font-display text-2xl md:text-3xl text-[#AC8F52]" style={{ fontWeight: 600 }}>
+      {display}{suffix}
+    </div>
+  );
+}
+
 /* ─── Scroll animation hook ─────────────────────────────────────── */
 
 function useFadeUp(delay = 0) {
@@ -300,12 +436,6 @@ function Hero() {
       book: "Termin vereinbaren",
       more: "Mehr erfahren",
       alt: "Ärztliches Beratungsgespräch mit Wirbelsäulenmodell im Wirbelsäulenzentrum am Stiglmaierplatz",
-      stats: [
-        ["30.000+", "Patienten pro Jahr"],
-        ["90%", "ohne Operation behandelt"],
-        ["20+", "Jahre Erfahrung"],
-        ["12", "Wirbelsäulenspezialisten"],
-      ] as [string, string][],
     },
     en: {
       kicker: "Spine Center at Stiglmaierplatz · Munich",
@@ -318,14 +448,9 @@ function Hero() {
       book: "Book appointment",
       more: "Learn more",
       alt: "Doctor consultation with a spine model at the Spine Center at Stiglmaierplatz",
-      stats: [
-        ["30,000+", "patients per year"],
-        ["90%", "treated without surgery"],
-        ["20+", "years of experience"],
-        ["12", "spine specialists"],
-      ] as [string, string][],
     },
   });
+  const { lang } = useLang();
   return (
     <section className="relative bg-[#1E2535] text-white overflow-hidden isolate">
       <img
@@ -407,17 +532,17 @@ function Hero() {
             廣東話
           </p>
         </div>
-        <div aria-hidden className="hidden lg:block" />
+        <SpineLocator />
       </div>
 
       <div className="relative lg:absolute lg:inset-x-0 lg:bottom-0 bg-[#1E2535]/90 backdrop-blur border-t border-white/10">
         <div className="mx-auto max-w-7xl px-5 lg:px-8 grid grid-cols-2 md:grid-cols-4 gap-6 py-6">
-          {t.stats.map(([n, l]) => (
-            <div key={l}>
-              <div className="font-display text-2xl md:text-3xl text-[#AC8F52]" style={{ fontWeight: 600 }}>
-                {n}
+          {STAT_DEFS.map((s) => (
+            <div key={s.labelDe}>
+              <StatCounter value={s.value} suffix={s.suffix} />
+              <div className="text-xs md:text-sm text-[#C8CBD2] mt-1">
+                {lang === "de" ? s.labelDe : s.labelEn}
               </div>
-              <div className="text-xs md:text-sm text-[#C8CBD2] mt-1">{l}</div>
             </div>
           ))}
         </div>
@@ -591,32 +716,34 @@ function Beschwerden() {
 /* ─── Weg ───────────────────────────────────────────────────────── */
 
 function WegStep({
-  n,
-  title,
-  desc,
-  delay,
-  isLast,
+  n, title, desc, delay, icon, isHighlight, bookLabel,
 }: {
-  n: string;
-  title: string;
-  desc: string;
-  delay: number;
-  isLast: boolean;
+  n: string; title: string; desc: string; delay: number;
+  icon: React.ReactNode; isHighlight: boolean; bookLabel: string;
 }) {
   const { ref, style } = useFadeUp(delay);
   return (
-    <div ref={ref} style={style} className="relative bg-[#263044] rounded-xl p-8 border-t-2 border-[#AC8F52]">
-      <div
-        className="font-display text-[#AC8F52] leading-none mb-6"
-        style={{ fontSize: "clamp(2.5rem, 5vw, 3.5rem)", fontWeight: 400, opacity: 0.65 }}
-      >
-        {n}
+    <div ref={ref} style={style} className="flex-1 min-w-0">
+      <div className={`rounded-2xl p-7 h-full flex flex-col ${isHighlight ? "bg-[#AC8F52]" : "bg-white"}`}>
+        <div className="flex items-start justify-between mb-5">
+          <div className={`w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold shrink-0 ${isHighlight ? "bg-[#1E2535]/15 text-[#1E2535]" : "bg-[#1E2535] text-white"}`}>
+            {n}
+          </div>
+          <div className={`w-6 h-6 shrink-0 ${isHighlight ? "text-[#1E2535]" : "text-[#AC8F52]"}`}>{icon}</div>
+        </div>
+        <h3 className={`font-display text-xl leading-snug ${isHighlight ? "text-[#1E2535] font-semibold" : "text-[#1E2535] font-medium"}`}>{title}</h3>
+        <p className={`mt-3 text-sm leading-relaxed flex-1 ${isHighlight ? "text-[#1E2535]/75" : "text-[#4A5568]"}`}>{desc}</p>
+        {isHighlight && (
+          <a
+            href={BOOKING_URL}
+            target="_blank"
+            rel="noreferrer"
+            className="mt-6 inline-flex items-center text-sm font-semibold text-[#1E2535] hover:opacity-70 transition-opacity"
+          >
+            {bookLabel} →
+          </a>
+        )}
       </div>
-      <h3 className="text-lg font-semibold text-white leading-snug">{title}</h3>
-      <p className="mt-3 text-sm text-[#C8CBD2] leading-relaxed">{desc}</p>
-      {!isLast && (
-        <div className="hidden lg:block absolute top-1/2 -right-4 z-10 text-[#AC8F52]/40 text-xl">→</div>
-      )}
     </div>
   );
 }
@@ -627,19 +754,20 @@ function Weg() {
       label: "Ihr Weg zur Besserung",
       h2a: "Vom ersten Klick ",
       h2b: "zum Termin",
+      book: "Jetzt buchen",
       steps: [
         {
-          n: "01",
+          n: "1",
           title: "Beschwerdebild wählen",
           desc: "Suchen oder stöbern Sie nach Symptomen — unsere Übersicht hilft Ihnen zu verstehen, welche Behandlungsoptionen für Ihren Fall geeignet sind.",
         },
         {
-          n: "02",
+          n: "2",
           title: "Den richtigen Spezialisten finden",
           desc: "Filtern Sie unser Team aus 12 Spezialisten nach Fachgebiet. Jedes Profil zeigt die behandelten Erkrankungen und den Behandlungsansatz.",
         },
         {
-          n: "03",
+          n: "3",
           title: "In 60 Sekunden buchen",
           desc: "Nutzen Sie unser Online-Buchungssystem und wählen Sie einen passenden Termin. Ersttermine meist innerhalb von 5 Werktagen. Kein Anruf nötig.",
         },
@@ -649,19 +777,20 @@ function Weg() {
       label: "Your path to recovery",
       h2a: "From first click ",
       h2b: "to appointment",
+      book: "Book now",
       steps: [
         {
-          n: "01",
+          n: "1",
           title: "Pick your condition",
           desc: "Search or browse by symptom — our overview helps you understand which treatment options fit your case.",
         },
         {
-          n: "02",
+          n: "2",
           title: "Find the right specialist",
           desc: "Filter our 12-specialist team by expertise. Each profile shows the conditions treated and the treatment approach.",
         },
         {
-          n: "03",
+          n: "3",
           title: "Book in 60 seconds",
           desc: "Use our online booking system and pick a time that suits you. Most first appointments within 5 working days. No phone call needed.",
         },
@@ -685,9 +814,24 @@ function Weg() {
             {t.h2a}<em style={{ fontStyle: "normal", fontWeight: 600 }}>{t.h2b}</em>
           </h2>
         </div>
-        <div className="mt-14 grid gap-8 lg:grid-cols-3 lg:gap-6 relative">
-          {t.steps.map((step, i) => (
-            <WegStep key={step.n} {...step} delay={200 + i * 100} isLast={i === t.steps.length - 1} />
+        <div className="mt-14 flex flex-col lg:flex-row gap-5 items-stretch">
+          {t.steps.map((step, i, arr) => (
+            <React.Fragment key={step.n}>
+              <WegStep
+                {...step}
+                delay={200 + i * 100}
+                icon={WEG_ICONS[i]}
+                isHighlight={i === 2}
+                bookLabel={t.book}
+              />
+              {i < arr.length - 1 && (
+                <div className="hidden lg:flex items-center justify-center text-[#AC8F52]/35 shrink-0 w-6" aria-hidden>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                  </svg>
+                </div>
+              )}
+            </React.Fragment>
           ))}
         </div>
       </div>
