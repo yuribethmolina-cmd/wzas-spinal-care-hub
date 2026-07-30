@@ -38,14 +38,14 @@ export const Route = createFileRoute("/aktuelles")({
   head: () => ({
     meta: [
       { title: "Aktuelles · WZAS Wirbelsäulenzentrum München" },
-      { name: "description", content: "Vorträge, Videos und Fachbeiträge von den Spezialisten des Wirbelsäulenzentrum am Stiglmaierplatz. Bleiben Sie informiert über neue Behandlungsmethoden und Veranstaltungen." },
+      { name: "description", content: "Vorträge, Veröffentlichungen und Neuigkeiten von den Spezialisten des Wirbelsäulenzentrum am Stiglmaierplatz. Bleiben Sie informiert über neue Behandlungsmethoden und Veranstaltungen." },
       { property: "og:title", content: "Aktuelles · WZAS München" },
     ],
   }),
   component: AktuellesPage,
 });
 
-type ItemType = "Vortrag" | "Video" | "Artikel";
+type ItemType = "Vortrag" | "Veröffentlichung" | "Pressemitteilung";
 
 type Item = {
   type: ItemType;
@@ -72,22 +72,22 @@ const ITEMS: Item[] = [
     },
   },
   {
-    type: "Video",
+    type: "Veröffentlichung",
     img: thumbBandscheibe.url,
     featured: true,
     de: {
       date: "Online verfügbar",
       title: "Bandscheibenvorfall verstehen: Diagnose & Behandlung",
-      detail: "45 Min. · Dr. med. Ralph Medele · Aufgezeichneter Vortrag",
+      detail: "Aufgezeichnete Vortragsreihe · Neurochirurgie aktuell · Dr. med. Ralph Medele",
     },
     en: {
       date: "Available online",
       title: "Understanding a herniated disc: diagnosis & treatment",
-      detail: "45 min · Dr. med. Ralph Medele · Recorded lecture",
+      detail: "Recorded lecture series · Neurochirurgie aktuell · Dr. med. Ralph Medele",
     },
   },
   {
-    type: "Artikel",
+    type: "Veröffentlichung",
     img: aktuellesImg.url,
     featured: true,
     de: {
@@ -116,7 +116,7 @@ const ITEMS: Item[] = [
     },
   },
   {
-    type: "Artikel",
+    type: "Veröffentlichung",
     featured: false,
     de: {
       date: "Mai 2026",
@@ -130,31 +130,31 @@ const ITEMS: Item[] = [
     },
   },
   {
-    type: "Video",
+    type: "Pressemitteilung",
     featured: false,
     de: {
-      date: "Online verfügbar",
-      title: "Was ist eine periradikuläre Therapie (PRT)?",
-      detail: "12 Min. · Erklärfilm für Patienten · Dr. med. Christian Eröss",
+      date: "Juni 2026",
+      title: "WZAS erneut TÜV-zertifiziert",
+      detail: "Qualitätssicherung · TÜV Rheinland · Wiederholungs-Zertifizierung 2026",
     },
     en: {
-      date: "Available online",
-      title: "What is periradicular therapy (PRT)?",
-      detail: "12 min · Patient explainer · Dr. med. Christian Eröss",
+      date: "June 2026",
+      title: "WZAS TÜV-certified again",
+      detail: "Quality assurance · TÜV Rheinland · Repeat certification 2026",
     },
   },
   {
-    type: "Artikel",
+    type: "Veröffentlichung",
     featured: false,
     de: {
       date: "März 2026",
       title: "Ischias: Wann hilft eine Injektion, wann braucht es mehr?",
-      detail: "Ratgeber · Schmerzzentrum München",
+      detail: "Ratgeber · Wirbelsäulenmedizin aktuell",
     },
     en: {
       date: "March 2026",
       title: "Sciatica: when does an injection help, when is more needed?",
-      detail: "Guide · Pain Centre Munich",
+      detail: "Guide · Wirbelsäulenmedizin aktuell",
     },
   },
   {
@@ -175,17 +175,17 @@ const ITEMS: Item[] = [
 
 const TYPE_COLORS: Record<ItemType, { bg: string; text: string; border: string }> = {
   Vortrag: { bg: "bg-blue-50", text: "text-blue-700", border: "border-blue-200" },
-  Video: { bg: "bg-purple-50", text: "text-purple-700", border: "border-purple-200" },
-  Artikel: { bg: "bg-emerald-50", text: "text-emerald-700", border: "border-emerald-200" },
+  Veröffentlichung: { bg: "bg-emerald-50", text: "text-emerald-700", border: "border-emerald-200" },
+  Pressemitteilung: { bg: "bg-amber-50", text: "text-amber-700", border: "border-amber-200" },
 };
 
 const TYPE_EN: Record<ItemType, string> = {
   Vortrag: "Talk",
-  Video: "Video",
-  Artikel: "Article",
+  Veröffentlichung: "Publication",
+  Pressemitteilung: "Press release",
 };
 
-const FILTERS: (ItemType | "Alle")[] = ["Alle", "Vortrag", "Video", "Artikel"];
+const FILTERS: (ItemType | "Alle")[] = ["Alle", "Vortrag", "Veröffentlichung", "Pressemitteilung"];
 
 function TypeBadge({ type }: { type: ItemType }) {
   const { lang } = useLang();
@@ -279,7 +279,7 @@ function AktuellesPage() {
       h1Italic: "& Forschung",
       heroPara: "Unsere Spezialisten teilen ihr Wissen in öffentlichen Vorträgen, Fachartikeln und Lehrvideos. Bleiben Sie über neue Behandlungsmethoden informiert.",
       filterAll: "Alle",
-      filterTypes: { Vortrag: "Vortrag", Video: "Video", Artikel: "Artikel" } as Record<ItemType, string>,
+      filterTypes: { Vortrag: "Vortrag", Veröffentlichung: "Veröffentlichung", Pressemitteilung: "Pressemitteilung" } as Record<ItemType, string>,
       featured: "Hervorgehoben",
       morePosts: "Weitere Beiträge",
       empty: "Keine Beiträge in dieser Kategorie.",
@@ -298,7 +298,7 @@ function AktuellesPage() {
       h1Italic: "& Research",
       heroPara: "Our specialists share their knowledge through public talks, journal articles and educational videos. Stay informed about new treatment methods.",
       filterAll: "All",
-      filterTypes: { Vortrag: "Talk", Video: "Video", Artikel: "Article" } as Record<ItemType, string>,
+      filterTypes: { Vortrag: "Talk", Veröffentlichung: "Publication", Pressemitteilung: "Press release" } as Record<ItemType, string>,
       featured: "Featured",
       morePosts: "More articles",
       empty: "No content in this category.",
