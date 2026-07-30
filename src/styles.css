@@ -105,8 +105,10 @@
   }
 }
 
-@keyframes kenBurns {
-  from { transform: scale(1);    }
-  to   { transform: scale(1.08); }
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes kenBurns {
+    from { transform: scale(1);    }
+    to   { transform: scale(1.08); }
+  }
 }
 

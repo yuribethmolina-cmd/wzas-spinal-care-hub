@@ -66,6 +66,11 @@ function BeschwerdenDetail() {
   const { slug } = Route.useParams();
   const condition = getCondition(slug);
 
+  // Hooks must be called unconditionally, before any early return
+  const { ref: overviewRef, style: overviewStyle } = useFadeUp(0);
+  const { ref: treatRef, style: treatStyle } = useFadeUp(100);
+  const { ref: relRef, style: relStyle } = useFadeUp(150);
+
   if (!condition) {
     return (
       <div className="min-h-screen bg-[#F8F8F6]">
@@ -86,10 +91,6 @@ function BeschwerdenDetail() {
   const relatedConditions = condition.relatedIds
     .map((id) => CONDITIONS.find((c) => c.id === id))
     .filter(Boolean) as Condition[];
-
-  const { ref: overviewRef, style: overviewStyle } = useFadeUp(0);
-  const { ref: treatRef, style: treatStyle } = useFadeUp(100);
-  const { ref: relRef, style: relStyle } = useFadeUp(150);
 
   return (
     <div className="min-h-screen bg-[#F8F8F6]">
