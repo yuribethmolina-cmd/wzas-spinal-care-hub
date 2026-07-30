@@ -15,6 +15,12 @@ const BASE_CATEGORIES = [
   { id: "chirurgie", photo: `${BASE}/2026/05/db640b7718e314a38996cce985205bc2.jpg` },
 ];
 
+const CATEGORY_PHOTOS: Record<string, string> = {
+  "ohne-operation": "/gallery/praxis-01.webp",
+  "minimalinvasiv": "/gallery/praxis-05.webp",
+  "chirurgie": "/wolfart-klinik.jpg",
+};
+
 type Method = { name: string; desc: string };
 type Category = { id: string; name: string; description: string; photo: string; methods: Method[] };
 
@@ -66,6 +72,33 @@ function SpectrumCard({ cat, index }: { cat: Category; index: number }) {
         <p className="text-white font-display font-semibold text-xl leading-tight">{cat.name}</p>
         <p className="mt-2 text-white/70 text-sm leading-snug">{cat.description}</p>
       </div>
+    </div>
+  );
+}
+
+function WolfartCallout() {
+  const t = useT({
+    de: {
+      label: "Operationsstandort",
+      heading: "Wolfart Klinikum München",
+      body: "Operative Eingriffe führen unsere Chirurgen im Wolfart Klinikum durch — einer der führenden Privatkliniken für Neurochirurgie und Orthopädie in Bayern. Modernste OP-Säle, erfahrenes OP-Personal und eine lückenlose Abstimmung zwischen Praxis und Klinik sichern optimale Ergebnisse.",
+      link: "Mehr über unseren Klinikpartner →",
+    },
+    en: {
+      label: "Surgical facility",
+      heading: "Wolfart Klinikum Munich",
+      body: "Our surgeons perform all operative procedures at the Wolfart Klinikum — one of Bavaria's leading private clinics for neurosurgery and orthopaedics. State-of-the-art theatres, experienced surgical staff and seamless coordination between practice and clinic ensure optimal outcomes.",
+      link: "Learn more about our clinic partner →",
+    },
+  });
+  return (
+    <div className="mt-6 border-l-4 border-[#AC8F52] bg-[#F8F8F6] pl-5 py-4 pr-4">
+      <p className="text-[10px] font-semibold tracking-widest uppercase text-[#AC8F52] mb-1">{t.label}</p>
+      <p className="font-display text-lg font-semibold text-[#1E2535] mb-2">{t.heading}</p>
+      <p className="text-sm text-[#4A5568] leading-relaxed">{t.body}</p>
+      <a href="/wolfart" className="inline-block mt-3 text-xs font-semibold text-[#AC8F52] hover:brightness-110 transition">
+        {t.link}
+      </a>
     </div>
   );
 }
@@ -282,18 +315,30 @@ function BehandlungenPage() {
                   {cat.name}
                 </p>
                 <div className="h-px bg-[#E2E4E7] mb-6" />
-                <div className="space-y-5">
-                  {cat.methods.map((method) => (
-                    <div key={method.name} className="flex gap-4 items-start">
-                      <svg className="w-5 h-5 text-[#AC8F52] flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                        <path d="M12 5v14M5 12h14" strokeLinecap="round" />
-                      </svg>
-                      <div>
-                        <p className="font-semibold text-[#1E2535]">{method.name}</p>
-                        <p className="text-sm text-[#4A5568] leading-relaxed mt-0.5">{method.desc}</p>
+                <div className="flex flex-col lg:flex-row gap-8 items-start">
+                  {/* Photo */}
+                  <div className="w-full lg:w-2/5 flex-shrink-0">
+                    <div
+                      className="w-full aspect-[4/3] bg-cover bg-center rounded-sm"
+                      style={{ backgroundImage: `url(${CATEGORY_PHOTOS[cat.id]})` }}
+                    />
+                  </div>
+                  {/* Methods list */}
+                  <div className="flex-1 space-y-5">
+                    {cat.methods.map((method) => (
+                      <div key={method.name} className="flex gap-4 items-start">
+                        <svg className="w-5 h-5 text-[#AC8F52] flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                          <path d="M12 5v14M5 12h14" strokeLinecap="round" />
+                        </svg>
+                        <div>
+                          <p className="font-semibold text-[#1E2535]">{method.name}</p>
+                          <p className="text-sm text-[#4A5568] leading-relaxed mt-0.5">{method.desc}</p>
+                        </div>
                       </div>
-                    </div>
-                  ))}
+                    ))}
+                    {/* Wolfart callout — only for chirurgie category */}
+                    {cat.id === "chirurgie" && <WolfartCallout />}
+                  </div>
                 </div>
               </div>
             ))}
