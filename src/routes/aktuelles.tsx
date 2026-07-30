@@ -1,9 +1,11 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import React, { useEffect, useRef, useState } from "react";
-import logoAsset from "@/assets/wzas/logo.png.asset.json";
 import aktuellesImg from "@/assets/wzas/aktuelles.jpg.asset.json";
 import vortraegeImg from "@/assets/wzas/vortraege.webp.asset.json";
 import thumbBandscheibe from "@/assets/wzas/thumb-bandscheibe.webp.asset.json";
+import { SiteNav } from "@/components/SiteNav";
+import { PageFooter } from "@/components/wzas/PageFooter";
+import { useLang, useT } from "@/lib/lang";
 
 const BOOKING_URL = "https://onlinerezeption.vercel.app";
 const EASE = "cubic-bezier(0.23, 1, 0.32, 1)";
@@ -45,72 +47,129 @@ export const Route = createFileRoute("/aktuelles")({
 
 type ItemType = "Vortrag" | "Video" | "Artikel";
 
-const ITEMS: {
+type Item = {
   type: ItemType;
-  date: string;
-  title: string;
-  detail: string;
-  img?: string;
   featured?: boolean;
-}[] = [
+  img?: string;
+  de: { date: string; title: string; detail: string };
+  en: { date: string; title: string; detail: string };
+};
+
+const ITEMS: Item[] = [
   {
     type: "Vortrag",
-    date: "15. September 2026",
-    title: "Rücken ohne OP: Wann ist Chirurgie wirklich nötig?",
-    detail: "Gasteig HP8 · Großer Saal · München · 19:00 Uhr · Eintritt frei",
     img: vortraegeImg.url,
     featured: true,
+    de: {
+      date: "15. September 2026",
+      title: "Rücken ohne OP: Wann ist Chirurgie wirklich nötig?",
+      detail: "Gasteig HP8 · Großer Saal · München · 19:00 Uhr · Eintritt frei",
+    },
+    en: {
+      date: "15 September 2026",
+      title: "Back without surgery: when is an operation really necessary?",
+      detail: "Gasteig HP8 · Grand Hall · Munich · 7:00 pm · Free admission",
+    },
   },
   {
     type: "Video",
-    date: "Online verfügbar",
-    title: "Bandscheibenvorfall verstehen: Diagnose & Behandlung",
-    detail: "45 Min. · Dr. med. Ralph Medele · Aufgezeichneter Vortrag",
     img: thumbBandscheibe.url,
     featured: true,
+    de: {
+      date: "Online verfügbar",
+      title: "Bandscheibenvorfall verstehen: Diagnose & Behandlung",
+      detail: "45 Min. · Dr. med. Ralph Medele · Aufgezeichneter Vortrag",
+    },
+    en: {
+      date: "Available online",
+      title: "Understanding a herniated disc: diagnosis & treatment",
+      detail: "45 min · Dr. med. Ralph Medele · Recorded lecture",
+    },
   },
   {
     type: "Artikel",
-    date: "Juli 2026",
-    title: "Neue minimalinvasive Techniken in der Wirbelsäulenchirurgie",
-    detail: "Fachbeitrag · Neurochirurgie aktuell · Peer-reviewed",
     img: aktuellesImg.url,
     featured: true,
+    de: {
+      date: "Juli 2026",
+      title: "Neue minimalinvasive Techniken in der Wirbelsäulenchirurgie",
+      detail: "Fachbeitrag · Neurochirurgie aktuell · Peer-reviewed",
+    },
+    en: {
+      date: "July 2026",
+      title: "New minimally invasive techniques in spinal surgery",
+      detail: "Journal article · Neurochirurgie aktuell · Peer-reviewed",
+    },
   },
   {
     type: "Vortrag",
-    date: "22. Oktober 2026",
-    title: "Chronische Rückenschmerzen: Ursachen und moderne Therapieoptionen",
-    detail: "VHS München · Nymphenburger Str. · 18:30 Uhr · Eintritt frei",
     featured: false,
+    de: {
+      date: "22. Oktober 2026",
+      title: "Chronische Rückenschmerzen: Ursachen und moderne Therapieoptionen",
+      detail: "VHS München · Nymphenburger Str. · 18:30 Uhr · Eintritt frei",
+    },
+    en: {
+      date: "22 October 2026",
+      title: "Chronic back pain: causes and modern treatment options",
+      detail: "VHS Munich · Nymphenburger Str. · 6:30 pm · Free admission",
+    },
   },
   {
     type: "Artikel",
-    date: "Mai 2026",
-    title: "Spinalkanalstenose im Alter — wenn der Rücken eng wird",
-    detail: "Patienteninformation · Wirbelsäulenmedizin aktuell",
     featured: false,
+    de: {
+      date: "Mai 2026",
+      title: "Spinalkanalstenose im Alter — wenn der Rücken eng wird",
+      detail: "Patienteninformation · Wirbelsäulenmedizin aktuell",
+    },
+    en: {
+      date: "May 2026",
+      title: "Spinal stenosis in old age — when the back tightens",
+      detail: "Patient information · Wirbelsäulenmedizin aktuell",
+    },
   },
   {
     type: "Video",
-    date: "Online verfügbar",
-    title: "Was ist eine periradikuläre Therapie (PRT)?",
-    detail: "12 Min. · Erklärfilm für Patienten · Dr. med. Christian Eröss",
     featured: false,
+    de: {
+      date: "Online verfügbar",
+      title: "Was ist eine periradikuläre Therapie (PRT)?",
+      detail: "12 Min. · Erklärfilm für Patienten · Dr. med. Christian Eröss",
+    },
+    en: {
+      date: "Available online",
+      title: "What is periradicular therapy (PRT)?",
+      detail: "12 min · Patient explainer · Dr. med. Christian Eröss",
+    },
   },
   {
     type: "Artikel",
-    date: "März 2026",
-    title: "Ischias: Wann hilft eine Injektion, wann braucht es mehr?",
-    detail: "Ratgeber · Schmerzzentrum München",
     featured: false,
+    de: {
+      date: "März 2026",
+      title: "Ischias: Wann hilft eine Injektion, wann braucht es mehr?",
+      detail: "Ratgeber · Schmerzzentrum München",
+    },
+    en: {
+      date: "March 2026",
+      title: "Sciatica: when does an injection help, when is more needed?",
+      detail: "Guide · Pain Centre Munich",
+    },
   },
   {
     type: "Vortrag",
-    date: "5. November 2026",
-    title: "Sportverletzungen der Wirbelsäule: Prävention und Therapie",
-    detail: "TU München · Sportmedizin · 17:00 Uhr",
     featured: false,
+    de: {
+      date: "5. November 2026",
+      title: "Sportverletzungen der Wirbelsäule: Prävention und Therapie",
+      detail: "TU München · Sportmedizin · 17:00 Uhr",
+    },
+    en: {
+      date: "5 November 2026",
+      title: "Spinal sports injuries: prevention and therapy",
+      detail: "TU Munich · Sports Medicine · 5:00 pm",
+    },
   },
 ];
 
@@ -120,47 +179,22 @@ const TYPE_COLORS: Record<ItemType, { bg: string; text: string; border: string }
   Artikel: { bg: "bg-emerald-50", text: "text-emerald-700", border: "border-emerald-200" },
 };
 
+const TYPE_EN: Record<ItemType, string> = {
+  Vortrag: "Talk",
+  Video: "Video",
+  Artikel: "Article",
+};
+
 const FILTERS: (ItemType | "Alle")[] = ["Alle", "Vortrag", "Video", "Artikel"];
 
 function TypeBadge({ type }: { type: ItemType }) {
+  const { lang } = useLang();
   const c = TYPE_COLORS[type];
+  const label = lang === "en" ? TYPE_EN[type] : type;
   return (
     <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-semibold tracking-wide border ${c.bg} ${c.text} ${c.border}`}>
-      {type.toUpperCase()}
+      {label.toUpperCase()}
     </span>
-  );
-}
-
-function PageHeader() {
-  const [scrolled, setScrolled] = useState(false);
-  useEffect(() => {
-    const on = () => setScrolled(window.scrollY > 8);
-    on();
-    window.addEventListener("scroll", on, { passive: true });
-    return () => window.removeEventListener("scroll", on);
-  }, []);
-  return (
-    <header className={`sticky top-0 z-50 bg-white transition-shadow duration-300 ${scrolled ? "shadow-md" : "shadow-none"}`}>
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 lg:px-8">
-        <Link to="/" className="flex items-center gap-3">
-          <img src={logoAsset.url} alt="WZAS Wirbelsäulenzentrum am Stiglmaierplatz" className="h-10 w-auto" />
-        </Link>
-        <nav className="hidden lg:flex items-center gap-7">
-          <Link to="/beschwerden" className="text-sm font-medium text-[#1E2535] hover:text-[#AC8F52] transition-colors">Rückenerkrankungen</Link>
-          <Link to="/aerzte" className="text-sm font-medium text-[#1E2535] hover:text-[#AC8F52] transition-colors">Ärzteteam</Link>
-          <Link to="/behandlungen" className="text-sm font-medium text-[#1E2535] hover:text-[#AC8F52] transition-colors">Behandlungen</Link>
-          <Link to="/aktuelles" className="text-sm font-semibold text-[#AC8F52]">Aktuelles</Link>
-        </nav>
-        <a
-          href={BOOKING_URL}
-          target="_blank"
-          rel="noreferrer"
-          className="inline-flex items-center rounded-full bg-[#AC8F52] px-5 py-2.5 text-sm font-semibold text-[#1E2535] hover:brightness-105 transition"
-        >
-          Termin vereinbaren
-        </a>
-      </div>
-    </header>
   );
 }
 
@@ -168,15 +202,18 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
   return <p className="text-[11px] font-semibold tracking-[0.2em] uppercase text-[#AC8F52]">{children}</p>;
 }
 
-function FeaturedCard({ item, index }: { item: (typeof ITEMS)[number]; index: number }) {
+function FeaturedCard({ item, index }: { item: Item; index: number }) {
+  const { lang } = useLang();
+  const t = useT({ de: { learnMore: "Mehr erfahren" }, en: { learnMore: "Learn more" } });
   const { ref, style } = useFadeUp(index * 80);
+  const c = lang === "en" ? item.en : item.de;
   return (
     <div ref={ref} style={style} className="bg-white rounded-2xl border border-[#E2E4E7] overflow-hidden hover:shadow-md transition-shadow duration-300 flex flex-col">
       {item.img && (
         <div className="aspect-[16/9] overflow-hidden">
           <img
             src={item.img}
-            alt={item.title}
+            alt={c.title}
             className="w-full h-full object-cover"
             style={{ transition: `transform 600ms ${EASE}` }}
             onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.04)")}
@@ -187,10 +224,10 @@ function FeaturedCard({ item, index }: { item: (typeof ITEMS)[number]; index: nu
       <div className="p-6 flex flex-col gap-3 flex-1">
         <div className="flex items-center justify-between">
           <TypeBadge type={item.type} />
-          <span className="text-xs text-[#8C939B]">{item.date}</span>
+          <span className="text-xs text-[#8C939B]">{c.date}</span>
         </div>
-        <h3 className="font-display text-xl font-semibold text-[#1E2535] leading-snug">{item.title}</h3>
-        <p className="text-sm text-[#8C939B]">{item.detail}</p>
+        <h3 className="font-display text-xl font-semibold text-[#1E2535] leading-snug">{c.title}</h3>
+        <p className="text-sm text-[#8C939B]">{c.detail}</p>
         <div className="mt-auto pt-3">
           <a
             href={BOOKING_URL}
@@ -198,7 +235,7 @@ function FeaturedCard({ item, index }: { item: (typeof ITEMS)[number]; index: nu
             rel="noreferrer"
             className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#AC8F52] hover:gap-2.5 transition-all duration-200"
           >
-            Mehr erfahren
+            {t.learnMore}
             <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" className="w-3.5 h-3.5">
               <path d="M3 8h10M9 4l4 4-4 4" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
@@ -209,7 +246,9 @@ function FeaturedCard({ item, index }: { item: (typeof ITEMS)[number]; index: nu
   );
 }
 
-function ListCard({ item }: { item: (typeof ITEMS)[number] }) {
+function ListCard({ item }: { item: Item }) {
+  const { lang } = useLang();
+  const c = lang === "en" ? item.en : item.de;
   return (
     <div className="flex items-start gap-4 py-5 border-b border-[#E2E4E7] last:border-0 group">
       <div className="shrink-0 mt-0.5">
@@ -217,10 +256,10 @@ function ListCard({ item }: { item: (typeof ITEMS)[number] }) {
       </div>
       <div className="flex-1 min-w-0">
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 mb-1">
-          <h4 className="font-semibold text-[#1E2535] leading-snug group-hover:text-[#AC8F52] transition-colors duration-200">{item.title}</h4>
-          <span className="text-xs text-[#8C939B] shrink-0">{item.date}</span>
+          <h4 className="font-semibold text-[#1E2535] leading-snug group-hover:text-[#AC8F52] transition-colors duration-200">{c.title}</h4>
+          <span className="text-xs text-[#8C939B] shrink-0">{c.date}</span>
         </div>
-        <p className="text-sm text-[#8C939B]">{item.detail}</p>
+        <p className="text-sm text-[#8C939B]">{c.detail}</p>
       </div>
       <div className="shrink-0 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
         <svg viewBox="0 0 16 16" fill="none" stroke="#AC8F52" strokeWidth="2" className="w-4 h-4">
@@ -231,30 +270,49 @@ function ListCard({ item }: { item: (typeof ITEMS)[number] }) {
   );
 }
 
-function PageFooter() {
-  return (
-    <footer className="bg-[#1E2535] text-white py-10">
-      <div className="mx-auto max-w-7xl px-5 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-        <Link to="/">
-          <img src={logoAsset.url} alt="WZAS" className="h-8 w-auto brightness-0 invert opacity-80" />
-        </Link>
-        <p className="text-xs text-[#8C939B] text-center">
-          Nymphenburger Str. 1 · 80335 München · +49 (0)89-54 34 30 30
-        </p>
-        <a
-          href={BOOKING_URL}
-          target="_blank"
-          rel="noreferrer"
-          className="text-xs font-semibold text-[#AC8F52] hover:brightness-110 transition"
-        >
-          Termin vereinbaren →
-        </a>
-      </div>
-    </footer>
-  );
-}
-
 function AktuellesPage() {
+  const { lang } = useLang();
+  const t = useT({
+    de: {
+      eyebrow: "Aktuelles",
+      h1Main: "Vorträge, Wissen",
+      h1Italic: "& Forschung",
+      heroPara: "Unsere Spezialisten teilen ihr Wissen in öffentlichen Vorträgen, Fachartikeln und Lehrvideos. Bleiben Sie über neue Behandlungsmethoden informiert.",
+      filterAll: "Alle",
+      filterTypes: { Vortrag: "Vortrag", Video: "Video", Artikel: "Artikel" } as Record<ItemType, string>,
+      featured: "Hervorgehoben",
+      morePosts: "Weitere Beiträge",
+      empty: "Keine Beiträge in dieser Kategorie.",
+      showAll: "Alle anzeigen →",
+      newsletterLabel: "Veranstaltungshinweise",
+      newsletterH2: "Kein Vortrag verpassen",
+      newsletterBody: "Unsere öffentlichen Vorträge sind kostenlos und richten sich an Patienten und Angehörige.",
+      newsletterEmail: "Hinweise per E-Mail",
+      ctaH2: "Wir sind für Sie da.",
+      ctaBody: "Termin vereinbaren — Ersttermine meist innerhalb von 5 Werktagen.",
+      ctaBtn: "Termin online buchen",
+    },
+    en: {
+      eyebrow: "Latest news",
+      h1Main: "Talks, Knowledge",
+      h1Italic: "& Research",
+      heroPara: "Our specialists share their knowledge through public talks, journal articles and educational videos. Stay informed about new treatment methods.",
+      filterAll: "All",
+      filterTypes: { Vortrag: "Talk", Video: "Video", Artikel: "Article" } as Record<ItemType, string>,
+      featured: "Featured",
+      morePosts: "More articles",
+      empty: "No content in this category.",
+      showAll: "Show all →",
+      newsletterLabel: "Event announcements",
+      newsletterH2: "Never miss a talk",
+      newsletterBody: "Our public talks are free of charge and open to patients and their families.",
+      newsletterEmail: "Get notified by email",
+      ctaH2: "We are here for you.",
+      ctaBody: "Book an appointment — most first appointments within 5 working days.",
+      ctaBtn: "Book appointment online",
+    },
+  });
+
   const [activeFilter, setActiveFilter] = useState<ItemType | "Alle">("Alle");
   const { ref: heroRef, style: heroStyle } = useFadeUp(0);
 
@@ -266,7 +324,7 @@ function AktuellesPage() {
 
   return (
     <div className="min-h-screen bg-[#F8F8F6]">
-      <PageHeader />
+      <SiteNav />
 
       <main>
         {/* Hero */}
@@ -279,13 +337,13 @@ function AktuellesPage() {
           />
           <div className="mx-auto max-w-7xl px-5 lg:px-8">
             <div ref={heroRef} style={heroStyle} className="max-w-3xl">
-              <SectionLabel>Aktuelles</SectionLabel>
+              <SectionLabel>{t.eyebrow}</SectionLabel>
               <h1 className="mt-4 font-display text-5xl lg:text-6xl font-semibold leading-tight text-white">
-                Vorträge, Wissen{" "}
-                <em className="font-display italic font-normal text-[#AC8F52]">&amp; Forschung</em>
+                {t.h1Main}{" "}
+                <em className="font-display italic font-normal text-[#AC8F52]">{t.h1Italic}</em>
               </h1>
               <p className="mt-6 text-lg text-[#8C939B] leading-relaxed max-w-xl">
-                Unsere Spezialisten teilen ihr Wissen in öffentlichen Vorträgen, Fachartikeln und Lehrvideos. Bleiben Sie über neue Behandlungsmethoden informiert.
+                {t.heroPara}
               </p>
             </div>
           </div>
@@ -296,33 +354,36 @@ function AktuellesPage() {
           <div className="mx-auto max-w-7xl px-5 lg:px-8">
             {/* Filter pills */}
             <div className="flex items-center gap-2 mb-10 overflow-x-auto pb-2">
-              {FILTERS.map((f) => (
-                <button
-                  key={f}
-                  onClick={() => setActiveFilter(f)}
-                  className={`shrink-0 px-4 py-2 rounded-full text-sm font-semibold transition-colors duration-200 ${
-                    activeFilter === f
-                      ? "bg-[#1E2535] text-white"
-                      : "bg-white border border-[#E2E4E7] text-[#1E2535] hover:border-[#AC8F52] hover:text-[#AC8F52]"
-                  }`}
-                >
-                  {f}
-                  {f !== "Alle" && (
-                    <span className="ml-1.5 text-xs opacity-60">
-                      ({ITEMS.filter((i) => i.type === f).length})
-                    </span>
-                  )}
-                </button>
-              ))}
+              {FILTERS.map((f) => {
+                const label = f === "Alle" ? t.filterAll : t.filterTypes[f as ItemType];
+                return (
+                  <button
+                    key={f}
+                    onClick={() => setActiveFilter(f)}
+                    className={`shrink-0 px-4 py-2 rounded-full text-sm font-semibold transition-colors duration-200 ${
+                      activeFilter === f
+                        ? "bg-[#1E2535] text-white"
+                        : "bg-white border border-[#E2E4E7] text-[#1E2535] hover:border-[#AC8F52] hover:text-[#AC8F52]"
+                    }`}
+                  >
+                    {label}
+                    {f !== "Alle" && (
+                      <span className="ml-1.5 text-xs opacity-60">
+                        ({ITEMS.filter((i) => i.type === f).length})
+                      </span>
+                    )}
+                  </button>
+                );
+              })}
             </div>
 
             {/* Featured grid */}
             {filteredFeatured.length > 0 && (
               <div className="mb-12">
-                <SectionLabel>Hervorgehoben</SectionLabel>
+                <SectionLabel>{t.featured}</SectionLabel>
                 <div className="mt-5 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
                   {filteredFeatured.map((item, i) => (
-                    <FeaturedCard key={item.title} item={item} index={i} />
+                    <FeaturedCard key={item.de.title} item={item} index={i} />
                   ))}
                 </div>
               </div>
@@ -331,10 +392,10 @@ function AktuellesPage() {
             {/* Remaining list */}
             {filteredRest.length > 0 && (
               <div>
-                <SectionLabel>Weitere Beiträge</SectionLabel>
+                <SectionLabel>{t.morePosts}</SectionLabel>
                 <div className="mt-5 bg-white rounded-2xl border border-[#E2E4E7] px-6 divide-y divide-[#E2E4E7]">
                   {filteredRest.map((item) => (
-                    <ListCard key={item.title} item={item} />
+                    <ListCard key={item.de.title} item={item} />
                   ))}
                 </div>
               </div>
@@ -342,12 +403,12 @@ function AktuellesPage() {
 
             {filteredFeatured.length === 0 && filteredRest.length === 0 && (
               <div className="text-center py-16">
-                <p className="text-[#8C939B]">Keine Beiträge in dieser Kategorie.</p>
+                <p className="text-[#8C939B]">{t.empty}</p>
                 <button
                   onClick={() => setActiveFilter("Alle")}
                   className="mt-4 text-sm font-semibold text-[#AC8F52]"
                 >
-                  Alle anzeigen →
+                  {t.showAll}
                 </button>
               </div>
             )}
@@ -359,23 +420,23 @@ function AktuellesPage() {
           <div className="mx-auto max-w-7xl px-5 lg:px-8">
             <div className="lg:flex lg:items-center lg:justify-between gap-10">
               <div className="mb-6 lg:mb-0">
-                <SectionLabel>Veranstaltungshinweise</SectionLabel>
+                <SectionLabel>{t.newsletterLabel}</SectionLabel>
                 <h2 className="mt-3 font-display text-3xl font-semibold text-[#1E2535]">
-                  Kein Vortrag verpassen
+                  {t.newsletterH2}
                 </h2>
                 <p className="mt-2 text-sm text-[#8C939B]">
-                  Unsere öffentlichen Vorträge sind kostenlos und richten sich an Patienten und Angehörige.
+                  {t.newsletterBody}
                 </p>
               </div>
               <div className="flex flex-col sm:flex-row gap-3">
                 <a
-                  href="mailto:info@wzas.de?subject=Veranstaltungshinweise"
+                  href={`mailto:info@wzas.de?subject=${lang === "en" ? "Event+announcements" : "Veranstaltungshinweise"}`}
                   className="inline-flex items-center justify-center gap-2 rounded-full bg-[#1E2535] px-6 py-3 text-sm font-semibold text-white hover:bg-[#263044] transition-colors"
                 >
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-4 h-4">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
                   </svg>
-                  Hinweise per E-Mail
+                  {t.newsletterEmail}
                 </a>
                 <a
                   href="tel:+498954343030"
@@ -400,9 +461,9 @@ function AktuellesPage() {
             }}
           />
           <div className="mx-auto max-w-7xl px-5 lg:px-8 text-center">
-            <h2 className="font-display text-4xl font-semibold text-white">Wir sind für Sie da.</h2>
+            <h2 className="font-display text-4xl font-semibold text-white">{t.ctaH2}</h2>
             <p className="mt-4 text-[#8C939B] max-w-md mx-auto">
-              Termin vereinbaren — Ersttermine meist innerhalb von 5 Werktagen.
+              {t.ctaBody}
             </p>
             <a
               href={BOOKING_URL}
@@ -410,7 +471,7 @@ function AktuellesPage() {
               rel="noreferrer"
               className="mt-7 inline-flex items-center gap-2 rounded-full bg-[#AC8F52] px-7 py-3.5 text-sm font-semibold text-[#1E2535] hover:brightness-105 transition"
             >
-              Termin online buchen
+              {t.ctaBtn}
             </a>
           </div>
         </section>

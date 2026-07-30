@@ -8,9 +8,7 @@ import {
   type Availability,
 } from "@/lib/doctors";
 import { SiteNav } from "@/components/SiteNav";
-
-
-
+import { useLang, useT } from "@/lib/lang";
 
 export const Route = createFileRoute("/aerzte/")({
   head: () => ({
@@ -24,7 +22,51 @@ export const Route = createFileRoute("/aerzte/")({
   component: Directory,
 });
 
+const AVAIL_EN: Record<Availability, string> = {
+  "Diese Woche": "This week",
+  "Nächste Woche": "Next week",
+  "In 2+ Wochen": "In 2+ weeks",
+};
+
 function Directory() {
+  const { lang } = useLang();
+  const t = useT({
+    de: {
+      eyebrow: "Ärzteverzeichnis",
+      h1: "Finden Sie Ihren Spezialisten",
+      heroPara: (count: number) =>
+        `${count} Ärztinnen und Ärzte am Wirbelsäulenzentrum am Stiglmaierplatz. Filtern Sie nach Fachgebiet und Verfügbarkeit.`,
+      searchPlaceholder: "Nach Name, Fachgebiet oder Beschwerde suchen…",
+      labelSpecialty: "Fachgebiet",
+      labelAvailability: "Verfügbarkeit",
+      filterAll: "Alle",
+      resultsSingular: (n: number) => `${n} Ergebnis`,
+      resultsPlural: (n: number) => `${n} Ergebnisse`,
+      emptyHeading: "Keine Ärzte gefunden",
+      emptyBody: "Passen Sie Ihre Filter an oder setzen Sie sie zurück.",
+      resetBtn: "Filter zurücksetzen",
+      nextAppt: "Nächster Termin",
+      profile: "Profil",
+    },
+    en: {
+      eyebrow: "Doctor directory",
+      h1: "Find your specialist",
+      heroPara: (count: number) =>
+        `${count} doctors at the Spine Centre at Stiglmaierplatz. Filter by specialty and availability.`,
+      searchPlaceholder: "Search by name, specialty or condition…",
+      labelSpecialty: "Specialty",
+      labelAvailability: "Availability",
+      filterAll: "All",
+      resultsSingular: (n: number) => `${n} result`,
+      resultsPlural: (n: number) => `${n} results`,
+      emptyHeading: "No doctors found",
+      emptyBody: "Adjust your filters or reset them.",
+      resetBtn: "Reset filters",
+      nextAppt: "Next appointment",
+      profile: "Profile",
+    },
+  });
+
   const [query, setQuery] = useState("");
   const [specialty, setSpecialty] = useState<Specialty | "Alle">("Alle");
   const [availability, setAvailability] = useState<Availability | "Alle">("Alle");
@@ -42,17 +84,21 @@ function Directory() {
     });
   }, [query, specialty, availability]);
 
+  const resultCount =
+    filtered.length === 1
+      ? t.resultsSingular(filtered.length)
+      : t.resultsPlural(filtered.length);
+
   return (
     <div className="min-h-screen bg-[#F8F8F6]">
       <SiteNav />
 
-
       <section className="bg-[#1E2535] py-16 text-white">
         <div className="mx-auto max-w-7xl px-5 lg:px-8">
-          <p className="text-[11px] font-medium tracking-[0.2em] uppercase text-[#AC8F52]">Ärzteverzeichnis</p>
-          <h1 className="mt-3 text-4xl md:text-5xl font-bold">Finden Sie Ihren Spezialisten</h1>
+          <p className="text-[11px] font-medium tracking-[0.2em] uppercase text-[#AC8F52]">{t.eyebrow}</p>
+          <h1 className="mt-3 text-4xl md:text-5xl font-bold">{t.h1}</h1>
           <p className="mt-4 max-w-2xl text-[#E2E4E7] leading-relaxed">
-            {doctors.length} Ärztinnen und Ärzte am Wirbelsäulenzentrum am Stiglmaierplatz. Filtern Sie nach Fachgebiet und Verfügbarkeit.
+            {t.heroPara(doctors.length)}
           </p>
         </div>
       </section>
@@ -68,27 +114,29 @@ function Directory() {
               type="search"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
-              placeholder="Nach Name, Fachgebiet oder Beschwerde suchen…"
+              placeholder={t.searchPlaceholder}
               className="w-full rounded-full border border-[#E2E4E7] bg-white pl-12 pr-4 py-3 text-sm text-[#1E2535] placeholder:text-[#8C939B] focus:border-[#AC8F52] focus:outline-none"
             />
           </div>
 
           <div className="grid gap-4 md:grid-cols-2">
             <div>
-              <p className="text-[11px] uppercase tracking-wide text-[#8C939B] font-medium mb-2">Fachgebiet</p>
+              <p className="text-[11px] uppercase tracking-wide text-[#8C939B] font-medium mb-2">{t.labelSpecialty}</p>
               <div className="flex flex-wrap gap-2">
-                <FilterChip active={specialty === "Alle"} onClick={() => setSpecialty("Alle")}>Alle</FilterChip>
+                <FilterChip active={specialty === "Alle"} onClick={() => setSpecialty("Alle")}>{t.filterAll}</FilterChip>
                 {allSpecialties.map((s) => (
                   <FilterChip key={s} active={specialty === s} onClick={() => setSpecialty(s)}>{s}</FilterChip>
                 ))}
               </div>
             </div>
             <div>
-              <p className="text-[11px] uppercase tracking-wide text-[#8C939B] font-medium mb-2">Verfügbarkeit</p>
+              <p className="text-[11px] uppercase tracking-wide text-[#8C939B] font-medium mb-2">{t.labelAvailability}</p>
               <div className="flex flex-wrap gap-2">
-                <FilterChip active={availability === "Alle"} onClick={() => setAvailability("Alle")}>Alle</FilterChip>
+                <FilterChip active={availability === "Alle"} onClick={() => setAvailability("Alle")}>{t.filterAll}</FilterChip>
                 {allAvailabilities.map((a) => (
-                  <FilterChip key={a} active={availability === a} onClick={() => setAvailability(a)}>{a}</FilterChip>
+                  <FilterChip key={a} active={availability === a} onClick={() => setAvailability(a)}>
+                    {lang === "en" ? AVAIL_EN[a] : a}
+                  </FilterChip>
                 ))}
               </div>
             </div>
@@ -98,19 +146,17 @@ function Directory() {
 
       <section className="py-12">
         <div className="mx-auto max-w-7xl px-5 lg:px-8">
-          <p className="text-sm text-[#8C939B] mb-6">
-            {filtered.length} {filtered.length === 1 ? "Ergebnis" : "Ergebnisse"}
-          </p>
+          <p className="text-sm text-[#8C939B] mb-6">{resultCount}</p>
 
           {filtered.length === 0 ? (
             <div className="rounded-xl border border-dashed border-[#E2E4E7] bg-white p-12 text-center">
-              <p className="text-[#1E2535] font-semibold">Keine Ärzte gefunden</p>
-              <p className="mt-2 text-sm text-[#8C939B]">Passen Sie Ihre Filter an oder setzen Sie sie zurück.</p>
+              <p className="text-[#1E2535] font-semibold">{t.emptyHeading}</p>
+              <p className="mt-2 text-sm text-[#8C939B]">{t.emptyBody}</p>
               <button
                 onClick={() => { setQuery(""); setSpecialty("Alle"); setAvailability("Alle"); }}
                 className="mt-4 rounded-full border border-[#1E2535] px-5 py-2 text-sm font-semibold text-[#1E2535] hover:bg-[#1E2535] hover:text-white transition"
               >
-                Filter zurücksetzen
+                {t.resetBtn}
               </button>
             </div>
           ) : (
@@ -147,17 +193,16 @@ function Directory() {
                     </p>
                     <div className="mt-5 pt-4 border-t border-[#E2E4E7] flex items-center justify-between">
                       <div className="text-xs text-[#8C939B]">
-                        Nächster Termin<br />
+                        {t.nextAppt}<br />
                         <span className="text-[#1E2535] font-semibold">{d.nextSlot}</span>
                       </div>
                       <span className="text-sm font-semibold text-[#1E2535] group-hover:text-[#AC8F52] transition">
-                        Profil →
+                        {t.profile} →
                       </span>
                     </div>
                   </div>
                 </Link>
               ))}
-
             </div>
           )}
         </div>
@@ -180,15 +225,17 @@ function FilterChip({ active, onClick, children }: { active: boolean; onClick: (
 }
 
 function AvailabilityBadge({ availability }: { availability: Availability }) {
+  const { lang } = useLang();
   const map: Record<Availability, string> = {
     "Diese Woche": "bg-emerald-500 text-white",
     "Nächste Woche": "bg-[#AC8F52] text-[#1E2535]",
     "In 2+ Wochen": "bg-white/90 text-[#1E2535]",
   };
+  const label = lang === "en" ? AVAIL_EN[availability] : availability;
   return (
     <span className={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[11px] font-semibold ${map[availability]}`}>
       <span className="w-1.5 h-1.5 rounded-full bg-current opacity-80" />
-      {availability}
+      {label}
     </span>
   );
 }

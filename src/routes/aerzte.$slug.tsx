@@ -1,6 +1,7 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { doctors, getDoctorBySlug } from "@/lib/doctors";
 import { SiteNav } from "@/components/SiteNav";
+import { useT } from "@/lib/lang";
 
 const BOOKING_URL = "https://onlinerezeption.vercel.app";
 
@@ -34,14 +35,26 @@ export const Route = createFileRoute("/aerzte/$slug")({
 });
 
 function DoctorNotFound() {
+  const t = useT({
+    de: {
+      heading: "Arzt nicht gefunden",
+      body: "Der gesuchte Spezialist ist nicht in unserem Verzeichnis.",
+      link: "Zum Ärzteverzeichnis",
+    },
+    en: {
+      heading: "Doctor not found",
+      body: "The specialist you are looking for is not in our directory.",
+      link: "Doctor directory",
+    },
+  });
   return (
     <div className="min-h-screen flex items-center justify-center bg-[#F8F8F6] px-5">
       <div className="text-center max-w-md">
         <p className="text-[11px] uppercase tracking-[0.2em] text-[#AC8F52] font-medium">404</p>
-        <h1 className="mt-3 text-3xl font-bold text-[#1E2535]">Arzt nicht gefunden</h1>
-        <p className="mt-3 text-[#8C939B]">Der gesuchte Spezialist ist nicht in unserem Verzeichnis.</p>
+        <h1 className="mt-3 text-3xl font-bold text-[#1E2535]">{t.heading}</h1>
+        <p className="mt-3 text-[#8C939B]">{t.body}</p>
         <Link to="/aerzte" className="mt-6 inline-flex rounded-full bg-[#1E2535] px-6 py-3 text-sm font-semibold text-white hover:bg-[#263044] transition">
-          Zum Ärzteverzeichnis
+          {t.link}
         </Link>
       </div>
     </div>
@@ -52,14 +65,36 @@ function DoctorDetail() {
   const { doctor: d } = Route.useLoaderData() as { doctor: import("@/lib/doctors").Doctor };
   const related = doctors.filter((x) => x.slug !== d.slug && x.specialties.some((s) => d.specialties.includes(s))).slice(0, 3);
 
+  const t = useT({
+    de: {
+      backLink: "← Zurück zum Ärzteverzeichnis",
+      nextAppt: "Nächster Termin",
+      bookBtn: "Termin buchen",
+      focusHeading: "Schwerpunkte",
+      aboutHeading: "Zur Person",
+      educationLabel: "Werdegang",
+      languagesLabel: "Sprachen",
+      relatedHeading: "Verwandte Spezialisten",
+    },
+    en: {
+      backLink: "← Back to doctor directory",
+      nextAppt: "Next appointment",
+      bookBtn: "Book appointment",
+      focusHeading: "Areas of focus",
+      aboutHeading: "About",
+      educationLabel: "Education & career",
+      languagesLabel: "Languages",
+      relatedHeading: "Related specialists",
+    },
+  });
+
   return (
     <div className="min-h-screen bg-[#F8F8F6]">
       <SiteNav />
 
-
       <div className="mx-auto max-w-7xl px-5 lg:px-8 py-6">
         <Link to="/aerzte" className="inline-flex items-center gap-2 text-sm text-[#8C939B] hover:text-[#1E2535]">
-          <span>←</span> Zurück zum Ärzteverzeichnis
+          {t.backLink}
         </Link>
       </div>
 
@@ -76,7 +111,7 @@ function DoctorDetail() {
               )}
             </div>
             <div className="mt-6 rounded-xl bg-white p-6 shadow-sm">
-              <p className="text-[11px] uppercase tracking-[0.2em] text-[#AC8F52] font-medium">Nächster Termin</p>
+              <p className="text-[11px] uppercase tracking-[0.2em] text-[#AC8F52] font-medium">{t.nextAppt}</p>
               <p className="mt-2 text-2xl font-bold text-[#1E2535]">{d.nextSlot}</p>
               <p className="mt-1 text-sm text-[#8C939B]">{d.availability}</p>
               <a
@@ -85,7 +120,7 @@ function DoctorDetail() {
                 rel="noreferrer"
                 className="mt-5 block text-center rounded-full bg-[#AC8F52] px-6 py-3 text-sm font-semibold text-[#1E2535] hover:brightness-105 transition"
               >
-                Termin buchen
+                {t.bookBtn}
               </a>
             </div>
           </div>
@@ -102,7 +137,7 @@ function DoctorDetail() {
             </div>
 
             <div className="mt-10">
-              <h2 className="text-xl font-semibold text-[#1E2535]">Schwerpunkte</h2>
+              <h2 className="text-xl font-semibold text-[#1E2535]">{t.focusHeading}</h2>
               <ul className="mt-4 grid gap-2 sm:grid-cols-2">
                 {d.focus.map((f) => (
                   <li key={f} className="flex items-start gap-2 text-sm text-[#1E2535]">
@@ -114,7 +149,7 @@ function DoctorDetail() {
             </div>
 
             <div className="mt-10">
-              <h2 className="text-xl font-semibold text-[#1E2535]">Zur Person</h2>
+              <h2 className="text-xl font-semibold text-[#1E2535]">{t.aboutHeading}</h2>
               <div className="mt-4 space-y-4 text-[15px] text-[#1E2535] leading-relaxed">
                 {d.bio.map((p, i) => (
                   <p key={i}>{p}</p>
@@ -124,7 +159,7 @@ function DoctorDetail() {
 
             <div className="mt-10 grid gap-8 md:grid-cols-2">
               <div>
-                <h3 className="text-sm uppercase tracking-wide text-[#AC8F52] font-semibold">Werdegang</h3>
+                <h3 className="text-sm uppercase tracking-wide text-[#AC8F52] font-semibold">{t.educationLabel}</h3>
                 <ul className="mt-3 space-y-2 text-sm text-[#1E2535]">
                   {d.education.map((e) => (
                     <li key={e} className="flex items-start gap-2">
@@ -135,7 +170,7 @@ function DoctorDetail() {
                 </ul>
               </div>
               <div>
-                <h3 className="text-sm uppercase tracking-wide text-[#AC8F52] font-semibold">Sprachen</h3>
+                <h3 className="text-sm uppercase tracking-wide text-[#AC8F52] font-semibold">{t.languagesLabel}</h3>
                 <div className="mt-3 flex flex-wrap gap-2">
                   {d.languages.map((l) => (
                     <span key={l} className="rounded-full bg-white border border-[#E2E4E7] px-3 py-1 text-xs text-[#1E2535]">{l}</span>
@@ -150,7 +185,7 @@ function DoctorDetail() {
       {related.length > 0 && (
         <section className="bg-white py-16 border-t border-[#E2E4E7]">
           <div className="mx-auto max-w-7xl px-5 lg:px-8">
-            <h2 className="text-2xl font-bold text-[#1E2535]">Verwandte Spezialisten</h2>
+            <h2 className="text-2xl font-bold text-[#1E2535]">{t.relatedHeading}</h2>
             <div className="mt-8 grid gap-6 md:grid-cols-3">
               {related.map((r) => (
                 <Link
