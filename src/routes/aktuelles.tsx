@@ -250,23 +250,25 @@ function ListCard({ item }: { item: Item }) {
   const { lang } = useLang();
   const c = lang === "en" ? item.en : item.de;
   return (
-    <div className="flex items-start gap-4 py-5 border-b border-[#E2E4E7] last:border-0 group">
-      <div className="shrink-0 mt-0.5">
+    <div className="flex flex-col sm:flex-row items-start gap-3 sm:gap-4 py-5 border-b border-[#E2E4E7] last:border-0 group">
+      <div className="flex w-full sm:w-auto items-center justify-between gap-3 sm:block shrink-0 sm:mt-0.5">
         <TypeBadge type={item.type} />
+        <span className="text-xs text-[#8C939B] sm:hidden">{c.date}</span>
       </div>
-      <div className="flex-1 min-w-0">
+      <div className="flex-1 min-w-0 w-full">
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 mb-1">
-          <h4 className="font-semibold text-[#1E2535] leading-snug group-hover:text-[#AC8F52] transition-colors duration-200">{c.title}</h4>
-          <span className="text-xs text-[#8C939B] shrink-0">{c.date}</span>
+          <h4 className="font-semibold text-[#1E2535] leading-snug group-hover:text-[#AC8F52] transition-colors duration-200 break-words">{c.title}</h4>
+          <span className="hidden sm:inline text-xs text-[#8C939B] shrink-0">{c.date}</span>
         </div>
-        <p className="text-sm text-[#8C939B]">{c.detail}</p>
+        <p className="text-sm text-[#8C939B] break-words">{c.detail}</p>
       </div>
-      <div className="shrink-0 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+      <div className="hidden sm:block shrink-0 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
         <svg viewBox="0 0 16 16" fill="none" stroke="#AC8F52" strokeWidth="2" className="w-4 h-4">
           <path d="M3 8h10M9 4l4 4-4 4" strokeLinecap="round" strokeLinejoin="round" />
         </svg>
       </div>
     </div>
+
   );
 }
 
@@ -393,7 +395,7 @@ function AktuellesPage() {
             {filteredRest.length > 0 && (
               <div>
                 <SectionLabel>{t.morePosts}</SectionLabel>
-                <div className="mt-5 bg-white rounded-2xl border border-[#E2E4E7] px-6 divide-y divide-[#E2E4E7]">
+                <div className="mt-5 bg-white rounded-2xl border border-[#E2E4E7] px-4 sm:px-6 divide-y divide-[#E2E4E7]">
                   {filteredRest.map((item) => (
                     <ListCard key={item.de.title} item={item} />
                   ))}
