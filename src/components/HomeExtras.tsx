@@ -29,7 +29,7 @@ export function Vortragsreihe() {
     <section className="bg-white border-y border-[#E2E4E7]">
       <div className="mx-auto max-w-7xl px-5 lg:px-8 py-12 sm:py-14 lg:py-20 grid gap-10 lg:grid-cols-[1.1fr_1fr] lg:items-center">
         <div>
-          <p className="text-[11px] font-semibold tracking-[0.22em] uppercase text-[#8A6D2F] flex items-center gap-3">
+          <p className="text-[11px] font-semibold tracking-[0.22em] uppercase text-[#7A6029] flex items-center gap-3">
             <span className="inline-block w-6 h-px bg-[#AC8F52]" />
             {t.label}
           </p>
@@ -103,7 +103,7 @@ export function Anfahrt() {
     <section id="anfahrt" className="bg-[#F1F1EE] py-14 sm:py-20 lg:py-28 border-t border-[#E2E4E7]">
       <div className="mx-auto max-w-7xl px-5 lg:px-8 grid gap-12 lg:grid-cols-[1fr_1.15fr] lg:items-start">
         <div>
-          <p className="text-[11px] font-semibold tracking-[0.22em] uppercase text-[#8A6D2F] flex items-center gap-3">
+          <p className="text-[11px] font-semibold tracking-[0.22em] uppercase text-[#7A6029] flex items-center gap-3">
             <span className="inline-block w-6 h-px bg-[#AC8F52]" />
             {t.label}
           </p>
@@ -119,7 +119,7 @@ export function Anfahrt() {
           <dl className="mt-8 grid gap-px bg-[#E2E4E7] sm:grid-cols-2 rounded-lg overflow-hidden">
             {t.items.map((i) => (
               <div key={i.k} className="bg-white p-5">
-                <dt className="text-[11px] font-semibold uppercase tracking-[0.16em] text-[#8A6D2F]">{i.k}</dt>
+                <dt className="text-[11px] font-semibold uppercase tracking-[0.16em] text-[#7A6029]">{i.k}</dt>
                 <dd className="mt-2 text-[16px] font-medium text-[#1E2535] leading-relaxed whitespace-pre-line">
                   {i.v}
                 </dd>

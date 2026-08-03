@@ -199,7 +199,7 @@ function TypeBadge({ type }: { type: ItemType }) {
 }
 
 function SectionLabel({ children }: { children: React.ReactNode }) {
-  return <p className="text-[11px] font-semibold tracking-[0.2em] uppercase text-[#8A6D2F]">{children}</p>;
+  return <p className="text-[11px] font-semibold tracking-[0.2em] uppercase text-[#7A6029]">{children}</p>;
 }
 
 function FeaturedCard({ item, index }: { item: Item; index: number }) {
@@ -233,7 +233,7 @@ function FeaturedCard({ item, index }: { item: Item; index: number }) {
             href={BOOKING_URL}
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#8A6D2F] hover:gap-2.5 transition-all duration-200"
+            className="inline-flex min-h-11 items-center gap-1.5 text-sm font-semibold text-[#7A6029] hover:gap-2.5 transition-all duration-200"
           >
             {t.learnMore}
             <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" className="w-3.5 h-3.5">

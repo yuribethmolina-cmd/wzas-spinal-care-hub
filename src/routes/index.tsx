@@ -632,7 +632,7 @@ function Hero() {
               {t.chips.map((c) => (
                 <button
                   key={c}
-                  className="rounded-full border border-white/25 bg-white/5 backdrop-blur-sm px-3.5 py-1.5 text-[13px] sm:px-4 sm:py-2 sm:text-sm text-white/90 hover:border-white/70 hover:bg-white/12 hover:-translate-y-0.5 transition-[color,background-color,border-color,transform] duration-[420ms] ease-[cubic-bezier(0.16,1,0.3,1)] cursor-pointer"
+                  className="rounded-full border border-white/25 bg-white/5 backdrop-blur-sm min-h-11 inline-flex items-center px-4 py-2.5 text-[13px] sm:text-sm text-white/90 hover:border-white/70 hover:bg-white/12 hover:-translate-y-0.5 transition-[color,background-color,border-color,transform] duration-[420ms] ease-[cubic-bezier(0.16,1,0.3,1)] cursor-pointer"
                 >
                   {c}
                 </button>
@@ -836,7 +836,7 @@ function BeschwerdenCard({
       </div>
       <a
         href="#"
-        className="mt-auto inline-flex items-center gap-2 text-sm font-semibold text-[#8A6E36]"
+        className="mt-auto inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-[#8A6E36]"
       >
         <span
           style={{
@@ -1237,7 +1237,7 @@ function Team() {
             <button
               key={f}
               onClick={() => setActive(f)}
-              className={`rounded-full px-4 py-2 text-sm font-medium transition-all duration-200 ${
+              className={`min-h-11 inline-flex items-center rounded-full px-4 py-2 text-sm font-medium transition-all duration-200 ${
                 active === f
                   ? "bg-[#1E2535] text-white"
                   : "border border-[#E2E4E7] text-[#1E2535] hover:border-[#AC8F52] hover:text-[#AC8F52]"
@@ -1255,7 +1255,7 @@ function Team() {
         <div className="mt-10">
           <Link
             to="/aerzte"
-            className="text-sm font-semibold text-[#1E2535] hover:text-[#AC8F52] transition-colors"
+            className="inline-flex items-center min-h-11 text-sm font-semibold text-[#1E2535] hover:text-[#AC8F52] transition-colors"
           >
             {t.seeAll(allDoctors.length)}
           </Link>
@@ -1519,7 +1519,7 @@ function Aktuelles() {
           ))}
         </div>
         <div className="mt-10">
-          <a href="#" className="text-sm font-semibold text-[#1E2535] hover:text-[#AC8F52] transition-colors">
+          <a href="#" className="inline-flex items-center min-h-11 text-sm font-semibold text-[#1E2535] hover:text-[#AC8F52] transition-colors">
             {t.all}
           </a>
         </div>

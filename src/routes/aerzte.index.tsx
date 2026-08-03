@@ -182,7 +182,7 @@ function Directory() {
                   </div>
                   <div className="p-6 flex flex-col flex-1">
                     <h3 className="font-semibold text-lg text-[#1E2535] line-clamp-1">{d.name}</h3>
-                    <p className="mt-1 text-xs uppercase tracking-wide text-[#8A6D2F] font-medium line-clamp-1">{d.role}</p>
+                    <p className="mt-1 text-xs uppercase tracking-wide text-[#7A6029] font-medium line-clamp-1">{d.role}</p>
                     <div className="mt-3 flex flex-wrap gap-1.5 min-h-[28px]">
                       {d.specialties.slice(0, 2).map((s) => (
                         <span key={s} className="rounded-full bg-[#F8F8F6] px-2.5 py-1 text-[11px] text-[#1E2535]">{s}</span>
@@ -215,7 +215,7 @@ function FilterChip({ active, onClick, children }: { active: boolean; onClick: (
   return (
     <button
       onClick={onClick}
-      className={`rounded-full px-4 py-2 text-sm font-medium transition ${
+      className={`min-h-11 inline-flex items-center rounded-full px-4 py-2 text-sm font-medium transition ${
         active ? "bg-[#1E2535] text-white" : "border border-[#E2E4E7] text-[#1E2535] hover:border-[#AC8F52]"
       }`}
     >
