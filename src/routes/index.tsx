@@ -8,6 +8,8 @@ import { KonservativZuerst } from "@/components/KonservativZuerst";
 import { Vortragsreihe, Anfahrt } from "@/components/HomeExtras";
 import logoAsset from "@/assets/wzas/logo.png.asset.json";
 import { SiteNav } from "@/components/SiteNav";
+import { MobileNavPanel } from "@/components/MobileNavPanel";
+
 import drMedele from "@/assets/wzas/dr-medele.webp.asset.json";
 import drEroes from "@/assets/wzas/dr-eroes.webp.asset.json";
 import drHo from "@/assets/wzas/dr-ho.jpg.asset.json";
