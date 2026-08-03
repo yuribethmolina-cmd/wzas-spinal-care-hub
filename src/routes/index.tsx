@@ -943,7 +943,7 @@ function WegStep({
             href={BOOKING_URL}
             target="_blank"
             rel="noreferrer"
-            className="mt-6 inline-flex items-center text-sm font-semibold text-[#1E2535] transition-opacity duration-300 hover:opacity-65"
+            className="mt-6 inline-flex min-h-11 items-center text-sm font-semibold text-[#1E2535] transition-opacity duration-300 hover:opacity-65"
           >
             {bookLabel} →
           </a>

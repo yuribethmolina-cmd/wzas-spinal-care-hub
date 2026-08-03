@@ -139,7 +139,7 @@ function KarrierePage() {
               <p className="text-[#4A5568] mb-3">{t.contactText}</p>
               <a
                 href="mailto:karriere@wzas.de"
-                className="text-[#AC8F52] font-semibold hover:brightness-110 transition"
+                className="inline-flex min-h-11 items-center text-[#7A6029] font-semibold hover:brightness-110 transition"
               >
                 karriere@wzas.de
               </a>
