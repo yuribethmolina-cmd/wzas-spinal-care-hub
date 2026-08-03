@@ -213,13 +213,19 @@ function StatCounter({ value, suffix }: { value: number; suffix: string }) {
 
 /* ─── Scroll animation hook ─────────────────────────────────────── */
 
-function useFadeUp(delay = 0) {
+function prefersReducedMotion() {
+  return typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+}
+
+/** Scroll reveal: soft rise + de-blur, on a slow expo curve. */
+function useFadeUp(delay = 0, opts: { y?: number; blur?: number; duration?: number } = {}) {
+  const { y = 26, blur = 6, duration = 900 } = opts;
   const ref = useRef<HTMLDivElement>(null);
   const [vis, setVis] = useState(false);
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    if (prefersReducedMotion()) {
       setVis(true);
       return;
     }
@@ -230,7 +236,7 @@ function useFadeUp(delay = 0) {
           obs.unobserve(el);
         }
       },
-      { threshold: 0.06, rootMargin: "0px 0px -24px 0px" }
+      { threshold: 0.06, rootMargin: "0px 0px -10% 0px" }
     );
     obs.observe(el);
     return () => obs.disconnect();
@@ -239,11 +245,93 @@ function useFadeUp(delay = 0) {
     ref,
     style: {
       opacity: vis ? 1 : 0,
-      transform: vis ? "translateY(0)" : "translateY(22px)",
-      transition: `opacity 700ms ${EASE} ${delay}ms, transform 700ms ${EASE} ${delay}ms`,
+      transform: vis ? "translate3d(0,0,0)" : `translate3d(0,${y}px,0)`,
+      filter: vis ? "blur(0px)" : `blur(${blur}px)`,
+      willChange: "opacity, transform",
+      transition:
+        `opacity ${duration}ms ${EASE_SOFT} ${delay}ms, ` +
+        `transform ${duration}ms ${EASE_SOFT} ${delay}ms, ` +
+        `filter ${Math.round(duration * 0.8)}ms linear ${delay}ms`,
     } as React.CSSProperties,
   };
 }
+
+/** Mounted-on-load sequencing for the hero, so nothing pops in at once. */
+function useIntro(delay = 0) {
+  const [on, setOn] = useState(false);
+  useEffect(() => {
+    if (prefersReducedMotion()) {
+      setOn(true);
+      return;
+    }
+    const id = window.setTimeout(() => setOn(true), 60);
+    return () => window.clearTimeout(id);
+  }, []);
+  return {
+    opacity: on ? 1 : 0,
+    transform: on ? "translate3d(0,0,0)" : "translate3d(0,16px,0)",
+    transition: `opacity 900ms ${EASE_SOFT} ${delay}ms, transform 1000ms ${EASE_SOFT} ${delay}ms`,
+  } as React.CSSProperties;
+}
+
+/** A headline line that rises out from behind its own baseline mask. */
+function MaskLine({
+  children,
+  delay = 0,
+  className,
+}: {
+  children: React.ReactNode;
+  delay?: number;
+  className?: string;
+}) {
+  const [on, setOn] = useState(false);
+  useEffect(() => {
+    if (prefersReducedMotion()) {
+      setOn(true);
+      return;
+    }
+    const id = window.setTimeout(() => setOn(true), 60);
+    return () => window.clearTimeout(id);
+  }, []);
+  return (
+    <span className="block overflow-hidden" style={{ paddingBottom: "0.06em" }}>
+      <span
+        className={`block ${className ?? ""}`}
+        style={{
+          transform: on ? "translate3d(0,0,0)" : "translate3d(0,105%,0)",
+          opacity: on ? 1 : 0,
+          transition: `transform 1100ms ${EASE_SOFT} ${delay}ms, opacity 700ms ${EASE_SOFT} ${delay}ms`,
+          willChange: "transform",
+        }}
+      >
+        {children}
+      </span>
+    </span>
+  );
+}
+
+/** Slow counter-scroll on a background layer — depth without distraction. */
+function useParallax(strength = 0.12) {
+  const [offset, setOffset] = useState(0);
+  useEffect(() => {
+    if (prefersReducedMotion()) return;
+    let frame = 0;
+    const onScroll = () => {
+      if (frame) return;
+      frame = window.requestAnimationFrame(() => {
+        frame = 0;
+        setOffset(window.scrollY * strength);
+      });
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      if (frame) window.cancelAnimationFrame(frame);
+    };
+  }, [strength]);
+  return offset;
+}
+
 
 /* ─── Logo ──────────────────────────────────────────────────────── */
 
