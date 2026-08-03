@@ -568,47 +568,80 @@ function SectionLabel({ children, gold = true }: { children: React.ReactNode; go
 
 /* ─── Beschwerden ───────────────────────────────────────────────── */
 
+// Bespoke anatomical line icons — each drawn around the vertebral motif
+// (body + spinous process) so the pictogram actually describes the condition.
+const iconProps = {
+  viewBox: "0 0 24 24",
+  fill: "none",
+  stroke: "currentColor",
+  strokeWidth: 1.4,
+  strokeLinecap: "round",
+  strokeLinejoin: "round",
+  className: "w-6 h-6",
+} as const;
+
 const ConditionIcons: Record<string, React.ReactNode> = {
+  // Acute: three vertebrae, impact radiating from the middle one
   akut: (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
-      <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+    <svg {...iconProps} aria-hidden>
+      <rect x="7.5" y="3.5" width="9" height="4.4" rx="1.8" />
+      <rect x="7.5" y="9.8" width="9" height="4.4" rx="1.8" />
+      <rect x="7.5" y="16.1" width="9" height="4.4" rx="1.8" />
+      <path d="M7.5 5.7H4.6M7.5 12h-2.9M7.5 18.3H4.6" />
+      <path d="M18.6 10.4l2.4-1.5M19.2 12.6h2.9M18.6 15l2.3 1.4" opacity="0.75" />
     </svg>
   ),
+  // Chronic: the same column, wrapped by a slow recurring cycle
   chronisch: (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
-      <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" />
-      <path d="M3 3v5h5" />
+    <svg {...iconProps} aria-hidden>
+      <rect x="8" y="6.6" width="8" height="4.2" rx="1.7" />
+      <rect x="8" y="12.8" width="8" height="4.2" rx="1.7" />
+      <path d="M8 8.7H5.6M8 14.9H5.6" />
+      <path d="M19.4 8.2a8 8 0 0 1-1.2 9.6M5 18.6a8 8 0 0 1 .6-11" opacity="0.8" />
+      <path d="M19.9 4.9l-.5 3.4 3.2.2" opacity="0.8" />
     </svg>
   ),
+  // Herniated disc: two bodies, the disc between them bulging onto the nerve
   bandscheibe: (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
-      <ellipse cx="12" cy="12" rx="10" ry="4" />
-      <path d="M2 12c0 2.21 4.48 4 10 4s10-1.79 10-4" />
-      <path d="M2 12V8c0-2.21 4.48-4 10-4s10 1.79 10 4v4" />
+    <svg {...iconProps} aria-hidden>
+      <rect x="6.5" y="3.4" width="11" height="4.6" rx="1.9" />
+      <rect x="6.5" y="16" width="11" height="4.6" rx="1.9" />
+      <path d="M6.5 10.4h9.6c2.6 0 4.6 1.1 4.6 2.2 0 1.1-2 2.2-4.6 2.2H6.5z" />
+      <path d="M4.4 10.4v4.4" opacity="0.75" />
     </svg>
   ),
+  // Sciatica: lumbar segment with the nerve radiating down through hip and leg
   ischias: (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
-      <path d="M8.56 2.9A7 7 0 0 1 19 9v4l3 3-3 3v2a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1v-2l-3-3 3-3V9a7 7 0 0 1 .14-.9" />
-      <path d="M9 18h6" />
+    <svg {...iconProps} aria-hidden>
+      <rect x="5.5" y="3.2" width="7.5" height="4" rx="1.6" />
+      <rect x="5.5" y="8.8" width="7.5" height="4" rx="1.6" />
+      <path d="M5.5 5.2H3.2M5.5 10.8H3.2" />
+      <path d="M11 14.4c2.6.4 4 1.9 4.2 4 .2 2 1.3 3.4 3.3 4.1" />
+      <path d="M13.6 16.6l1.5-1.3M16.6 20.4l1.9-.8" opacity="0.7" />
     </svg>
   ),
+  // Post-op rehab: healing column supported and rising
   reha: (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
-      <path d="M12 21a9 9 0 0 0 9-9H3a9 9 0 0 0 9 9z" />
-      <path d="M7 21.7A9 9 0 0 1 3 12" />
-      <path d="M17 21.7A9 9 0 0 0 21 12" />
-      <path d="M12 3a4 4 0 0 1 4 4H8a4 4 0 0 1 4-4z" />
+    <svg {...iconProps} aria-hidden>
+      <rect x="9.5" y="4" width="7.5" height="4.1" rx="1.7" />
+      <rect x="9.5" y="10.1" width="7.5" height="4.1" rx="1.7" />
+      <rect x="9.5" y="16.2" width="7.5" height="4.1" rx="1.7" />
+      <path d="M20.4 18.6c1.2-3.6 1-7.4-.7-10.9" opacity="0.8" />
+      <path d="M17.4 9.1l2.3-1.6 1.5 2.3" opacity="0.8" />
+      <path d="M6.6 19.4c-1.8-1.5-2.6-4-2.2-6.5.3-1.9 1.2-3.6 2.5-4.9" opacity="0.6" />
     </svg>
   ),
+  // Sport: spine in dynamic extension with motion trace
   sport: (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
-      <circle cx="13" cy="4" r="2" />
-      <path d="M7 21l3-6 2 2 3-8 4 4" />
-      <path d="M3 21h18" />
+    <svg {...iconProps} aria-hidden>
+      <path d="M8.4 3.6c3.4 1.6 5.6 4.3 6.4 7.9.8 3.6 0 6.8-2.5 9.6" />
+      <path d="M9.9 5.7l3-1.1M11.6 8.5l3.1-1M12.7 11.7l3.2-.6M13 15.1l3.1.2M12.2 18.4l2.8 1" />
+      <path d="M5.2 7.4c-1.2 3-1.2 6.2 0 9.2M2.6 6c-1.5 3.9-1.5 8 0 12" opacity="0.5" />
     </svg>
   ),
 };
+
+
 
 function BeschwerdenCard({
   iconKey,
