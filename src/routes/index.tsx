@@ -8,6 +8,8 @@ import { KonservativZuerst } from "@/components/KonservativZuerst";
 import { Vortragsreihe, Anfahrt } from "@/components/HomeExtras";
 import logoAsset from "@/assets/wzas/logo.png.asset.json";
 import { SiteNav } from "@/components/SiteNav";
+import { MobileNavPanel } from "@/components/MobileNavPanel";
+
 import drMedele from "@/assets/wzas/dr-medele.webp.asset.json";
 import drEroes from "@/assets/wzas/dr-eroes.webp.asset.json";
 import drHo from "@/assets/wzas/dr-ho.jpg.asset.json";
@@ -521,44 +523,14 @@ function Nav() {
           </button>
         </div>
       </div>
-      <nav
-        id="mobile-nav"
-        aria-label="Mobile Navigation"
-        hidden={!open}
-        className="lg:hidden border-t border-[#E2E4E7] bg-white px-5 py-4 space-y-3"
-      >
-        {t.links.map(([label, href]) =>
-          href.startsWith("/") ? (
-            <Link
-              key={label}
-              to={href as "/aerzte" | "/beschwerden" | "/behandlungen" | "/aktuelles"}
-              onClick={() => setOpen(false)}
-              className="block text-sm font-medium text-[#1E2535] py-2"
-              activeProps={{ "aria-current": "page" } as never}
-            >
-              {label}
-            </Link>
-          ) : (
-            <a
-              key={label}
-              href={href}
-              onClick={() => setOpen(false)}
-              className="block text-sm font-medium text-[#1E2535] py-2"
-            >
-              {label}
-            </a>
-          )
-        )}
-        <a
-          href={BOOKING_URL}
-          target="_blank"
-          rel="noreferrer"
-          aria-label={`${t.book} (öffnet in neuem Tab)`}
-          className="block text-center rounded-full bg-[#AC8F52] px-5 py-3 text-sm font-semibold text-[#1E2535] transition-colors duration-300 hover:bg-[#BC9C58]"
-        >
-          {t.book}
-        </a>
-      </nav>
+      <MobileNavPanel
+        open={open}
+        onClose={() => setOpen(false)}
+        links={t.links}
+        bookLabel={t.book}
+        title={t.menu}
+      />
+
     </header>
   );
 }

@@ -3,6 +3,8 @@ import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import logoAsset from "@/assets/wzas/logo.png.asset.json";
 import { useLang, useT, type Lang } from "@/lib/lang";
+import { MobileNavPanel } from "@/components/MobileNavPanel";
+
 
 const BOOKING_URL = "https://onlinerezeption.vercel.app";
 const EASE = "cubic-bezier(0.23, 1, 0.32, 1)";
@@ -132,31 +134,16 @@ export function PageHeader({ activeRoute }: { activeRoute?: string }) {
           </button>
         </div>
       </div>
-      <nav
+      <MobileNavPanel
+        open={open}
+        onClose={() => setOpen(false)}
+        links={t.links}
+        bookLabel={t.book}
+        title={t.menu}
+        activeRoute={activeRoute}
         id="page-header-mobile-nav"
-        aria-label="Mobile navigation"
-        hidden={!open}
-        className="lg:hidden border-t border-[#E2E4E7] bg-white px-5 py-4 space-y-3"
-      >
-        {t.links.map(([label, to]) => (
-          <Link
-            key={to}
-            to={to as "/beschwerden" | "/aerzte" | "/behandlungen" | "/faq" | "/aktuelles"}
-            onClick={() => setOpen(false)}
-            className="block text-sm font-medium text-[#1E2535] py-2"
-          >
-            {label}
-          </Link>
-        ))}
-        <a
-          href={BOOKING_URL}
-          target="_blank"
-          rel="noreferrer"
-          className="block text-center rounded-full bg-[#AC8F52] px-5 py-3 text-sm font-semibold text-[#1E2535]"
-        >
-          {t.book}
-        </a>
-      </nav>
+      />
+
     </header>
   );
 }

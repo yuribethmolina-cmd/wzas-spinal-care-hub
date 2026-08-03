@@ -2,6 +2,8 @@ import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import logoAsset from "@/assets/wzas/logo.png.asset.json";
 import { useLang, useT, type Lang } from "@/lib/lang";
+import { MobileNavPanel } from "@/components/MobileNavPanel";
+
 
 const BOOKING_URL = "https://onlinerezeption.vercel.app";
 const EASE = "cubic-bezier(0.23, 1, 0.32, 1)";
@@ -124,34 +126,14 @@ export function SiteNav() {
           </button>
         </div>
       </div>
-      <nav
-        id="mobile-nav"
-        aria-label="Mobile Navigation"
-        hidden={!open}
-        className="lg:hidden border-t border-[#E2E4E7] bg-white px-5 py-4 space-y-3"
-      >
-        {t.links.map(([label, href]) => (
-          <Link
-            key={label}
-            to={href as "/" | "/aerzte" | "/beschwerden" | "/behandlungen" | "/faq" | "/aktuelles"}
-            onClick={() => setOpen(false)}
-            className="block text-sm font-medium text-[#1E2535] py-2"
-            activeOptions={{ exact: href === "/" }}
-            activeProps={{ "aria-current": "page" } as never}
-          >
-            {label}
-          </Link>
-        ))}
-        <a
-          href={BOOKING_URL}
-          target="_blank"
-          rel="noreferrer"
-          aria-label={`${t.book} (öffnet in neuem Tab)`}
-          className="block text-center rounded-full bg-[#AC8F52] px-5 py-3 text-sm font-semibold text-[#1E2535]"
-        >
-          {t.book}
-        </a>
-      </nav>
+      <MobileNavPanel
+        open={open}
+        onClose={() => setOpen(false)}
+        links={t.links}
+        bookLabel={t.book}
+        title={t.menu}
+      />
+
     </header>
   );
 }
