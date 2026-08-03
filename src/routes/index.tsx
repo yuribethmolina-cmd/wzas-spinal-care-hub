@@ -76,13 +76,14 @@ function SpineLocator() {
     <div className="hidden lg:flex flex-col justify-center items-end h-full">
       <div
         className="rounded-2xl border border-white/25 overflow-hidden shadow-[0_24px_60px_-24px_rgba(0,0,0,0.8)]"
-        style={{ width: 264, background: "rgba(20,26,38,0.55)", backdropFilter: "blur(14px) saturate(1.1)" }}
+        style={{ width: 340, background: "rgba(16,22,34,0.68)", backdropFilter: "blur(14px) saturate(1.1)" }}
       >
-        <div className="px-5 py-3.5 border-b border-white/10 flex items-center justify-between">
-          <p className="text-[10px] font-semibold tracking-[0.2em] uppercase text-[#AC8F52]">{header}</p>
-          <p className="text-[10px] text-white/55">{hint}</p>
+        <div className="px-5 py-4 border-b border-white/15 flex items-center justify-between gap-3">
+          <p className="text-xs font-bold tracking-[0.18em] uppercase text-[#E0C288]">{header}</p>
+          <p className="text-xs font-medium text-white/70">{hint}</p>
         </div>
-        <div className="flex gap-4 p-4" style={{ height: 288 }}>
+        <div className="flex gap-5 p-5" style={{ height: 340 }}>
+
           <svg
             viewBox="0 0 44 288"
             className="h-full w-11 shrink-0 overflow-visible"
