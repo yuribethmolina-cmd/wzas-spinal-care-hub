@@ -96,7 +96,7 @@ function WolfartCallout() {
       <p className="text-[10px] font-semibold tracking-widest uppercase text-[#AC8F52] mb-1">{t.label}</p>
       <p className="font-display text-lg font-semibold text-[#1E2535] mb-2">{t.heading}</p>
       <p className="text-sm text-[#4A5568] leading-relaxed">{t.body}</p>
-      <a href="/wolfart" className="inline-block mt-3 text-xs font-semibold text-[#AC8F52] hover:brightness-110 transition">
+      <a href="/wolfart" className="inline-flex min-h-11 items-center mt-3 text-xs font-semibold text-[#7A6029] hover:brightness-110 transition">
         {t.link}
       </a>
     </div>
@@ -271,7 +271,7 @@ function BehandlungenPage() {
               <p className="font-display text-2xl lg:text-3xl italic text-[#1E2535] leading-snug">
                 {t.pullQuote}
               </p>
-              <p className="mt-3 text-xs text-[#8C939B] tracking-widest uppercase">{t.pullQuoteAttribution}</p>
+              <p className="mt-3 text-xs text-[#5F6771] tracking-widest uppercase">{t.pullQuoteAttribution}</p>
             </div>
           </div>
         </section>

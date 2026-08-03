@@ -12,7 +12,7 @@ const EASE = "cubic-bezier(0.23, 1, 0.32, 1)";
 function LangToggle() {
   const { lang, setLang } = useLang();
   const btn = (l: Lang) =>
-    `px-2.5 py-1 text-xs font-semibold uppercase tracking-wide rounded-full transition-colors min-h-8 ${
+    `inline-flex items-center justify-center px-3 py-1 text-xs font-semibold uppercase tracking-wide rounded-full transition-colors min-h-11 min-w-11 lg:min-h-9 lg:min-w-9 ${
       lang === l ? "bg-[#1E2535] text-white" : "text-[#1E2535] hover:text-[#AC8F52]"
     }`;
   const onKey = (e: React.KeyboardEvent<HTMLDivElement>) => {

@@ -43,7 +43,7 @@ export function BookingCTA({
           {secondaryLabel && secondaryHref && (
             <a
               href={secondaryHref}
-              className="inline-flex items-center gap-2 text-sm text-white/70 hover:text-white transition-colors"
+              className="inline-flex min-h-11 items-center gap-2 text-sm text-white/75 hover:text-white transition-colors"
             >
               {secondaryLabel}
             </a>
