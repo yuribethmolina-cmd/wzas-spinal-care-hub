@@ -51,9 +51,10 @@ export function KonservativZuerst() {
   });
 
   return (
-    <section className="bg-[#1E2535] text-white py-20 lg:py-28">
+    <section className="bg-[#1E2535] text-white py-14 sm:py-20 lg:py-28">
       <div className="mx-auto max-w-7xl px-5 lg:px-8">
-        <div className="grid gap-12 lg:grid-cols-[1.15fr_1fr] lg:items-start">
+        <div className="grid gap-8 lg:gap-12 lg:grid-cols-[1.15fr_1fr] lg:items-start">
+
           <div>
             <p className="text-[11px] font-semibold tracking-[0.22em] uppercase text-[#D8BE85] flex items-center gap-3">
               <span className="inline-block w-6 h-px bg-[#D8BE85]" />
