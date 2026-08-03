@@ -291,7 +291,7 @@ function AktuellesPage() {
       newsletterBody: "Unsere öffentlichen Vorträge sind kostenlos und richten sich an Patienten und Angehörige.",
       newsletterEmail: "Hinweise per E-Mail",
       ctaH2: "Wir sind für Sie da.",
-      ctaBody: "Termin vereinbaren — Ersttermine meist innerhalb von 5 Werktagen.",
+      ctaBody: "Termin vereinbaren — Notfälle behandeln wir sofort.",
       ctaBtn: "Termin online buchen",
     },
     en: {
@@ -310,7 +310,7 @@ function AktuellesPage() {
       newsletterBody: "Our public talks are free of charge and open to patients and their families.",
       newsletterEmail: "Get notified by email",
       ctaH2: "We are here for you.",
-      ctaBody: "Book an appointment — most first appointments within 5 working days.",
+      ctaBody: "Book an appointment — emergencies treated immediately.",
       ctaBtn: "Book appointment online",
     },
   });

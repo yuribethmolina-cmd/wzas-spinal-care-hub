@@ -88,7 +88,7 @@ function BeschwerdenDetail() {
       doctorLink: "Zum Arztprofil",
       backLink: "← Zurück zu den Erkrankungen",
       notFound: "Erkrankung nicht gefunden",
-      bookingBody: "Vereinbaren Sie jetzt einen Termin. Ersttermine meist innerhalb von 5 Werktagen — ohne Überweisung.",
+      bookingBody: "Vereinbaren Sie jetzt einen Termin. Termine zeitnah nach Verfügbarkeit — ohne Überweisung.",
       bookingCta: "Online buchen",
     },
     en: {

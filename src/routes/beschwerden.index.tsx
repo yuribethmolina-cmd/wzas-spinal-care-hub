@@ -116,7 +116,7 @@ function BeschwerdenHub() {
       sectionHeading: "Unsere Schwerpunkte",
       ctaCopy: "Mehr erfahren",
       bookingHeading: "Bereit für Ihren Termin?",
-      bookingBody: "Noch keine Diagnose? Wir helfen Ihnen beim ersten Schritt. Ersttermine meist innerhalb von 5 Werktagen.",
+      bookingBody: "Noch keine Diagnose? Wir helfen Ihnen beim ersten Schritt. Notfälle behandeln wir sofort.",
       bookingCta: "Online buchen",
       trustItems: [
         { icon: "stethoscope", label: "Seit 2006 in München" },
@@ -134,7 +134,7 @@ function BeschwerdenHub() {
       sectionHeading: "Our focus areas",
       ctaCopy: "Learn more",
       bookingHeading: "Ready for your appointment?",
-      bookingBody: "No diagnosis yet? We help you take the first step. Most first appointments within 5 working days.",
+      bookingBody: "No diagnosis yet? We help you take the first step. Emergencies are treated immediately.",
       bookingCta: "Book online",
       trustItems: [
         { icon: "stethoscope", label: "In Munich since 2006" },
