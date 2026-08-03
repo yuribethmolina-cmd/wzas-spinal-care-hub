@@ -19,7 +19,16 @@ import partnerHand from "@/assets/wzas/partners/bl-handchirurgie.png.asset.json"
 import partnerOberland from "@/assets/wzas/partners/wz-oberland.png.asset.json";
 import partnerWz from "@/assets/wzas/partners/wz-stiglmaier.png.asset.json";
 
-const HERO_BG = "/clinic-exterior.webp";
+import {
+  HERO_BG,
+  BOOKING_URL,
+  EASE,
+  EASE_SOFT,
+  NOISE,
+  STAT_DEFS,
+  SPINE_H,
+  SPINE_ZONES,
+} from "./-home-constants";
 
 export const Route = createFileRoute("/")({
   head: () => ({
