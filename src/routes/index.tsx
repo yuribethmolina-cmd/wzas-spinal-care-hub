@@ -3,6 +3,8 @@ import React, { useEffect, useRef, useState } from "react";
 import { doctors as allDoctors } from "@/lib/doctors";
 import { useLang, useT, type Lang } from "@/lib/lang";
 import { PraxisGalerie } from "@/components/PraxisGalerie";
+import { Behandlungen } from "@/components/Behandlungen";
+import { Vortragsreihe, Anfahrt } from "@/components/HomeExtras";
 import logoAsset from "@/assets/wzas/logo.png.asset.json";
 import { SiteNav } from "@/components/SiteNav";
 import drMedele from "@/assets/wzas/dr-medele.webp.asset.json";
@@ -1645,11 +1647,14 @@ function Home() {
       <main id="main-content" tabIndex={-1}>
         <Hero />
         <Beschwerden />
+        <Behandlungen />
         <Weg />
         <Kompetenzzentrum />
         <PraxisGalerie />
         <Team />
+        <Vortragsreihe />
         <Termin />
+        <Anfahrt />
         <Aktuelles />
       </main>
       <Footer />
