@@ -134,7 +134,9 @@ function RootComponent() {
     <QueryClientProvider client={queryClient}>
       <LanguageProvider>
         <PreviewRefresh />
+        <DevErrorPanel />
         {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
+
         <Outlet />
       </LanguageProvider>
     </QueryClientProvider>
