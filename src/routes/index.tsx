@@ -923,7 +923,7 @@ function Beschwerden() {
   });
   const { ref, style } = useFadeUp(0);
   return (
-    <section id="beschwerden" className="bg-[#F8F8F6] py-20 lg:py-32">
+    <section id="beschwerden" className="bg-[#F8F8F6] py-20 lg:py-28">
       <div className="mx-auto max-w-7xl px-5 lg:px-8">
         <div ref={ref} style={style}>
           <SectionLabel>{t.label}</SectionLabel>
@@ -1031,7 +1031,7 @@ function Weg() {
   });
   const { ref: headRef, style: headStyle } = useFadeUp(0);
   return (
-    <section id="weg" className="relative bg-[#1E2535] py-20 lg:py-32 overflow-hidden">
+    <section id="weg" className="relative bg-[#1E2535] py-20 lg:py-28 overflow-hidden">
       <div
         className="absolute inset-0 pointer-events-none opacity-[0.03]"
         style={{ backgroundImage: NOISE, backgroundSize: "256px 256px" }}
@@ -1246,7 +1246,7 @@ function Team() {
     .slice(0, 3);
 
   return (
-    <section id="team" className="bg-[#F8F8F6] py-20 lg:py-32">
+    <section id="team" className="bg-[#F8F8F6] py-20 lg:py-28">
       <div className="mx-auto max-w-7xl px-5 lg:px-8">
         <div ref={headRef} style={headStyle}>
           <SectionLabel>{t.label}</SectionLabel>
@@ -1326,7 +1326,7 @@ function Termin() {
   });
   const { ref, style } = useFadeUp(0);
   return (
-    <section id="termin" className="relative bg-[#1E2535] py-20 lg:py-32 border-t-4 border-[#AC8F52] overflow-hidden">
+    <section id="termin" className="relative bg-[#1E2535] py-20 lg:py-28 border-t-4 border-[#AC8F52] overflow-hidden">
       <div
         className="absolute inset-0 pointer-events-none opacity-[0.03]"
         style={{ backgroundImage: NOISE, backgroundSize: "256px 256px" }}
@@ -1527,7 +1527,7 @@ function Aktuelles() {
   const items: AktuellesItem[] = t.items.map((it, i) => ({ ...it, ...meta[i] }));
   const { ref: headRef, style: headStyle } = useFadeUp(0);
   return (
-    <section id="aktuelles" className="bg-[#F8F8F6] py-20 lg:py-32">
+    <section id="aktuelles" className="bg-[#F8F8F6] py-20 lg:py-28">
       <div className="mx-auto max-w-7xl px-5 lg:px-8">
         <div ref={headRef} style={headStyle}>
           <SectionLabel>{t.label}</SectionLabel>
