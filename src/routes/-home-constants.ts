@@ -1,4 +1,4 @@
-export const HERO_BG = "/clinic-exterior.webp";
+export const HERO_BG = "/__l5e/assets-v1/8ac74259-c4c6-470d-8493-8abf2d524f37/hero-gespraech.webp";
 export const HERO_VIDEO = "/__l5e/assets-v1/949da178-930e-4139-b75b-d822f0d6020d/hero-columna.mp4";
 
 
