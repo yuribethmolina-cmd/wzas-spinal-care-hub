@@ -628,19 +628,32 @@ function Hero() {
               {t.more}
             </a>
           </div>
-          <p
-            className="mt-6 text-xs text-[#B6BDC8] flex items-center gap-2 flex-wrap"
-            style={introLangs}
-          >
-            <span className="inline-block w-4 h-px bg-[#B6BDC8]" />
-            Se habla español
-            <span className="text-white/20">·</span>
-            English spoken
-            <span className="text-white/20">·</span>
-            Magyar
-            <span className="text-white/20">·</span>
-            廣東話
-          </p>
+          <div className="mt-8" style={introLangs}>
+            <p className="text-[11px] font-medium tracking-[0.18em] uppercase text-[#CBD1DA] flex items-center gap-2">
+              <span className="inline-block w-5 h-px bg-[#AC8F52]" />
+              {lang === "de" ? "Beratung in Ihrer Sprache" : "Consultation in your language"}
+            </p>
+            <ul className="mt-3 flex flex-wrap gap-2">
+              {[
+                { code: "DE", name: "Deutsch" },
+                { code: "EN", name: "English" },
+                { code: "ES", name: "Español" },
+                { code: "HU", name: "Magyar" },
+                { code: "YUE", name: "廣東話" },
+              ].map((l) => (
+                <li
+                  key={l.code}
+                  className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/[0.07] backdrop-blur-sm pl-2 pr-3 py-1.5"
+                >
+                  <span className="rounded-full bg-[#AC8F52] px-1.5 py-0.5 text-[10px] font-bold tracking-wide text-[#1E2535]">
+                    {l.code}
+                  </span>
+                  <span className="text-[13px] font-medium text-white/90">{l.name}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
         </div>
         <div style={introPanel}>
           <SpineLocator />
