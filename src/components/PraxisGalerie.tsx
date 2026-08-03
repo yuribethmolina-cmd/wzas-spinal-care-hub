@@ -24,12 +24,12 @@ const SHOTS: Shot[] = [
 ];
 
 const SPANS = [
-  "sm:col-span-2 sm:row-span-2",
+  "col-span-2 row-span-2",
   "",
   "",
-  "sm:col-span-2",
+  "col-span-2",
   "",
-  "sm:row-span-2",
+  "",
   "",
   "",
 ];
