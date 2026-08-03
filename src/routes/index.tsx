@@ -610,7 +610,7 @@ const iconProps = {
   strokeWidth: 1.4,
   strokeLinecap: "round",
   strokeLinejoin: "round",
-  className: "w-6 h-6",
+  className: "w-7 h-7",
 } as const;
 
 const ConditionIcons: Record<string, React.ReactNode> = {
