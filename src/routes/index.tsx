@@ -563,14 +563,14 @@ function Hero() {
       <img
         src={HERO_BG}
         alt={t.alt}
-        className="absolute inset-0 h-[118%] w-full object-cover object-center -z-10"
+        className="absolute inset-0 h-[118%] w-full object-cover object-[36%_28%] sm:object-[42%_30%] lg:object-center -z-10"
         style={{ transform: `translate3d(0, ${-parallax}px, 0) scale(1.02)`, willChange: "transform" }}
       />
 
 
-      <div className="absolute inset-0 -z-10 bg-[#161C29]/35 lg:bg-[#161C29]/40" />
-      <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[#141A26]/90 via-[#141A26]/45 to-transparent" />
-      <div className="absolute inset-0 -z-10 bg-gradient-to-t from-[#141A26] via-[#141A26]/15 to-[#141A26]/35" />
+      <div className="absolute inset-0 -z-10 bg-[#161C29]/30 lg:bg-[#161C29]/40" />
+      <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[#141A26]/70 via-[#141A26]/25 to-transparent lg:from-[#141A26]/90 lg:via-[#141A26]/45" />
+      <div className="absolute inset-0 -z-10 bg-gradient-to-t from-[#141A26] via-[#141A26]/45 to-[#141A26]/10 lg:via-[#141A26]/15 lg:to-[#141A26]/35" />
 
       <div
         className="absolute inset-0 pointer-events-none opacity-[0.04] -z-10"
