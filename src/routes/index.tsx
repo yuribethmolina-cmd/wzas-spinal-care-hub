@@ -52,6 +52,9 @@ export const Route = createFileRoute("/")({
         content: "Spezialisten für Wirbelsäule und Rücken in München. Termin meist innerhalb von 5 Werktagen.",
       },
     ],
+    links: [
+      { rel: "preload", as: "image", href: HERO_BG, fetchpriority: "high" },
+    ],
   }),
   component: Home,
 });
