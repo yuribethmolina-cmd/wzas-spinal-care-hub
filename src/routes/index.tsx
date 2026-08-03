@@ -1155,7 +1155,7 @@ function DoctorCard({ d, delay, cta }: { d: (typeof allDoctors)[0]; delay: numbe
   const photo = d.photo || doctorPhotoMap[d.slug] || null;
   return (
     <div ref={ref} style={style} className="bg-white overflow-hidden group">
-      <div className="aspect-[3/4] bg-[#263044] overflow-hidden">
+      <div className="aspect-[4/5] lg:aspect-[3/4] bg-[#263044] overflow-hidden">
         {photo ? (
           <img
             src={photo}
