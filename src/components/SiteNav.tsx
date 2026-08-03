@@ -124,34 +124,14 @@ export function SiteNav() {
           </button>
         </div>
       </div>
-      <nav
-        id="mobile-nav"
-        aria-label="Mobile Navigation"
-        hidden={!open}
-        className="lg:hidden border-t border-[#E2E4E7] bg-white px-5 py-4 space-y-3"
-      >
-        {t.links.map(([label, href]) => (
-          <Link
-            key={label}
-            to={href as "/" | "/aerzte" | "/beschwerden" | "/behandlungen" | "/faq" | "/aktuelles"}
-            onClick={() => setOpen(false)}
-            className="block text-sm font-medium text-[#1E2535] py-2"
-            activeOptions={{ exact: href === "/" }}
-            activeProps={{ "aria-current": "page" } as never}
-          >
-            {label}
-          </Link>
-        ))}
-        <a
-          href={BOOKING_URL}
-          target="_blank"
-          rel="noreferrer"
-          aria-label={`${t.book} (öffnet in neuem Tab)`}
-          className="block text-center rounded-full bg-[#AC8F52] px-5 py-3 text-sm font-semibold text-[#1E2535]"
-        >
-          {t.book}
-        </a>
-      </nav>
+      <MobileNavPanel
+        open={open}
+        onClose={() => setOpen(false)}
+        links={t.links}
+        bookLabel={t.book}
+        title={t.menu}
+      />
+
     </header>
   );
 }
