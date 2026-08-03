@@ -82,29 +82,39 @@ function SpineLocator() {
           <p className="text-[10px] font-semibold tracking-[0.2em] uppercase text-[#AC8F52]">{header}</p>
           <p className="text-[10px] text-white/55">{hint}</p>
         </div>
-        <div className="flex gap-3 p-4" style={{ height: 288 }}>
-          <div className="flex flex-col gap-1.5 w-8 shrink-0">
+        <div className="flex gap-4 p-4" style={{ height: 288 }}>
+          <svg
+            viewBox="0 0 44 288"
+            className="h-full w-11 shrink-0 overflow-visible"
+            aria-hidden
+          >
             {SPINE_ZONES.map((z) => {
               const active = activeId === z.id;
               return (
-                <a
+                <g
                   key={z.id}
-                  href={z.href}
-                  tabIndex={-1}
-                  aria-hidden
-                  className="block rounded cursor-pointer"
-                  style={{
-                    flex: z.flex,
-                    background: active ? "#C9A76D" : "rgba(255,255,255,0.2)",
-                    border: `1px solid ${active ? "#C9A76D" : "rgba(255,255,255,0.3)"}`,
-                    transition: "background 200ms, border-color 200ms",
-                  }}
                   onMouseEnter={() => setActiveId(z.id)}
                   onMouseLeave={() => setActiveId(null)}
-                />
+                  style={{
+                    cursor: "pointer",
+                    color: active ? "#D9BC80" : "rgba(255,255,255,0.42)",
+                    transition: `color 320ms ${EASE}, opacity 320ms ${EASE}`,
+                    opacity: activeId && !active ? 0.55 : 1,
+                  }}
+                >
+                  <rect x="0" y={z.y} width="44" height={z.h} fill="transparent" />
+                  {z.vertebrae.map((v, i) => (
+                    <g key={i} fill="none" stroke="currentColor" strokeWidth="1.25" strokeLinejoin="round" strokeLinecap="round">
+                      <rect x={22 - v.w / 2} y={v.y} width={v.w} height={v.vh} rx={v.vh / 2.6} />
+                      <path d={`M${22 - v.w / 2} ${v.y + v.vh / 2} h${-v.w * 0.42}`} />
+                      <path d={`M${22 + v.w / 2} ${v.y + v.vh / 2} h${v.w * 0.3}`} opacity="0.6" />
+                    </g>
+                  ))}
+                </g>
               );
             })}
-          </div>
+          </svg>
+
           <div className="flex flex-col gap-1.5 flex-1">
             {SPINE_ZONES.map((z) => {
               const active = activeId === z.id;
