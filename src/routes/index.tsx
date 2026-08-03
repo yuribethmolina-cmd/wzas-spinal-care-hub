@@ -633,26 +633,16 @@ function Hero() {
               <span className="inline-block w-5 h-px bg-[#AC8F52]" />
               {lang === "de" ? "Beratung in Ihrer Sprache" : "Consultation in your language"}
             </p>
-            <ul className="mt-3 flex flex-wrap gap-2">
-              {[
-                { code: "DE", name: "Deutsch" },
-                { code: "EN", name: "English" },
-                { code: "ES", name: "Español" },
-                { code: "HU", name: "Magyar" },
-                { code: "YUE", name: "廣東話" },
-              ].map((l) => (
-                <li
-                  key={l.code}
-                  className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/[0.07] backdrop-blur-sm pl-2 pr-3 py-1.5"
-                >
-                  <span className="rounded-full bg-[#AC8F52] px-1.5 py-0.5 text-[10px] font-bold tracking-wide text-[#1E2535]">
-                    {l.code}
-                  </span>
-                  <span className="text-[13px] font-medium text-white/90">{l.name}</span>
-                </li>
+            <p className="mt-2.5 text-[15px] font-medium text-white/90">
+              {["Deutsch", "English", "Español", "Magyar", "廣東話"].map((n, i) => (
+                <span key={n}>
+                  {i > 0 && <span className="mx-2 text-[#AC8F52]" aria-hidden="true">·</span>}
+                  {n}
+                </span>
               ))}
-            </ul>
+            </p>
           </div>
+
 
         </div>
         <div style={introPanel}>
