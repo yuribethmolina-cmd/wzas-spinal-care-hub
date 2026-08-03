@@ -572,12 +572,20 @@ function Hero() {
     },
   });
   const { lang } = useLang();
+  const parallax = useParallax(0.14);
+  const introKicker = useIntro(80);
+  const introSub = useIntro(620);
+  const introChips = useIntro(760);
+  const introCta = useIntro(880);
+  const introLangs = useIntro(1000);
+  const introPanel = useIntro(560);
   return (
     <section className="relative bg-[#1E2535] text-white overflow-hidden isolate">
       <img
         src={HERO_BG}
         alt={t.alt}
-        className="absolute inset-0 h-full w-full object-cover object-center -z-10"
+        className="absolute inset-0 h-[118%] w-full object-cover object-center -z-10"
+        style={{ transform: `translate3d(0, ${-parallax}px, 0) scale(1.02)`, willChange: "transform" }}
         loading="eager"
         fetchPriority="high"
       />
@@ -591,7 +599,10 @@ function Hero() {
       />
       <div className="relative mx-auto max-w-7xl px-5 lg:px-8 pt-10 pb-14 lg:pt-24 lg:pb-48 lg:min-h-[85vh] grid lg:grid-cols-2 gap-12 items-center">
         <div>
-          <p className="text-[11px] font-medium tracking-[0.2em] uppercase text-[#AC8F52] flex items-center gap-2">
+          <p
+            className="text-[11px] font-medium tracking-[0.2em] uppercase text-[#AC8F52] flex items-center gap-2"
+            style={introKicker}
+          >
             <span className="inline-block w-6 h-px bg-[#AC8F52]" />
             <span className="min-w-0">{t.kicker}</span>
           </p>
@@ -599,18 +610,19 @@ function Hero() {
             className="mt-6 leading-[1.02] tracking-tight text-white font-display"
             style={{ fontSize: "clamp(2.6rem, 7.5vw, 5.8rem)", fontWeight: 500 }}
           >
-            {t.h1a}
-            <br />
-            <em style={{ fontStyle: "normal", fontWeight: 600 }}>
-              {t.h1b}
-            </em>
-            <br />
-            {t.h1c}
+            <MaskLine delay={200}>{t.h1a}</MaskLine>
+            <MaskLine delay={320}>
+              <span style={{ fontWeight: 600 }}>{t.h1b}</span>
+            </MaskLine>
+            <MaskLine delay={440}>{t.h1c}</MaskLine>
           </h1>
-          <p className="mt-6 text-base sm:text-lg text-[#E6E9EF] leading-relaxed max-w-xl whitespace-pre-line">
+          <p
+            className="mt-6 text-base sm:text-lg text-[#E6E9EF] leading-relaxed max-w-xl whitespace-pre-line"
+            style={introSub}
+          >
             {t.sub}
           </p>
-          <div className="mt-10">
+          <div className="mt-10" style={introChips}>
             <p className="text-xs font-medium tracking-[0.15em] uppercase text-[#CBD1DA] mb-3">
               {t.chipsLabel}
             </p>
@@ -618,33 +630,33 @@ function Hero() {
               {t.chips.map((c) => (
                 <button
                   key={c}
-                  className="rounded-full border border-white/25 bg-white/5 backdrop-blur-sm px-4 py-2 text-sm text-white/90 hover:border-white/60 hover:bg-white/10 transition-colors duration-200 cursor-pointer"
+                  className="rounded-full border border-white/25 bg-white/5 backdrop-blur-sm px-4 py-2 text-sm text-white/90 hover:border-white/70 hover:bg-white/12 hover:-translate-y-0.5 transition-[color,background-color,border-color,transform] duration-[420ms] ease-[cubic-bezier(0.16,1,0.3,1)] cursor-pointer"
                 >
                   {c}
                 </button>
               ))}
             </div>
           </div>
-          <div className="mt-8 flex flex-wrap gap-3">
+          <div className="mt-8 flex flex-wrap gap-3" style={introCta}>
             <a
               href={BOOKING_URL}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center rounded-full bg-[#AC8F52] px-6 py-3 text-sm font-semibold text-[#1E2535] transition-[background-color,transform,box-shadow] duration-300 hover:bg-[#BC9C58] hover:-translate-y-0.5 hover:shadow-[0_12px_28px_-14px_rgba(172,143,82,0.85)]"
-              style={{ transition: `filter 150ms ${EASE}, transform 160ms ${EASE}` }}
-              onMouseEnter={(e) => (e.currentTarget.style.filter = "brightness(1.08)")}
-              onMouseLeave={(e) => (e.currentTarget.style.filter = "")}
+              className="inline-flex items-center rounded-full bg-[#AC8F52] px-6 py-3 text-sm font-semibold text-[#1E2535] transition-[background-color,transform,box-shadow] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:bg-[#BC9C58] hover:-translate-y-0.5 hover:shadow-[0_16px_34px_-16px_rgba(172,143,82,0.9)]"
             >
               {t.book}
             </a>
             <a
               href="#beschwerden"
-              className="inline-flex items-center rounded-full border border-white/40 bg-white/5 backdrop-blur-sm px-6 py-3 text-sm font-semibold text-white hover:bg-white/15 transition-colors duration-200"
+              className="inline-flex items-center rounded-full border border-white/40 bg-white/5 backdrop-blur-sm px-6 py-3 text-sm font-semibold text-white transition-[background-color,border-color,transform] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:bg-white/15 hover:border-white/70 hover:-translate-y-0.5"
             >
               {t.more}
             </a>
           </div>
-          <p className="mt-6 text-xs text-[#B6BDC8] flex items-center gap-2 flex-wrap">
+          <p
+            className="mt-6 text-xs text-[#B6BDC8] flex items-center gap-2 flex-wrap"
+            style={introLangs}
+          >
             <span className="inline-block w-4 h-px bg-[#B6BDC8]" />
             Se habla español
             <span className="text-white/20">·</span>
@@ -655,8 +667,11 @@ function Hero() {
             廣東話
           </p>
         </div>
-        <SpineLocator />
+        <div style={introPanel}>
+          <SpineLocator />
+        </div>
       </div>
+
 
       <div className="relative lg:absolute lg:inset-x-0 lg:bottom-0 bg-[#1E2535]/90 backdrop-blur border-t border-white/10">
         <div className="mx-auto max-w-7xl px-5 lg:px-8 grid grid-cols-2 md:grid-cols-4 gap-6 py-6">
