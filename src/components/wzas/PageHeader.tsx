@@ -3,6 +3,8 @@ import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import logoAsset from "@/assets/wzas/logo.png.asset.json";
 import { useLang, useT, type Lang } from "@/lib/lang";
+import { MobileNavPanel } from "@/components/MobileNavPanel";
+
 
 const BOOKING_URL = "https://onlinerezeption.vercel.app";
 const EASE = "cubic-bezier(0.23, 1, 0.32, 1)";
