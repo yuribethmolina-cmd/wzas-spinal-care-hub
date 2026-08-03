@@ -51,12 +51,33 @@ const STAT_DEFS = [
   { value: 12, suffix: "", labelDe: "Wirbelsäulenspezialisten", labelEn: "spine specialists" },
 ] as const;
 
-const SPINE_ZONES = [
-  { id: "cervical", de: "Halswirbelsäule", en: "Cervical spine", subDe: "Nacken · Arm · Kopf", subEn: "Neck · arm · head", href: "/beschwerden", flex: 1 },
-  { id: "thoracic", de: "Brustwirbelsäule", en: "Thoracic spine", subDe: "Oberer & mittlerer Rücken", subEn: "Upper & mid back", href: "/beschwerden/facettengelenksarthrose", flex: 2 },
-  { id: "lumbar", de: "LWS · Bandscheiben", en: "Lumbar · discs", subDe: "Unterer Rücken · L4/L5", subEn: "Lower back · L4/L5", href: "/beschwerden/bandscheibenvorfall", flex: 1.8 },
-  { id: "sacrum", de: "Sakrum · ISG", en: "Sacrum · SIJ", subDe: "Becken · Hüfte · Bein", subEn: "Pelvis · hip · leg", href: "/beschwerden/iliosakralsyndrom", flex: 1.2 },
+const SPINE_ZONE_DEFS = [
+  { id: "cervical", de: "Halswirbelsäule", en: "Cervical spine", subDe: "Nacken · Arm · Kopf", subEn: "Neck · arm · head", href: "/beschwerden", flex: 1, count: 4, w0: 11, w1: 13 },
+  { id: "thoracic", de: "Brustwirbelsäule", en: "Thoracic spine", subDe: "Oberer & mittlerer Rücken", subEn: "Upper & mid back", href: "/beschwerden/facettengelenksarthrose", flex: 2, count: 7, w0: 14, w1: 18 },
+  { id: "lumbar", de: "LWS · Bandscheiben", en: "Lumbar · discs", subDe: "Unterer Rücken · L4/L5", subEn: "Lower back · L4/L5", href: "/beschwerden/bandscheibenvorfall", flex: 1.8, count: 5, w0: 19, w1: 22 },
+  { id: "sacrum", de: "Sakrum · ISG", en: "Sacrum · SIJ", subDe: "Becken · Hüfte · Bein", subEn: "Pelvis · hip · leg", href: "/beschwerden/iliosakralsyndrom", flex: 1.2, count: 3, w0: 22, w1: 14 },
 ];
+
+// Lay the vertebrae out once so the drawing and the labels share one rhythm.
+const SPINE_TOTAL_FLEX = SPINE_ZONE_DEFS.reduce((s, z) => s + z.flex, 0);
+const SPINE_H = 288;
+const SPINE_ZONES = (() => {
+  let cursor = 0;
+  return SPINE_ZONE_DEFS.map((z) => {
+    const h = (z.flex / SPINE_TOTAL_FLEX) * SPINE_H;
+    const y = cursor;
+    cursor += h;
+    const slot = h / z.count;
+    const vh = Math.min(slot * 0.66, 13);
+    const vertebrae = Array.from({ length: z.count }, (_, i) => ({
+      y: y + i * slot + (slot - vh) / 2,
+      vh,
+      w: z.w0 + ((z.w1 - z.w0) * i) / Math.max(z.count - 1, 1),
+    }));
+    return { ...z, y, h, vertebrae };
+  });
+})();
+
 
 const WEG_ICONS: React.ReactNode[] = [
   <svg key="search" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" className="w-full h-full" aria-hidden><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>,
@@ -75,36 +96,46 @@ function SpineLocator() {
   return (
     <div className="hidden lg:flex flex-col justify-center items-end h-full">
       <div
-        className="rounded-2xl border border-white/20 overflow-hidden"
-        style={{ width: 264, background: "rgba(255,255,255,0.07)", backdropFilter: "blur(12px)" }}
+        className="rounded-2xl border border-white/25 overflow-hidden shadow-[0_24px_60px_-24px_rgba(0,0,0,0.8)]"
+        style={{ width: 264, background: "rgba(20,26,38,0.55)", backdropFilter: "blur(14px) saturate(1.1)" }}
       >
         <div className="px-5 py-3.5 border-b border-white/10 flex items-center justify-between">
           <p className="text-[10px] font-semibold tracking-[0.2em] uppercase text-[#AC8F52]">{header}</p>
-          <p className="text-[10px] text-white/30">{hint}</p>
+          <p className="text-[10px] text-white/55">{hint}</p>
         </div>
-        <div className="flex gap-3 p-4" style={{ height: 288 }}>
-          <div className="flex flex-col gap-1.5 w-8 shrink-0">
+        <div className="flex gap-4 p-4" style={{ height: 288 }}>
+          <svg
+            viewBox="0 0 44 288"
+            className="h-full w-11 shrink-0 overflow-visible"
+            aria-hidden
+          >
             {SPINE_ZONES.map((z) => {
               const active = activeId === z.id;
               return (
-                <a
+                <g
                   key={z.id}
-                  href={z.href}
-                  tabIndex={-1}
-                  aria-hidden
-                  className="block rounded cursor-pointer"
-                  style={{
-                    flex: z.flex,
-                    background: active ? "#AC8F52" : "rgba(255,255,255,0.13)",
-                    border: `1px solid ${active ? "#AC8F52" : "rgba(255,255,255,0.22)"}`,
-                    transition: "background 200ms, border-color 200ms",
-                  }}
                   onMouseEnter={() => setActiveId(z.id)}
                   onMouseLeave={() => setActiveId(null)}
-                />
+                  style={{
+                    cursor: "pointer",
+                    color: active ? "#D9BC80" : "rgba(255,255,255,0.42)",
+                    transition: `color 320ms ${EASE}, opacity 320ms ${EASE}`,
+                    opacity: activeId && !active ? 0.55 : 1,
+                  }}
+                >
+                  <rect x="0" y={z.y} width="44" height={z.h} fill="transparent" />
+                  {z.vertebrae.map((v, i) => (
+                    <g key={i} fill="none" stroke="currentColor" strokeWidth="1.25" strokeLinejoin="round" strokeLinecap="round">
+                      <rect x={22 - v.w / 2} y={v.y} width={v.w} height={v.vh} rx={v.vh / 2.6} />
+                      <path d={`M${22 - v.w / 2} ${v.y + v.vh / 2} h${-v.w * 0.42}`} />
+                      <path d={`M${22 + v.w / 2} ${v.y + v.vh / 2} h${v.w * 0.3}`} opacity="0.6" />
+                    </g>
+                  ))}
+                </g>
               );
             })}
-          </div>
+          </svg>
+
           <div className="flex flex-col gap-1.5 flex-1">
             {SPINE_ZONES.map((z) => {
               const active = activeId === z.id;
@@ -119,10 +150,10 @@ function SpineLocator() {
                   onMouseEnter={() => setActiveId(z.id)}
                   onMouseLeave={() => setActiveId(null)}
                 >
-                  <p className={`text-xs font-semibold leading-tight transition-colors duration-200 ${active ? "text-[#AC8F52]" : "text-white/70"}`}>
+                  <p className={`text-xs font-semibold leading-tight transition-colors duration-200 ${active ? "text-[#D9BC80]" : "text-white/90"}`}>
                     {label}
                   </p>
-                  <p className={`text-[10px] leading-snug transition-colors duration-200 ${active ? "text-[#C9A76D]" : "text-white/30"}`}>
+                  <p className={`text-[10px] leading-snug transition-colors duration-200 ${active ? "text-[#C9A76D]" : "text-white/55"}`}>
                     {sub}
                   </p>
                 </a>
@@ -460,8 +491,10 @@ function Hero() {
         loading="eager"
         fetchPriority="high"
       />
-      <div className="absolute inset-0 -z-10 bg-[#1E2535]/55" />
-      <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[#1E2535]/95 via-[#1E2535]/70 to-transparent" />
+      <div className="absolute inset-0 -z-10 bg-[#161C29]/72" />
+      <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[#141A26] via-[#141A26]/88 to-[#141A26]/35" />
+      <div className="absolute inset-0 -z-10 bg-gradient-to-t from-[#141A26] via-transparent to-[#141A26]/55" />
+
       <div
         className="absolute inset-0 pointer-events-none opacity-[0.04] -z-10"
         style={{ backgroundImage: NOISE, backgroundSize: "256px 256px" }}
@@ -484,11 +517,11 @@ function Hero() {
             <br />
             {t.h1c}
           </h1>
-          <p className="mt-6 text-base sm:text-lg text-[#D8DBE2] leading-relaxed max-w-xl whitespace-pre-line">
+          <p className="mt-6 text-base sm:text-lg text-[#E6E9EF] leading-relaxed max-w-xl whitespace-pre-line">
             {t.sub}
           </p>
           <div className="mt-10">
-            <p className="text-xs font-medium tracking-[0.15em] uppercase text-[#B8BEC6] mb-3">
+            <p className="text-xs font-medium tracking-[0.15em] uppercase text-[#CBD1DA] mb-3">
               {t.chipsLabel}
             </p>
             <div className="flex flex-wrap gap-2">
@@ -521,8 +554,8 @@ function Hero() {
               {t.more}
             </a>
           </div>
-          <p className="mt-6 text-xs text-[#8C939B] flex items-center gap-2 flex-wrap">
-            <span className="inline-block w-4 h-px bg-[#8C939B]" />
+          <p className="mt-6 text-xs text-[#B6BDC8] flex items-center gap-2 flex-wrap">
+            <span className="inline-block w-4 h-px bg-[#B6BDC8]" />
             Se habla español
             <span className="text-white/20">·</span>
             English spoken
@@ -540,7 +573,7 @@ function Hero() {
           {STAT_DEFS.map((s) => (
             <div key={s.labelDe}>
               <StatCounter value={s.value} suffix={s.suffix} />
-              <div className="text-xs md:text-sm text-[#C8CBD2] mt-1">
+              <div className="text-xs md:text-sm text-[#DDE1E8] mt-1">
                 {lang === "de" ? s.labelDe : s.labelEn}
               </div>
             </div>
@@ -568,47 +601,80 @@ function SectionLabel({ children, gold = true }: { children: React.ReactNode; go
 
 /* ─── Beschwerden ───────────────────────────────────────────────── */
 
+// Bespoke anatomical line icons — each drawn around the vertebral motif
+// (body + spinous process) so the pictogram actually describes the condition.
+const iconProps = {
+  viewBox: "0 0 24 24",
+  fill: "none",
+  stroke: "currentColor",
+  strokeWidth: 1.4,
+  strokeLinecap: "round",
+  strokeLinejoin: "round",
+  className: "w-7 h-7",
+} as const;
+
 const ConditionIcons: Record<string, React.ReactNode> = {
+  // Acute: three vertebrae, impact radiating from the middle one
   akut: (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
-      <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+    <svg {...iconProps} aria-hidden>
+      <rect x="7.5" y="3.5" width="9" height="4.4" rx="1.8" />
+      <rect x="7.5" y="9.8" width="9" height="4.4" rx="1.8" />
+      <rect x="7.5" y="16.1" width="9" height="4.4" rx="1.8" />
+      <path d="M7.5 5.7H4.6M7.5 12h-2.9M7.5 18.3H4.6" />
+      <path d="M18.6 10.4l2.4-1.5M19.2 12.6h2.9M18.6 15l2.3 1.4" opacity="0.75" />
     </svg>
   ),
+  // Chronic: the same column, wrapped by a slow recurring cycle
   chronisch: (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
-      <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" />
-      <path d="M3 3v5h5" />
+    <svg {...iconProps} aria-hidden>
+      <rect x="8" y="6.6" width="8" height="4.2" rx="1.7" />
+      <rect x="8" y="12.8" width="8" height="4.2" rx="1.7" />
+      <path d="M8 8.7H5.6M8 14.9H5.6" />
+      <path d="M19.4 8.2a8 8 0 0 1-1.2 9.6M5 18.6a8 8 0 0 1 .6-11" opacity="0.8" />
+      <path d="M19.9 4.9l-.5 3.4 3.2.2" opacity="0.8" />
     </svg>
   ),
+  // Herniated disc: two bodies, the disc between them bulging onto the nerve
   bandscheibe: (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
-      <ellipse cx="12" cy="12" rx="10" ry="4" />
-      <path d="M2 12c0 2.21 4.48 4 10 4s10-1.79 10-4" />
-      <path d="M2 12V8c0-2.21 4.48-4 10-4s10 1.79 10 4v4" />
+    <svg {...iconProps} aria-hidden>
+      <rect x="6.5" y="3.4" width="11" height="4.6" rx="1.9" />
+      <rect x="6.5" y="16" width="11" height="4.6" rx="1.9" />
+      <path d="M6.5 10.4h9.6c2.6 0 4.6 1.1 4.6 2.2 0 1.1-2 2.2-4.6 2.2H6.5z" />
+      <path d="M4.4 10.4v4.4" opacity="0.75" />
     </svg>
   ),
+  // Sciatica: lumbar segment with the nerve radiating down through hip and leg
   ischias: (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
-      <path d="M8.56 2.9A7 7 0 0 1 19 9v4l3 3-3 3v2a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1v-2l-3-3 3-3V9a7 7 0 0 1 .14-.9" />
-      <path d="M9 18h6" />
+    <svg {...iconProps} aria-hidden>
+      <rect x="5.5" y="3.2" width="7.5" height="4" rx="1.6" />
+      <rect x="5.5" y="8.8" width="7.5" height="4" rx="1.6" />
+      <path d="M5.5 5.2H3.2M5.5 10.8H3.2" />
+      <path d="M11 14.4c2.6.4 4 1.9 4.2 4 .2 2 1.3 3.4 3.3 4.1" />
+      <path d="M13.6 16.6l1.5-1.3M16.6 20.4l1.9-.8" opacity="0.7" />
     </svg>
   ),
+  // Post-op rehab: healing column supported and rising
   reha: (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
-      <path d="M12 21a9 9 0 0 0 9-9H3a9 9 0 0 0 9 9z" />
-      <path d="M7 21.7A9 9 0 0 1 3 12" />
-      <path d="M17 21.7A9 9 0 0 0 21 12" />
-      <path d="M12 3a4 4 0 0 1 4 4H8a4 4 0 0 1 4-4z" />
+    <svg {...iconProps} aria-hidden>
+      <rect x="9.5" y="4" width="7.5" height="4.1" rx="1.7" />
+      <rect x="9.5" y="10.1" width="7.5" height="4.1" rx="1.7" />
+      <rect x="9.5" y="16.2" width="7.5" height="4.1" rx="1.7" />
+      <path d="M20.4 18.6c1.2-3.6 1-7.4-.7-10.9" opacity="0.8" />
+      <path d="M17.4 9.1l2.3-1.6 1.5 2.3" opacity="0.8" />
+      <path d="M6.6 19.4c-1.8-1.5-2.6-4-2.2-6.5.3-1.9 1.2-3.6 2.5-4.9" opacity="0.6" />
     </svg>
   ),
+  // Sport: spine in dynamic extension with motion trace
   sport: (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
-      <circle cx="13" cy="4" r="2" />
-      <path d="M7 21l3-6 2 2 3-8 4 4" />
-      <path d="M3 21h18" />
+    <svg {...iconProps} aria-hidden>
+      <path d="M8.4 3.6c3.4 1.6 5.6 4.3 6.4 7.9.8 3.6 0 6.8-2.5 9.6" />
+      <path d="M9.9 5.7l3-1.1M11.6 8.5l3.1-1M12.7 11.7l3.2-.6M13 15.1l3.1.2M12.2 18.4l2.8 1" />
+      <path d="M5.2 7.4c-1.2 3-1.2 6.2 0 9.2M2.6 6c-1.5 3.9-1.5 8 0 12" opacity="0.5" />
     </svg>
   ),
 };
+
+
 
 function BeschwerdenCard({
   iconKey,
@@ -637,7 +703,16 @@ function BeschwerdenCard({
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
-      <div className="w-10 h-10 rounded-lg bg-[#AC8F52]/10 flex items-center justify-center text-[#AC8F52]">
+      <div
+        className="w-12 h-12 flex items-center justify-center text-[#8A6E36]"
+        style={{
+          borderRadius: 2,
+          background: hovered ? "#F3EDE1" : "#F6F3EC",
+          boxShadow: `inset 0 0 0 1px rgba(172,143,82,${hovered ? 0.45 : 0.22})`,
+          transform: hovered ? "translateY(-2px)" : "none",
+          transition: `background 260ms ${EASE}, box-shadow 260ms ${EASE}, transform 320ms ${EASE}`,
+        }}
+      >
         {ConditionIcons[iconKey]}
       </div>
       <div>
@@ -647,11 +722,31 @@ function BeschwerdenCard({
         >
           {name}
         </h3>
-        <p className="mt-2 text-sm text-[#8C939B] leading-relaxed">{sub}</p>
+        <p className="mt-2 text-sm text-[#5B6472] leading-relaxed">{sub}</p>
       </div>
-      <a href="#" className="mt-auto text-sm font-semibold text-[#AC8F52] hover:underline underline-offset-2">
-        {cta} →
+      <a
+        href="#"
+        className="mt-auto inline-flex items-center gap-2 text-sm font-semibold text-[#8A6E36]"
+      >
+        <span
+          style={{
+            boxShadow: `inset 0 -1px 0 0 rgba(138,110,54,${hovered ? 1 : 0.28})`,
+            transition: `box-shadow 260ms ${EASE}`,
+          }}
+        >
+          {cta}
+        </span>
+        <span
+          aria-hidden
+          style={{
+            transform: hovered ? "translateX(4px)" : "none",
+            transition: `transform 320ms ${EASE}`,
+          }}
+        >
+          →
+        </span>
       </a>
+
     </div>
   );
 }
