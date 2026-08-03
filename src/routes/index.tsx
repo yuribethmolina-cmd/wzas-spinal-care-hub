@@ -699,7 +699,7 @@ function BeschwerdenCard({
         backgroundColor: hovered ? "#FAFAF8" : "#FFFFFF",
         transition: `${style.transition}, background-color 200ms ${EASE}`,
       }}
-      className="p-8 flex flex-col gap-5 cursor-default"
+      className="p-8 lg:p-9 flex flex-col gap-5 cursor-default"
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
@@ -717,12 +717,12 @@ function BeschwerdenCard({
       </div>
       <div>
         <h3
-          className="font-display text-[#1E2535] leading-snug"
-          style={{ fontSize: "1.25rem", fontWeight: 500 }}
+          className="font-display leading-snug"
+          style={{ fontSize: "1.3125rem", fontWeight: 500, letterSpacing: "-0.015em", color: hovered ? "#8A6E36" : "#1E2535", transition: `color 260ms ${EASE}` }}
         >
           {name}
         </h3>
-        <p className="mt-2 text-sm text-[#5B6472] leading-relaxed">{sub}</p>
+        <p className="mt-2.5 text-[0.9375rem] text-[#5B6472] leading-relaxed">{sub}</p>
       </div>
       <a
         href="#"
@@ -786,19 +786,19 @@ function Beschwerden() {
   });
   const { ref, style } = useFadeUp(0);
   return (
-    <section id="beschwerden" className="bg-[#F8F8F6] py-16 lg:py-24">
+    <section id="beschwerden" className="bg-[#F8F8F6] py-20 lg:py-32">
       <div className="mx-auto max-w-7xl px-5 lg:px-8">
         <div ref={ref} style={style}>
           <SectionLabel>{t.label}</SectionLabel>
           <h2
             className="mt-4 font-display text-[#1E2535] leading-tight"
-            style={{ fontSize: "clamp(2rem, 4vw, 3rem)", fontWeight: 500 }}
+            style={{ fontSize: "clamp(2.15rem, 4.4vw, 3.4rem)", fontWeight: 500, letterSpacing: "-0.025em" }}
           >
             {t.h2a}<em style={{ fontStyle: "normal", fontWeight: 600 }}>{t.h2b}</em>
           </h2>
-          <p className="mt-4 max-w-2xl text-[#8C939B] leading-relaxed">{t.lead}</p>
+          <p className="mt-5 max-w-2xl text-[17px] text-[#5B6472] leading-[1.7]">{t.lead}</p>
         </div>
-        <div className="mt-12 grid gap-px bg-[#E2E4E7] sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-14 grid gap-px bg-[#E2E4E7] sm:grid-cols-2 lg:grid-cols-3">
           {t.items.map((item, i) => (
             <BeschwerdenCard key={item.iconKey} {...item} cta={t.cta} delay={150 + i * 80} />
           ))}
@@ -826,8 +826,8 @@ function WegStep({
           </div>
           <div className={`w-6 h-6 shrink-0 ${isHighlight ? "text-[#1E2535]" : "text-[#AC8F52]"}`}>{icon}</div>
         </div>
-        <h3 className={`font-display text-xl leading-snug ${isHighlight ? "text-[#1E2535] font-semibold" : "text-[#1E2535] font-medium"}`}>{title}</h3>
-        <p className={`mt-3 text-sm leading-relaxed flex-1 ${isHighlight ? "text-[#1E2535]/75" : "text-[#4A5568]"}`}>{desc}</p>
+        <h3 className={`font-display text-[1.3125rem] tracking-[-0.015em] leading-snug ${isHighlight ? "text-[#1E2535] font-semibold" : "text-[#1E2535] font-medium"}`}>{title}</h3>
+        <p className={`mt-3 text-[0.9375rem] leading-[1.7] flex-1 ${isHighlight ? "text-[#1E2535]/75" : "text-[#4A5568]"}`}>{desc}</p>
         {isHighlight && (
           <a
             href={BOOKING_URL}
@@ -894,7 +894,7 @@ function Weg() {
   });
   const { ref: headRef, style: headStyle } = useFadeUp(0);
   return (
-    <section id="weg" className="relative bg-[#1E2535] py-16 lg:py-24 overflow-hidden">
+    <section id="weg" className="relative bg-[#1E2535] py-20 lg:py-32 overflow-hidden">
       <div
         className="absolute inset-0 pointer-events-none opacity-[0.03]"
         style={{ backgroundImage: NOISE, backgroundSize: "256px 256px" }}
@@ -904,7 +904,7 @@ function Weg() {
           <SectionLabel gold={false}>{t.label}</SectionLabel>
           <h2
             className="mt-4 font-display text-white leading-tight"
-            style={{ fontSize: "clamp(2rem, 4vw, 3rem)", fontWeight: 500 }}
+            style={{ fontSize: "clamp(2.15rem, 4.4vw, 3.4rem)", fontWeight: 500, letterSpacing: "-0.025em" }}
           >
             {t.h2a}<em style={{ fontStyle: "normal", fontWeight: 600 }}>{t.h2b}</em>
           </h2>
@@ -978,7 +978,7 @@ function Kompetenzzentrum() {
             >
               {t.h2a}<em style={{ fontStyle: "normal", fontWeight: 600 }}>{t.h2b}</em>
             </h2>
-            <p className="mt-3 text-sm text-[#8C939B] leading-relaxed max-w-xs">{t.lead}</p>
+            <p className="mt-3 text-sm text-[#5B6472] leading-relaxed max-w-xs">{t.lead}</p>
           </div>
           <div className="grid gap-px bg-[#E2E4E7] sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 flex-1">
             {t.partners.map((p) => (
@@ -993,7 +993,7 @@ function Kompetenzzentrum() {
                 </div>
                 <div className="mt-auto">
                   <p className="text-xs font-semibold text-[#1E2535] leading-snug">{p.name}</p>
-                  <p className="mt-1 text-[11px] text-[#8C939B] leading-relaxed">{p.short}</p>
+                  <p className="mt-1 text-[11px] text-[#5B6472] leading-relaxed">{p.short}</p>
                 </div>
               </div>
             ))}
@@ -1043,7 +1043,7 @@ function DoctorCard({ d, delay, cta }: { d: (typeof allDoctors)[0]; delay: numbe
           {d.name}
         </h3>
         <p className="mt-1 text-[11px] uppercase tracking-[0.15em] text-[#AC8F52] font-medium">{d.role}</p>
-        <ul className="mt-4 space-y-1 text-sm text-[#8C939B]">
+        <ul className="mt-4 space-y-1 text-sm text-[#5B6472]">
           {d.focus.slice(0, 3).map((p) => (
             <li key={p}>· {p}</li>
           ))}
@@ -1107,17 +1107,17 @@ function Team() {
     .slice(0, 3);
 
   return (
-    <section id="team" className="bg-[#F8F8F6] py-16 lg:py-24">
+    <section id="team" className="bg-[#F8F8F6] py-20 lg:py-32">
       <div className="mx-auto max-w-7xl px-5 lg:px-8">
         <div ref={headRef} style={headStyle}>
           <SectionLabel>{t.label}</SectionLabel>
           <h2
             className="mt-4 font-display text-[#1E2535] leading-tight"
-            style={{ fontSize: "clamp(2rem, 4vw, 3rem)", fontWeight: 500 }}
+            style={{ fontSize: "clamp(2.15rem, 4.4vw, 3.4rem)", fontWeight: 500, letterSpacing: "-0.025em" }}
           >
             {t.h2a}<em style={{ fontStyle: "normal", fontWeight: 600 }}>{t.h2b}</em>
           </h2>
-          <p className="mt-4 max-w-2xl text-[#8C939B] leading-relaxed">{t.lead}</p>
+          <p className="mt-5 max-w-2xl text-[17px] text-[#5B6472] leading-[1.7]">{t.lead}</p>
         </div>
         <div className="mt-8 flex flex-wrap gap-2">
           {t.filters.map((f) => (
@@ -1185,7 +1185,7 @@ function Termin() {
   });
   const { ref, style } = useFadeUp(0);
   return (
-    <section id="termin" className="relative bg-[#1E2535] py-16 lg:py-24 border-t-4 border-[#AC8F52] overflow-hidden">
+    <section id="termin" className="relative bg-[#1E2535] py-20 lg:py-32 border-t-4 border-[#AC8F52] overflow-hidden">
       <div
         className="absolute inset-0 pointer-events-none opacity-[0.03]"
         style={{ backgroundImage: NOISE, backgroundSize: "256px 256px" }}
@@ -1194,7 +1194,7 @@ function Termin() {
         <div ref={ref} style={style}>
           <h2
             className="font-display text-white leading-tight"
-            style={{ fontSize: "clamp(2rem, 4vw, 3rem)", fontWeight: 500 }}
+            style={{ fontSize: "clamp(2.15rem, 4.4vw, 3.4rem)", fontWeight: 500, letterSpacing: "-0.025em" }}
           >
             {t.h2a}<em style={{ fontStyle: "normal", fontWeight: 600 }}>{t.h2b}</em>
           </h2>
@@ -1205,7 +1205,7 @@ function Termin() {
               {t.onlineKicker}
             </p>
             <p className="mt-3 text-white font-semibold text-lg">{t.onlineTitle}</p>
-            <p className="mt-2 text-sm text-[#8C939B]">{t.onlineSub}</p>
+            <p className="mt-2 text-sm text-[#A7AEBA]">{t.onlineSub}</p>
             <a
               href={BOOKING_URL}
               target="_blank"
@@ -1257,7 +1257,7 @@ function Termin() {
                 {icon}
                 <div>
                   <div className="text-white">{primary}</div>
-                  <div className="text-[#8C939B]">{secondary}</div>
+                  <div className="text-[#A7AEBA]">{secondary}</div>
                 </div>
               </div>
             ))}
@@ -1316,7 +1316,7 @@ function AktuellesCard({ item, delay, cta }: { item: AktuellesItem; delay: numbe
           >
             {item.type}
           </span>
-          <span className="text-xs text-[#8C939B]">{item.date}</span>
+          <span className="text-xs text-[#5B6472]">{item.date}</span>
         </div>
         <h3
           className="mt-2 font-display text-[#1E2535] leading-snug"
@@ -1324,7 +1324,7 @@ function AktuellesCard({ item, delay, cta }: { item: AktuellesItem; delay: numbe
         >
           {item.title}
         </h3>
-        <p className="mt-1 text-sm text-[#8C939B]">{item.detail}</p>
+        <p className="mt-1 text-sm text-[#5B6472]">{item.detail}</p>
       </div>
       <a
         href="#"
@@ -1374,17 +1374,17 @@ function Aktuelles() {
   const items: AktuellesItem[] = t.items.map((it, i) => ({ ...it, ...meta[i] }));
   const { ref: headRef, style: headStyle } = useFadeUp(0);
   return (
-    <section id="aktuelles" className="bg-[#F8F8F6] py-16 lg:py-24">
+    <section id="aktuelles" className="bg-[#F8F8F6] py-20 lg:py-32">
       <div className="mx-auto max-w-7xl px-5 lg:px-8">
         <div ref={headRef} style={headStyle}>
           <SectionLabel>{t.label}</SectionLabel>
           <h2
             className="mt-4 font-display text-[#1E2535] leading-tight"
-            style={{ fontSize: "clamp(2rem, 4vw, 3rem)", fontWeight: 500 }}
+            style={{ fontSize: "clamp(2.15rem, 4.4vw, 3.4rem)", fontWeight: 500, letterSpacing: "-0.025em" }}
           >
             {t.h2a}<em style={{ fontStyle: "normal", fontWeight: 600 }}>{t.h2b}</em>
           </h2>
-          <p className="mt-4 max-w-2xl text-[#8C939B] leading-relaxed">{t.lead}</p>
+          <p className="mt-5 max-w-2xl text-[17px] text-[#5B6472] leading-[1.7]">{t.lead}</p>
         </div>
         <div className="mt-12 flex flex-col gap-px bg-[#E2E4E7]">
           {items.map((item, i) => (
@@ -1435,7 +1435,7 @@ function Footer() {
       <div className="mx-auto max-w-7xl px-5 lg:px-8 py-16 grid gap-10 md:grid-cols-2 lg:grid-cols-5">
         <div>
           <Logo light />
-          <div className="mt-5 space-y-1 text-sm text-[#8C939B]">
+          <div className="mt-5 space-y-1 text-sm text-[#A7AEBA]">
             <div>Nymphenburger Str. 1</div>
             <div>{t.city}</div>
             <div className="mt-3">+49 (0)89-54 34 30 30</div>
@@ -1445,7 +1445,7 @@ function Footer() {
         {t.cols.map((c) => (
           <div key={c.title}>
             <h4 className="text-white font-semibold text-sm tracking-wide">{c.title}</h4>
-            <ul className="mt-4 space-y-2 text-sm text-[#8C939B]">
+            <ul className="mt-4 space-y-2 text-sm text-[#A7AEBA]">
               {c.items.map((i) => (
                 <li key={i}>
                   <a href="#" className="hover:text-[#AC8F52] transition-colors duration-200">
@@ -1460,14 +1460,14 @@ function Footer() {
 
       <div className="border-t border-white/10">
         <div className="mx-auto max-w-7xl px-5 lg:px-8 py-8 flex flex-wrap items-center gap-8">
-          <span className="text-[11px] font-medium tracking-[0.2em] uppercase text-[#8C939B]">{t.awarded}</span>
+          <span className="text-[11px] font-medium tracking-[0.2em] uppercase text-[#A7AEBA]">{t.awarded}</span>
           <img src={focusImg.url} alt="Focus Top-Mediziner" className="h-14 w-auto bg-white/95 rounded p-2" />
           <img src={isoImg.url} alt="ISO 9001 zertifiziert" className="h-14 w-auto bg-white/95 rounded p-2" />
         </div>
       </div>
 
       <div className="border-t border-white/10">
-        <div className="mx-auto max-w-7xl px-5 lg:px-8 py-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-3 text-xs text-[#8C939B]">
+        <div className="mx-auto max-w-7xl px-5 lg:px-8 py-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-3 text-xs text-[#A7AEBA]">
           <div>{t.copy}</div>
           <div className="flex gap-4">
             {t.legal.map((l) => (
