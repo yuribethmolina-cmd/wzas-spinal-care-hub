@@ -1,4 +1,11 @@
 export const HERO_BG = "/__l5e/assets-v1/8ac74259-c4c6-470d-8493-8abf2d524f37/hero-gespraech.webp";
+export const HERO_SRCSET = [
+  "/__l5e/assets-v1/94b6fe06-7ad3-494a-b5b9-a8c3dfdae1be/hero-gespraech-640.webp 640w",
+  "/__l5e/assets-v1/3bc6c9b9-d383-4b82-87e7-0d98a04f7ea9/hero-gespraech-960.webp 960w",
+  "/__l5e/assets-v1/22491e28-0770-4c1d-b6b0-c786da6184e2/hero-gespraech-1280.webp 1280w",
+  "/__l5e/assets-v1/8bd434b5-dc3b-4545-8041-e286f5b3bf89/hero-gespraech-1920.webp 1920w",
+].join(", ");
+export const HERO_SIZES = "100vw";
 export const HERO_VIDEO = "/__l5e/assets-v1/949da178-930e-4139-b75b-d822f0d6020d/hero-columna.mp4";
 
 
