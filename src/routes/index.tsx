@@ -637,7 +637,7 @@ function Hero() {
           </p>
           <h1
             className="mt-6 leading-[1.02] tracking-tight text-white font-display"
-            style={{ fontSize: "clamp(2.6rem, 7.5vw, 5.8rem)", fontWeight: 500 }}
+            style={{ fontSize: "clamp(2.4rem, 5.4vw, 5rem)", fontWeight: 500 }}
           >
             <MaskLine delay={200}>{t.h1a}</MaskLine>
             <MaskLine delay={320}>
