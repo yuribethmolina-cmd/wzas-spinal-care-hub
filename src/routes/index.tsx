@@ -1301,7 +1301,8 @@ function Termin() {
       onlineSub: "Integriert über onlinerezeption.vercel.app",
       book: "Termin buchen",
       otherTitle: "Weitere Kontaktmöglichkeiten",
-      phoneSub: "Mo–Fr · 08:00–17:00 Uhr",
+      phoneSub: "Gesetzlich Versicherte · Mo–Fr 08:00–17:00 Uhr",
+      privateSub: "Privatpatienten · gesonderte Rufnummer",
       mailSub: "Antwort innerhalb eines Werktags",
       city: "80335 München",
     },
@@ -1314,7 +1315,8 @@ function Termin() {
       onlineSub: "Powered by onlinerezeption.vercel.app",
       book: "Book appointment",
       otherTitle: "Other ways to reach us",
-      phoneSub: "Mon–Fri · 8:00 am – 5:00 pm",
+      phoneSub: "Statutory insurance · Mon–Fri 8:00 am – 5:00 pm",
+      privateSub: "Private patients · dedicated line",
       mailSub: "Reply within one business day",
       city: "80335 Munich",
     },
@@ -1367,6 +1369,16 @@ function Termin() {
                 ),
                 primary: "+49 (0)89-54 34 30 30",
                 secondary: t.phoneSub,
+              },
+              {
+                icon: (
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5 text-[#AC8F52] shrink-0 mt-0.5">
+                    <rect width="20" height="16" x="2" y="4" rx="2" />
+                    <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                  </svg>
+                ),
+                primary: "+49 (0)89-54 34 30 3-120",
+                secondary: t.privateSub,
               },
               {
                 icon: (
@@ -1574,9 +1586,11 @@ function Footer() {
         <div>
           <Logo light />
           <div className="mt-5 space-y-1 text-sm text-[#A7AEBA]">
+            <div>Dr. Medele &amp; Kollegen</div>
             <div>Nymphenburger Str. 1</div>
             <div>{t.city}</div>
-            <div className="mt-3">+49 (0)89-54 34 30 30</div>
+            <div className="mt-3">Tel.: +49 (0)89-54 34 30 30</div>
+            <div>Fax: +49 (0)89-543430-330</div>
             <div>info@wzas.de</div>
           </div>
         </div>
