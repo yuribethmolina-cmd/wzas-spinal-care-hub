@@ -76,13 +76,14 @@ function SpineLocator() {
     <div className="hidden lg:flex flex-col justify-center items-end h-full">
       <div
         className="rounded-2xl border border-white/25 overflow-hidden shadow-[0_24px_60px_-24px_rgba(0,0,0,0.8)]"
-        style={{ width: 264, background: "rgba(20,26,38,0.55)", backdropFilter: "blur(14px) saturate(1.1)" }}
+        style={{ width: 340, background: "rgba(16,22,34,0.68)", backdropFilter: "blur(14px) saturate(1.1)" }}
       >
-        <div className="px-5 py-3.5 border-b border-white/10 flex items-center justify-between">
-          <p className="text-[10px] font-semibold tracking-[0.2em] uppercase text-[#AC8F52]">{header}</p>
-          <p className="text-[10px] text-white/55">{hint}</p>
+        <div className="px-5 py-4 border-b border-white/15 flex items-center justify-between gap-3">
+          <p className="text-xs font-bold tracking-[0.18em] uppercase text-[#E0C288]">{header}</p>
+          <p className="text-xs font-medium text-white/70">{hint}</p>
         </div>
-        <div className="flex gap-4 p-4" style={{ height: 288 }}>
+        <div className="flex gap-5 p-5" style={{ height: 340 }}>
+
           <svg
             viewBox="0 0 44 288"
             className="h-full w-11 shrink-0 overflow-visible"
@@ -129,12 +130,13 @@ function SpineLocator() {
                   onMouseEnter={() => setActiveId(z.id)}
                   onMouseLeave={() => setActiveId(null)}
                 >
-                  <p className={`text-xs font-semibold leading-tight transition-colors duration-200 ${active ? "text-[#D9BC80]" : "text-white/90"}`}>
+                  <p className={`text-base font-bold leading-tight transition-colors duration-200 ${active ? "text-[#E0C288]" : "text-white"}`}>
                     {label}
                   </p>
-                  <p className={`text-[10px] leading-snug transition-colors duration-200 ${active ? "text-[#C9A76D]" : "text-white/55"}`}>
+                  <p className={`text-sm font-medium leading-snug mt-0.5 transition-colors duration-200 ${active ? "text-[#D2B276]" : "text-white/75"}`}>
                     {sub}
                   </p>
+
                 </a>
               );
             })}
