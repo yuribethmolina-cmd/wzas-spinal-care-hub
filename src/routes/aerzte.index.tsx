@@ -121,7 +121,7 @@ function Directory() {
 
           <div className="grid gap-4 md:grid-cols-2">
             <div>
-              <p className="text-[11px] uppercase tracking-wide text-[#8C939B] font-medium mb-2">{t.labelSpecialty}</p>
+              <p className="text-[11px] uppercase tracking-wide text-[#5F6771] font-medium mb-2">{t.labelSpecialty}</p>
               <div className="flex flex-wrap gap-2">
                 <FilterChip active={specialty === "Alle"} onClick={() => setSpecialty("Alle")}>{t.filterAll}</FilterChip>
                 {allSpecialties.map((s) => (
@@ -130,7 +130,7 @@ function Directory() {
               </div>
             </div>
             <div>
-              <p className="text-[11px] uppercase tracking-wide text-[#8C939B] font-medium mb-2">{t.labelAvailability}</p>
+              <p className="text-[11px] uppercase tracking-wide text-[#5F6771] font-medium mb-2">{t.labelAvailability}</p>
               <div className="flex flex-wrap gap-2">
                 <FilterChip active={availability === "Alle"} onClick={() => setAvailability("Alle")}>{t.filterAll}</FilterChip>
                 {allAvailabilities.map((a) => (
@@ -146,7 +146,7 @@ function Directory() {
 
       <section className="py-12">
         <div className="mx-auto max-w-7xl px-5 lg:px-8">
-          <p className="text-sm text-[#8C939B] mb-6">{resultCount}</p>
+          <p className="text-sm text-[#5F6771] mb-6">{resultCount}</p>
 
           {filtered.length === 0 ? (
             <div className="rounded-xl border border-dashed border-[#E2E4E7] bg-white p-12 text-center">
@@ -182,17 +182,17 @@ function Directory() {
                   </div>
                   <div className="p-6 flex flex-col flex-1">
                     <h3 className="font-semibold text-lg text-[#1E2535] line-clamp-1">{d.name}</h3>
-                    <p className="mt-1 text-xs uppercase tracking-wide text-[#AC8F52] font-medium line-clamp-1">{d.role}</p>
+                    <p className="mt-1 text-xs uppercase tracking-wide text-[#8A6D2F] font-medium line-clamp-1">{d.role}</p>
                     <div className="mt-3 flex flex-wrap gap-1.5 min-h-[28px]">
                       {d.specialties.slice(0, 2).map((s) => (
                         <span key={s} className="rounded-full bg-[#F8F8F6] px-2.5 py-1 text-[11px] text-[#1E2535]">{s}</span>
                       ))}
                     </div>
-                    <p className="mt-4 text-sm text-[#8C939B] leading-relaxed line-clamp-2 min-h-[2.75rem] flex-1">
+                    <p className="mt-4 text-sm text-[#5F6771] leading-relaxed line-clamp-2 min-h-[2.75rem] flex-1">
                       {d.focus.slice(0, 2).join(" · ")}
                     </p>
                     <div className="mt-5 pt-4 border-t border-[#E2E4E7] flex items-center justify-between">
-                      <div className="text-xs text-[#8C939B]">
+                      <div className="text-xs text-[#5F6771]">
                         {t.nextAppt}<br />
                         <span className="text-[#1E2535] font-semibold">{d.nextSlot}</span>
                       </div>

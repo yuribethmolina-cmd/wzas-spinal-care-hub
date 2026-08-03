@@ -271,7 +271,7 @@ function BehandlungenPage() {
               <p className="font-display text-2xl lg:text-3xl italic text-[#1E2535] leading-snug">
                 {t.pullQuote}
               </p>
-              <p className="mt-3 text-xs text-[#8C939B] tracking-widest uppercase">{t.pullQuoteAttribution}</p>
+              <p className="mt-3 text-xs text-[#5F6771] tracking-widest uppercase">{t.pullQuoteAttribution}</p>
             </div>
           </div>
         </section>
