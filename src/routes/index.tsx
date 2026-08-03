@@ -670,7 +670,16 @@ function BeschwerdenCard({
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
-      <div className="w-10 h-10 rounded-lg bg-[#AC8F52]/10 flex items-center justify-center text-[#AC8F52]">
+      <div
+        className="w-12 h-12 flex items-center justify-center text-[#8A6E36]"
+        style={{
+          borderRadius: 2,
+          background: hovered ? "#F3EDE1" : "#F6F3EC",
+          boxShadow: `inset 0 0 0 1px rgba(172,143,82,${hovered ? 0.45 : 0.22})`,
+          transform: hovered ? "translateY(-2px)" : "none",
+          transition: `background 260ms ${EASE}, box-shadow 260ms ${EASE}, transform 320ms ${EASE}`,
+        }}
+      >
         {ConditionIcons[iconKey]}
       </div>
       <div>
@@ -680,11 +689,31 @@ function BeschwerdenCard({
         >
           {name}
         </h3>
-        <p className="mt-2 text-sm text-[#8C939B] leading-relaxed">{sub}</p>
+        <p className="mt-2 text-sm text-[#5B6472] leading-relaxed">{sub}</p>
       </div>
-      <a href="#" className="mt-auto text-sm font-semibold text-[#AC8F52] hover:underline underline-offset-2">
-        {cta} →
+      <a
+        href="#"
+        className="mt-auto inline-flex items-center gap-2 text-sm font-semibold text-[#8A6E36]"
+      >
+        <span
+          style={{
+            boxShadow: `inset 0 -1px 0 0 rgba(138,110,54,${hovered ? 1 : 0.28})`,
+            transition: `box-shadow 260ms ${EASE}`,
+          }}
+        >
+          {cta}
+        </span>
+        <span
+          aria-hidden
+          style={{
+            transform: hovered ? "translateX(4px)" : "none",
+            transition: `transform 320ms ${EASE}`,
+          }}
+        >
+          →
+        </span>
       </a>
+
     </div>
   );
 }
