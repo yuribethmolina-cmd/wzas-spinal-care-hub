@@ -39,8 +39,8 @@ const FAQ_ITEMS: FaqItem[] = [
     en: { q: "Do I need a referral?", a: "No. You can register directly — without a referral from your GP. For patients with statutory insurance we recommend a specialist referral as it simplifies billing. Private patients may come at any time without a referral." },
   },
   {
-    de: { q: "Wie lange warte ich auf einen Termin?", a: "Ersttermine sind in der Regel innerhalb von 5 Werktagen möglich. In dringenden Fällen versuchen wir, Sie noch früher einzuplanen. Rufen Sie uns an: +49 (0)89-54 34 30 30." },
-    en: { q: "How long is the wait for an appointment?", a: "First appointments are usually available within 5 working days. For urgent cases we try to schedule you sooner. Call us: +49 (0)89-54 34 30 30." },
+    de: { q: "Wie lange warte ich auf einen Termin?", a: "Wir vergeben Termine so zeitnah wie möglich. Notfälle werden selbstverständlich sofort behandelt; dadurch kann es gelegentlich zu Wartezeiten kommen. Rufen Sie uns an: +49 (0)89-54 34 30 30." },
+    en: { q: "How long is the wait for an appointment?", a: "We schedule appointments as soon as possible. Emergencies are always treated immediately, which can occasionally cause waiting times. Call us: +49 (0)89-54 34 30 30." },
   },
   {
     de: { q: "Welche Kassen werden akzeptiert?", a: "Wir behandeln Patienten aller gesetzlichen und privaten Krankenversicherungen sowie Selbstzahler. Die genauen Leistungen variieren je nach Versicherungsvertrag — sprechen Sie uns bei Fragen gerne an." },

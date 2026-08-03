@@ -46,12 +46,12 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Rückengesundheit für München. 20 Jahre Erfahrung, 12 Spezialisten. Konservative Behandlung zuerst — Operation nur wenn nötig.",
+          "Rückengesundheit für München. 20 Jahre Erfahrung, 13 Spezialisten. Konservative Behandlung zuerst — Operation nur wenn nötig.",
       },
       { property: "og:title", content: "WZAS · Wirbelsäulenzentrum am Stiglmaierplatz" },
       {
         property: "og:description",
-        content: "Spezialisten für Wirbelsäule und Rücken in München. Termin meist innerhalb von 5 Werktagen.",
+        content: "Spezialisten für Wirbelsäule und Rücken in München. Termine für gesetzlich und privat Versicherte.",
       },
     ],
     links: [
@@ -569,7 +569,7 @@ function Hero() {
       h1a: "Rücken-",
       h1b: "gesundheit",
       h1c: "für München.",
-      sub: "20 Jahre Erfahrung.\u00a0\n12 Spezialisten.\u00a0\nKonservative Behandlung zuerst\u00a0\nOperation nur wenn nötig.",
+      sub: "20 Jahre Erfahrung.\u00a0\n13 Spezialisten.\u00a0\nKonservative Behandlung zuerst\u00a0\nOperation nur wenn nötig.",
       chipsLabel: "Was führt Sie zu uns?",
       chips: ["Akuter Rückenschmerz", "Chronische Schmerzen", "Bandscheibenvorfall", "Ischias", "Nach OP"],
       book: "Termin vereinbaren",
@@ -993,12 +993,12 @@ function Weg() {
         {
           n: "2",
           title: "Den richtigen Spezialisten finden",
-          desc: "Filtern Sie unser Team aus 12 Spezialisten nach Fachgebiet. Jedes Profil zeigt die behandelten Erkrankungen und den Behandlungsansatz.",
+          desc: "Filtern Sie unser Team aus 13 Spezialisten nach Fachgebiet. Jedes Profil zeigt die behandelten Erkrankungen und den Behandlungsansatz.",
         },
         {
           n: "3",
           title: "In 60 Sekunden buchen",
-          desc: "Nutzen Sie unser Online-Buchungssystem und wählen Sie einen passenden Termin. Ersttermine meist innerhalb von 5 Werktagen. Kein Anruf nötig.",
+          desc: "Nutzen Sie unser Online-Buchungssystem und wählen Sie einen passenden Termin. Notfälle behandeln wir sofort. Kein Anruf nötig.",
         },
       ],
     },
@@ -1021,7 +1021,7 @@ function Weg() {
         {
           n: "3",
           title: "Book in 60 seconds",
-          desc: "Use our online booking system and pick a time that suits you. Most first appointments within 5 working days. No phone call needed.",
+          desc: "Use our online booking system and pick a time that suits you. Emergencies are treated immediately. No phone call needed.",
         },
       ],
     },
@@ -1214,7 +1214,7 @@ function Team() {
   const t = useT({
     de: {
       label: "Unser Ärzteteam",
-      h2a: "12 Spezialisten, ",
+      h2a: "13 Spezialisten, ",
       h2b: "ein Ziel",
       lead: "Jeder Patient wird von Anfang an dem richtigen Spezialisten zugeordnet.",
       filters: ["Alle", "Wirbelsäulenchirurgie", "Schmerztherapie", "Neurochirurgie", "Orthopädie"] as const,
@@ -1295,26 +1295,28 @@ function Termin() {
     de: {
       h2a: "Wir sind ",
       h2b: "für Sie da.",
-      lead: "Die meisten Ersttermine sind innerhalb von 5 Werktagen verfügbar. Für die meisten Beschwerden ist keine Überweisung erforderlich.",
+      lead: "Öffnungszeiten: Montag bis Freitag, 8.00–17.00 Uhr. Notfälle behandeln wir selbstverständlich sofort.",
       onlineKicker: "Online buchen",
       onlineTitle: "Termin online vereinbaren",
       onlineSub: "Integriert über onlinerezeption.vercel.app",
       book: "Termin buchen",
       otherTitle: "Weitere Kontaktmöglichkeiten",
-      phoneSub: "Mo–Fr · 08:00–18:00 Uhr",
+      phoneSub: "Gesetzlich Versicherte · Mo–Fr 08:00–17:00 Uhr",
+      privateSub: "Privatpatienten · gesonderte Rufnummer",
       mailSub: "Antwort innerhalb eines Werktags",
       city: "80335 München",
     },
     en: {
       h2a: "We are ",
       h2b: "here for you.",
-      lead: "Most first appointments are available within 5 working days. No referral is needed for most conditions.",
+      lead: "Opening hours: Monday to Friday, 8.00 am – 5.00 pm. Emergencies are treated immediately.",
       onlineKicker: "Book online",
       onlineTitle: "Schedule an appointment online",
       onlineSub: "Powered by onlinerezeption.vercel.app",
       book: "Book appointment",
       otherTitle: "Other ways to reach us",
-      phoneSub: "Mon–Fri · 8:00 am – 6:00 pm",
+      phoneSub: "Statutory insurance · Mon–Fri 8:00 am – 5:00 pm",
+      privateSub: "Private patients · dedicated line",
       mailSub: "Reply within one business day",
       city: "80335 Munich",
     },
@@ -1367,6 +1369,16 @@ function Termin() {
                 ),
                 primary: "+49 (0)89-54 34 30 30",
                 secondary: t.phoneSub,
+              },
+              {
+                icon: (
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5 text-[#AC8F52] shrink-0 mt-0.5">
+                    <rect width="20" height="16" x="2" y="4" rx="2" />
+                    <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                  </svg>
+                ),
+                primary: "+49 (0)89-54 34 30 3-120",
+                secondary: t.privateSub,
               },
               {
                 icon: (
@@ -1574,9 +1586,11 @@ function Footer() {
         <div>
           <Logo light />
           <div className="mt-5 space-y-1 text-sm text-[#A7AEBA]">
+            <div>Dr. Medele &amp; Kollegen</div>
             <div>Nymphenburger Str. 1</div>
             <div>{t.city}</div>
-            <div className="mt-3">+49 (0)89-54 34 30 30</div>
+            <div className="mt-3">Tel.: +49 (0)89-54 34 30 30</div>
+            <div>Fax: +49 (0)89-543430-330</div>
             <div>info@wzas.de</div>
           </div>
         </div>
