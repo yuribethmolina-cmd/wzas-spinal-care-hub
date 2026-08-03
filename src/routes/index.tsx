@@ -4,6 +4,7 @@ import { doctors as allDoctors } from "@/lib/doctors";
 import { useLang, useT, type Lang } from "@/lib/lang";
 import { PraxisGalerie } from "@/components/PraxisGalerie";
 import { Behandlungen } from "@/components/Behandlungen";
+import { KonservativZuerst } from "@/components/KonservativZuerst";
 import { Vortragsreihe, Anfahrt } from "@/components/HomeExtras";
 import logoAsset from "@/assets/wzas/logo.png.asset.json";
 import { SiteNav } from "@/components/SiteNav";
