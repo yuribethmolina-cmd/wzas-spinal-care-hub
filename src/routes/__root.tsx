@@ -13,7 +13,6 @@ import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { LanguageProvider } from "../lib/lang";
 import { PreviewRefresh } from "../lib/preview-refresh";
-import { DevErrorPanel } from "../components/DevErrorPanel";
 
 
 function NotFoundComponent() {
@@ -134,7 +133,6 @@ function RootComponent() {
     <QueryClientProvider client={queryClient}>
       <LanguageProvider>
         <PreviewRefresh />
-        <DevErrorPanel />
         {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
 
         <Outlet />
