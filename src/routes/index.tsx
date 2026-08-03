@@ -625,7 +625,7 @@ function Hero() {
         className="absolute inset-0 pointer-events-none opacity-[0.04] -z-10"
         style={{ backgroundImage: NOISE, backgroundSize: "256px 256px" }}
       />
-      <div className="relative mx-auto max-w-7xl px-5 lg:px-8 pt-10 pb-14 lg:pt-24 lg:pb-48 lg:min-h-[85vh] grid lg:grid-cols-2 gap-12 items-center">
+      <div className="relative mx-auto max-w-7xl px-5 lg:px-8 pt-10 pb-14 lg:pt-20 lg:pb-40 lg:min-h-[min(84vh,860px)] grid lg:grid-cols-2 gap-10 lg:gap-14 items-center">
 
         <div>
           <p
@@ -637,7 +637,7 @@ function Hero() {
           </p>
           <h1
             className="mt-6 leading-[1.02] tracking-tight text-white font-display"
-            style={{ fontSize: "clamp(2.6rem, 7.5vw, 5.8rem)", fontWeight: 500 }}
+            style={{ fontSize: "clamp(2.4rem, 5.4vw, 5rem)", fontWeight: 500 }}
           >
             <MaskLine delay={200}>{t.h1a}</MaskLine>
             <MaskLine delay={320}>
@@ -646,12 +646,12 @@ function Hero() {
             <MaskLine delay={440}>{t.h1c}</MaskLine>
           </h1>
           <p
-            className="mt-6 text-base sm:text-lg text-[#E6E9EF] leading-relaxed max-w-xl whitespace-pre-line"
+            className="mt-5 text-base sm:text-lg text-[#E6E9EF] leading-relaxed max-w-xl whitespace-pre-line"
             style={introSub}
           >
             {t.sub}
           </p>
-          <div className="mt-10" style={introChips}>
+          <div className="mt-8" style={introChips}>
             <p className="text-xs font-medium tracking-[0.15em] uppercase text-[#CBD1DA] mb-3">
               {t.chipsLabel}
             </p>
@@ -666,7 +666,7 @@ function Hero() {
               ))}
             </div>
           </div>
-          <div className="mt-8 flex flex-wrap gap-3" style={introCta}>
+          <div className="mt-7 flex flex-wrap gap-3" style={introCta}>
             <a
               href={BOOKING_URL}
               target="_blank"
@@ -682,7 +682,7 @@ function Hero() {
               {t.more}
             </a>
           </div>
-          <div className="mt-8" style={introLangs}>
+          <div className="mt-7" style={introLangs}>
             <p className="text-[11px] font-medium tracking-[0.18em] uppercase text-[#CBD1DA] flex items-center gap-2">
               <span className="inline-block w-5 h-px bg-[#AC8F52]" />
               {lang === "de" ? "Beratung in Ihrer Sprache" : "Consultation in your language"}
@@ -706,7 +706,7 @@ function Hero() {
 
 
       <div className="relative lg:absolute lg:inset-x-0 lg:bottom-0 bg-[#1E2535]/90 backdrop-blur border-t border-white/10">
-        <div className="mx-auto max-w-7xl px-5 lg:px-8 grid grid-cols-2 md:grid-cols-4 gap-6 py-6">
+        <div className="mx-auto max-w-7xl px-5 lg:px-8 grid grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-7 items-start py-6 lg:py-7">
           {STAT_DEFS.map((s) => (
             <div key={s.labelDe}>
               <StatCounter value={s.value} suffix={s.suffix} />
@@ -923,7 +923,7 @@ function Beschwerden() {
   });
   const { ref, style } = useFadeUp(0);
   return (
-    <section id="beschwerden" className="bg-[#F8F8F6] py-20 lg:py-32">
+    <section id="beschwerden" className="bg-[#F8F8F6] py-20 lg:py-28">
       <div className="mx-auto max-w-7xl px-5 lg:px-8">
         <div ref={ref} style={style}>
           <SectionLabel>{t.label}</SectionLabel>
@@ -1031,7 +1031,7 @@ function Weg() {
   });
   const { ref: headRef, style: headStyle } = useFadeUp(0);
   return (
-    <section id="weg" className="relative bg-[#1E2535] py-20 lg:py-32 overflow-hidden">
+    <section id="weg" className="relative bg-[#1E2535] py-20 lg:py-28 overflow-hidden">
       <div
         className="absolute inset-0 pointer-events-none opacity-[0.03]"
         style={{ backgroundImage: NOISE, backgroundSize: "256px 256px" }}
@@ -1104,10 +1104,11 @@ function Kompetenzzentrum() {
     },
   });
   return (
-    <section className="bg-white border-y border-[#E2E4E7] py-16">
+    <section className="bg-white border-y border-[#E2E4E7] py-16 lg:py-20">
       <div className="mx-auto max-w-7xl px-5 lg:px-8">
-        <div ref={ref} style={style} className="lg:flex lg:items-start lg:gap-16">
-          <div className="lg:w-80 shrink-0 mb-10 lg:mb-0">
+        <div ref={ref} style={style} className="lg:flex lg:items-center lg:gap-14">
+          <div className="lg:w-72 shrink-0 mb-10 lg:mb-0">
+
             <SectionLabel>{t.label}</SectionLabel>
             <h2
               className="mt-4 font-display text-[#1E2535] leading-tight"
@@ -1154,7 +1155,7 @@ function DoctorCard({ d, delay, cta }: { d: (typeof allDoctors)[0]; delay: numbe
   const photo = d.photo || doctorPhotoMap[d.slug] || null;
   return (
     <div ref={ref} style={style} className="bg-white overflow-hidden group">
-      <div className="aspect-[3/4] bg-[#263044] overflow-hidden">
+      <div className="aspect-[4/5] lg:aspect-[3/4] bg-[#263044] overflow-hidden">
         {photo ? (
           <img
             src={photo}
@@ -1246,7 +1247,7 @@ function Team() {
     .slice(0, 3);
 
   return (
-    <section id="team" className="bg-[#F8F8F6] py-20 lg:py-32">
+    <section id="team" className="bg-[#F8F8F6] py-20 lg:py-28">
       <div className="mx-auto max-w-7xl px-5 lg:px-8">
         <div ref={headRef} style={headStyle}>
           <SectionLabel>{t.label}</SectionLabel>
@@ -1326,7 +1327,7 @@ function Termin() {
   });
   const { ref, style } = useFadeUp(0);
   return (
-    <section id="termin" className="relative bg-[#1E2535] py-20 lg:py-32 border-t-4 border-[#AC8F52] overflow-hidden">
+    <section id="termin" className="relative bg-[#1E2535] py-20 lg:py-28 border-t-4 border-[#AC8F52] overflow-hidden">
       <div
         className="absolute inset-0 pointer-events-none opacity-[0.03]"
         style={{ backgroundImage: NOISE, backgroundSize: "256px 256px" }}
@@ -1527,7 +1528,7 @@ function Aktuelles() {
   const items: AktuellesItem[] = t.items.map((it, i) => ({ ...it, ...meta[i] }));
   const { ref: headRef, style: headStyle } = useFadeUp(0);
   return (
-    <section id="aktuelles" className="bg-[#F8F8F6] py-20 lg:py-32">
+    <section id="aktuelles" className="bg-[#F8F8F6] py-20 lg:py-28">
       <div className="mx-auto max-w-7xl px-5 lg:px-8">
         <div ref={headRef} style={headStyle}>
           <SectionLabel>{t.label}</SectionLabel>
