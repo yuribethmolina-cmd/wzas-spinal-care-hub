@@ -52,6 +52,9 @@ export const Route = createFileRoute("/")({
         content: "Spezialisten für Wirbelsäule und Rücken in München. Termin meist innerhalb von 5 Werktagen.",
       },
     ],
+    links: [
+      { rel: "preload", as: "image", href: HERO_BG, fetchpriority: "high" },
+    ],
   }),
   component: Home,
 });
@@ -590,6 +593,11 @@ function Hero() {
       <img
         src={HERO_BG}
         alt={t.alt}
+        width={1600}
+        height={1067}
+        loading="eager"
+        fetchPriority="high"
+        decoding="async"
         className="absolute inset-0 h-[118%] w-full object-cover object-[36%_28%] sm:object-[42%_30%] lg:object-center -z-10"
         style={{ transform: `translate3d(0, ${-parallax}px, 0) scale(1.02)`, willChange: "transform" }}
       />
@@ -1137,6 +1145,8 @@ function DoctorCard({ d, delay, cta }: { d: (typeof allDoctors)[0]; delay: numbe
           <img
             src={photo}
             alt={d.name}
+            loading="lazy"
+            decoding="async"
             className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
           />
         ) : (
@@ -1416,6 +1426,8 @@ function AktuellesCard({ item, delay, cta }: { item: AktuellesItem; delay: numbe
         <img
           src={item.image}
           alt={item.title}
+          loading="lazy"
+          decoding="async"
           className="h-full w-full object-cover aspect-[4/3] md:aspect-auto md:h-36"
           style={{
             transform: hovered ? "scale(1.04)" : "scale(1)",
@@ -1576,8 +1588,8 @@ function Footer() {
       <div className="border-t border-white/10">
         <div className="mx-auto max-w-7xl px-5 lg:px-8 py-8 flex flex-wrap items-center gap-8">
           <span className="text-[11px] font-medium tracking-[0.2em] uppercase text-[#A7AEBA]">{t.awarded}</span>
-          <img src={focusImg.url} alt="Focus Top-Mediziner" className="h-14 w-auto bg-white/95 rounded p-2" />
-          <img src={isoImg.url} alt="ISO 9001 zertifiziert" className="h-14 w-auto bg-white/95 rounded p-2" />
+          <img src={focusImg.url} alt="Focus Top-Mediziner" loading="lazy" decoding="async" className="h-14 w-auto bg-white/95 rounded p-2" />
+          <img src={isoImg.url} alt="ISO 9001 zertifiziert" loading="lazy" decoding="async" className="h-14 w-auto bg-white/95 rounded p-2" />
         </div>
       </div>
 
