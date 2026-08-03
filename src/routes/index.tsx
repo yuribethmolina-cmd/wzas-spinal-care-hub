@@ -42,6 +42,8 @@ export const Route = createFileRoute("/")({
 
 const BOOKING_URL = "https://onlinerezeption.vercel.app";
 const EASE = "cubic-bezier(0.23, 1, 0.32, 1)";
+const EASE_SOFT = "cubic-bezier(0.16, 1, 0.3, 1)";
+
 const NOISE = `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`;
 
 const STAT_DEFS = [
@@ -213,13 +215,19 @@ function StatCounter({ value, suffix }: { value: number; suffix: string }) {
 
 /* ─── Scroll animation hook ─────────────────────────────────────── */
 
-function useFadeUp(delay = 0) {
+function prefersReducedMotion() {
+  return typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+}
+
+/** Scroll reveal: soft rise + de-blur, on a slow expo curve. */
+function useFadeUp(delay = 0, opts: { y?: number; blur?: number; duration?: number } = {}) {
+  const { y = 26, blur = 6, duration = 900 } = opts;
   const ref = useRef<HTMLDivElement>(null);
   const [vis, setVis] = useState(false);
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    if (prefersReducedMotion()) {
       setVis(true);
       return;
     }
@@ -230,7 +238,7 @@ function useFadeUp(delay = 0) {
           obs.unobserve(el);
         }
       },
-      { threshold: 0.06, rootMargin: "0px 0px -24px 0px" }
+      { threshold: 0.06, rootMargin: "0px 0px -10% 0px" }
     );
     obs.observe(el);
     return () => obs.disconnect();
@@ -239,11 +247,93 @@ function useFadeUp(delay = 0) {
     ref,
     style: {
       opacity: vis ? 1 : 0,
-      transform: vis ? "translateY(0)" : "translateY(22px)",
-      transition: `opacity 700ms ${EASE} ${delay}ms, transform 700ms ${EASE} ${delay}ms`,
+      transform: vis ? "translate3d(0,0,0)" : `translate3d(0,${y}px,0)`,
+      filter: vis ? "blur(0px)" : `blur(${blur}px)`,
+      willChange: "opacity, transform",
+      transition:
+        `opacity ${duration}ms ${EASE_SOFT} ${delay}ms, ` +
+        `transform ${duration}ms ${EASE_SOFT} ${delay}ms, ` +
+        `filter ${Math.round(duration * 0.8)}ms linear ${delay}ms`,
     } as React.CSSProperties,
   };
 }
+
+/** Mounted-on-load sequencing for the hero, so nothing pops in at once. */
+function useIntro(delay = 0) {
+  const [on, setOn] = useState(false);
+  useEffect(() => {
+    if (prefersReducedMotion()) {
+      setOn(true);
+      return;
+    }
+    const id = window.setTimeout(() => setOn(true), 60);
+    return () => window.clearTimeout(id);
+  }, []);
+  return {
+    opacity: on ? 1 : 0,
+    transform: on ? "translate3d(0,0,0)" : "translate3d(0,16px,0)",
+    transition: `opacity 900ms ${EASE_SOFT} ${delay}ms, transform 1000ms ${EASE_SOFT} ${delay}ms`,
+  } as React.CSSProperties;
+}
+
+/** A headline line that rises out from behind its own baseline mask. */
+function MaskLine({
+  children,
+  delay = 0,
+  className,
+}: {
+  children: React.ReactNode;
+  delay?: number;
+  className?: string;
+}) {
+  const [on, setOn] = useState(false);
+  useEffect(() => {
+    if (prefersReducedMotion()) {
+      setOn(true);
+      return;
+    }
+    const id = window.setTimeout(() => setOn(true), 60);
+    return () => window.clearTimeout(id);
+  }, []);
+  return (
+    <span className="block overflow-hidden" style={{ paddingBottom: "0.06em" }}>
+      <span
+        className={`block ${className ?? ""}`}
+        style={{
+          transform: on ? "translate3d(0,0,0)" : "translate3d(0,105%,0)",
+          opacity: on ? 1 : 0,
+          transition: `transform 1100ms ${EASE_SOFT} ${delay}ms, opacity 700ms ${EASE_SOFT} ${delay}ms`,
+          willChange: "transform",
+        }}
+      >
+        {children}
+      </span>
+    </span>
+  );
+}
+
+/** Slow counter-scroll on a background layer — depth without distraction. */
+function useParallax(strength = 0.12) {
+  const [offset, setOffset] = useState(0);
+  useEffect(() => {
+    if (prefersReducedMotion()) return;
+    let frame = 0;
+    const onScroll = () => {
+      if (frame) return;
+      frame = window.requestAnimationFrame(() => {
+        frame = 0;
+        setOffset(window.scrollY * strength);
+      });
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      if (frame) window.cancelAnimationFrame(frame);
+    };
+  }, [strength]);
+  return offset;
+}
+
 
 /* ─── Logo ──────────────────────────────────────────────────────── */
 
@@ -482,12 +572,20 @@ function Hero() {
     },
   });
   const { lang } = useLang();
+  const parallax = useParallax(0.14);
+  const introKicker = useIntro(80);
+  const introSub = useIntro(620);
+  const introChips = useIntro(760);
+  const introCta = useIntro(880);
+  const introLangs = useIntro(1000);
+  const introPanel = useIntro(560);
   return (
     <section className="relative bg-[#1E2535] text-white overflow-hidden isolate">
       <img
         src={HERO_BG}
         alt={t.alt}
-        className="absolute inset-0 h-full w-full object-cover object-center -z-10"
+        className="absolute inset-0 h-[118%] w-full object-cover object-center -z-10"
+        style={{ transform: `translate3d(0, ${-parallax}px, 0) scale(1.02)`, willChange: "transform" }}
         loading="eager"
         fetchPriority="high"
       />
@@ -501,7 +599,10 @@ function Hero() {
       />
       <div className="relative mx-auto max-w-7xl px-5 lg:px-8 pt-10 pb-14 lg:pt-24 lg:pb-48 lg:min-h-[85vh] grid lg:grid-cols-2 gap-12 items-center">
         <div>
-          <p className="text-[11px] font-medium tracking-[0.2em] uppercase text-[#AC8F52] flex items-center gap-2">
+          <p
+            className="text-[11px] font-medium tracking-[0.2em] uppercase text-[#AC8F52] flex items-center gap-2"
+            style={introKicker}
+          >
             <span className="inline-block w-6 h-px bg-[#AC8F52]" />
             <span className="min-w-0">{t.kicker}</span>
           </p>
@@ -509,18 +610,19 @@ function Hero() {
             className="mt-6 leading-[1.02] tracking-tight text-white font-display"
             style={{ fontSize: "clamp(2.6rem, 7.5vw, 5.8rem)", fontWeight: 500 }}
           >
-            {t.h1a}
-            <br />
-            <em style={{ fontStyle: "normal", fontWeight: 600 }}>
-              {t.h1b}
-            </em>
-            <br />
-            {t.h1c}
+            <MaskLine delay={200}>{t.h1a}</MaskLine>
+            <MaskLine delay={320}>
+              <span style={{ fontWeight: 600 }}>{t.h1b}</span>
+            </MaskLine>
+            <MaskLine delay={440}>{t.h1c}</MaskLine>
           </h1>
-          <p className="mt-6 text-base sm:text-lg text-[#E6E9EF] leading-relaxed max-w-xl whitespace-pre-line">
+          <p
+            className="mt-6 text-base sm:text-lg text-[#E6E9EF] leading-relaxed max-w-xl whitespace-pre-line"
+            style={introSub}
+          >
             {t.sub}
           </p>
-          <div className="mt-10">
+          <div className="mt-10" style={introChips}>
             <p className="text-xs font-medium tracking-[0.15em] uppercase text-[#CBD1DA] mb-3">
               {t.chipsLabel}
             </p>
@@ -528,33 +630,33 @@ function Hero() {
               {t.chips.map((c) => (
                 <button
                   key={c}
-                  className="rounded-full border border-white/25 bg-white/5 backdrop-blur-sm px-4 py-2 text-sm text-white/90 hover:border-white/60 hover:bg-white/10 transition-colors duration-200 cursor-pointer"
+                  className="rounded-full border border-white/25 bg-white/5 backdrop-blur-sm px-4 py-2 text-sm text-white/90 hover:border-white/70 hover:bg-white/12 hover:-translate-y-0.5 transition-[color,background-color,border-color,transform] duration-[420ms] ease-[cubic-bezier(0.16,1,0.3,1)] cursor-pointer"
                 >
                   {c}
                 </button>
               ))}
             </div>
           </div>
-          <div className="mt-8 flex flex-wrap gap-3">
+          <div className="mt-8 flex flex-wrap gap-3" style={introCta}>
             <a
               href={BOOKING_URL}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center rounded-full bg-[#AC8F52] px-6 py-3 text-sm font-semibold text-[#1E2535] transition-[background-color,transform,box-shadow] duration-300 hover:bg-[#BC9C58] hover:-translate-y-0.5 hover:shadow-[0_12px_28px_-14px_rgba(172,143,82,0.85)]"
-              style={{ transition: `filter 150ms ${EASE}, transform 160ms ${EASE}` }}
-              onMouseEnter={(e) => (e.currentTarget.style.filter = "brightness(1.08)")}
-              onMouseLeave={(e) => (e.currentTarget.style.filter = "")}
+              className="inline-flex items-center rounded-full bg-[#AC8F52] px-6 py-3 text-sm font-semibold text-[#1E2535] transition-[background-color,transform,box-shadow] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:bg-[#BC9C58] hover:-translate-y-0.5 hover:shadow-[0_16px_34px_-16px_rgba(172,143,82,0.9)]"
             >
               {t.book}
             </a>
             <a
               href="#beschwerden"
-              className="inline-flex items-center rounded-full border border-white/40 bg-white/5 backdrop-blur-sm px-6 py-3 text-sm font-semibold text-white hover:bg-white/15 transition-colors duration-200"
+              className="inline-flex items-center rounded-full border border-white/40 bg-white/5 backdrop-blur-sm px-6 py-3 text-sm font-semibold text-white transition-[background-color,border-color,transform] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:bg-white/15 hover:border-white/70 hover:-translate-y-0.5"
             >
               {t.more}
             </a>
           </div>
-          <p className="mt-6 text-xs text-[#B6BDC8] flex items-center gap-2 flex-wrap">
+          <p
+            className="mt-6 text-xs text-[#B6BDC8] flex items-center gap-2 flex-wrap"
+            style={introLangs}
+          >
             <span className="inline-block w-4 h-px bg-[#B6BDC8]" />
             Se habla español
             <span className="text-white/20">·</span>
@@ -565,8 +667,11 @@ function Hero() {
             廣東話
           </p>
         </div>
-        <SpineLocator />
+        <div style={introPanel}>
+          <SpineLocator />
+        </div>
       </div>
+
 
       <div className="relative lg:absolute lg:inset-x-0 lg:bottom-0 bg-[#1E2535]/90 backdrop-blur border-t border-white/10">
         <div className="mx-auto max-w-7xl px-5 lg:px-8 grid grid-cols-2 md:grid-cols-4 gap-6 py-6">
