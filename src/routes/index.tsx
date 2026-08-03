@@ -646,12 +646,12 @@ function Hero() {
             <MaskLine delay={440}>{t.h1c}</MaskLine>
           </h1>
           <p
-            className="mt-6 text-base sm:text-lg text-[#E6E9EF] leading-relaxed max-w-xl whitespace-pre-line"
+            className="mt-5 text-base sm:text-lg text-[#E6E9EF] leading-relaxed max-w-xl whitespace-pre-line"
             style={introSub}
           >
             {t.sub}
           </p>
-          <div className="mt-10" style={introChips}>
+          <div className="mt-8" style={introChips}>
             <p className="text-xs font-medium tracking-[0.15em] uppercase text-[#CBD1DA] mb-3">
               {t.chipsLabel}
             </p>
@@ -666,7 +666,7 @@ function Hero() {
               ))}
             </div>
           </div>
-          <div className="mt-8 flex flex-wrap gap-3" style={introCta}>
+          <div className="mt-7 flex flex-wrap gap-3" style={introCta}>
             <a
               href={BOOKING_URL}
               target="_blank"
@@ -682,7 +682,7 @@ function Hero() {
               {t.more}
             </a>
           </div>
-          <div className="mt-8" style={introLangs}>
+          <div className="mt-7" style={introLangs}>
             <p className="text-[11px] font-medium tracking-[0.18em] uppercase text-[#CBD1DA] flex items-center gap-2">
               <span className="inline-block w-5 h-px bg-[#AC8F52]" />
               {lang === "de" ? "Beratung in Ihrer Sprache" : "Consultation in your language"}
