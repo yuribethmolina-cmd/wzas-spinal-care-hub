@@ -13,6 +13,7 @@ import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { LanguageProvider } from "../lib/lang";
 import { PreviewRefresh } from "../lib/preview-refresh";
+import { MobileCTABar } from "../components/MobileCTABar";
 
 
 function NotFoundComponent() {
