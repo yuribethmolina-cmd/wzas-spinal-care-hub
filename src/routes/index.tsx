@@ -12,6 +12,8 @@ import thumbBandscheibe from "@/assets/wzas/thumb-bandscheibe.webp.asset.json";
 import aktuellesImg from "@/assets/wzas/aktuelles.jpg.asset.json";
 import focusImg from "@/assets/wzas/focus.jpeg.asset.json";
 import isoImg from "@/assets/wzas/iso.png.asset.json";
+import heroVideo from "@/assets/wzas/hero-bg.mp4.asset.json";
+
 
 import partnerRadiologie from "@/assets/wzas/partners/radiologie.png.asset.json";
 import partnerOms from "@/assets/wzas/partners/oms.png.asset.json";
