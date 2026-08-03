@@ -1,5 +1,5 @@
 export const HERO_BG = "/clinic-exterior.webp";
-export const HERO_VIDEO = "/__l5e/assets-v1/08d3fdc7-6ba8-4c1a-a166-8f91acae238a/hero-bg.mp4";
+export const HERO_VIDEO = "/__l5e/assets-v1/949da178-930e-4139-b75b-d822f0d6020d/hero-columna.mp4";
 
 
 export const BOOKING_URL = "https://onlinerezeption.vercel.app";

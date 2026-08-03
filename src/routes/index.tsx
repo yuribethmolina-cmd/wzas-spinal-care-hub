@@ -569,7 +569,7 @@ function Hero() {
         loop
         playsInline
         preload="auto"
-        className="absolute inset-0 h-[118%] w-full object-cover object-center lg:object-left -z-10 motion-reduce:hidden"
+        className="absolute inset-0 h-[118%] w-full object-cover object-center -z-10 motion-reduce:hidden"
         style={{ transform: `translate3d(0, ${-parallax}px, 0) scale(1.02)`, willChange: "transform" }}
       />
       <img
