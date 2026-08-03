@@ -1648,6 +1648,7 @@ function Home() {
       <SiteNav />
       <main id="main-content" tabIndex={-1}>
         <Hero />
+        <KonservativZuerst />
         <Beschwerden />
         <Behandlungen />
         <Weg />
