@@ -22,6 +22,8 @@ import partnerWz from "@/assets/wzas/partners/wz-stiglmaier.png.asset.json";
 
 import {
   HERO_BG,
+  HERO_SRCSET,
+  HERO_SIZES,
   
   BOOKING_URL,
   EASE as EASE_IMPORTED,
@@ -53,7 +55,14 @@ export const Route = createFileRoute("/")({
       },
     ],
     links: [
-      { rel: "preload", as: "image", href: HERO_BG, fetchpriority: "high" },
+      {
+        rel: "preload",
+        as: "image",
+        href: HERO_BG,
+        imagesrcset: HERO_SRCSET,
+        imagesizes: HERO_SIZES,
+        fetchpriority: "high",
+      },
     ],
   }),
   component: Home,
@@ -592,9 +601,11 @@ function Hero() {
     <section className="relative bg-[#1E2535] text-white overflow-hidden isolate min-h-[78svh] lg:min-h-0">
       <img
         src={HERO_BG}
+        srcSet={HERO_SRCSET}
+        sizes={HERO_SIZES}
         alt={t.alt}
-        width={1600}
-        height={1067}
+        width={1920}
+        height={1080}
         loading="eager"
         fetchPriority="high"
         decoding="async"
