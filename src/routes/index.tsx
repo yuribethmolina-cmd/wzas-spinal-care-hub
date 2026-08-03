@@ -75,12 +75,12 @@ function SpineLocator() {
   return (
     <div className="hidden lg:flex flex-col justify-center items-end h-full">
       <div
-        className="rounded-2xl border border-white/20 overflow-hidden"
-        style={{ width: 264, background: "rgba(255,255,255,0.07)", backdropFilter: "blur(12px)" }}
+        className="rounded-2xl border border-white/25 overflow-hidden shadow-[0_24px_60px_-24px_rgba(0,0,0,0.8)]"
+        style={{ width: 264, background: "rgba(20,26,38,0.55)", backdropFilter: "blur(14px) saturate(1.1)" }}
       >
         <div className="px-5 py-3.5 border-b border-white/10 flex items-center justify-between">
           <p className="text-[10px] font-semibold tracking-[0.2em] uppercase text-[#AC8F52]">{header}</p>
-          <p className="text-[10px] text-white/30">{hint}</p>
+          <p className="text-[10px] text-white/55">{hint}</p>
         </div>
         <div className="flex gap-3 p-4" style={{ height: 288 }}>
           <div className="flex flex-col gap-1.5 w-8 shrink-0">
@@ -95,8 +95,8 @@ function SpineLocator() {
                   className="block rounded cursor-pointer"
                   style={{
                     flex: z.flex,
-                    background: active ? "#AC8F52" : "rgba(255,255,255,0.13)",
-                    border: `1px solid ${active ? "#AC8F52" : "rgba(255,255,255,0.22)"}`,
+                    background: active ? "#C9A76D" : "rgba(255,255,255,0.2)",
+                    border: `1px solid ${active ? "#C9A76D" : "rgba(255,255,255,0.3)"}`,
                     transition: "background 200ms, border-color 200ms",
                   }}
                   onMouseEnter={() => setActiveId(z.id)}
@@ -119,10 +119,10 @@ function SpineLocator() {
                   onMouseEnter={() => setActiveId(z.id)}
                   onMouseLeave={() => setActiveId(null)}
                 >
-                  <p className={`text-xs font-semibold leading-tight transition-colors duration-200 ${active ? "text-[#AC8F52]" : "text-white/70"}`}>
+                  <p className={`text-xs font-semibold leading-tight transition-colors duration-200 ${active ? "text-[#D9BC80]" : "text-white/90"}`}>
                     {label}
                   </p>
-                  <p className={`text-[10px] leading-snug transition-colors duration-200 ${active ? "text-[#C9A76D]" : "text-white/30"}`}>
+                  <p className={`text-[10px] leading-snug transition-colors duration-200 ${active ? "text-[#C9A76D]" : "text-white/55"}`}>
                     {sub}
                   </p>
                 </a>
@@ -486,11 +486,11 @@ function Hero() {
             <br />
             {t.h1c}
           </h1>
-          <p className="mt-6 text-base sm:text-lg text-[#D8DBE2] leading-relaxed max-w-xl whitespace-pre-line">
+          <p className="mt-6 text-base sm:text-lg text-[#E6E9EF] leading-relaxed max-w-xl whitespace-pre-line">
             {t.sub}
           </p>
           <div className="mt-10">
-            <p className="text-xs font-medium tracking-[0.15em] uppercase text-[#B8BEC6] mb-3">
+            <p className="text-xs font-medium tracking-[0.15em] uppercase text-[#CBD1DA] mb-3">
               {t.chipsLabel}
             </p>
             <div className="flex flex-wrap gap-2">
@@ -523,8 +523,8 @@ function Hero() {
               {t.more}
             </a>
           </div>
-          <p className="mt-6 text-xs text-[#8C939B] flex items-center gap-2 flex-wrap">
-            <span className="inline-block w-4 h-px bg-[#8C939B]" />
+          <p className="mt-6 text-xs text-[#B6BDC8] flex items-center gap-2 flex-wrap">
+            <span className="inline-block w-4 h-px bg-[#B6BDC8]" />
             Se habla español
             <span className="text-white/20">·</span>
             English spoken
@@ -542,7 +542,7 @@ function Hero() {
           {STAT_DEFS.map((s) => (
             <div key={s.labelDe}>
               <StatCounter value={s.value} suffix={s.suffix} />
-              <div className="text-xs md:text-sm text-[#C8CBD2] mt-1">
+              <div className="text-xs md:text-sm text-[#DDE1E8] mt-1">
                 {lang === "de" ? s.labelDe : s.labelEn}
               </div>
             </div>
