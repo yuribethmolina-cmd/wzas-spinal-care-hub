@@ -292,24 +292,51 @@ function MaskLine({
 }
 
 /** Slow counter-scroll on a background layer — depth without distraction. */
-function useParallax(strength = 0.12) {
+function useParallax(strength = 0.12, mobileFactor = 0.35) {
   const [offset, setOffset] = useState(0);
   useEffect(() => {
-    if (prefersReducedMotion()) return;
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const small = window.matchMedia("(max-width: 1023px)");
     let frame = 0;
+    let active = false;
+
     const onScroll = () => {
       if (frame) return;
       frame = window.requestAnimationFrame(() => {
         frame = 0;
-        setOffset(window.scrollY * strength);
+        const factor = small.matches ? strength * mobileFactor : strength;
+        setOffset(window.scrollY * factor);
       });
     };
-    window.addEventListener("scroll", onScroll, { passive: true });
+
+    const sync = () => {
+      const shouldRun = !reduce.matches;
+      if (shouldRun === active) {
+        if (active) onScroll();
+        return;
+      }
+      active = shouldRun;
+      if (active) {
+        window.addEventListener("scroll", onScroll, { passive: true });
+        onScroll();
+      } else {
+        window.removeEventListener("scroll", onScroll);
+        if (frame) window.cancelAnimationFrame(frame);
+        frame = 0;
+        setOffset(0);
+      }
+    };
+
+    sync();
+    reduce.addEventListener("change", sync);
+    small.addEventListener("change", sync);
     return () => {
+      reduce.removeEventListener("change", sync);
+      small.removeEventListener("change", sync);
       window.removeEventListener("scroll", onScroll);
       if (frame) window.cancelAnimationFrame(frame);
     };
-  }, [strength]);
+  }, [strength, mobileFactor]);
   return offset;
 }
 
