@@ -442,7 +442,7 @@ function Nav() {
           target="_blank"
           rel="noreferrer"
           aria-label={`${t.book} (öffnet in neuem Tab)`}
-          className="block text-center rounded-full bg-[#AC8F52] px-5 py-3 text-sm font-semibold text-[#1E2535]"
+          className="block text-center rounded-full bg-[#AC8F52] px-5 py-3 text-sm font-semibold text-[#1E2535] transition-colors duration-300 hover:bg-[#BC9C58]"
         >
           {t.book}
         </a>
@@ -833,7 +833,7 @@ function WegStep({
             href={BOOKING_URL}
             target="_blank"
             rel="noreferrer"
-            className="mt-6 inline-flex items-center text-sm font-semibold text-[#1E2535] hover:opacity-70 transition-opacity"
+            className="mt-6 inline-flex items-center text-sm font-semibold text-[#1E2535] transition-opacity duration-300 hover:opacity-65"
           >
             {bookLabel} →
           </a>
