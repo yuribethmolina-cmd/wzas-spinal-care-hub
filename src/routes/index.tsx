@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import React, { useEffect, useRef, useState } from "react";
 import { doctors as allDoctors } from "@/lib/doctors";
 import { useLang, useT, type Lang } from "@/lib/lang";
+import { PraxisGalerie } from "@/components/PraxisGalerie";
 import logoAsset from "@/assets/wzas/logo.png.asset.json";
 import { SiteNav } from "@/components/SiteNav";
 import drMedele from "@/assets/wzas/dr-medele.webp.asset.json";
@@ -1646,6 +1647,7 @@ function Home() {
         <Beschwerden />
         <Weg />
         <Kompetenzzentrum />
+        <PraxisGalerie />
         <Team />
         <Termin />
         <Aktuelles />

@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from "react";
-import { useT } from "@/lib/lang";
+import { useLang, useT } from "@/lib/lang";
 
 import empfang from "@/assets/wzas/galerie/empfang.webp.asset.json";
 import beratung from "@/assets/wzas/galerie/beratung.webp.asset.json";
@@ -35,6 +35,9 @@ const SPANS = [
 ];
 
 export function PraxisGalerie() {
+  const { lang } = useLang();
+  const label = (s: Shot) => (lang === "en" ? s.en : s.de);
+  const sub = (s: Shot) => (lang === "en" ? s.subEn : s.subDe);
   const [open, setOpen] = useState<number | null>(null);
   const closeRef = useRef<HTMLButtonElement | null>(null);
   const t = useT({
@@ -89,12 +92,12 @@ export function PraxisGalerie() {
               key={s.src}
               type="button"
               onClick={() => setOpen(i)}
-              aria-label={t[("de" in s ? "label" : "label") as "label"] ? undefined : undefined}
+              aria-label={label(s)}
               className={`group relative overflow-hidden rounded-lg bg-black/30 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#AC8F52] ${SPANS[i] ?? ""}`}
             >
               <img
                 src={s.src}
-                alt={s.de}
+                alt={label(s)}
                 loading="lazy"
                 decoding="async"
                 className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.06]"
@@ -102,10 +105,10 @@ export function PraxisGalerie() {
               <span className="absolute inset-0 bg-gradient-to-t from-[#0F131C]/85 via-[#0F131C]/10 to-transparent opacity-80 group-hover:opacity-95 transition-opacity duration-500" />
               <span className="absolute inset-x-0 bottom-0 p-3 sm:p-4 text-left">
                 <span className="block text-[13px] sm:text-[15px] font-semibold text-white leading-snug">
-                  {useLabel(s)}
+                  {label(s)}
                 </span>
                 <span className="block mt-0.5 text-[11px] sm:text-xs text-[#CBD1DA] opacity-0 translate-y-1 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500">
-                  {useSub(s)}
+                  {sub(s)}
                 </span>
               </span>
             </button>
@@ -117,16 +120,16 @@ export function PraxisGalerie() {
         <div
           role="dialog"
           aria-modal="true"
-          aria-label={active.de}
+          aria-label={label(active)}
           className="fixed inset-0 z-[80] bg-[#0B0E15]/95 backdrop-blur-sm flex items-center justify-center p-4 sm:p-8"
           onClick={() => setOpen(null)}
         >
           <div className="relative max-w-5xl w-full" onClick={(e) => e.stopPropagation()}>
-            <img src={active.src} alt={active.de} className="w-full max-h-[74vh] object-contain rounded-lg" />
+            <img src={active.src} alt={label(active)} className="w-full max-h-[74vh] object-contain rounded-lg" />
             <div className="mt-4 flex items-center justify-between gap-4">
               <div>
-                <p className="text-base font-semibold text-white">{useLabel(active)}</p>
-                <p className="text-sm text-[#CBD1DA]">{useSub(active)}</p>
+                <p className="text-base font-semibold text-white">{label(active)}</p>
+                <p className="text-sm text-[#CBD1DA]">{sub(active)}</p>
               </div>
               <div className="flex items-center gap-2">
                 <button
