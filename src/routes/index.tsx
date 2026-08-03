@@ -557,7 +557,7 @@ function Hero() {
   const introLangs = useIntro(1000);
   const introPanel = useIntro(560);
   return (
-    <section className="relative bg-[#1E2535] text-white overflow-hidden isolate">
+    <section className="relative bg-[#1E2535] text-white overflow-hidden isolate min-h-[78svh] lg:min-h-0">
       <video
         src={HERO_VIDEO}
         poster={HERO_BG}
@@ -567,19 +567,26 @@ function Hero() {
         loop
         playsInline
         preload="auto"
-        className="absolute inset-0 h-[118%] w-full object-cover object-center -z-10"
+        className="absolute inset-0 h-[118%] w-full object-cover object-center lg:object-left -z-10 motion-reduce:hidden"
         style={{ transform: `translate3d(0, ${-parallax}px, 0) scale(1.02)`, willChange: "transform" }}
       />
+      <img
+        src={HERO_BG}
+        alt={t.alt}
+        aria-hidden
+        className="hidden motion-reduce:block absolute inset-0 h-full w-full object-cover object-center -z-10"
+      />
 
-      <div className="absolute inset-0 -z-10 bg-[#161C29]/72" />
-      <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[#141A26] via-[#141A26]/88 to-[#141A26]/35" />
-      <div className="absolute inset-0 -z-10 bg-gradient-to-t from-[#141A26] via-transparent to-[#141A26]/55" />
+      <div className="absolute inset-0 -z-10 bg-[#161C29]/35 lg:bg-[#161C29]/40" />
+      <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[#141A26]/90 via-[#141A26]/45 to-transparent" />
+      <div className="absolute inset-0 -z-10 bg-gradient-to-t from-[#141A26] via-[#141A26]/15 to-[#141A26]/35" />
 
       <div
         className="absolute inset-0 pointer-events-none opacity-[0.04] -z-10"
         style={{ backgroundImage: NOISE, backgroundSize: "256px 256px" }}
       />
       <div className="relative mx-auto max-w-7xl px-5 lg:px-8 pt-10 pb-14 lg:pt-24 lg:pb-48 lg:min-h-[85vh] grid lg:grid-cols-2 gap-12 items-center">
+
         <div>
           <p
             className="text-[11px] font-medium tracking-[0.2em] uppercase text-[#AC8F52] flex items-center gap-2"
