@@ -460,8 +460,10 @@ function Hero() {
         loading="eager"
         fetchPriority="high"
       />
-      <div className="absolute inset-0 -z-10 bg-[#1E2535]/55" />
-      <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[#1E2535]/95 via-[#1E2535]/70 to-transparent" />
+      <div className="absolute inset-0 -z-10 bg-[#161C29]/72" />
+      <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[#141A26] via-[#141A26]/88 to-[#141A26]/35" />
+      <div className="absolute inset-0 -z-10 bg-gradient-to-t from-[#141A26] via-transparent to-[#141A26]/55" />
+
       <div
         className="absolute inset-0 pointer-events-none opacity-[0.04] -z-10"
         style={{ backgroundImage: NOISE, backgroundSize: "256px 256px" }}
