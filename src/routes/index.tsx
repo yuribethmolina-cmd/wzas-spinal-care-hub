@@ -556,14 +556,19 @@ function Hero() {
   const introPanel = useIntro(560);
   return (
     <section className="relative bg-[#1E2535] text-white overflow-hidden isolate">
-      <img
-        src={HERO_BG}
-        alt={t.alt}
+      <video
+        src={heroVideo.url}
+        poster={HERO_BG}
+        aria-label={t.alt}
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="auto"
         className="absolute inset-0 h-[118%] w-full object-cover object-center -z-10"
         style={{ transform: `translate3d(0, ${-parallax}px, 0) scale(1.02)`, willChange: "transform" }}
-        loading="eager"
-        fetchPriority="high"
       />
+
       <div className="absolute inset-0 -z-10 bg-[#161C29]/72" />
       <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[#141A26] via-[#141A26]/88 to-[#141A26]/35" />
       <div className="absolute inset-0 -z-10 bg-gradient-to-t from-[#141A26] via-transparent to-[#141A26]/55" />
