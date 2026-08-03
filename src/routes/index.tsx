@@ -22,13 +22,18 @@ import partnerWz from "@/assets/wzas/partners/wz-stiglmaier.png.asset.json";
 import {
   HERO_BG,
   BOOKING_URL,
-  EASE,
-  EASE_SOFT,
+  EASE as EASE_IMPORTED,
+  EASE_SOFT as EASE_SOFT_IMPORTED,
   NOISE,
   STAT_DEFS,
   SPINE_H,
   SPINE_ZONES,
 } from "./-home-constants";
+
+// Safe fallbacks: if code-splitting ever drops these bindings, motion still works.
+const EASE = EASE_IMPORTED ?? "cubic-bezier(0.23, 1, 0.32, 1)";
+const EASE_SOFT = EASE_SOFT_IMPORTED ?? "cubic-bezier(0.16, 1, 0.3, 1)";
+
 
 export const Route = createFileRoute("/")({
   head: () => ({
