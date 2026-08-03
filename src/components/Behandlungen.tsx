@@ -25,7 +25,7 @@ function Column({
     >
       <p
         className={`text-[11px] font-semibold tracking-[0.22em] uppercase ${
-          dark ? "text-[#D8BE85]" : "text-[#AC8F52]"
+          dark ? "text-[#D8BE85]" : "text-[#8A6D2F]"
         }`}
       >
         {kicker}

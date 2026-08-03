@@ -227,7 +227,7 @@ function FilterChip({ active, onClick, children }: { active: boolean; onClick: (
 function AvailabilityBadge({ availability }: { availability: Availability }) {
   const { lang } = useLang();
   const map: Record<Availability, string> = {
-    "Diese Woche": "bg-emerald-500 text-white",
+    "Diese Woche": "bg-emerald-700 text-white",
     "Nächste Woche": "bg-[#AC8F52] text-[#1E2535]",
     "In 2+ Wochen": "bg-white/90 text-[#1E2535]",
   };
