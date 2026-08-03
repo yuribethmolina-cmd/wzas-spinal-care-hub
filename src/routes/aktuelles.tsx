@@ -362,7 +362,7 @@ function AktuellesPage() {
                   <button
                     key={f}
                     onClick={() => setActiveFilter(f)}
-                    className={`shrink-0 px-4 py-2 rounded-full text-sm font-semibold transition-colors duration-200 ${
+                    className={`shrink-0 min-h-11 inline-flex items-center px-4 py-2 rounded-full text-sm font-semibold transition-colors duration-200 ${
                       activeFilter === f
                         ? "bg-[#1E2535] text-white"
                         : "bg-white border border-[#E2E4E7] text-[#1E2535] hover:border-[#AC8F52] hover:text-[#AC8F52]"

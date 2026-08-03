@@ -1577,7 +1577,7 @@ function Footer() {
             <ul className="mt-4 space-y-2 text-sm text-[#A7AEBA]">
               {c.items.map((i) => (
                 <li key={i}>
-                  <a href="#" className="hover:text-[#AC8F52] transition-colors duration-200">
+                  <a href="#" className="inline-flex items-center min-h-11 lg:min-h-0 hover:text-[#AC8F52] transition-colors duration-200">
                     {i}
                   </a>
                 </li>
@@ -1600,7 +1600,7 @@ function Footer() {
           <div>{t.copy}</div>
           <div className="flex gap-4">
             {t.legal.map((l) => (
-              <a key={l} href="#" className="hover:text-[#AC8F52] transition-colors">{l}</a>
+              <a key={l} href="#" className="inline-flex items-center min-h-11 lg:min-h-0 hover:text-[#AC8F52] transition-colors">{l}</a>
             ))}
           </div>
         </div>

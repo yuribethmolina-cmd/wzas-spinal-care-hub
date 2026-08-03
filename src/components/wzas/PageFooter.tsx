@@ -36,7 +36,7 @@ export function PageFooter() {
       <div className="mx-auto max-w-7xl px-5 lg:px-8">
         {/* Top row: logo + links */}
         <div className="flex flex-col lg:flex-row justify-between gap-10 mb-10">
-          <Link to="/">
+          <Link to="/" aria-label="WZAS Startseite" className="inline-flex items-center min-h-11">
             <img src={logoAsset.url} alt="WZAS" className="h-8 w-auto brightness-0 invert opacity-80" />
           </Link>
           <nav className="flex flex-wrap gap-x-8 gap-y-3">
