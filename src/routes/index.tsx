@@ -130,12 +130,13 @@ function SpineLocator() {
                   onMouseEnter={() => setActiveId(z.id)}
                   onMouseLeave={() => setActiveId(null)}
                 >
-                  <p className={`text-xs font-semibold leading-tight transition-colors duration-200 ${active ? "text-[#D9BC80]" : "text-white/90"}`}>
+                  <p className={`text-base font-bold leading-tight transition-colors duration-200 ${active ? "text-[#E0C288]" : "text-white"}`}>
                     {label}
                   </p>
-                  <p className={`text-[10px] leading-snug transition-colors duration-200 ${active ? "text-[#C9A76D]" : "text-white/55"}`}>
+                  <p className={`text-sm font-medium leading-snug mt-0.5 transition-colors duration-200 ${active ? "text-[#D2B276]" : "text-white/75"}`}>
                     {sub}
                   </p>
+
                 </a>
               );
             })}
