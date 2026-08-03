@@ -1104,10 +1104,11 @@ function Kompetenzzentrum() {
     },
   });
   return (
-    <section className="bg-white border-y border-[#E2E4E7] py-16">
+    <section className="bg-white border-y border-[#E2E4E7] py-16 lg:py-20">
       <div className="mx-auto max-w-7xl px-5 lg:px-8">
-        <div ref={ref} style={style} className="lg:flex lg:items-start lg:gap-16">
-          <div className="lg:w-80 shrink-0 mb-10 lg:mb-0">
+        <div ref={ref} style={style} className="lg:flex lg:items-center lg:gap-14">
+          <div className="lg:w-72 shrink-0 mb-10 lg:mb-0">
+
             <SectionLabel>{t.label}</SectionLabel>
             <h2
               className="mt-4 font-display text-[#1E2535] leading-tight"
