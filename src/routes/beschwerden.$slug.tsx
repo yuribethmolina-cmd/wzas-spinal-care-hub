@@ -104,7 +104,7 @@ function BeschwerdenDetail() {
       doctorLink: "View profile",
       backLink: "← Back to conditions",
       notFound: "Condition not found",
-      bookingBody: "Book an appointment now. Most first appointments within 5 working days — no referral needed.",
+      bookingBody: "Book an appointment now. Emergencies are treated immediately.",
       bookingCta: "Book online",
     },
   });

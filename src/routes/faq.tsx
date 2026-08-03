@@ -40,7 +40,7 @@ const FAQ_ITEMS: FaqItem[] = [
   },
   {
     de: { q: "Wie lange warte ich auf einen Termin?", a: "Wir vergeben Termine so zeitnah wie möglich. Notfälle werden selbstverständlich sofort behandelt; dadurch kann es gelegentlich zu Wartezeiten kommen. Rufen Sie uns an: +49 (0)89-54 34 30 30." },
-    en: { q: "How long is the wait for an appointment?", a: "First appointments are usually available within 5 working days. For urgent cases we try to schedule you sooner. Call us: +49 (0)89-54 34 30 30." },
+    en: { q: "How long is the wait for an appointment?", a: "We schedule appointments as soon as possible. Emergencies are always treated immediately, which can occasionally cause waiting times. Call us: +49 (0)89-54 34 30 30." },
   },
   {
     de: { q: "Welche Kassen werden akzeptiert?", a: "Wir behandeln Patienten aller gesetzlichen und privaten Krankenversicherungen sowie Selbstzahler. Die genauen Leistungen variieren je nach Versicherungsvertrag — sprechen Sie uns bei Fragen gerne an." },
