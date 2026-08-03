@@ -706,7 +706,7 @@ function Hero() {
 
 
       <div className="relative lg:absolute lg:inset-x-0 lg:bottom-0 bg-[#1E2535]/90 backdrop-blur border-t border-white/10">
-        <div className="mx-auto max-w-7xl px-5 lg:px-8 grid grid-cols-2 md:grid-cols-4 gap-6 py-6">
+        <div className="mx-auto max-w-7xl px-5 lg:px-8 grid grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-7 items-start py-6 lg:py-7">
           {STAT_DEFS.map((s) => (
             <div key={s.labelDe}>
               <StatCounter value={s.value} suffix={s.suffix} />
