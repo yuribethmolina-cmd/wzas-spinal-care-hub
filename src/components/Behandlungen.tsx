@@ -108,7 +108,7 @@ export function Behandlungen() {
   });
 
   return (
-    <section className="bg-[#F8F8F6] py-20 lg:py-28">
+    <section className="bg-[#F8F8F6] py-14 sm:py-20 lg:py-28">
       <div className="mx-auto max-w-7xl px-5 lg:px-8">
         <div className="max-w-3xl">
           <p className="text-[11px] font-semibold tracking-[0.22em] uppercase text-[#AC8F52] flex items-center gap-3">

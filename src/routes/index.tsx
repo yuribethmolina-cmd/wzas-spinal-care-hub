@@ -637,7 +637,7 @@ function Hero() {
             <span className="min-w-0">{t.kicker}</span>
           </p>
           <h1
-            className="mt-6 leading-[1.02] tracking-tight text-white font-display"
+            className="mt-5 sm:mt-6 leading-[1.02] tracking-tight text-white font-display"
             style={{ fontSize: "clamp(2.4rem, 5.4vw, 5rem)", fontWeight: 500 }}
           >
             <MaskLine delay={200}>{t.h1a}</MaskLine>
@@ -647,12 +647,12 @@ function Hero() {
             <MaskLine delay={440}>{t.h1c}</MaskLine>
           </h1>
           <p
-            className="mt-5 text-base sm:text-lg text-[#E6E9EF] leading-relaxed max-w-xl whitespace-pre-line"
+            className="mt-4 sm:mt-5 text-base sm:text-lg text-[#E6E9EF] leading-relaxed max-w-xl whitespace-pre-line"
             style={introSub}
           >
             {t.sub}
           </p>
-          <div className="mt-8" style={introChips}>
+          <div className="mt-6 sm:mt-8" style={introChips}>
             <p className="text-xs font-medium tracking-[0.15em] uppercase text-[#CBD1DA] mb-3">
               {t.chipsLabel}
             </p>
@@ -660,7 +660,7 @@ function Hero() {
               {t.chips.map((c) => (
                 <button
                   key={c}
-                  className="rounded-full border border-white/25 bg-white/5 backdrop-blur-sm px-4 py-2 text-sm text-white/90 hover:border-white/70 hover:bg-white/12 hover:-translate-y-0.5 transition-[color,background-color,border-color,transform] duration-[420ms] ease-[cubic-bezier(0.16,1,0.3,1)] cursor-pointer"
+                  className="rounded-full border border-white/25 bg-white/5 backdrop-blur-sm px-3.5 py-1.5 text-[13px] sm:px-4 sm:py-2 sm:text-sm text-white/90 hover:border-white/70 hover:bg-white/12 hover:-translate-y-0.5 transition-[color,background-color,border-color,transform] duration-[420ms] ease-[cubic-bezier(0.16,1,0.3,1)] cursor-pointer"
                 >
                   {c}
                 </button>
@@ -924,7 +924,7 @@ function Beschwerden() {
   });
   const { ref, style } = useFadeUp(0);
   return (
-    <section id="beschwerden" className="bg-[#F8F8F6] py-20 lg:py-28">
+    <section id="beschwerden" className="bg-[#F8F8F6] py-14 sm:py-20 lg:py-28">
       <div className="mx-auto max-w-7xl px-5 lg:px-8">
         <div ref={ref} style={style}>
           <SectionLabel>{t.label}</SectionLabel>
@@ -936,7 +936,7 @@ function Beschwerden() {
           </h2>
           <p className="mt-5 max-w-2xl text-[17px] text-[#5B6472] leading-[1.7]">{t.lead}</p>
         </div>
-        <div className="mt-14 grid gap-px bg-[#E2E4E7] sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-10 sm:mt-14 grid gap-px bg-[#E2E4E7] sm:grid-cols-2 lg:grid-cols-3">
           {t.items.map((item, i) => (
             <BeschwerdenCard key={item.iconKey} {...item} cta={t.cta} delay={150 + i * 80} />
           ))}
@@ -1032,7 +1032,7 @@ function Weg() {
   });
   const { ref: headRef, style: headStyle } = useFadeUp(0);
   return (
-    <section id="weg" className="relative bg-[#1E2535] py-20 lg:py-28 overflow-hidden">
+    <section id="weg" className="relative bg-[#1E2535] py-14 sm:py-20 lg:py-28 overflow-hidden">
       <div
         className="absolute inset-0 pointer-events-none opacity-[0.03]"
         style={{ backgroundImage: NOISE, backgroundSize: "256px 256px" }}
@@ -1105,7 +1105,7 @@ function Kompetenzzentrum() {
     },
   });
   return (
-    <section className="bg-white border-y border-[#E2E4E7] py-16 lg:py-20">
+    <section className="bg-white border-y border-[#E2E4E7] py-12 sm:py-16 lg:py-20">
       <div className="mx-auto max-w-7xl px-5 lg:px-8">
         <div ref={ref} style={style} className="lg:flex lg:items-center lg:gap-14">
           <div className="lg:w-72 shrink-0 mb-10 lg:mb-0">
@@ -1119,9 +1119,9 @@ function Kompetenzzentrum() {
             </h2>
             <p className="mt-3 text-sm text-[#5B6472] leading-relaxed max-w-xs">{t.lead}</p>
           </div>
-          <div className="grid gap-px bg-[#E2E4E7] sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 flex-1">
+          <div className="grid grid-cols-2 gap-px bg-[#E2E4E7] lg:grid-cols-3 xl:grid-cols-5 flex-1">
             {t.partners.map((p) => (
-              <div key={p.name} className="bg-white p-6 flex flex-col items-center text-center gap-4 min-h-[180px]">
+              <div key={p.name} className="bg-white p-4 sm:p-6 flex flex-col items-center text-center gap-3 sm:gap-4 min-h-[160px] sm:min-h-[180px]">
                 <div className="h-14 w-full flex items-center justify-center">
                   <img
                     src={p.logo}
@@ -1156,14 +1156,14 @@ function DoctorCard({ d, delay, cta }: { d: (typeof allDoctors)[0]; delay: numbe
   const photo = d.photo || doctorPhotoMap[d.slug] || null;
   return (
     <div ref={ref} style={style} className="bg-white overflow-hidden group">
-      <div className="aspect-[4/5] lg:aspect-[3/4] bg-[#263044] overflow-hidden">
+      <div className="aspect-[3/2] sm:aspect-[4/5] lg:aspect-[3/4] bg-[#263044] overflow-hidden">
         {photo ? (
           <img
             src={photo}
             alt={d.name}
             loading="lazy"
             decoding="async"
-            className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+            className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
           />
         ) : (
           <div className="h-full w-full flex items-center justify-center">
@@ -1248,7 +1248,7 @@ function Team() {
     .slice(0, 3);
 
   return (
-    <section id="team" className="bg-[#F8F8F6] py-20 lg:py-28">
+    <section id="team" className="bg-[#F8F8F6] py-14 sm:py-20 lg:py-28">
       <div className="mx-auto max-w-7xl px-5 lg:px-8">
         <div ref={headRef} style={headStyle}>
           <SectionLabel>{t.label}</SectionLabel>
@@ -1275,7 +1275,7 @@ function Team() {
             </button>
           ))}
         </div>
-        <div className="mt-12 grid gap-px bg-[#E2E4E7] md:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-9 sm:mt-12 grid gap-px bg-[#E2E4E7] md:grid-cols-2 lg:grid-cols-3">
           {doctors.map((d, i) => (
             <DoctorCard key={d.slug} d={d} delay={150 + i * 100} cta={t.viewProfile} />
           ))}
@@ -1328,7 +1328,7 @@ function Termin() {
   });
   const { ref, style } = useFadeUp(0);
   return (
-    <section id="termin" className="relative bg-[#1E2535] py-20 lg:py-28 border-t-4 border-[#AC8F52] overflow-hidden">
+    <section id="termin" className="relative bg-[#1E2535] py-14 sm:py-20 lg:py-28 border-t-4 border-[#AC8F52] overflow-hidden">
       <div
         className="absolute inset-0 pointer-events-none opacity-[0.03]"
         style={{ backgroundImage: NOISE, backgroundSize: "256px 256px" }}
@@ -1529,7 +1529,7 @@ function Aktuelles() {
   const items: AktuellesItem[] = t.items.map((it, i) => ({ ...it, ...meta[i] }));
   const { ref: headRef, style: headStyle } = useFadeUp(0);
   return (
-    <section id="aktuelles" className="bg-[#F8F8F6] py-20 lg:py-28">
+    <section id="aktuelles" className="bg-[#F8F8F6] py-14 sm:py-20 lg:py-28">
       <div className="mx-auto max-w-7xl px-5 lg:px-8">
         <div ref={headRef} style={headStyle}>
           <SectionLabel>{t.label}</SectionLabel>

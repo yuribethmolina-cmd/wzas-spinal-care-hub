@@ -27,7 +27,7 @@ export function Vortragsreihe() {
 
   return (
     <section className="bg-white border-y border-[#E2E4E7]">
-      <div className="mx-auto max-w-7xl px-5 lg:px-8 py-14 lg:py-20 grid gap-10 lg:grid-cols-[1.1fr_1fr] lg:items-center">
+      <div className="mx-auto max-w-7xl px-5 lg:px-8 py-12 sm:py-14 lg:py-20 grid gap-10 lg:grid-cols-[1.1fr_1fr] lg:items-center">
         <div>
           <p className="text-[11px] font-semibold tracking-[0.22em] uppercase text-[#AC8F52] flex items-center gap-3">
             <span className="inline-block w-6 h-px bg-[#AC8F52]" />
@@ -100,7 +100,7 @@ export function Anfahrt() {
   });
 
   return (
-    <section id="anfahrt" className="bg-[#F1F1EE] py-20 lg:py-28 border-t border-[#E2E4E7]">
+    <section id="anfahrt" className="bg-[#F1F1EE] py-14 sm:py-20 lg:py-28 border-t border-[#E2E4E7]">
       <div className="mx-auto max-w-7xl px-5 lg:px-8 grid gap-12 lg:grid-cols-[1fr_1.15fr] lg:items-start">
         <div>
           <p className="text-[11px] font-semibold tracking-[0.22em] uppercase text-[#AC8F52] flex items-center gap-3">

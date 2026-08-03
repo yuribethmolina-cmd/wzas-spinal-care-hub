@@ -51,9 +51,10 @@ export function KonservativZuerst() {
   });
 
   return (
-    <section className="bg-[#1E2535] text-white py-20 lg:py-28">
+    <section className="bg-[#1E2535] text-white py-14 sm:py-20 lg:py-28">
       <div className="mx-auto max-w-7xl px-5 lg:px-8">
-        <div className="grid gap-12 lg:grid-cols-[1.15fr_1fr] lg:items-start">
+        <div className="grid gap-8 lg:gap-12 lg:grid-cols-[1.15fr_1fr] lg:items-start">
+
           <div>
             <p className="text-[11px] font-semibold tracking-[0.22em] uppercase text-[#D8BE85] flex items-center gap-3">
               <span className="inline-block w-6 h-px bg-[#D8BE85]" />
@@ -66,17 +67,20 @@ export function KonservativZuerst() {
               {t.h1}
               <span style={{ fontWeight: 700 }}>{t.h2}</span>
             </h2>
-            <p className="mt-5 text-[18px] leading-relaxed text-[#CBD1DA] max-w-xl">{t.lead}</p>
+            <p className="mt-4 text-[17px] sm:text-[18px] leading-relaxed text-[#CBD1DA] max-w-xl">{t.lead}</p>
 
-            <div className="mt-9 flex items-baseline gap-5 border-t border-white/12 pt-8">
+            <div className="mt-8 border-t border-white/12 pt-7 sm:flex sm:items-baseline sm:gap-5">
               <span
-                className="font-display text-[#D8BE85] leading-none shrink-0"
-                style={{ fontSize: "clamp(2.6rem, 6vw, 4.2rem)", fontWeight: 700 }}
+                className="block font-display text-[#D8BE85] leading-none shrink-0"
+                style={{ fontSize: "clamp(2.4rem, 12vw, 4.2rem)", fontWeight: 700 }}
               >
                 {t.statBig}
               </span>
-              <span className="text-[17px] leading-snug text-[#E6E9EF] min-w-0">{t.statText}</span>
+              <span className="mt-2 block text-[16px] sm:text-[17px] leading-snug text-[#E6E9EF] min-w-0 sm:mt-0">
+                {t.statText}
+              </span>
             </div>
+
           </div>
 
           <ul className="grid gap-px bg-white/12 rounded-lg overflow-hidden">
