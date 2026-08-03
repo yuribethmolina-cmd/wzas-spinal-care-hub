@@ -12,7 +12,6 @@ import thumbBandscheibe from "@/assets/wzas/thumb-bandscheibe.webp.asset.json";
 import aktuellesImg from "@/assets/wzas/aktuelles.jpg.asset.json";
 import focusImg from "@/assets/wzas/focus.jpeg.asset.json";
 import isoImg from "@/assets/wzas/iso.png.asset.json";
-import heroVideo from "@/assets/wzas/hero-bg.mp4.asset.json";
 
 
 import partnerRadiologie from "@/assets/wzas/partners/radiologie.png.asset.json";
@@ -23,6 +22,7 @@ import partnerWz from "@/assets/wzas/partners/wz-stiglmaier.png.asset.json";
 
 import {
   HERO_BG,
+  HERO_VIDEO,
   BOOKING_URL,
   EASE as EASE_IMPORTED,
   EASE_SOFT as EASE_SOFT_IMPORTED,
@@ -559,7 +559,7 @@ function Hero() {
   return (
     <section className="relative bg-[#1E2535] text-white overflow-hidden isolate">
       <video
-        src={heroVideo.url}
+        src={HERO_VIDEO}
         poster={HERO_BG}
         aria-label={t.alt}
         autoPlay
