@@ -685,7 +685,7 @@ function Hero() {
               {lang === "de" ? "Beratung in Ihrer Sprache" : "Consultation in your language"}
             </p>
             <p className="mt-2.5 text-[15px] font-medium text-white/90">
-              {["Deutsch", "English", "Español", "Magyar", "廣東話"].map((n, i) => (
+              {["Deutsch", "English", "Español"].map((n, i) => (
                 <span key={n}>
                   {i > 0 && <span className="mx-2 text-[#AC8F52]" aria-hidden="true">·</span>}
                   {n}
