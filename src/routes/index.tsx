@@ -593,6 +593,11 @@ function Hero() {
       <img
         src={HERO_BG}
         alt={t.alt}
+        width={1600}
+        height={1067}
+        loading="eager"
+        fetchPriority="high"
+        decoding="async"
         className="absolute inset-0 h-[118%] w-full object-cover object-[36%_28%] sm:object-[42%_30%] lg:object-center -z-10"
         style={{ transform: `translate3d(0, ${-parallax}px, 0) scale(1.02)`, willChange: "transform" }}
       />
