@@ -22,7 +22,7 @@ import partnerWz from "@/assets/wzas/partners/wz-stiglmaier.png.asset.json";
 
 import {
   HERO_BG,
-  HERO_VIDEO,
+  
   BOOKING_URL,
   EASE as EASE_IMPORTED,
   EASE_SOFT as EASE_SOFT_IMPORTED,
