@@ -609,7 +609,7 @@ function Hero() {
             <span className="min-w-0">{t.kicker}</span>
           </p>
           <h1
-            className="mt-5 sm:mt-6 leading-[1.02] tracking-tight text-white font-display"
+            className="mt-5 sm:mt-6 leading-[1.12] sm:leading-[1.02] tracking-tight text-white font-display"
             style={{ fontSize: "clamp(2.4rem, 5.4vw, 5rem)", fontWeight: 500 }}
           >
             <MaskLine delay={200}>{t.h1a}</MaskLine>

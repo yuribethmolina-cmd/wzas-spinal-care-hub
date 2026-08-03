@@ -108,7 +108,7 @@ export function Anfahrt() {
             {t.label}
           </p>
           <h2
-            className="mt-4 font-display text-[#1E2535] leading-[1.05]"
+            className="mt-4 font-display text-[#1E2535] leading-[1.14] sm:leading-[1.05]"
             style={{ fontSize: "clamp(2rem, 4vw, 2.9rem)", fontWeight: 500 }}
           >
             {t.h2a}

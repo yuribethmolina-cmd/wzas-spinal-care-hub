@@ -61,7 +61,7 @@ export function KonservativZuerst() {
               {t.label}
             </p>
             <h2
-              className="mt-4 font-display leading-[1.05]"
+              className="mt-4 font-display leading-[1.14] sm:leading-[1.05]"
               style={{ fontSize: "clamp(2.1rem, 4.6vw, 3.4rem)", fontWeight: 500 }}
             >
               {t.h1}
