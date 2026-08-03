@@ -68,15 +68,18 @@ export function KonservativZuerst() {
             </h2>
             <p className="mt-5 text-[18px] leading-relaxed text-[#CBD1DA] max-w-xl">{t.lead}</p>
 
-            <div className="mt-9 flex items-baseline gap-5 border-t border-white/12 pt-8">
+            <div className="mt-8 border-t border-white/12 pt-7 sm:flex sm:items-baseline sm:gap-5">
               <span
-                className="font-display text-[#D8BE85] leading-none shrink-0"
-                style={{ fontSize: "clamp(2.6rem, 6vw, 4.2rem)", fontWeight: 700 }}
+                className="block font-display text-[#D8BE85] leading-none shrink-0"
+                style={{ fontSize: "clamp(2.4rem, 12vw, 4.2rem)", fontWeight: 700 }}
               >
                 {t.statBig}
               </span>
-              <span className="text-[17px] leading-snug text-[#E6E9EF] min-w-0">{t.statText}</span>
+              <span className="mt-2 block text-[16px] sm:text-[17px] leading-snug text-[#E6E9EF] min-w-0 sm:mt-0">
+                {t.statText}
+              </span>
             </div>
+
           </div>
 
           <ul className="grid gap-px bg-white/12 rounded-lg overflow-hidden">
