@@ -1,4 +1,6 @@
 export const HERO_BG = "/clinic-exterior.webp";
+export const HERO_VIDEO = "/__l5e/assets-v1/08d3fdc7-6ba8-4c1a-a166-8f91acae238a/hero-bg.mp4";
+
 
 export const BOOKING_URL = "https://onlinerezeption.vercel.app";
 export const EASE = "cubic-bezier(0.23, 1, 0.32, 1)";
