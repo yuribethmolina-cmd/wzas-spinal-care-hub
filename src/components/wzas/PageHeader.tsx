@@ -82,7 +82,7 @@ export function PageHeader({ activeRoute }: { activeRoute?: string }) {
   const navLink = (to: string, label: string) => (
     <Link
       key={to}
-      to={to as "/beschwerden" | "/aerzte" | "/behandlungen" | "/faq" | "/aktuelles"}
+      to={to as "/beschwerden" | "/aerzte" | "/behandlungen" | "/faq" | "/infomaterial" | "/aktuelles"}
       className={`text-sm transition-colors ${
         activeRoute === to
           ? "font-semibold text-[#AC8F52]"
