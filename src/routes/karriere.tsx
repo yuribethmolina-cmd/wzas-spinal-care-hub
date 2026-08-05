@@ -131,6 +131,32 @@ function KarrierePage() {
               ))}
             </div>
 
+            {/* Current openings */}
+            <div className="mb-12">
+              <p className="text-[10px] font-semibold tracking-[0.25em] uppercase text-[#AC8F52] mb-5">
+                Aktuelle Stellen
+              </p>
+              <div className="divide-y divide-[#E2E4E7] border border-[#E2E4E7] rounded-sm">
+                {[
+                  { title: "MFA / Arzthelferin (m/w/d)", detail: "Rezeption · Vollzeit oder Teilzeit · München Stiglmaierplatz" },
+                  { title: "Studentische Aushilfe (m/w/d)", detail: "Schmerztherapie · Flexibel · München Stiglmaierplatz" },
+                ].map((pos) => (
+                  <div key={pos.title} className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 px-5 py-4">
+                    <div>
+                      <p className="font-semibold text-[#1E2535] text-sm">{pos.title}</p>
+                      <p className="text-xs text-[#5F6771] mt-0.5">{pos.detail}</p>
+                    </div>
+                    <a
+                      href="mailto:info@wzas.de"
+                      className="shrink-0 text-xs font-semibold text-[#7A6029] hover:brightness-110 transition mt-1 sm:mt-0"
+                    >
+                      Jetzt bewerben →
+                    </a>
+                  </div>
+                ))}
+              </div>
+            </div>
+
             {/* Contact block */}
             <div ref={contactRef} style={contactStyle} className="text-center mt-12">
               <h2 className="font-display text-2xl font-semibold text-[#1E2535] mb-3">
@@ -138,10 +164,10 @@ function KarrierePage() {
               </h2>
               <p className="text-[#4A5568] mb-3">{t.contactText}</p>
               <a
-                href="mailto:karriere@wzas.de"
+                href="mailto:info@wzas.de"
                 className="inline-flex min-h-11 items-center text-[#7A6029] font-semibold hover:brightness-110 transition"
               >
-                karriere@wzas.de
+                info@wzas.de
               </a>
               <p className="mt-4 text-xs text-[#8C939B]">{t.contactSmall}</p>
             </div>

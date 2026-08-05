@@ -52,7 +52,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Rückengesundheit für München. 20 Jahre Erfahrung, 13 Spezialisten. Konservative Behandlung zuerst — Operation nur wenn nötig.",
+          "Rückhalt für München. 20 Jahre Erfahrung, 13 Spezialisten. Konservative Behandlung zuerst — Operation nur wenn nötig.",
       },
       { property: "og:title", content: "WZAS · Wirbelsäulenzentrum am Stiglmaierplatz" },
       {
@@ -542,9 +542,9 @@ function Hero() {
   const t = useT({
     de: {
       kicker: "Wirbelsäulenzentrum am Stiglmaierplatz · München",
-      h1a: "Rücken-",
-      h1b: "gesundheit",
-      h1c: "für München.",
+      h1a: "Rückhalt",
+      h1b: "für München.",
+      h1c: "",
       sub: "20 Jahre Erfahrung.\u00a0\n13 Spezialisten.\u00a0\nKonservative Behandlung zuerst\u00a0\nOperation nur wenn nötig.",
       chipsLabel: "Was führt Sie zu uns?",
       chips: ["Akuter Rückenschmerz", "Chronische Schmerzen", "Bandscheibenvorfall", "Ischias", "Nach OP"],
@@ -554,9 +554,9 @@ function Hero() {
     },
     en: {
       kicker: "Spine Center at Stiglmaierplatz · Munich",
-      h1a: "Back-",
-      h1b: "health",
-      h1c: "for Munich.",
+      h1a: "Backbone",
+      h1b: "for Munich.",
+      h1c: "",
       sub: "20 years of experience.\u00a0\n12 specialists.\u00a0\nConservative treatment first —\u00a0\nsurgery only when necessary.",
       chipsLabel: "What brings you to us?",
       chips: ["Acute back pain", "Chronic pain", "Herniated disc", "Sciatica", "Post-surgery"],

@@ -39,16 +39,16 @@ const FAQ_ITEMS: FaqItem[] = [
     en: { q: "Do I need a referral?", a: "No. You can register directly — without a referral from your GP. For patients with statutory insurance we recommend a specialist referral as it simplifies billing. Private patients may come at any time without a referral." },
   },
   {
-    de: { q: "Wie lange warte ich auf einen Termin?", a: "Wir vergeben Termine so zeitnah wie möglich. Notfälle werden selbstverständlich sofort behandelt; dadurch kann es gelegentlich zu Wartezeiten kommen. Rufen Sie uns an: +49 (0)89-54 34 30 30." },
-    en: { q: "How long is the wait for an appointment?", a: "We schedule appointments as soon as possible. Emergencies are always treated immediately, which can occasionally cause waiting times. Call us: +49 (0)89-54 34 30 30." },
+    de: { q: "Wie lange warte ich auf einen Termin?", a: "In der Regel erhalten Sie einen Termin etwa zwei bis drei Wochen nach Vereinbarung. Bei medizinischen Notfällen rufen Sie uns bitte direkt an: +49 (0)89-54 34 30 30." },
+    en: { q: "How long is the wait for an appointment?", a: "As a rule you will receive an appointment approximately two to three weeks after scheduling. For medical emergencies please call us directly: +49 (0)89-54 34 30 30." },
   },
   {
     de: { q: "Welche Kassen werden akzeptiert?", a: "Wir behandeln Patienten aller gesetzlichen und privaten Krankenversicherungen sowie Selbstzahler. Die genauen Leistungen variieren je nach Versicherungsvertrag — sprechen Sie uns bei Fragen gerne an." },
     en: { q: "Which insurances do you accept?", a: "We treat patients with all statutory and private health insurances as well as self-paying patients. The exact covered services vary by insurance contract — please contact us if you have questions." },
   },
   {
-    de: { q: "Was soll ich zum Ersttermin mitbringen?", a: "Bringen Sie bitte mit: vorhandene MRT- oder CT-Bilder (auf CD oder als Ausdruck), Arztbriefe und Befundberichte bisheriger Behandlungen, Ihre Krankenversicherungskarte sowie eine Liste Ihrer aktuellen Medikamente." },
-    en: { q: "What should I bring to my first appointment?", a: "Please bring: any existing MRI or CT images (on CD or printout), letters and reports from previous treatments, your health insurance card, and a list of your current medications." },
+    de: { q: "Was soll ich zum Ersttermin mitbringen?", a: "Bringen Sie bitte mit: Ihre Krankenversicherungskarte, alle vorhandenen Bilder (MRT, CT, Röntgenaufnahmen) auf CD oder als Ausdruck, Befundberichte und Arztbriefe früherer Behandlungen sowie eine Liste Ihrer aktuellen Medikamente." },
+    en: { q: "What should I bring to my first appointment?", a: "Please bring: your health insurance card, all existing imaging (MRI, CT, X-rays) on CD or printout, reports and letters from previous treatments, and a list of your current medications." },
   },
   {
     de: { q: "Bedeutet meine Diagnose automatisch eine Operation?", a: "Nein — keineswegs. Mehr als 90% unserer Patienten werden ohne Operation behandelt. Wir verfolgen konsequent den Grundsatz: konservativ wenn möglich, operativ wenn nötig. In einem ausführlichen Erstgespräch besprechen wir alle Optionen." },
@@ -59,8 +59,8 @@ const FAQ_ITEMS: FaqItem[] = [
     en: { q: "What happens at a first appointment?", a: "A first appointment typically takes 30 to 45 minutes. The process: detailed medical history and symptom description, physical examination, review of existing findings and imaging, explanation of possible diagnoses and treatment options, and jointly deciding the next step." },
   },
   {
-    de: { q: "Wo finden Operationen statt?", a: "Wenn ein operativer Eingriff notwendig ist, wird dieser im Wolfart Klinikum München durchgeführt — einer der führenden Privatkliniken für Neurochirurgie und Orthopädie in Bayern. Unsere Chirurgen begleiten Sie durch den gesamten Prozess." },
-    en: { q: "Where do surgeries take place?", a: "When a surgical procedure is required, it is performed at the Wolfart Klinikum Munich — one of Bavaria's leading private clinics for neurosurgery and orthopaedics. Our surgeons accompany you through the entire process." },
+    de: { q: "Wo finden Operationen statt?", a: "Wenn ein operativer Eingriff notwendig ist, wird dieser in der WolfartKlinik München-Gräfelfing durchgeführt — einer der führenden Privatkliniken für Neurochirurgie und Orthopädie in Bayern. Unsere Chirurgen begleiten Sie durch den gesamten Prozess." },
+    en: { q: "Where do surgeries take place?", a: "When a surgical procedure is required, it is performed at the WolfartKlinik Munich-Gräfelfing — one of Bavaria's leading private clinics for neurosurgery and orthopaedics. Our surgeons accompany you through the entire process." },
   },
   {
     de: { q: "Wie lange dauert die Genesung nach einer OP?", a: "Das hängt stark von der Art des Eingriffs ab. Minimalinvasive Eingriffe: häufig 2–4 Wochen. Größere Fusionsoperationen: 6–12 Wochen. Im Entlassgespräch erhalten Sie einen individualisierten Genesungsplan mit allen wichtigen Schritten und Kontrolleterminen." },

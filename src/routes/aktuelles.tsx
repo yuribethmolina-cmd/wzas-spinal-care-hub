@@ -57,18 +57,33 @@ type Item = {
 
 const ITEMS: Item[] = [
   {
+    type: "Pressemitteilung",
+    img: aktuellesImg.url,
+    featured: true,
+    de: {
+      date: "Juni 2026",
+      title: "Dr. Walter Demmel verstärkt das Team",
+      detail: "Neurochirurg und Schmerztherapie-Spezialist · WZAS Wirbelsäulenzentrum am Stiglmaierplatz",
+    },
+    en: {
+      date: "June 2026",
+      title: "Dr. Walter Demmel joins the team",
+      detail: "Neurosurgeon and pain therapy specialist · WZAS Spine Centre at Stiglmaierplatz",
+    },
+  },
+  {
     type: "Vortrag",
     img: vortraegeImg.url,
     featured: true,
     de: {
-      date: "15. September 2026",
-      title: "Rücken ohne OP: Wann ist Chirurgie wirklich nötig?",
-      detail: "Gasteig HP8 · Großer Saal · München · 19:00 Uhr · Eintritt frei",
+      date: "7. Juli 2026",
+      title: "Vortrag: Rückenschmerzen — häufig und oft unterschätzt",
+      detail: "Öffentlicher Vortrag · München · Eintritt frei",
     },
     en: {
-      date: "15 September 2026",
-      title: "Back without surgery: when is an operation really necessary?",
-      detail: "Gasteig HP8 · Grand Hall · Munich · 7:00 pm · Free admission",
+      date: "7 July 2026",
+      title: "Talk: Back pain — common and often underestimated",
+      detail: "Public talk · Munich · Free admission",
     },
   },
   {
@@ -76,43 +91,84 @@ const ITEMS: Item[] = [
     img: thumbBandscheibe.url,
     featured: true,
     de: {
-      date: "Online verfügbar",
-      title: "Bandscheibenvorfall verstehen: Diagnose & Behandlung",
-      detail: "Aufgezeichnete Vortragsreihe · Neurochirurgie aktuell · Dr. med. Ralph Medele",
+      date: "Juni 2026",
+      title: "Bildgeführte Schmerztherapie: Wie gezielte Injektionen wirken",
+      detail: "Fachbeitrag · Neurochirurgie aktuell",
     },
     en: {
-      date: "Available online",
-      title: "Understanding a herniated disc: diagnosis & treatment",
-      detail: "Recorded lecture series · Neurochirurgie aktuell · Dr. med. Ralph Medele",
-    },
-  },
-  {
-    type: "Veröffentlichung",
-    img: aktuellesImg.url,
-    featured: true,
-    de: {
-      date: "Juli 2026",
-      title: "Neue minimalinvasive Techniken in der Wirbelsäulenchirurgie",
-      detail: "Fachbeitrag · Neurochirurgie aktuell · Peer-reviewed",
-    },
-    en: {
-      date: "July 2026",
-      title: "New minimally invasive techniques in spinal surgery",
-      detail: "Journal article · Neurochirurgie aktuell · Peer-reviewed",
+      date: "June 2026",
+      title: "Image-guided pain therapy: how targeted injections work",
+      detail: "Journal article · Neurochirurgie aktuell",
     },
   },
   {
     type: "Vortrag",
     featured: false,
     de: {
-      date: "22. Oktober 2026",
-      title: "Chronische Rückenschmerzen: Ursachen und moderne Therapieoptionen",
-      detail: "VHS München · Nymphenburger Str. · 18:30 Uhr · Eintritt frei",
+      date: "11. Juni 2026",
+      title: "Vortrag: Nackenschmerzen — wenn Verspannungen den Alltag bestimmen",
+      detail: "Öffentlicher Vortrag · München · Eintritt frei",
     },
     en: {
-      date: "22 October 2026",
-      title: "Chronic back pain: causes and modern treatment options",
-      detail: "VHS Munich · Nymphenburger Str. · 6:30 pm · Free admission",
+      date: "11 June 2026",
+      title: "Talk: Neck pain — when tension dictates daily life",
+      detail: "Public talk · Munich · Free admission",
+    },
+  },
+  {
+    type: "Pressemitteilung",
+    featured: false,
+    de: {
+      date: "April 2026",
+      title: "20 Jahre Wirbelsäulenzentrum am Stiglmaierplatz",
+      detail: "Jubiläum · WZAS München",
+    },
+    en: {
+      date: "April 2026",
+      title: "20 years of the Spine Centre at Stiglmaierplatz",
+      detail: "Anniversary · WZAS Munich",
+    },
+  },
+  {
+    type: "Vortrag",
+    featured: false,
+    de: {
+      date: "23. April 2026",
+      title: "Vortrag: Bandscheibenvorfall — was im Körper passiert",
+      detail: "Öffentlicher Vortrag · München · Eintritt frei",
+    },
+    en: {
+      date: "23 April 2026",
+      title: "Talk: Herniated disc — what happens in the body",
+      detail: "Public talk · Munich · Free admission",
+    },
+  },
+  {
+    type: "Pressemitteilung",
+    featured: false,
+    de: {
+      date: "Mai 2026",
+      title: "ISO 9001 Rezertifizierung erfolgreich abgeschlossen",
+      detail: "Qualitätsmanagement · DIN EN ISO 9001:2015",
+    },
+    en: {
+      date: "May 2026",
+      title: "ISO 9001 recertification successfully completed",
+      detail: "Quality management · DIN EN ISO 9001:2015",
+    },
+  },
+  {
+    type: "Vortrag",
+    featured: false,
+    de: {
+      date: "24. März 2026",
+      title: "Vortrag: Wirbelkanalverengung — wenn der Rücken die Bewegung einschränkt",
+      detail: "Öffentlicher Vortrag · München · Eintritt frei",
+    },
+    en: {
+      date: "24 March 2026",
+      title: "Talk: Spinal stenosis — when the back limits movement",
+      detail: "Public talk · Munich · Free admission",
     },
   },
   {
@@ -120,55 +176,13 @@ const ITEMS: Item[] = [
     featured: false,
     de: {
       date: "Mai 2026",
-      title: "Spinalkanalstenose im Alter — wenn der Rücken eng wird",
-      detail: "Patienteninformation · Wirbelsäulenmedizin aktuell",
+      title: "DWG-zertifizierte Wirbelsäulenmedizin",
+      detail: "Deutsche Wirbelsäulengesellschaft · Qualitätszertifizierung",
     },
     en: {
       date: "May 2026",
-      title: "Spinal stenosis in old age — when the back tightens",
-      detail: "Patient information · Wirbelsäulenmedizin aktuell",
-    },
-  },
-  {
-    type: "Pressemitteilung",
-    featured: false,
-    de: {
-      date: "Juni 2026",
-      title: "WZAS erneut TÜV-zertifiziert",
-      detail: "Qualitätssicherung · TÜV Rheinland · Wiederholungs-Zertifizierung 2026",
-    },
-    en: {
-      date: "June 2026",
-      title: "WZAS TÜV-certified again",
-      detail: "Quality assurance · TÜV Rheinland · Repeat certification 2026",
-    },
-  },
-  {
-    type: "Veröffentlichung",
-    featured: false,
-    de: {
-      date: "März 2026",
-      title: "Ischias: Wann hilft eine Injektion, wann braucht es mehr?",
-      detail: "Ratgeber · Wirbelsäulenmedizin aktuell",
-    },
-    en: {
-      date: "March 2026",
-      title: "Sciatica: when does an injection help, when is more needed?",
-      detail: "Guide · Wirbelsäulenmedizin aktuell",
-    },
-  },
-  {
-    type: "Vortrag",
-    featured: false,
-    de: {
-      date: "5. November 2026",
-      title: "Sportverletzungen der Wirbelsäule: Prävention und Therapie",
-      detail: "TU München · Sportmedizin · 17:00 Uhr",
-    },
-    en: {
-      date: "5 November 2026",
-      title: "Spinal sports injuries: prevention and therapy",
-      detail: "TU Munich · Sports Medicine · 5:00 pm",
+      title: "DWG-certified spinal medicine",
+      detail: "German Spine Society · Quality certification",
     },
   },
 ];

@@ -80,14 +80,14 @@ function WolfartCallout() {
   const t = useT({
     de: {
       label: "Operationsstandort",
-      heading: "Wolfart Klinikum München",
-      body: "Operative Eingriffe führen unsere Chirurgen im Wolfart Klinikum durch — einer der führenden Privatkliniken für Neurochirurgie und Orthopädie in Bayern. Modernste OP-Säle, erfahrenes OP-Personal und eine lückenlose Abstimmung zwischen Praxis und Klinik sichern optimale Ergebnisse.",
+      heading: "WolfartKlinik München-Gräfelfing",
+      body: "Operative Eingriffe führen unsere Chirurgen in der WolfartKlinik München-Gräfelfing durch — einer der führenden Privatkliniken für Neurochirurgie und Orthopädie in Bayern. Modernste OP-Säle, erfahrenes OP-Personal und eine lückenlose Abstimmung zwischen Praxis und Klinik sichern optimale Ergebnisse.",
       link: "Mehr über unseren Klinikpartner →",
     },
     en: {
       label: "Surgical facility",
-      heading: "Wolfart Klinikum Munich",
-      body: "Our surgeons perform all operative procedures at the Wolfart Klinikum — one of Bavaria's leading private clinics for neurosurgery and orthopaedics. State-of-the-art theatres, experienced surgical staff and seamless coordination between practice and clinic ensure optimal outcomes.",
+      heading: "WolfartKlinik Munich-Gräfelfing",
+      body: "Our surgeons perform all operative procedures at the WolfartKlinik Munich-Gräfelfing — one of Bavaria's leading private clinics for neurosurgery and orthopaedics. State-of-the-art theatres, experienced surgical staff and seamless coordination between practice and clinic ensure optimal outcomes.",
       link: "Learn more about our clinic partner →",
     },
   });
