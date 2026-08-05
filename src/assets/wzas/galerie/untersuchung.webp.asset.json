@@ -1,11 +1,11 @@
 {
-  "version": 1,
   "asset_id": "da9f0c65-6117-4246-aceb-2f199ee798cc",
-  "project_id": "10881edd-1e61-4b5b-a90b-e0d542b580e0",
-  "url": "/__l5e/assets-v1/da9f0c65-6117-4246-aceb-2f199ee798cc/praxis-untersuchung.webp",
-  "r2_key": "a/v1/10881edd-1e61-4b5b-a90b-e0d542b580e0/da9f0c65-6117-4246-aceb-2f199ee798cc/praxis-untersuchung.webp",
-  "original_filename": "praxis-untersuchung.webp",
-  "size": 249498,
   "content_type": "image/webp",
-  "created_at": "2026-08-03T09:42:30Z"
+  "created_at": "2026-08-03T09:42:30Z",
+  "original_filename": "praxis-untersuchung.webp",
+  "project_id": "39308a67-a4f1-4561-a188-eb9a4dd07ceb",
+  "r2_key": "a/v1/39308a67-a4f1-4561-a188-eb9a4dd07ceb/da9f0c65-6117-4246-aceb-2f199ee798cc/praxis-untersuchung.webp",
+  "size": 249498,
+  "url": "/__l5e/assets-v1/da9f0c65-6117-4246-aceb-2f199ee798cc/praxis-untersuchung.webp",
+  "version": 1
 }

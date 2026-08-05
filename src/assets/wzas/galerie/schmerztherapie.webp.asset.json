@@ -1,11 +1,11 @@
 {
-  "version": 1,
   "asset_id": "8a98b6d6-651a-4529-98c9-fa1b651a2c18",
-  "project_id": "10881edd-1e61-4b5b-a90b-e0d542b580e0",
-  "url": "/__l5e/assets-v1/8a98b6d6-651a-4529-98c9-fa1b651a2c18/praxis-schmerztherapie.webp",
-  "r2_key": "a/v1/10881edd-1e61-4b5b-a90b-e0d542b580e0/8a98b6d6-651a-4529-98c9-fa1b651a2c18/praxis-schmerztherapie.webp",
-  "original_filename": "praxis-schmerztherapie.webp",
-  "size": 225282,
   "content_type": "image/webp",
-  "created_at": "2026-08-03T09:42:32Z"
+  "created_at": "2026-08-03T09:42:32Z",
+  "original_filename": "praxis-schmerztherapie.webp",
+  "project_id": "39308a67-a4f1-4561-a188-eb9a4dd07ceb",
+  "r2_key": "a/v1/39308a67-a4f1-4561-a188-eb9a4dd07ceb/8a98b6d6-651a-4529-98c9-fa1b651a2c18/praxis-schmerztherapie.webp",
+  "size": 225282,
+  "url": "/__l5e/assets-v1/8a98b6d6-651a-4529-98c9-fa1b651a2c18/praxis-schmerztherapie.webp",
+  "version": 1
 }
