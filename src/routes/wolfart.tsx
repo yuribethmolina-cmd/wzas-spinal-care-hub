@@ -79,7 +79,7 @@ function WolfartPage() {
       heroSubtitle: "Where complex procedures succeed.",
       introHeading: "Our surgical partner in Munich-Gräfelfing",
       introParagraph: "When surgery is required, WZAS specialists perform the procedure at the WolfartKlinik Munich-Gräfelfing — one of Bavaria's leading private clinics for neurosurgery, orthopaedics and pain medicine. Close coordination between our practice and the clinic ensures continuity of care from diagnosis through discharge.",
-      pullQuote: ""Optimal outcomes through seamless collaboration between practice and clinic."",
+      pullQuote: '"Optimal outcomes through seamless collaboration between practice and clinic."',
       attribution: "— WZAS",
       benefitsHeading: "What the WolfartKlinik offers",
       benefit1Heading: "State-of-the-art theatres",
