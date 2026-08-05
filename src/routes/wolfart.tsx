@@ -59,7 +59,7 @@ function WolfartPage() {
       heroSubtitle: "Wo komplexe Eingriffe gelingen.",
       introHeading: "Unser chirurgischer Partner in München-Gräfelfing",
       introParagraph: "Wenn eine Operation notwendig ist, führen die Spezialisten des WZAS den Eingriff in der WolfartKlinik München-Gräfelfing durch — einer der führenden Privatkliniken für Neurochirurgie, Orthopädie und Schmerzmedizin in Bayern. Die enge Abstimmung zwischen Praxis und Klinik gewährleistet, dass jeder Patient von der Diagnostik bis zur Entlassung betreut wird.",
-      pullQuote: "„Optimale Ergebnisse durch nahtlose Zusammenarbeit zwischen Praxis und Klinik."",
+      pullQuote: '„Optimale Ergebnisse durch nahtlose Zusammenarbeit zwischen Praxis und Klinik."',
       attribution: "— WZAS",
       benefitsHeading: "Was die WolfartKlinik bietet",
       benefit1Heading: "Modernste OP-Säle",
