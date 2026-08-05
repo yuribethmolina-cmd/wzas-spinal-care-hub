@@ -44,7 +44,6 @@ export function SiteNav() {
         ["Ärzteteam", "/aerzte"],
         ["Behandlungen", "/behandlungen"],
         ["FAQ", "/faq"],
-        ["Infomaterial", "/infomaterial"],
         ["Aktuelles", "/aktuelles"],
       ] as [string, string][],
       book: "Termin vereinbaren",
@@ -57,7 +56,6 @@ export function SiteNav() {
         ["Our doctors", "/aerzte"],
         ["Treatments", "/behandlungen"],
         ["FAQ", "/faq"],
-        ["Resources", "/infomaterial"],
         ["News", "/aktuelles"],
       ] as [string, string][],
       book: "Book appointment",
@@ -88,7 +86,7 @@ export function SiteNav() {
           {t.links.map(([label, href]) => (
             <Link
               key={label}
-              to={href as "/" | "/aerzte" | "/beschwerden" | "/behandlungen" | "/faq" | "/infomaterial" | "/aktuelles"}
+              to={href as "/" | "/aerzte" | "/beschwerden" | "/behandlungen" | "/faq" | "/aktuelles"}
               className={linkClass}
               activeOptions={{ exact: href === "/" }}
               activeProps={{ "aria-current": "page" } as never}
