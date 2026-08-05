@@ -45,6 +45,7 @@ export function PageHeader({ activeRoute }: { activeRoute?: string }) {
         ["Ärzteteam", "/aerzte"],
         ["Behandlungen", "/behandlungen"],
         ["FAQ", "/faq"],
+        ["Infomaterial", "/infomaterial"],
         ["Aktuelles", "/aktuelles"],
       ] as [string, string][],
       book: "Termin vereinbaren",
@@ -56,6 +57,7 @@ export function PageHeader({ activeRoute }: { activeRoute?: string }) {
         ["Our doctors", "/aerzte"],
         ["Treatments", "/behandlungen"],
         ["FAQ", "/faq"],
+        ["Resources", "/infomaterial"],
         ["News", "/aktuelles"],
       ] as [string, string][],
       book: "Book appointment",
@@ -80,7 +82,7 @@ export function PageHeader({ activeRoute }: { activeRoute?: string }) {
   const navLink = (to: string, label: string) => (
     <Link
       key={to}
-      to={to as "/beschwerden" | "/aerzte" | "/behandlungen" | "/faq" | "/aktuelles"}
+      to={to as "/beschwerden" | "/aerzte" | "/behandlungen" | "/faq" | "/infomaterial" | "/aktuelles"}
       className={`text-sm transition-colors ${
         activeRoute === to
           ? "font-semibold text-[#AC8F52]"
