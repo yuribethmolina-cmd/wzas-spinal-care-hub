@@ -4,6 +4,7 @@ import { PageHeader } from "@/components/wzas/PageHeader";
 import { PageFooter } from "@/components/wzas/PageFooter";
 import { BookingCTA } from "@/components/wzas/BookingCTA";
 import { useT } from "@/lib/lang";
+import { DOCS, PdfIcon } from "@/lib/infomaterial";
 
 const EASE = "cubic-bezier(0.23, 1, 0.32, 1)";
 
@@ -131,6 +132,7 @@ function FaqPage() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   const { ref: faqRef, style: faqStyle } = useFadeUp(0);
   const { ref: galleryRef, style: galleryStyle } = useFadeUp(0);
+  const { ref: downloadsRef, style: downloadsStyle } = useFadeUp(0);
 
   const t = useT({
     de: {
@@ -140,6 +142,12 @@ function FaqPage() {
       faqSectionBg: "bg-white",
       galleryLabel: "DIE PRAXIS",
       galleryHeading: "Einblicke in unser Zentrum",
+      downloadsLabel: "DOWNLOADS",
+      downloadsHeading: "Infomaterial",
+      downloadsBody: "Broschüren und Merkblätter zum Herunterladen — in Ruhe nachlesen, wann immer Sie möchten.",
+      download: "PDF herunterladen",
+      pending: "In Vorbereitung",
+      pdfLabel: "PDF",
       bookingHeading: "Haben Sie noch Fragen?",
       bookingBody: "Rufen Sie uns an oder vereinbaren Sie direkt einen Termin online. Unser Team hilft Ihnen gerne weiter.",
       bookingCta: "Termin buchen",
@@ -152,6 +160,12 @@ function FaqPage() {
       faqSectionBg: "bg-white",
       galleryLabel: "THE PRACTICE",
       galleryHeading: "A look inside our centre",
+      downloadsLabel: "DOWNLOADS",
+      downloadsHeading: "Resources",
+      downloadsBody: "Brochures and information sheets to download — read them at your own pace, whenever you like.",
+      download: "Download PDF",
+      pending: "Coming soon",
+      pdfLabel: "PDF",
       bookingHeading: "Still have questions?",
       bookingBody: "Call us or book an appointment online directly. Our team is happy to help.",
       bookingCta: "Book appointment",
@@ -223,6 +237,58 @@ function FaqPage() {
                 />
               ))}
             </div>
+          </div>
+        </section>
+
+        {/* Downloads */}
+        <section className="py-16 bg-white border-t border-[#E2E4E7]">
+          <div ref={downloadsRef} style={downloadsStyle} className="mx-auto max-w-3xl px-5 lg:px-8">
+            <p className="text-[10px] font-semibold tracking-[0.25em] uppercase text-[#AC8F52] mb-2">
+              {t.downloadsLabel}
+            </p>
+            <h2 className="font-display text-2xl font-semibold text-[#1E2535]">
+              {t.downloadsHeading}
+            </h2>
+            <p className="mt-3 text-sm text-[#4A5568] leading-relaxed">{t.downloadsBody}</p>
+
+            <ul className="mt-8 space-y-4">
+              {DOCS.map((doc, i) => (
+                <li
+                  key={i}
+                  className="flex items-start gap-4 border border-[#E2E4E7] rounded-sm p-5 bg-white"
+                >
+                  <PdfIcon />
+                  <div className="min-w-0 flex-1">
+                    <h3 className="font-semibold text-[#1E2535]">{doc[lang].title}</h3>
+                    <p className="mt-1 text-sm text-[#4A5568] leading-relaxed">{doc[lang].desc}</p>
+                    <p className="mt-2 text-[11px] font-semibold tracking-wide uppercase text-[#8C939B]">
+                      {t.pdfLabel}
+                      {doc.file && doc.size ? ` · ${doc.size}` : ""}
+                    </p>
+                  </div>
+                  <div className="flex-shrink-0 self-center">
+                    {doc.file ? (
+                      <a
+                        href={doc.file}
+                        download
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 rounded-full bg-[#AC8F52] px-5 py-2.5 text-xs font-semibold text-[#1E2535] hover:brightness-105 transition"
+                      >
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="14" height="14" aria-hidden="true">
+                          <path d="M12 3v12M7 12l5 5 5-5M5 21h14" strokeLinecap="round" strokeLinejoin="round" />
+                        </svg>
+                        {t.download}
+                      </a>
+                    ) : (
+                      <span className="inline-flex items-center rounded-full border border-[#E2E4E7] px-4 py-2 text-xs font-semibold text-[#8C939B]">
+                        {t.pending}
+                      </span>
+                    )}
+                  </div>
+                </li>
+              ))}
+            </ul>
           </div>
         </section>
 
