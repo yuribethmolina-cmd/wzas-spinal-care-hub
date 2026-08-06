@@ -2,10 +2,9 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { doctors } from "@/lib/doctors";
 import { SiteNav } from "@/components/SiteNav";
 import { useT } from "@/lib/lang";
-import clinic2 from "@/assets/wzas/clinic2.webp.asset.json";
-
 const BOOKING_URL = "https://onlinerezeption.vercel.app";
 const EASE = "cubic-bezier(0.23, 1, 0.32, 1)";
+const TEAM_HERO = "/team-header.webp";
 
 // First 2 = leadership (Medele + Ständer), rest = team
 const LEADERSHIP = doctors.slice(0, 2);
@@ -55,10 +54,10 @@ function AerztePage() {
       {/* ── Hero — team photo full-bleed ── */}
       <section className="relative h-[62vh] min-h-[460px] overflow-hidden">
         <div
-          className="absolute inset-0 bg-cover bg-center scale-[1.02]"
-          style={{ backgroundImage: `url(${clinic2.url})`, transition: `transform 8s ${EASE}` }}
+          className="absolute inset-0 bg-cover bg-center bg-[center_40%] scale-[1.02]"
+          style={{ backgroundImage: `url(${TEAM_HERO})`, transition: `transform 8s ${EASE}` }}
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#1E2535] via-[#1E2535]/55 to-[#1E2535]/10" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#1E2535] via-[#1E2535]/40 to-[#1E2535]/5" />
 
         {/* Decorative gold rule */}
         <div className="absolute top-0 left-0 w-full h-px bg-[#AC8F52]/40" />
