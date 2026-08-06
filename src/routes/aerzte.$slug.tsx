@@ -68,7 +68,6 @@ function DoctorDetail() {
   const t = useT({
     de: {
       backLink: "← Zurück zum Ärzteverzeichnis",
-      nextAppt: "Nächster Termin",
       bookBtn: "Termin buchen",
       focusHeading: "Schwerpunkte",
       aboutHeading: "Zur Person",
@@ -78,7 +77,6 @@ function DoctorDetail() {
     },
     en: {
       backLink: "← Back to doctor directory",
-      nextAppt: "Next appointment",
       bookBtn: "Book appointment",
       focusHeading: "Areas of focus",
       aboutHeading: "About",
@@ -111,14 +109,11 @@ function DoctorDetail() {
               )}
             </div>
             <div className="mt-6 rounded-xl bg-white p-6 shadow-sm">
-              <p className="text-[11px] uppercase tracking-[0.2em] text-[#AC8F52] font-medium">{t.nextAppt}</p>
-              <p className="mt-2 text-2xl font-bold text-[#1E2535]">{d.nextSlot}</p>
-              <p className="mt-1 text-sm text-[#8C939B]">{d.availability}</p>
               <a
                 href={BOOKING_URL}
                 target="_blank"
                 rel="noreferrer"
-                className="mt-5 block text-center rounded-full bg-[#AC8F52] px-6 py-3 text-sm font-semibold text-[#1E2535] hover:brightness-105 transition"
+                className="block text-center rounded-full bg-[#AC8F52] px-6 py-3 text-sm font-semibold text-[#1E2535] hover:brightness-105 transition"
               >
                 {t.bookBtn}
               </a>
