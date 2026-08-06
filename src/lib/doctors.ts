@@ -215,7 +215,7 @@ export const doctors: Doctor[] = [
     availability: "In 2+ Wochen",
     nextSlot: "Mi, 09:15",
     languages: ["Deutsch", "Englisch", "Französisch"],
-    photo: null,
+    photo: "/dr-trouillier.jpg",
     initials: "HT",
     focus: ["Konservative Orthopädie", "Wirbelsäulenerkrankungen", "Osteoporose-Management"],
     bio: [
@@ -232,7 +232,7 @@ export const doctors: Doctor[] = [
     availability: "Diese Woche",
     nextSlot: "Mo, 09:45",
     languages: ["Deutsch", "Englisch"],
-    photo: null,
+    photo: "/dr-mueller-schunk.webp",
     initials: "SM",
     focus: ["MRT der Wirbelsäule", "Neuroradiologische Diagnostik", "Bildgesteuerte Interventionen"],
     bio: [

@@ -1,241 +1,269 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useMemo, useState } from "react";
-import {
-  doctors,
-  allSpecialties,
-  allAvailabilities,
-  type Specialty,
-  type Availability,
-} from "@/lib/doctors";
+import { doctors } from "@/lib/doctors";
 import { SiteNav } from "@/components/SiteNav";
-import { useLang, useT } from "@/lib/lang";
+import { useT } from "@/lib/lang";
+import clinic2 from "@/assets/wzas/clinic2.webp.asset.json";
+
+const BOOKING_URL = "https://onlinerezeption.vercel.app";
+const EASE = "cubic-bezier(0.23, 1, 0.32, 1)";
+
+// First 2 = leadership (Medele + Ständer), rest = team
+const LEADERSHIP = doctors.slice(0, 2);
+const TEAM = doctors.slice(2);
 
 export const Route = createFileRoute("/aerzte/")({
   head: () => ({
     meta: [
-      { title: "Ärzteverzeichnis · WZAS München" },
-      { name: "description", content: "Unser Ärzteverzeichnis: 13 Spezialisten für Wirbelsäule, Neurochirurgie und Orthopädie. Filtern Sie nach Fachgebiet und Verfügbarkeit." },
-      { property: "og:title", content: "Ärzteverzeichnis · WZAS München" },
-      { property: "og:description", content: "Finden Sie den richtigen Spezialisten am Wirbelsäulenzentrum am Stiglmaierplatz." },
+      { title: "Ärzteteam · WZAS Wirbelsäulenzentrum München" },
+      { name: "description", content: "13 Spezialistinnen und Spezialisten für Wirbelsäule, Neurochirurgie, Orthopädie und Radiologie am Wirbelsäulenzentrum am Stiglmaierplatz München." },
+      { property: "og:title", content: "Ärzteteam · WZAS München" },
     ],
   }),
-  component: Directory,
+  component: AerztePage,
 });
 
-const AVAIL_EN: Record<Availability, string> = {
-  "Diese Woche": "This week",
-  "Nächste Woche": "Next week",
-  "In 2+ Wochen": "In 2+ weeks",
-};
-
-function Directory() {
-  const { lang } = useLang();
+function AerztePage() {
   const t = useT({
     de: {
-      eyebrow: "Ärzteverzeichnis",
-      h1: "Finden Sie Ihren Spezialisten",
-      heroPara: (count: number) =>
-        `${count} Ärztinnen und Ärzte am Wirbelsäulenzentrum am Stiglmaierplatz. Filtern Sie nach Fachgebiet und Verfügbarkeit.`,
-      searchPlaceholder: "Nach Name, Fachgebiet oder Beschwerde suchen…",
-      labelSpecialty: "Fachgebiet",
-      labelAvailability: "Verfügbarkeit",
-      filterAll: "Alle",
-      resultsSingular: (n: number) => `${n} Ergebnis`,
-      resultsPlural: (n: number) => `${n} Ergebnisse`,
-      emptyHeading: "Keine Ärzte gefunden",
-      emptyBody: "Passen Sie Ihre Filter an oder setzen Sie sie zurück.",
-      resetBtn: "Filter zurücksetzen",
-      nextAppt: "Nächster Termin",
-      profile: "Profil",
+      heroEyebrow: "ÄRZTETEAM · MÜNCHEN",
+      heroH1: "Das Team",
+      heroSub: "13 Spezialistinnen und Spezialisten für Wirbelsäule, Neurochirurgie, Orthopädie und Radiologie.",
+      leadershipLabel: "ÄRZTLICHE LEITUNG",
+      teamLabel: "DAS TEAM",
+      profileLink: "Profil ansehen",
+      ctaH2: "Termin vereinbaren",
+      ctaBody: "Unser Team begleitet Sie von der Diagnose bis zur Genesung — konservativ wenn möglich, operativ wenn nötig.",
+      ctaBtn: "Jetzt buchen",
     },
     en: {
-      eyebrow: "Doctor directory",
-      h1: "Find your specialist",
-      heroPara: (count: number) =>
-        `${count} doctors at the Spine Centre at Stiglmaierplatz. Filter by specialty and availability.`,
-      searchPlaceholder: "Search by name, specialty or condition…",
-      labelSpecialty: "Specialty",
-      labelAvailability: "Availability",
-      filterAll: "All",
-      resultsSingular: (n: number) => `${n} result`,
-      resultsPlural: (n: number) => `${n} results`,
-      emptyHeading: "No doctors found",
-      emptyBody: "Adjust your filters or reset them.",
-      resetBtn: "Reset filters",
-      nextAppt: "Next appointment",
-      profile: "Profile",
+      heroEyebrow: "MEDICAL TEAM · MUNICH",
+      heroH1: "The Team",
+      heroSub: "13 specialists in spinal surgery, neurosurgery, orthopaedics and radiology.",
+      leadershipLabel: "MEDICAL LEADERSHIP",
+      teamLabel: "OUR SPECIALISTS",
+      profileLink: "View profile",
+      ctaH2: "Book an appointment",
+      ctaBody: "Our team accompanies you from diagnosis to recovery — conservative care when possible, surgery only when necessary.",
+      ctaBtn: "Book now",
     },
   });
-
-  const [query, setQuery] = useState("");
-  const [specialty, setSpecialty] = useState<Specialty | "Alle">("Alle");
-  const [availability, setAvailability] = useState<Availability | "Alle">("Alle");
-
-  const filtered = useMemo(() => {
-    return doctors.filter((d) => {
-      if (specialty !== "Alle" && !d.specialties.includes(specialty)) return false;
-      if (availability !== "Alle" && d.availability !== availability) return false;
-      if (query.trim()) {
-        const q = query.toLowerCase();
-        const hay = [d.name, d.role, ...d.focus, ...d.specialties].join(" ").toLowerCase();
-        if (!hay.includes(q)) return false;
-      }
-      return true;
-    });
-  }, [query, specialty, availability]);
-
-  const resultCount =
-    filtered.length === 1
-      ? t.resultsSingular(filtered.length)
-      : t.resultsPlural(filtered.length);
 
   return (
     <div className="min-h-screen bg-[#F8F8F6]">
       <SiteNav />
 
-      <section className="bg-[#1E2535] py-16 text-white">
-        <div className="mx-auto max-w-7xl px-5 lg:px-8">
-          <p className="text-[11px] font-medium tracking-[0.2em] uppercase text-[#AC8F52]">{t.eyebrow}</p>
-          <h1 className="mt-3 text-4xl md:text-5xl font-bold">{t.h1}</h1>
-          <p className="mt-4 max-w-2xl text-[#E2E4E7] leading-relaxed">
-            {t.heroPara(doctors.length)}
-          </p>
-        </div>
-      </section>
+      {/* ── Hero — team photo full-bleed ── */}
+      <section className="relative h-[62vh] min-h-[460px] overflow-hidden">
+        <div
+          className="absolute inset-0 bg-cover bg-center scale-[1.02]"
+          style={{ backgroundImage: `url(${clinic2.url})`, transition: `transform 8s ${EASE}` }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#1E2535] via-[#1E2535]/55 to-[#1E2535]/10" />
 
-      <section className="border-b border-[#E2E4E7] bg-white py-6 sticky top-[72px] z-30">
-        <div className="mx-auto max-w-7xl px-5 lg:px-8 space-y-4">
-          <div className="relative">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-[#8C939B]">
-              <circle cx="11" cy="11" r="8" />
-              <path d="m21 21-4.3-4.3" />
-            </svg>
-            <input
-              type="search"
-              value={query}
-              onChange={(e) => setQuery(e.target.value)}
-              placeholder={t.searchPlaceholder}
-              className="w-full rounded-full border border-[#E2E4E7] bg-white pl-12 pr-4 py-3 text-sm text-[#1E2535] placeholder:text-[#8C939B] focus:border-[#AC8F52] focus:outline-none"
-            />
-          </div>
+        {/* Decorative gold rule */}
+        <div className="absolute top-0 left-0 w-full h-px bg-[#AC8F52]/40" />
 
-          <div className="grid gap-4 md:grid-cols-2">
-            <div>
-              <p className="text-[11px] uppercase tracking-wide text-[#5F6771] font-medium mb-2">{t.labelSpecialty}</p>
-              <div className="flex flex-wrap gap-2">
-                <FilterChip active={specialty === "Alle"} onClick={() => setSpecialty("Alle")}>{t.filterAll}</FilterChip>
-                {allSpecialties.map((s) => (
-                  <FilterChip key={s} active={specialty === s} onClick={() => setSpecialty(s)}>{s}</FilterChip>
-                ))}
-              </div>
-            </div>
-            <div>
-              <p className="text-[11px] uppercase tracking-wide text-[#5F6771] font-medium mb-2">{t.labelAvailability}</p>
-              <div className="flex flex-wrap gap-2">
-                <FilterChip active={availability === "Alle"} onClick={() => setAvailability("Alle")}>{t.filterAll}</FilterChip>
-                {allAvailabilities.map((a) => (
-                  <FilterChip key={a} active={availability === a} onClick={() => setAvailability(a)}>
-                    {lang === "en" ? AVAIL_EN[a] : a}
-                  </FilterChip>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+        <div className="absolute bottom-0 left-0 w-full">
+          <div className="mx-auto max-w-7xl px-5 pb-12 lg:px-8 lg:pb-16">
+            <p className="text-[10px] font-semibold tracking-[0.28em] uppercase text-[#AC8F52] mb-3">
+              {t.heroEyebrow}
+            </p>
+            <h1
+              className="font-display text-white leading-[0.95]"
+              style={{ fontSize: "clamp(3rem, 7vw, 5.5rem)", fontWeight: 500, letterSpacing: "-0.025em" }}
+            >
+              {t.heroH1}
+            </h1>
+            <p className="mt-5 text-white/65 text-base lg:text-lg max-w-xl leading-relaxed">
+              {t.heroSub}
+            </p>
 
-      <section className="py-12">
-        <div className="mx-auto max-w-7xl px-5 lg:px-8">
-          <p className="text-sm text-[#5F6771] mb-6">{resultCount}</p>
-
-          {filtered.length === 0 ? (
-            <div className="rounded-xl border border-dashed border-[#E2E4E7] bg-white p-12 text-center">
-              <p className="text-[#1E2535] font-semibold">{t.emptyHeading}</p>
-              <p className="mt-2 text-sm text-[#8C939B]">{t.emptyBody}</p>
-              <button
-                onClick={() => { setQuery(""); setSpecialty("Alle"); setAvailability("Alle"); }}
-                className="mt-4 rounded-full border border-[#1E2535] px-5 py-2 text-sm font-semibold text-[#1E2535] hover:bg-[#1E2535] hover:text-white transition"
-              >
-                {t.resetBtn}
-              </button>
-            </div>
-          ) : (
-            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 items-stretch">
-              {filtered.map((d) => (
-                <Link
-                  key={d.slug}
-                  to="/aerzte/$slug"
-                  params={{ slug: d.slug }}
-                  className="group h-full bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-200 flex flex-col"
+            {/* Specialty chips */}
+            <div className="mt-6 flex flex-wrap gap-2">
+              {["Neurochirurgie", "Wirbelsäulenchirurgie", "Orthopädie", "Radiologie", "Handchirurgie"].map((s) => (
+                <span
+                  key={s}
+                  className="inline-flex items-center rounded-full border border-white/20 bg-white/8 backdrop-blur-sm px-3.5 py-1 text-[11px] font-medium text-white/75"
                 >
-                  <div className="relative aspect-[4/5] w-full bg-[#263044] overflow-hidden shrink-0">
-                    {d.photo ? (
-                      <img src={d.photo} alt={d.name} className="absolute inset-0 h-full w-full object-cover object-top transition-transform duration-500 ease-out group-hover:scale-[1.04]" />
-                    ) : (
-                      <div className="absolute inset-0 flex items-center justify-center text-4xl font-bold text-[#AC8F52]">
-                        {d.initials}
-                      </div>
-                    )}
-                    <div className="absolute top-3 left-3">
-                      <AvailabilityBadge availability={d.availability} />
-                    </div>
-                  </div>
-                  <div className="p-6 flex flex-col flex-1">
-                    <h3 className="font-semibold text-lg text-[#1E2535] line-clamp-1">{d.name}</h3>
-                    <p className="mt-1 text-xs uppercase tracking-wide text-[#7A6029] font-medium line-clamp-1">{d.role}</p>
-                    <div className="mt-3 flex flex-wrap gap-1.5 min-h-[28px]">
-                      {d.specialties.slice(0, 2).map((s) => (
-                        <span key={s} className="rounded-full bg-[#F8F8F6] px-2.5 py-1 text-[11px] text-[#1E2535]">{s}</span>
-                      ))}
-                    </div>
-                    <p className="mt-4 text-sm text-[#5F6771] leading-relaxed line-clamp-2 min-h-[2.75rem] flex-1">
-                      {d.focus.slice(0, 2).join(" · ")}
-                    </p>
-                    <div className="mt-5 pt-4 border-t border-[#E2E4E7] flex items-center justify-between">
-                      <div className="text-xs text-[#5F6771]">
-                        {t.nextAppt}<br />
-                        <span className="text-[#1E2535] font-semibold">{d.nextSlot}</span>
-                      </div>
-                      <span className="text-sm font-semibold text-[#1E2535] group-hover:text-[#AC8F52] transition">
-                        {t.profile} →
-                      </span>
-                    </div>
-                  </div>
-                </Link>
+                  {s}
+                </span>
               ))}
             </div>
-          )}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Leadership ── */}
+      <section className="py-16 lg:py-20 bg-white">
+        <div className="mx-auto max-w-7xl px-5 lg:px-8">
+          <p className="text-[10px] font-semibold tracking-[0.28em] uppercase text-[#AC8F52] mb-8">
+            {t.leadershipLabel}
+          </p>
+          <div className="grid gap-6 lg:grid-cols-2">
+            {LEADERSHIP.map((d) => (
+              <LeaderCard key={d.slug} d={d} profileLabel={t.profileLink} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Full team ── */}
+      <section className="py-16 lg:py-20 bg-[#F8F8F6] border-t border-[#E2E4E7]">
+        <div className="mx-auto max-w-7xl px-5 lg:px-8">
+          <p className="text-[10px] font-semibold tracking-[0.28em] uppercase text-[#AC8F52] mb-8">
+            {t.teamLabel}
+          </p>
+          <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+            {TEAM.map((d) => (
+              <TeamCard key={d.slug} d={d} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── CTA ── */}
+      <section className="bg-[#1E2535] py-16">
+        <div className="mx-auto max-w-7xl px-5 lg:px-8 text-center">
+          <h2
+            className="font-display text-white"
+            style={{ fontSize: "clamp(2rem, 4vw, 3rem)", fontWeight: 500, letterSpacing: "-0.02em" }}
+          >
+            {t.ctaH2}
+          </h2>
+          <p className="mt-4 text-[#8C939B] max-w-md mx-auto text-sm leading-relaxed">
+            {t.ctaBody}
+          </p>
+          <a
+            href={BOOKING_URL}
+            target="_blank"
+            rel="noreferrer"
+            className="mt-7 inline-flex items-center gap-2 rounded-full bg-[#AC8F52] px-7 py-3.5 text-sm font-semibold text-[#1E2535] hover:brightness-105 transition"
+          >
+            {t.ctaBtn}
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" className="w-3.5 h-3.5">
+              <path d="M3 8h10M9 4l4 4-4 4" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </a>
         </div>
       </section>
     </div>
   );
 }
 
-function FilterChip({ active, onClick, children }: { active: boolean; onClick: () => void; children: React.ReactNode }) {
+type DoctorType = (typeof doctors)[0];
+
+function LeaderCard({ d, profileLabel }: { d: DoctorType; profileLabel: string }) {
   return (
-    <button
-      onClick={onClick}
-      className={`min-h-11 inline-flex items-center rounded-full px-4 py-2 text-sm font-medium transition ${
-        active ? "bg-[#1E2535] text-white" : "border border-[#E2E4E7] text-[#1E2535] hover:border-[#AC8F52]"
-      }`}
+    <Link
+      to="/aerzte/$slug"
+      params={{ slug: d.slug }}
+      className="group bg-white rounded-2xl overflow-hidden border border-[#E2E4E7] hover:border-[#AC8F52]/40 hover:shadow-xl transition-all duration-300 flex flex-col sm:flex-row"
     >
-      {children}
-    </button>
+      {/* Photo */}
+      <div className="relative w-full sm:w-[42%] aspect-[4/5] sm:aspect-auto overflow-hidden bg-[#263044] shrink-0">
+        {d.photo ? (
+          <img
+            src={d.photo}
+            alt={d.name}
+            className="absolute inset-0 h-full w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.04]"
+          />
+        ) : (
+          <div className="absolute inset-0 flex items-center justify-center text-5xl font-bold text-[#AC8F52]">
+            {d.initials}
+          </div>
+        )}
+        {/* Gold bottom rule */}
+        <div className="absolute bottom-0 left-0 w-full h-0.5 bg-[#AC8F52] scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
+      </div>
+
+      {/* Info */}
+      <div className="flex flex-col justify-between p-7 flex-1">
+        <div>
+          <p className="text-[10px] font-semibold tracking-[0.22em] uppercase text-[#AC8F52]">
+            {d.title}
+          </p>
+          <h2
+            className="mt-2 font-display text-[#1E2535] leading-tight"
+            style={{ fontSize: "clamp(1.35rem, 2.2vw, 1.75rem)", fontWeight: 500, letterSpacing: "-0.015em" }}
+          >
+            {d.name}
+          </h2>
+          <p className="mt-1 text-sm text-[#5F6771]">{d.role}</p>
+
+          {/* Specialty tags */}
+          <div className="mt-4 flex flex-wrap gap-1.5">
+            {d.specialties.map((s) => (
+              <span key={s} className="inline-flex items-center rounded-full border border-[#E2E4E7] bg-[#F8F8F6] px-2.5 py-1 text-[11px] text-[#1E2535] font-medium">
+                {s}
+              </span>
+            ))}
+          </div>
+
+          {/* Focus bullets */}
+          <ul className="mt-5 space-y-1.5">
+            {d.focus.slice(0, 3).map((f) => (
+              <li key={f} className="flex items-start gap-2 text-sm text-[#4A5568]">
+                <span className="mt-1.5 w-1 h-1 rounded-full bg-[#AC8F52] shrink-0" />
+                {f}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div className="mt-6 flex items-center justify-between border-t border-[#E2E4E7] pt-5">
+          <span className="text-sm font-semibold text-[#1E2535] group-hover:text-[#AC8F52] transition-colors duration-200 flex items-center gap-1.5">
+            {profileLabel}
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" className="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-1">
+              <path d="M3 8h10M9 4l4 4-4 4" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </span>
+        </div>
+      </div>
+    </Link>
   );
 }
 
-function AvailabilityBadge({ availability }: { availability: Availability }) {
-  const { lang } = useLang();
-  const map: Record<Availability, string> = {
-    "Diese Woche": "bg-emerald-700 text-white",
-    "Nächste Woche": "bg-[#AC8F52] text-[#1E2535]",
-    "In 2+ Wochen": "bg-white/90 text-[#1E2535]",
-  };
-  const label = lang === "en" ? AVAIL_EN[availability] : availability;
+function TeamCard({ d }: { d: DoctorType }) {
   return (
-    <span className={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[11px] font-semibold ${map[availability]}`}>
-      <span className="w-1.5 h-1.5 rounded-full bg-current opacity-80" />
-      {label}
-    </span>
+    <Link
+      to="/aerzte/$slug"
+      params={{ slug: d.slug }}
+      className="group bg-white rounded-xl overflow-hidden border border-[#E2E4E7] hover:border-[#AC8F52]/40 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col"
+    >
+      {/* Photo */}
+      <div className="relative aspect-[3/4] overflow-hidden bg-[#263044]">
+        {d.photo ? (
+          <img
+            src={d.photo}
+            alt={d.name}
+            className="absolute inset-0 h-full w-full object-cover object-top transition-transform duration-600 ease-out group-hover:scale-[1.05]"
+          />
+        ) : (
+          <div className="absolute inset-0 flex items-center justify-center text-3xl font-bold text-[#AC8F52]">
+            {d.initials}
+          </div>
+        )}
+        <div className="absolute inset-0 bg-gradient-to-t from-[#1E2535]/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+      </div>
+
+      {/* Info */}
+      <div className="p-5 flex flex-col flex-1">
+        <h3 className="font-semibold text-[#1E2535] leading-snug text-[15px] line-clamp-2">{d.name}</h3>
+        <p className="mt-1 text-[11px] font-semibold tracking-wide uppercase text-[#AC8F52]">
+          {d.specialties[0]}
+        </p>
+        <p className="mt-2.5 text-xs text-[#5F6771] leading-relaxed line-clamp-2 flex-1">
+          {d.focus.slice(0, 2).join(" · ")}
+        </p>
+        <div className="mt-4 pt-3 border-t border-[#E2E4E7]">
+          <span className="text-xs font-semibold text-[#8C939B] group-hover:text-[#AC8F52] transition-colors duration-200 flex items-center gap-1">
+            Profil
+            <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="2" className="w-3 h-3 transition-transform duration-200 group-hover:translate-x-0.5">
+              <path d="M2 7h10M7 3l4 4-4 4" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </span>
+        </div>
+      </div>
+    </Link>
   );
 }
