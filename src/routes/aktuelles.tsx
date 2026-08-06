@@ -148,13 +148,13 @@ const ITEMS: Item[] = [
     featured: false,
     de: {
       date: "Mai 2026",
-      title: "ISO 9001 Rezertifizierung erfolgreich abgeschlossen",
-      detail: "Qualitätsmanagement · DIN EN ISO 9001:2015",
+      title: "TÜV bestätigt Qualitätsmanagement: Re-Zertifizierung nach DIN EN ISO 9001",
+      detail: "TÜV · Qualitätsmanagement · DIN EN ISO 9001",
     },
     en: {
       date: "May 2026",
-      title: "ISO 9001 recertification successfully completed",
-      detail: "Quality management · DIN EN ISO 9001:2015",
+      title: "TÜV confirms quality management: recertification to DIN EN ISO 9001",
+      detail: "TÜV · Quality management · DIN EN ISO 9001",
     },
   },
   {

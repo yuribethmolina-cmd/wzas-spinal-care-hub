@@ -58,7 +58,7 @@ export const doctors: Doctor[] = [
     education: [
       "Medizinstudium LMU München",
       "Facharztausbildung Klinikum Großhadern",
-      "Leitender Oberarzt Barmherzige Brüder Regensburg",
+      "Chefarzt Hospital Barmherzige Brüder Regensburg",
     ],
   },
   {

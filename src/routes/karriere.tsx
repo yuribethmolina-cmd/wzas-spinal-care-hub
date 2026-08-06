@@ -138,8 +138,8 @@ function KarrierePage() {
               </p>
               <div className="divide-y divide-[#E2E4E7] border border-[#E2E4E7] rounded-sm">
                 {[
-                  { title: "MFA / Arzthelferin (m/w/d)", detail: "Rezeption · Vollzeit oder Teilzeit · München Stiglmaierplatz" },
-                  { title: "Studentische Aushilfe (m/w/d)", detail: "Schmerztherapie · Flexibel · München Stiglmaierplatz" },
+                  { title: "MFA / Arzthelferin für den Empfang / Patientenaufnahme (w/m/d)", detail: "Vollzeit oder Teilzeit · München Stiglmaierplatz" },
+                  { title: "Studentische Hilfskraft als Assistenz bei schmerztherapeutischen Interventionen im Bildwandler (w/m/d)", detail: "Längerfristig · Flexibel · München Stiglmaierplatz" },
                 ].map((pos) => (
                   <div key={pos.title} className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 px-5 py-4">
                     <div>
