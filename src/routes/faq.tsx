@@ -319,14 +319,14 @@ function FaqPage() {
                       {doc.file && doc.size ? ` · ${doc.size}` : ""}
                     </p>
                   </div>
-                  <div className="flex-shrink-0 self-center">
+                  <div className="flex-shrink-0 sm:self-center">
                     {doc.file ? (
                       <a
                         href={doc.file}
                         download
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 rounded-full bg-[#AC8F52] px-5 py-2.5 text-xs font-semibold text-[#1E2535] hover:brightness-105 transition"
+                        className="inline-flex w-full justify-center items-center gap-2 rounded-full bg-[#AC8F52] px-5 py-2.5 text-xs font-semibold text-[#1E2535] hover:brightness-105 transition sm:w-auto"
                       >
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="14" height="14" aria-hidden="true">
                           <path d="M12 3v12M7 12l5 5 5-5M5 21h14" strokeLinecap="round" strokeLinejoin="round" />
@@ -334,11 +334,12 @@ function FaqPage() {
                         {t.download}
                       </a>
                     ) : (
-                      <span className="inline-flex items-center rounded-full border border-[#E2E4E7] px-4 py-2 text-xs font-semibold text-[#8C939B]">
+                      <span className="inline-flex w-full justify-center items-center rounded-full border border-[#E2E4E7] px-4 py-2 text-xs font-semibold text-[#8C939B] sm:w-auto">
                         {t.pending}
                       </span>
                     )}
                   </div>
+
                 </li>
               ))}
             </ul>
