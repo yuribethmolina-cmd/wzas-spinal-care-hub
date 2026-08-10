@@ -7,6 +7,7 @@ import { Behandlungen } from "@/components/Behandlungen";
 import { KonservativZuerst } from "@/components/KonservativZuerst";
 import { Vortragsreihe, Anfahrt } from "@/components/HomeExtras";
 import logoAsset from "@/assets/wzas/logo.png.asset.json";
+import ogShare from "@/assets/wzas/og-share.png.asset.json";
 import { SiteNav } from "@/components/SiteNav";
 import { MobileNavPanel } from "@/components/MobileNavPanel";
 
@@ -56,6 +57,11 @@ export const Route = createFileRoute("/")({
         property: "og:description",
         content: "Spezialisten für Wirbelsäule und Rücken in München. Termine für gesetzlich und privat Versicherte.",
       },
+      { property: "og:image", content: `https://wzas-spinal-care-hub.lovable.app${ogShare.url}` },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://wzas-spinal-care-hub.lovable.app" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:image", content: `https://wzas-spinal-care-hub.lovable.app${ogShare.url}` },
     ],
     links: [
       {
