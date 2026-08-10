@@ -837,9 +837,10 @@ function BeschwerdenCard({
         className="pointer-events-none absolute inset-0 -z-10 bg-cover bg-center"
         style={{
           backgroundImage: `url(${ConditionImages[iconKey]})`,
-          opacity: hovered ? 1 : 0.95,
-          transform: hovered ? "scale(1.05)" : "scale(1)",
-          transition: `opacity 420ms ${EASE}, transform 900ms ${EASE}`,
+          opacity: hovered ? 1 : 0.92,
+          transform: hovered ? "scale(1.04)" : "scale(1.01)",
+          willChange: "transform, opacity",
+          transition: "opacity 360ms cubic-bezier(0.22,1,0.36,1), transform 700ms cubic-bezier(0.22,1,0.36,1)",
         }}
       />
       <div
