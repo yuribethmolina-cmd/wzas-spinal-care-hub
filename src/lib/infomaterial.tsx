@@ -1,7 +1,19 @@
 import React from "react";
 
+export type TopicId = "ablauf" | "termin" | "konservativ" | "operation";
+
+export type Topic = { id: TopicId; de: string; en: string };
+
+export const TOPICS: Topic[] = [
+  { id: "ablauf", de: "Behandlungsablauf", en: "Treatment process" },
+  { id: "termin", de: "Termin & Vorbereitung", en: "Appointment & preparation" },
+  { id: "konservativ", de: "Konservative Therapie", en: "Conservative therapy" },
+  { id: "operation", de: "Operation & Nachsorge", en: "Surgery & aftercare" },
+];
+
 export type Doc = {
   file: string | null;
+  topics: TopicId[];
   size?: string;
   de: { title: string; desc: string };
   en: { title: string; desc: string };
@@ -10,6 +22,7 @@ export type Doc = {
 export const DOCS: Doc[] = [
   {
     file: null,
+    topics: ["ablauf", "termin", "konservativ", "operation"],
     de: {
       title: "Ablauf der Behandlung",
       desc: "Von der ersten Kontaktaufnahme über Diagnostik und Therapie bis zur Nachsorge — Schritt für Schritt erklärt.",
@@ -21,6 +34,7 @@ export const DOCS: Doc[] = [
   },
   {
     file: null,
+    topics: ["termin", "ablauf"],
     de: {
       title: "Checkliste Ersttermin",
       desc: "Welche Unterlagen, Bilder und Informationen Sie zu Ihrem ersten Termin mitbringen sollten.",
@@ -32,6 +46,7 @@ export const DOCS: Doc[] = [
   },
   {
     file: null,
+    topics: ["konservativ", "ablauf"],
     de: {
       title: "Konservative Therapie im Überblick",
       desc: "Behandlungsmöglichkeiten ohne Operation: Infiltrationen, Physiotherapie, Schmerztherapie und multimodale Konzepte.",
@@ -43,6 +58,7 @@ export const DOCS: Doc[] = [
   },
   {
     file: null,
+    topics: ["operation", "ablauf"],
     de: {
       title: "Minimalinvasive Eingriffe",
       desc: "Information und Vorbereitung: Ablauf, Narkose, Aufenthalt und Genesung nach minimalinvasiven Operationen.",
