@@ -4,7 +4,7 @@ import { PageHeader } from "@/components/wzas/PageHeader";
 import { PageFooter } from "@/components/wzas/PageFooter";
 import { BookingCTA } from "@/components/wzas/BookingCTA";
 import { useT } from "@/lib/lang";
-import { DOCS, PdfIcon } from "@/lib/infomaterial";
+import { DOCS, PdfIcon, TOPICS, type TopicId } from "@/lib/infomaterial";
 
 const EASE = "cubic-bezier(0.23, 1, 0.32, 1)";
 
@@ -146,6 +146,9 @@ function FaqPage() {
       downloadsHeading: "Infomaterial",
       downloadsBody: "Broschüren und Merkblätter zum Herunterladen — in Ruhe nachlesen, wann immer Sie möchten.",
       download: "PDF herunterladen",
+      filterLabel: "Nach Thema filtern",
+      filterAll: "Alle",
+      noResults: "Keine Dokumente zu diesem Thema.",
       pending: "In Vorbereitung",
       pdfLabel: "PDF",
       bookingHeading: "Haben Sie noch Fragen?",
@@ -164,6 +167,9 @@ function FaqPage() {
       downloadsHeading: "Resources",
       downloadsBody: "Brochures and information sheets to download — read them at your own pace, whenever you like.",
       download: "Download PDF",
+      filterLabel: "Filter by topic",
+      filterAll: "All",
+      noResults: "No documents for this topic.",
       pending: "Coming soon",
       pdfLabel: "PDF",
       bookingHeading: "Still have questions?",
@@ -174,6 +180,9 @@ function FaqPage() {
   });
 
   const lang = useT({ de: "de" as const, en: "en" as const });
+
+  const [topic, setTopic] = useState<TopicId | "all">("all");
+  const visibleDocs = topic === "all" ? DOCS : DOCS.filter((d) => d.topics.includes(topic));
 
   const toggle = (i: number) => {
     setOpenIndex((prev) => (prev === i ? null : i));
@@ -251,8 +260,34 @@ function FaqPage() {
             </h2>
             <p className="mt-3 text-sm text-[#4A5568] leading-relaxed">{t.downloadsBody}</p>
 
+            <div className="mt-6" role="group" aria-label={t.filterLabel}>
+              <p className="text-[11px] font-semibold tracking-wide uppercase text-[#8C939B] mb-3">
+                {t.filterLabel}
+              </p>
+              <div className="flex flex-wrap gap-2">
+                {[{ id: "all" as const, label: t.filterAll }, ...TOPICS.map((tp) => ({ id: tp.id, label: tp[lang] }))].map((tp) => {
+                  const active = topic === tp.id;
+                  return (
+                    <button
+                      key={tp.id}
+                      type="button"
+                      aria-pressed={active}
+                      onClick={() => setTopic(tp.id)}
+                      className={`rounded-full border px-4 py-1.5 text-xs font-semibold transition ${
+                        active
+                          ? "border-[#AC8F52] bg-[#AC8F52] text-[#1E2535]"
+                          : "border-[#E2E4E7] bg-white text-[#4A5568] hover:border-[#AC8F52]"
+                      }`}
+                    >
+                      {tp.label}
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+
             <ul className="mt-8 space-y-4">
-              {DOCS.map((doc, i) => (
+              {visibleDocs.map((doc, i) => (
                 <li
                   key={i}
                   className="flex items-start gap-4 border border-[#E2E4E7] rounded-sm p-5 bg-white"
@@ -261,6 +296,22 @@ function FaqPage() {
                   <div className="min-w-0 flex-1">
                     <h3 className="font-semibold text-[#1E2535]">{doc[lang].title}</h3>
                     <p className="mt-1 text-sm text-[#4A5568] leading-relaxed">{doc[lang].desc}</p>
+                    <div className="mt-3 flex flex-wrap gap-1.5">
+                      {doc.topics.map((id) => {
+                        const tp = TOPICS.find((x) => x.id === id);
+                        if (!tp) return null;
+                        return (
+                          <button
+                            key={id}
+                            type="button"
+                            onClick={() => setTopic(id)}
+                            className="rounded-full bg-[#F3F0E9] px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wide text-[#8A7440] hover:bg-[#E8E1D2] transition"
+                          >
+                            {tp[lang]}
+                          </button>
+                        );
+                      })}
+                    </div>
                     <p className="mt-2 text-[11px] font-semibold tracking-wide uppercase text-[#8C939B]">
                       {t.pdfLabel}
                       {doc.file && doc.size ? ` · ${doc.size}` : ""}
@@ -289,6 +340,9 @@ function FaqPage() {
                 </li>
               ))}
             </ul>
+            {visibleDocs.length === 0 && (
+              <p className="mt-8 text-sm text-[#4A5568]">{t.noResults}</p>
+            )}
           </div>
         </section>
 
