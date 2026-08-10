@@ -837,7 +837,7 @@ function BeschwerdenCard({
         className="pointer-events-none absolute inset-0 -z-10 bg-cover bg-center"
         style={{
           backgroundImage: `url(${ConditionImages[iconKey]})`,
-          opacity: hovered ? 0.85 : 0.6,
+          opacity: hovered ? 1 : 0.95,
           transform: hovered ? "scale(1.05)" : "scale(1)",
           transition: `opacity 420ms ${EASE}, transform 900ms ${EASE}`,
         }}
@@ -847,7 +847,7 @@ function BeschwerdenCard({
         className="pointer-events-none absolute inset-0 -z-10"
         style={{
           background:
-            "linear-gradient(180deg, rgba(255,255,255,0.72) 0%, rgba(255,255,255,0.55) 45%, rgba(255,255,255,0.78) 100%)",
+            "linear-gradient(180deg, rgba(248,248,246,0.34) 0%, rgba(255,255,255,0.18) 45%, rgba(248,248,246,0.74) 100%)",
         }}
       />
       <div
