@@ -17,6 +17,22 @@ import aktuellesImg from "@/assets/wzas/aktuelles.jpg.asset.json";
 import focusImg from "@/assets/wzas/focus.jpeg.asset.json";
 import isoImg from "@/assets/wzas/iso.png.asset.json";
 
+import condAkut from "@/assets/cond-akut.jpg";
+import condChronisch from "@/assets/cond-chronisch.jpg";
+import condBandscheibe from "@/assets/cond-bandscheibe.jpg";
+import condIschias from "@/assets/cond-ischias.jpg";
+import condReha from "@/assets/cond-reha.jpg";
+import condSport from "@/assets/cond-sport.jpg";
+
+const ConditionImages: Record<string, string> = {
+  akut: condAkut,
+  chronisch: condChronisch,
+  bandscheibe: condBandscheibe,
+  ischias: condIschias,
+  reha: condReha,
+  sport: condSport,
+};
+
 
 import partnerRadiologie from "@/assets/wzas/partners/radiologie.png.asset.json";
 import partnerOms from "@/assets/wzas/partners/oms.png.asset.json";
@@ -812,10 +828,28 @@ function BeschwerdenCard({
         backgroundColor: hovered ? "#FAFAF8" : "#FFFFFF",
         transition: `${style.transition}, background-color 200ms ${EASE}`,
       }}
-      className="p-8 lg:p-9 flex flex-col gap-5 cursor-default"
+      className="relative isolate overflow-hidden p-8 lg:p-9 flex flex-col gap-5 cursor-default"
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 -z-10 bg-cover bg-center"
+        style={{
+          backgroundImage: `url(${ConditionImages[iconKey]})`,
+          opacity: hovered ? 0.3 : 0.16,
+          transform: hovered ? "scale(1.05)" : "scale(1)",
+          transition: `opacity 420ms ${EASE}, transform 900ms ${EASE}`,
+        }}
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 -z-10"
+        style={{
+          background:
+            "linear-gradient(180deg, rgba(255,255,255,0.92) 0%, rgba(255,255,255,0.82) 55%, rgba(255,255,255,0.9) 100%)",
+        }}
+      />
       <div
         className="w-12 h-12 flex items-center justify-center text-[#8A6E36]"
         style={{
