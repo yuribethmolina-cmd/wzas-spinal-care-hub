@@ -1489,23 +1489,24 @@ function AktuellesCard({ item, delay, cta }: { item: AktuellesItem; delay: numbe
         boxShadow: hovered ? "0 4px 20px rgba(0,0,0,0.06)" : "none",
         transition: `${style.transition}, border-top-color 250ms ${EASE}, box-shadow 250ms ${EASE}`,
       }}
-      className="bg-white border-t-2 overflow-hidden grid gap-0 md:grid-cols-[180px_1fr_auto] md:items-center"
+      className="bg-white border-t-2 overflow-hidden grid gap-0 md:grid-cols-[240px_1fr_auto] md:items-center"
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
-      <div className="overflow-hidden">
+      <div className="overflow-hidden bg-[#F1F2F4]">
         <img
           src={item.image}
           alt={item.title}
           loading="lazy"
           decoding="async"
-          className="h-full w-full object-cover aspect-[4/3] md:aspect-auto md:h-36"
+          className="w-full object-cover aspect-[16/9]"
           style={{
             transform: hovered ? "scale(1.04)" : "scale(1)",
             transition: `transform 500ms ${EASE}`,
           }}
         />
       </div>
+
       <div className="px-6 py-5">
         <div className="flex items-center gap-3">
           <span
@@ -1546,7 +1547,7 @@ function Aktuelles() {
       all: "Alle Veranstaltungen & Inhalte ansehen →",
       items: [
         { type: "VORTRAG", date: "15. September 2026", title: "Rücken ohne OP: Wann ist Chirurgie wirklich nötig?", detail: "Gasteig HP8 · München · 19:00 Uhr" },
-        { type: "VIDEO", date: "Online verfügbar", title: "Bandscheibenvorfall verstehen: Diagnose & Behandlung", detail: "45 Min. · Dr. med. Ralph Medele" },
+        { type: "VIDEO", date: "Online verfügbar", title: "Bandscheibenvorfall verstehen: Ursachen, Therapie und Wege zur Schmerzfreiheit", detail: "45 Min. · Dr. Wing Mann Ho" },
         { type: "ARTIKEL", date: "Juli 2026", title: "Neue minimalinvasive Techniken in der Wirbelsäulenchirurgie", detail: "Fachbeitrag · Neurochirurgie aktuell" },
       ],
     },
@@ -1559,7 +1560,7 @@ function Aktuelles() {
       all: "View all events & articles →",
       items: [
         { type: "TALK", date: "15 September 2026", title: "A back without surgery: when is an operation really needed?", detail: "Gasteig HP8 · Munich · 7:00 pm" },
-        { type: "VIDEO", date: "Available online", title: "Understanding a herniated disc: diagnosis & treatment", detail: "45 min · Dr. Ralph Medele" },
+        { type: "VIDEO", date: "Available online", title: "Understanding a herniated disc: causes, therapy and paths to pain relief", detail: "45 min · Dr. Wing Mann Ho" },
         { type: "ARTICLE", date: "July 2026", title: "New minimally invasive techniques in spine surgery", detail: "Article · Neurochirurgie aktuell" },
       ],
     },
