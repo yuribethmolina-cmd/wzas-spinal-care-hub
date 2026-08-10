@@ -847,7 +847,7 @@ function BeschwerdenCard({
         className="pointer-events-none absolute inset-0 -z-10"
         style={{
           background:
-            "linear-gradient(180deg, rgba(248,248,246,0.34) 0%, rgba(255,255,255,0.18) 45%, rgba(248,248,246,0.74) 100%)",
+            "linear-gradient(180deg, rgba(248,248,246,0.58) 0%, rgba(255,255,255,0.44) 34%, rgba(255,255,255,0.5) 64%, rgba(248,248,246,0.88) 100%)",
         }}
       />
       <div
@@ -865,11 +865,23 @@ function BeschwerdenCard({
       <div>
         <h3
           className="font-display leading-snug"
-          style={{ fontSize: "1.3125rem", fontWeight: 500, letterSpacing: "-0.015em", color: hovered ? "#8A6E36" : "#1E2535", transition: `color 260ms ${EASE}` }}
+          style={{
+            fontSize: "1.3125rem",
+            fontWeight: 500,
+            letterSpacing: "-0.015em",
+            color: hovered ? "#8A6E36" : "#1E2535",
+            textShadow: "0 1px 2px rgba(255,255,255,0.6)",
+            transition: `color 260ms ${EASE}`,
+          }}
         >
           {name}
         </h3>
-        <p className="mt-2.5 text-[0.9375rem] text-[#5B6472] leading-relaxed">{sub}</p>
+        <p
+          className="mt-2.5 text-[0.9375rem] text-[#5B6472] leading-relaxed"
+          style={{ textShadow: "0 1px 2px rgba(255,255,255,0.55)" }}
+        >
+          {sub}
+        </p>
       </div>
       <a
         href="#"
