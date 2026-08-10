@@ -1560,7 +1560,7 @@ function Aktuelles() {
       all: "View all events & articles →",
       items: [
         { type: "TALK", date: "15 September 2026", title: "A back without surgery: when is an operation really needed?", detail: "Gasteig HP8 · Munich · 7:00 pm" },
-        { type: "VIDEO", date: "Available online", title: "Understanding a herniated disc: diagnosis & treatment", detail: "45 min · Dr. Ralph Medele" },
+        { type: "VIDEO", date: "Available online", title: "Understanding a herniated disc: causes, therapy and paths to pain relief", detail: "45 min · Dr. Wing Mann Ho" },
         { type: "ARTICLE", date: "July 2026", title: "New minimally invasive techniques in spine surgery", detail: "Article · Neurochirurgie aktuell" },
       ],
     },
