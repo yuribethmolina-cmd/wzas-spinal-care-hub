@@ -1489,23 +1489,24 @@ function AktuellesCard({ item, delay, cta }: { item: AktuellesItem; delay: numbe
         boxShadow: hovered ? "0 4px 20px rgba(0,0,0,0.06)" : "none",
         transition: `${style.transition}, border-top-color 250ms ${EASE}, box-shadow 250ms ${EASE}`,
       }}
-      className="bg-white border-t-2 overflow-hidden grid gap-0 md:grid-cols-[180px_1fr_auto] md:items-center"
+      className="bg-white border-t-2 overflow-hidden grid gap-0 md:grid-cols-[240px_1fr_auto] md:items-center"
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
-      <div className="overflow-hidden">
+      <div className="overflow-hidden bg-[#F1F2F4]">
         <img
           src={item.image}
           alt={item.title}
           loading="lazy"
           decoding="async"
-          className="h-full w-full object-cover aspect-[4/3] md:aspect-auto md:h-36"
+          className="w-full object-cover aspect-[16/9]"
           style={{
             transform: hovered ? "scale(1.04)" : "scale(1)",
             transition: `transform 500ms ${EASE}`,
           }}
         />
       </div>
+
       <div className="px-6 py-5">
         <div className="flex items-center gap-3">
           <span
