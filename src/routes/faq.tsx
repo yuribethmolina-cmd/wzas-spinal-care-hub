@@ -290,9 +290,11 @@ function FaqPage() {
               {visibleDocs.map((doc, i) => (
                 <li
                   key={i}
-                  className="flex items-start gap-4 border border-[#E2E4E7] rounded-sm p-5 bg-white"
+                  className="flex flex-col gap-4 border border-[#E2E4E7] rounded-sm p-5 bg-white sm:flex-row sm:items-start"
                 >
-                  <PdfIcon />
+                  <div className="flex-shrink-0">
+                    <PdfIcon />
+                  </div>
                   <div className="min-w-0 flex-1">
                     <h3 className="font-semibold text-[#1E2535]">{doc[lang].title}</h3>
                     <p className="mt-1 text-sm text-[#4A5568] leading-relaxed">{doc[lang].desc}</p>
