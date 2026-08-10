@@ -1547,7 +1547,7 @@ function Aktuelles() {
       all: "Alle Veranstaltungen & Inhalte ansehen →",
       items: [
         { type: "VORTRAG", date: "15. September 2026", title: "Rücken ohne OP: Wann ist Chirurgie wirklich nötig?", detail: "Gasteig HP8 · München · 19:00 Uhr" },
-        { type: "VIDEO", date: "Online verfügbar", title: "Bandscheibenvorfall verstehen: Diagnose & Behandlung", detail: "45 Min. · Dr. med. Ralph Medele" },
+        { type: "VIDEO", date: "Online verfügbar", title: "Bandscheibenvorfall verstehen: Ursachen, Therapie und Wege zur Schmerzfreiheit", detail: "45 Min. · Dr. Wing Mann Ho" },
         { type: "ARTIKEL", date: "Juli 2026", title: "Neue minimalinvasive Techniken in der Wirbelsäulenchirurgie", detail: "Fachbeitrag · Neurochirurgie aktuell" },
       ],
     },
