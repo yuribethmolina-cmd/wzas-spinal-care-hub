@@ -5,6 +5,36 @@ import { useT } from "@/lib/lang";
 
 const BOOKING_URL = "https://onlinerezeption.vercel.app";
 
+const SOCIALS = [
+  {
+    href: "https://www.instagram.com/wirbelsaeulenzentrum_wzas/",
+    label: "Instagram",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4" aria-hidden>
+        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>
+      </svg>
+    ),
+  },
+  {
+    href: "https://www.facebook.com/wirbelsaeule/",
+    label: "Facebook",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4" aria-hidden>
+        <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+      </svg>
+    ),
+  },
+  {
+    href: "https://www.youtube.com/channel/UCzwMBjHV_AtZB9Ubu2ISm9w",
+    label: "YouTube",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4" aria-hidden>
+        <path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/>
+      </svg>
+    ),
+  },
+];
+
 export function PageFooter() {
   const t = useT({
     de: {
@@ -48,19 +78,35 @@ export function PageFooter() {
             <a href="/karriere" className="inline-flex items-center min-h-11 lg:min-h-0 text-sm text-white/70 hover:text-white transition">{t.links.karriere}</a>
           </nav>
         </div>
-        {/* Bottom row: address + CTA */}
+        {/* Bottom row: address + social + CTA */}
         <div className="border-t border-white/10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-xs text-white/70 text-center sm:text-left">
             Nymphenburger Str. 1 · 80335 München · +49 (0)89-54 34 30 30
           </p>
-          <a
-            href={BOOKING_URL}
-            target="_blank"
-            rel="noreferrer"
-            className="inline-flex items-center min-h-11 lg:min-h-0 text-xs font-semibold text-[#D8BE85] hover:brightness-110 transition"
-          >
-            {t.cta}
-          </a>
+          <div className="flex items-center gap-5">
+            <div className="flex items-center gap-3">
+              {SOCIALS.map((s) => (
+                <a
+                  key={s.label}
+                  href={s.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={s.label}
+                  className="inline-flex items-center justify-center w-8 h-8 rounded-full text-white/50 hover:text-[#D8BE85] transition-colors duration-200"
+                >
+                  {s.icon}
+                </a>
+              ))}
+            </div>
+            <a
+              href={BOOKING_URL}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center min-h-11 lg:min-h-0 text-xs font-semibold text-[#D8BE85] hover:brightness-110 transition"
+            >
+              {t.cta}
+            </a>
+          </div>
         </div>
       </div>
     </footer>
