@@ -54,13 +54,13 @@ export function AppointmentChoice() {
           ))}
         </ol>
         <p className="mt-4 text-xs text-[#A7AEBA]">{t.bookMeta}</p>
-        <a
-          href={BOOKING_URL}
+        <button
+          type="button"
           className="mt-6 inline-flex min-h-11 items-center justify-center rounded-full bg-[#AC8F52] px-6 py-3 text-sm font-semibold text-[#1E2535] transition-[filter,transform,box-shadow] duration-300 hover:brightness-110 hover:-translate-y-0.5 hover:shadow-[0_12px_28px_-14px_rgba(172,143,82,0.85)]"
         >
           {t.bookCta}
-        </a>
-      </div>
+        </button>
+
 
       {/* Secondary — inquiry */}
       <div className="flex flex-col rounded-xl border border-white/15 bg-white/[0.03] p-6 sm:p-7">
