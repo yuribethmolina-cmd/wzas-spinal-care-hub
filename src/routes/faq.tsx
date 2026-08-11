@@ -72,8 +72,8 @@ const FAQ_ITEMS: FaqItem[] = [
     en: { q: "Do you offer physiotherapy?", a: "Physiotherapy is an important component of our conservative treatment approach. We coordinate physiotherapy in close collaboration with qualified practices and issue referrals to our partners as needed." },
   },
   {
-    de: { q: "Wie erreiche ich das Zentrum?", a: "Wir befinden uns in der Nymphenburger Straße 1, 80335 München, direkt am Stiglmaierplatz (gegenüber dem Löwenbräukeller). U-Bahn: U1, Haltestelle Stiglmaierplatz. Straßenbahn: Linie 21 ab Hauptbahnhof. Parkhaus: im Gebäude, Zufahrt über die Seidlstraße." },
-    en: { q: "How do I get to the centre?", a: "We are at Nymphenburger Straße 1, 80335 Munich, at Stiglmaierplatz (opposite the Löwenbräukeller). U-Bahn: U1, stop Stiglmaierplatz. Tram: line 21 from the main station (Hauptbahnhof). Car park: in the building, entrance via Seidlstraße." },
+    de: { q: "Wie erreiche ich das Zentrum?", a: "Wir befinden uns in der Dachauer Straße 33, 80335 München, am Stiglmaierplatz. U-Bahn: U1 / U7, Haltestelle Stiglmaierplatz. Straßenbahn: Linien 20, 21, 22 — Haltestelle direkt vor der Tür. Parkhaus in unmittelbarer Nähe, barrierefreier Zugang zur Praxis." },
+    en: { q: "How do I get to the centre?", a: "We are at Dachauer Straße 33, 80335 Munich, at Stiglmaierplatz. U-Bahn: U1 / U7, stop Stiglmaierplatz. Tram: lines 20, 21, 22 — stop directly in front of the entrance. Car park nearby, barrier-free access to the practice." },
   },
 ];
 

@@ -51,7 +51,7 @@ export function PageFooter() {
         {/* Bottom row: address + CTA */}
         <div className="border-t border-white/10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-xs text-white/70 text-center sm:text-left">
-            Nymphenburger Str. 1 · 80335 München · +49 (0)89-54 34 30 30
+            Dachauer Straße 33 · 80335 München · +49 (0)89-54 34 30 30
           </p>
           <a
             href={BOOKING_URL}

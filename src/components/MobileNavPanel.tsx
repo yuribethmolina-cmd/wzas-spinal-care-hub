@@ -135,7 +135,7 @@ export function MobileNavPanel({
             {bookLabel}
           </a>
           <p className="mt-4 text-center text-xs leading-relaxed text-[#5F6771]">
-            Nymphenburger Str. 1 · 80335 München
+            Dachauer Straße 33 · 80335 München
             <br />
             <a href="tel:+498954343030" className="inline-flex items-center min-h-11 font-semibold text-[#1E2535]">
               +49 (0)89-54 34 30 30
