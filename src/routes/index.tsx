@@ -1445,7 +1445,7 @@ function Termin() {
                     <circle cx="12" cy="10" r="3" />
                   </svg>
                 ),
-                primary: "Dachauer Straße 33",
+                primary: "Nymphenburger Str. 1",
                 secondary: t.city,
               },
             ].map(({ icon, primary, secondary }) => (
@@ -1636,7 +1636,7 @@ function Footer() {
           <Logo light />
           <div className="mt-5 space-y-1 text-sm text-[#A7AEBA]">
             <div>Dr. Medele &amp; Kollegen</div>
-            <div>Dachauer Straße 33</div>
+            <div>Nymphenburger Str. 1</div>
             <div>{t.city}</div>
             <div className="mt-3">Tel.: +49 (0)89-54 34 30 30</div>
             <div>Fax: +49 (0)89-543430-330</div>
