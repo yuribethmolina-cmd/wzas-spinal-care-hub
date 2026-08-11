@@ -1,7 +1,7 @@
 import { useT } from "@/lib/lang";
 import vortraegeImg from "@/assets/wzas/vortraege.webp.asset.json";
 
-const BOOKING = "#termin";
+const BOOKING = "/#termin";
 
 /* ── Vortragsreihe banner ─────────────────────────────────────── */
 

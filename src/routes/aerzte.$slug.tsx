@@ -3,7 +3,7 @@ import { doctors, getDoctorBySlug } from "@/lib/doctors";
 import { SiteNav } from "@/components/SiteNav";
 import { useT } from "@/lib/lang";
 
-const BOOKING_URL = "#termin";
+const BOOKING_URL = "/#termin";
 
 
 export const Route = createFileRoute("/aerzte/$slug")({

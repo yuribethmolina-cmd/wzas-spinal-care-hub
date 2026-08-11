@@ -517,7 +517,6 @@ function Nav() {
           <LangToggle />
           <a
             href={BOOKING_URL}
-            aria-label={`${t.book} (öffnet in neuem Tab)`}
             className="inline-flex items-center rounded-full bg-[#AC8F52] px-5 py-2.5 text-sm font-semibold text-[#1E2535] transition-[background-color,transform,box-shadow] duration-300 hover:bg-[#BC9C58] hover:-translate-y-0.5 hover:shadow-[0_12px_28px_-14px_rgba(172,143,82,0.85)]"
             style={{ transition: `filter 150ms ${EASE}, transform 160ms ${EASE}` }}
             onMouseEnter={(e) => (e.currentTarget.style.filter = "brightness(1.08)")}

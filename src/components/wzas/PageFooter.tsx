@@ -3,8 +3,8 @@ import { Link } from "@tanstack/react-router";
 import logoAsset from "@/assets/wzas/logo.png.asset.json";
 import { useT } from "@/lib/lang";
 
-const BOOKING_URL = "#termin";
-const INQUIRY_URL = "#termin";
+const BOOKING_URL = "/#termin";
+const INQUIRY_URL = "/#termin";
 
 const SOCIALS = [
   {

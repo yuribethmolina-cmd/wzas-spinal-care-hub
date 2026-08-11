@@ -1,7 +1,7 @@
 // src/components/wzas/BookingCTA.tsx
 import { useT } from "@/lib/lang";
 
-const BOOKING_URL = "#termin";
+const BOOKING_URL = "/#termin";
 
 interface BookingCTAProps {
   heading: string;

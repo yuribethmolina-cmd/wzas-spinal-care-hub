@@ -6,7 +6,7 @@ import { useLang, useT, type Lang } from "@/lib/lang";
 import { MobileNavPanel } from "@/components/MobileNavPanel";
 
 
-const BOOKING_URL = "#termin";
+const BOOKING_URL = "/#termin";
 const EASE = "cubic-bezier(0.23, 1, 0.32, 1)";
 
 function LangToggle() {

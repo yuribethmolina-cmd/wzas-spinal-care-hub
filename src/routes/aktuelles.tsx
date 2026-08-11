@@ -7,7 +7,7 @@ import { SiteNav } from "@/components/SiteNav";
 import { PageFooter } from "@/components/wzas/PageFooter";
 import { useLang, useT } from "@/lib/lang";
 
-const BOOKING_URL = "#termin";
+const BOOKING_URL = "/#termin";
 const EASE = "cubic-bezier(0.23, 1, 0.32, 1)";
 
 function useFadeUp(delay = 0) {

@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { doctors } from "@/lib/doctors";
 import { SiteNav } from "@/components/SiteNav";
 import { useT } from "@/lib/lang";
-const BOOKING_URL = "#termin";
+const BOOKING_URL = "/#termin";
 const EASE = "cubic-bezier(0.23, 1, 0.32, 1)";
 const TEAM_HERO = "/team-header.webp";
 
