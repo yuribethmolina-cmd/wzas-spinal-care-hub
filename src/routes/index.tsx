@@ -10,6 +10,7 @@ import logoAsset from "@/assets/wzas/logo.png.asset.json";
 import ogShare from "@/assets/wzas/og-share.png.asset.json";
 import { SiteNav } from "@/components/SiteNav";
 import { MobileNavPanel } from "@/components/MobileNavPanel";
+import { AppointmentChoice } from "@/components/AppointmentChoice";
 
 import vortraegeImg from "@/assets/wzas/vortraege.webp.asset.json";
 import thumbBandscheibe from "@/assets/wzas/thumb-bandscheibe.webp.asset.json";
