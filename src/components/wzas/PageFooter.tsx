@@ -81,7 +81,7 @@ export function PageFooter() {
         {/* Bottom row: address + social + CTA */}
         <div className="border-t border-white/10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-xs text-white/70 text-center sm:text-left">
-            Dachauer Straße 33 · 80335 München · +49 (0)89-54 34 30 30
+            Nymphenburger Str. 1 · 80335 München · +49 (0)89-54 34 30 30
           </p>
           <div className="flex items-center gap-5">
             <div className="flex items-center gap-3">
