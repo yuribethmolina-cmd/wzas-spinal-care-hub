@@ -73,7 +73,7 @@ function DoctorDetail() {
       aboutHeading: "Zur Person",
       educationLabel: "Werdegang",
       languagesLabel: "Sprachen",
-      relatedHeading: "Verwandte Spezialisten",
+      relatedHeading: "Weitere Spezialisten",
     },
     en: {
       backLink: "← Back to doctor directory",

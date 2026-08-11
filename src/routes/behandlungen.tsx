@@ -107,7 +107,7 @@ export const Route = createFileRoute("/behandlungen")({
   head: () => ({
     meta: [
       { title: "Rückenbehandlungen · WZAS Wirbelsäulenzentrum München" },
-      { name: "description", content: "Konservative Therapie, minimalinvasive Verfahren und Wirbelsäulenchirurgie am WZAS München. Unser Grundsatz: konservative Behandlung wenn möglich, Operation wenn nötig." },
+      { name: "description", content: "Konservative Therapie, minimalinvasive Verfahren und Wirbelsäulenchirurgie am WZAS München. Unser Grundsatz: konservative Behandlung, wenn möglich – Operation, wenn nötig." },
     ],
   }),
   component: BehandlungenPage,
@@ -208,7 +208,7 @@ function BehandlungenPage() {
       bridgeParagraph: "Noch keine Diagnose? Zuerst Ihr Krankheitsbild verstehen.",
       bookingHeading: "Welche Behandlung ist die richtige für mich?",
       bookingBody: "Vereinbaren Sie einen Termin. Unsere Spezialisten klären gemeinsam mit Ihnen, welche Therapie am besten zu Ihrer Situation passt.",
-      bookingCta: "Online Termin buchen",
+      bookingCta: "Online-Termin buchen",
       bookingSecondary: "Zuerst Beschwerdebild ansehen →",
     },
     en: {

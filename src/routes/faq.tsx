@@ -52,7 +52,7 @@ const FAQ_ITEMS: FaqItem[] = [
     en: { q: "What should I bring to my first appointment?", a: "Please bring: your health insurance card, all existing imaging (MRI, CT, X-rays) on CD or printout, reports and letters from previous treatments, and a list of your current medications." },
   },
   {
-    de: { q: "Bedeutet meine Diagnose automatisch eine Operation?", a: "Nein — keineswegs. Mehr als 90% unserer Patienten werden ohne Operation behandelt. Wir verfolgen konsequent den Grundsatz: konservativ wenn möglich, operativ wenn nötig. In einem ausführlichen Erstgespräch besprechen wir alle Optionen." },
+    de: { q: "Bedeutet meine Diagnose automatisch eine Operation?", a: "Nein — keineswegs. Mehr als 90% unserer Patienten werden ohne Operation behandelt. Wir verfolgen konsequent den Grundsatz: konservativ, wenn möglich – operativ, wenn nötig. In einem ausführlichen Erstgespräch besprechen wir alle Optionen." },
     en: { q: "Does my diagnosis automatically mean surgery?", a: "Not at all. More than 90% of our patients are treated without surgery. We consistently follow the principle: conservative care when possible, surgery only when necessary. We discuss all options in detail at your first appointment." },
   },
   {
@@ -64,7 +64,7 @@ const FAQ_ITEMS: FaqItem[] = [
     en: { q: "Where do surgeries take place?", a: "When a surgical procedure is required, it is performed at the WolfartKlinik Munich-Gräfelfing — one of Bavaria's leading private clinics for neurosurgery and orthopaedics. Our surgeons accompany you through the entire process." },
   },
   {
-    de: { q: "Wie lange dauert die Genesung nach einer OP?", a: "Das hängt stark von der Art des Eingriffs ab. Minimalinvasive Eingriffe: häufig 2–4 Wochen. Größere Fusionsoperationen: 6–12 Wochen. Im Entlassgespräch erhalten Sie einen individualisierten Genesungsplan mit allen wichtigen Schritten und Kontrolleterminen." },
+    de: { q: "Wie lange dauert die Genesung nach einer OP?", a: "Das hängt stark von der Art des Eingriffs ab. Minimalinvasive Eingriffe: häufig 2–4 Wochen. Größere Fusionsoperationen: 6–12 Wochen. Im Entlassgespräch erhalten Sie einen individualisierten Genesungsplan mit allen wichtigen Schritten und Kontrollterminen." },
     en: { q: "How long is recovery after surgery?", a: "This depends strongly on the type of procedure. Minimally invasive procedures: often 2–4 weeks. Larger fusion operations: 6–12 weeks. At discharge you receive an individualised recovery plan with all key milestones and follow-up appointments." },
   },
   {

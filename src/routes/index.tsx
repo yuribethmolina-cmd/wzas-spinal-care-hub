@@ -66,7 +66,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Rückhalt für München. 20 Jahre Erfahrung, 13 Spezialisten. Konservative Behandlung zuerst — Operation nur wenn nötig.",
+          "Rückhalt für München. 20 Jahre Erfahrung, 13 Spezialisten. Konservative Behandlung zuerst — Operation nur, wenn nötig.",
       },
       { property: "og:title", content: "WZAS · Wirbelsäulenzentrum am Stiglmaierplatz" },
       {
@@ -564,7 +564,7 @@ function Hero() {
       h1a: "Rückhalt",
       h1b: "für München.",
       h1c: "",
-      sub: "20 Jahre Erfahrung.\u00a0\n13 Spezialisten.\u00a0\nKonservative Behandlung zuerst\u00a0\nOperation nur wenn nötig.",
+      sub: "20 Jahre Erfahrung.\u00a0\n13 Spezialisten.\u00a0\nKonservative Behandlung zuerst\u00a0\nOperation nur, wenn nötig.",
       chipsLabel: "Was führt Sie zu uns?",
       chips: ["Akuter Rückenschmerz", "Chronische Schmerzen", "Bandscheibenvorfall", "Ischias", "Nach OP"],
       book: "Termin vereinbaren",

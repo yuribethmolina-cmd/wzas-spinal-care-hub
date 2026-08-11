@@ -26,12 +26,12 @@ function AerztePage() {
     de: {
       heroEyebrow: "ÄRZTETEAM · MÜNCHEN",
       heroH1: "Das Team",
-      heroSub: "13 Spezialistinnen und Spezialisten für Wirbelsäule, Neurochirurgie, Orthopädie und Radiologie.",
+      heroSub: "13 Spezialistinnen und Spezialisten für Wirbelsäulenerkrankungen, Neurochirurgie, Orthopädie und Radiologie.",
       leadershipLabel: "ÄRZTLICHE LEITUNG",
       teamLabel: "DAS TEAM",
       profileLink: "Profil ansehen",
       ctaH2: "Termin vereinbaren",
-      ctaBody: "Unser Team begleitet Sie von der Diagnose bis zur Genesung — konservativ wenn möglich, operativ wenn nötig.",
+      ctaBody: "Unser Team begleitet Sie von der Diagnose bis zur Genesung — konservativ, wenn möglich – operativ, wenn nötig.",
       ctaBtn: "Jetzt buchen",
     },
     en: {

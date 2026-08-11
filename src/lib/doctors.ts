@@ -51,7 +51,7 @@ export const doctors: Doctor[] = [
     initials: "RM",
     focus: ["Minimalinvasive Wirbelsäulenchirurgie", "Bandscheibenvorfälle", "Wirbelkanalstenose", "Vaskuläre & spinale Neurochirurgie"],
     bio: [
-      "Dr. med. Ralph Medele ist langjährig universitär ausgebildeter und erfahrener Neurochirurg, Gründer und Leiter des Zentrums.",
+      "Dr. med. Ralph Medele ist erfahrener Neurochirurg, Gründer und Leiter des Zentrums.",
       "Nach seinem Medizinstudium an der Ludwig-Maximilians-Universität München und einem Auslandsaufenthalt in Mexico City absolvierte er seine neurochirurgische Facharztausbildung bei Prof. Reulen am Klinikum Großhadern.",
       "2006 gründete er gemeinsam mit Dr. Ständer das Wirbelsäulenzentrum am Stiglmaierplatz.",
     ],
@@ -97,7 +97,7 @@ export const doctors: Doctor[] = [
     focus: ["Zervikale Wirbelsäule", "Mikrochirurgische Eingriffe", "Schmerztherapie", "Bandscheibenprothesen"],
     bio: [
       "Dr. Erös ist erfahrener Neurochirurg mit Schwerpunkt auf mikrochirurgischen Eingriffen an der Halswirbelsäule.",
-      "Er verbindet moderne Operationstechniken mit einer patientenzentrierten Beratung — konservativ zuerst, chirurgisch nur wenn medizinisch notwendig.",
+      "Er verbindet moderne Operationstechniken mit einer patientenzentrierten Beratung — konservativ zuerst, operativ nur, wenn wirklich nötig.",
     ],
     education: [
       "Facharztausbildung Neurochirurgie",
@@ -134,7 +134,7 @@ export const doctors: Doctor[] = [
     initials: "WH",
     focus: ["Lumbale Erkrankungen", "Nervenwurzelkompression", "Konservative Therapie"],
     bio: [
-      "Dr. Ho ist Fachärztin für Neurochirurgie und begleitet Patienten schwerpunktmäßig bei lumbalen Beschwerden und konservativen Therapieoptionen.",
+      "Dr. Ho ist Fachärztin für Neurochirurgie und betreut Patienten schwerpunktmäßig bei lumbalen Erkrankungen; sie berät zu konservativen Therapieoptionen und begleitet durch den gesamten Behandlungsprozess.",
     ],
     education: ["Facharztausbildung Neurochirurgie"],
   },
@@ -202,7 +202,7 @@ export const doctors: Doctor[] = [
     initials: "WD",
     focus: ["Schmerztherapie", "Neuromodulation", "Postoperative Betreuung"],
     bio: [
-      "Dr. Demmel ist erfahrener Neurochirurg mit langjährigem Schwerpunkt auf spezialisierter Schmerztherapie und Neuromodulation.",
+      "Dr. Demmel ist erfahrener Neurochirurg mit Schwerpunkt auf Schmerztherapie und Neuromodulation.",
     ],
     education: ["Facharztausbildung Neurochirurgie"],
   },
