@@ -1391,7 +1391,7 @@ function Termin() {
         <div className="mt-10 rounded-xl bg-[#263044] p-7">
 
           <h3 className="text-white font-semibold text-lg">{t.otherTitle}</h3>
-          <div className="mt-6 space-y-6 text-sm">
+          <div className="mt-6 grid gap-6 text-sm sm:grid-cols-2 lg:grid-cols-4">
             {[
               {
                 icon: (
