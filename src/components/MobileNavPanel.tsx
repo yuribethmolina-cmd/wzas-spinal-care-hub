@@ -5,6 +5,36 @@ import { useEffect, useRef } from "react";
 const BOOKING_URL = "https://onlinerezeption.vercel.app";
 const EASE = "cubic-bezier(0.23, 1, 0.32, 1)";
 
+const SOCIALS = [
+  {
+    href: "https://www.instagram.com/wirbelsaeulenzentrum_wzas/",
+    label: "Instagram",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5" aria-hidden>
+        <rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>
+      </svg>
+    ),
+  },
+  {
+    href: "https://www.facebook.com/wirbelsaeule/",
+    label: "Facebook",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5" aria-hidden>
+        <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+      </svg>
+    ),
+  },
+  {
+    href: "https://www.youtube.com/channel/UCzwMBjHV_AtZB9Ubu2ISm9w",
+    label: "YouTube",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5" aria-hidden>
+        <path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/>
+      </svg>
+    ),
+  },
+];
+
 type RouteHref = "/" | "/aerzte" | "/beschwerden" | "/behandlungen" | "/faq" | "/aktuelles";
 
 interface MobileNavPanelProps {
@@ -134,6 +164,20 @@ export function MobileNavPanel({
           >
             {bookLabel}
           </a>
+          <div className="flex items-center justify-center gap-4 mt-5">
+            {SOCIALS.map((s) => (
+              <a
+                key={s.label}
+                href={s.href}
+                target="_blank"
+                rel="noreferrer"
+                aria-label={s.label}
+                className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[#F4F5F6] text-[#1E2535] hover:bg-[#AC8F52] hover:text-white transition-colors duration-200"
+              >
+                {s.icon}
+              </a>
+            ))}
+          </div>
           <p className="mt-4 text-center text-xs leading-relaxed text-[#5F6771]">
             Nymphenburger Str. 1 · 80335 München
             <br />
