@@ -1376,7 +1376,7 @@ function Termin() {
         className="absolute inset-0 pointer-events-none opacity-[0.03]"
         style={{ backgroundImage: NOISE, backgroundSize: "256px 256px" }}
       />
-      <div className="relative mx-auto max-w-7xl px-5 lg:px-8 grid gap-10 lg:grid-cols-2">
+      <div className="relative mx-auto max-w-7xl px-5 lg:px-8">
         <div ref={ref} style={style}>
           <h2
             className="font-display text-white leading-tight"
@@ -1385,27 +1385,10 @@ function Termin() {
             {t.h2a}<em style={{ fontStyle: "normal", fontWeight: 600 }}>{t.h2b}</em>
           </h2>
           <p className="mt-4 text-[#C8CBD2] leading-relaxed max-w-lg">{t.lead}</p>
-          <div className="mt-8 rounded-xl bg-[#263044] p-7 border-t-2 border-[#AC8F52]">
-            <p className="text-[11px] uppercase tracking-[0.2em] text-[#AC8F52] font-medium flex items-center gap-2">
-              <span className="inline-block w-4 h-px bg-[#AC8F52]" />
-              {t.onlineKicker}
-            </p>
-            <p className="mt-3 text-white font-semibold text-lg">{t.onlineTitle}</p>
-            <p className="mt-2 text-sm text-[#A7AEBA]">{t.onlineSub}</p>
-            <a
-              href={BOOKING_URL}
-              target="_blank"
-              rel="noreferrer"
-              className="mt-6 inline-flex items-center rounded-full bg-[#AC8F52] px-6 py-3 text-sm font-semibold text-[#1E2535] transition-[background-color,transform,box-shadow] duration-300 hover:bg-[#BC9C58] hover:-translate-y-0.5 hover:shadow-[0_12px_28px_-14px_rgba(172,143,82,0.85)]"
-              style={{ transition: `filter 150ms ${EASE}, transform 160ms ${EASE}` }}
-              onMouseEnter={(e) => (e.currentTarget.style.filter = "brightness(1.08)")}
-              onMouseLeave={(e) => (e.currentTarget.style.filter = "")}
-            >
-              {t.book}
-            </a>
-          </div>
+          <AppointmentChoice />
         </div>
-        <div className="rounded-xl bg-[#263044] p-7">
+        <div className="mt-10 rounded-xl bg-[#263044] p-7">
+
           <h3 className="text-white font-semibold text-lg">{t.otherTitle}</h3>
           <div className="mt-6 space-y-6 text-sm">
             {[
