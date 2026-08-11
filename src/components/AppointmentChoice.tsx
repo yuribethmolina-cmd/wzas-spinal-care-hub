@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useT } from "@/lib/lang";
+import { doctors } from "@/lib/doctors";
 
 type Flow = "book" | "ask";
 
@@ -84,7 +85,13 @@ export function AppointmentChoice() {
   const [answers, setAnswers] = useState<(string | null)[]>([]);
 
   const labels = flow === "ask" ? t.askSteps : t.bookSteps;
-  const options = flow === "ask" ? t.askOptions : t.bookOptions;
+  const bookOptions = t.bookOptions.map((o, i) =>
+    i === 1
+      ? [...doctors.map((d) => d.name), t.bookOptions[1][t.bookOptions[1].length - 1]]
+      : o,
+  );
+  const options = flow === "ask" ? t.askOptions : bookOptions;
+  const isDoctorStep = flow === "book" && step === 1;
   const total = labels.length;
   const done = step >= total;
 
