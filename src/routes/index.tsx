@@ -659,22 +659,36 @@ function Hero() {
               ))}
             </div>
           </div>
-          <div className="mt-7 flex flex-wrap gap-3" style={introCta}>
-            <a
-              href={BOOKING_URL}
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center rounded-full bg-[#AC8F52] px-6 py-3 text-sm font-semibold text-[#1E2535] transition-[background-color,transform,box-shadow] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:bg-[#BC9C58] hover:-translate-y-0.5 hover:shadow-[0_16px_34px_-16px_rgba(172,143,82,0.9)]"
-            >
-              {t.book}
-            </a>
-            <a
-              href="#beschwerden"
-              className="inline-flex items-center rounded-full border border-white/40 bg-white/5 backdrop-blur-sm px-6 py-3 text-sm font-semibold text-white transition-[background-color,border-color,transform] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:bg-white/15 hover:border-white/70 hover:-translate-y-0.5"
-            >
-              {t.more}
-            </a>
+          <div className="mt-7" style={introCta}>
+            <div className="flex flex-wrap gap-3">
+              <a
+                href={BOOKING_URL}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center rounded-full bg-[#AC8F52] px-6 py-3 text-sm font-semibold text-[#1E2535] transition-[background-color,transform,box-shadow] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:bg-[#BC9C58] hover:-translate-y-0.5 hover:shadow-[0_16px_34px_-16px_rgba(172,143,82,0.9)]"
+              >
+                {t.book}
+              </a>
+              <a
+                href="#beschwerden"
+                className="inline-flex items-center rounded-full border border-white/40 bg-white/5 backdrop-blur-sm px-6 py-3 text-sm font-semibold text-white transition-[background-color,border-color,transform] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:bg-white/15 hover:border-white/70 hover:-translate-y-0.5"
+              >
+                {t.more}
+              </a>
+            </div>
+            <p className="mt-3 text-[13px] text-[#CBD1DA]">
+              {t.bookMeta}{" "}
+              <a
+                href={INQUIRY_URL}
+                target="_blank"
+                rel="noreferrer"
+                className="font-semibold text-[#D8BE85] underline underline-offset-4 hover:brightness-110"
+              >
+                {t.askLink}
+              </a>
+            </p>
           </div>
+
           <div className="mt-7" style={introLangs}>
             <p className="text-[11px] font-medium tracking-[0.18em] uppercase text-[#CBD1DA] flex items-center gap-2">
               <span className="inline-block w-5 h-px bg-[#AC8F52]" />
