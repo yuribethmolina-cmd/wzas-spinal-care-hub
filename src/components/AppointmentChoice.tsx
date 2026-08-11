@@ -92,6 +92,7 @@ export function AppointmentChoice() {
   );
   const options = flow === "ask" ? t.askOptions : bookOptions;
   const isDoctorStep = flow === "book" && step === 1;
+  const isDateStep = flow === "book" && step === 2;
   const total = labels.length;
   const done = step >= total;
 
