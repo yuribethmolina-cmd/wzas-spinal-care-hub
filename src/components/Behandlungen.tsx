@@ -60,7 +60,7 @@ export function Behandlungen() {
       h2a: "Erst behandeln, ",
       h2b: "dann operieren",
       lead:
-        "Über 90 % unserer Patientinnen und Patienten kommen ohne Operation aus. Erst wenn konservative Wege ausgeschöpft sind, sprechen wir über einen Eingriff — und dann so schonend wie möglich.",
+        "Über 90 % unserer Patientinnen und Patienten kommen ohne Operation aus. Erst wenn konservative Wege ausgeschöpft sind, sprechen wir über einen Eingriff und dann so schonend wie möglich.",
       leftKicker: "Konservativ",
       leftH: "Ohne Operation",
       leftIntro: "Der erste Weg: Schmerz lindern, Funktion zurückholen, Ursachen behandeln.",
@@ -72,7 +72,7 @@ export function Behandlungen() {
       ],
       rightKicker: "Operativ",
       rightH: "Wenn es nötig wird",
-      rightIntro: "Mikrochirurgisch, gewebeschonend und mit klarer Indikation — nicht als Standardlösung.",
+      rightIntro: "Mikrochirurgisch, gewebeschonend und mit klarer Indikation , nicht als Standardlösung.",
       rightRows: [
         { title: "Mikrochirurgische Bandscheiben-OP", text: "Kleiner Zugang, kurze Erholung, Entlastung des Nervs." },
         { title: "Dekompression bei Spinalkanalstenose", text: "Mehr Platz für Nerven, damit die Gehstrecke wieder länger wird." },
