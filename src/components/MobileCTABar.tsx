@@ -45,12 +45,21 @@ export function MobileCTABar() {
             <path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.8a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.8 2.1Z" />
           </svg>
         </a>
-        <a
-          href="/#kontakt"
+        <button
+          type="button"
+          onClick={() => {
+            const go = () =>
+              window.dispatchEvent(new CustomEvent("wz:start-flow", { detail: "book" }));
+            if (document.getElementById("termin")) go();
+            else {
+              window.location.hash = "#termin";
+              setTimeout(go, 300);
+            }
+          }}
           className="flex h-12 flex-1 items-center justify-center rounded-xl bg-[var(--color-wz-gold,#B99456)] px-4 text-[15px] font-bold text-[#1E2535] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1E2535]"
         >
           {t.book}
-        </a>
+        </button>
       </div>
     </div>
   );
