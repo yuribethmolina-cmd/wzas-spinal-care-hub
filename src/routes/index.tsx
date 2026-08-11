@@ -570,6 +570,8 @@ function Hero() {
       chips: ["Akuter Rückenschmerz", "Chronische Schmerzen", "Bandscheibenvorfall", "Ischias", "Nach OP"],
       book: "Termin buchen",
       more: "Mehr erfahren",
+      bookMeta: "Freie Termine online · ca. 2 Min. · Nur eine Frage?",
+      askLink: "Anfrage senden",
       alt: "Ärztliches Beratungsgespräch mit Wirbelsäulenmodell im Wirbelsäulenzentrum am Stiglmaierplatz",
     },
     en: {
@@ -582,6 +584,8 @@ function Hero() {
       chips: ["Acute back pain", "Chronic pain", "Herniated disc", "Sciatica", "Post-surgery"],
       book: "Book appointment",
       more: "Learn more",
+      bookMeta: "Live availability · approx. 2 min · Just a question?",
+      askLink: "Send inquiry",
       alt: "Doctor consultation with a spine model at the Spine Center at Stiglmaierplatz",
     },
   });
