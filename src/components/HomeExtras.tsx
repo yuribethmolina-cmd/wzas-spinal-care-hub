@@ -75,7 +75,7 @@ export function Anfahrt() {
       h2b: "leicht erreichbar",
       lead: "Direkt am Stiglmaierplatz — mit U-Bahn, Tram und Bus in wenigen Minuten erreichbar.",
       items: [
-        { k: "Adresse", v: "Dachauer Straße 33\n80335 München" },
+        { k: "Adresse", v: "Nymphenburger Str. 1\n80335 München" },
         { k: "U-Bahn & Tram", v: "U1 / U7 Stiglmaierplatz\nTram 20, 21, 22 — Haltestelle direkt vor der Tür" },
         { k: "Mit dem Auto", v: "Parkhaus in unmittelbarer Nähe\nBarrierefreier Zugang zur Praxis" },
         { k: "Sprechzeiten", v: "Montag bis Freitag\n8.00 – 17.00 Uhr" },
@@ -89,7 +89,7 @@ export function Anfahrt() {
       h2b: "easy to reach",
       lead: "Right at Stiglmaierplatz — a few minutes away by underground, tram or bus.",
       items: [
-        { k: "Address", v: "Dachauer Straße 33\n80335 Munich" },
+        { k: "Address", v: "Nymphenburger Str. 1\n80335 Munich" },
         { k: "Underground & tram", v: "U1 / U7 Stiglmaierplatz\nTram 20, 21, 22 — stop right outside" },
         { k: "By car", v: "Car park close by\nStep-free access to the practice" },
         { k: "Opening hours", v: "Monday to Friday\n8.00 am – 5.00 pm" },
@@ -129,7 +129,7 @@ export function Anfahrt() {
 
           <div className="mt-7 flex flex-wrap gap-3">
             <a
-              href="https://www.google.com/maps/search/?api=1&query=Dachauer+Stra%C3%9Fe+33+80335+M%C3%BCnchen"
+              href="https://www.google.com/maps/search/?api=1&query=Nymphenburger+Str.+1+80335+M%C3%BCnchen"
               target="_blank"
               rel="noreferrer"
               className="inline-flex items-center rounded-full border border-[#1E2535]/25 px-5 py-2.5 text-[15px] font-semibold text-[#1E2535] hover:bg-white transition-colors"
@@ -149,8 +149,8 @@ export function Anfahrt() {
 
         <div className="overflow-hidden rounded-xl border border-[#E2E4E7] bg-white min-h-[380px]">
           <iframe
-            title="Karte — Dachauer Straße 33, München"
-            src="https://www.openstreetmap.org/export/embed.html?bbox=11.550%2C48.1415%2C11.565%2C48.1495&layer=mapnik&marker=48.1455%2C11.5575"
+            title="Karte — Nymphenburger Str. 1, München"
+            src="https://www.openstreetmap.org/export/embed.html?bbox=11.5520%2C48.1425%2C11.5670%2C48.1505&layer=mapnik&marker=48.1466%2C11.5595"
             loading="lazy"
             className="w-full h-[380px] lg:h-[520px] border-0"
           />
