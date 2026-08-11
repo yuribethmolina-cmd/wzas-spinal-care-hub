@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useLang } from "@/lib/lang";
 
 const COPY = {
-  de: { book: "Termin vereinbaren", call: "Anrufen" },
+  de: { book: "Termin buchen", call: "Anrufen" },
   en: { book: "Book appointment", call: "Call" },
 } as const;
 

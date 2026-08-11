@@ -38,7 +38,7 @@ const SOCIALS = [
 export function PageFooter() {
   const t = useT({
     de: {
-      cta: "Termin vereinbaren →",
+      cta: "Termin buchen →",
       links: {
         beschwerden: "Rückenerkrankungen",
         aerzte: "Ärzteteam",
