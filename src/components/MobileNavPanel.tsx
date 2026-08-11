@@ -2,7 +2,7 @@
 import { Link } from "@tanstack/react-router";
 import { useEffect, useRef } from "react";
 
-const BOOKING_URL = "https://onlinerezeption.vercel.app";
+const BOOKING_URL = "/#termin";
 const EASE = "cubic-bezier(0.23, 1, 0.32, 1)";
 
 const SOCIALS = [
@@ -156,10 +156,7 @@ export function MobileNavPanel({
         <div className="border-t border-[#E2E4E7] px-5 py-5">
           <a
             href={BOOKING_URL}
-            target="_blank"
-            rel="noreferrer"
             onClick={onClose}
-            aria-label={`${bookLabel} (öffnet in neuem Tab)`}
             className="block rounded-full bg-[#AC8F52] px-5 py-4 text-center text-[15px] font-semibold text-[#1E2535] transition-colors duration-300 hover:bg-[#BC9C58]"
           >
             {bookLabel}

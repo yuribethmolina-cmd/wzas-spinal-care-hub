@@ -517,9 +517,6 @@ function Nav() {
           <LangToggle />
           <a
             href={BOOKING_URL}
-            target="_blank"
-            rel="noreferrer"
-            aria-label={`${t.book} (öffnet in neuem Tab)`}
             className="inline-flex items-center rounded-full bg-[#AC8F52] px-5 py-2.5 text-sm font-semibold text-[#1E2535] transition-[background-color,transform,box-shadow] duration-300 hover:bg-[#BC9C58] hover:-translate-y-0.5 hover:shadow-[0_12px_28px_-14px_rgba(172,143,82,0.85)]"
             style={{ transition: `filter 150ms ${EASE}, transform 160ms ${EASE}` }}
             onMouseEnter={(e) => (e.currentTarget.style.filter = "brightness(1.08)")}
@@ -668,8 +665,6 @@ function Hero() {
             <div className="flex flex-wrap gap-3">
               <a
                 href={BOOKING_URL}
-                target="_blank"
-                rel="noreferrer"
                 className="inline-flex items-center rounded-full bg-[#AC8F52] px-6 py-3 text-sm font-semibold text-[#1E2535] transition-[background-color,transform,box-shadow] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:bg-[#BC9C58] hover:-translate-y-0.5 hover:shadow-[0_16px_34px_-16px_rgba(172,143,82,0.9)]"
               >
                 {t.book}
@@ -685,8 +680,6 @@ function Hero() {
               {t.bookMeta}{" "}
               <a
                 href={INQUIRY_URL}
-                target="_blank"
-                rel="noreferrer"
                 className="font-semibold text-[#D8BE85] underline underline-offset-4 hover:brightness-110"
               >
                 {t.askLink}
@@ -1011,8 +1004,6 @@ function WegStep({
         {isHighlight && (
           <a
             href={BOOKING_URL}
-            target="_blank"
-            rel="noreferrer"
             className="mt-6 inline-flex min-h-11 items-center text-sm font-semibold text-[#1E2535] transition-opacity duration-300 hover:opacity-65"
           >
             {bookLabel} →
@@ -1366,7 +1357,7 @@ function Termin() {
       lead: "Öffnungszeiten: Montag bis Freitag, 8.00–17.00 Uhr. Notfälle behandeln wir selbstverständlich sofort.",
       onlineKicker: "Online buchen",
       onlineTitle: "Termin online vereinbaren",
-      onlineSub: "Integriert über onlinerezeption.vercel.app",
+      onlineSub: "Online-Terminbuchung (Prototyp)",
       book: "Termin buchen",
       otherTitle: "Weitere Kontaktmöglichkeiten",
       phoneSub: "Gesetzlich Versicherte · Mo–Fr 08:00–17:00 Uhr",
@@ -1380,7 +1371,7 @@ function Termin() {
       lead: "Opening hours: Monday to Friday, 8.00 am – 5.00 pm. Emergencies are treated immediately.",
       onlineKicker: "Book online",
       onlineTitle: "Schedule an appointment online",
-      onlineSub: "Powered by onlinerezeption.vercel.app",
+      onlineSub: "Online booking (prototype)",
       book: "Book appointment",
       otherTitle: "Other ways to reach us",
       phoneSub: "Statutory insurance · Mon–Fri 8:00 am – 5:00 pm",

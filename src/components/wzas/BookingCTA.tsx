@@ -1,7 +1,7 @@
 // src/components/wzas/BookingCTA.tsx
 import { useT } from "@/lib/lang";
 
-const BOOKING_URL = "https://onlinerezeption.vercel.app";
+const BOOKING_URL = "/#termin";
 
 interface BookingCTAProps {
   heading: string;
@@ -34,8 +34,6 @@ export function BookingCTA({
         <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
           <a
             href={BOOKING_URL}
-            target="_blank"
-            rel="noreferrer"
             className="inline-flex items-center gap-2 rounded-full bg-[#AC8F52] px-7 py-3.5 text-sm font-semibold text-[#1E2535] hover:brightness-105 transition"
           >
             {resolvedCta}

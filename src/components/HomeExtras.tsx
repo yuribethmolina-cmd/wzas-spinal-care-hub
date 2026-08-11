@@ -1,7 +1,7 @@
 import { useT } from "@/lib/lang";
 import vortraegeImg from "@/assets/wzas/vortraege.webp.asset.json";
 
-const BOOKING = "https://onlinerezeption.vercel.app";
+const BOOKING = "/#termin";
 
 /* ── Vortragsreihe banner ─────────────────────────────────────── */
 
@@ -138,8 +138,6 @@ export function Anfahrt() {
             </a>
             <a
               href={BOOKING}
-              target="_blank"
-              rel="noreferrer"
               className="inline-flex items-center rounded-full bg-[#AC8F52] px-5 py-2.5 text-[15px] font-semibold text-[#1E2535] hover:bg-[#BC9C58] transition-colors"
             >
               {t.book}

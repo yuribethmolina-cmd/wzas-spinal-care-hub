@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { doctors } from "@/lib/doctors";
 import { SiteNav } from "@/components/SiteNav";
 import { useT } from "@/lib/lang";
-const BOOKING_URL = "https://onlinerezeption.vercel.app";
+const BOOKING_URL = "/#termin";
 const EASE = "cubic-bezier(0.23, 1, 0.32, 1)";
 const TEAM_HERO = "/team-header.webp";
 
@@ -134,8 +134,6 @@ function AerztePage() {
           </p>
           <a
             href={BOOKING_URL}
-            target="_blank"
-            rel="noreferrer"
             className="mt-7 inline-flex items-center gap-2 rounded-full bg-[#AC8F52] px-7 py-3.5 text-sm font-semibold text-[#1E2535] hover:brightness-105 transition"
           >
             {t.ctaBtn}

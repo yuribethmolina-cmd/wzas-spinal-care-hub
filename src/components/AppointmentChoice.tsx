@@ -1,5 +1,4 @@
 import { useT } from "@/lib/lang";
-import { BOOKING_URL, INQUIRY_URL } from "@/routes/-home-constants";
 
 /**
  * Two clearly separated appointment paths:
@@ -54,14 +53,12 @@ export function AppointmentChoice() {
           ))}
         </ol>
         <p className="mt-4 text-xs text-[#A7AEBA]">{t.bookMeta}</p>
-        <a
-          href={BOOKING_URL}
-          target="_blank"
-          rel="noreferrer"
+        <button
+          type="button"
           className="mt-6 inline-flex min-h-11 items-center justify-center rounded-full bg-[#AC8F52] px-6 py-3 text-sm font-semibold text-[#1E2535] transition-[filter,transform,box-shadow] duration-300 hover:brightness-110 hover:-translate-y-0.5 hover:shadow-[0_12px_28px_-14px_rgba(172,143,82,0.85)]"
         >
           {t.bookCta}
-        </a>
+        </button>
       </div>
 
       {/* Secondary — inquiry */}
@@ -82,14 +79,12 @@ export function AppointmentChoice() {
           ))}
         </ol>
         <p className="mt-4 text-xs text-[#A7AEBA]">{t.askMeta}</p>
-        <a
-          href={INQUIRY_URL}
-          target="_blank"
-          rel="noreferrer"
+        <button
+          type="button"
           className="mt-6 inline-flex min-h-11 items-center justify-center rounded-full border border-white/40 px-6 py-3 text-sm font-semibold text-white transition-[background-color,border-color,transform] duration-300 hover:bg-white/10 hover:border-white/70 hover:-translate-y-0.5"
         >
           {t.askCta}
-        </a>
+        </button>
       </div>
     </div>
   );

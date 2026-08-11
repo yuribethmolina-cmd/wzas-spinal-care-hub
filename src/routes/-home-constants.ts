@@ -9,9 +9,9 @@ export const HERO_SIZES = "100vw";
 export const HERO_VIDEO = "/__l5e/assets-v1/949da178-930e-4139-b75b-d822f0d6020d/hero-columna.mp4";
 
 
-export const BOOKING_URL = "https://onlinerezeption.vercel.app";
+export const BOOKING_URL = "/#termin";
 /** Short "inquiry" flow (no fixed date). Same widget for now — swap when deep links exist. */
-export const INQUIRY_URL = "https://onlinerezeption.vercel.app";
+export const INQUIRY_URL = "/#termin";
 export const EASE = "cubic-bezier(0.23, 1, 0.32, 1)";
 export const EASE_SOFT = "cubic-bezier(0.16, 1, 0.3, 1)";
 

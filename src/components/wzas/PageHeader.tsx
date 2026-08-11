@@ -6,7 +6,7 @@ import { useLang, useT, type Lang } from "@/lib/lang";
 import { MobileNavPanel } from "@/components/MobileNavPanel";
 
 
-const BOOKING_URL = "https://onlinerezeption.vercel.app";
+const BOOKING_URL = "/#termin";
 const EASE = "cubic-bezier(0.23, 1, 0.32, 1)";
 
 function LangToggle() {
@@ -108,8 +108,6 @@ export function PageHeader({ activeRoute }: { activeRoute?: string }) {
           <LangToggle />
           <a
             href={BOOKING_URL}
-            target="_blank"
-            rel="noreferrer"
             className="inline-flex items-center rounded-full bg-[#AC8F52] px-5 py-2.5 text-sm font-semibold text-[#1E2535]"
             style={{ transition: `filter 150ms ${EASE}` }}
             onMouseEnter={(e) => (e.currentTarget.style.filter = "brightness(1.08)")}

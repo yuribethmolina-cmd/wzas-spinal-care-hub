@@ -3,8 +3,8 @@ import { Link } from "@tanstack/react-router";
 import logoAsset from "@/assets/wzas/logo.png.asset.json";
 import { useT } from "@/lib/lang";
 
-const BOOKING_URL = "https://onlinerezeption.vercel.app";
-const INQUIRY_URL = "https://onlinerezeption.vercel.app";
+const BOOKING_URL = "/#termin";
+const INQUIRY_URL = "/#termin";
 
 const SOCIALS = [
   {
@@ -104,16 +104,12 @@ export function PageFooter() {
             <div className="flex flex-wrap items-center gap-x-4 gap-y-1">
               <a
                 href={BOOKING_URL}
-                target="_blank"
-                rel="noreferrer"
                 className="inline-flex items-center min-h-11 lg:min-h-0 text-xs font-semibold text-[#D8BE85] hover:brightness-110 transition"
               >
                 {t.cta}
               </a>
               <a
                 href={INQUIRY_URL}
-                target="_blank"
-                rel="noreferrer"
                 className="inline-flex items-center min-h-11 lg:min-h-0 text-xs font-medium text-white/60 underline underline-offset-4 hover:text-white transition"
               >
                 {t.ask}
