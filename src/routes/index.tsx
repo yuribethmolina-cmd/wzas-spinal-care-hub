@@ -917,7 +917,7 @@ function Beschwerden() {
       label: "Behandlungsgebiete",
       h2a: "Was führt ",
       h2b: "Sie zu uns?",
-      lead: "Finden Sie Ihr Beschwerdebild und erfahren Sie, wie unsere Spezialisten helfen können — ohne unnötige Operationen.",
+      lead: "Finden Sie Ihr Beschwerdebild und erfahren Sie, wie unsere Spezialisten helfen können, ohne unnötige Operationen.",
       cta: "Behandlungsoptionen ansehen",
       items: [
         { iconKey: "akut", name: "Akuter Rückenschmerz", sub: "Plötzlicher Beginn · Verletzung · Muskelkrampf" },

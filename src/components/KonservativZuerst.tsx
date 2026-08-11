@@ -7,13 +7,13 @@ export function KonservativZuerst() {
       h1: "Nicht jeder Rücken ",
       h2: "muss operiert werden.",
       lead:
-        "Bei uns steht die konservative Therapie an erster Stelle. Eine Operation ist nie der erste Gedanke — sie ist der letzte Schritt, wenn alle anderen Wege ausgeschöpft sind.",
+        "Bei uns steht die konservative Therapie an erster Stelle. Eine Operation ist nie der erste Gedanke , sie ist der letzte Schritt, wenn alle anderen Wege ausgeschöpft sind.",
       statBig: "über 90 %",
       statText: "unserer Patientinnen und Patienten werden ohne Operation wieder beschwerdefrei.",
       points: [
         {
           k: "Zuerst behandeln",
-          v: "Schmerztherapie, Physiotherapie, manuelle Medizin und Infiltrationen — bevor überhaupt über einen Eingriff gesprochen wird.",
+          v: "Schmerztherapie, Physiotherapie, manuelle Medizin und Infiltrationen,\u00a0 bevor überhaupt über einen Eingriff gesprochen wird.",
         },
         {
           k: "Klare Indikation",
