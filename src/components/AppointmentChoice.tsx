@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useT } from "@/lib/lang";
 
 type Flow = "book" | "ask";
@@ -87,6 +87,18 @@ export function AppointmentChoice() {
   const options = flow === "ask" ? t.askOptions : t.bookOptions;
   const total = labels.length;
   const done = step >= total;
+
+  useEffect(() => {
+    const onStart = (e: Event) => {
+      const f = (e as CustomEvent<Flow>).detail ?? "book";
+      setFlow(f);
+      setStep(0);
+      setAnswers(Array(3).fill(null));
+      document.getElementById("termin")?.scrollIntoView({ behavior: "smooth", block: "start" });
+    };
+    window.addEventListener("wz:start-flow", onStart as EventListener);
+    return () => window.removeEventListener("wz:start-flow", onStart as EventListener);
+  }, []);
 
   function start(f: Flow) {
     setFlow(f);
