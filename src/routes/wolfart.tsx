@@ -71,7 +71,7 @@ function WolfartPage() {
       networkHeading: "Das WZAS-Netzwerk",
       bookingHeading: "Chirurgische Behandlung besprechen?",
       bookingBody: "Unsere Spezialisten erklären Ihnen, ob eine Operation sinnvoll ist und was in der WolfartKlinik auf Sie zukommt.",
-      bookingCta: "Termin vereinbaren",
+      bookingCta: "Termin buchen",
     },
     en: {
       heroEyebrow: "SURGICAL FACILITY · MUNICH-GRÄFELFING",

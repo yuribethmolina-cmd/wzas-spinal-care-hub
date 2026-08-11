@@ -4,6 +4,7 @@ import logoAsset from "@/assets/wzas/logo.png.asset.json";
 import { useT } from "@/lib/lang";
 
 const BOOKING_URL = "https://onlinerezeption.vercel.app";
+const INQUIRY_URL = "https://onlinerezeption.vercel.app";
 
 const SOCIALS = [
   {
@@ -38,7 +39,8 @@ const SOCIALS = [
 export function PageFooter() {
   const t = useT({
     de: {
-      cta: "Termin vereinbaren →",
+      cta: "Termin buchen →",
+      ask: "Anfrage senden",
       links: {
         beschwerden: "Rückenerkrankungen",
         aerzte: "Ärzteteam",
@@ -50,6 +52,7 @@ export function PageFooter() {
     },
     en: {
       cta: "Book appointment →",
+      ask: "Send inquiry",
       links: {
         beschwerden: "Spine conditions",
         aerzte: "Our doctors",
@@ -98,14 +101,24 @@ export function PageFooter() {
                 </a>
               ))}
             </div>
-            <a
-              href={BOOKING_URL}
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center min-h-11 lg:min-h-0 text-xs font-semibold text-[#D8BE85] hover:brightness-110 transition"
-            >
-              {t.cta}
-            </a>
+            <div className="flex flex-wrap items-center gap-x-4 gap-y-1">
+              <a
+                href={BOOKING_URL}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center min-h-11 lg:min-h-0 text-xs font-semibold text-[#D8BE85] hover:brightness-110 transition"
+              >
+                {t.cta}
+              </a>
+              <a
+                href={INQUIRY_URL}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center min-h-11 lg:min-h-0 text-xs font-medium text-white/60 underline underline-offset-4 hover:text-white transition"
+              >
+                {t.ask}
+              </a>
+            </div>
           </div>
         </div>
       </div>

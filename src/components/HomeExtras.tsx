@@ -81,7 +81,7 @@ export function Anfahrt() {
         { k: "Sprechzeiten", v: "Montag bis Freitag\n8.00 – 17.00 Uhr" },
       ],
       map: "In Google Maps öffnen",
-      book: "Termin vereinbaren",
+      book: "Termin buchen",
     },
     en: {
       label: "Getting here",

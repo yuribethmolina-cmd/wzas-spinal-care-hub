@@ -10,6 +10,7 @@ import logoAsset from "@/assets/wzas/logo.png.asset.json";
 import ogShare from "@/assets/wzas/og-share.png.asset.json";
 import { SiteNav } from "@/components/SiteNav";
 import { MobileNavPanel } from "@/components/MobileNavPanel";
+import { AppointmentChoice } from "@/components/AppointmentChoice";
 
 import vortraegeImg from "@/assets/wzas/vortraege.webp.asset.json";
 import thumbBandscheibe from "@/assets/wzas/thumb-bandscheibe.webp.asset.json";
@@ -46,6 +47,7 @@ import {
   HERO_SIZES,
   
   BOOKING_URL,
+  INQUIRY_URL,
   EASE as EASE_IMPORTED,
   EASE_SOFT as EASE_SOFT_IMPORTED,
   NOISE,
@@ -453,7 +455,7 @@ function Nav() {
         ["Behandlungen", "/behandlungen"],
         ["Aktuelles", "/aktuelles"],
       ] as [string, string][],
-      book: "Termin vereinbaren",
+      book: "Termin buchen",
       menu: "Menü",
     },
     en: {
@@ -567,8 +569,10 @@ function Hero() {
       sub: "20 Jahre Erfahrung.\u00a0\n13 Spezialisten.\u00a0\nKonservative Behandlung zuerst\u00a0\nOperation nur, wenn nötig.",
       chipsLabel: "Was führt Sie zu uns?",
       chips: ["Akuter Rückenschmerz", "Chronische Schmerzen", "Bandscheibenvorfall", "Ischias", "Nach OP"],
-      book: "Termin vereinbaren",
+      book: "Termin buchen",
       more: "Mehr erfahren",
+      bookMeta: "Freie Termine online · ca. 2 Min. · Nur eine Frage?",
+      askLink: "Anfrage senden",
       alt: "Ärztliches Beratungsgespräch mit Wirbelsäulenmodell im Wirbelsäulenzentrum am Stiglmaierplatz",
     },
     en: {
@@ -581,6 +585,8 @@ function Hero() {
       chips: ["Acute back pain", "Chronic pain", "Herniated disc", "Sciatica", "Post-surgery"],
       book: "Book appointment",
       more: "Learn more",
+      bookMeta: "Live availability · approx. 2 min · Just a question?",
+      askLink: "Send inquiry",
       alt: "Doctor consultation with a spine model at the Spine Center at Stiglmaierplatz",
     },
   });
@@ -658,22 +664,36 @@ function Hero() {
               ))}
             </div>
           </div>
-          <div className="mt-7 flex flex-wrap gap-3" style={introCta}>
-            <a
-              href={BOOKING_URL}
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center rounded-full bg-[#AC8F52] px-6 py-3 text-sm font-semibold text-[#1E2535] transition-[background-color,transform,box-shadow] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:bg-[#BC9C58] hover:-translate-y-0.5 hover:shadow-[0_16px_34px_-16px_rgba(172,143,82,0.9)]"
-            >
-              {t.book}
-            </a>
-            <a
-              href="#beschwerden"
-              className="inline-flex items-center rounded-full border border-white/40 bg-white/5 backdrop-blur-sm px-6 py-3 text-sm font-semibold text-white transition-[background-color,border-color,transform] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:bg-white/15 hover:border-white/70 hover:-translate-y-0.5"
-            >
-              {t.more}
-            </a>
+          <div className="mt-7" style={introCta}>
+            <div className="flex flex-wrap gap-3">
+              <a
+                href={BOOKING_URL}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center rounded-full bg-[#AC8F52] px-6 py-3 text-sm font-semibold text-[#1E2535] transition-[background-color,transform,box-shadow] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:bg-[#BC9C58] hover:-translate-y-0.5 hover:shadow-[0_16px_34px_-16px_rgba(172,143,82,0.9)]"
+              >
+                {t.book}
+              </a>
+              <a
+                href="#beschwerden"
+                className="inline-flex items-center rounded-full border border-white/40 bg-white/5 backdrop-blur-sm px-6 py-3 text-sm font-semibold text-white transition-[background-color,border-color,transform] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:bg-white/15 hover:border-white/70 hover:-translate-y-0.5"
+              >
+                {t.more}
+              </a>
+            </div>
+            <p className="mt-3 text-[13px] text-[#CBD1DA]">
+              {t.bookMeta}{" "}
+              <a
+                href={INQUIRY_URL}
+                target="_blank"
+                rel="noreferrer"
+                className="font-semibold text-[#D8BE85] underline underline-offset-4 hover:brightness-110"
+              >
+                {t.askLink}
+              </a>
+            </p>
           </div>
+
           <div className="mt-7" style={introLangs}>
             <p className="text-[11px] font-medium tracking-[0.18em] uppercase text-[#CBD1DA] flex items-center gap-2">
               <span className="inline-block w-5 h-px bg-[#AC8F52]" />
@@ -1376,7 +1396,7 @@ function Termin() {
         className="absolute inset-0 pointer-events-none opacity-[0.03]"
         style={{ backgroundImage: NOISE, backgroundSize: "256px 256px" }}
       />
-      <div className="relative mx-auto max-w-7xl px-5 lg:px-8 grid gap-10 lg:grid-cols-2">
+      <div className="relative mx-auto max-w-7xl px-5 lg:px-8">
         <div ref={ref} style={style}>
           <h2
             className="font-display text-white leading-tight"
@@ -1385,29 +1405,12 @@ function Termin() {
             {t.h2a}<em style={{ fontStyle: "normal", fontWeight: 600 }}>{t.h2b}</em>
           </h2>
           <p className="mt-4 text-[#C8CBD2] leading-relaxed max-w-lg">{t.lead}</p>
-          <div className="mt-8 rounded-xl bg-[#263044] p-7 border-t-2 border-[#AC8F52]">
-            <p className="text-[11px] uppercase tracking-[0.2em] text-[#AC8F52] font-medium flex items-center gap-2">
-              <span className="inline-block w-4 h-px bg-[#AC8F52]" />
-              {t.onlineKicker}
-            </p>
-            <p className="mt-3 text-white font-semibold text-lg">{t.onlineTitle}</p>
-            <p className="mt-2 text-sm text-[#A7AEBA]">{t.onlineSub}</p>
-            <a
-              href={BOOKING_URL}
-              target="_blank"
-              rel="noreferrer"
-              className="mt-6 inline-flex items-center rounded-full bg-[#AC8F52] px-6 py-3 text-sm font-semibold text-[#1E2535] transition-[background-color,transform,box-shadow] duration-300 hover:bg-[#BC9C58] hover:-translate-y-0.5 hover:shadow-[0_12px_28px_-14px_rgba(172,143,82,0.85)]"
-              style={{ transition: `filter 150ms ${EASE}, transform 160ms ${EASE}` }}
-              onMouseEnter={(e) => (e.currentTarget.style.filter = "brightness(1.08)")}
-              onMouseLeave={(e) => (e.currentTarget.style.filter = "")}
-            >
-              {t.book}
-            </a>
-          </div>
+          <AppointmentChoice />
         </div>
-        <div className="rounded-xl bg-[#263044] p-7">
+        <div className="mt-10 rounded-xl bg-[#263044] p-7">
+
           <h3 className="text-white font-semibold text-lg">{t.otherTitle}</h3>
-          <div className="mt-6 space-y-6 text-sm">
+          <div className="mt-6 grid gap-6 text-sm sm:grid-cols-2 lg:grid-cols-4">
             {[
               {
                 icon: (
@@ -1609,7 +1612,7 @@ function Footer() {
         { title: "Beschwerdebilder", items: ["Akuter Rückenschmerz", "Chronische Schmerzen", "Bandscheibenvorfall", "Ischias", "Reha nach OP"] },
         { title: "Behandlungen", items: ["Konservative Therapie", "Minimalinvasiv", "Wirbelsäulenop.", "Schmerztherapie", "Rehabilitation"] },
         { title: "Über uns", items: ["Unser Team", "Die Praxis", "Leitbild & Werte", "Aktuelles", "Karriere"] },
-        { title: "Für Patienten", items: ["Termin vereinbaren", "Häufige Fragen", "Barrierefreiheit", "Datenschutz"] },
+        { title: "Für Patienten", items: ["Termin buchen", "Häufige Fragen", "Barrierefreiheit", "Datenschutz"] },
       ],
       awarded: "Ausgezeichnet",
       copy: "© 2026 Wirbelsäulenzentrum am Stiglmaierplatz · Alle Rechte vorbehalten",

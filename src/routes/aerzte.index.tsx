@@ -30,7 +30,7 @@ function AerztePage() {
       leadershipLabel: "ÄRZTLICHE LEITUNG",
       teamLabel: "DAS TEAM",
       profileLink: "Profil ansehen",
-      ctaH2: "Termin vereinbaren",
+      ctaH2: "Termin buchen",
       ctaBody: "Unser Team begleitet Sie von der Diagnose bis zur Genesung — konservativ, wenn möglich – operativ, wenn nötig.",
       ctaBtn: "Jetzt buchen",
     },

@@ -47,7 +47,7 @@ export function PageHeader({ activeRoute }: { activeRoute?: string }) {
         ["FAQ", "/faq"],
         ["Aktuelles", "/aktuelles"],
       ] as [string, string][],
-      book: "Termin vereinbaren",
+      book: "Termin buchen",
       menu: "Menü",
     },
     en: {
