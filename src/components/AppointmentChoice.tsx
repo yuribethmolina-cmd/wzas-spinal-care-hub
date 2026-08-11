@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useT } from "@/lib/lang";
 import { doctors } from "@/lib/doctors";
+import { AppointmentCalendar } from "@/components/AppointmentCalendar";
 
 type Flow = "book" | "ask";
 
@@ -92,6 +93,7 @@ export function AppointmentChoice() {
   );
   const options = flow === "ask" ? t.askOptions : bookOptions;
   const isDoctorStep = flow === "book" && step === 1;
+  const isDateStep = flow === "book" && step === 2;
   const total = labels.length;
   const done = step >= total;
 
@@ -182,34 +184,38 @@ export function AppointmentChoice() {
           <div className="mt-5">
             <p className="text-xs text-[#A7AEBA]">{t.step(step + 1, total)}</p>
             <p className="mt-1 text-white font-semibold text-lg">{labels[step]}</p>
-            <div
-              className={
-                isDoctorStep
-                  ? "mt-4 grid max-h-[320px] grid-cols-1 gap-2 overflow-y-auto pr-1 sm:grid-cols-2"
-                  : "mt-4 flex flex-col gap-2"
-              }
-            >
-              {options[step].map((o) => {
-                const active = answers[step] === o;
-                const role = isDoctorStep ? doctors.find((d) => d.name === o)?.role : undefined;
-                return (
-                  <button
-                    key={o}
-                    type="button"
-                    onClick={() => pick(o)}
-                    className="rounded-lg px-4 py-3 text-left text-sm font-medium transition-colors duration-200"
-                    style={{
-                      backgroundColor: active ? "rgba(172,143,82,0.18)" : "rgba(255,255,255,0.04)",
-                      border: `1px solid ${active ? "#AC8F52" : "rgba(255,255,255,0.15)"}`,
-                      color: active ? "#F1E4C8" : "#C8CBD2",
-                    }}
-                  >
-                    {o}
-                    {role && <span className="mt-0.5 block text-xs text-[#A7AEBA]">{role}</span>}
-                  </button>
-                );
-              })}
-            </div>
+            {isDateStep ? (
+              <AppointmentCalendar value={answers[step]} onChange={pick} />
+            ) : (
+              <div
+                className={
+                  isDoctorStep
+                    ? "mt-4 grid max-h-[320px] grid-cols-1 gap-2 overflow-y-auto pr-1 sm:grid-cols-2"
+                    : "mt-4 flex flex-col gap-2"
+                }
+              >
+                {options[step].map((o) => {
+                  const active = answers[step] === o;
+                  const role = isDoctorStep ? doctors.find((d) => d.name === o)?.role : undefined;
+                  return (
+                    <button
+                      key={o}
+                      type="button"
+                      onClick={() => pick(o)}
+                      className="rounded-lg px-4 py-3 text-left text-sm font-medium transition-colors duration-200"
+                      style={{
+                        backgroundColor: active ? "rgba(172,143,82,0.18)" : "rgba(255,255,255,0.04)",
+                        border: `1px solid ${active ? "#AC8F52" : "rgba(255,255,255,0.15)"}`,
+                        color: active ? "#F1E4C8" : "#C8CBD2",
+                      }}
+                    >
+                      {o}
+                      {role && <span className="mt-0.5 block text-xs text-[#A7AEBA]">{role}</span>}
+                    </button>
+                  );
+                })}
+              </div>
+            )}
             {!answers[step] && <p className="mt-3 text-xs text-[#A7AEBA]">{t.chooseHint}</p>}
             <div className="mt-6 flex flex-wrap gap-3">
               <button
