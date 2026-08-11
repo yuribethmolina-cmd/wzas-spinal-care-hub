@@ -517,8 +517,6 @@ function Nav() {
           <LangToggle />
           <a
             href={BOOKING_URL}
-            target="_blank"
-            rel="noreferrer"
             aria-label={`${t.book} (öffnet in neuem Tab)`}
             className="inline-flex items-center rounded-full bg-[#AC8F52] px-5 py-2.5 text-sm font-semibold text-[#1E2535] transition-[background-color,transform,box-shadow] duration-300 hover:bg-[#BC9C58] hover:-translate-y-0.5 hover:shadow-[0_12px_28px_-14px_rgba(172,143,82,0.85)]"
             style={{ transition: `filter 150ms ${EASE}, transform 160ms ${EASE}` }}
@@ -668,8 +666,6 @@ function Hero() {
             <div className="flex flex-wrap gap-3">
               <a
                 href={BOOKING_URL}
-                target="_blank"
-                rel="noreferrer"
                 className="inline-flex items-center rounded-full bg-[#AC8F52] px-6 py-3 text-sm font-semibold text-[#1E2535] transition-[background-color,transform,box-shadow] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:bg-[#BC9C58] hover:-translate-y-0.5 hover:shadow-[0_16px_34px_-16px_rgba(172,143,82,0.9)]"
               >
                 {t.book}
@@ -685,8 +681,6 @@ function Hero() {
               {t.bookMeta}{" "}
               <a
                 href={INQUIRY_URL}
-                target="_blank"
-                rel="noreferrer"
                 className="font-semibold text-[#D8BE85] underline underline-offset-4 hover:brightness-110"
               >
                 {t.askLink}
@@ -1011,8 +1005,6 @@ function WegStep({
         {isHighlight && (
           <a
             href={BOOKING_URL}
-            target="_blank"
-            rel="noreferrer"
             className="mt-6 inline-flex min-h-11 items-center text-sm font-semibold text-[#1E2535] transition-opacity duration-300 hover:opacity-65"
           >
             {bookLabel} →

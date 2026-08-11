@@ -3,7 +3,7 @@ import { doctors, getDoctorBySlug } from "@/lib/doctors";
 import { SiteNav } from "@/components/SiteNav";
 import { useT } from "@/lib/lang";
 
-const BOOKING_URL = "https://onlinerezeption.vercel.app";
+const BOOKING_URL = "#termin";
 
 
 export const Route = createFileRoute("/aerzte/$slug")({
@@ -111,8 +111,6 @@ function DoctorDetail() {
             <div className="mt-6 rounded-xl bg-white p-6 shadow-sm">
               <a
                 href={BOOKING_URL}
-                target="_blank"
-                rel="noreferrer"
                 className="block text-center rounded-full bg-[#AC8F52] px-6 py-3 text-sm font-semibold text-[#1E2535] hover:brightness-105 transition"
               >
                 {t.bookBtn}
