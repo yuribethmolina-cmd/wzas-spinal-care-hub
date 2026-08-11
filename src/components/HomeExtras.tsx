@@ -150,7 +150,7 @@ export function Anfahrt() {
         <div className="overflow-hidden rounded-xl border border-[#E2E4E7] bg-white min-h-[380px]">
           <iframe
             title="Karte — Nymphenburger Str. 1, München"
-            src="https://www.openstreetmap.org/export/embed.html?bbox=11.550%2C48.1415%2C11.565%2C48.1495&layer=mapnik&marker=48.1455%2C11.5575"
+            src="https://www.openstreetmap.org/export/embed.html?bbox=11.5520%2C48.1425%2C11.5670%2C48.1505&layer=mapnik&marker=48.1466%2C11.5595"
             loading="lazy"
             className="w-full h-[380px] lg:h-[520px] border-0"
           />
