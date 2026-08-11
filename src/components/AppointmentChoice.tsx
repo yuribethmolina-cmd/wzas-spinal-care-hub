@@ -182,9 +182,16 @@ export function AppointmentChoice() {
           <div className="mt-5">
             <p className="text-xs text-[#A7AEBA]">{t.step(step + 1, total)}</p>
             <p className="mt-1 text-white font-semibold text-lg">{labels[step]}</p>
-            <div className="mt-4 flex flex-col gap-2">
+            <div
+              className={
+                isDoctorStep
+                  ? "mt-4 grid max-h-[320px] grid-cols-1 gap-2 overflow-y-auto pr-1 sm:grid-cols-2"
+                  : "mt-4 flex flex-col gap-2"
+              }
+            >
               {options[step].map((o) => {
                 const active = answers[step] === o;
+                const role = isDoctorStep ? doctors.find((d) => d.name === o)?.role : undefined;
                 return (
                   <button
                     key={o}
@@ -198,6 +205,7 @@ export function AppointmentChoice() {
                     }}
                   >
                     {o}
+                    {role && <span className="mt-0.5 block text-xs text-[#A7AEBA]">{role}</span>}
                   </button>
                 );
               })}
