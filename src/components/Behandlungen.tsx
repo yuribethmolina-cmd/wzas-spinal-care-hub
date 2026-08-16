@@ -60,24 +60,31 @@ export function Behandlungen() {
       h2a: "Erst behandeln, ",
       h2b: "dann operieren",
       lead:
-        "Über 90 % unserer Patientinnen und Patienten kommen ohne Operation aus. Erst wenn konservative Wege ausgeschöpft sind, sprechen wir über einen Eingriff und dann so schonend wie möglich.",
-      leftKicker: "Konservativ",
-      leftH: "Ohne Operation",
-      leftIntro: "Der erste Weg: Schmerz lindern, Funktion zurückholen, Ursachen behandeln.",
+        "Wir denken in drei Stufen: Verfahren ohne Operation, minimalinvasive Eingriffe und Wirbelsäulenchirurgie. Unser Grundsatz: konservative Behandlung wenn möglich, Operation wenn nötig.",
+      leftKicker: "Ohne Operation",
+      leftH: "Konservative Verfahren",
+      leftIntro: "Die meisten Rückenerkrankungen müssen nicht operiert werden — sie sind der erste und oft einzige Schritt.",
       leftRows: [
-        { title: "Bildgesteuerte Schmerztherapie", text: "Infiltrationen unter CT- oder Röntgenkontrolle, millimetergenau an der Schmerzquelle." },
-        { title: "Multimodale Therapie", text: "Physiotherapie, Rückenschule und medikamentöse Therapie eng abgestimmt." },
-        { title: "Manuelle Medizin & Osteopathie", text: "Blockaden lösen, Beweglichkeit und Statik verbessern." },
-        { title: "Zweitmeinung", text: "Unabhängige Einschätzung, bevor eine Operation stattfindet." },
+        { title: "Infiltrationstherapie", text: "Schmerzlindernde und entzündungshemmende Medikamente unter Röntgenkontrolle gezielt an den Schmerzort." },
+        { title: "Medikamentöse Therapie", text: "Tabletten oder Infusionen, um die Spirale aus Schmerz, Schonhaltung und Verspannung zu durchbrechen." },
+        { title: "Physiotherapie & physikalische Behandlungen", text: "Ergänzend zur Schmerztherapie, individuell auf Ihre Diagnose abgestimmt." },
+      ],
+      midKicker: "Minimalinvasiv",
+      midH: "Zwischen Therapie und OP",
+      midIntro: "Schonender als eine klassische Operation, gezielter als Tabletten oder Physiotherapie allein.",
+      midRows: [
+        { title: "Hitzesonden-Behandlung", text: "Wärme schaltet die feinen Nerven an den Wirbelgelenken unter Bildkontrolle gezielt aus." },
+        { title: "Schmerzpumpen (IDD)", text: "Kleines Implantat, das Schmerzmittel kontinuierlich direkt im Bereich des Rückenmarks abgibt." },
+        { title: "Schmerz-Schrittmacher (SCS)", text: "Schwache elektrische Impulse unterbrechen die Weiterleitung der Schmerzsignale ans Gehirn." },
+        { title: "Injektionen in die Bandscheibe", text: "Medikamente direkt ins Bandscheibengewebe, um Druck von gereizten Nervenwurzeln zu nehmen." },
       ],
       rightKicker: "Operativ",
       rightH: "Wenn es nötig wird",
-      rightIntro: "Mikrochirurgisch, gewebeschonend und mit klarer Indikation , nicht als Standardlösung.",
+      rightIntro: "Mikrochirurgisch, gewebeschonend und mit klarer Indikation, nicht als Standardlösung.",
       rightRows: [
-        { title: "Mikrochirurgische Bandscheiben-OP", text: "Kleiner Zugang, kurze Erholung, Entlastung des Nervs." },
-        { title: "Dekompression bei Spinalkanalstenose", text: "Mehr Platz für Nerven, damit die Gehstrecke wieder länger wird." },
-        { title: "Stabilisierung & Fusion", text: "Bei Instabilität oder Wirbelgleiten, so kurzstreckig wie möglich." },
-        { title: "Kyphoplastie bei Wirbelbruch", text: "Aufrichtung und Zementierung gebrochener Wirbelkörper." },
+        { title: "Mikrochirurgische Verfahren", text: "Operation unter dem hochauflösenden Mikroskop über kleinste Schnitte — präzise und sicher." },
+        { title: "Bewegungserhaltende Verfahren", text: "Dynamische Rekonstruktion und Stabilisierung, wo eine Versteifung vermeidbar ist." },
+        { title: "Stabilisierende Verfahren", text: "Implantate, Verschraubungen oder Spondylodese bei ausgeprägter Instabilität." },
       ],
     },
     en: {
@@ -85,24 +92,31 @@ export function Behandlungen() {
       h2a: "Treat first, ",
       h2b: "operate later",
       lead:
-        "More than 90% of our patients never need surgery. Only once conservative options are exhausted do we discuss an operation — and then as gently as possible.",
-      leftKicker: "Conservative",
-      leftH: "Without surgery",
-      leftIntro: "The first route: relieve pain, restore function, treat the cause.",
+        "We work in three stages: non-surgical procedures, minimally invasive interventions and spinal surgery. Our principle: conservative treatment where possible, surgery where necessary.",
+      leftKicker: "Without surgery",
+      leftH: "Conservative procedures",
+      leftIntro: "Most back conditions never need an operation — this is the first and often the only step.",
       leftRows: [
-        { title: "Image-guided pain therapy", text: "Injections under CT or X-ray control, millimetre-precise at the pain source." },
-        { title: "Multimodal therapy", text: "Physiotherapy, back school and medication closely coordinated." },
-        { title: "Manual medicine & osteopathy", text: "Release blockages, improve mobility and posture." },
-        { title: "Second opinion", text: "An independent assessment before any operation takes place." },
+        { title: "Injection therapy", text: "Pain-relieving, anti-inflammatory medication placed at the source of pain under X-ray guidance." },
+        { title: "Medication therapy", text: "Tablets or infusions to break the cycle of pain, protective posture and muscle tension." },
+        { title: "Physiotherapy & physical treatments", text: "Complementing pain therapy, tailored individually to your diagnosis." },
+      ],
+      midKicker: "Minimally invasive",
+      midH: "Between therapy and surgery",
+      midIntro: "Gentler than classic surgery, more targeted than tablets or physiotherapy alone.",
+      midRows: [
+        { title: "Heat probe treatment", text: "Heat switches off the fine nerves at the affected facet joints under image guidance." },
+        { title: "Pain pumps (IDD)", text: "A small implant delivering pain medication continuously near the spinal cord." },
+        { title: "Pain pacemaker (SCS)", text: "Gentle electrical impulses interrupt pain signals on their way to the brain." },
+        { title: "Intradiscal injections", text: "Medication placed directly into the disc to relieve pressure on irritated nerve roots." },
       ],
       rightKicker: "Surgical",
       rightH: "When it becomes necessary",
       rightIntro: "Microsurgical, tissue-sparing and with a clear indication — never the default answer.",
       rightRows: [
-        { title: "Microsurgical disc surgery", text: "Small access, short recovery, relief for the nerve." },
-        { title: "Decompression for spinal stenosis", text: "More room for the nerves so walking distance improves again." },
-        { title: "Stabilisation & fusion", text: "For instability or slipped vertebrae, over as short a segment as possible." },
-        { title: "Kyphoplasty for vertebral fracture", text: "Restoring and cementing collapsed vertebral bodies." },
+        { title: "Microsurgical procedures", text: "Surgery through the smallest incisions using a high-resolution microscope — precise and safe." },
+        { title: "Motion-preserving procedures", text: "Dynamic reconstruction and stabilisation wherever fusion can be avoided." },
+        { title: "Stabilising procedures", text: "Implants, screw fixation or spondylodesis in cases of pronounced instability." },
       ],
     },
   });
@@ -125,8 +139,9 @@ export function Behandlungen() {
           <p className="mt-4 text-[17px] text-[#4A5462] leading-relaxed">{t.lead}</p>
         </div>
 
-        <div className="mt-12 grid gap-6 lg:grid-cols-2">
+        <div className="mt-12 grid gap-6 lg:grid-cols-3">
           <Column kicker={t.leftKicker} heading={t.leftH} intro={t.leftIntro} rows={t.leftRows} />
+          <Column kicker={t.midKicker} heading={t.midH} intro={t.midIntro} rows={t.midRows} />
           <Column kicker={t.rightKicker} heading={t.rightH} intro={t.rightIntro} rows={t.rightRows} dark />
         </div>
       </div>
