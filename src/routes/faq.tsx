@@ -40,9 +40,10 @@ const FAQ_ITEMS: FaqItem[] = [
     en: { q: "Do I need a referral?", a: "No. You can register directly — without a referral from your GP. For patients with statutory insurance we recommend a specialist referral as it simplifies billing. Private patients may come at any time without a referral." },
   },
   {
-    de: { q: "Wie lange warte ich auf einen Termin?", a: "In der Regel erhalten Sie einen Termin etwa zwei bis drei Wochen nach Vereinbarung. Bei medizinischen Notfällen rufen Sie uns bitte direkt an: +49 (0)89-54 34 30 30." },
-    en: { q: "How long is the wait for an appointment?", a: "As a rule you will receive an appointment approximately two to three weeks after scheduling. For medical emergencies please call us directly: +49 (0)89-54 34 30 30." },
+    de: { q: "Wie vereinbare ich einen Termin?", a: "Gesetzlich versicherte Patientinnen und Patienten erreichen uns unter +49 (0)89 54 34 30 30. Für Privatpatienten steht eine gesonderte Rufnummer zur Verfügung: +49 (0)89 54 34 30 3-120. Unsere Öffnungszeiten: Montag bis Freitag 8.00–17.00 Uhr. Notfälle werden selbstverständlich sofort behandelt — dadurch kann es gelegentlich zu Terminverschiebungen oder Wartezeiten kommen." },
+    en: { q: "How do I arrange an appointment?", a: "Patients with statutory insurance can reach us on +49 (0)89 54 34 30 30. Private patients have a separate line: +49 (0)89 54 34 30 3-120. Opening hours: Monday to Friday 8.00–17.00. Emergencies are of course treated immediately, which may occasionally lead to rescheduling or waiting times." },
   },
+
   {
     de: { q: "Welche Kassen werden akzeptiert?", a: "Wir behandeln Patienten aller gesetzlichen und privaten Krankenversicherungen sowie Selbstzahler. Die genauen Leistungen variieren je nach Versicherungsvertrag — sprechen Sie uns bei Fragen gerne an." },
     en: { q: "Which insurances do you accept?", a: "We treat patients with all statutory and private health insurances as well as self-paying patients. The exact covered services vary by insurance contract — please contact us if you have questions." },
