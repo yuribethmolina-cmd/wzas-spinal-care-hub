@@ -99,7 +99,7 @@ export const Route = createFileRoute("/faq")({
   head: () => ({
     meta: [
       { title: "Häufige Fragen · WZAS Wirbelsäulenzentrum München" },
-      { name: "description", content: "Antworten auf die häufigsten Fragen von Patienten: Überweisung, Wartezeiten, Kassenleistungen, Ablauf des Ersttermins und Genesungszeit nach Operationen." },
+      { name: "description", content: "Antworten auf die häufigsten Fragen: Unterlagen zum Termin, Wartezeiten, Überweisung, MRT im Haus, Ablauf der Behandlung und wo operiert wird." },
     ],
   }),
   component: FaqPage,
