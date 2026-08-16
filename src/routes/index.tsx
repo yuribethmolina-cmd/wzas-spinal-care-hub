@@ -18,21 +18,8 @@ import aktuellesImg from "@/assets/wzas/aktuelles.jpg.asset.json";
 import focusImg from "@/assets/wzas/focus.jpeg.asset.json";
 import isoImg from "@/assets/wzas/iso.png.asset.json";
 
-import condAkut from "@/assets/cond-akut.jpg";
-import condChronisch from "@/assets/cond-chronisch.jpg";
-import condBandscheibe from "@/assets/cond-bandscheibe.jpg";
-import condIschias from "@/assets/cond-ischias.jpg";
-import condReha from "@/assets/cond-reha.jpg";
-import condSport from "@/assets/cond-sport.jpg";
 
-const ConditionImages: Record<string, string> = {
-  akut: condAkut,
-  chronisch: condChronisch,
-  bandscheibe: condBandscheibe,
-  ischias: condIschias,
-  reha: condReha,
-  sport: condSport,
-};
+
 
 
 import partnerRadiologie from "@/assets/wzas/partners/radiologie.png.asset.json";
@@ -838,30 +825,21 @@ function BeschwerdenCard({
       ref={ref}
       style={{
         ...style,
-        backgroundColor: hovered ? "#FAFAF8" : "#FFFFFF",
-        transition: `${style.transition}, background-color 200ms ${EASE}`,
+        backgroundColor: hovered ? "#FCFBF8" : "#FFFFFF",
+        transform: `${style.transform ?? ""} ${hovered ? "translateY(-3px)" : ""}`.trim(),
+        boxShadow: hovered ? "0 18px 40px -28px rgba(30,37,53,0.55)" : "none",
+        transition: `${style.transition}, background-color 240ms ${EASE}, box-shadow 320ms ${EASE}`,
       }}
-      className="relative isolate overflow-hidden p-8 lg:p-9 flex flex-col gap-5 cursor-default"
+      className="group relative isolate overflow-hidden p-8 lg:p-9 flex flex-col gap-5 cursor-pointer"
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
-      <div
+      <span
         aria-hidden
-        className="pointer-events-none absolute inset-0 -z-10 bg-cover bg-center"
+        className="pointer-events-none absolute left-0 top-0 h-full w-[3px] bg-[#AC8F52] origin-top"
         style={{
-          backgroundImage: `url(${ConditionImages[iconKey]})`,
-          opacity: hovered ? 1 : 0.92,
-          transform: hovered ? "scale(1.04)" : "scale(1.01)",
-          willChange: "transform, opacity",
-          transition: "opacity 360ms cubic-bezier(0.22,1,0.36,1), transform 700ms cubic-bezier(0.22,1,0.36,1)",
-        }}
-      />
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 -z-10"
-        style={{
-          background:
-            "linear-gradient(180deg, rgba(248,248,246,0.58) 0%, rgba(255,255,255,0.44) 34%, rgba(255,255,255,0.5) 64%, rgba(248,248,246,0.88) 100%)",
+          transform: hovered ? "scaleY(1)" : "scaleY(0)",
+          transition: `transform 380ms ${EASE}`,
         }}
       />
       <div
@@ -870,7 +848,7 @@ function BeschwerdenCard({
           borderRadius: 2,
           background: hovered ? "#F3EDE1" : "#F6F3EC",
           boxShadow: `inset 0 0 0 1px rgba(172,143,82,${hovered ? 0.45 : 0.22})`,
-          transform: hovered ? "translateY(-2px)" : "none",
+          transform: hovered ? "translateY(-2px) scale(1.06)" : "none",
           transition: `background 260ms ${EASE}, box-shadow 260ms ${EASE}, transform 320ms ${EASE}`,
         }}
       >
@@ -884,19 +862,14 @@ function BeschwerdenCard({
             fontWeight: 500,
             letterSpacing: "-0.015em",
             color: hovered ? "#8A6E36" : "#1E2535",
-            textShadow: "0 1px 2px rgba(255,255,255,0.6)",
             transition: `color 260ms ${EASE}`,
           }}
         >
           {name}
         </h3>
-        <p
-          className="mt-2.5 text-[0.9375rem] text-[#5B6472] leading-relaxed"
-          style={{ textShadow: "0 1px 2px rgba(255,255,255,0.55)" }}
-        >
-          {sub}
-        </p>
+        <p className="mt-2.5 text-[0.9375rem] text-[#5B6472] leading-relaxed">{sub}</p>
       </div>
+
       <a
         href="#"
         className="mt-auto inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-[#8A6E36]"
@@ -1152,9 +1125,9 @@ function Kompetenzzentrum() {
             </h2>
             <p className="mt-3 text-sm text-[#5B6472] leading-relaxed max-w-xs">{t.lead}</p>
           </div>
-          <div className="grid grid-cols-2 gap-px bg-[#E2E4E7] lg:grid-cols-3 xl:grid-cols-5 flex-1">
+          <div className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-3 xl:grid-cols-5 flex-1">
             {t.partners.map((p) => (
-              <div key={p.name} className="bg-white p-4 sm:p-6 flex flex-col items-center text-center gap-3 sm:gap-4 min-h-[160px] sm:min-h-[180px]">
+              <div key={p.name} className="bg-white border border-[#E2E4E7] p-4 sm:p-6 flex flex-col items-center text-center gap-3 sm:gap-4 min-h-[160px] sm:min-h-[180px] transition-colors duration-300 hover:border-[#AC8F52]/50">
                 <div className="h-14 w-full flex items-center justify-center">
                   <img
                     src={p.logo}
@@ -1170,6 +1143,7 @@ function Kompetenzzentrum() {
               </div>
             ))}
           </div>
+
         </div>
       </div>
     </section>
