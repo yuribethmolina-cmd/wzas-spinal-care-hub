@@ -7,21 +7,21 @@ export function KonservativZuerst() {
       h1: "Nicht jeder Rücken ",
       h2: "muss operiert werden.",
       lead:
-        "Bei uns steht die konservative Therapie an erster Stelle. Eine Operation ist nie der erste Gedanke , sie ist der letzte Schritt, wenn alle anderen Wege ausgeschöpft sind.",
-      statBig: "über 90 %",
-      statText: "unserer Patientinnen und Patienten werden ohne Operation wieder beschwerdefrei.",
+        "Unser Grundsatz: konservative Behandlung wenn möglich, Operation wenn nötig. Die meisten Rückenerkrankungen müssen nicht operiert werden.",
+      statBig: "3 Stufen",
+      statText: "Verfahren ohne Operation, minimalinvasive Eingriffe und Wirbelsäulenchirurgie — Sie erhalten genau die Stufe, die Ihrem Befund entspricht.",
       points: [
         {
           k: "Zuerst behandeln",
-          v: "Schmerztherapie, Physiotherapie, manuelle Medizin und Infiltrationen,\u00a0 bevor überhaupt über einen Eingriff gesprochen wird.",
+          v: "Gezielte Infiltrationen, medikamentöse Schmerztherapie, Physiotherapie und physikalische Behandlungen,\u00a0 bevor überhaupt über einen Eingriff gesprochen wird.",
         },
         {
           k: "Klare Indikation",
           v: "Operiert wird nur, wenn ein Eingriff medizinisch eindeutig notwendig ist und Ihnen nachweislich hilft.",
         },
         {
-          k: "Ehrliche Zweitmeinung",
-          v: "Wurde Ihnen bereits eine Operation empfohlen? Wir prüfen unabhängig, ob es einen schonenderen Weg gibt.",
+          k: "Schritt für Schritt",
+          v: "Erst Verfahren ohne Operation, dann minimalinvasive Eingriffe — eine Wirbelsäulenoperation steht am Ende, nicht am Anfang.",
         },
       ],
     },
@@ -30,21 +30,21 @@ export function KonservativZuerst() {
       h1: "Not every back ",
       h2: "needs surgery.",
       lead:
-        "Conservative treatment always comes first here. Surgery is never our first thought — it is the last step, once every other option has been exhausted.",
-      statBig: "over 90%",
-      statText: "of our patients recover without any operation.",
+        "Our principle: conservative treatment where possible, surgery where necessary. Most back conditions never need an operation.",
+      statBig: "3 stages",
+      statText: "Non-surgical procedures, minimally invasive interventions and spinal surgery — you receive exactly the stage your diagnosis calls for.",
       points: [
         {
           k: "Treat first",
-          v: "Pain therapy, physiotherapy, manual medicine and injections — long before surgery is even discussed.",
+          v: "Targeted injections, medication-based pain therapy, physiotherapy and physical treatments — long before surgery is even discussed.",
         },
         {
           k: "Clear indication",
           v: "We only operate when it is medically unambiguous that the procedure is necessary and will help you.",
         },
         {
-          k: "Honest second opinion",
-          v: "Already been advised to have surgery? We independently check whether a gentler route exists.",
+          k: "Step by step",
+          v: "Non-surgical procedures first, then minimally invasive options — spinal surgery comes at the end, not at the start.",
         },
       ],
     },
