@@ -80,7 +80,7 @@ export function Behandlungen() {
       ],
       rightKicker: "Operativ",
       rightH: "Wenn es nötig wird",
-      rightIntro: "Mikrochirurgisch, gewebeschonend und mit klarer Indikation , nicht als Standardlösung.",
+      rightIntro: "Mikrochirurgisch, gewebeschonend und mit klarer Indikation, nicht als Standardlösung.",
       rightRows: [
         { title: "Mikrochirurgische Verfahren", text: "Operation unter dem hochauflösenden Mikroskop über kleinste Schnitte — präzise und sicher." },
         { title: "Bewegungserhaltende Verfahren", text: "Dynamische Rekonstruktion und Stabilisierung, wo eine Versteifung vermeidbar ist." },
