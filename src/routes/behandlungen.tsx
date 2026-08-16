@@ -125,8 +125,11 @@ function BehandlungenPage() {
         description: "Die meisten Rückenerkrankungen müssen nicht operiert werden, gezielte Infiltrationen, medikamentöse Schmerztherapie, Physiotherapie und physikalische Behandlungen sind der erste Schritt.",
         methods: [
           { name: "Infiltrationstherapie", desc: "Gezielte Injektionen mit entzündungshemmenden Wirkstoffen direkt an die Schmerzquelle." },
-          { name: "Medikamentöse Therapie", desc: "Individuell angepasste Schmerztherapie und Muskelrelaxantien für akute und chronische Beschwerden." },
-          { name: "Physiotherapie & physikalische Behandlungen", desc: "Ergänzend zur Schmerztherapie, individuell aus dem breiten Spektrum konservativer Methoden ausgewählt." },
+          { name: "Medikamentöse Therapie", desc: "Schmerz- und entzündungshemmende Medikamente durchbrechen den Teufelskreis aus Schmerz, Schonhaltung und Verspannung, individuell auf Ihren Befund abgestimmt." },
+          { name: "Tabletten", desc: "Die einfachste Form der Schmerztherapie, stets unter ärztlicher Aufsicht, damit Dosierung und Verträglichkeit passen und Nebenwirkungen gering bleiben." },
+          { name: "Infusionstherapie", desc: "Reichen Tabletten nicht aus, wird das Schmerzmittel direkt in eine Vene geleitet und wirkt rasch im gesamten Körper." },
+          { name: "Physiotherapie & physikalische Behandlungen", desc: "Begleitend zur medikamentösen Therapie: gezielte Übungen kräftigen die Rückenmuskulatur, stabilisieren die Wirbelsäule und beugen einem Rückfall vor." },
+
         ],
       },
       {
