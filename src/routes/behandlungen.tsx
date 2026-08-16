@@ -158,8 +158,11 @@ function BehandlungenPage() {
         description: "Most back conditions never need surgery, targeted injections, medication-based pain therapy, physiotherapy and physical treatments come first.",
         methods: [
           { name: "Injection Therapy", desc: "Targeted injections with anti-inflammatory agents directly at the source of pain." },
-          { name: "Medication Therapy", desc: "Individually tailored pain management and muscle relaxants for acute and chronic symptoms." },
-          { name: "Physiotherapy & physical treatments", desc: "Complementing pain therapy, selected individually from the broad range of conservative methods." },
+          { name: "Medication Therapy", desc: "Painkillers and anti-inflammatory drugs break the cycle of pain, protective posture and muscle tension, tailored to your findings." },
+          { name: "Tablets", desc: "The simplest form of pain therapy, always under medical supervision so dosage and tolerance fit and side effects stay low." },
+          { name: "Infusion Therapy", desc: "If tablets are not enough, the painkiller goes straight into a vein and takes effect quickly throughout the body." },
+          { name: "Physiotherapy & physical treatments", desc: "Alongside medication: targeted exercises strengthen the back muscles, stabilise the spine and help prevent a relapse." },
+
         ],
       },
       {
