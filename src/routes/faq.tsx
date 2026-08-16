@@ -89,7 +89,7 @@ const FAQ_ITEMS: FaqItem[] = [
   },
   {
     de: { q: "Wie erreiche ich das Zentrum?", a: "Unsere Praxis befindet sich in der Nymphenburger Str. 1, 80335 München, direkt am Stiglmaierplatz gegenüber dem Löwenbräukeller. Mit öffentlichen Verkehrsmitteln: U-Bahn U1, Haltestelle Stiglmaierplatz, sowie Trambahnlinie 21 vom Hauptbahnhof bzw. Karlsplatz/Stachus. Mit dem Auto: eine gewisse Anzahl an Stellplätzen steht in unserer Tiefgarage zur Verfügung, Zufahrt über die Seidlstraße; es empfiehlt sich, auf die öffentlichen Verkehrsmittel auszuweichen. Öffnungszeiten: Montag bis Freitag 8.00 bis 17.00 Uhr." },
-    en: { q: "How do I get to the centre?", a: "Our practice is at Nymphenburger Str. 1, 80335 Munich, directly at Stiglmaierplatz opposite the Löwenbräukeller. By public transport: underground line U1, stop Stiglmaierplatz, and tram line 21 from the main station or Karlsplatz/Stachus. By car: a certain number of spaces are available in our underground car park, access via Seidlstraße; using public transport is recommended. Opening hours: Monday to Friday 8.00 bis 17.00." },
+    en: { q: "How do I get to the centre?", a: "Our practice is at Nymphenburger Str. 1, 80335 Munich, directly at Stiglmaierplatz opposite the Löwenbräukeller. By public transport: underground line U1, stop Stiglmaierplatz, and tram line 21 from the main station or Karlsplatz/Stachus. By car: a certain number of spaces are available in our underground car park, access via Seidlstraße; using public transport is recommended. Opening hours: Monday to Friday 8.00 to 17.00." },
   },
 ];
 

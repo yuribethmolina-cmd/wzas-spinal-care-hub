@@ -1348,7 +1348,7 @@ function Termin() {
       onlineSub: "Online booking (prototype)",
       book: "Book appointment",
       otherTitle: "Other ways to reach us",
-      phoneSub: "Statutory insurance · Mon/Fri 8:00 am, 5:00 pm",
+      phoneSub: "Statutory insurance · Mon and Fri 8:00 am, 5:00 pm",
       privateSub: "Private patients · dedicated line",
       mailSub: "Reply within one business day",
       city: "80335 Munich",
