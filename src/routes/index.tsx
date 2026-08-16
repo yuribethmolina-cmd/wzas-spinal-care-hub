@@ -1152,9 +1152,9 @@ function Kompetenzzentrum() {
             </h2>
             <p className="mt-3 text-sm text-[#5B6472] leading-relaxed max-w-xs">{t.lead}</p>
           </div>
-          <div className="grid grid-cols-2 gap-px bg-[#E2E4E7] lg:grid-cols-3 xl:grid-cols-5 flex-1">
+          <div className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-3 xl:grid-cols-5 flex-1">
             {t.partners.map((p) => (
-              <div key={p.name} className="bg-white p-4 sm:p-6 flex flex-col items-center text-center gap-3 sm:gap-4 min-h-[160px] sm:min-h-[180px]">
+              <div key={p.name} className="bg-white border border-[#E2E4E7] p-4 sm:p-6 flex flex-col items-center text-center gap-3 sm:gap-4 min-h-[160px] sm:min-h-[180px] transition-colors duration-300 hover:border-[#AC8F52]/50">
                 <div className="h-14 w-full flex items-center justify-center">
                   <img
                     src={p.logo}
@@ -1170,6 +1170,7 @@ function Kompetenzzentrum() {
               </div>
             ))}
           </div>
+
         </div>
       </div>
     </section>
