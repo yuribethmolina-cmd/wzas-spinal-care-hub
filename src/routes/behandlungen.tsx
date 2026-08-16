@@ -171,7 +171,7 @@ function BehandlungenPage() {
       },
       {
         name: "Spinal Surgery",
-        description: "Surgical treatment, when conservative and minimally invasive measures provide insufficient relief.",
+        description: "State-of-the-art microsurgical techniques: precise, gentle and with the clear aim of preserving your natural mobility.",
         methods: [
           { name: "Microsurgical Procedures", desc: "Surgery through the smallest incisions using a high-resolution operating microscope, precise and tissue-sparing." },
           { name: "Motion-preserving Procedures", desc: "Dynamic reconstruction and stabilisation of affected segments as an alternative to fusion." },
