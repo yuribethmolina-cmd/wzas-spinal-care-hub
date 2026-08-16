@@ -122,7 +122,7 @@ function BehandlungenPage() {
     de: [
       {
         name: "Verfahren ohne Operation",
-        description: "Schmerztherapie, Infiltrationen und Rehabilitation, mit dem Ziel, natürliche Beweglichkeit zu erhalten.",
+        description: "Die meisten Rückenerkrankungen müssen nicht operiert werden, gezielte Infiltrationen, medikamentöse Schmerztherapie, Physiotherapie und physikalische Behandlungen sind der erste Schritt.",
         methods: [
           { name: "Infiltrationstherapie", desc: "Gezielte Injektionen mit entzündungshemmenden Wirkstoffen direkt an die Schmerzquelle." },
           { name: "Medikamentöse Therapie", desc: "Individuell angepasste Schmerztherapie und Muskelrelaxantien für akute und chronische Beschwerden." },
@@ -131,7 +131,7 @@ function BehandlungenPage() {
       },
       {
         name: "Minimalinvasive Verfahren",
-        description: "Kleine Eingriffe mit großer Wirkung, wenn konservative Mittel ausgeschöpft sind.",
+        description: "Schonender als eine klassische OP, gezielter als Tabletten oder Physiotherapie allein, viele Patienten sind schneller wieder im Alltag.",
         methods: [
           { name: "Hitzesonden-Behandlung", desc: "Eine Sonde erhitzt die feinen Nerven am Wirbelgelenk unter Bildkontrolle und unterbricht so die Schmerzleitung." },
           { name: "Schmerzpumpen (IDD)", desc: "Ein kleines Implantat gibt Schmerzmittel kontinuierlich direkt im Bereich des Rückenmarks ab." },
@@ -141,7 +141,7 @@ function BehandlungenPage() {
       },
       {
         name: "Wirbelsäulenchirurgie",
-        description: "Operative Versorgung, wenn konservative und minimalinvasive Maßnahmen keine ausreichende Linderung bringen.",
+        description: "Modernste mikrochirurgische Techniken: präzise, schonend und mit dem klaren Ziel, Ihre natürliche Beweglichkeit zu erhalten.",
         methods: [
           { name: "Mikrochirurgische Verfahren", desc: "Operation unter dem hochauflösenden Operationsmikroskop über kleinste Schnitte, präzise und gewebeschonend." },
           { name: "Bewegungserhaltende Verfahren", desc: "Dynamische Rekonstruktion und Stabilisierung erkrankter Segmente als Alternative zur Versteifung." },
@@ -152,7 +152,7 @@ function BehandlungenPage() {
     en: [
       {
         name: "Non-surgical Treatments",
-        description: "Pain therapy, injections and rehabilitation, aimed at preserving natural mobility.",
+        description: "Most back conditions never need surgery, targeted injections, medication-based pain therapy, physiotherapy and physical treatments come first.",
         methods: [
           { name: "Injection Therapy", desc: "Targeted injections with anti-inflammatory agents directly at the source of pain." },
           { name: "Medication Therapy", desc: "Individually tailored pain management and muscle relaxants for acute and chronic symptoms." },
@@ -161,7 +161,7 @@ function BehandlungenPage() {
       },
       {
         name: "Minimally Invasive Procedures",
-        description: "Small interventions with major effect, when conservative measures have been exhausted.",
+        description: "Gentler than classic surgery, more targeted than tablets or physiotherapy alone, many patients return to daily life much faster.",
         methods: [
           { name: "Heat Probe Treatment", desc: "A probe heats the fine nerves at the facet joint under image guidance, interrupting pain conduction." },
           { name: "Pain Pumps (IDD)", desc: "A small implant delivers pain medication continuously right at the spinal cord." },
@@ -171,7 +171,7 @@ function BehandlungenPage() {
       },
       {
         name: "Spinal Surgery",
-        description: "Surgical treatment, when conservative and minimally invasive measures provide insufficient relief.",
+        description: "State-of-the-art microsurgical techniques: precise, gentle and with the clear aim of preserving your natural mobility.",
         methods: [
           { name: "Microsurgical Procedures", desc: "Surgery through the smallest incisions using a high-resolution operating microscope, precise and tissue-sparing." },
           { name: "Motion-preserving Procedures", desc: "Dynamic reconstruction and stabilisation of affected segments as an alternative to fusion." },
@@ -205,8 +205,8 @@ function BehandlungenPage() {
       heroH1: "Rücken­behandlungen",
       heroSubtitle: "Von der Infiltration bis zur Mikrochirurgie, individuell abgestimmt.",
       introHeading: "Behandlungsmöglichkeiten im Überblick",
-      introParagraph: "Rückenschmerzen haben viele Ursachen, die Behandlung muss deshalb individuell sein. Im Wirbelsäulenzentrum am Stiglmaierplatz in München begleiten wir unsere Patienten vom ersten Gespräch bis zur Beschwerdefreiheit: mit einem ganzheitlichen Blick auf Körper und Befund, nicht nur auf das Symptom. Wir denken in drei Stufen: Verfahren ohne Operation, minimalinvasive Eingriffe und Wirbelsäulenchirurgie.",
-      pullQuote: "„Jeder Patient bekommt genau das, was sein Befund erfordert.“",
+      introParagraph: "Rückenschmerzen haben viele Ursachen, die Behandlung muss deshalb individuell sein. Im Wirbelsäulenzentrum am Stiglmaierplatz in München begleiten wir unsere Patienten vom ersten Gespräch bis zur Beschwerdefreiheit: mit einem ganzheitlichen Blick auf Körper und Befund, nicht nur auf das Symptom. Unser Grundsatz: konservative Behandlung wenn möglich, Operation wenn nötig. Wir denken in drei Stufen: Verfahren ohne Operation, minimalinvasive Eingriffe und Wirbelsäulenchirurgie.",
+      pullQuote: "„Konservative Behandlung wenn möglich, Operation wenn nötig.“",
       pullQuoteAttribution: ", WZAS Grundsatz",
       spectrumHeading: "Das Behandlungsspektrum",
       bridgeParagraph: "Noch keine Diagnose? Zuerst Ihr Krankheitsbild verstehen.",
@@ -220,8 +220,8 @@ function BehandlungenPage() {
       heroH1: "Spine Treatments",
       heroSubtitle: "From injection therapy to microsurgery, individually tailored.",
       introHeading: "Treatment options at a glance",
-      introParagraph: "Back pain has many causes, treatment must therefore be individual. At the Spine Centre at Stiglmaierplatz in Munich, we accompany our patients from the first consultation through to full recovery: with a holistic view of the body and findings, not just the symptom. We work in three stages: non-surgical treatments, minimally invasive procedures and spinal surgery.",
-      pullQuote: "“Every patient receives exactly what their diagnosis requires.”",
+      introParagraph: "Back pain has many causes, treatment must therefore be individual. At the Spine Centre at Stiglmaierplatz in Munich, we accompany our patients from the first consultation through to full recovery: with a holistic view of the body and findings, not just the symptom. Our principle: conservative treatment where possible, surgery where necessary. We work in three stages: non-surgical treatments, minimally invasive procedures and spinal surgery.",
+      pullQuote: "“Conservative treatment where possible, surgery where necessary.”",
       pullQuoteAttribution: ", WZAS principle",
       spectrumHeading: "The treatment spectrum",
       bridgeParagraph: "No diagnosis yet? First understand your condition.",
