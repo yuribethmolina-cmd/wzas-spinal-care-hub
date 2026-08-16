@@ -61,7 +61,7 @@ export function DevErrorPanel() {
       const res = await originalFetch(...args);
       if (!res.ok) {
         const url = typeof args[0] === "string" ? args[0] : (args[0] as Request).url ?? String(args[0]);
-        push("network", `${res.status} ${res.statusText} — ${url}`);
+        push("network", `${res.status} ${res.statusText}, ${url}`);
       }
       return res;
     };

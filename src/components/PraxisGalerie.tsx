@@ -41,8 +41,8 @@ export function PraxisGalerie() {
   const [open, setOpen] = useState<number | null>(null);
   const closeRef = useRef<HTMLButtonElement | null>(null);
   const t = useT({
-    de: { label: "Einblicke", h2a: "Einblicke in ", h2b: "die Praxis", lead: "Keine Stockfotos: So sieht es bei uns am Stiglmaierplatz wirklich aus — von der Anmeldung bis zum OP-Saal.", close: "Schließen", prev: "Vorheriges Bild", next: "Nächstes Bild", hint: "Bild anklicken" },
-    en: { label: "Inside", h2a: "Inside ", h2b: "our practice", lead: "No stock photography: this is what Stiglmaierplatz really looks like — from reception to the operating room.", close: "Close", prev: "Previous image", next: "Next image", hint: "Click an image" },
+    de: { label: "Einblicke", h2a: "Einblicke in ", h2b: "die Praxis", lead: "Keine Stockfotos: So sieht es bei uns am Stiglmaierplatz wirklich aus, von der Anmeldung bis zum OP-Saal.", close: "Schließen", prev: "Vorheriges Bild", next: "Nächstes Bild", hint: "Bild anklicken" },
+    en: { label: "Inside", h2a: "Inside ", h2b: "our practice", lead: "No stock photography: this is what Stiglmaierplatz really looks like, from reception to the operating room.", close: "Close", prev: "Previous image", next: "Next image", hint: "Click an image" },
   });
 
   const step = useCallback((dir: number) => {

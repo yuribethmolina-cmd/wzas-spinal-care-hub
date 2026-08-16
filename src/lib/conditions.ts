@@ -54,7 +54,7 @@ export const CONDITIONS: Condition[] = [
       name: "Back Pain",
       subtitle: "",
       bodyText:
-        "Back pain is one of the most common complaints that brings patients to the spine centre at Stiglmaierplatz in Munich. The most frequent triggers include lack of movement during sedentary work, one-sided physical strain, excess weight and postural damage; psychological strain and stress also play an increasingly important role. Over time these factors lead to changes in the facet joints, the discs and the surrounding tissue, with muscle tension often arising as the body's protective mechanism. In around 90 percent of cases back pain can be treated successfully without surgery — for example with physiotherapy, physical therapy, targeted pain management and injections.",
+        "Back pain is one of the most common complaints that brings patients to the spine centre at Stiglmaierplatz in Munich. The most frequent triggers include lack of movement during sedentary work, one-sided physical strain, excess weight and postural damage; psychological strain and stress also play an increasingly important role. Over time these factors lead to changes in the facet joints, the discs and the surrounding tissue, with muscle tension often arising as the body's protective mechanism. In around 90 percent of cases back pain can be treated successfully without surgery, for example with physiotherapy, physical therapy, targeted pain management and injections.",
       bullets: {
         region: "Lumbar and thoracic spine",
         frequency: "Very common",
@@ -73,7 +73,7 @@ export const CONDITIONS: Condition[] = [
       name: "Bandscheibenvorfall",
       subtitle: "Discusprolaps",
       bodyText:
-        "Ein Bandscheibenvorfall, medizinisch Discusprolaps genannt, entsteht meist plötzlich und äußert sich in starken Schmerzen im unteren Rücken, die typischerweise in ein Bein oder einen Arm ausstrahlen. Begleitet werden die Schmerzen häufig von Taubheitsgefühlen, Kribbeln oder im schlimmsten Fall von Lähmungserscheinungen. Bei einem Vorfall tritt der weiche Gallertkern der Bandscheibe durch den äußeren Faserring aus und drückt auf benachbarte Nervenwurzeln; häufig betroffen ist die Lendenwirbelsäule, seltener die Halswirbelsäule. Die meisten Bandscheibenvorfälle können ohne Operation erfolgreich behandelt werden — durch Physiotherapie, gezielte Schmerztherapie, Infiltrationen und physikalische Behandlung. Nur bei ausgeprägten neurologischen Ausfällen ist rasches operatives Handeln gefragt.",
+        "Ein Bandscheibenvorfall, medizinisch Discusprolaps genannt, entsteht meist plötzlich und äußert sich in starken Schmerzen im unteren Rücken, die typischerweise in ein Bein oder einen Arm ausstrahlen. Begleitet werden die Schmerzen häufig von Taubheitsgefühlen, Kribbeln oder im schlimmsten Fall von Lähmungserscheinungen. Bei einem Vorfall tritt der weiche Gallertkern der Bandscheibe durch den äußeren Faserring aus und drückt auf benachbarte Nervenwurzeln; häufig betroffen ist die Lendenwirbelsäule, seltener die Halswirbelsäule. Die meisten Bandscheibenvorfälle können ohne Operation erfolgreich behandelt werden, durch Physiotherapie, gezielte Schmerztherapie, Infiltrationen und physikalische Behandlung. Nur bei ausgeprägten neurologischen Ausfällen ist rasches operatives Handeln gefragt.",
       bullets: {
         region: "Lendenwirbelsäule (LWS), seltener HWS",
         frequency: "Häufig",
@@ -85,7 +85,7 @@ export const CONDITIONS: Condition[] = [
       name: "Herniated Disc",
       subtitle: "Disc prolapse",
       bodyText:
-        "A herniated disc, medically known as discus prolapse, usually occurs suddenly and causes severe pain in the lower back that typically radiates into a leg or an arm. The pain is often accompanied by numbness, tingling or, in the worst case, paralysis. In a herniation the soft nucleus of the disc emerges through the outer fibrous ring and presses on adjacent nerve roots; the lumbar spine is most often affected, the cervical spine less frequently. Most herniated discs can be treated successfully without surgery — with physiotherapy, targeted pain management, injections and physical treatment. Only pronounced neurological deficits call for rapid surgical action.",
+        "A herniated disc, medically known as discus prolapse, usually occurs suddenly and causes severe pain in the lower back that typically radiates into a leg or an arm. The pain is often accompanied by numbness, tingling or, in the worst case, paralysis. In a herniation the soft nucleus of the disc emerges through the outer fibrous ring and presses on adjacent nerve roots; the lumbar spine is most often affected, the cervical spine less frequently. Most herniated discs can be treated successfully without surgery, with physiotherapy, targeted pain management, injections and physical treatment. Only pronounced neurological deficits call for rapid surgical action.",
       bullets: {
         region: "Lumbar spine (L-spine), occasionally C-spine",
         frequency: "Common",
@@ -135,7 +135,7 @@ export const CONDITIONS: Condition[] = [
       name: "Wirbelkörperfraktur",
       subtitle: "",
       bodyText:
-        "Eine osteoporotische Wirbelkörperfraktur entsteht, wenn die Knochen durch Osteoporose so porös geworden sind, dass bereits alltägliche Belastungen — etwa das Heben einer Tasche oder ein leichter Sturz — zu einem Bruch des Wirbelkörpers führen können. Die Folge sind plötzlich einsetzende, heftige Rückenschmerzen. Am häufigsten betroffen sind die Brust- und Lendenwirbelsäule. Eine Wirbelkörperfraktur lässt sich mittels MRT schnell und präzise diagnostizieren — bei uns direkt im Haus. Je nach Schweregrad wird konservativ mit einem stützenden Mieder und geeigneter Schmerzmedikation behandelt; bei stärkeren oder instabilen Frakturen bietet die Kyphoplastie eine schonende, minimalinvasive Alternative, bei der der Wirbelkörper mit einem Ballon aufgerichtet und mit Knochenzement stabilisiert wird.",
+        "Eine osteoporotische Wirbelkörperfraktur entsteht, wenn die Knochen durch Osteoporose so porös geworden sind, dass bereits alltägliche Belastungen, etwa das Heben einer Tasche oder ein leichter Sturz, zu einem Bruch des Wirbelkörpers führen können. Die Folge sind plötzlich einsetzende, heftige Rückenschmerzen. Am häufigsten betroffen sind die Brust- und Lendenwirbelsäule. Eine Wirbelkörperfraktur lässt sich mittels MRT schnell und präzise diagnostizieren, bei uns direkt im Haus. Je nach Schweregrad wird konservativ mit einem stützenden Mieder und geeigneter Schmerzmedikation behandelt; bei stärkeren oder instabilen Frakturen bietet die Kyphoplastie eine schonende, minimalinvasive Alternative, bei der der Wirbelkörper mit einem Ballon aufgerichtet und mit Knochenzement stabilisiert wird.",
       bullets: {
         region: "Brust- und Lendenwirbelsäule",
         frequency: "Häufig bei Osteoporose",
@@ -147,7 +147,7 @@ export const CONDITIONS: Condition[] = [
       name: "Vertebral Fracture",
       subtitle: "",
       bodyText:
-        "An osteoporotic vertebral fracture occurs when bones have become so porous through osteoporosis that everyday loads — lifting a bag or a minor fall — can break a vertebral body. The result is sudden, severe back pain. The thoracic and lumbar spine are most often affected. A vertebral fracture can be diagnosed quickly and precisely by MRI, available in-house. Depending on severity, treatment is conservative with a supportive brace and suitable pain medication; for more severe or unstable fractures, kyphoplasty offers a gentle, minimally invasive alternative in which the vertebral body is raised with a small balloon and stabilised with bone cement.",
+        "An osteoporotic vertebral fracture occurs when bones have become so porous through osteoporosis that everyday loads, lifting a bag or a minor fall, can break a vertebral body. The result is sudden, severe back pain. The thoracic and lumbar spine are most often affected. A vertebral fracture can be diagnosed quickly and precisely by MRI, available in-house. Depending on severity, treatment is conservative with a supportive brace and suitable pain medication; for more severe or unstable fractures, kyphoplasty offers a gentle, minimally invasive alternative in which the vertebral body is raised with a small balloon and stabilised with bone cement.",
       bullets: {
         region: "Thoracic and lumbar spine",
         frequency: "Common in osteoporosis",
@@ -166,7 +166,7 @@ export const CONDITIONS: Condition[] = [
       name: "Wirbelkanalverengung",
       subtitle: "Spinalkanalstenose",
       bodyText:
-        "Die Spinalkanalstenose, auch Wirbelkanalverengung genannt, ist eine der häufigsten Wirbelsäulenerkrankungen im höheren Lebensalter. Der Kanal, durch den Rückenmark und Nervenwurzeln verlaufen, verengt sich — meist in der Lendenwirbelsäule. Typisch sind Schmerzen und ein Schwächegefühl in beiden Beinen, besonders beim Gehen oder längeren Stehen: Viele Patienten müssen nach kurzen Gehstrecken stehenbleiben oder sich nach vorne beugen (neurogene Claudicatio). Betroffen sind häufig Patientinnen und Patienten um das 70. Lebensjahr. Konservativ helfen Schmerzmedikation, Physiotherapie, physikalische Therapie und Infiltrationen; reicht das nicht aus, schafft die mikrochirurgische Dekompression den Nervenwurzeln wieder Platz.",
+        "Die Spinalkanalstenose, auch Wirbelkanalverengung genannt, ist eine der häufigsten Wirbelsäulenerkrankungen im höheren Lebensalter. Der Kanal, durch den Rückenmark und Nervenwurzeln verlaufen, verengt sich, meist in der Lendenwirbelsäule. Typisch sind Schmerzen und ein Schwächegefühl in beiden Beinen, besonders beim Gehen oder längeren Stehen: Viele Patienten müssen nach kurzen Gehstrecken stehenbleiben oder sich nach vorne beugen (neurogene Claudicatio). Betroffen sind häufig Patientinnen und Patienten um das 70. Lebensjahr. Konservativ helfen Schmerzmedikation, Physiotherapie, physikalische Therapie und Infiltrationen; reicht das nicht aus, schafft die mikrochirurgische Dekompression den Nervenwurzeln wieder Platz.",
       bullets: {
         region: "Lendenwirbelsäule",
         frequency: "Häufig im höheren Lebensalter, oft um das 70. Lebensjahr",
@@ -209,7 +209,7 @@ export const CONDITIONS: Condition[] = [
       name: "Spondylolisthesis",
       subtitle: "Vertebral slippage",
       bodyText:
-        "Spondylolisthesis, or slipped vertebra, describes the forward or backward displacement of one vertebral body relative to the one below. The condition usually develops gradually over many years and often goes unnoticed for a long time. It frequently arises from degenerative changes — age-related wear of the discs and facet joints: as muscular stability decreases, the affected vertebra can shift further out of position. The result is pain in the lower back and legs that worsens under strain; in pronounced cases numbness or weakness occurs. Diagnosis requires both X-ray and MRI. Treatment starts conservatively and, for persistent symptoms, uses minimally invasive stabilisation.",
+        "Spondylolisthesis, or slipped vertebra, describes the forward or backward displacement of one vertebral body relative to the one below. The condition usually develops gradually over many years and often goes unnoticed for a long time. It frequently arises from degenerative changes, age-related wear of the discs and facet joints: as muscular stability decreases, the affected vertebra can shift further out of position. The result is pain in the lower back and legs that worsens under strain; in pronounced cases numbness or weakness occurs. Diagnosis requires both X-ray and MRI. Treatment starts conservatively and, for persistent symptoms, uses minimally invasive stabilisation.",
       bullets: {
         region: "Lumbar spine (L4/L5)",
         frequency: "Moderately common",
@@ -228,9 +228,9 @@ export const CONDITIONS: Condition[] = [
       name: "Iliosakralsyndrom",
       subtitle: "Kreuzdarmbeingelenk",
       bodyText:
-        "Das Iliosakralsyndrom, kurz ISG-Syndrom, ist eine häufig unterschätzte Ursache von Rückenschmerzen. Das Iliosakralgelenk verbindet das Kreuzbein mit dem Darmbein und bildet damit die Verbindung zwischen Wirbelsäule und Becken. Durch Verschleiß, Überlastung oder Blockierungen kann dieses Gelenk erhebliche Schmerzen in der hinteren Beckengegend verursachen, die einem klassischen Hexenschuss täuschend ähnlich sehen. Typisch sind tiefsitzende, einseitige Schmerzen im Bereich von Kreuzbein und Gesäß, die ins Bein ausstrahlen können — etwa beim Aufstehen, Treppensteigen oder bei einseitiger Belastung. Eine diagnostische Infiltration unter Röntgenkontrolle dient gleichzeitig der Diagnose und der ersten Schmerzlinderung.",
+        "Das Iliosakralsyndrom, kurz ISG-Syndrom, ist eine häufig unterschätzte Ursache von Rückenschmerzen. Das Iliosakralgelenk verbindet das Kreuzbein mit dem Darmbein und bildet damit die Verbindung zwischen Wirbelsäule und Becken. Durch Verschleiß, Überlastung oder Blockierungen kann dieses Gelenk erhebliche Schmerzen in der hinteren Beckengegend verursachen, die einem klassischen Hexenschuss täuschend ähnlich sehen. Typisch sind tiefsitzende, einseitige Schmerzen im Bereich von Kreuzbein und Gesäß, die ins Bein ausstrahlen können, etwa beim Aufstehen, Treppensteigen oder bei einseitiger Belastung. Eine diagnostische Infiltration unter Röntgenkontrolle dient gleichzeitig der Diagnose und der ersten Schmerzlinderung.",
       bullets: {
-        region: "Iliosakralgelenk (Übergang LWS–Becken)",
+        region: "Iliosakralgelenk (Übergang LWS/Becken)",
         frequency: "Häufig, oft fehldiagnostiziert",
         symptoms: ["Tiefsitzender Kreuzschmerz", "Ausstrahlung in Gesäß und Oberschenkel", "Zunahme beim Sitzen"],
       },
@@ -240,7 +240,7 @@ export const CONDITIONS: Condition[] = [
       name: "Sacroiliac Joint Syndrome",
       subtitle: "SI joint dysfunction",
       bodyText:
-        "Iliosacral joint syndrome (SIJ syndrome) is a frequently underestimated cause of back pain. The iliosacral joint connects the sacrum with the ilium and thus links the spine to the pelvis. Through wear, overload or blockages this joint can cause considerable pain in the rear pelvic region that closely resembles classic lumbago. Typical are deep, one-sided pains around the sacrum and buttocks that may radiate into the leg — when standing up, climbing stairs or under one-sided load. A diagnostic injection under X-ray guidance serves both to confirm the diagnosis and to provide initial pain relief.",
+        "Iliosacral joint syndrome (SIJ syndrome) is a frequently underestimated cause of back pain. The iliosacral joint connects the sacrum with the ilium and thus links the spine to the pelvis. Through wear, overload or blockages this joint can cause considerable pain in the rear pelvic region that closely resembles classic lumbago. Typical are deep, one-sided pains around the sacrum and buttocks that may radiate into the leg, when standing up, climbing stairs or under one-sided load. A diagnostic injection under X-ray guidance serves both to confirm the diagnosis and to provide initial pain relief.",
       bullets: {
         region: "Sacroiliac joint (L-spine / pelvis junction)",
         frequency: "Common, frequently misdiagnosed",
@@ -259,7 +259,7 @@ export const CONDITIONS: Condition[] = [
       name: "Osteoporose",
       subtitle: "Knochenschwund",
       bodyText:
-        "Osteoporose, auch als Knochenschwund bekannt, ist eine weit verbreitete Erkrankung, bei der die Knochendichte abnimmt und die Knochen zunehmend porös und bruchgefährdet werden. An der Wirbelsäule kann Osteoporose zu kleinen Einbrüchen der Wirbelkörper führen, die sich schleichend entwickeln und zunächst oft unbemerkt bleiben. Typische Zeichen sind ein zunehmender Rundrücken, eine spürbare Verringerung der Körpergröße durch das Einsinken der Wirbelkörper sowie chronische Rückenschmerzen, die sich bei Belastung verschlimmern. In akuten Fällen brechen Wirbelkörper bereits bei minimaler Belastung. Mittels MRT lassen sich Wirbelkörpereinbrüche schnell und zuverlässig beurteilen — direkt im Haus.",
+        "Osteoporose, auch als Knochenschwund bekannt, ist eine weit verbreitete Erkrankung, bei der die Knochendichte abnimmt und die Knochen zunehmend porös und bruchgefährdet werden. An der Wirbelsäule kann Osteoporose zu kleinen Einbrüchen der Wirbelkörper führen, die sich schleichend entwickeln und zunächst oft unbemerkt bleiben. Typische Zeichen sind ein zunehmender Rundrücken, eine spürbare Verringerung der Körpergröße durch das Einsinken der Wirbelkörper sowie chronische Rückenschmerzen, die sich bei Belastung verschlimmern. In akuten Fällen brechen Wirbelkörper bereits bei minimaler Belastung. Mittels MRT lassen sich Wirbelkörpereinbrüche schnell und zuverlässig beurteilen, direkt im Haus.",
       bullets: {
         region: "Gesamte Wirbelsäule",
         frequency: "Häufig bei Frauen nach der Menopause",
@@ -271,7 +271,7 @@ export const CONDITIONS: Condition[] = [
       name: "Osteoporosis",
       subtitle: "Bone loss",
       bodyText:
-        "Osteoporosis, also known as bone loss, is a widespread condition in which bone density decreases and bones become increasingly porous and prone to fracture. In the spine, osteoporosis can lead to small collapses of the vertebral bodies that develop gradually and often go unnoticed at first. Typical signs are an increasing rounded back, a noticeable loss of body height as vertebrae sink, and chronic back pain that worsens under strain. In acute cases vertebrae fracture under minimal load. MRI allows vertebral collapses to be assessed quickly and reliably — directly in-house.",
+        "Osteoporosis, also known as bone loss, is a widespread condition in which bone density decreases and bones become increasingly porous and prone to fracture. In the spine, osteoporosis can lead to small collapses of the vertebral bodies that develop gradually and often go unnoticed at first. Typical signs are an increasing rounded back, a noticeable loss of body height as vertebrae sink, and chronic back pain that worsens under strain. In acute cases vertebrae fracture under minimal load. MRI allows vertebral collapses to be assessed quickly and reliably, directly in-house.",
       bullets: {
         region: "Entire spine",
         frequency: "Common in postmenopausal women",
@@ -290,7 +290,7 @@ export const CONDITIONS: Condition[] = [
       name: "Facettengelenksarthrose",
       subtitle: "Spondylarthrose",
       bodyText:
-        "Die Facettengelenksarthrose, medizinisch Spondylarthrose genannt, ist eine verschleißbedingte Erkrankung der kleinen Wirbelgelenke, die die Wirbelkörper miteinander verbinden. Mit zunehmendem Alter nutzt sich der Knorpel dieser Gelenke ab, was zu Entzündungen, Schmerzen und eingeschränkter Beweglichkeit führt. Patienten beschreiben die Beschwerden häufig als bohrend oder dumpf drückend: Rückenschmerzen im Lendenbereich nach kurzer Belastung oder längerem Sitzen, ausgeprägte Morgensteifigkeit, Schmerzen beim Rückwärtsbeugen sowie Ausstrahlung in Gesäß und Hüfte. Behandelt wird stufenweise — zunächst konservativ, dann mit gezielten Infiltrationen unter Röntgenkontrolle und bei anhaltenden Beschwerden mit einer Radiofrequenzablation (Facettendenervierung).",
+        "Die Facettengelenksarthrose, medizinisch Spondylarthrose genannt, ist eine verschleißbedingte Erkrankung der kleinen Wirbelgelenke, die die Wirbelkörper miteinander verbinden. Mit zunehmendem Alter nutzt sich der Knorpel dieser Gelenke ab, was zu Entzündungen, Schmerzen und eingeschränkter Beweglichkeit führt. Patienten beschreiben die Beschwerden häufig als bohrend oder dumpf drückend: Rückenschmerzen im Lendenbereich nach kurzer Belastung oder längerem Sitzen, ausgeprägte Morgensteifigkeit, Schmerzen beim Rückwärtsbeugen sowie Ausstrahlung in Gesäß und Hüfte. Behandelt wird stufenweise, zunächst konservativ, dann mit gezielten Infiltrationen unter Röntgenkontrolle und bei anhaltenden Beschwerden mit einer Radiofrequenzablation (Facettendenervierung).",
       bullets: {
         region: "Gesamte Wirbelsäule, häufig LWS",
         frequency: "Häufig im Alter",
@@ -302,7 +302,7 @@ export const CONDITIONS: Condition[] = [
       name: "Facet Joint Arthritis",
       subtitle: "Spondylarthrosis",
       bodyText:
-        "Facet joint arthrosis, medically called spondylarthrosis, is a wear-related condition of the small vertebral joints that connect the vertebral bodies. With age the cartilage of these joints wears down, causing inflammation, pain and restricted mobility. Patients often describe the pain as boring or dull and pressing: lumbar back pain after short strain or prolonged sitting, pronounced morning stiffness, pain when bending backwards and radiation into the buttocks and hip. Treatment is stepwise — conservative first, then targeted injections under X-ray guidance and, for persistent symptoms, radiofrequency ablation (facet denervation).",
+        "Facet joint arthrosis, medically called spondylarthrosis, is a wear-related condition of the small vertebral joints that connect the vertebral bodies. With age the cartilage of these joints wears down, causing inflammation, pain and restricted mobility. Patients often describe the pain as boring or dull and pressing: lumbar back pain after short strain or prolonged sitting, pronounced morning stiffness, pain when bending backwards and radiation into the buttocks and hip. Treatment is stepwise, conservative first, then targeted injections under X-ray guidance and, for persistent symptoms, radiofrequency ablation (facet denervation).",
       bullets: {
         region: "Entire spine, frequently lumbar",
         frequency: "Common with ageing",

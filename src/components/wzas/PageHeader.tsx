@@ -98,7 +98,7 @@ export function PageHeader({ activeRoute }: { activeRoute?: string }) {
       }`}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 lg:px-8">
-        <Link to="/" className="flex items-center gap-3" aria-label="WZAS — Home">
+        <Link to="/" className="flex items-center gap-3" aria-label="WZAS, Home">
           <img src={logoAsset.url} alt="WZAS Wirbelsäulenzentrum am Stiglmaierplatz" className="h-10 w-auto" />
         </Link>
         <nav className="hidden lg:flex items-center gap-7" aria-label="Main navigation">

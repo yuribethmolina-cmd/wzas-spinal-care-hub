@@ -108,7 +108,7 @@ export function SiteNav() {
     "relative text-sm font-medium text-[#1E2535] transition-colors hover:text-[#AC8F52] after:absolute after:bottom-0 after:left-0 after:h-px after:w-0 after:bg-[#AC8F52] after:transition-[width] hover:after:w-full after:duration-200";
   return (
     <header className={`sticky top-0 z-50 bg-white transition-shadow duration-300 ${scrolled ? "shadow-md" : "shadow-none"}`}>
-      {/* ── Top bar — solo desktop ── */}
+      {/* ── Top bar, solo desktop ── */}
       <div className="hidden lg:block bg-[#263044] border-b border-white/5">
         <div className="mx-auto max-w-7xl px-8 flex items-center justify-between h-9">
           <div className="flex items-center gap-5 text-[11px] text-white/55">
@@ -143,7 +143,7 @@ export function SiteNav() {
       </div>
 
       <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 lg:px-8">
-        <Link to="/" aria-label="WZAS — Startseite" className="flex items-center gap-3">
+        <Link to="/" aria-label="WZAS, Startseite" className="flex items-center gap-3">
           <img src={logoAsset.url} alt="WZAS Wirbelsäulenzentrum am Stiglmaierplatz" className="h-11 w-auto" />
         </Link>
         <nav className="hidden lg:flex items-center gap-8" aria-label="Hauptnavigation">

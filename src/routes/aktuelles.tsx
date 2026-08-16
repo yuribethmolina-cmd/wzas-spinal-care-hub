@@ -77,12 +77,12 @@ const ITEMS: Item[] = [
     featured: true,
     de: {
       date: "7. Juli 2026",
-      title: "Vortrag: Rückenschmerzen — häufig und oft unterschätzt",
+      title: "Vortrag: Rückenschmerzen, häufig und oft unterschätzt",
       detail: "Öffentlicher Vortrag · München · Eintritt frei",
     },
     en: {
       date: "7 July 2026",
-      title: "Talk: Back pain — common and often underestimated",
+      title: "Talk: Back pain, common and often underestimated",
       detail: "Public talk · Munich · Free admission",
     },
   },
@@ -106,12 +106,12 @@ const ITEMS: Item[] = [
     featured: false,
     de: {
       date: "11. Juni 2026",
-      title: "Vortrag: Nackenschmerzen — wenn Verspannungen den Alltag bestimmen",
+      title: "Vortrag: Nackenschmerzen, wenn Verspannungen den Alltag bestimmen",
       detail: "Öffentlicher Vortrag · München · Eintritt frei",
     },
     en: {
       date: "11 June 2026",
-      title: "Talk: Neck pain — when tension dictates daily life",
+      title: "Talk: Neck pain, when tension dictates daily life",
       detail: "Public talk · Munich · Free admission",
     },
   },
@@ -134,12 +134,12 @@ const ITEMS: Item[] = [
     featured: false,
     de: {
       date: "23. April 2026",
-      title: "Vortrag: Bandscheibenvorfall — was im Körper passiert",
+      title: "Vortrag: Bandscheibenvorfall, was im Körper passiert",
       detail: "Öffentlicher Vortrag · München · Eintritt frei",
     },
     en: {
       date: "23 April 2026",
-      title: "Talk: Herniated disc — what happens in the body",
+      title: "Talk: Herniated disc, what happens in the body",
       detail: "Public talk · Munich · Free admission",
     },
   },
@@ -162,12 +162,12 @@ const ITEMS: Item[] = [
     featured: false,
     de: {
       date: "24. März 2026",
-      title: "Vortrag: Wirbelkanalverengung — wenn der Rücken die Bewegung einschränkt",
+      title: "Vortrag: Wirbelkanalverengung, wenn der Rücken die Bewegung einschränkt",
       detail: "Öffentlicher Vortrag · München · Eintritt frei",
     },
     en: {
       date: "24 March 2026",
-      title: "Talk: Spinal stenosis — when the back limits movement",
+      title: "Talk: Spinal stenosis, when the back limits movement",
       detail: "Public talk · Munich · Free admission",
     },
   },
@@ -303,7 +303,7 @@ function AktuellesPage() {
       newsletterBody: "Unsere öffentlichen Vorträge sind kostenlos und richten sich an Patienten und Angehörige.",
       newsletterEmail: "Hinweise per E-Mail",
       ctaH2: "Wir sind für Sie da.",
-      ctaBody: "Termin vereinbaren — Notfälle behandeln wir sofort.",
+      ctaBody: "Termin vereinbaren, Notfälle behandeln wir sofort.",
       ctaBtn: "Termin online buchen",
     },
     en: {
@@ -322,7 +322,7 @@ function AktuellesPage() {
       newsletterBody: "Our public talks are free of charge and open to patients and their families.",
       newsletterEmail: "Get notified by email",
       ctaH2: "We are here for you.",
-      ctaBody: "Book an appointment — emergencies treated immediately.",
+      ctaBody: "Book an appointment, emergencies treated immediately.",
       ctaBtn: "Book appointment online",
     },
   });

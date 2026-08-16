@@ -9,7 +9,7 @@ export function KonservativZuerst() {
       lead:
         "Unser Grundsatz: konservative Behandlung wenn möglich, Operation wenn nötig. Die meisten Rückenerkrankungen müssen nicht operiert werden.",
       statBig: "3 Stufen",
-      statText: "Verfahren ohne Operation, minimalinvasive Eingriffe und Wirbelsäulenchirurgie — Sie erhalten genau die Stufe, die Ihrem Befund entspricht.",
+      statText: "Verfahren ohne Operation, minimalinvasive Eingriffe und Wirbelsäulenchirurgie, Sie erhalten genau die Stufe, die Ihrem Befund entspricht.",
       points: [
         {
           k: "Zuerst behandeln",
@@ -21,7 +21,7 @@ export function KonservativZuerst() {
         },
         {
           k: "Schritt für Schritt",
-          v: "Erst Verfahren ohne Operation, dann minimalinvasive Eingriffe — eine Wirbelsäulenoperation steht am Ende, nicht am Anfang.",
+          v: "Erst Verfahren ohne Operation, dann minimalinvasive Eingriffe, eine Wirbelsäulenoperation steht am Ende, nicht am Anfang.",
         },
       ],
     },
@@ -32,11 +32,11 @@ export function KonservativZuerst() {
       lead:
         "Our principle: conservative treatment where possible, surgery where necessary. Most back conditions never need an operation.",
       statBig: "3 stages",
-      statText: "Non-surgical procedures, minimally invasive interventions and spinal surgery — you receive exactly the stage your diagnosis calls for.",
+      statText: "Non-surgical procedures, minimally invasive interventions and spinal surgery, you receive exactly the stage your diagnosis calls for.",
       points: [
         {
           k: "Treat first",
-          v: "Targeted injections, medication-based pain therapy, physiotherapy and physical treatments — long before surgery is even discussed.",
+          v: "Targeted injections, medication-based pain therapy, physiotherapy and physical treatments, long before surgery is even discussed.",
         },
         {
           k: "Clear indication",
@@ -44,7 +44,7 @@ export function KonservativZuerst() {
         },
         {
           k: "Step by step",
-          v: "Non-surgical procedures first, then minimally invasive options — spinal surgery comes at the end, not at the start.",
+          v: "Non-surgical procedures first, then minimally invasive options, spinal surgery comes at the end, not at the start.",
         },
       ],
     },

@@ -43,7 +43,7 @@ export const Route = createFileRoute("/beschwerden/")({
   head: () => ({
     meta: [
       { title: "Rückenerkrankungen · WZAS Wirbelsäulenzentrum München" },
-      { name: "description", content: "Bandscheibenvorfall, Spinalkanalstenose, Spondylolisthesis und mehr — das WZAS München behandelt ein breites Spektrum an Rückenerkrankungen, konservativ wenn möglich, operativ wenn nötig." },
+      { name: "description", content: "Bandscheibenvorfall, Spinalkanalstenose, Spondylolisthesis und mehr, das WZAS München behandelt ein breites Spektrum an Rückenerkrankungen, konservativ wenn möglich, operativ wenn nötig." },
     ],
   }),
   component: BeschwerdenHub,
@@ -110,9 +110,9 @@ function BeschwerdenHub() {
       eyebrow: "MÜNCHEN · STIGLMAIERPLATZ",
       h1: "Rücken­erkrankungen",
       subtitle: "9 Erkrankungen. Ein Spezialistenteam.",
-      introText: "Rückenschmerzen, Bandscheibenvorfälle, Spinalkanalstenose — Wirbelsäulenerkrankungen können das Leben erheblich einschränken. Im Wirbelsäulenzentrum am Stiglmaierplatz diagnostizieren und behandeln wir das gesamte Spektrum der Rückenerkrankungen: konservativ wenn möglich, operativ wenn nötig. Unser Team aus zwölf Spezialisten für Neurochirurgie, Orthopädie und Schmerztherapie begleitet Sie vom ersten Termin bis zur vollständigen Beschwerdefreiheit.",
+      introText: "Rückenschmerzen, Bandscheibenvorfälle, Spinalkanalstenose, Wirbelsäulenerkrankungen können das Leben erheblich einschränken. Im Wirbelsäulenzentrum am Stiglmaierplatz diagnostizieren und behandeln wir das gesamte Spektrum der Rückenerkrankungen: konservativ wenn möglich, operativ wenn nötig. Unser Team aus zwölf Spezialisten für Neurochirurgie, Orthopädie und Schmerztherapie begleitet Sie vom ersten Termin bis zur vollständigen Beschwerdefreiheit.",
       pullQuote: "\"Konservativ wenn möglich. Operativ wenn nötig.\"",
-      attribution: "— WZAS Grundsatz",
+      attribution: ", WZAS Grundsatz",
       sectionHeading: "Unsere Schwerpunkte",
       ctaCopy: "Mehr erfahren",
       bookingHeading: "Bereit für Ihren Termin?",
@@ -128,9 +128,9 @@ function BeschwerdenHub() {
       eyebrow: "MUNICH · STIGLMAIERPLATZ",
       h1: "Spine Conditions",
       subtitle: "9 conditions. One specialist team.",
-      introText: "Back pain, herniated discs, spinal stenosis — spinal conditions can severely limit daily life. At the Spine Centre at Stiglmaierplatz, we diagnose and treat the full spectrum of back conditions: conservative care whenever possible, surgery only when necessary. Our team of twelve specialists in neurosurgery, orthopaedics and pain therapy guides you from your first appointment to full recovery.",
+      introText: "Back pain, herniated discs, spinal stenosis, spinal conditions can severely limit daily life. At the Spine Centre at Stiglmaierplatz, we diagnose and treat the full spectrum of back conditions: conservative care whenever possible, surgery only when necessary. Our team of twelve specialists in neurosurgery, orthopaedics and pain therapy guides you from your first appointment to full recovery.",
       pullQuote: "\"Conservative when possible. Surgical when necessary.\"",
-      attribution: "— WZAS principle",
+      attribution: ", WZAS principle",
       sectionHeading: "Our focus areas",
       ctaCopy: "Learn more",
       bookingHeading: "Ready for your appointment?",
@@ -152,7 +152,7 @@ function BeschwerdenHub() {
       <PageHeader activeRoute="/beschwerden" />
 
       <main>
-        {/* Hero — Ken Burns + editorial overlay */}
+        {/* Hero, Ken Burns + editorial overlay */}
         <section className="relative h-[60vh] min-h-[420px] overflow-hidden">
           <div
             className="absolute inset-0 bg-cover bg-center"
@@ -190,7 +190,7 @@ function BeschwerdenHub() {
           </div>
         </section>
 
-        {/* Conditions — magazine grid */}
+        {/* Conditions, magazine grid */}
         <section id="conditions" className="py-12 lg:py-16 bg-[#F8F8F6]">
           <div className="mx-auto max-w-7xl px-5 lg:px-8">
             <h2 className="font-display text-4xl lg:text-5xl font-semibold text-[#1E2535] mb-8">

@@ -81,13 +81,13 @@ function WolfartCallout() {
     de: {
       label: "Operationsstandort",
       heading: "WolfartKlinik München-Gräfelfing",
-      body: "Operative Eingriffe führen unsere Chirurgen in der WolfartKlinik München-Gräfelfing durch — einer der führenden Privatkliniken für Neurochirurgie und Orthopädie in Bayern. Modernste OP-Säle, erfahrenes OP-Personal und eine lückenlose Abstimmung zwischen Praxis und Klinik sichern optimale Ergebnisse.",
+      body: "Operative Eingriffe führen unsere Chirurgen in der WolfartKlinik München-Gräfelfing durch, einer der führenden Privatkliniken für Neurochirurgie und Orthopädie in Bayern. Modernste OP-Säle, erfahrenes OP-Personal und eine lückenlose Abstimmung zwischen Praxis und Klinik sichern optimale Ergebnisse.",
       link: "Mehr über unseren Klinikpartner →",
     },
     en: {
       label: "Surgical facility",
       heading: "WolfartKlinik Munich-Gräfelfing",
-      body: "Our surgeons perform all operative procedures at the WolfartKlinik Munich-Gräfelfing — one of Bavaria's leading private clinics for neurosurgery and orthopaedics. State-of-the-art theatres, experienced surgical staff and seamless coordination between practice and clinic ensure optimal outcomes.",
+      body: "Our surgeons perform all operative procedures at the WolfartKlinik Munich-Gräfelfing, one of Bavaria's leading private clinics for neurosurgery and orthopaedics. State-of-the-art theatres, experienced surgical staff and seamless coordination between practice and clinic ensure optimal outcomes.",
       link: "Learn more about our clinic partner →",
     },
   });
@@ -107,7 +107,7 @@ export const Route = createFileRoute("/behandlungen")({
   head: () => ({
     meta: [
       { title: "Rückenbehandlungen · WZAS Wirbelsäulenzentrum München" },
-      { name: "description", content: "Konservative Therapie, minimalinvasive Verfahren und Wirbelsäulenchirurgie am WZAS München. Unser Grundsatz: konservative Behandlung, wenn möglich – Operation, wenn nötig." },
+      { name: "description", content: "Konservative Therapie, minimalinvasive Verfahren und Wirbelsäulenchirurgie am WZAS München. Unser Grundsatz: konservative Behandlung, wenn möglich, Operation, wenn nötig." },
     ],
   }),
   component: BehandlungenPage,
@@ -122,16 +122,16 @@ function BehandlungenPage() {
     de: [
       {
         name: "Verfahren ohne Operation",
-        description: "Schmerztherapie, Infiltrationen und Rehabilitation — mit dem Ziel, natürliche Beweglichkeit zu erhalten.",
+        description: "Schmerztherapie, Infiltrationen und Rehabilitation, mit dem Ziel, natürliche Beweglichkeit zu erhalten.",
         methods: [
           { name: "Infiltrationstherapie", desc: "Gezielte Injektionen mit entzündungshemmenden Wirkstoffen direkt an die Schmerzquelle." },
           { name: "Medikamentöse Therapie", desc: "Individuell angepasste Schmerztherapie und Muskelrelaxantien für akute und chronische Beschwerden." },
-          { name: "Physiotherapie & physikalische Behandlungen", desc: "Ergänzend zur Schmerztherapie — individuell aus dem breiten Spektrum konservativer Methoden ausgewählt." },
+          { name: "Physiotherapie & physikalische Behandlungen", desc: "Ergänzend zur Schmerztherapie, individuell aus dem breiten Spektrum konservativer Methoden ausgewählt." },
         ],
       },
       {
         name: "Minimalinvasive Verfahren",
-        description: "Kleine Eingriffe mit großer Wirkung — wenn konservative Mittel ausgeschöpft sind.",
+        description: "Kleine Eingriffe mit großer Wirkung, wenn konservative Mittel ausgeschöpft sind.",
         methods: [
           { name: "Hitzesonden-Behandlung", desc: "Eine Sonde erhitzt die feinen Nerven am Wirbelgelenk unter Bildkontrolle und unterbricht so die Schmerzleitung." },
           { name: "Schmerzpumpen (IDD)", desc: "Ein kleines Implantat gibt Schmerzmittel kontinuierlich direkt im Bereich des Rückenmarks ab." },
@@ -141,9 +141,9 @@ function BehandlungenPage() {
       },
       {
         name: "Wirbelsäulenchirurgie",
-        description: "Operative Versorgung — wenn konservative und minimalinvasive Maßnahmen keine ausreichende Linderung bringen.",
+        description: "Operative Versorgung, wenn konservative und minimalinvasive Maßnahmen keine ausreichende Linderung bringen.",
         methods: [
-          { name: "Mikrochirurgische Verfahren", desc: "Operation unter dem hochauflösenden Operationsmikroskop über kleinste Schnitte — präzise und gewebeschonend." },
+          { name: "Mikrochirurgische Verfahren", desc: "Operation unter dem hochauflösenden Operationsmikroskop über kleinste Schnitte, präzise und gewebeschonend." },
           { name: "Bewegungserhaltende Verfahren", desc: "Dynamische Rekonstruktion und Stabilisierung erkrankter Segmente als Alternative zur Versteifung." },
           { name: "Stabilisierende Verfahren", desc: "Implantate, Verschraubungen oder Spondylodese, wenn eine Instabilität die Beschwerden verursacht." },
         ],
@@ -152,16 +152,16 @@ function BehandlungenPage() {
     en: [
       {
         name: "Non-surgical Treatments",
-        description: "Pain therapy, injections and rehabilitation — aimed at preserving natural mobility.",
+        description: "Pain therapy, injections and rehabilitation, aimed at preserving natural mobility.",
         methods: [
           { name: "Injection Therapy", desc: "Targeted injections with anti-inflammatory agents directly at the source of pain." },
           { name: "Medication Therapy", desc: "Individually tailored pain management and muscle relaxants for acute and chronic symptoms." },
-          { name: "Physiotherapy & physical treatments", desc: "Complementing pain therapy — selected individually from the broad range of conservative methods." },
+          { name: "Physiotherapy & physical treatments", desc: "Complementing pain therapy, selected individually from the broad range of conservative methods." },
         ],
       },
       {
         name: "Minimally Invasive Procedures",
-        description: "Small interventions with major effect — when conservative measures have been exhausted.",
+        description: "Small interventions with major effect, when conservative measures have been exhausted.",
         methods: [
           { name: "Heat Probe Treatment", desc: "A probe heats the fine nerves at the facet joint under image guidance, interrupting pain conduction." },
           { name: "Pain Pumps (IDD)", desc: "A small implant delivers pain medication continuously right at the spinal cord." },
@@ -171,9 +171,9 @@ function BehandlungenPage() {
       },
       {
         name: "Spinal Surgery",
-        description: "Surgical treatment — when conservative and minimally invasive measures provide insufficient relief.",
+        description: "Surgical treatment, when conservative and minimally invasive measures provide insufficient relief.",
         methods: [
-          { name: "Microsurgical Procedures", desc: "Surgery through the smallest incisions using a high-resolution operating microscope — precise and tissue-sparing." },
+          { name: "Microsurgical Procedures", desc: "Surgery through the smallest incisions using a high-resolution operating microscope, precise and tissue-sparing." },
           { name: "Motion-preserving Procedures", desc: "Dynamic reconstruction and stabilisation of affected segments as an alternative to fusion." },
           { name: "Stabilisation Procedures", desc: "Implants, screw fixation or spondylodesis when instability is causing the symptoms." },
         ],
@@ -203,11 +203,11 @@ function BehandlungenPage() {
     de: {
       heroEyebrow: "München · Stiglmaierplatz",
       heroH1: "Rücken­behandlungen",
-      heroSubtitle: "Von der Infiltration bis zur Mikrochirurgie — individuell abgestimmt.",
+      heroSubtitle: "Von der Infiltration bis zur Mikrochirurgie, individuell abgestimmt.",
       introHeading: "Behandlungsmöglichkeiten im Überblick",
-      introParagraph: "Rückenschmerzen haben viele Ursachen — die Behandlung muss deshalb individuell sein. Im Wirbelsäulenzentrum am Stiglmaierplatz in München begleiten wir unsere Patienten vom ersten Gespräch bis zur Beschwerdefreiheit: mit einem ganzheitlichen Blick auf Körper und Befund, nicht nur auf das Symptom. Wir denken in drei Stufen: Verfahren ohne Operation, minimalinvasive Eingriffe und Wirbelsäulenchirurgie.",
+      introParagraph: "Rückenschmerzen haben viele Ursachen, die Behandlung muss deshalb individuell sein. Im Wirbelsäulenzentrum am Stiglmaierplatz in München begleiten wir unsere Patienten vom ersten Gespräch bis zur Beschwerdefreiheit: mit einem ganzheitlichen Blick auf Körper und Befund, nicht nur auf das Symptom. Wir denken in drei Stufen: Verfahren ohne Operation, minimalinvasive Eingriffe und Wirbelsäulenchirurgie.",
       pullQuote: "„Jeder Patient bekommt genau das, was sein Befund erfordert.“",
-      pullQuoteAttribution: "— WZAS Grundsatz",
+      pullQuoteAttribution: ", WZAS Grundsatz",
       spectrumHeading: "Das Behandlungsspektrum",
       bridgeParagraph: "Noch keine Diagnose? Zuerst Ihr Krankheitsbild verstehen.",
       bookingHeading: "Welche Behandlung ist die richtige für mich?",
@@ -218,11 +218,11 @@ function BehandlungenPage() {
     en: {
       heroEyebrow: "Munich · Stiglmaierplatz",
       heroH1: "Spine Treatments",
-      heroSubtitle: "From injection therapy to microsurgery — individually tailored.",
+      heroSubtitle: "From injection therapy to microsurgery, individually tailored.",
       introHeading: "Treatment options at a glance",
-      introParagraph: "Back pain has many causes — treatment must therefore be individual. At the Spine Centre at Stiglmaierplatz in Munich, we accompany our patients from the first consultation through to full recovery: with a holistic view of the body and findings, not just the symptom. We work in three stages: non-surgical treatments, minimally invasive procedures and spinal surgery.",
+      introParagraph: "Back pain has many causes, treatment must therefore be individual. At the Spine Centre at Stiglmaierplatz in Munich, we accompany our patients from the first consultation through to full recovery: with a holistic view of the body and findings, not just the symptom. We work in three stages: non-surgical treatments, minimally invasive procedures and spinal surgery.",
       pullQuote: "“Every patient receives exactly what their diagnosis requires.”",
-      pullQuoteAttribution: "— WZAS principle",
+      pullQuoteAttribution: ", WZAS principle",
       spectrumHeading: "The treatment spectrum",
       bridgeParagraph: "No diagnosis yet? First understand your condition.",
       bookingHeading: "Which treatment is right for me?",
@@ -286,7 +286,7 @@ function BehandlungenPage() {
             <h2 className="font-display text-4xl lg:text-5xl font-semibold text-[#1E2535] mb-3">
               {t.spectrumHeading}
             </h2>
-            {/* Gold connector line with dots — desktop only */}
+            {/* Gold connector line with dots, desktop only */}
             <div className="hidden lg:flex items-center mb-6 mt-6">
               {categories.map((cat, i) => (
                 <React.Fragment key={cat.id}>
@@ -340,7 +340,7 @@ function BehandlungenPage() {
                         </div>
                       </div>
                     ))}
-                    {/* Wolfart callout — only for chirurgie category */}
+                    {/* Wolfart callout, only for chirurgie category */}
                     {cat.id === "chirurgie" && <WolfartCallout />}
                   </div>
                 </div>

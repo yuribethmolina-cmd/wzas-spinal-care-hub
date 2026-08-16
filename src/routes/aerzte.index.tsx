@@ -31,7 +31,7 @@ function AerztePage() {
       teamLabel: "DAS TEAM",
       profileLink: "Profil ansehen",
       ctaH2: "Termin buchen",
-      ctaBody: "Unser Team begleitet Sie von der Diagnose bis zur Genesung — konservativ, wenn möglich – operativ, wenn nötig.",
+      ctaBody: "Unser Team begleitet Sie von der Diagnose bis zur Genesung, konservativ, wenn möglich, operativ, wenn nötig.",
       ctaBtn: "Jetzt buchen",
     },
     en: {
@@ -42,7 +42,7 @@ function AerztePage() {
       teamLabel: "OUR SPECIALISTS",
       profileLink: "View profile",
       ctaH2: "Book an appointment",
-      ctaBody: "Our team accompanies you from diagnosis to recovery — conservative care when possible, surgery only when necessary.",
+      ctaBody: "Our team accompanies you from diagnosis to recovery, conservative care when possible, surgery only when necessary.",
       ctaBtn: "Book now",
     },
   });
@@ -51,7 +51,7 @@ function AerztePage() {
     <div className="min-h-screen bg-[#F8F8F6]">
       <SiteNav />
 
-      {/* ── Hero — team photo full-bleed ── */}
+      {/* ── Hero, team photo full-bleed ── */}
       <section className="relative h-[62vh] min-h-[460px] overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center bg-[center_40%] scale-[1.02]"
