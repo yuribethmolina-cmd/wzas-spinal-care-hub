@@ -152,7 +152,7 @@ function BehandlungenPage() {
     en: [
       {
         name: "Non-surgical Treatments",
-        description: "Pain therapy, injections and rehabilitation, aimed at preserving natural mobility.",
+        description: "Most back conditions never need surgery, targeted injections, medication-based pain therapy, physiotherapy and physical treatments come first.",
         methods: [
           { name: "Injection Therapy", desc: "Targeted injections with anti-inflammatory agents directly at the source of pain." },
           { name: "Medication Therapy", desc: "Individually tailored pain management and muscle relaxants for acute and chronic symptoms." },
