@@ -141,7 +141,7 @@ function BehandlungenPage() {
       },
       {
         name: "Wirbelsäulenchirurgie",
-        description: "Operative Versorgung, wenn konservative und minimalinvasive Maßnahmen keine ausreichende Linderung bringen.",
+        description: "Modernste mikrochirurgische Techniken: präzise, schonend und mit dem klaren Ziel, Ihre natürliche Beweglichkeit zu erhalten.",
         methods: [
           { name: "Mikrochirurgische Verfahren", desc: "Operation unter dem hochauflösenden Operationsmikroskop über kleinste Schnitte, präzise und gewebeschonend." },
           { name: "Bewegungserhaltende Verfahren", desc: "Dynamische Rekonstruktion und Stabilisierung erkrankter Segmente als Alternative zur Versteifung." },
