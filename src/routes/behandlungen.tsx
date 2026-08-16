@@ -122,7 +122,7 @@ function BehandlungenPage() {
     de: [
       {
         name: "Verfahren ohne Operation",
-        description: "Schmerztherapie, Infiltrationen und Rehabilitation, mit dem Ziel, natürliche Beweglichkeit zu erhalten.",
+        description: "Die meisten Rückenerkrankungen müssen nicht operiert werden, gezielte Infiltrationen, medikamentöse Schmerztherapie, Physiotherapie und physikalische Behandlungen sind der erste Schritt.",
         methods: [
           { name: "Infiltrationstherapie", desc: "Gezielte Injektionen mit entzündungshemmenden Wirkstoffen direkt an die Schmerzquelle." },
           { name: "Medikamentöse Therapie", desc: "Individuell angepasste Schmerztherapie und Muskelrelaxantien für akute und chronische Beschwerden." },
