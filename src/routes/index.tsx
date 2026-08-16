@@ -577,7 +577,7 @@ function Hero() {
       h1a: "Backbone",
       h1b: "for Munich.",
       h1c: "",
-      sub: "20 years of experience.\u00a0\n12 specialists.\u00a0\nConservative treatment first —\u00a0\nsurgery only when necessary.",
+      sub: "20 years of experience.\u00a0\n13 specialists.\u00a0\nConservative treatment first —\u00a0\nsurgery only when necessary.",
       chipsLabel: "What brings you to us?",
       chips: ["Acute back pain", "Chronic pain", "Herniated disc", "Sciatica", "Post-surgery"],
       book: "Book appointment",

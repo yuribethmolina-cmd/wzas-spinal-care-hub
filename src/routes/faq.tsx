@@ -36,44 +36,60 @@ type FaqItem = { de: { q: string; a: string }; en: { q: string; a: string } };
 
 const FAQ_ITEMS: FaqItem[] = [
   {
-    de: { q: "Brauche ich eine Überweisung?", a: "Nein. Sie können sich direkt anmelden — ohne Überweisung vom Hausarzt. Für gesetzlich Versicherte empfehlen wir dennoch eine Überweisung vom Facharzt, da diese die Abrechnung vereinfacht. Privatpatienten kommen jederzeit ohne Überweisung." },
-    en: { q: "Do I need a referral?", a: "No. You can register directly — without a referral from your GP. For patients with statutory insurance we recommend a specialist referral as it simplifies billing. Private patients may come at any time without a referral." },
+    de: { q: "Was muss ich zu meinem Termin mitbringen?", a: "Jeder Patient sollte die Versicherungskarte und sämtliche ihm zur Verfügung stehenden Unterlagen dabei haben, die seine Wirbelsäule betreffen — also z.\u00a0B. MRT-Bilder, CT-Bilder, Röntgenaufnahmen, Befunde und Arztbriefe." },
+    en: { q: "What do I need to bring to my appointment?", a: "Please bring your insurance card and all documents you have relating to your spine — for example MRI images, CT images, X-rays, findings and doctors' letters." },
   },
   {
-    de: { q: "Wie lange warte ich auf einen Termin?", a: "In der Regel erhalten Sie einen Termin etwa zwei bis drei Wochen nach Vereinbarung. Bei medizinischen Notfällen rufen Sie uns bitte direkt an: +49 (0)89-54 34 30 30." },
-    en: { q: "How long is the wait for an appointment?", a: "As a rule you will receive an appointment approximately two to three weeks after scheduling. For medical emergencies please call us directly: +49 (0)89-54 34 30 30." },
+    de: { q: "Kann ich ohne Überweisung einen Termin vereinbaren?", a: "Ja, Sie können sich direkt an unser Wirbelsäulenzentrum am Stiglmaierplatz in München wenden, ohne vorher einen Hausarzt aufzusuchen. Wir empfehlen jedoch, vorhandene Vorbefunde oder Bildgebungen mitzubringen." },
+    en: { q: "Can I make an appointment without a referral?", a: "Yes, you can contact our spine centre at Stiglmaierplatz in Munich directly, without seeing a GP first. We do recommend bringing any existing findings or imaging with you." },
   },
   {
-    de: { q: "Welche Kassen werden akzeptiert?", a: "Wir behandeln Patienten aller gesetzlichen und privaten Krankenversicherungen sowie Selbstzahler. Die genauen Leistungen variieren je nach Versicherungsvertrag — sprechen Sie uns bei Fragen gerne an." },
-    en: { q: "Which insurances do you accept?", a: "We treat patients with all statutory and private health insurances as well as self-paying patients. The exact covered services vary by insurance contract — please contact us if you have questions." },
+    de: { q: "Sie behandeln privat versicherte genauso wie gesetzlich versicherte Patient:innen?", a: "Ja, selbstverständlich behandeln wir sowohl gesetzlich als auch privat versicherte Patienten." },
+    en: { q: "Do you treat both privately and statutorily insured patients?", a: "Yes, of course we treat both statutorily and privately insured patients." },
   },
   {
-    de: { q: "Was soll ich zum Ersttermin mitbringen?", a: "Bringen Sie bitte mit: Ihre Krankenversicherungskarte, alle vorhandenen Bilder (MRT, CT, Röntgenaufnahmen) auf CD oder als Ausdruck, Befundberichte und Arztbriefe früherer Behandlungen sowie eine Liste Ihrer aktuellen Medikamente." },
-    en: { q: "What should I bring to my first appointment?", a: "Please bring: your health insurance card, all existing imaging (MRI, CT, X-rays) on CD or printout, reports and letters from previous treatments, and a list of your current medications." },
+    de: { q: "Wie lange dauert ein Termin?", a: "Die Dauer des Termins hängt davon ab, welche Unterlagen und Befunde bereits vorliegen oder noch ergänzt werden müssen. Ist eine Aufnahme der Wirbelsäule in unserem MRT oder CT nötig, koordinieren wir diese möglichst mit Ihrem Ambulanztermin, so dass sich Ihr Aufenthalt auf ein Mindestmaß beschränkt. Oftmals besteht die Möglichkeit, sofort mit Therapiemaßnahmen zu beginnen: In diesem Fall dauert Ihr Besuch bei uns natürlich etwas länger." },
+    en: { q: "How long does an appointment take?", a: "It depends on which documents and findings are already available or still need to be added. If an MRI or CT scan of the spine is required, we coordinate it with your outpatient appointment wherever possible so your stay is kept to a minimum. Often treatment can begin right away — in that case your visit naturally takes a little longer." },
   },
   {
-    de: { q: "Bedeutet meine Diagnose automatisch eine Operation?", a: "Nein — keineswegs. Mehr als 90% unserer Patienten werden ohne Operation behandelt. Wir verfolgen konsequent den Grundsatz: konservativ, wenn möglich – operativ, wenn nötig. In einem ausführlichen Erstgespräch besprechen wir alle Optionen." },
-    en: { q: "Does my diagnosis automatically mean surgery?", a: "Not at all. More than 90% of our patients are treated without surgery. We consistently follow the principle: conservative care when possible, surgery only when necessary. We discuss all options in detail at your first appointment." },
+    de: { q: "Wie lange muss ich auf einen Termin warten?", a: "In der Regel erhalten Sie Termine etwa zwei bis drei Wochen nach Vereinbarung. In dringlichen medizinischen Notfällen bitten wir um eine telefonische Anmeldung, am besten über den zuweisenden Arzt. Wir bemühen uns dann um einen zeitnahen Termin." },
+    en: { q: "How long is the wait for an appointment?", a: "As a rule you will receive an appointment about two to three weeks after scheduling. In urgent medical emergencies please register by phone, ideally through the referring doctor — we will then do our best to find an early appointment." },
   },
   {
-    de: { q: "Wie läuft ein Ersttermin ab?", a: "Ein Ersttermin dauert in der Regel 30 bis 45 Minuten. Der Ablauf: ausführliche Anamnese und Beschwerdebeschreibung, körperliche Untersuchung, Besprechung vorhandener Befunde und Bildgebung, Erklärung möglicher Diagnosen und Therapieoptionen, gemeinsames Festlegen des nächsten Schrittes." },
-    en: { q: "What happens at a first appointment?", a: "A first appointment typically takes 30 to 45 minutes. The process: detailed medical history and symptom description, physical examination, review of existing findings and imaging, explanation of possible diagnoses and treatment options, and jointly deciding the next step." },
+    de: { q: "Ich bin ein Notfall, wohin soll ich mich wenden?", a: "Während der Sprechzeiten melden Sie sich bitte bei unserer Hotline unter der Telefonnummer +49 (0)89 54 34 30 30. Dort erfahren Sie, was zu tun ist." },
+    en: { q: "I am an emergency — where should I turn?", a: "During consultation hours please call our hotline on +49 (0)89 54 34 30 30. There you will be told what to do." },
   },
   {
-    de: { q: "Wo finden Operationen statt?", a: "Wenn ein operativer Eingriff notwendig ist, wird dieser in der WolfartKlinik München-Gräfelfing durchgeführt — einer der führenden Privatkliniken für Neurochirurgie und Orthopädie in Bayern. Unsere Chirurgen begleiten Sie durch den gesamten Prozess." },
-    en: { q: "Where do surgeries take place?", a: "When a surgical procedure is required, it is performed at the WolfartKlinik Munich-Gräfelfing — one of Bavaria's leading private clinics for neurosurgery and orthopaedics. Our surgeons accompany you through the entire process." },
+    de: { q: "Wann ist bei Rückenschmerzen eine Operation notwendig?", a: "Die meisten Rückenbeschwerden lassen sich ohne Operation erfolgreich behandeln. Im Wirbelsäulenzentrum am Stiglmaierplatz in München kann in rund 90 Prozent der Fälle auf einen Eingriff verzichtet werden. Eine Operation ist in der Regel nur dann notwendig, wenn konservative Therapien nicht anschlagen oder neurologische Ausfälle wie Taubheitsgefühle oder Lähmungen auftreten." },
+    en: { q: "When is surgery necessary for back pain?", a: "Most back complaints can be treated successfully without surgery. At the spine centre at Stiglmaierplatz in Munich, around 90 percent of cases can be managed without an operation. Surgery is usually only necessary when conservative therapies do not work or neurological deficits such as numbness or paralysis occur." },
   },
   {
-    de: { q: "Wie lange dauert die Genesung nach einer OP?", a: "Das hängt stark von der Art des Eingriffs ab. Minimalinvasive Eingriffe: häufig 2–4 Wochen. Größere Fusionsoperationen: 6–12 Wochen. Im Entlassgespräch erhalten Sie einen individualisierten Genesungsplan mit allen wichtigen Schritten und Kontrollterminen." },
-    en: { q: "How long is recovery after surgery?", a: "This depends strongly on the type of procedure. Minimally invasive procedures: often 2–4 weeks. Larger fusion operations: 6–12 weeks. At discharge you receive an individualised recovery plan with all key milestones and follow-up appointments." },
+    de: { q: "Welche Therapien werden angeboten?", a: "Wir bieten das gesamte Spektrum der konservativen, interventionellen und operativen Wirbelsäulenbehandlung an. Unser Zentrum verfügt sowohl über ambulante als auch stationäre Einrichtungen." },
+    en: { q: "Which therapies do you offer?", a: "We offer the entire spectrum of conservative, interventional and surgical spine treatment. Our centre has both outpatient and inpatient facilities." },
   },
   {
-    de: { q: "Bieten Sie Physiotherapie an?", a: "Physiotherapie ist ein wichtiger Baustein unseres konservativen Behandlungskonzepts. Wir koordinieren die Physiotherapie in enger Zusammenarbeit mit qualifizierten Praxen und geben Ihnen bei Bedarf eine Überweisung zu unseren Partnern." },
-    en: { q: "Do you offer physiotherapy?", a: "Physiotherapy is an important component of our conservative treatment approach. We coordinate physiotherapy in close collaboration with qualified practices and issue referrals to our partners as needed." },
+    de: { q: "Wird das MRT direkt bei Ihnen in München durchgeführt?", a: "Ja. Unser Radiologiezentrum RZaS am Stiglmaierplatz verfügt über moderne MRT- und CT-Geräte direkt im Haus. Für Patienten bedeutet das: keine langen Wartezeiten auf externe Termine und eine schnelle, direkte Abstimmung mit unseren Wirbelsäulenspezialisten in München." },
+    en: { q: "Is the MRI performed on site in Munich?", a: "Yes. Our radiology centre RZaS at Stiglmaierplatz has modern MRI and CT scanners directly in the building. For patients that means no long waits for external appointments and fast, direct coordination with our spine specialists in Munich." },
   },
   {
-    de: { q: "Wie erreiche ich das Zentrum?", a: "Wir befinden uns in der Nymphenburger Str. 1, 80335 München, am Stiglmaierplatz. U-Bahn: U1 / U7, Haltestelle Stiglmaierplatz. Straßenbahn: Linien 20, 21, 22 — Haltestelle direkt vor der Tür. Parkhaus in unmittelbarer Nähe, barrierefreier Zugang zur Praxis." },
-    en: { q: "How do I get to the centre?", a: "We are at Nymphenburger Str. 1, 80335 Munich, at Stiglmaierplatz. U-Bahn: U1 / U7, stop Stiglmaierplatz. Tram: lines 20, 21, 22 — stop directly in front of the entrance. Car park nearby, barrier-free access to the practice." },
+    de: { q: "Was ist der Unterschied zwischen einem Bandscheibenvorfall und einer Spinalkanalstenose?", a: "Beim Bandscheibenvorfall tritt Bandscheibengewebe aus und drückt auf benachbarte Nerven, was häufig zu akuten Schmerzen führt, die in Bein oder Arm ausstrahlen. Die Spinalkanalstenose ist eine Verengung des Wirbelkanals, die meist durch Verschleiß entsteht und typischerweise bei längerem Gehen Schmerzen verursacht. Beide Erkrankungen behandeln wir konservativ und wenn nötig operativ." },
+    en: { q: "What is the difference between a herniated disc and spinal canal stenosis?", a: "With a herniated disc, disc tissue emerges and presses on adjacent nerves, often causing acute pain radiating into the leg or arm. Spinal canal stenosis is a narrowing of the spinal canal, usually caused by wear, and typically causes pain when walking longer distances. We treat both conditions conservatively and, when necessary, surgically." },
+  },
+  {
+    de: { q: "Werde ich immer vom selben Arzt behandelt?", a: "In der Regel werden Sie immer vom selben Arzt behandelt. Nachdem unsere Spezialisten verschiedene Schwerpunkte haben, entscheidet oftmals Ihr Beschwerdebild, welcher Arzt die Leitung Ihrer Behandlung übernimmt. Dennoch kommt es manchmal, vor allem bei kurzfristigen Terminen, vor, dass ein anderer Arzt Sie betreut." },
+    en: { q: "Will I always be treated by the same doctor?", a: "As a rule you will always be treated by the same doctor. As our specialists have different focus areas, your symptoms often determine which doctor leads your treatment. Occasionally, especially with short-notice appointments, another doctor may look after you." },
+  },
+  {
+    de: { q: "Wo wird operiert?", a: "Operationen finden in der Regel in der WolfartKlinik München-Gräfelfing statt. Alle Kliniken sind hervorragend ausgestattet und bieten ein erfahrenes und eingespieltes Team zur Betreuung." },
+    en: { q: "Where are operations performed?", a: "Operations usually take place at the WolfartKlinik Munich-Gräfelfing. All clinics are excellently equipped and provide an experienced, well-coordinated team." },
+  },
+  {
+    de: { q: "Ist die Praxis spezialisiert?", a: "Ja, wir sind auf alle Formen von Wirbelsäulenerkrankungen spezialisiert. Da zu unserem Zentrum auch eine bestens ausgestattete Radiologie sowie die Anbindung an mehrere Kliniken gehören, können wir von der Diagnose über die konventionelle Therapie bis zur minimalinvasiven Operation das komplette Spektrum an modernen Untersuchungsmethoden und Behandlungsmöglichkeiten anbieten." },
+    en: { q: "Is the practice specialised?", a: "Yes, we specialise in all forms of spinal disorders. As our centre also includes a very well equipped radiology department and links to several clinics, we can offer the complete spectrum from diagnosis through conventional therapy to minimally invasive surgery." },
+  },
+  {
+    de: { q: "Wie erreiche ich das Zentrum?", a: "Unsere Praxis befindet sich in der Nymphenburger Str. 1, 80335 München, direkt am Stiglmaierplatz gegenüber dem Löwenbräukeller. Mit öffentlichen Verkehrsmitteln: U-Bahn U1, Haltestelle Stiglmaierplatz, sowie Trambahnlinie 21 vom Hauptbahnhof bzw. Karlsplatz/Stachus. Mit dem Auto: eine gewisse Anzahl an Stellplätzen steht in unserer Tiefgarage zur Verfügung, Zufahrt über die Seidlstraße; es empfiehlt sich, auf die öffentlichen Verkehrsmittel auszuweichen. Öffnungszeiten: Montag bis Freitag 8.00–17.00 Uhr." },
+    en: { q: "How do I get to the centre?", a: "Our practice is at Nymphenburger Str. 1, 80335 Munich, directly at Stiglmaierplatz opposite the Löwenbräukeller. By public transport: underground line U1, stop Stiglmaierplatz, and tram line 21 from the main station or Karlsplatz/Stachus. By car: a certain number of spaces are available in our underground car park, access via Seidlstraße; using public transport is recommended. Opening hours: Monday to Friday 8.00–17.00." },
   },
 ];
 
@@ -83,7 +99,7 @@ export const Route = createFileRoute("/faq")({
   head: () => ({
     meta: [
       { title: "Häufige Fragen · WZAS Wirbelsäulenzentrum München" },
-      { name: "description", content: "Antworten auf die häufigsten Fragen von Patienten: Überweisung, Wartezeiten, Kassenleistungen, Ablauf des Ersttermins und Genesungszeit nach Operationen." },
+      { name: "description", content: "Antworten auf die häufigsten Fragen: Unterlagen zum Termin, Wartezeiten, Überweisung, MRT im Haus, Ablauf der Behandlung und wo operiert wird." },
     ],
   }),
   component: FaqPage,
