@@ -25,11 +25,11 @@ export const DOCS: Doc[] = [
     topics: ["ablauf", "termin", "konservativ", "operation"],
     de: {
       title: "Ablauf der Behandlung",
-      desc: "Von der ersten Kontaktaufnahme über Diagnostik und Therapie bis zur Nachsorge — Schritt für Schritt erklärt.",
+      desc: "Von der ersten Kontaktaufnahme über Diagnostik und Therapie bis zur Nachsorge, Schritt für Schritt erklärt.",
     },
     en: {
       title: "Course of treatment",
-      desc: "From first contact through diagnostics and therapy to follow-up care — explained step by step.",
+      desc: "From first contact through diagnostics and therapy to follow-up care, explained step by step.",
     },
   },
   {

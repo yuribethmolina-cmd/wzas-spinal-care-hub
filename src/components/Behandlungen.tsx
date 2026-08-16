@@ -63,7 +63,7 @@ export function Behandlungen() {
         "Wir denken in drei Stufen: Verfahren ohne Operation, minimalinvasive Eingriffe und Wirbelsäulenchirurgie. Unser Grundsatz: konservative Behandlung wenn möglich, Operation wenn nötig.",
       leftKicker: "Ohne Operation",
       leftH: "Konservative Verfahren",
-      leftIntro: "Die meisten Rückenerkrankungen müssen nicht operiert werden — sie sind der erste und oft einzige Schritt.",
+      leftIntro: "Die meisten Rückenerkrankungen müssen nicht operiert werden, sie sind der erste und oft einzige Schritt.",
       leftRows: [
         { title: "Infiltrationstherapie", text: "Schmerzlindernde und entzündungshemmende Medikamente unter Röntgenkontrolle gezielt an den Schmerzort." },
         { title: "Medikamentöse Therapie", text: "Tabletten oder Infusionen, um die Spirale aus Schmerz, Schonhaltung und Verspannung zu durchbrechen." },
@@ -82,7 +82,7 @@ export function Behandlungen() {
       rightH: "Wenn es nötig wird",
       rightIntro: "Mikrochirurgisch, gewebeschonend und mit klarer Indikation, nicht als Standardlösung.",
       rightRows: [
-        { title: "Mikrochirurgische Verfahren", text: "Operation unter dem hochauflösenden Mikroskop über kleinste Schnitte — präzise und sicher." },
+        { title: "Mikrochirurgische Verfahren", text: "Operation unter dem hochauflösenden Mikroskop über kleinste Schnitte, präzise und sicher." },
         { title: "Bewegungserhaltende Verfahren", text: "Dynamische Rekonstruktion und Stabilisierung, wo eine Versteifung vermeidbar ist." },
         { title: "Stabilisierende Verfahren", text: "Implantate, Verschraubungen oder Spondylodese bei ausgeprägter Instabilität." },
       ],
@@ -95,7 +95,7 @@ export function Behandlungen() {
         "We work in three stages: non-surgical procedures, minimally invasive interventions and spinal surgery. Our principle: conservative treatment where possible, surgery where necessary.",
       leftKicker: "Without surgery",
       leftH: "Conservative procedures",
-      leftIntro: "Most back conditions never need an operation — this is the first and often the only step.",
+      leftIntro: "Most back conditions never need an operation, this is the first and often the only step.",
       leftRows: [
         { title: "Injection therapy", text: "Pain-relieving, anti-inflammatory medication placed at the source of pain under X-ray guidance." },
         { title: "Medication therapy", text: "Tablets or infusions to break the cycle of pain, protective posture and muscle tension." },
@@ -112,9 +112,9 @@ export function Behandlungen() {
       ],
       rightKicker: "Surgical",
       rightH: "When it becomes necessary",
-      rightIntro: "Microsurgical, tissue-sparing and with a clear indication — never the default answer.",
+      rightIntro: "Microsurgical, tissue-sparing and with a clear indication, never the default answer.",
       rightRows: [
-        { title: "Microsurgical procedures", text: "Surgery through the smallest incisions using a high-resolution microscope — precise and safe." },
+        { title: "Microsurgical procedures", text: "Surgery through the smallest incisions using a high-resolution microscope, precise and safe." },
         { title: "Motion-preserving procedures", text: "Dynamic reconstruction and stabilisation wherever fusion can be avoided." },
         { title: "Stabilising procedures", text: "Implants, screw fixation or spondylodesis in cases of pronounced instability." },
       ],

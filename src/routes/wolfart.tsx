@@ -41,7 +41,7 @@ export const Route = createFileRoute("/wolfart")({
   head: () => ({
     meta: [
       { title: "WolfartKlinik · WZAS Wirbelsäulenzentrum München" },
-      { name: "description", content: "Operative Eingriffe führen die Chirurgen des WZAS in der WolfartKlinik München-Gräfelfing durch — eine der führenden Privatkliniken für Neurochirurgie und Orthopädie in Bayern." },
+      { name: "description", content: "Operative Eingriffe führen die Chirurgen des WZAS in der WolfartKlinik München-Gräfelfing durch, eine der führenden Privatkliniken für Neurochirurgie und Orthopädie in Bayern." },
     ],
   }),
   component: WolfartPage,
@@ -58,16 +58,16 @@ function WolfartPage() {
       heroH1: "WolfartKlinik",
       heroSubtitle: "Wo komplexe Eingriffe gelingen.",
       introHeading: "Unser chirurgischer Partner in München-Gräfelfing",
-      introParagraph: "Wenn eine Operation notwendig ist, führen die Spezialisten des WZAS den Eingriff in der WolfartKlinik München-Gräfelfing durch — einer der führenden Privatkliniken für Neurochirurgie, Orthopädie und Schmerzmedizin in Bayern. Die enge Abstimmung zwischen Praxis und Klinik gewährleistet, dass jeder Patient von der Diagnostik bis zur Entlassung betreut wird.",
+      introParagraph: "Wenn eine Operation notwendig ist, führen die Spezialisten des WZAS den Eingriff in der WolfartKlinik München-Gräfelfing durch, einer der führenden Privatkliniken für Neurochirurgie, Orthopädie und Schmerzmedizin in Bayern. Die enge Abstimmung zwischen Praxis und Klinik gewährleistet, dass jeder Patient von der Diagnostik bis zur Entlassung betreut wird.",
       pullQuote: '„Optimale Ergebnisse durch nahtlose Zusammenarbeit zwischen Praxis und Klinik."',
-      attribution: "— WZAS",
+      attribution: ", WZAS",
       benefitsHeading: "Was die WolfartKlinik bietet",
       benefit1Heading: "Modernste OP-Säle",
       benefit1Text: "Hochauflösende Bildgebung im OP, minimalinvasive Instrumente und computergestütztes Navigationssystem für präzise Eingriffe.",
       benefit2Heading: "Stationäre Betreuung",
       benefit2Text: "Erfahrenes Pflegeteam und direkte Erreichbarkeit der behandelnden Ärzte für eine sichere Genesung nach dem Eingriff.",
       benefit3Heading: "Lückenlose Abstimmung",
-      benefit3Text: "Direkte Kommunikation zwischen der WZAS-Praxis und dem Klinikteam — keine Informationsverluste, keine unnötigen Wege.",
+      benefit3Text: "Direkte Kommunikation zwischen der WZAS-Praxis und dem Klinikteam, keine Informationsverluste, keine unnötigen Wege.",
       networkHeading: "Das WZAS-Netzwerk",
       bookingHeading: "Chirurgische Behandlung besprechen?",
       bookingBody: "Unsere Spezialisten erklären Ihnen, ob eine Operation sinnvoll ist und was in der WolfartKlinik auf Sie zukommt.",
@@ -78,16 +78,16 @@ function WolfartPage() {
       heroH1: "WolfartKlinik",
       heroSubtitle: "Where complex procedures succeed.",
       introHeading: "Our surgical partner in Munich-Gräfelfing",
-      introParagraph: "When surgery is required, WZAS specialists perform the procedure at the WolfartKlinik Munich-Gräfelfing — one of Bavaria's leading private clinics for neurosurgery, orthopaedics and pain medicine. Close coordination between our practice and the clinic ensures continuity of care from diagnosis through discharge.",
+      introParagraph: "When surgery is required, WZAS specialists perform the procedure at the WolfartKlinik Munich-Gräfelfing, one of Bavaria's leading private clinics for neurosurgery, orthopaedics and pain medicine. Close coordination between our practice and the clinic ensures continuity of care from diagnosis through discharge.",
       pullQuote: '"Optimal outcomes through seamless collaboration between practice and clinic."',
-      attribution: "— WZAS",
+      attribution: ", WZAS",
       benefitsHeading: "What the WolfartKlinik offers",
       benefit1Heading: "State-of-the-art theatres",
       benefit1Text: "High-resolution intraoperative imaging, minimally invasive instruments and computer-assisted navigation for precise procedures.",
       benefit2Heading: "Inpatient care",
       benefit2Text: "Experienced nursing team and direct access to attending physicians for a safe recovery after the procedure.",
       benefit3Heading: "Seamless coordination",
-      benefit3Text: "Direct communication between the WZAS practice and the clinic team — no information gaps, no unnecessary detours.",
+      benefit3Text: "Direct communication between the WZAS practice and the clinic team, no information gaps, no unnecessary detours.",
       networkHeading: "The WZAS network",
       bookingHeading: "Discuss surgical treatment?",
       bookingBody: "Our specialists will explain whether surgery is appropriate and what to expect at the WolfartKlinik.",
@@ -114,7 +114,7 @@ function WolfartPage() {
       <PageHeader activeRoute="/wolfart" />
 
       <main>
-        {/* Hero — static (no kenBurns) */}
+        {/* Hero, static (no kenBurns) */}
         <section className="relative h-[60vh] min-h-[420px] overflow-hidden">
           <div
             className="absolute inset-0 bg-cover bg-center"

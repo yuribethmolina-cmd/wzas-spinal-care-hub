@@ -6,7 +6,7 @@ import { AppointmentCalendar } from "@/components/AppointmentCalendar";
 type Flow = "book" | "ask";
 
 /**
- * Two clearly separated appointment paths (prototype — no backend):
+ * Two clearly separated appointment paths (prototype, no backend):
  *  - Primary: book a real slot (long flow, ends with a confirmed date)
  *  - Secondary: send an inquiry (short flow, team replies)
  * Both simulate their steps inline with Weiter / Zurück and a final summary.
@@ -20,7 +20,7 @@ export function AppointmentChoice() {
       bookMeta: "ca. 2 Minuten · sofortige Bestätigung",
       bookCta: "Termin buchen",
       askKicker: "Anfrage",
-      askTitle: "Frage stellen – ohne festen Termin",
+      askTitle: "Frage stellen, ohne festen Termin",
       askSteps: ["Anliegen beschreiben", "Kontaktdaten angeben", "Absenden"],
       askMeta: "Antwort innerhalb eines Werktags",
       askCta: "Anfrage senden",
@@ -34,7 +34,7 @@ export function AppointmentChoice() {
       summaryTitle: "Zusammenfassung",
       bookDone: "Terminwunsch übermittelt. Sie erhalten eine Bestätigung per E-Mail.",
       askDone: "Anfrage übermittelt. Wir antworten innerhalb eines Werktags.",
-      prototype: "Prototyp – es werden keine Daten gesendet.",
+      prototype: "Prototyp, es werden keine Daten gesendet.",
       bookOptions: [
         ["Gesetzlich versichert", "Privat versichert", "Selbstzahler"],
         ["Dr. Wing Mann Ho", "Dr. Christian Wolfart", "Erste freie Sprechstunde"],
@@ -53,7 +53,7 @@ export function AppointmentChoice() {
       bookMeta: "approx. 2 minutes · instant confirmation",
       bookCta: "Book appointment",
       askKicker: "Inquiry",
-      askTitle: "Ask a question – no fixed date",
+      askTitle: "Ask a question, no fixed date",
       askSteps: ["Describe your concern", "Add your contact details", "Send"],
       askMeta: "Reply within one business day",
       askCta: "Send inquiry",
@@ -67,7 +67,7 @@ export function AppointmentChoice() {
       summaryTitle: "Summary",
       bookDone: "Appointment request sent. You will receive a confirmation by email.",
       askDone: "Inquiry sent. We will reply within one business day.",
-      prototype: "Prototype – no data is submitted.",
+      prototype: "Prototype, no data is submitted.",
       bookOptions: [
         ["Statutory insurance", "Private insurance", "Self-payer"],
         ["Dr. Wing Mann Ho", "Dr. Christian Wolfart", "First available doctor"],
@@ -242,7 +242,7 @@ export function AppointmentChoice() {
 
   return (
     <div className="mt-8 grid gap-4 sm:grid-cols-2">
-      {/* Primary — real booking */}
+      {/* Primary, real booking */}
       <div className="flex flex-col rounded-xl bg-[#263044] p-6 sm:p-7 border-t-2 border-[#AC8F52]">
         <p className="text-[11px] uppercase tracking-[0.2em] text-[#AC8F52] font-medium flex items-center gap-2">
           <span className="inline-block w-4 h-px bg-[#AC8F52]" />
@@ -269,7 +269,7 @@ export function AppointmentChoice() {
         </button>
       </div>
 
-      {/* Secondary — inquiry */}
+      {/* Secondary, inquiry */}
       <div className="flex flex-col rounded-xl border border-white/15 bg-white/[0.03] p-6 sm:p-7">
         <p className="text-[11px] uppercase tracking-[0.2em] text-[#A7AEBA] font-medium flex items-center gap-2">
           <span className="inline-block w-4 h-px bg-[#A7AEBA]" />

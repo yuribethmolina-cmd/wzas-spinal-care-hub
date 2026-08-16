@@ -94,7 +94,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { name: "robots", content: "noindex, nofollow" },
       { title: "WZAS · Wirbelsäulenzentrum am Stiglmaierplatz München" },
-      { name: "description", content: "Rückengesundheit für München. 20 Jahre Erfahrung, 13 Spezialisten. Konservative Behandlung zuerst — Operation nur wenn nötig." },
+      { name: "description", content: "Rückengesundheit für München. 20 Jahre Erfahrung, 13 Spezialisten. Konservative Behandlung zuerst, Operation nur wenn nötig." },
       { property: "og:title", content: "WZAS · Wirbelsäulenzentrum am Stiglmaierplatz" },
       { property: "og:description", content: "Spezialisten für Wirbelsäule und Rücken in München. Termine für gesetzlich und privat Versicherte." },
       { property: "og:type", content: "website" },

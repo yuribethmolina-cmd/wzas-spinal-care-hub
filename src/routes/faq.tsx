@@ -36,8 +36,8 @@ type FaqItem = { de: { q: string; a: string }; en: { q: string; a: string } };
 
 const FAQ_ITEMS: FaqItem[] = [
   {
-    de: { q: "Was muss ich zu meinem Termin mitbringen?", a: "Jeder Patient sollte die Versicherungskarte und sämtliche ihm zur Verfügung stehenden Unterlagen dabei haben, die seine Wirbelsäule betreffen — also z.\u00a0B. MRT-Bilder, CT-Bilder, Röntgenaufnahmen, Befunde und Arztbriefe." },
-    en: { q: "What do I need to bring to my appointment?", a: "Please bring your insurance card and all documents you have relating to your spine — for example MRI images, CT images, X-rays, findings and doctors' letters." },
+    de: { q: "Was muss ich zu meinem Termin mitbringen?", a: "Jeder Patient sollte die Versicherungskarte und sämtliche ihm zur Verfügung stehenden Unterlagen dabei haben, die seine Wirbelsäule betreffen, also z.\u00a0B. MRT-Bilder, CT-Bilder, Röntgenaufnahmen, Befunde und Arztbriefe." },
+    en: { q: "What do I need to bring to my appointment?", a: "Please bring your insurance card and all documents you have relating to your spine, for example MRI images, CT images, X-rays, findings and doctors' letters." },
   },
   {
     de: { q: "Kann ich ohne Überweisung einen Termin vereinbaren?", a: "Ja, Sie können sich direkt an unser Wirbelsäulenzentrum am Stiglmaierplatz in München wenden, ohne vorher einen Hausarzt aufzusuchen. Wir empfehlen jedoch, vorhandene Vorbefunde oder Bildgebungen mitzubringen." },
@@ -49,15 +49,15 @@ const FAQ_ITEMS: FaqItem[] = [
   },
   {
     de: { q: "Wie lange dauert ein Termin?", a: "Die Dauer des Termins hängt davon ab, welche Unterlagen und Befunde bereits vorliegen oder noch ergänzt werden müssen. Ist eine Aufnahme der Wirbelsäule in unserem MRT oder CT nötig, koordinieren wir diese möglichst mit Ihrem Ambulanztermin, so dass sich Ihr Aufenthalt auf ein Mindestmaß beschränkt. Oftmals besteht die Möglichkeit, sofort mit Therapiemaßnahmen zu beginnen: In diesem Fall dauert Ihr Besuch bei uns natürlich etwas länger." },
-    en: { q: "How long does an appointment take?", a: "It depends on which documents and findings are already available or still need to be added. If an MRI or CT scan of the spine is required, we coordinate it with your outpatient appointment wherever possible so your stay is kept to a minimum. Often treatment can begin right away — in that case your visit naturally takes a little longer." },
+    en: { q: "How long does an appointment take?", a: "It depends on which documents and findings are already available or still need to be added. If an MRI or CT scan of the spine is required, we coordinate it with your outpatient appointment wherever possible so your stay is kept to a minimum. Often treatment can begin right away, in that case your visit naturally takes a little longer." },
   },
   {
     de: { q: "Wie lange muss ich auf einen Termin warten?", a: "In der Regel erhalten Sie Termine etwa zwei bis drei Wochen nach Vereinbarung. In dringlichen medizinischen Notfällen bitten wir um eine telefonische Anmeldung, am besten über den zuweisenden Arzt. Wir bemühen uns dann um einen zeitnahen Termin." },
-    en: { q: "How long is the wait for an appointment?", a: "As a rule you will receive an appointment about two to three weeks after scheduling. In urgent medical emergencies please register by phone, ideally through the referring doctor — we will then do our best to find an early appointment." },
+    en: { q: "How long is the wait for an appointment?", a: "As a rule you will receive an appointment about two to three weeks after scheduling. In urgent medical emergencies please register by phone, ideally through the referring doctor, we will then do our best to find an early appointment." },
   },
   {
     de: { q: "Ich bin ein Notfall, wohin soll ich mich wenden?", a: "Während der Sprechzeiten melden Sie sich bitte bei unserer Hotline unter der Telefonnummer +49 (0)89 54 34 30 30. Dort erfahren Sie, was zu tun ist." },
-    en: { q: "I am an emergency — where should I turn?", a: "During consultation hours please call our hotline on +49 (0)89 54 34 30 30. There you will be told what to do." },
+    en: { q: "I am an emergency, where should I turn?", a: "During consultation hours please call our hotline on +49 (0)89 54 34 30 30. There you will be told what to do." },
   },
   {
     de: { q: "Wann ist bei Rückenschmerzen eine Operation notwendig?", a: "Die meisten Rückenbeschwerden lassen sich ohne Operation erfolgreich behandeln. Im Wirbelsäulenzentrum am Stiglmaierplatz in München kann in rund 90 Prozent der Fälle auf einen Eingriff verzichtet werden. Eine Operation ist in der Regel nur dann notwendig, wenn konservative Therapien nicht anschlagen oder neurologische Ausfälle wie Taubheitsgefühle oder Lähmungen auftreten." },
@@ -88,8 +88,8 @@ const FAQ_ITEMS: FaqItem[] = [
     en: { q: "Is the practice specialised?", a: "Yes, we specialise in all forms of spinal disorders. As our centre also includes a very well equipped radiology department and links to several clinics, we can offer the complete spectrum from diagnosis through conventional therapy to minimally invasive surgery." },
   },
   {
-    de: { q: "Wie erreiche ich das Zentrum?", a: "Unsere Praxis befindet sich in der Nymphenburger Str. 1, 80335 München, direkt am Stiglmaierplatz gegenüber dem Löwenbräukeller. Mit öffentlichen Verkehrsmitteln: U-Bahn U1, Haltestelle Stiglmaierplatz, sowie Trambahnlinie 21 vom Hauptbahnhof bzw. Karlsplatz/Stachus. Mit dem Auto: eine gewisse Anzahl an Stellplätzen steht in unserer Tiefgarage zur Verfügung, Zufahrt über die Seidlstraße; es empfiehlt sich, auf die öffentlichen Verkehrsmittel auszuweichen. Öffnungszeiten: Montag bis Freitag 8.00–17.00 Uhr." },
-    en: { q: "How do I get to the centre?", a: "Our practice is at Nymphenburger Str. 1, 80335 Munich, directly at Stiglmaierplatz opposite the Löwenbräukeller. By public transport: underground line U1, stop Stiglmaierplatz, and tram line 21 from the main station or Karlsplatz/Stachus. By car: a certain number of spaces are available in our underground car park, access via Seidlstraße; using public transport is recommended. Opening hours: Monday to Friday 8.00–17.00." },
+    de: { q: "Wie erreiche ich das Zentrum?", a: "Unsere Praxis befindet sich in der Nymphenburger Str. 1, 80335 München, direkt am Stiglmaierplatz gegenüber dem Löwenbräukeller. Mit öffentlichen Verkehrsmitteln: U-Bahn U1, Haltestelle Stiglmaierplatz, sowie Trambahnlinie 21 vom Hauptbahnhof bzw. Karlsplatz/Stachus. Mit dem Auto: eine gewisse Anzahl an Stellplätzen steht in unserer Tiefgarage zur Verfügung, Zufahrt über die Seidlstraße; es empfiehlt sich, auf die öffentlichen Verkehrsmittel auszuweichen. Öffnungszeiten: Montag bis Freitag 8.00 bis 17.00 Uhr." },
+    en: { q: "How do I get to the centre?", a: "Our practice is at Nymphenburger Str. 1, 80335 Munich, directly at Stiglmaierplatz opposite the Löwenbräukeller. By public transport: underground line U1, stop Stiglmaierplatz, and tram line 21 from the main station or Karlsplatz/Stachus. By car: a certain number of spaces are available in our underground car park, access via Seidlstraße; using public transport is recommended. Opening hours: Monday to Friday 8.00 to 17.00." },
   },
 ];
 
@@ -160,7 +160,7 @@ function FaqPage() {
       galleryHeading: "Einblicke in unser Zentrum",
       downloadsLabel: "DOWNLOADS",
       downloadsHeading: "Infomaterial",
-      downloadsBody: "Broschüren und Merkblätter zum Herunterladen — in Ruhe nachlesen, wann immer Sie möchten.",
+      downloadsBody: "Broschüren und Merkblätter zum Herunterladen, in Ruhe nachlesen, wann immer Sie möchten.",
       download: "PDF herunterladen",
       filterLabel: "Nach Thema filtern",
       filterAll: "Alle",
@@ -181,7 +181,7 @@ function FaqPage() {
       galleryHeading: "A look inside our centre",
       downloadsLabel: "DOWNLOADS",
       downloadsHeading: "Resources",
-      downloadsBody: "Brochures and information sheets to download — read them at your own pace, whenever you like.",
+      downloadsBody: "Brochures and information sheets to download, read them at your own pace, whenever you like.",
       download: "Download PDF",
       filterLabel: "Filter by topic",
       filterAll: "All",
@@ -209,7 +209,7 @@ function FaqPage() {
       <PageHeader activeRoute="/faq" />
 
       <main>
-        {/* Hero — color bg, no photo */}
+        {/* Hero, color bg, no photo */}
         <section
           className="relative flex items-end"
           style={{ background: "#1E2535", minHeight: "40vh" }}

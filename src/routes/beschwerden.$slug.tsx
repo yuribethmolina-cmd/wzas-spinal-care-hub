@@ -88,7 +88,7 @@ function BeschwerdenDetail() {
       doctorLink: "Zum Arztprofil",
       backLink: "← Zurück zu den Erkrankungen",
       notFound: "Erkrankung nicht gefunden",
-      bookingBody: "Vereinbaren Sie jetzt einen Termin. Termine zeitnah nach Verfügbarkeit — ohne Überweisung.",
+      bookingBody: "Vereinbaren Sie jetzt einen Termin. Termine zeitnah nach Verfügbarkeit, ohne Überweisung.",
       bookingCta: "Online buchen",
     },
     en: {
@@ -192,7 +192,7 @@ function BeschwerdenDetail() {
                     <ul className="space-y-1">
                       {content.bullets.symptoms.map((s) => (
                         <li key={s} className="text-sm text-[#1E2535] flex gap-2">
-                          <span className="text-[#AC8F52] mt-0.5">–</span>
+                          <span className="text-[#AC8F52] mt-0.5">, </span>
                           {s}
                         </li>
                       ))}
@@ -230,7 +230,7 @@ function BeschwerdenDetail() {
           </section>
         )}
 
-        {/* Doctor module — only if slugs exist */}
+        {/* Doctor module, only if slugs exist */}
         {condition.doctorSlugs.length > 0 && (
           <section className="py-12 bg-white">
             <div className="mx-auto max-w-6xl px-5 lg:px-8">

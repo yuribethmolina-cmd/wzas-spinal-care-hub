@@ -55,7 +55,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Rückhalt für München. 20 Jahre Erfahrung, 13 Spezialisten. Konservative Behandlung zuerst — Operation nur, wenn nötig.",
+          "Rückhalt für München. 20 Jahre Erfahrung, 13 Spezialisten. Konservative Behandlung zuerst, Operation nur, wenn nötig.",
       },
       { property: "og:title", content: "WZAS · Wirbelsäulenzentrum am Stiglmaierplatz" },
       {
@@ -317,7 +317,7 @@ function MaskLine({
   );
 }
 
-/** Slow counter-scroll on a background layer — depth without distraction. */
+/** Slow counter-scroll on a background layer, depth without distraction. */
 function useParallax(strength = 0.12, mobileFactor = 0.35) {
   const [offset, setOffset] = useState(0);
   useEffect(() => {
@@ -479,7 +479,7 @@ function Nav() {
       }`}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 lg:px-8">
-        <Link to="/" aria-label="WZAS — Startseite">
+        <Link to="/" aria-label="WZAS, Startseite">
           <Logo />
         </Link>
         <nav className="hidden lg:flex items-center gap-8" aria-label="Hauptnavigation">
@@ -550,7 +550,7 @@ function Hero() {
       h1a: "Rückhalt",
       h1b: "für München.",
       h1c: "",
-      sub: "20 Jahre Erfahrung.\u00a0\n13 Spezialisten.\u00a0\nKonservative Behandlung zuerst\u00a0\nOperation nur, wenn nötig.",
+      sub: "20 Jahre Erfahrung.\u00a0\n13 Spezialisten.\u00a0\nKonservative Behandlung zuerst,\u00a0\nOperation nur, wenn nötig.",
       chipsLabel: "Was führt Sie zu uns?",
       chips: ["Akuter Rückenschmerz", "Chronische Schmerzen", "Bandscheibenvorfall", "Ischias", "Nach OP"],
       book: "Termin buchen",
@@ -564,7 +564,7 @@ function Hero() {
       h1a: "Backbone",
       h1b: "for Munich.",
       h1c: "",
-      sub: "20 years of experience.\u00a0\n13 specialists.\u00a0\nConservative treatment first —\u00a0\nsurgery only when necessary.",
+      sub: "20 years of experience.\u00a0\n13 specialists.\u00a0\nConservative treatment first,\u00a0\nsurgery only when necessary.",
       chipsLabel: "What brings you to us?",
       chips: ["Acute back pain", "Chronic pain", "Herniated disc", "Sciatica", "Post-surgery"],
       book: "Book appointment",
@@ -730,7 +730,7 @@ function SectionLabel({ children, gold = true }: { children: React.ReactNode; go
 
 /* ─── Beschwerden ───────────────────────────────────────────────── */
 
-// Bespoke anatomical line icons — each drawn around the vertebral motif
+// Bespoke anatomical line icons, each drawn around the vertebral motif
 // (body + spinous process) so the pictogram actually describes the condition.
 const iconProps = {
   viewBox: "0 0 24 24",
@@ -918,7 +918,7 @@ function Beschwerden() {
       label: "Areas of treatment",
       h2a: "What brings ",
       h2b: "you to us?",
-      lead: "Find your condition and see how our specialists can help — without unnecessary surgery.",
+      lead: "Find your condition and see how our specialists can help, without unnecessary surgery.",
       cta: "View treatment options",
       items: [
         { iconKey: "akut", name: "Acute back pain", sub: "Sudden onset · injury · muscle spasm" },
@@ -998,7 +998,7 @@ function Weg() {
         {
           n: "1",
           title: "Beschwerdebild wählen",
-          desc: "Suchen oder stöbern Sie nach Symptomen — unsere Übersicht hilft Ihnen zu verstehen, welche Behandlungsoptionen für Ihren Fall geeignet sind.",
+          desc: "Suchen oder stöbern Sie nach Symptomen, unsere Übersicht hilft Ihnen zu verstehen, welche Behandlungsoptionen für Ihren Fall geeignet sind.",
         },
         {
           n: "2",
@@ -1021,7 +1021,7 @@ function Weg() {
         {
           n: "1",
           title: "Pick your condition",
-          desc: "Search or browse by symptom — our overview helps you understand which treatment options fit your case.",
+          desc: "Search or browse by symptom, our overview helps you understand which treatment options fit your case.",
         },
         {
           n: "2",
@@ -1087,7 +1087,7 @@ function Kompetenzzentrum() {
       label: "Kompetenzzentrum",
       h2a: "Alles unter ",
       h2b: "einem Dach",
-      lead: "Wirbelsäulenchirurgie, Radiologie und Orthopädie arbeiten hier Hand in Hand — kürzere Wege, schnellere Diagnosen, lückenlose Behandlung ohne externe Termine.",
+      lead: "Wirbelsäulenchirurgie, Radiologie und Orthopädie arbeiten hier Hand in Hand, kürzere Wege, schnellere Diagnosen, lückenlose Behandlung ohne externe Termine.",
       partners: [
         { logo: partnerWz.url, alt: "Wirbelsäulenzentrum am Stiglmaierplatz", name: "Wirbelsäulenzentrum am Stiglmaierplatz", short: "Wirbelsäulenchirurgie · Schmerztherapie" },
         { logo: partnerRadiologie.url, alt: "Radiologie am Stiglmaierplatz", name: "Radiologie am Stiglmaierplatz", short: "MRT · CT · Neuroradiologie vor Ort" },
@@ -1100,7 +1100,7 @@ function Kompetenzzentrum() {
       label: "Competence network",
       h2a: "Everything under ",
       h2b: "one roof",
-      lead: "Spine surgery, radiology and orthopaedics work hand in hand — shorter distances, faster diagnostics and seamless care without outside appointments.",
+      lead: "Spine surgery, radiology and orthopaedics work hand in hand, shorter distances, faster diagnostics and seamless care without outside appointments.",
       partners: [
         { logo: partnerWz.url, alt: "Spine Center at Stiglmaierplatz", name: "Spine Center at Stiglmaierplatz", short: "Spine surgery · pain therapy" },
         { logo: partnerRadiologie.url, alt: "Radiology at Stiglmaierplatz", name: "Radiology at Stiglmaierplatz", short: "MRI · CT · neuroradiology on site" },
@@ -1328,13 +1328,13 @@ function Termin() {
     de: {
       h2a: "Wir sind ",
       h2b: "für Sie da.",
-      lead: "Öffnungszeiten: Montag bis Freitag, 8.00–17.00 Uhr. Notfälle behandeln wir selbstverständlich sofort.",
+      lead: "Öffnungszeiten: Montag bis Freitag, 8.00 bis 17.00 Uhr. Notfälle behandeln wir selbstverständlich sofort.",
       onlineKicker: "Online buchen",
       onlineTitle: "Termin online vereinbaren",
       onlineSub: "Online-Terminbuchung (Prototyp)",
       book: "Termin buchen",
       otherTitle: "Weitere Kontaktmöglichkeiten",
-      phoneSub: "Gesetzlich Versicherte · Mo–Fr 08:00–17:00 Uhr",
+      phoneSub: "Gesetzlich Versicherte · Montag bis Freitag 08:00 bis 17:00 Uhr",
       privateSub: "Privatpatienten · gesonderte Rufnummer",
       mailSub: "Antwort innerhalb eines Werktags",
       city: "80335 München",
@@ -1342,13 +1342,13 @@ function Termin() {
     en: {
       h2a: "We are ",
       h2b: "here for you.",
-      lead: "Opening hours: Monday to Friday, 8.00 am – 5.00 pm. Emergencies are treated immediately.",
+      lead: "Opening hours: Monday to Friday, 8.00 am, 5.00 pm. Emergencies are treated immediately.",
       onlineKicker: "Book online",
       onlineTitle: "Schedule an appointment online",
       onlineSub: "Online booking (prototype)",
       book: "Book appointment",
       otherTitle: "Other ways to reach us",
-      phoneSub: "Statutory insurance · Mon–Fri 8:00 am – 5:00 pm",
+      phoneSub: "Statutory insurance · Monday to Friday 8:00 am to 5:00 pm",
       privateSub: "Private patients · dedicated line",
       mailSub: "Reply within one business day",
       city: "80335 Munich",
@@ -1510,7 +1510,7 @@ function Aktuelles() {
       label: "Aktuelles",
       h2a: "Vorträge, Veranstaltungen ",
       h2b: "& Wissen",
-      lead: "Bleiben Sie informiert — unsere Spezialisten teilen ihr Wissen in öffentlichen Vorträgen und Fachbeiträgen.",
+      lead: "Bleiben Sie informiert, unsere Spezialisten teilen ihr Wissen in öffentlichen Vorträgen und Fachbeiträgen.",
       cta: "Mehr erfahren",
       all: "Alle Veranstaltungen & Inhalte ansehen →",
       items: [
@@ -1523,7 +1523,7 @@ function Aktuelles() {
       label: "News",
       h2a: "Talks, events ",
       h2b: "& knowledge",
-      lead: "Stay informed — our specialists share their knowledge in public talks and articles.",
+      lead: "Stay informed, our specialists share their knowledge in public talks and articles.",
       cta: "Learn more",
       all: "View all events & articles →",
       items: [
