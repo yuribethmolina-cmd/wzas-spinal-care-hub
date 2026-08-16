@@ -61,8 +61,28 @@ function RelatedCard({ condition, lang }: { condition: Condition; lang: "de" | "
 }
 
 export const Route = createFileRoute("/beschwerden/$slug")({
+  head: ({ params }) => {
+    const condition = getCondition(params.slug);
+    if (!condition) {
+      return { meta: [{ title: "Erkrankung nicht gefunden · WZAS München" }, { name: "robots", content: "noindex" }] };
+    }
+    const c = getConditionContent(condition, "de");
+    const title = `${c.name} · WZAS Wirbelsäulenzentrum München`;
+    const description = c.bodyText.slice(0, 155);
+    return {
+      meta: [
+        { title },
+        { name: "description", content: description },
+        { property: "og:title", content: title },
+        { property: "og:description", content: description },
+        { property: "og:type", content: "article" },
+        { name: "twitter:card", content: "summary_large_image" },
+      ],
+    };
+  },
   component: BeschwerdenDetail,
 });
+
 
 function BeschwerdenDetail() {
   const { slug } = Route.useParams();
