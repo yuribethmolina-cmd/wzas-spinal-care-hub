@@ -42,10 +42,10 @@ export const CONDITIONS: Condition[] = [
       name: "Rückenschmerzen",
       subtitle: "",
       bodyText:
-        "Rückenschmerzen gehören zu den häufigsten Erkrankungen unserer Zeit — nahezu 80 Prozent aller Menschen leiden im Laufe ihres Lebens darunter. Ursachen sind vielfältig: Bewegungsmangel durch sitzende Tätigkeiten, einseitige körperliche Belastung, Übergewicht, Haltungsschäden sowie psychische Faktoren wie Stress und Erschöpfung. Diese Einflüsse führen langfristig zu Veränderungen an den Bandscheiben, Wirbelgelenken und dem umgebenden Muskelgewebe. Akute Rückenschmerzen entstehen oft plötzlich und klingen bei geeigneter Behandlung innerhalb weniger Wochen ab. Chronische Rückenschmerzen — definiert als Beschwerden über mehr als zwölf Wochen — erfordern eine ganzheitliche Diagnostik und ein individuell abgestimmtes Behandlungskonzept. Im WZAS München analysieren wir zunächst die genaue Ursache Ihrer Beschwerden, bevor wir gemeinsam den richtigen Behandlungsweg einschlagen.",
+        "Rückenschmerzen sind eine der häufigsten Beschwerden, mit denen Patientinnen und Patienten das Wirbelsäulenzentrum am Stiglmaierplatz in München aufsuchen. Zu den häufigsten Auslösern zählen Bewegungsmangel bei sitzenden Tätigkeiten, einseitige körperliche Belastung, Übergewicht und Haltungsschäden; auch psychische Belastungen und Stress spielen eine zunehmend wichtige Rolle. Diese Faktoren führen langfristig zu Veränderungen an den Wirbelgelenken, den Bandscheiben und dem umliegenden Gewebe. Muskelverspannungen entstehen dabei oft als Schutzmechanismus des Körpers. In rund 90 Prozent der Fälle lassen sich Rückenschmerzen ohne Operation erfolgreich behandeln, etwa mit Krankengymnastik, physikalischer Therapie, gezielter Schmerztherapie und Infiltrationen.",
       bullets: {
         region: "Lenden- und Brustwirbelsäule",
-        frequency: "Sehr häufig (ca. 80 % der Bevölkerung)",
+        frequency: "Sehr häufig",
         symptoms: ["Dumpfer oder stechender Schmerz", "Bewegungseinschränkung", "Muskelverspannungen"],
       },
       ctaCopy: "Leiden Sie unter anhaltenden Rückenschmerzen?",
@@ -54,10 +54,10 @@ export const CONDITIONS: Condition[] = [
       name: "Back Pain",
       subtitle: "",
       bodyText:
-        "Back pain is one of the most common conditions of our time — nearly 80 percent of all people experience it at some point in their lives. The causes are varied: lack of movement from sedentary work, repetitive physical strain, excess weight, postural problems and psychological factors such as stress and exhaustion. Over time, these influences lead to changes in the intervertebral discs, facet joints and surrounding muscle tissue. Acute back pain often comes on suddenly and, with appropriate treatment, resolves within a few weeks. Chronic back pain — defined as symptoms lasting more than twelve weeks — requires comprehensive diagnostic assessment and an individually tailored treatment plan. At WZAS Munich, we first analyse the precise cause of your symptoms before we decide together on the right course of treatment.",
+        "Back pain is one of the most common complaints that brings patients to the spine centre at Stiglmaierplatz in Munich. The most frequent triggers include lack of movement during sedentary work, one-sided physical strain, excess weight and postural damage; psychological strain and stress also play an increasingly important role. Over time these factors lead to changes in the facet joints, the discs and the surrounding tissue, with muscle tension often arising as the body's protective mechanism. In around 90 percent of cases back pain can be treated successfully without surgery — for example with physiotherapy, physical therapy, targeted pain management and injections.",
       bullets: {
         region: "Lumbar and thoracic spine",
-        frequency: "Very common (approx. 80% of the population)",
+        frequency: "Very common",
         symptoms: ["Dull or stabbing pain", "Restricted movement", "Muscle tension"],
       },
       ctaCopy: "Are you suffering from persistent back pain?",
@@ -73,7 +73,7 @@ export const CONDITIONS: Condition[] = [
       name: "Bandscheibenvorfall",
       subtitle: "Discusprolaps",
       bodyText:
-        "Zwischen jedem Wirbelkörper liegt eine Bandscheibe — ein faserknorpeliger Ring mit einem gallertartigen Kern, der als Stoßdämpfer der Wirbelsäule dient. Beim Bandscheibenvorfall (Discusprolaps) tritt der Gallertkern durch einen Riss im Faserring aus und kann auf das Rückenmark oder angrenzende Nervenwurzeln drücken. Betroffen ist am häufigsten die Lendenwirbelsäule (LWS), seltener die Halswirbelsäule (HWS). Die typischen Symptome sind starke, oft in Bein oder Arm ausstrahlende Schmerzen, Taubheitsgefühle sowie — in schweren Fällen — Kraftverlust in den betroffenen Extremitäten. Nicht jeder Bandscheibenvorfall erfordert eine Operation: In vielen Fällen lässt sich durch gezielte konservative Maßnahmen eine vollständige Beschwerdefreiheit erreichen. Das Team des WZAS München beurteilt im Einzelfall, welcher Behandlungsansatz für Sie am geeignetsten ist.",
+        "Ein Bandscheibenvorfall, medizinisch Discusprolaps genannt, entsteht meist plötzlich und äußert sich in starken Schmerzen im unteren Rücken, die typischerweise in ein Bein oder einen Arm ausstrahlen. Begleitet werden die Schmerzen häufig von Taubheitsgefühlen, Kribbeln oder im schlimmsten Fall von Lähmungserscheinungen. Bei einem Vorfall tritt der weiche Gallertkern der Bandscheibe durch den äußeren Faserring aus und drückt auf benachbarte Nervenwurzeln; häufig betroffen ist die Lendenwirbelsäule, seltener die Halswirbelsäule. Die meisten Bandscheibenvorfälle können ohne Operation erfolgreich behandelt werden — durch Physiotherapie, gezielte Schmerztherapie, Infiltrationen und physikalische Behandlung. Nur bei ausgeprägten neurologischen Ausfällen ist rasches operatives Handeln gefragt.",
       bullets: {
         region: "Lendenwirbelsäule (LWS), seltener HWS",
         frequency: "Häufig",
@@ -85,7 +85,7 @@ export const CONDITIONS: Condition[] = [
       name: "Herniated Disc",
       subtitle: "Disc prolapse",
       bodyText:
-        "Between each vertebra lies an intervertebral disc — a fibrocartilaginous ring with a gel-like core that acts as the spine's shock absorber. In a herniated disc (disc prolapse), the gel-like nucleus pushes through a tear in the fibrous ring and can press on the spinal cord or adjacent nerve roots. The lumbar spine (L-spine) is most commonly affected; the cervical spine (C-spine) less so. Typical symptoms include severe pain often radiating into the leg or arm, numbness and — in serious cases — loss of strength in the affected limbs. Not every herniated disc requires surgery: in many cases, targeted conservative measures can achieve complete relief. The WZAS Munich team assesses each individual case to determine the most appropriate treatment approach.",
+        "A herniated disc, medically known as discus prolapse, usually occurs suddenly and causes severe pain in the lower back that typically radiates into a leg or an arm. The pain is often accompanied by numbness, tingling or, in the worst case, paralysis. In a herniation the soft nucleus of the disc emerges through the outer fibrous ring and presses on adjacent nerve roots; the lumbar spine is most often affected, the cervical spine less frequently. Most herniated discs can be treated successfully without surgery — with physiotherapy, targeted pain management, injections and physical treatment. Only pronounced neurological deficits call for rapid surgical action.",
       bullets: {
         region: "Lumbar spine (L-spine), occasionally C-spine",
         frequency: "Common",
@@ -104,7 +104,7 @@ export const CONDITIONS: Condition[] = [
       name: "Bandscheiben-Degeneration",
       subtitle: "Osteochondrose",
       bodyText:
-        "Die Bandscheiben-Degeneration, medizinisch als Osteochondrose bezeichnet, ist ein natürlicher Alterungsprozess, der sich durch ungünstige Belastungen beschleunigen kann. Mit der Zeit verlieren die Bandscheiben an Höhe und Elastizität: Ihr Wassergehalt nimmt ab, der Faserring wird brüchig, und die Pufferwirkung zwischen den Wirbelkörpern lässt nach. Als Folge entstehen chronische Schmerzen, Steifheit und ein zunehmendes Instabilitätsgefühl in der Wirbelsäule. Die Osteochondrose betrifft vor allem die Lendenwirbelsäule und tritt häufig in Kombination mit Veränderungen an den Wirbelgelenken auf. Im WZAS München behandeln wir die Bandscheiben-Degeneration mit einem stufenweisen Konzept: Zunächst setzen wir auf konservative Maßnahmen — von der medikamentösen Schmerztherapie bis zur Infiltrationsbehandlung. Operative Schritte werden nur dann erwogen, wenn alle anderen Optionen ausgeschöpft sind.",
+        "Die Bandscheiben-Degeneration, medizinisch als Osteochondrose bezeichnet, ist eine der häufigsten verschleißbedingten Wirbelsäulenerkrankungen. Mit zunehmendem Alter verlieren die Bandscheiben an Flüssigkeit und Elastizität, wodurch ihre Funktion als Stoßdämpfer zwischen den Wirbelkörpern nachlässt; Knorpel und Knochen geraten unter erhöhten Druck. Typisch sind Schmerzen an der Lenden- oder Halswirbelsäule, eingeschränkte Beweglichkeit und Schonhaltung sowie ein tiefsitzender, dumpfer Rückenschmerz, der sich bei Belastung oder längerem Sitzen verschlimmert. In fortgeschrittenen Stadien können gereizte Nerven zu ausstrahlenden Schmerzen in Arme oder Beine führen. Behandelt wird zunächst konservativ mit Injektionen, Physiotherapie und physikalischer Therapie.",
       bullets: {
         region: "Lendenwirbelsäule",
         frequency: "Altersbedingt häufig",
@@ -116,7 +116,7 @@ export const CONDITIONS: Condition[] = [
       name: "Disc Degeneration",
       subtitle: "Osteochondrosis",
       bodyText:
-        "Disc degeneration, medically known as osteochondrosis, is a natural ageing process that can be accelerated by unfavourable loading. Over time, intervertebral discs lose height and elasticity: their water content decreases, the fibrous ring becomes brittle and the cushioning effect between the vertebral bodies diminishes. This results in chronic pain, stiffness and a growing sense of instability in the spine. Osteochondrosis mainly affects the lumbar spine and frequently occurs alongside changes in the facet joints. At WZAS Munich, we treat disc degeneration using a stepwise approach: we begin with conservative measures — from pain medication to injection therapy. Surgical options are only considered once all other alternatives have been exhausted.",
+        "Disc degeneration, medically called osteochondrosis, is one of the most common wear-related spinal conditions. With age the discs lose fluid and elasticity, so their function as shock absorbers between the vertebral bodies declines and cartilage and bone come under increased pressure. Typical signs are pain in the lumbar or cervical spine, restricted mobility and protective posture, as well as deep, dull back pain that worsens with strain or prolonged sitting. In advanced stages irritated nerves can cause pain radiating into the arms or legs. Treatment starts conservatively with injections, physiotherapy and physical therapy.",
       bullets: {
         region: "Lumbar spine",
         frequency: "Common, age-related",
@@ -135,7 +135,7 @@ export const CONDITIONS: Condition[] = [
       name: "Wirbelkörperfraktur",
       subtitle: "",
       bodyText:
-        "Eine Wirbelkörperfraktur ist ein Knochenbruch an einem oder mehreren Wirbelkörpern der Wirbelsäule. Sie entsteht durch starke direkte Gewalteinwirkung — etwa bei einem Sturz oder Verkehrsunfall — tritt aber auch bei vorgeschädigtem Knochen (Osteoporose) bereits durch alltägliche Belastungen auf. Typisch ist ein plötzlich einsetzender, starker Rückenschmerz, oft verbunden mit einer sichtbaren Verformung der Wirbelsäule oder einer Abnahme der Körpergröße. Abhängig von Typ und Schweregrad der Fraktur reicht das Behandlungsspektrum von konservativer Schmerztherapie mit Schonung über minimalinvasive Verfahren wie die Kyphoplastie — bei der Knochenzement zur Stabilisierung eingebracht wird — bis hin zur offen-chirurgischen Versorgung. Besonders bei osteoporose-bedingten Frakturen ist eine begleitende Therapie der zugrundeliegenden Knochenerkrankung unverzichtbar, um weitere Frakturen zu verhindern.",
+        "Eine osteoporotische Wirbelkörperfraktur entsteht, wenn die Knochen durch Osteoporose so porös geworden sind, dass bereits alltägliche Belastungen — etwa das Heben einer Tasche oder ein leichter Sturz — zu einem Bruch des Wirbelkörpers führen können. Die Folge sind plötzlich einsetzende, heftige Rückenschmerzen. Am häufigsten betroffen sind die Brust- und Lendenwirbelsäule. Eine Wirbelkörperfraktur lässt sich mittels MRT schnell und präzise diagnostizieren — bei uns direkt im Haus. Je nach Schweregrad wird konservativ mit einem stützenden Mieder und geeigneter Schmerzmedikation behandelt; bei stärkeren oder instabilen Frakturen bietet die Kyphoplastie eine schonende, minimalinvasive Alternative, bei der der Wirbelkörper mit einem Ballon aufgerichtet und mit Knochenzement stabilisiert wird.",
       bullets: {
         region: "Brust- und Lendenwirbelsäule",
         frequency: "Häufig bei Osteoporose",
@@ -147,7 +147,7 @@ export const CONDITIONS: Condition[] = [
       name: "Vertebral Fracture",
       subtitle: "",
       bodyText:
-        "A vertebral fracture is a break in one or more vertebral bodies of the spine. It typically results from a high-energy impact — such as a fall or road accident — but can also occur in people with weakened bone (osteoporosis) under the load of everyday activities. The hallmark symptom is a sudden, severe onset of back pain, often accompanied by visible deformity of the spine or a reduction in body height. Depending on the type and severity of the fracture, treatment ranges from conservative pain management and rest, through minimally invasive procedures such as kyphoplasty — in which bone cement is injected to stabilise the vertebral body — to open surgical repair. In osteoporosis-related fractures, treatment of the underlying bone disease is essential to prevent further fractures.",
+        "An osteoporotic vertebral fracture occurs when bones have become so porous through osteoporosis that everyday loads — lifting a bag or a minor fall — can break a vertebral body. The result is sudden, severe back pain. The thoracic and lumbar spine are most often affected. A vertebral fracture can be diagnosed quickly and precisely by MRI, available in-house. Depending on severity, treatment is conservative with a supportive brace and suitable pain medication; for more severe or unstable fractures, kyphoplasty offers a gentle, minimally invasive alternative in which the vertebral body is raised with a small balloon and stabilised with bone cement.",
       bullets: {
         region: "Thoracic and lumbar spine",
         frequency: "Common in osteoporosis",
@@ -166,10 +166,10 @@ export const CONDITIONS: Condition[] = [
       name: "Wirbelkanalverengung",
       subtitle: "Spinalkanalstenose",
       bodyText:
-        "Die Spinalkanalstenose bezeichnet eine Einengung des Wirbelkanals — des knöchernen Kanals, durch den das Rückenmark und die Nervenwurzeln verlaufen. Ursache ist meist ein schleichender Umbau der Wirbelgelenke und Bänder im Laufe der Zeit, oft in Kombination mit Bandscheibenveränderungen. Betroffen sind vor allem ältere Menschen; in der Lendenwirbelsäule ist die Erkrankung am häufigsten. Das Leitsymptom ist die sogenannte Claudicatio spinalis: Beim Gehen entstehen zunehmende Schmerzen, Taubheitsgefühle oder ein Schweregefühl in den Beinen, die sich durch Sitzen oder leichtes Vornüberbeugen rasch bessern. Die Behandlung richtet sich nach dem Ausmaß der Einengung und der Beeinträchtigung des Alltags. Konservative Maßnahmen sowie minimalinvasive Dekompressionsverfahren bieten oft deutliche Linderung — eine offene Operation wird nur bei ausgeprägtem Befund oder nachlassender Gehstrecke eingesetzt.",
+        "Die Spinalkanalstenose, auch Wirbelkanalverengung genannt, ist eine der häufigsten Wirbelsäulenerkrankungen im höheren Lebensalter. Der Kanal, durch den Rückenmark und Nervenwurzeln verlaufen, verengt sich — meist in der Lendenwirbelsäule. Typisch sind Schmerzen und ein Schwächegefühl in beiden Beinen, besonders beim Gehen oder längeren Stehen: Viele Patienten müssen nach kurzen Gehstrecken stehenbleiben oder sich nach vorne beugen (neurogene Claudicatio). Betroffen sind häufig Patientinnen und Patienten um das 70. Lebensjahr. Konservativ helfen Schmerzmedikation, Physiotherapie, physikalische Therapie und Infiltrationen; reicht das nicht aus, schafft die mikrochirurgische Dekompression den Nervenwurzeln wieder Platz.",
       bullets: {
         region: "Lendenwirbelsäule",
-        frequency: "Häufig ab dem 60. Lebensjahr",
+        frequency: "Häufig im höheren Lebensalter, oft um das 70. Lebensjahr",
         symptoms: ["Schmerzen beim Gehen (Claudicatio spinalis)", "Besserung beim Sitzen", "Taubheit in den Beinen"],
       },
       ctaCopy: "Leidet Ihre Gehstrecke unter einer Spinalkanalstenose?",
@@ -178,10 +178,10 @@ export const CONDITIONS: Condition[] = [
       name: "Spinal Stenosis",
       subtitle: "Spinal canal narrowing",
       bodyText:
-        "Spinal stenosis is a narrowing of the spinal canal — the bony channel through which the spinal cord and nerve roots pass. It is most often caused by a gradual remodelling of the facet joints and ligaments over time, frequently combined with disc degeneration. Older adults are most commonly affected; the lumbar spine is the most frequent site. The hallmark symptom is neurogenic claudication: increasing pain, numbness or a feeling of heaviness in the legs during walking, which rapidly improves on sitting or bending slightly forward. Treatment is guided by the degree of narrowing and its impact on daily life. Conservative measures and minimally invasive decompression procedures often provide substantial relief — open surgery is reserved for advanced cases or a progressively shrinking walking distance.",
+        "Spinal canal stenosis, also known as narrowing of the spinal canal, is one of the most common spinal conditions in later life. The canal carrying the spinal cord and nerve roots narrows, usually in the lumbar spine. Typical symptoms are pain and a feeling of weakness in both legs, especially when walking or standing for longer periods: many patients have to stop after short distances or bend forward (neurogenic claudication). Patients around the age of 70 are frequently affected. Conservative care includes pain medication, physiotherapy, physical therapy and injections; where that is not enough, microsurgical decompression gives the nerve roots space again.",
       bullets: {
         region: "Lumbar spine",
-        frequency: "Common from age 60 onwards",
+        frequency: "Common in later life, often around the age of 70",
         symptoms: ["Pain when walking (neurogenic claudication)", "Relief on sitting", "Numbness in the legs"],
       },
       ctaCopy: "Is spinal stenosis limiting how far you can walk?",
@@ -197,7 +197,7 @@ export const CONDITIONS: Condition[] = [
       name: "Wirbelgleiten",
       subtitle: "Spondylolisthesis",
       bodyText:
-        "Beim Wirbelgleiten (Spondylolisthesis) verschiebt sich ein Wirbelkörper gegenüber dem benachbarten nach vorne. Ursache kann eine angeborene Schwäche des Wirbelbogens, ein degenerativer Abbau der Wirbelgelenke im Alter oder — seltener — eine Verletzung sein. Betroffen ist am häufigsten der Übergang zwischen dem vierten und fünften Lendenwirbel (L4/L5). Je nach Ausmaß des Gleitens können die Symptome von gelegentlichem Rückenschmerz bis hin zu ausgeprägten Nervenschmerzen mit Ausstrahlung in die Beine reichen. Ein leichtes Wirbelgleiten lässt sich in vielen Fällen konservativ behandeln: Physiotherapie zur Stabilisierung der Rumpfmuskulatur und gezielte Infiltrationen können die Beschwerden deutlich lindern. Bei fortgeschrittenem Gleiten oder neurologischen Ausfällen kann eine operative Stabilisierung der betroffenen Wirbelsäulensegmente notwendig werden.",
+        "Das Wirbelgleiten, medizinisch Spondylolisthesis genannt, bezeichnet die Verschiebung eines Wirbelkörpers gegenüber dem darunter liegenden nach vorne oder hinten. Die Erkrankung entwickelt sich in der Regel schleichend über viele Jahre und bleibt oft lange unbemerkt. Sie entsteht häufig durch degenerative Veränderungen, also altersbedingten Verschleiß der Bandscheiben und Wirbelgelenke: Nimmt die muskuläre Stabilität ab, kann der Wirbel zunehmend in eine Fehlstellung geraten. Die Folge sind Schmerzen in Kreuz und Beinen, die sich bei Belastung verschlimmern; in ausgeprägten Fällen kommen Taubheitsgefühle oder Schwäche hinzu. Für die Diagnose sind Röntgen und MRT notwendig. Behandelt wird zunächst konservativ, bei anhaltenden Beschwerden minimalinvasiv stabilisierend.",
       bullets: {
         region: "Lendenwirbelsäule (L4/L5)",
         frequency: "Mäßig häufig",
@@ -209,7 +209,7 @@ export const CONDITIONS: Condition[] = [
       name: "Spondylolisthesis",
       subtitle: "Vertebral slippage",
       bodyText:
-        "In spondylolisthesis, one vertebral body slips forward over the one below it. The cause may be a congenital weakness in the vertebral arch, degenerative wear of the facet joints with age or — less commonly — an injury. The transition between the fourth and fifth lumbar vertebrae (L4/L5) is most frequently affected. Depending on the degree of slippage, symptoms can range from occasional back pain to pronounced nerve pain radiating into the legs. Mild spondylolisthesis can often be managed conservatively: physiotherapy to strengthen the core muscles and targeted injections can significantly reduce symptoms. In advanced slippage or neurological deficits, surgical stabilisation of the affected spinal segments may become necessary.",
+        "Spondylolisthesis, or slipped vertebra, describes the forward or backward displacement of one vertebral body relative to the one below. The condition usually develops gradually over many years and often goes unnoticed for a long time. It frequently arises from degenerative changes — age-related wear of the discs and facet joints: as muscular stability decreases, the affected vertebra can shift further out of position. The result is pain in the lower back and legs that worsens under strain; in pronounced cases numbness or weakness occurs. Diagnosis requires both X-ray and MRI. Treatment starts conservatively and, for persistent symptoms, uses minimally invasive stabilisation.",
       bullets: {
         region: "Lumbar spine (L4/L5)",
         frequency: "Moderately common",
@@ -228,7 +228,7 @@ export const CONDITIONS: Condition[] = [
       name: "Iliosakralsyndrom",
       subtitle: "Kreuzdarmbeingelenk",
       bodyText:
-        "Das Iliosakralsyndrom entsteht durch eine Funktionsstörung oder Entzündung des Iliosakralgelenks (ISG) — der Verbindung zwischen Kreuzbein und Beckenknochen. Das ISG überträgt die Kräfte zwischen Wirbelsäule und Becken und ist im Alltag erheblichen Belastungen ausgesetzt. Eine Reizung oder Blockierung dieses Gelenks erzeugt tiefsitzende Kreuzschmerzen, die häufig in Gesäß und Oberschenkel ausstrahlen und beim Sitzen oder einseitiger Belastung zunehmen. Das Iliosakralsyndrom wird oft mit einem Bandscheibenvorfall verwechselt, da die Symptome ähnlich sind. Eine präzise klinische Untersuchung und, bei Bedarf, eine diagnostische Infiltration des Gelenks sind entscheidend für die korrekte Diagnose. Die Behandlung umfasst gezielte ISG-Infiltrationen, Physiotherapie und, in therapieresistenten Fällen, eine minimalinvasive Verödung der Schmerznerven.",
+        "Das Iliosakralsyndrom, kurz ISG-Syndrom, ist eine häufig unterschätzte Ursache von Rückenschmerzen. Das Iliosakralgelenk verbindet das Kreuzbein mit dem Darmbein und bildet damit die Verbindung zwischen Wirbelsäule und Becken. Durch Verschleiß, Überlastung oder Blockierungen kann dieses Gelenk erhebliche Schmerzen in der hinteren Beckengegend verursachen, die einem klassischen Hexenschuss täuschend ähnlich sehen. Typisch sind tiefsitzende, einseitige Schmerzen im Bereich von Kreuzbein und Gesäß, die ins Bein ausstrahlen können — etwa beim Aufstehen, Treppensteigen oder bei einseitiger Belastung. Eine diagnostische Infiltration unter Röntgenkontrolle dient gleichzeitig der Diagnose und der ersten Schmerzlinderung.",
       bullets: {
         region: "Iliosakralgelenk (Übergang LWS–Becken)",
         frequency: "Häufig, oft fehldiagnostiziert",
@@ -240,7 +240,7 @@ export const CONDITIONS: Condition[] = [
       name: "Sacroiliac Joint Syndrome",
       subtitle: "SI joint dysfunction",
       bodyText:
-        "Sacroiliac (SI) joint syndrome arises from a functional disturbance or inflammation of the sacroiliac joint — the connection between the sacrum and the pelvic bone. The SI joint transfers forces between the spine and the pelvis and is subject to considerable stress in everyday life. Irritation or blockage of this joint produces deep-seated sacral pain that frequently radiates into the buttock and thigh, worsening on prolonged sitting or with one-sided loading. SI joint syndrome is often confused with a herniated disc, as the symptoms are similar. A precise clinical examination and, where necessary, a diagnostic injection into the joint are essential for an accurate diagnosis. Treatment includes targeted SI joint injections, physiotherapy and, in treatment-resistant cases, minimally invasive denervation of the pain-conducting nerves.",
+        "Iliosacral joint syndrome (SIJ syndrome) is a frequently underestimated cause of back pain. The iliosacral joint connects the sacrum with the ilium and thus links the spine to the pelvis. Through wear, overload or blockages this joint can cause considerable pain in the rear pelvic region that closely resembles classic lumbago. Typical are deep, one-sided pains around the sacrum and buttocks that may radiate into the leg — when standing up, climbing stairs or under one-sided load. A diagnostic injection under X-ray guidance serves both to confirm the diagnosis and to provide initial pain relief.",
       bullets: {
         region: "Sacroiliac joint (L-spine / pelvis junction)",
         frequency: "Common, frequently misdiagnosed",
@@ -259,7 +259,7 @@ export const CONDITIONS: Condition[] = [
       name: "Osteoporose",
       subtitle: "Knochenschwund",
       bodyText:
-        "Osteoporose ist eine Skeletterkrankung, bei der die Knochendichte und -qualität abnimmt, was das Risiko von Frakturen erhöht. An der Wirbelsäule führt Osteoporose besonders häufig zu Wirbelkörpereinbrüchen — teilweise ohne nennenswerten äußeren Auslöser. Die Erkrankung betrifft vor allem Frauen nach der Menopause, ist aber auch bei Männern ab dem 70. Lebensjahr verbreitet. Lange verläuft Osteoporose ohne Beschwerden; erst eine Fraktur macht die Erkrankung sichtbar. Eine Abnahme der Körpergröße, ein sich entwickelnder Rundrücken oder anhaltende belastungsabhängige Rückenschmerzen können erste Hinweise sein. Im WZAS München diagnostizieren wir Osteoporose mittels Knochendichtemessung und behandeln sowohl die Grunderkrankung als auch deren Folgen an der Wirbelsäule — frische Wirbelkörperfrakturen können mit der Kyphoplastie minimalinvasiv stabilisiert werden.",
+        "Osteoporose, auch als Knochenschwund bekannt, ist eine weit verbreitete Erkrankung, bei der die Knochendichte abnimmt und die Knochen zunehmend porös und bruchgefährdet werden. An der Wirbelsäule kann Osteoporose zu kleinen Einbrüchen der Wirbelkörper führen, die sich schleichend entwickeln und zunächst oft unbemerkt bleiben. Typische Zeichen sind ein zunehmender Rundrücken, eine spürbare Verringerung der Körpergröße durch das Einsinken der Wirbelkörper sowie chronische Rückenschmerzen, die sich bei Belastung verschlimmern. In akuten Fällen brechen Wirbelkörper bereits bei minimaler Belastung. Mittels MRT lassen sich Wirbelkörpereinbrüche schnell und zuverlässig beurteilen — direkt im Haus.",
       bullets: {
         region: "Gesamte Wirbelsäule",
         frequency: "Häufig bei Frauen nach der Menopause",
@@ -271,7 +271,7 @@ export const CONDITIONS: Condition[] = [
       name: "Osteoporosis",
       subtitle: "Bone loss",
       bodyText:
-        "Osteoporosis is a skeletal disease in which bone density and quality decrease, significantly raising the risk of fractures. In the spine, osteoporosis most commonly leads to vertebral body collapse — sometimes without any significant external trigger. The condition primarily affects postmenopausal women, but is also prevalent in men from the age of 70. For a long time osteoporosis causes no symptoms; a fracture is often the first sign of the disease. A reduction in body height, a gradually developing stoop or persistent load-related back pain can all be early indicators. At WZAS Munich, we diagnose osteoporosis by bone density measurement and treat both the underlying disease and its spinal consequences — fresh vertebral fractures can be stabilised minimally invasively using kyphoplasty.",
+        "Osteoporosis, also known as bone loss, is a widespread condition in which bone density decreases and bones become increasingly porous and prone to fracture. In the spine, osteoporosis can lead to small collapses of the vertebral bodies that develop gradually and often go unnoticed at first. Typical signs are an increasing rounded back, a noticeable loss of body height as vertebrae sink, and chronic back pain that worsens under strain. In acute cases vertebrae fracture under minimal load. MRI allows vertebral collapses to be assessed quickly and reliably — directly in-house.",
       bullets: {
         region: "Entire spine",
         frequency: "Common in postmenopausal women",
@@ -290,7 +290,7 @@ export const CONDITIONS: Condition[] = [
       name: "Facettengelenksarthrose",
       subtitle: "Spondylarthrose",
       bodyText:
-        "Die Facettengelenksarthrose — auch Spondylarthrose genannt — ist ein Verschleiß der kleinen Wirbelgelenke, die jeweils zwei benachbarte Wirbelkörper miteinander verbinden. Diese Gelenke ermöglichen die geführte Bewegung der Wirbelsäule und nehmen bei jeder Beuge- und Drehbewegung Belastungen auf. Mit zunehmendem Alter und Überlastung nutzt der schützende Knorpel ab; die Gelenkkapseln entzünden sich, und knöcherne Anbauten können den Wirbelkanal einengen. Typisch ist ein belastungsabhängiger, tiefsitzender Rückenschmerz, der morgens besonders ausgeprägt ist und sich durch Bewegung und Wärme bessert. Im WZAS München behandeln wir die Spondylarthrose mit einem mehrstufigen Ansatz: Gezielte Facettengelenks-Infiltrationen lindern akute Schmerzschübe; bei dauerhafter Beschwerdesymptomatik kann eine minimalinvasive Denervierung (Radiofrequenzablation) der Schmerznerven zu langfristiger Erleichterung führen.",
+        "Die Facettengelenksarthrose, medizinisch Spondylarthrose genannt, ist eine verschleißbedingte Erkrankung der kleinen Wirbelgelenke, die die Wirbelkörper miteinander verbinden. Mit zunehmendem Alter nutzt sich der Knorpel dieser Gelenke ab, was zu Entzündungen, Schmerzen und eingeschränkter Beweglichkeit führt. Patienten beschreiben die Beschwerden häufig als bohrend oder dumpf drückend: Rückenschmerzen im Lendenbereich nach kurzer Belastung oder längerem Sitzen, ausgeprägte Morgensteifigkeit, Schmerzen beim Rückwärtsbeugen sowie Ausstrahlung in Gesäß und Hüfte. Behandelt wird stufenweise — zunächst konservativ, dann mit gezielten Infiltrationen unter Röntgenkontrolle und bei anhaltenden Beschwerden mit einer Radiofrequenzablation (Facettendenervierung).",
       bullets: {
         region: "Gesamte Wirbelsäule, häufig LWS",
         frequency: "Häufig im Alter",
@@ -302,7 +302,7 @@ export const CONDITIONS: Condition[] = [
       name: "Facet Joint Arthritis",
       subtitle: "Spondylarthrosis",
       bodyText:
-        "Facet joint arthritis — also known as spondylarthrosis — is wear and tear of the small joints connecting adjacent vertebral bodies. These joints guide spinal movement and absorb load with every bending and twisting motion. With advancing age and overuse, the protective cartilage wears away; the joint capsules become inflamed and bony outgrowths can narrow the spinal canal. The typical presentation is a load-related, deep-seated back pain that is most pronounced in the morning and eases with movement and warmth. At WZAS Munich, we treat spondylarthrosis with a graduated approach: targeted facet joint injections relieve acute pain flares; for persistent symptoms, minimally invasive denervation (radiofrequency ablation) of the pain-conducting nerves can provide long-term relief.",
+        "Facet joint arthrosis, medically called spondylarthrosis, is a wear-related condition of the small vertebral joints that connect the vertebral bodies. With age the cartilage of these joints wears down, causing inflammation, pain and restricted mobility. Patients often describe the pain as boring or dull and pressing: lumbar back pain after short strain or prolonged sitting, pronounced morning stiffness, pain when bending backwards and radiation into the buttocks and hip. Treatment is stepwise — conservative first, then targeted injections under X-ray guidance and, for persistent symptoms, radiofrequency ablation (facet denervation).",
       bullets: {
         region: "Entire spine, frequently lumbar",
         frequency: "Common with ageing",
