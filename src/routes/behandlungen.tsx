@@ -131,7 +131,7 @@ function BehandlungenPage() {
       },
       {
         name: "Minimalinvasive Verfahren",
-        description: "Kleine Eingriffe mit großer Wirkung, wenn konservative Mittel ausgeschöpft sind.",
+        description: "Schonender als eine klassische OP, gezielter als Tabletten oder Physiotherapie allein, viele Patienten sind schneller wieder im Alltag.",
         methods: [
           { name: "Hitzesonden-Behandlung", desc: "Eine Sonde erhitzt die feinen Nerven am Wirbelgelenk unter Bildkontrolle und unterbricht so die Schmerzleitung." },
           { name: "Schmerzpumpen (IDD)", desc: "Ein kleines Implantat gibt Schmerzmittel kontinuierlich direkt im Bereich des Rückenmarks ab." },
