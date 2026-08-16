@@ -18,21 +18,8 @@ import aktuellesImg from "@/assets/wzas/aktuelles.jpg.asset.json";
 import focusImg from "@/assets/wzas/focus.jpeg.asset.json";
 import isoImg from "@/assets/wzas/iso.png.asset.json";
 
-import condAkut from "@/assets/cond-akut.jpg";
-import condChronisch from "@/assets/cond-chronisch.jpg";
-import condBandscheibe from "@/assets/cond-bandscheibe.jpg";
-import condIschias from "@/assets/cond-ischias.jpg";
-import condReha from "@/assets/cond-reha.jpg";
-import condSport from "@/assets/cond-sport.jpg";
 
-const ConditionImages: Record<string, string> = {
-  akut: condAkut,
-  chronisch: condChronisch,
-  bandscheibe: condBandscheibe,
-  ischias: condIschias,
-  reha: condReha,
-  sport: condSport,
-};
+
 
 
 import partnerRadiologie from "@/assets/wzas/partners/radiologie.png.asset.json";
