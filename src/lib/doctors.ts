@@ -49,7 +49,7 @@ export const doctors: Doctor[] = [
     languages: ["Deutsch", "Englisch", "Spanisch"],
     photo: drMedele.url,
     initials: "RM",
-    focus: ["Minimalinvasive Wirbelsäulenchirurgie", "Bandscheibenvorfälle", "Wirbelkanalstenose", "Vaskuläre & spinale Neurochirurgie"],
+    focus: ["Minimal-invasive Operationstechniken", "Spinale Neurochirurgie", "Vaskuläre Neurochirurgie", "Nicht-operative Behandlungsverfahren"],
     bio: [
       "Dr. med. Ralph Medele ist als langjährig universitär ausgebildeter und erfahrener Neurochirurg Gründer und Leiter unseres Zentrums.",
       "Nach seinem Medizinstudium an der Ludwig-Maximilians-Universität München und einem Auslandsaufenthalt an der Universidad Nacional Autónoma de México in Mexico City durchlief er eine umfassende neurochirurgische Facharztausbildung bei Prof. Dr. med. Reulen am Münchner Universitätsklinikum Großhadern.",
@@ -76,7 +76,7 @@ export const doctors: Doctor[] = [
     languages: ["Deutsch", "Englisch"],
     photo: drStaender.url,
     initials: "MS",
-    focus: ["Interventionelle Kryotherapie der Facettengelenke", "Wirbelsäulenchirurgie", "Bandscheibenerkrankungen", "Rückenschmerz"],
+    focus: ["Interventionelle Kryotherapie der Facettengelenke", "Innovative Verfahren bei Rückenschmerz", "Neurochirurgie der Wirbelsäule"],
     bio: [
       "Dr. Marko Ständer gründete 2006 zusammen mit Dr. Medele das Wirbelsäulenzentrum am Stiglmaierplatz.",
       "Seit Jahren beschäftigt er sich klinisch und wissenschaftlich mit innovativen Behandlungsverfahren rund um das „Volksleiden Rückenschmerz“ und perfektionierte zusammen mit Prof. Dr. Steude ein Verfahren zur interventionellen Kryotherapie der Facettengelenke der Wirbelsäule.",
@@ -101,7 +101,7 @@ export const doctors: Doctor[] = [
     languages: ["Deutsch", "Englisch"],
     photo: drEroes.url,
     initials: "CE",
-    focus: ["Zervikale Wirbelsäule", "Mikrochirurgische Eingriffe", "Schmerztherapie", "Bandscheibenprothesen"],
+    focus: ["Neurochirurgie", "Unfallchirurgie", "Moderne Medizin-IT"],
     bio: [
       "Dr. Erös wurde 1976 in München geboren und wuchs auch dort auf.",
       "An der Ludwig-Maximilians-Universität in München absolvierte er sein Studium, das er mit einem mehrmonatigen Aufenthalt in der Unfallchirurgie und Neurochirurgie am MCG in Augusta, Georgia, USA ergänzte.",
@@ -126,7 +126,7 @@ export const doctors: Doctor[] = [
     languages: ["Deutsch", "Englisch"],
     photo: drDonat.url,
     initials: "MD",
-    focus: ["Lumbale Wirbelsäule", "Periphere Nervenchirurgie", "Schmerztherapie"],
+    focus: ["Endoskopische Wirbelsäulenchirurgie", "Minimal-invasive & mikrochirurgische Verfahren", "Nicht-operative Verfahren an der Wirbelsäule", "3D-Rekonstruktion & Navigation"],
     bio: [
       "Markus Donat ist Neurochirurg aus Österreich. Das Studium absolvierte er an der Medizinischen Universität Wien. Bereits hier war er intensiv wissenschaftlich tätig und an der Entwicklung dreidimensionaler Rekonstruktions- und Navigationsmethoden maßgeblich beteiligt.",
       "Zum Facharzt ausgebildet wurde er an der Neurochirurgischen Universitätsklinik Wien.",
@@ -149,7 +149,7 @@ export const doctors: Doctor[] = [
     languages: ["Deutsch", "Englisch"],
     photo: drHo.url,
     initials: "WH",
-    focus: ["Lumbale Erkrankungen", "Nervenwurzelkompression", "Konservative Therapie"],
+    focus: ["Wirbelsäulenchirurgie (DWG-zertifiziert)", "Neurochirurgische Intensivmedizin", "Schmerztherapie", "Notfallmedizin"],
     bio: [
       "Dr. med. univ. Wing Mann Ho, Ph.D. ist langjährig ausgebildete und erfahrene Neurochirurgin.",
       "Umfangreiche wissenschaftlichen Leistungen mit einem PhD Abschluss sowie Vorträge auf internationalen Fachkongressen sowie Fachzeitschriftenpublikationen und Buchkapitelbeiträgen zeigen ihr breites Fachwissen.",
@@ -171,7 +171,7 @@ export const doctors: Doctor[] = [
     languages: ["Deutsch", "Englisch"],
     photo: drScherg.url,
     initials: "FS",
-    focus: ["Minimalinvasive Techniken", "Wirbelsäulenchirurgie", "Postoperative Nachsorge"],
+    focus: ["Mikrochirurgische Dekompressionsoperationen", "Stabilisierende Eingriffe an HWS, BWS und LWS", "Kypho- und Vertebroplastie", "Interventionelle Schmerztherapie"],
     bio: [
       "Dr. med. Florian Scherg ist Facharzt für Neurochirurgie und verfügt über eine breit angelegte medizinische Ausbildung mit besonderem Schwerpunkt auf der Wirbelsäulenchirurgie.",
       "Seine neurochirurgische Ausbildung absolvierte er am Klinikum Bogenhausen in München sowie am Leopoldina Krankenhaus Schweinfurt. Im Rahmen seiner klinischen Tätigkeit konnte er umfassende Erfahrung in der Behandlung neurochirurgischer Erkrankungen sammeln, insbesondere bei Erkrankungen der Wirbelsäule.",
@@ -193,7 +193,7 @@ export const doctors: Doctor[] = [
     languages: ["Deutsch", "Spanisch", "Englisch"],
     photo: rodriguez.url,
     initials: "LR",
-    focus: ["Wirbelsäulenchirurgie", "Neurotraumatologie", "Neuroonkologie", "Intensivmedizin"],
+    focus: ["Wirbelsäulenchirurgie", "Neurotraumatologie", "Neuroonkologie", "Neurochirurgische Intensivmedizin"],
     bio: [
       "Facharzt für Neurochirurgie mit mehr als zehn Jahren Berufserfahrung in der stationären und ambulanten Patientenversorgung. Er bringt eine breite klinische Expertise, interkulturelle Kompetenz sowie eine fundierte operative Ausbildung mit.",
       "Seine berufliche Laufbahn erstreckt sich über Venezuela und Deutschland, mit besonderem Fokus auf Wirbelsäulenchirurgie, Neurotraumatologie, Neuroonkologie und Intensivmedizin. Sein Anspruch: exzellente medizinische Versorgung mit Menschlichkeit, Präzision und strategischem Denken zu verbinden — sowohl im OP als auch in der interdisziplinären Zusammenarbeit.",
@@ -223,7 +223,7 @@ export const doctors: Doctor[] = [
     languages: ["Deutsch", "Englisch"],
     photo: drPetersen.url,
     initials: "MP",
-    focus: ["Konservative Orthopädie", "Manuelle Medizin", "Unfallchirurgie", "Präventivmedizin"],
+    focus: ["Konservative und operative Orthopädie", "Unfallchirurgie", "Manuelle Medizin", "Präventivmedizin"],
     bio: [
       "Ich freue mich, Sie als Fachärztin für Orthopädie und Unfallchirurgie betreuen zu dürfen. Meine fachärztliche Weiterbildung absolvierte ich in renommierten Kliniken in München und Frankfurt, darunter die Schön Klinik München Harlaching, das Klinikum Dritter Orden sowie die BG Unfallklinik Frankfurt und die Orthopädische Universitätsklinik Friedrichsheim. Hier konnte ich meine Kenntnisse in der konservativen und operativen Orthopädie und Unfallchirurgie vertiefen.",
       "Mein Medizinstudium absolvierte ich in Gießen mit einem Auslandssemester in Prag. Promoviert habe ich an der Orthopädischen Universitätsklinik Heidelberg im Bereich der Schulterprothetik.",
@@ -247,7 +247,7 @@ export const doctors: Doctor[] = [
     languages: ["Deutsch", "Englisch"],
     photo: drDemmel.url,
     initials: "WD",
-    focus: ["Neurochirurgische Schmerztherapie", "Neuromodulation", "Chirurgie peripherer Nerven", "Tiefe Hirnstimulation"],
+    focus: ["Neurochirurgische Schmerztherapie", "Chirurgie peripherer Nerven", "Tiefe Hirnstimulation", "Neuromodulation"],
     bio: [
       "Dr. Demmel ist Facharzt für Neurochirurgie mit langjähriger Erfahrung in der operativen und konservativen Behandlung neurochirurgischer Erkrankungen.",
       "Nach seinem Medizinstudium an der Universität G. D'Annunzio und seiner Promotion an der Universität Ferrara in Italien sammelte er zunächst chirurgische Erfahrung am Krankenhaus Sterzing und war anschließend als wissenschaftlicher Mitarbeiter an der Neurochirurgischen Klinik der Charité in Berlin tätig.",
@@ -302,7 +302,7 @@ export const doctors: Doctor[] = [
     languages: ["Deutsch", "Englisch"],
     photo: "/dr-mueller-schunk.webp",
     initials: "SM",
-    focus: ["Diagnostische Radiologie", "Neuroradiologie", "Funktionelle Kernspintomografie", "Interventionelle Therapie"],
+    focus: ["Diagnostische Radiologie", "Neuroradiologie", "Funktionelle Kernspintomografie", "Interventionelle Therapie von Hirngefäßerkrankungen"],
     bio: [
       "Dr. Stefanie Müller-Schunk absolvierte ihr Medizinstudium an der Ludwig-Maximilians-Universität. Ihre klinische Karriere startete sie am Klinikum Rechts der Isar der TU München zunächst in der Radiologie bei Prof. Gerhardt und setzte sie später in der Chirurgischen Klinik unter Prof. Siewert fort.",
       "1999 wechselte sie ans Uniklinikum Großhadern und arbeitete dort zehn Jahre in der Abteilung für Neuroradiologie bei Prof. Brückmann. In dieser Zeit vervollständigte sie ihre Facharztausbildung für diagnostische Radiologie unter der Leitung von Prof. Reiser. Ihre wissenschaftliche Arbeit drehte sich um das Thema funktionelle Kernspintomografie. Auf diesem Gebiet verfasste sie auch ihre Promotion.",
@@ -329,7 +329,7 @@ export const doctors: Doctor[] = [
     languages: ["Deutsch", "Englisch"],
     photo: drGrosse.url,
     initials: "CG",
-    focus: ["Bildgebende Diagnostik", "MRT & CT der Wirbelsäule"],
+    focus: ["Bildgebende Diagnostik der Wirbelsäule"],
     bio: [
       "Dr. Grosse ist Radiologin im Kompetenzzentrum am Stiglmaierplatz und verantwortet die bildgebende Diagnostik der Wirbelsäule.",
     ],
@@ -346,7 +346,7 @@ export const doctors: Doctor[] = [
     languages: ["Deutsch", "Englisch"],
     photo: drLukas.url,
     initials: "BL",
-    focus: ["Hand, Handgelenk und Unterarm", "Mikrochirurgie", "Plastische Chirurgie", "Sportmedizin"],
+    focus: ["Hand-, Handgelenk- und Unterarmchirurgie", "Mikrochirurgie", "Plastische Chirurgie", "Sportmedizin"],
     bio: [
       "Seit Januar 2021 ist Dr. med. Bernhard Lukas für alle Fragen, Probleme und Verletzungen rund um Hand, Handgelenk und Unterarm im Wirbelsäulenzentrum am Stiglmaierplatz für Sie da.",
       "Der sehr renommierte Handchirurg Dr. Bernhard Lukas, langjähriger Chefarzt am Zentrum für Hand- und Ellenbogen Chirurgie, Mikrochirurgie und Plastische Chirurgie der Schön Klinik München Harlaching bietet in unserem MVZ eine handchirurgische Privatsprechstunde an.",
