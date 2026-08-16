@@ -161,7 +161,7 @@ function BehandlungenPage() {
       },
       {
         name: "Minimally Invasive Procedures",
-        description: "Small interventions with major effect, when conservative measures have been exhausted.",
+        description: "Gentler than classic surgery, more targeted than tablets or physiotherapy alone, many patients return to daily life much faster.",
         methods: [
           { name: "Heat Probe Treatment", desc: "A probe heats the fine nerves at the facet joint under image guidance, interrupting pain conduction." },
           { name: "Pain Pumps (IDD)", desc: "A small implant delivers pain medication continuously right at the spinal cord." },
