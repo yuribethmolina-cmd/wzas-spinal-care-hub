@@ -49,33 +49,30 @@ const FAQ_ITEMS: FaqItem[] = [
     en: { q: "Which insurances do you accept?", a: "We treat patients with all statutory and private health insurances as well as self-paying patients. The exact covered services vary by insurance contract — please contact us if you have questions." },
   },
   {
-    de: { q: "Was soll ich zum Ersttermin mitbringen?", a: "Bringen Sie bitte mit: Ihre Krankenversicherungskarte, alle vorhandenen Bilder (MRT, CT, Röntgenaufnahmen) auf CD oder als Ausdruck, Befundberichte und Arztbriefe früherer Behandlungen sowie eine Liste Ihrer aktuellen Medikamente." },
-    en: { q: "What should I bring to my first appointment?", a: "Please bring: your health insurance card, all existing imaging (MRI, CT, X-rays) on CD or printout, reports and letters from previous treatments, and a list of your current medications." },
+    de: { q: "Was soll ich zum Ersttermin mitbringen?", a: "Bringen Sie zu Ihrem Erst-Termin Ihre Versicherungskarte und sämtliche Vorunterlagen mit, einschließlich Röntgen-, MRT- und CT-Bildern. Bitte bereiten Sie sich darauf vor, dass wir Sie bereits in diesem Gespräch nach Ihren Beschwerden und Vorbefunden fragen. Das hilft uns, frühzeitig Termine für eventuell erforderliche Zusatzuntersuchungen zu reservieren." },
+    en: { q: "What should I bring to my first appointment?", a: "Please bring your insurance card and all previous documents, including X-ray, MRI and CT images. Be prepared for us to ask about your symptoms and previous findings during this first conversation — it helps us reserve appointments for any additional examinations early on." },
   },
   {
-    de: { q: "Bedeutet meine Diagnose automatisch eine Operation?", a: "Nein — keineswegs. Mehr als 90% unserer Patienten werden ohne Operation behandelt. Wir verfolgen konsequent den Grundsatz: konservativ, wenn möglich – operativ, wenn nötig. In einem ausführlichen Erstgespräch besprechen wir alle Optionen." },
-    en: { q: "Does my diagnosis automatically mean surgery?", a: "Not at all. More than 90% of our patients are treated without surgery. We consistently follow the principle: conservative care when possible, surgery only when necessary. We discuss all options in detail at your first appointment." },
+    de: { q: "Bedeutet meine Diagnose automatisch eine Operation?", a: "Nein. 90% der Fälle werden bei uns ohne Operation erfolgreich behandelt. Unser Grundsatz lautet: konservativ behandeln, wann immer es möglich ist, operieren nur dann, wenn es wirklich nötig ist." },
+    en: { q: "Does my diagnosis automatically mean surgery?", a: "No. 90% of cases are treated successfully without surgery. Our principle: treat conservatively whenever possible, operate only when it is truly necessary." },
   },
   {
-    de: { q: "Wie läuft ein Ersttermin ab?", a: "Ein Ersttermin dauert in der Regel 30 bis 45 Minuten. Der Ablauf: ausführliche Anamnese und Beschwerdebeschreibung, körperliche Untersuchung, Besprechung vorhandener Befunde und Bildgebung, Erklärung möglicher Diagnosen und Therapieoptionen, gemeinsames Festlegen des nächsten Schrittes." },
-    en: { q: "What happens at a first appointment?", a: "A first appointment typically takes 30 to 45 minutes. The process: detailed medical history and symptom description, physical examination, review of existing findings and imaging, explanation of possible diagnoses and treatment options, and jointly deciding the next step." },
+    de: { q: "Wie läuft die Behandlung ab?", a: "Wir denken in drei Stufen: Verfahren ohne Operation, minimalinvasive Eingriffe und Wirbelsäulenchirurgie. So erhält jede Patientin und jeder Patient genau die Behandlung, die dem Befund entspricht. Nur wenn konservative Maßnahmen dauerhaft nicht ausreichen, empfehlen wir den nächsten Schritt." },
+    en: { q: "How does treatment work?", a: "We work in three stages: procedures without surgery, minimally invasive interventions and spinal surgery. Every patient receives exactly the treatment their diagnosis calls for. Only when conservative measures are not enough in the long run do we recommend the next step." },
   },
   {
-    de: { q: "Wo finden Operationen statt?", a: "Wenn ein operativer Eingriff notwendig ist, wird dieser in der WolfartKlinik München-Gräfelfing durchgeführt — einer der führenden Privatkliniken für Neurochirurgie und Orthopädie in Bayern. Unsere Chirurgen begleiten Sie durch den gesamten Prozess." },
-    en: { q: "Where do surgeries take place?", a: "When a surgical procedure is required, it is performed at the WolfartKlinik Munich-Gräfelfing — one of Bavaria's leading private clinics for neurosurgery and orthopaedics. Our surgeons accompany you through the entire process." },
+    de: { q: "Erhalte ich MRT und CT im Haus?", a: "Ja. Das Radiologiezentrum am Stiglmaierplatz gehört zu unserem Kompetenzzentrum. Bildgebende Diagnostik wie MRT, CT und Neuroradiologie erfolgt direkt im Haus, in direkter Abstimmung mit unseren Wirbelsäulenspezialisten und ohne externe Termine." },
+    en: { q: "Are MRI and CT available on site?", a: "Yes. The Radiology Centre at Stiglmaierplatz is part of our competence centre. Imaging such as MRI, CT and neuroradiology takes place in-house, in direct coordination with our spine specialists and without external appointments." },
   },
   {
-    de: { q: "Wie lange dauert die Genesung nach einer OP?", a: "Das hängt stark von der Art des Eingriffs ab. Minimalinvasive Eingriffe: häufig 2–4 Wochen. Größere Fusionsoperationen: 6–12 Wochen. Im Entlassgespräch erhalten Sie einen individualisierten Genesungsplan mit allen wichtigen Schritten und Kontrollterminen." },
-    en: { q: "How long is recovery after surgery?", a: "This depends strongly on the type of procedure. Minimally invasive procedures: often 2–4 weeks. Larger fusion operations: 6–12 weeks. At discharge you receive an individualised recovery plan with all key milestones and follow-up appointments." },
+    de: { q: "Bieten Sie Physiotherapie an?", a: "Physiotherapie und physikalische Behandlungen gehören zu unseren Verfahren ohne Operation. Gemeinsam mit Infiltrationen und medikamentöser Schmerztherapie wählen wir individuell aus, was Ihrer Diagnose entspricht." },
+    en: { q: "Do you offer physiotherapy?", a: "Physiotherapy and physical treatments are part of our procedures without surgery. Together with injections and medication-based pain therapy, we select individually what matches your diagnosis." },
   },
   {
-    de: { q: "Bieten Sie Physiotherapie an?", a: "Physiotherapie ist ein wichtiger Baustein unseres konservativen Behandlungskonzepts. Wir koordinieren die Physiotherapie in enger Zusammenarbeit mit qualifizierten Praxen und geben Ihnen bei Bedarf eine Überweisung zu unseren Partnern." },
-    en: { q: "Do you offer physiotherapy?", a: "Physiotherapy is an important component of our conservative treatment approach. We coordinate physiotherapy in close collaboration with qualified practices and issue referrals to our partners as needed." },
+    de: { q: "Wie erreiche ich das Zentrum?", a: "Unsere Praxis befindet sich in der Nymphenburger Str. 1, 80335 München, direkt am Stiglmaierplatz gegenüber dem Löwenbräukeller. Mit öffentlichen Verkehrsmitteln: U-Bahn U1, Haltestelle Stiglmaierplatz, sowie Trambahnlinie 21 vom Hauptbahnhof bzw. Karlsplatz/Stachus. Mit dem Auto: eine begrenzte Anzahl an Stellplätzen in unserer Tiefgarage, Zufahrt über die Seidlstraße; wir empfehlen die öffentlichen Verkehrsmittel." },
+    en: { q: "How do I get to the centre?", a: "Our practice is at Nymphenburger Str. 1, 80335 Munich, directly at Stiglmaierplatz opposite the Löwenbräukeller. By public transport: underground line U1, stop Stiglmaierplatz, and tram line 21 from the main station or Karlsplatz/Stachus. By car: a limited number of spaces in our underground car park, access via Seidlstraße; we recommend public transport." },
   },
-  {
-    de: { q: "Wie erreiche ich das Zentrum?", a: "Wir befinden uns in der Nymphenburger Str. 1, 80335 München, am Stiglmaierplatz. U-Bahn: U1 / U7, Haltestelle Stiglmaierplatz. Straßenbahn: Linien 20, 21, 22 — Haltestelle direkt vor der Tür. Parkhaus in unmittelbarer Nähe, barrierefreier Zugang zur Praxis." },
-    en: { q: "How do I get to the centre?", a: "We are at Nymphenburger Str. 1, 80335 Munich, at Stiglmaierplatz. U-Bahn: U1 / U7, stop Stiglmaierplatz. Tram: lines 20, 21, 22 — stop directly in front of the entrance. Car park nearby, barrier-free access to the practice." },
-  },
+
 ];
 
 const GALLERY = Array.from({ length: 6 }, (_, i) => `/gallery/praxis-0${i + 1}.webp`);
