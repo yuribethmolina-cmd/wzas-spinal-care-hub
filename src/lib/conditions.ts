@@ -20,6 +20,7 @@ export type Condition = {
   treatmentIds: string[];
   relatedIds: string[];
   doctorSlugs: string[];
+  videoEmbed?: { src: string; title: string };
   de: ConditionContent;
   en: ConditionContent;
 };
@@ -162,6 +163,10 @@ export const CONDITIONS: Condition[] = [
     treatmentIds: ["infiltration", "mikrochirurgie", "minimalinvasiv"],
     relatedIds: ["bandscheibenvorfall", "wirbelgleiten", "facettengelenksarthrose"],
     doctorSlugs: [],
+    videoEmbed: {
+      src: "https://www.youtube.com/embed/Fg2IMXewbc8",
+      title: "Spinalkanalstenose: Verengung des Wirbelkanals erkennen und richtig behandeln",
+    },
     de: {
       name: "Wirbelkanalverengung",
       subtitle: "Spinalkanalstenose",
