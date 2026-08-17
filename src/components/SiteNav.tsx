@@ -127,19 +127,22 @@ export function SiteNav() {
               +49 (0)89-54 34 30 30
             </span>
           </div>
-          <div className="flex items-center gap-1">
-            {SOCIALS.map((s) => (
-              <a
-                key={s.label}
-                href={s.href}
-                target="_blank"
-                rel="noreferrer"
-                aria-label={s.label}
-                className="inline-flex items-center justify-center w-7 h-7 rounded text-white/45 hover:text-[#AC8F52] transition-colors duration-200"
-              >
-                {s.icon}
-              </a>
-            ))}
+          <div className="flex items-center gap-4">
+            <span className="text-[11px] text-white/55">Deutsch · English · Español</span>
+            <div className="flex items-center gap-1">
+              {SOCIALS.map((s) => (
+                <a
+                  key={s.label}
+                  href={s.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={s.label}
+                  className="inline-flex items-center justify-center w-7 h-7 rounded text-white/45 hover:text-[#AC8F52] transition-colors duration-200"
+                >
+                  {s.icon}
+                </a>
+              ))}
+            </div>
           </div>
         </div>
       </div>
