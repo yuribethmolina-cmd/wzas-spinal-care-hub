@@ -76,7 +76,7 @@ export const doctors: Doctor[] = [
     languages: ["Deutsch", "Englisch"],
     photo: drStaender.url,
     initials: "MS",
-    focus: ["Interventionelle Kryotherapie der Facettengelenke", "Innovative Verfahren bei Rückenschmerz", "Neurochirurgie der Wirbelsäule"],
+    focus: ["Interventionelle Kryotherapie der Facettengelenke der Wirbelsäule", "Innovative Behandlungsverfahren bei Rückenschmerz (klinisch und wissenschaftlich)", "Berg- und Expeditionsmedizin"],
     bio: [
       "Dr. Marko Ständer gründete 2006 zusammen mit Dr. Medele das Wirbelsäulenzentrum am Stiglmaierplatz.",
       "Seit Jahren beschäftigt er sich klinisch und wissenschaftlich mit innovativen Behandlungsverfahren rund um das „Volksleiden Rückenschmerz“ und perfektionierte zusammen mit Prof. Dr. Steude ein Verfahren zur interventionellen Kryotherapie der Facettengelenke der Wirbelsäule.",
