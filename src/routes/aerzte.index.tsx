@@ -83,7 +83,7 @@ function AerztePage() {
 
             {/* Specialty chips */}
             <div className="mt-6 flex flex-wrap gap-2">
-              {["Neurochirurgie", "Wirbelsäulenchirurgie", "Orthopädie", "Radiologie", "Handchirurgie"].map((s) => (
+            {["Neurochirurgie", "Wirbelsäulenchirurgie", "Orthopädie", "Radiologie"].map((s) => (
                 <span
                   key={s}
                   className="inline-flex items-center rounded-full border border-white/20 bg-white/8 backdrop-blur-sm px-3.5 py-1 text-[11px] font-medium text-white/75"
