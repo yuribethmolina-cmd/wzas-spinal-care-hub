@@ -223,10 +223,8 @@ function SpineLocatorMobile() {
         <div className="px-4 py-3 flex items-center justify-between gap-3">
           <p className="text-[11px] font-bold tracking-[0.18em] uppercase text-[#E0C288]">{header}</p>
           {!active && (
-            <p className="text-[11px] font-medium text-white/55 flex items-center gap-1 whitespace-nowrap pr-3">
-              <span>{hint}</span>
-              <span aria-hidden="true">·</span>
-              <span>{swipeHint} →</span>
+            <p className="text-[11px] font-medium text-white/55 flex items-center gap-1 whitespace-nowrap pr-2">
+              {swipeHint}
             </p>
           )}
         </div>
