@@ -69,7 +69,7 @@ function ConditionCard({ condition, index, large = false, wide = false, ctaCopy 
       params={{ slug: condition.id }}
       ref={ref as React.Ref<HTMLAnchorElement>}
       style={style}
-      className={`relative overflow-hidden block group ${large ? "aspect-[16/9]" : "aspect-[3/4]"}`}
+      className={`relative overflow-hidden block group ${large ? "aspect-[16/9]" : wide ? "aspect-[4/3] lg:aspect-[16/10]" : "aspect-[3/4]"}`}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
