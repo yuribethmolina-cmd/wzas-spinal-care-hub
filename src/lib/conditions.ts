@@ -6,8 +6,8 @@ import befundungImg from "@/assets/wzas/galerie/befundung.webp.asset.json";
 import untersuchungImg from "@/assets/wzas/galerie/untersuchung.webp.asset.json";
 import beratungImg from "@/assets/wzas/galerie/beratung.webp.asset.json";
 import schmerztherapieImg from "@/assets/wzas/galerie/schmerztherapie.webp.asset.json";
-import consultationImg from "@/assets/wzas/hero-consultation.webp.asset.json";
-import bandscheibeImg from "@/assets/wzas/thumb-bandscheibe.webp.asset.json";
+import gespraechImg from "@/assets/wzas/hero-gespraech.webp.asset.json";
+import clinic2Img from "@/assets/wzas/clinic2.webp.asset.json";
 
 
 export type ConditionContent = {
@@ -74,7 +74,7 @@ export const CONDITIONS: Condition[] = [
   },
   {
     id: "bandscheibenvorfall",
-    photo: bandscheibeImg.url,
+    photo: mrtImg.url,
     treatmentIds: ["infiltration", "mikrochirurgie", "medikamentoes"],
     relatedIds: ["rueckenschmerzen", "wirbelkanalverengung", "wirbelgleiten"],
     doctorSlugs: [],
@@ -105,7 +105,7 @@ export const CONDITIONS: Condition[] = [
   },
   {
     id: "bandscheiben-deg",
-    photo: mrtImg.url,
+    photo: befundImg.url,
     treatmentIds: ["infiltration", "medikamentoes", "stabilisierung"],
     relatedIds: ["rueckenschmerzen", "facettengelenksarthrose", "wirbelkanalverengung"],
     doctorSlugs: [],
@@ -202,7 +202,7 @@ export const CONDITIONS: Condition[] = [
   },
   {
     id: "wirbelgleiten",
-    photo: befundImg.url,
+    photo: gespraechImg.url,
     treatmentIds: ["infiltration", "stabilisierung", "physiotherapie"],
     relatedIds: ["bandscheibenvorfall", "wirbelkanalverengung", "rueckenschmerzen"],
     doctorSlugs: [],
@@ -264,7 +264,7 @@ export const CONDITIONS: Condition[] = [
   },
   {
     id: "osteoporose",
-    photo: consultationImg.url,
+    photo: clinic2Img.url,
     treatmentIds: ["minimalinvasiv", "medikamentoes", "stabilisierung"],
     relatedIds: ["wirbelkoerperfraktur", "rueckenschmerzen", "bandscheiben-deg"],
     doctorSlugs: [],
