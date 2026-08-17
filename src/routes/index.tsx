@@ -810,16 +810,19 @@ function BeschwerdenCard({
   name,
   sub,
   cta,
+  href,
   delay,
 }: {
   iconKey: string;
   name: string;
   sub: string;
   cta: string;
+  href: string;
   delay: number;
 }) {
   const { ref, style } = useFadeUp(delay);
   const [hovered, setHovered] = useState(false);
+
   return (
     <div
       ref={ref}
