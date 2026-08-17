@@ -99,6 +99,13 @@ function conditionName(slug: string, lang: Lang) {
   return c ? (lang === "de" ? c.de.name : c.en.name) : slug;
 }
 
+const CONDITION_SUBLINE: Record<string, { de: string; en: string }> = {
+  "bandscheiben-deg": {
+    de: "natürlicher Verschleiß der Bandscheibe",
+    en: "natural wear of the spinal discs",
+  },
+};
+
 function SpineSvg({
   activeId,
   onZone,
