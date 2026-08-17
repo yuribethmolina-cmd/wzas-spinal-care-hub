@@ -202,11 +202,24 @@ function BeschwerdenHub() {
             <div className="mb-3">
               <ConditionCard condition={featured} index={0} large ctaCopy={t.ctaCopy} />
             </div>
-            {/* Rows 2-4: 3-column portrait */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-              {rest.map((c, i) => (
-                <ConditionCard key={c.id} condition={c} index={i + 1} ctaCopy={t.ctaCopy} />
-              ))}
+            {/* Rows 2-4: 3-column portrait, last row splits in two wide cards */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-3">
+              {rest.map((c, i) => {
+                const wide = i >= rest.length - 2;
+                return (
+                  <div
+                    key={c.id}
+                    className={wide ? "lg:col-span-3" : "lg:col-span-2"}
+                  >
+                    <ConditionCard
+                      condition={c}
+                      index={i + 1}
+                      ctaCopy={t.ctaCopy}
+                      wide={wide}
+                    />
+                  </div>
+                );
+              })}
             </div>
           </div>
         </section>
