@@ -114,7 +114,7 @@ export function MobileNavPanel({
           </button>
         </div>
 
-        <nav className="flex-1 overflow-y-auto px-5 py-3" aria-label={title}>
+        <nav className="flex-1 overflow-y-auto overscroll-contain px-5 py-3" aria-label={title}>
           {links.map(([label, href], i) => {
             const isActive = activeRoute === href;
             const cls = `flex items-center justify-between border-b border-[#EEF0F2] py-4 text-[17px] font-semibold transition-colors ${
@@ -153,7 +153,7 @@ export function MobileNavPanel({
           })}
         </nav>
 
-        <div className="border-t border-[#E2E4E7] px-5 py-5">
+        <div className="border-t border-[#E2E4E7] px-5 py-5" style={{ paddingBottom: "calc(1.25rem + env(safe-area-inset-bottom))" }}>
           <a
             href={BOOKING_URL}
             onClick={onClose}
