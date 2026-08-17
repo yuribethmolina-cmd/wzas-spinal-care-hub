@@ -99,6 +99,17 @@ function conditionName(slug: string, lang: Lang) {
   return c ? (lang === "de" ? c.de.name : c.en.name) : slug;
 }
 
+const CONDITION_SUBLINE: Record<string, { de: string; en: string }> = {
+  "bandscheiben-deg": {
+    de: "natürlicher Verschleiß der Bandscheibe",
+    en: "natural wear of the spinal discs",
+  },
+};
+
+const CONDITION_WIDGET_NAME: Record<string, { de?: string; en?: string }> = {
+  "bandscheiben-deg": { en: "Disc degeneration" },
+};
+
 function SpineSvg({
   activeId,
   onZone,
@@ -162,8 +173,8 @@ function SpineLocator() {
           <div className="flex flex-col gap-1.5 flex-1">
             {SPINE_ZONES.map((z) => {
               const active = activeId === z.id;
-              const label = lang === "de" ? z.de : z.en;
-              const sub = lang === "de" ? z.subDe : z.subEn;
+              const primary = lang === "de" ? z.primaryDe : z.primaryEn;
+              const secondary = lang === "de" ? z.secondaryDe : z.secondaryEn;
               return (
                 <Link
                   key={z.id}
@@ -175,10 +186,10 @@ function SpineLocator() {
                   onMouseLeave={() => setActiveId(null)}
                 >
                   <p className={`text-base font-bold leading-tight transition-colors duration-200 ${active ? "text-[#E0C288]" : "text-white"}`}>
-                    {label}
+                    {primary}
                   </p>
                   <p className={`text-sm font-medium leading-snug mt-0.5 transition-colors duration-200 ${active ? "text-[#D2B276]" : "text-white/75"}`}>
-                    {sub}
+                    {secondary}
                   </p>
                 </Link>
               );
@@ -224,7 +235,7 @@ function SpineLocatorMobile() {
                     : "border-white/25 bg-white/5 text-white/85"
                 }`}
               >
-                {lang === "de" ? z.de : z.en}
+                {lang === "de" ? z.primaryDe : z.primaryEn}
               </button>
             );
           })}
@@ -247,11 +258,11 @@ function SpineLocatorMobile() {
                   style={{ flex: z.flex, background: isActive ? "rgba(224,194,136,0.12)" : "transparent" }}
                 >
                   <p className={`text-[15px] font-semibold leading-tight ${isActive ? "text-[#E0C288]" : "text-white/90"}`}>
-                    {lang === "de" ? z.de : z.en}
+                    {lang === "de" ? z.primaryDe : z.primaryEn}
                   </p>
                   {isActive && (
                     <p className="text-[12.5px] font-medium leading-snug mt-0.5 text-[#D2B276]">
-                      {lang === "de" ? z.subDe : z.subEn}
+                      {lang === "de" ? z.secondaryDe : z.secondaryEn}
                     </p>
                   )}
                 </button>
@@ -273,19 +284,30 @@ function SpineLocatorMobile() {
           {active && (
             <div className="p-4">
               <p className="text-[11px] font-semibold tracking-[0.16em] uppercase text-white/60">
-                {lang === "de" ? "Häufige Diagnosen" : "Common diagnoses"}
+                {lang === "de" ? "Häufige Beschwerden" : "Common conditions"}
               </p>
               <div className="mt-3 flex flex-wrap gap-2">
-                {active.conditions.map((slug) => (
-                  <Link
-                    key={slug}
-                    to="/beschwerden/$slug"
-                    params={{ slug }}
-                    className="inline-flex items-center min-h-[40px] rounded-full border border-[#E0C288]/45 bg-white/5 px-4 text-[13px] font-semibold text-[#F0DDB6] active:scale-[0.97] transition-transform"
-                  >
-                    {conditionName(slug, lang)}
-                  </Link>
-                ))}
+                {active.conditions.map((slug) => {
+                  const subline = CONDITION_SUBLINE[slug]?.[lang];
+                  const primary = CONDITION_WIDGET_NAME[slug]?.[lang] ?? conditionName(slug, lang);
+                  return (
+                    <Link
+                      key={slug}
+                      to="/beschwerden/$slug"
+                      params={{ slug }}
+                      className="inline-flex flex-col justify-center min-h-[44px] rounded-full border border-[#E0C288]/45 bg-white/5 px-4 text-left active:scale-[0.97] transition-transform"
+                    >
+                      <span className="text-[13px] font-semibold leading-tight text-[#F0DDB6]">
+                        {primary}
+                      </span>
+                      {subline && (
+                        <span className="text-[11px] font-medium leading-snug text-[#F0DDB6]/70">
+                          {subline}
+                        </span>
+                      )}
+                    </Link>
+                  );
+                })}
               </div>
               <a
                 href={BOOKING_URL}
