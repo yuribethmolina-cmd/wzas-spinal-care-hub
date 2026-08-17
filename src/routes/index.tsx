@@ -202,15 +202,15 @@ function SpineLocatorMobile() {
         className="rounded-2xl border border-white/25 overflow-hidden shadow-[0_18px_44px_-22px_rgba(0,0,0,0.85)]"
         style={{ background: "rgba(16,22,34,0.72)", backdropFilter: "blur(14px) saturate(1.1)" }}
       >
-        <div className="px-4 py-3 border-b border-white/15 flex items-center justify-between gap-3">
+        <div className="px-4 py-3 flex items-center justify-between gap-3">
           <p className="text-[11px] font-bold tracking-[0.18em] uppercase text-[#E0C288]">{header}</p>
-          <p className="text-[11px] font-medium text-white/70">{hint}</p>
+          {!active && <p className="text-[11px] font-medium text-white/55">{hint}</p>}
         </div>
 
-        <div className="flex gap-4 p-4">
-          <SpineSvg activeId={activeId} onZone={(id) => setActiveId(id)} className="w-10 shrink-0 overflow-visible" />
+        <div className="flex gap-4 px-4 pb-4">
+          <SpineSvg activeId={activeId} onZone={(id) => setActiveId(id)} className="w-9 shrink-0 overflow-visible" />
 
-          <div className="flex flex-col gap-1 flex-1 min-w-0">
+          <div className="flex flex-col gap-0.5 flex-1 min-w-0">
             {SPINE_ZONES.map((z) => {
               const isActive = activeId === z.id;
               return (
@@ -219,20 +219,23 @@ function SpineLocatorMobile() {
                   type="button"
                   onClick={() => setActiveId(isActive ? null : z.id)}
                   aria-expanded={isActive}
-                  className="text-left rounded-lg px-2 py-2 min-h-[44px] transition-colors active:scale-[0.98]"
+                  className="text-left rounded-xl px-3 py-2 min-h-[44px] flex flex-col justify-center transition-colors active:scale-[0.98]"
                   style={{ flex: z.flex, background: isActive ? "rgba(224,194,136,0.12)" : "transparent" }}
                 >
-                  <p className={`text-[15px] font-bold leading-tight ${isActive ? "text-[#E0C288]" : "text-white"}`}>
+                  <p className={`text-[15px] font-semibold leading-tight ${isActive ? "text-[#E0C288]" : "text-white/90"}`}>
                     {lang === "de" ? z.de : z.en}
                   </p>
-                  <p className={`text-[13px] font-medium leading-snug mt-0.5 ${isActive ? "text-[#D2B276]" : "text-white/75"}`}>
-                    {lang === "de" ? z.subDe : z.subEn}
-                  </p>
+                  {isActive && (
+                    <p className="text-[12.5px] font-medium leading-snug mt-0.5 text-[#D2B276]">
+                      {lang === "de" ? z.subDe : z.subEn}
+                    </p>
+                  )}
                 </button>
               );
             })}
           </div>
         </div>
+
 
         <div
           className="overflow-hidden border-t border-white/10"
