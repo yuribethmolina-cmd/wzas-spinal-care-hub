@@ -126,7 +126,7 @@ function BeschwerdenDetail() {
       doctorLink: "View profile",
       backLink: "← Back to conditions",
       notFound: "Condition not found",
-      bookingBody: "Book an appointment now. Emergencies are treated immediately.",
+      bookingBody: "Appointments are available promptly, subject to availability, and no referral is required.",
       bookingCta: "Book online",
       videoHeading: "Video",
     },

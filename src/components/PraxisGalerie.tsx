@@ -13,14 +13,14 @@ import befundung from "@/assets/wzas/galerie/befundung.webp.asset.json";
 type Shot = { src: string; de: string; en: string; subDe: string; subEn: string };
 
 const SHOTS: Shot[] = [
-  { src: beratung.url, de: "Aufklärung am Modell", en: "Explained on the model", subDe: "Jeder Befund wird verständlich erklärt", subEn: "Every finding explained in plain words" },
+  { src: beratung.url, de: "Aufklärung am Modell", en: "Explaining your condition", subDe: "Jeder Befund wird verständlich erklärt", subEn: "Clear explanations using a spine model" },
   { src: empfang.url, de: "Empfang", en: "Reception", subDe: "Ankommen am Stiglmaierplatz", subEn: "Arriving at Stiglmaierplatz" },
   { src: befund.url, de: "Befundbesprechung", en: "Reviewing the scans", subDe: "MRT-Bilder gemeinsam durchgehen", subEn: "Going through the MRI together" },
   { src: untersuchung.url, de: "Klinische Untersuchung", en: "Clinical examination", subDe: "Beweglichkeit, Kraft, Nervenfunktion", subEn: "Mobility, strength, nerve function" },
   { src: mrt.url, de: "MRT-Diagnostik", en: "MRI diagnostics", subDe: "Radiologie im selben Haus", subEn: "Radiology in the same building" },
-  { src: schmerztherapie.url, de: "Bildgesteuerte Schmerztherapie", en: "Image-guided pain therapy", subDe: "Millimetergenau an die Schmerzquelle", subEn: "Millimetre-precise at the pain source" },
+  { src: schmerztherapie.url, de: "Bildgesteuerte Schmerztherapie", en: "Image-guided pain treatment", subDe: "Millimetergenau an die Schmerzquelle", subEn: "Precise treatment at the source of pain" },
   { src: ct.url, de: "CT-gestützte Intervention", en: "CT-guided intervention", subDe: "Minimalinvasiv, ambulant", subEn: "Minimally invasive, outpatient" },
-  { src: befundung.url, de: "Befundung", en: "Reporting", subDe: "Zweitmeinung im Team", subEn: "Second opinion within the team" },
+  { src: befundung.url, de: "Befundung", en: "Diagnostic review", subDe: "Zweitmeinung im Team", subEn: "A second opinion from our team" },
 ];
 
 const SPANS = [
@@ -42,7 +42,7 @@ export function PraxisGalerie() {
   const closeRef = useRef<HTMLButtonElement | null>(null);
   const t = useT({
     de: { label: "Einblicke", h2a: "Einblicke in ", h2b: "die Praxis", lead: "Keine Stockfotos: So sieht es bei uns am Stiglmaierplatz wirklich aus, von der Anmeldung bis zum OP-Saal.", close: "Schließen", prev: "Vorheriges Bild", next: "Nächstes Bild", hint: "Bild anklicken" },
-    en: { label: "Inside", h2a: "Inside ", h2b: "our practice", lead: "No stock photography: this is what Stiglmaierplatz really looks like, from reception to the operating room.", close: "Close", prev: "Previous image", next: "Next image", hint: "Click an image" },
+    en: { label: "Our centre", h2a: "Inside ", h2b: "our practice", lead: "A genuine look inside our centre at Stiglmaierplatz, from reception to the operating theatre.", close: "Close", prev: "Previous image", next: "Next image", hint: "Select an image" },
   });
 
   const step = useCallback((dir: number) => {

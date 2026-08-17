@@ -1,7 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { doctors } from "@/lib/doctors";
 import { SiteNav } from "@/components/SiteNav";
-import { useT } from "@/lib/lang";
+import { useLang, useT } from "@/lib/lang";
+import { localizeDoctor } from "@/lib/doctor-localization";
 const BOOKING_URL = "/#termin";
 const EASE = "cubic-bezier(0.23, 1, 0.32, 1)";
 const TEAM_HERO = "/team-header.webp";
@@ -22,6 +23,9 @@ export const Route = createFileRoute("/aerzte/")({
 });
 
 function AerztePage() {
+  const { lang } = useLang();
+  const leadership = LEADERSHIP.map((doctor) => localizeDoctor(doctor, lang));
+  const team = TEAM.map((doctor) => localizeDoctor(doctor, lang));
   const t = useT({
     de: {
       heroEyebrow: "ÄRZTETEAM · MÜNCHEN",
@@ -36,13 +40,13 @@ function AerztePage() {
     },
     en: {
       heroEyebrow: "MEDICAL TEAM · MUNICH",
-      heroH1: "The Team",
+      heroH1: "Our medical team",
       heroSub: "13 specialists in spinal surgery, neurosurgery, orthopaedics and radiology.",
       leadershipLabel: "MEDICAL LEADERSHIP",
       teamLabel: "OUR SPECIALISTS",
       profileLink: "View profile",
       ctaH2: "Book an appointment",
-      ctaBody: "Our team accompanies you from diagnosis to recovery, conservative care when possible, surgery only when necessary.",
+      ctaBody: "Our team supports you from diagnosis through recovery, with conservative care first and surgery only when necessary.",
       ctaBtn: "Book now",
     },
   });
@@ -99,7 +103,7 @@ function AerztePage() {
             {t.leadershipLabel}
           </p>
           <div className="grid gap-6 lg:grid-cols-2">
-            {LEADERSHIP.map((d) => (
+            {leadership.map((d) => (
               <LeaderCard key={d.slug} d={d} profileLabel={t.profileLink} />
             ))}
           </div>
@@ -113,7 +117,7 @@ function AerztePage() {
             {t.teamLabel}
           </p>
           <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-            {TEAM.map((d) => (
+            {team.map((d) => (
               <TeamCard key={d.slug} d={d} />
             ))}
           </div>
@@ -147,9 +151,7 @@ function AerztePage() {
   );
 }
 
-type DoctorType = (typeof doctors)[0];
-
-function LeaderCard({ d, profileLabel }: { d: DoctorType; profileLabel: string }) {
+function LeaderCard({ d, profileLabel }: { d: ReturnType<typeof localizeDoctor>; profileLabel: string }) {
   return (
     <Link
       to="/aerzte/$slug"
@@ -220,7 +222,7 @@ function LeaderCard({ d, profileLabel }: { d: DoctorType; profileLabel: string }
   );
 }
 
-function TeamCard({ d }: { d: DoctorType }) {
+function TeamCard({ d }: { d: ReturnType<typeof localizeDoctor> }) {
   return (
     <Link
       to="/aerzte/$slug"

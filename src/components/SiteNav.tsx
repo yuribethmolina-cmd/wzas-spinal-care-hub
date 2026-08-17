@@ -78,6 +78,7 @@ export function SiteNav() {
       ] as [string, string][],
       book: "Termin buchen",
       menu: "Menü",
+      close: "Menü schließen",
     },
     en: {
       links: [
@@ -88,8 +89,9 @@ export function SiteNav() {
         ["FAQ", "/faq"],
         ["News", "/aktuelles"],
       ] as [string, string][],
-      book: "Book appointment",
+      book: "Book an appointment",
       menu: "Menu",
+      close: "Close menu",
     },
   });
   useEffect(() => {
@@ -143,10 +145,10 @@ export function SiteNav() {
       </div>
 
       <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 lg:px-8">
-        <Link to="/" aria-label="WZAS, Startseite" className="flex items-center gap-3">
+        <Link to="/" aria-label={t.links[0]?.[0] === "Home" ? "WZAS, home" : "WZAS, Startseite"} className="flex items-center gap-3">
           <img src={logoAsset.url} alt="WZAS Wirbelsäulenzentrum am Stiglmaierplatz" className="h-11 w-auto" />
         </Link>
-        <nav className="hidden lg:flex items-center gap-8" aria-label="Hauptnavigation">
+        <nav className="hidden lg:flex items-center gap-8" aria-label={t.menu === "Menu" ? "Main navigation" : "Hauptnavigation"}>
           {t.links.map(([label, href]) => (
             <Link
               key={label}
@@ -193,6 +195,7 @@ export function SiteNav() {
         links={t.links}
         bookLabel={t.book}
         title={t.menu}
+        closeLabel={t.close}
       />
 
     </header>

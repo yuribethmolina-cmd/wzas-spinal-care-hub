@@ -3,7 +3,7 @@ import { useLang } from "@/lib/lang";
 
 const COPY = {
   de: { book: "Termin buchen", call: "Anrufen" },
-  en: { book: "Book appointment", call: "Call" },
+  en: { book: "Book an appointment", call: "Call" },
 } as const;
 
 /**

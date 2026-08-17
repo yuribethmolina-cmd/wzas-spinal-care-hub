@@ -1,7 +1,8 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { doctors, getDoctorBySlug } from "@/lib/doctors";
 import { SiteNav } from "@/components/SiteNav";
-import { useT } from "@/lib/lang";
+import { useLang, useT } from "@/lib/lang";
+import { localizeDoctor } from "@/lib/doctor-localization";
 
 const BOOKING_URL = "/#termin";
 
@@ -62,8 +63,13 @@ function DoctorNotFound() {
 }
 
 function DoctorDetail() {
-  const { doctor: d } = Route.useLoaderData() as { doctor: import("@/lib/doctors").Doctor };
-  const related = doctors.filter((x) => x.slug !== d.slug && x.specialties.some((s) => d.specialties.includes(s))).slice(0, 3);
+  const { lang } = useLang();
+  const { doctor } = Route.useLoaderData() as { doctor: import("@/lib/doctors").Doctor };
+  const d = localizeDoctor(doctor, lang);
+  const related = doctors
+    .filter((x) => x.slug !== doctor.slug && x.specialties.some((s) => doctor.specialties.includes(s)))
+    .slice(0, 3)
+    .map((item) => localizeDoctor(item, lang));
 
   const t = useT({
     de: {
@@ -77,12 +83,12 @@ function DoctorDetail() {
     },
     en: {
       backLink: "← Back to doctor directory",
-      bookBtn: "Book appointment",
+      bookBtn: "Book an appointment",
       focusHeading: "Areas of focus",
       aboutHeading: "About",
-      educationLabel: "Education & career",
+      educationLabel: "Training and career",
       languagesLabel: "Languages",
-      relatedHeading: "Related specialists",
+      relatedHeading: "Other specialists",
     },
   });
 

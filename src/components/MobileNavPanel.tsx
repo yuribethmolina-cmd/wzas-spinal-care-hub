@@ -43,6 +43,7 @@ interface MobileNavPanelProps {
   links: [string, string][];
   bookLabel: string;
   title?: string;
+  closeLabel?: string;
   activeRoute?: string;
   id?: string;
 }
@@ -53,6 +54,7 @@ export function MobileNavPanel({
   links,
   bookLabel,
   title = "Navigation",
+  closeLabel = "Close",
   activeRoute,
   id = "mobile-nav",
 }: MobileNavPanelProps) {
@@ -105,7 +107,7 @@ export function MobileNavPanel({
           <button
             type="button"
             onClick={onClose}
-            aria-label="Close"
+            aria-label={closeLabel}
             className="inline-flex min-h-11 min-w-11 items-center justify-center rounded-md text-[#1E2535] hover:text-[#AC8F52]"
           >
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">

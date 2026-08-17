@@ -9,47 +9,22 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as WolfartRouteImport } from './routes/wolfart'
-import { Route as KarriereRouteImport } from './routes/karriere'
-import { Route as FaqRouteImport } from './routes/faq'
-import { Route as BeschwerdenRouteImport } from './routes/beschwerden'
-import { Route as BehandlungenRouteImport } from './routes/behandlungen'
-import { Route as AktuellesRouteImport } from './routes/aktuelles'
-import { Route as AerzteRouteImport } from './routes/aerzte'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as BeschwerdenIndexRouteImport } from './routes/beschwerden.index'
+import { Route as AerzteRouteImport } from './routes/aerzte'
+import { Route as AktuellesRouteImport } from './routes/aktuelles'
+import { Route as BehandlungenRouteImport } from './routes/behandlungen'
+import { Route as BeschwerdenRouteImport } from './routes/beschwerden'
+import { Route as FaqRouteImport } from './routes/faq'
+import { Route as KarriereRouteImport } from './routes/karriere'
+import { Route as WolfartRouteImport } from './routes/wolfart'
 import { Route as AerzteIndexRouteImport } from './routes/aerzte.index'
-import { Route as BeschwerdenSlugRouteImport } from './routes/beschwerden.$slug'
 import { Route as AerzteSlugRouteImport } from './routes/aerzte.$slug'
+import { Route as BeschwerdenIndexRouteImport } from './routes/beschwerden.index'
+import { Route as BeschwerdenSlugRouteImport } from './routes/beschwerden.$slug'
 
-const WolfartRoute = WolfartRouteImport.update({
-  id: '/wolfart',
-  path: '/wolfart',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const KarriereRoute = KarriereRouteImport.update({
-  id: '/karriere',
-  path: '/karriere',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const FaqRoute = FaqRouteImport.update({
-  id: '/faq',
-  path: '/faq',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const BeschwerdenRoute = BeschwerdenRouteImport.update({
-  id: '/beschwerden',
-  path: '/beschwerden',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const BehandlungenRoute = BehandlungenRouteImport.update({
-  id: '/behandlungen',
-  path: '/behandlungen',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const AktuellesRoute = AktuellesRouteImport.update({
-  id: '/aktuelles',
-  path: '/aktuelles',
+const IndexRoute = IndexRouteImport.update({
+  id: '/',
+  path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AerzteRoute = AerzteRouteImport.update({
@@ -57,30 +32,55 @@ const AerzteRoute = AerzteRouteImport.update({
   path: '/aerzte',
   getParentRoute: () => rootRouteImport,
 } as any)
-const IndexRoute = IndexRouteImport.update({
-  id: '/',
-  path: '/',
+const AktuellesRoute = AktuellesRouteImport.update({
+  id: '/aktuelles',
+  path: '/aktuelles',
   getParentRoute: () => rootRouteImport,
 } as any)
-const BeschwerdenIndexRoute = BeschwerdenIndexRouteImport.update({
-  id: '/',
-  path: '/',
-  getParentRoute: () => BeschwerdenRoute,
+const BehandlungenRoute = BehandlungenRouteImport.update({
+  id: '/behandlungen',
+  path: '/behandlungen',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BeschwerdenRoute = BeschwerdenRouteImport.update({
+  id: '/beschwerden',
+  path: '/beschwerden',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FaqRoute = FaqRouteImport.update({
+  id: '/faq',
+  path: '/faq',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const KarriereRoute = KarriereRouteImport.update({
+  id: '/karriere',
+  path: '/karriere',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WolfartRoute = WolfartRouteImport.update({
+  id: '/wolfart',
+  path: '/wolfart',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const AerzteIndexRoute = AerzteIndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => AerzteRoute,
 } as any)
-const BeschwerdenSlugRoute = BeschwerdenSlugRouteImport.update({
-  id: '/$slug',
-  path: '/$slug',
-  getParentRoute: () => BeschwerdenRoute,
-} as any)
 const AerzteSlugRoute = AerzteSlugRouteImport.update({
   id: '/$slug',
   path: '/$slug',
   getParentRoute: () => AerzteRoute,
+} as any)
+const BeschwerdenIndexRoute = BeschwerdenIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => BeschwerdenRoute,
+} as any)
+const BeschwerdenSlugRoute = BeschwerdenSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => BeschwerdenRoute,
 } as any)
 
 export interface FileRoutesByFullPath {
@@ -180,46 +180,11 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/wolfart': {
-      id: '/wolfart'
-      path: '/wolfart'
-      fullPath: '/wolfart'
-      preLoaderRoute: typeof WolfartRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/karriere': {
-      id: '/karriere'
-      path: '/karriere'
-      fullPath: '/karriere'
-      preLoaderRoute: typeof KarriereRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/faq': {
-      id: '/faq'
-      path: '/faq'
-      fullPath: '/faq'
-      preLoaderRoute: typeof FaqRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/beschwerden': {
-      id: '/beschwerden'
-      path: '/beschwerden'
-      fullPath: '/beschwerden'
-      preLoaderRoute: typeof BeschwerdenRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/behandlungen': {
-      id: '/behandlungen'
-      path: '/behandlungen'
-      fullPath: '/behandlungen'
-      preLoaderRoute: typeof BehandlungenRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/aktuelles': {
-      id: '/aktuelles'
-      path: '/aktuelles'
-      fullPath: '/aktuelles'
-      preLoaderRoute: typeof AktuellesRouteImport
+    '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/aerzte': {
@@ -229,19 +194,47 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AerzteRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
+    '/aktuelles': {
+      id: '/aktuelles'
+      path: '/aktuelles'
+      fullPath: '/aktuelles'
+      preLoaderRoute: typeof AktuellesRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/beschwerden/': {
-      id: '/beschwerden/'
-      path: '/'
-      fullPath: '/beschwerden/'
-      preLoaderRoute: typeof BeschwerdenIndexRouteImport
-      parentRoute: typeof BeschwerdenRoute
+    '/behandlungen': {
+      id: '/behandlungen'
+      path: '/behandlungen'
+      fullPath: '/behandlungen'
+      preLoaderRoute: typeof BehandlungenRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/beschwerden': {
+      id: '/beschwerden'
+      path: '/beschwerden'
+      fullPath: '/beschwerden'
+      preLoaderRoute: typeof BeschwerdenRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/faq': {
+      id: '/faq'
+      path: '/faq'
+      fullPath: '/faq'
+      preLoaderRoute: typeof FaqRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/karriere': {
+      id: '/karriere'
+      path: '/karriere'
+      fullPath: '/karriere'
+      preLoaderRoute: typeof KarriereRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/wolfart': {
+      id: '/wolfart'
+      path: '/wolfart'
+      fullPath: '/wolfart'
+      preLoaderRoute: typeof WolfartRouteImport
+      parentRoute: typeof rootRouteImport
     }
     '/aerzte/': {
       id: '/aerzte/'
@@ -250,19 +243,26 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AerzteIndexRouteImport
       parentRoute: typeof AerzteRoute
     }
-    '/beschwerden/$slug': {
-      id: '/beschwerden/$slug'
-      path: '/$slug'
-      fullPath: '/beschwerden/$slug'
-      preLoaderRoute: typeof BeschwerdenSlugRouteImport
-      parentRoute: typeof BeschwerdenRoute
-    }
     '/aerzte/$slug': {
       id: '/aerzte/$slug'
       path: '/$slug'
       fullPath: '/aerzte/$slug'
       preLoaderRoute: typeof AerzteSlugRouteImport
       parentRoute: typeof AerzteRoute
+    }
+    '/beschwerden/': {
+      id: '/beschwerden/'
+      path: '/'
+      fullPath: '/beschwerden/'
+      preLoaderRoute: typeof BeschwerdenIndexRouteImport
+      parentRoute: typeof BeschwerdenRoute
+    }
+    '/beschwerden/$slug': {
+      id: '/beschwerden/$slug'
+      path: '/$slug'
+      fullPath: '/beschwerden/$slug'
+      preLoaderRoute: typeof BeschwerdenSlugRouteImport
+      parentRoute: typeof BeschwerdenRoute
     }
   }
 }

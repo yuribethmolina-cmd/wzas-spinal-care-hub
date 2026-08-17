@@ -60,21 +60,33 @@ function KarrierePage() {
       contactHeading: "Initiativbewerbung willkommen",
       contactText: "Auch wenn keine Stelle ausgeschrieben ist, wir freuen uns über Ihre Bewerbung. Schicken Sie uns Ihre Unterlagen direkt an:",
       contactSmall: "Wir melden uns in der Regel innerhalb von 5 Werktagen.",
+      openingsLabel: "Aktuelle Stellen",
+      apply: "Jetzt bewerben →",
+      openings: [
+        { title: "MFA / Arzthelferin für den Empfang / Patientenaufnahme (w/m/d)", detail: "Vollzeit oder Teilzeit · München Stiglmaierplatz" },
+        { title: "Studentische Hilfskraft als Assistenz bei schmerztherapeutischen Interventionen im Bildwandler (w/m/d)", detail: "Längerfristig · Flexibel · München Stiglmaierplatz" },
+      ],
     },
     en: {
       heroEyebrow: "MUNICH · STIGLMAIERPLATZ",
       heroH1: "Join our team",
       heroSubtitle: "Clinical expertise meets human care.",
-      introParagraph: "The Spine Centre at Stiglmaierplatz has been a fixture in Munich's medical landscape for over 20 years. We are growing, and looking for committed people who want to join our team of neurosurgeons, orthopaedic specialists and medical staff.",
+      introParagraph: "The Spine Center at Stiglmaierplatz has been part of Munich’s medical community for more than 20 years. As we continue to grow, we are looking for dedicated people to join our team of neurosurgeons, orthopaedic specialists and healthcare professionals.",
       role1Heading: "Medical staff",
-      role1Text: "Specialists in neurosurgery, orthopaedics and pain therapy, also resident doctors in training welcome.",
-      role2Heading: "MFA & care",
+      role1Text: "We welcome specialists in neurosurgery, orthopaedics and pain medicine, as well as doctors in specialist training.",
+      role2Heading: "Medical assistants & nursing",
       role2Text: "Medical assistants, surgical nursing and practice coordination for our growing clinic at Stiglmaierplatz.",
       role3Heading: "Administration & IT",
-      role3Text: "Practice management, billing, marketing and digital infrastructure, for smooth practice operations.",
-      contactHeading: "Speculative applications welcome",
+      role3Text: "Practice management, billing, marketing and digital infrastructure to support the smooth running of our centre.",
+      contactHeading: "We welcome unsolicited applications",
       contactText: "Even if no position is advertised, we welcome your application. Send your documents directly to:",
       contactSmall: "We typically respond within 5 working days.",
+      openingsLabel: "Current vacancies",
+      apply: "Apply now →",
+      openings: [
+        { title: "Medical assistant / receptionist for patient admissions (all genders)", detail: "Full-time or part-time · Munich Stiglmaierplatz" },
+        { title: "Student assistant for image-guided pain procedures (all genders)", detail: "Long-term · Flexible hours · Munich Stiglmaierplatz" },
+      ],
     },
   });
 
@@ -134,13 +146,10 @@ function KarrierePage() {
             {/* Current openings */}
             <div className="mb-12">
               <p className="text-[10px] font-semibold tracking-[0.25em] uppercase text-[#AC8F52] mb-5">
-                Aktuelle Stellen
+                {t.openingsLabel}
               </p>
               <div className="divide-y divide-[#E2E4E7] border border-[#E2E4E7] rounded-sm">
-                {[
-                  { title: "MFA / Arzthelferin für den Empfang / Patientenaufnahme (w/m/d)", detail: "Vollzeit oder Teilzeit · München Stiglmaierplatz" },
-                  { title: "Studentische Hilfskraft als Assistenz bei schmerztherapeutischen Interventionen im Bildwandler (w/m/d)", detail: "Längerfristig · Flexibel · München Stiglmaierplatz" },
-                ].map((pos) => (
+                {t.openings.map((pos) => (
                   <div key={pos.title} className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 px-5 py-4">
                     <div>
                       <p className="font-semibold text-[#1E2535] text-sm">{pos.title}</p>
@@ -150,7 +159,7 @@ function KarrierePage() {
                       href="mailto:info@wzas.de"
                       className="shrink-0 text-xs font-semibold text-[#7A6029] hover:brightness-110 transition mt-1 sm:mt-0"
                     >
-                      Jetzt bewerben →
+                      {t.apply}
                     </a>
                   </div>
                 ))}

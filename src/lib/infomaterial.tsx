@@ -28,8 +28,8 @@ export const DOCS: Doc[] = [
       desc: "Von der ersten Kontaktaufnahme über Diagnostik und Therapie bis zur Nachsorge, Schritt für Schritt erklärt.",
     },
     en: {
-      title: "Course of treatment",
-      desc: "From first contact through diagnostics and therapy to follow-up care, explained step by step.",
+      title: "Your treatment journey",
+      desc: "A step-by-step guide from your first contact and diagnosis through treatment and follow-up care.",
     },
   },
   {
@@ -52,7 +52,7 @@ export const DOCS: Doc[] = [
       desc: "Behandlungsmöglichkeiten ohne Operation: Infiltrationen, Physiotherapie, Schmerztherapie und multimodale Konzepte.",
     },
     en: {
-      title: "Conservative therapy at a glance",
+      title: "Conservative treatment at a glance",
       desc: "Treatment options without surgery: injections, physiotherapy, pain management and multimodal concepts.",
     },
   },

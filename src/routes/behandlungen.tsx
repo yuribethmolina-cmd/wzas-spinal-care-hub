@@ -154,30 +154,30 @@ function BehandlungenPage() {
     ],
     en: [
       {
-        name: "Non-surgical Treatments",
-        description: "Most back conditions never need surgery, targeted injections, medication-based pain therapy, physiotherapy and physical treatments come first.",
+        name: "Non-surgical treatments",
+        description: "Most back conditions do not require surgery. Targeted injections, pain medication, physiotherapy and physical treatments are usually the first step.",
         methods: [
           { name: "Injection Therapy", desc: "Targeted injections with anti-inflammatory agents directly at the source of pain." },
-          { name: "Medication Therapy", desc: "Painkillers and anti-inflammatory drugs break the cycle of pain, protective posture and muscle tension, tailored to your findings." },
-          { name: "Tablets", desc: "The simplest form of pain therapy, always under medical supervision so dosage and tolerance fit and side effects stay low." },
+          { name: "Medication", desc: "Pain-relieving and anti-inflammatory medication can break the cycle of pain, guarded movement and muscle tension. Treatment is tailored to your diagnosis." },
+          { name: "Oral medication", desc: "A straightforward form of pain management, prescribed and monitored to ensure the right dose, good tolerability and minimal side effects." },
           { name: "Infusion Therapy", desc: "If tablets are not enough, the painkiller goes straight into a vein and takes effect quickly throughout the body." },
           { name: "Physiotherapy & physical treatments", desc: "Alongside medication: targeted exercises strengthen the back muscles, stabilise the spine and help prevent a relapse." },
 
         ],
       },
       {
-        name: "Minimally Invasive Procedures",
-        description: "Gentler than classic surgery, more targeted than tablets or physiotherapy alone, many patients return to daily life much faster.",
+        name: "Minimally invasive procedures",
+        description: "Less invasive than conventional surgery and more targeted than medication or physiotherapy alone. Many patients can return to everyday activities sooner.",
         methods: [
           { name: "Heat Probe Treatment", desc: "A probe heats the fine nerves at the facet joint under image guidance, interrupting pain conduction." },
           { name: "Pain Pumps (IDD)", desc: "A small implant delivers pain medication continuously right at the spinal cord." },
-          { name: "Pain Pacemaker (SCS)", desc: "Gentle electrical impulses to the spinal cord interrupt pain signals on their way to the brain." },
+          { name: "Spinal cord stimulation (SCS)", desc: "Mild electrical impulses to the spinal cord modify pain signals before they reach the brain." },
           { name: "Intradiscal Injections", desc: "Medication is placed directly into the disc under X-ray guidance to relieve pressure on nerve roots." },
         ],
       },
       {
-        name: "Spinal Surgery",
-        description: "State-of-the-art microsurgical techniques: precise, gentle and with the clear aim of preserving your natural mobility.",
+        name: "Spinal surgery",
+        description: "Modern microsurgical techniques are designed to be precise and tissue-sparing, with the aim of preserving natural mobility wherever possible.",
         methods: [
           { name: "Microsurgical Procedures", desc: "Surgery through the smallest incisions using a high-resolution operating microscope, precise and tissue-sparing." },
           { name: "Motion-preserving Procedures", desc: "Dynamic reconstruction and stabilisation of affected segments as an alternative to fusion." },
@@ -226,14 +226,14 @@ function BehandlungenPage() {
       heroH1: "Spine Treatments",
       heroSubtitle: "From injection therapy to microsurgery, individually tailored.",
       introHeading: "Treatment options at a glance",
-      introParagraph: "Back pain has many causes, treatment must therefore be individual. At the Spine Centre at Stiglmaierplatz in Munich, we accompany our patients from the first consultation through to full recovery: with a holistic view of the body and findings, not just the symptom. Our principle: conservative treatment where possible, surgery where necessary. We work in three stages: non-surgical treatments, minimally invasive procedures and spinal surgery.",
+      introParagraph: "Back pain has many causes, so treatment needs to be tailored to the individual. At the Spine Center at Stiglmaierplatz in Munich, we support patients from their first consultation through recovery. We consider both the clinical findings and the person, not just the symptoms. Our principle is simple: conservative treatment first, surgery only when necessary. We offer three levels of care: non-surgical treatment, minimally invasive procedures and spinal surgery.",
       pullQuote: "“Conservative treatment where possible, surgery where necessary.”",
       pullQuoteAttribution: ", WZAS principle",
       spectrumHeading: "The treatment spectrum",
-      bridgeParagraph: "No diagnosis yet? First understand your condition.",
+      bridgeParagraph: "No diagnosis yet? Start by exploring your symptoms.",
       bookingHeading: "Which treatment is right for me?",
-      bookingBody: "Book an appointment. Our specialists will work with you to determine which therapy best fits your situation.",
-      bookingCta: "Book appointment online",
+      bookingBody: "Book an appointment and our specialists will discuss which treatment is most appropriate for you.",
+      bookingCta: "Book an appointment online",
       bookingSecondary: "View conditions first →",
     },
   });

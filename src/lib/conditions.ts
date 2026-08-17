@@ -60,10 +60,10 @@ export const CONDITIONS: Condition[] = [
       ctaCopy: "Leiden Sie unter anhaltenden Rückenschmerzen?",
     },
     en: {
-      name: "Back Pain",
+      name: "Back pain",
       subtitle: "",
       bodyText:
-        "Back pain is one of the most common complaints that brings patients to the spine centre at Stiglmaierplatz in Munich. The most frequent triggers include lack of movement during sedentary work, one-sided physical strain, excess weight and postural damage; psychological strain and stress also play an increasingly important role. Over time these factors lead to changes in the facet joints, the discs and the surrounding tissue, with muscle tension often arising as the body's protective mechanism. In around 90 percent of cases back pain can be treated successfully without surgery, for example with physiotherapy, physical therapy, targeted pain management and injections.",
+        "Back pain is one of the most common reasons patients visit the Spine Center at Stiglmaierplatz in Munich. Common causes include too little movement during sedentary work, uneven physical strain, excess weight and poor posture. Psychological stress can also play an important role. Over time, these factors may affect the facet joints, intervertebral discs and surrounding tissue. Muscle tension often develops as a protective response. Around 90 percent of cases can be treated successfully without surgery, for example with physiotherapy, physical treatments, targeted pain management and injections.",
       bullets: {
         region: "Lumbar and thoracic spine",
         frequency: "Very common",
@@ -91,10 +91,10 @@ export const CONDITIONS: Condition[] = [
       ctaCopy: "Leiden Sie an einem Bandscheibenvorfall?",
     },
     en: {
-      name: "Herniated Disc",
+      name: "Herniated disc",
       subtitle: "Disc prolapse",
       bodyText:
-        "A herniated disc, medically known as discus prolapse, usually occurs suddenly and causes severe pain in the lower back that typically radiates into a leg or an arm. The pain is often accompanied by numbness, tingling or, in the worst case, paralysis. In a herniation the soft nucleus of the disc emerges through the outer fibrous ring and presses on adjacent nerve roots; the lumbar spine is most often affected, the cervical spine less frequently. Most herniated discs can be treated successfully without surgery, with physiotherapy, targeted pain management, injections and physical treatment. Only pronounced neurological deficits call for rapid surgical action.",
+        "A herniated disc, also known as a disc prolapse, often develops suddenly and can cause severe lower back pain that radiates into a leg or arm. Numbness, tingling and, in severe cases, weakness or paralysis may also occur. A herniation happens when the soft centre of a disc pushes through its outer ring and presses on nearby nerve roots. The lumbar spine is affected most often, followed by the cervical spine. Most herniated discs can be treated without surgery using physiotherapy, targeted pain management, injections and physical treatments. Urgent surgery may be needed if there are significant neurological deficits.",
       bullets: {
         region: "Lumbar spine (L-spine), occasionally C-spine",
         frequency: "Common",
@@ -122,14 +122,14 @@ export const CONDITIONS: Condition[] = [
       ctaCopy: "Haben Sie chronische Rückenschmerzen durch Bandscheibendegeneration?",
     },
     en: {
-      name: "Disc Degeneration",
+      name: "Degenerative disc disease",
       subtitle: "Osteochondrosis",
       bodyText:
-        "Disc degeneration, medically called osteochondrosis, is one of the most common wear-related spinal conditions. With age the discs lose fluid and elasticity, so their function as shock absorbers between the vertebral bodies declines and cartilage and bone come under increased pressure. Typical signs are pain in the lumbar or cervical spine, restricted mobility and protective posture, as well as deep, dull back pain that worsens with strain or prolonged sitting. In advanced stages irritated nerves can cause pain radiating into the arms or legs. Treatment starts conservatively with injections, physiotherapy and physical therapy.",
+        "Degenerative disc disease, also referred to here as osteochondrosis, is a common age-related spinal condition. Over time, the discs lose fluid and elasticity and become less effective at cushioning the vertebrae, placing greater pressure on the surrounding cartilage and bone. Typical symptoms include pain in the lumbar or cervical spine, restricted movement and a deep, dull ache that worsens with physical strain or prolonged sitting. In more advanced cases, irritated nerves may cause pain that radiates into the arms or legs. Treatment begins conservatively with injections, physiotherapy and physical treatments.",
       bullets: {
         region: "Lumbar spine",
         frequency: "Common, age-related",
-        symptoms: ["Chronic back pain", "Morning stiffness", "Pain under load"],
+        symptoms: ["Chronic back pain", "Morning stiffness", "Pain during physical activity"],
       },
       ctaCopy: "Are chronic back symptoms caused by disc degeneration affecting your daily life?",
     },
@@ -153,10 +153,10 @@ export const CONDITIONS: Condition[] = [
       ctaCopy: "Haben Sie eine Wirbelkörperfraktur erlitten?",
     },
     en: {
-      name: "Vertebral Fracture",
+      name: "Vertebral fracture",
       subtitle: "",
       bodyText:
-        "An osteoporotic vertebral fracture occurs when bones have become so porous through osteoporosis that everyday loads, lifting a bag or a minor fall, can break a vertebral body. The result is sudden, severe back pain. The thoracic and lumbar spine are most often affected. A vertebral fracture can be diagnosed quickly and precisely by MRI, available in-house. Depending on severity, treatment is conservative with a supportive brace and suitable pain medication; for more severe or unstable fractures, kyphoplasty offers a gentle, minimally invasive alternative in which the vertebral body is raised with a small balloon and stabilised with bone cement.",
+        "An osteoporotic vertebral fracture can occur when osteoporosis has weakened the bones so much that an everyday strain, such as lifting a bag, or a minor fall is enough to fracture a vertebra. This can cause sudden, severe back pain. The thoracic and lumbar spine are affected most often. MRI, available in our centre, allows us to diagnose the fracture quickly and accurately. Depending on its severity, treatment may involve a supportive brace and appropriate pain medication. For more severe or unstable fractures, kyphoplasty is a minimally invasive option in which the vertebra is elevated with a small balloon and stabilised with bone cement.",
       bullets: {
         region: "Thoracic and lumbar spine",
         frequency: "Common in osteoporosis",
@@ -191,7 +191,7 @@ export const CONDITIONS: Condition[] = [
       name: "Spinal Stenosis",
       subtitle: "Spinal canal narrowing",
       bodyText:
-        "Spinal canal stenosis, also known as narrowing of the spinal canal, is one of the most common spinal conditions in later life. The canal carrying the spinal cord and nerve roots narrows, usually in the lumbar spine. Typical symptoms are pain and a feeling of weakness in both legs, especially when walking or standing for longer periods: many patients have to stop after short distances or bend forward (neurogenic claudication). Patients around the age of 70 are frequently affected. Conservative care includes pain medication, physiotherapy, physical therapy and injections; where that is not enough, microsurgical decompression gives the nerve roots space again.",
+        "Spinal stenosis is a narrowing of the spinal canal and is one of the most common spinal conditions in older adults. It usually affects the lumbar spine, reducing the space available for the spinal cord and nerve roots. Typical symptoms include pain and weakness in both legs, especially when walking or standing for longer periods. Many patients need to stop after a short distance or bend forwards for relief (neurogenic claudication). Conservative treatment includes pain medication, physiotherapy, physical treatments and injections. If these are not sufficient, microsurgical decompression can create more space for the affected nerves.",
       bullets: {
         region: "Lumbar spine",
         frequency: "Common in later life, often around the age of 70",
@@ -222,7 +222,7 @@ export const CONDITIONS: Condition[] = [
       name: "Spondylolisthesis",
       subtitle: "Vertebral slippage",
       bodyText:
-        "Spondylolisthesis, or slipped vertebra, describes the forward or backward displacement of one vertebral body relative to the one below. The condition usually develops gradually over many years and often goes unnoticed for a long time. It frequently arises from degenerative changes, age-related wear of the discs and facet joints: as muscular stability decreases, the affected vertebra can shift further out of position. The result is pain in the lower back and legs that worsens under strain; in pronounced cases numbness or weakness occurs. Diagnosis requires both X-ray and MRI. Treatment starts conservatively and, for persistent symptoms, uses minimally invasive stabilisation.",
+        "Spondylolisthesis is the forward or backward displacement of one vertebra in relation to the one below it. It usually develops gradually over many years and may initially go unnoticed. It is often caused by age-related changes in the discs and facet joints. As muscular support decreases, the affected vertebra may move further out of position. This can cause lower back and leg pain that worsens with activity; more advanced cases may also cause numbness or weakness. Diagnosis requires X-rays and an MRI scan. Treatment begins conservatively. If symptoms persist, minimally invasive stabilisation may be considered.",
       bullets: {
         region: "Lumbar spine (L4/L5)",
         frequency: "Moderately common",
@@ -253,9 +253,9 @@ export const CONDITIONS: Condition[] = [
       name: "Sacroiliac Joint Syndrome",
       subtitle: "SI joint dysfunction",
       bodyText:
-        "Iliosacral joint syndrome (SIJ syndrome) is a frequently underestimated cause of back pain. The iliosacral joint connects the sacrum with the ilium and thus links the spine to the pelvis. Through wear, overload or blockages this joint can cause considerable pain in the rear pelvic region that closely resembles classic lumbago. Typical are deep, one-sided pains around the sacrum and buttocks that may radiate into the leg, when standing up, climbing stairs or under one-sided load. A diagnostic injection under X-ray guidance serves both to confirm the diagnosis and to provide initial pain relief.",
+        "Sacroiliac joint syndrome (SI joint dysfunction) is an often overlooked cause of back pain. The sacroiliac joint connects the sacrum to the pelvis. Wear, strain or restricted movement in this joint can cause significant pain at the back of the pelvis that may resemble acute lower back pain. Typical symptoms include deep, one-sided pain around the sacrum and buttock, sometimes radiating into the leg. It may be triggered by standing up, climbing stairs or placing weight on one side. An X-ray-guided diagnostic injection can both confirm the source of the pain and provide initial relief.",
       bullets: {
-        region: "Sacroiliac joint (L-spine / pelvis junction)",
+        region: "Sacroiliac joint (junction of the lower spine and pelvis)",
         frequency: "Common, frequently misdiagnosed",
         symptoms: ["Deep sacral pain", "Radiation into buttock and thigh", "Worsened by sitting"],
       },
@@ -284,7 +284,7 @@ export const CONDITIONS: Condition[] = [
       name: "Osteoporosis",
       subtitle: "Bone loss",
       bodyText:
-        "Osteoporosis, also known as bone loss, is a widespread condition in which bone density decreases and bones become increasingly porous and prone to fracture. In the spine, osteoporosis can lead to small collapses of the vertebral bodies that develop gradually and often go unnoticed at first. Typical signs are an increasing rounded back, a noticeable loss of body height as vertebrae sink, and chronic back pain that worsens under strain. In acute cases vertebrae fracture under minimal load. MRI allows vertebral collapses to be assessed quickly and reliably, directly in-house.",
+        "Osteoporosis is a common condition in which bone density decreases, making the bones more fragile and more likely to fracture. In the spine, it can cause gradual compression of the vertebrae that may initially go unnoticed. Signs can include an increasingly rounded upper back, a noticeable loss of height and chronic back pain that worsens with activity. In acute cases, a vertebra may fracture after only minimal strain. MRI, available in our centre, allows us to assess vertebral compression quickly and reliably.",
       bullets: {
         region: "Entire spine",
         frequency: "Common in postmenopausal women",
@@ -315,7 +315,7 @@ export const CONDITIONS: Condition[] = [
       name: "Facet Joint Arthritis",
       subtitle: "Spondylarthrosis",
       bodyText:
-        "Facet joint arthrosis, medically called spondylarthrosis, is a wear-related condition of the small vertebral joints that connect the vertebral bodies. With age the cartilage of these joints wears down, causing inflammation, pain and restricted mobility. Patients often describe the pain as boring or dull and pressing: lumbar back pain after short strain or prolonged sitting, pronounced morning stiffness, pain when bending backwards and radiation into the buttocks and hip. Treatment is stepwise, conservative first, then targeted injections under X-ray guidance and, for persistent symptoms, radiofrequency ablation (facet denervation).",
+        "Facet joint arthritis, also called spondyloarthrosis, is an age-related condition affecting the small joints that connect the vertebrae. As the cartilage wears down, inflammation, pain and restricted movement can develop. Patients often describe a deep, dull or aching pain in the lower back after activity or prolonged sitting, with marked morning stiffness, pain when bending backwards and pain that may spread to the buttocks or hip. Treatment follows a step-by-step approach: conservative care first, followed by targeted X-ray-guided injections and, if symptoms persist, radiofrequency ablation (facet denervation).",
       bullets: {
         region: "Entire spine, frequently lumbar",
         frequency: "Common with ageing",
@@ -331,10 +331,10 @@ export function getCondition(slug: string): Condition | undefined {
 }
 
 export const TREATMENT_LABELS: Record<string, { de: string; en: string }> = {
-  infiltration:   { de: "Infiltrationstherapie",       en: "Injection Therapy" },
-  medikamentoes:  { de: "Medikamentöse Therapie",      en: "Medication Therapy" },
+  infiltration:   { de: "Infiltrationstherapie",       en: "Injection therapy" },
+  medikamentoes:  { de: "Medikamentöse Therapie",      en: "Medication" },
   physiotherapie: { de: "Physiotherapie",              en: "Physiotherapy" },
-  minimalinvasiv: { de: "Minimalinvasive Verfahren",   en: "Minimally Invasive Procedures" },
-  mikrochirurgie: { de: "Mikrochirurgische Verfahren", en: "Microsurgical Procedures" },
-  stabilisierung: { de: "Stabilisierende Verfahren",   en: "Stabilisation Procedures" },
+  minimalinvasiv: { de: "Minimalinvasive Verfahren",   en: "Minimally invasive procedures" },
+  mikrochirurgie: { de: "Mikrochirurgische Verfahren", en: "Microsurgical procedures" },
+  stabilisierung: { de: "Stabilisierende Verfahren",   en: "Stabilisation procedures" },
 };

@@ -3,6 +3,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { doctors as allDoctors } from "@/lib/doctors";
 import { CONDITIONS } from "@/lib/conditions";
 import { useLang, useT, type Lang } from "@/lib/lang";
+import { localizeDoctor } from "@/lib/doctor-localization";
 import { PraxisGalerie } from "@/components/PraxisGalerie";
 import { Behandlungen } from "@/components/Behandlungen";
 import { KonservativZuerst } from "@/components/KonservativZuerst";
@@ -266,7 +267,7 @@ function SpineLocatorMobile() {
                 href={BOOKING_URL}
                 className="mt-3 inline-flex items-center min-h-[40px] text-[13px] font-semibold text-[#E0C288] underline underline-offset-4 active:scale-[0.98] transition-transform"
               >
-                {lang === "de" ? "Termin buchen" : "Book appointment"}
+                {lang === "de" ? "Termin buchen" : "Book an appointment"}
               </a>
             </div>
           )}
@@ -548,6 +549,7 @@ function Nav() {
       ] as [string, string][],
       book: "Termin buchen",
       menu: "Menü",
+      close: "Menü schließen",
     },
     en: {
       links: [
@@ -556,8 +558,9 @@ function Nav() {
         ["Treatments", "/behandlungen"],
         ["News", "/aktuelles"],
       ] as [string, string][],
-      book: "Book appointment",
+      book: "Book an appointment",
       menu: "Menu",
+      close: "Close menu",
     },
   });
   useEffect(() => {
@@ -583,10 +586,10 @@ function Nav() {
       }`}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 lg:px-8">
-        <Link to="/" aria-label="WZAS, Startseite">
+        <Link to="/" aria-label={t.menu === "Menu" ? "WZAS, home" : "WZAS, Startseite"}>
           <Logo />
         </Link>
-        <nav className="hidden lg:flex items-center gap-8" aria-label="Hauptnavigation">
+        <nav className="hidden lg:flex items-center gap-8" aria-label={t.menu === "Menu" ? "Main navigation" : "Hauptnavigation"}>
           {t.links.map(([label, href]) =>
             href.startsWith("/") ? (
               <Link
@@ -638,6 +641,7 @@ function Nav() {
         links={t.links}
         bookLabel={t.book}
         title={t.menu}
+        closeLabel={t.close}
       />
 
     </header>
@@ -674,17 +678,17 @@ function Hero() {
       alt: "Ärztliches Beratungsgespräch mit Wirbelsäulenmodell im Wirbelsäulenzentrum am Stiglmaierplatz",
     },
     en: {
-      kicker: "Spine Center at Stiglmaierplatz · Munich",
-      h1a: "Backbone",
-      h1b: "for Munich.",
+      kicker: "SPINE CENTER AT STIGLMAIERPLATZ · MUNICH",
+      h1a: "Munich’s trusted",
+      h1b: "spine specialists.",
       h1c: "",
       sub: "20 years of experience.\u00a0\n13 specialists.\u00a0\nConservative treatment first,\u00a0\nsurgery only when necessary.",
       chipsLabel: "What brings you to us?",
       chips: ["Acute back pain", "Chronic pain", "Herniated disc", "Sciatica", "Post-surgery"],
-      book: "Book appointment",
+      book: "Book an appointment",
       more: "Learn more",
-      bookMeta: "Live availability · approx. 2 min · Just a question?",
-      askLink: "Questions? Write us here",
+      bookMeta: "Available appointments online · about 2 min · Have a question?",
+      askLink: "Send an inquiry",
       alt: "Doctor consultation with a spine model at the Spine Center at Stiglmaierplatz",
     },
   });
@@ -1060,10 +1064,10 @@ function Beschwerden() {
       ],
     },
     en: {
-      label: "Areas of treatment",
+      label: "Conditions we treat",
       h2a: "What brings ",
       h2b: "you to us?",
-      lead: "Find your condition and see how our specialists can help, without unnecessary surgery.",
+      lead: "Explore your symptoms and learn how our specialists can help, with surgery only when necessary.",
       cta: "View treatment options",
       items: [
         { iconKey: "akut", name: "Acute back pain", sub: "Sudden onset · injury · muscle spasm" },
@@ -1159,24 +1163,24 @@ function Weg() {
     },
     en: {
       label: "Your path to recovery",
-      h2a: "From first click ",
-      h2b: "to appointment",
+      h2a: "From your first search ",
+      h2b: "to your appointment",
       book: "Book now",
       steps: [
         {
           n: "1",
-          title: "Pick your condition",
-          desc: "Search or browse by symptom, our overview helps you understand which treatment options fit your case.",
+          title: "Choose your symptoms",
+          desc: "Search or browse by symptom. Our overview helps you understand which treatment options may be suitable for you.",
         },
         {
           n: "2",
           title: "Find the right specialist",
-          desc: "Filter our 12-specialist team by expertise. Each profile shows the conditions treated and the treatment approach.",
+          desc: "Browse our team of 13 specialists by area of expertise. Each profile explains their clinical focus and approach to treatment.",
         },
         {
           n: "3",
           title: "Book in 60 seconds",
-          desc: "Use our online booking system and pick a time that suits you. Emergencies are treated immediately. No phone call needed.",
+          desc: "Use our online booking system to choose a convenient appointment. Urgent cases are seen without delay, and no phone call is needed for standard bookings.",
         },
       ],
     },
@@ -1242,10 +1246,10 @@ function Kompetenzzentrum() {
       ],
     },
     en: {
-      label: "Competence network",
+      label: "Specialist network",
       h2a: "Everything under ",
       h2b: "one roof",
-      lead: "Spine surgery, radiology and orthopaedics work hand in hand, shorter distances, faster diagnostics and seamless care without outside appointments.",
+      lead: "Spine surgery, radiology and orthopaedics work closely together, with shorter routes, faster diagnosis and coordinated care in one location.",
       partners: [
         { logo: partnerWz.url, alt: "Spine Center at Stiglmaierplatz", name: "Spine Center at Stiglmaierplatz", short: "Spine surgery · pain therapy" },
         { logo: partnerRadiologie.url, alt: "Radiology at Stiglmaierplatz", name: "Radiology at Stiglmaierplatz", short: "MRI · CT · neuroradiology on site" },
@@ -1298,7 +1302,7 @@ function Kompetenzzentrum() {
 
 /* ─── Team ──────────────────────────────────────────────────────── */
 
-function HomeLeaderCard({ d, delay, cta }: { d: (typeof allDoctors)[0]; delay: number; cta: string }) {
+function HomeLeaderCard({ d, delay, cta }: { d: ReturnType<typeof localizeDoctor>; delay: number; cta: string }) {
   const { ref, style } = useFadeUp(delay);
   return (
     <div ref={ref} style={style}>
@@ -1358,7 +1362,7 @@ function HomeLeaderCard({ d, delay, cta }: { d: (typeof allDoctors)[0]; delay: n
   );
 }
 
-function HomeTeamCard({ d, delay, cta }: { d: (typeof allDoctors)[0]; delay: number; cta: string }) {
+function HomeTeamCard({ d, delay, cta }: { d: ReturnType<typeof localizeDoctor>; delay: number; cta: string }) {
   const { ref, style } = useFadeUp(delay);
   return (
     <div ref={ref} style={style} className="bg-white overflow-hidden group cursor-pointer">
@@ -1390,6 +1394,7 @@ function HomeTeamCard({ d, delay, cta }: { d: (typeof allDoctors)[0]; delay: num
 }
 
 function Team() {
+  const { lang } = useLang();
   const t = useT({
     de: {
       label: "Unser Ärzteteam",
@@ -1413,8 +1418,8 @@ function Team() {
     },
   });
   const { ref: headRef, style: headStyle } = useFadeUp(0);
-  const LEADERSHIP = allDoctors.slice(0, 2);
-  const TEAM_PREVIEW = allDoctors.slice(2, 5);
+  const LEADERSHIP = allDoctors.slice(0, 2).map((doctor) => localizeDoctor(doctor, lang));
+  const TEAM_PREVIEW = allDoctors.slice(2, 5).map((doctor) => localizeDoctor(doctor, lang));
 
   return (
     <section id="team" className="bg-[#F8F8F6] py-14 sm:py-20 lg:py-28">
@@ -1488,11 +1493,11 @@ function Termin() {
     en: {
       h2a: "We are ",
       h2b: "here for you.",
-      lead: "Opening hours: Monday to Friday, 8.00 am, 5.00 pm. Emergencies are treated immediately.",
+      lead: "Opening hours: Monday to Friday, 8:00 am to 5:00 pm. Urgent cases are seen without delay.",
       onlineKicker: "Book online",
       onlineTitle: "Schedule an appointment online",
       onlineSub: "Online booking (prototype)",
-      book: "Book appointment",
+      book: "Book an appointment",
       otherTitle: "Other ways to reach us",
       phoneSub: "Statutory insurance · Monday to Friday 8:00 am to 5:00 pm",
       privateSub: "Private patients · dedicated line",
@@ -1736,12 +1741,12 @@ function Footer() {
         { title: "Conditions", items: ["Acute back pain", "Chronic pain", "Herniated disc", "Sciatica", "Post-surgery rehab"] },
         { title: "Treatments", items: ["Conservative therapy", "Minimally invasive", "Spine surgery", "Pain therapy", "Rehabilitation"] },
         { title: "About us", items: ["Our team", "The practice", "Mission & values", "News", "Careers"] },
-        { title: "For patients", items: ["Book appointment", "FAQ", "Accessibility", "Privacy"] },
+        { title: "For patients", items: ["Book an appointment", "FAQ", "Accessibility", "Privacy"] },
       ],
       awarded: "Awarded",
       copy: "© 2026 Spine Center at Stiglmaierplatz · All rights reserved",
       legal: ["Imprint", "Privacy", "Accessibility"],
-      footerCta: "Book appointment →",
+      footerCta: "Book an appointment →",
       city: "80335 Munich",
     },
   });
@@ -1849,4 +1854,3 @@ function Home() {
     </div>
   );
 }
-

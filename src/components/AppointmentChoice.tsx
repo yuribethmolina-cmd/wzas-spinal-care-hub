@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
-import { useT } from "@/lib/lang";
+import { useLang, useT } from "@/lib/lang";
 import { doctors } from "@/lib/doctors";
 import { AppointmentCalendar } from "@/components/AppointmentCalendar";
+import { localizeDoctor } from "@/lib/doctor-localization";
 
 type Flow = "book" | "ask";
 
@@ -12,6 +13,7 @@ type Flow = "book" | "ask";
  * Both simulate their steps inline with Weiter / Zurück and a final summary.
  */
 export function AppointmentChoice() {
+  const { lang } = useLang();
   const t = useT({
     de: {
       bookKicker: "Online buchen",
@@ -48,18 +50,18 @@ export function AppointmentChoice() {
     },
     en: {
       bookKicker: "Book online",
-      bookTitle: "Schedule an appointment online",
-      bookSteps: ["Choose your insurance", "Doctor & consultation", "Date and time"],
+      bookTitle: "Book an appointment online",
+      bookSteps: ["Select your insurance", "Doctor and consultation", "Date and time"],
       bookMeta: "approx. 2 minutes · instant confirmation",
-      bookCta: "Book appointment",
+      bookCta: "Book an appointment",
       askKicker: "Inquiry",
-      askTitle: "Ask a question, no fixed date",
+      askTitle: "Send an inquiry without booking",
       askSteps: ["Describe your concern", "Add your contact details", "Send"],
       askMeta: "Reply within one business day",
-      askCta: "Ask a question",
+      askCta: "Send an inquiry",
       next: "Continue",
       back: "Back",
-      finish: "Finish",
+      finish: "Submit",
       restart: "Start over",
       close: "Close",
       step: (a: number, b: number) => `Step ${a} of ${b}`,
@@ -69,7 +71,7 @@ export function AppointmentChoice() {
       askDone: "Inquiry sent. We will reply within one business day.",
       prototype: "Prototype, no data is submitted.",
       bookOptions: [
-        ["Statutory insurance", "Private insurance", "Self-payer"],
+        ["Public health insurance", "Private health insurance", "Self-paying patient"],
         ["Dr. Wing Mann Ho", "Dr. Christian Wolfart", "First available doctor"],
         ["Mon, Aug 17 · 09:30", "Tue, Aug 18 · 14:00", "Thu, Aug 20 · 11:15"],
       ],
@@ -88,7 +90,7 @@ export function AppointmentChoice() {
   const labels = flow === "ask" ? t.askSteps : t.bookSteps;
   const bookOptions = t.bookOptions.map((o, i) =>
     i === 1
-      ? [...doctors.map((d) => d.name), t.bookOptions[1][t.bookOptions[1].length - 1]]
+      ? [...doctors.map((d) => localizeDoctor(d, lang).name), t.bookOptions[1][t.bookOptions[1].length - 1]]
       : o,
   );
   const options = flow === "ask" ? t.askOptions : bookOptions;
@@ -196,7 +198,7 @@ export function AppointmentChoice() {
               >
                 {options[step].map((o) => {
                   const active = answers[step] === o;
-                  const role = isDoctorStep ? doctors.find((d) => d.name === o)?.role : undefined;
+                  const role = isDoctorStep ? doctors.map((d) => localizeDoctor(d, lang)).find((d) => d.name === o)?.role : undefined;
                   return (
                     <button
                       key={o}

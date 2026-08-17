@@ -31,7 +31,7 @@ export function TerminButton({
   className = "",
   label,
 }: TerminButtonProps) {
-  const defaultLabel = useT({ de: "Termin buchen", en: "Book appointment" });
+  const defaultLabel = useT({ de: "Termin buchen", en: "Book an appointment" });
   return (
     <a
       href={BOOKING_URL}

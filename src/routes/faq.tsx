@@ -37,7 +37,7 @@ type FaqItem = { de: { q: string; a: string }; en: { q: string; a: string } };
 const FAQ_ITEMS: FaqItem[] = [
   {
     de: { q: "Was muss ich zu meinem Termin mitbringen?", a: "Jeder Patient sollte die Versicherungskarte und sämtliche ihm zur Verfügung stehenden Unterlagen dabei haben, die seine Wirbelsäule betreffen, also z.\u00a0B. MRT-Bilder, CT-Bilder, Röntgenaufnahmen, Befunde und Arztbriefe." },
-    en: { q: "What do I need to bring to my appointment?", a: "Please bring your insurance card and all documents you have relating to your spine, for example MRI images, CT images, X-rays, findings and doctors' letters." },
+    en: { q: "What should I bring to my appointment?", a: "Please bring your health insurance card and any documents relating to your spine, such as MRI or CT images, X-rays, medical reports and referral letters." },
   },
   {
     de: { q: "Kann ich ohne Überweisung einen Termin vereinbaren?", a: "Ja, Sie können sich direkt an unser Wirbelsäulenzentrum am Stiglmaierplatz in München wenden, ohne vorher einen Hausarzt aufzusuchen. Wir empfehlen jedoch, vorhandene Vorbefunde oder Bildgebungen mitzubringen." },
@@ -45,19 +45,19 @@ const FAQ_ITEMS: FaqItem[] = [
   },
   {
     de: { q: "Sie behandeln privat versicherte genauso wie gesetzlich versicherte Patient:innen?", a: "Ja, selbstverständlich behandeln wir sowohl gesetzlich als auch privat versicherte Patienten." },
-    en: { q: "Do you treat both privately and statutorily insured patients?", a: "Yes, of course we treat both statutorily and privately insured patients." },
+    en: { q: "Do you treat patients with both public and private health insurance?", a: "Yes. We treat patients with public or private health insurance." },
   },
   {
     de: { q: "Wie lange dauert ein Termin?", a: "Die Dauer des Termins hängt davon ab, welche Unterlagen und Befunde bereits vorliegen oder noch ergänzt werden müssen. Ist eine Aufnahme der Wirbelsäule in unserem MRT oder CT nötig, koordinieren wir diese möglichst mit Ihrem Ambulanztermin, so dass sich Ihr Aufenthalt auf ein Mindestmaß beschränkt. Oftmals besteht die Möglichkeit, sofort mit Therapiemaßnahmen zu beginnen: In diesem Fall dauert Ihr Besuch bei uns natürlich etwas länger." },
-    en: { q: "How long does an appointment take?", a: "It depends on which documents and findings are already available or still need to be added. If an MRI or CT scan of the spine is required, we coordinate it with your outpatient appointment wherever possible so your stay is kept to a minimum. Often treatment can begin right away, in that case your visit naturally takes a little longer." },
+    en: { q: "How long does an appointment take?", a: "The length of your appointment depends on which records and test results are already available and whether any further examinations are needed. If you require an MRI or CT scan, we will try to coordinate it with your consultation to keep your visit as short as possible. Treatment can often begin on the same day; if so, your visit may take a little longer." },
   },
   {
     de: { q: "Wie lange muss ich auf einen Termin warten?", a: "In der Regel erhalten Sie Termine etwa zwei bis drei Wochen nach Vereinbarung. In dringlichen medizinischen Notfällen bitten wir um eine telefonische Anmeldung, am besten über den zuweisenden Arzt. Wir bemühen uns dann um einen zeitnahen Termin." },
-    en: { q: "How long is the wait for an appointment?", a: "As a rule you will receive an appointment about two to three weeks after scheduling. In urgent medical emergencies please register by phone, ideally through the referring doctor, we will then do our best to find an early appointment." },
+    en: { q: "How long will I have to wait for an appointment?", a: "Appointments are generally available within two to three weeks. For urgent medical cases, please call us. Ideally, your referring doctor should contact us so that we can arrange an appointment as soon as possible." },
   },
   {
     de: { q: "Ich bin ein Notfall, wohin soll ich mich wenden?", a: "Während der Sprechzeiten melden Sie sich bitte bei unserer Hotline unter der Telefonnummer +49 (0)89 54 34 30 30. Dort erfahren Sie, was zu tun ist." },
-    en: { q: "I am an emergency, where should I turn?", a: "During consultation hours please call our hotline on +49 (0)89 54 34 30 30. There you will be told what to do." },
+    en: { q: "What should I do in an emergency?", a: "During our opening hours, please call us on +49 (0)89 54 34 30 30. Our team will advise you on what to do next." },
   },
   {
     de: { q: "Wann ist bei Rückenschmerzen eine Operation notwendig?", a: "Die meisten Rückenbeschwerden lassen sich ohne Operation erfolgreich behandeln. Im Wirbelsäulenzentrum am Stiglmaierplatz in München kann in rund 90 Prozent der Fälle auf einen Eingriff verzichtet werden. Eine Operation ist in der Regel nur dann notwendig, wenn konservative Therapien nicht anschlagen oder neurologische Ausfälle wie Taubheitsgefühle oder Lähmungen auftreten." },
@@ -65,7 +65,7 @@ const FAQ_ITEMS: FaqItem[] = [
   },
   {
     de: { q: "Welche Therapien werden angeboten?", a: "Wir bieten das gesamte Spektrum der konservativen, interventionellen und operativen Wirbelsäulenbehandlung an. Unser Zentrum verfügt sowohl über ambulante als auch stationäre Einrichtungen." },
-    en: { q: "Which therapies do you offer?", a: "We offer the entire spectrum of conservative, interventional and surgical spine treatment. Our centre has both outpatient and inpatient facilities." },
+    en: { q: "What treatments do you offer?", a: "We offer the full range of conservative, interventional and surgical treatments for spinal conditions, with both outpatient and inpatient care available." },
   },
   {
     de: { q: "Wird das MRT direkt bei Ihnen in München durchgeführt?", a: "Ja. Unser Radiologiezentrum RZaS am Stiglmaierplatz verfügt über moderne MRT- und CT-Geräte direkt im Haus. Für Patienten bedeutet das: keine langen Wartezeiten auf externe Termine und eine schnelle, direkte Abstimmung mit unseren Wirbelsäulenspezialisten in München." },
@@ -73,7 +73,7 @@ const FAQ_ITEMS: FaqItem[] = [
   },
   {
     de: { q: "Was ist der Unterschied zwischen einem Bandscheibenvorfall und einer Spinalkanalstenose?", a: "Beim Bandscheibenvorfall tritt Bandscheibengewebe aus und drückt auf benachbarte Nerven, was häufig zu akuten Schmerzen führt, die in Bein oder Arm ausstrahlen. Die Spinalkanalstenose ist eine Verengung des Wirbelkanals, die meist durch Verschleiß entsteht und typischerweise bei längerem Gehen Schmerzen verursacht. Beide Erkrankungen behandeln wir konservativ und wenn nötig operativ." },
-    en: { q: "What is the difference between a herniated disc and spinal canal stenosis?", a: "With a herniated disc, disc tissue emerges and presses on adjacent nerves, often causing acute pain radiating into the leg or arm. Spinal canal stenosis is a narrowing of the spinal canal, usually caused by wear, and typically causes pain when walking longer distances. We treat both conditions conservatively and, when necessary, surgically." },
+    en: { q: "What is the difference between a herniated disc and spinal stenosis?", a: "With a herniated disc, disc tissue pushes out and presses on nearby nerves, often causing acute pain that radiates into a leg or arm. Spinal stenosis is a narrowing of the spinal canal, usually caused by age-related changes, and typically causes pain when walking longer distances. Both conditions can be treated conservatively or, when necessary, surgically." },
   },
   {
     de: { q: "Werde ich immer vom selben Arzt behandelt?", a: "In der Regel werden Sie immer vom selben Arzt behandelt. Nachdem unsere Spezialisten verschiedene Schwerpunkte haben, entscheidet oftmals Ihr Beschwerdebild, welcher Arzt die Leitung Ihrer Behandlung übernimmt. Dennoch kommt es manchmal, vor allem bei kurzfristigen Terminen, vor, dass ein anderer Arzt Sie betreut." },
@@ -81,15 +81,15 @@ const FAQ_ITEMS: FaqItem[] = [
   },
   {
     de: { q: "Wo wird operiert?", a: "Operationen finden in der Regel in der WolfartKlinik München-Gräfelfing statt. Alle Kliniken sind hervorragend ausgestattet und bieten ein erfahrenes und eingespieltes Team zur Betreuung." },
-    en: { q: "Where are operations performed?", a: "Operations usually take place at the WolfartKlinik Munich-Gräfelfing. All clinics are excellently equipped and provide an experienced, well-coordinated team." },
+    en: { q: "Where is surgery performed?", a: "Surgery usually takes place at WolfartKlinik in Munich-Gräfelfing, a well-equipped hospital with an experienced, established clinical team." },
   },
   {
     de: { q: "Ist die Praxis spezialisiert?", a: "Ja, wir sind auf alle Formen von Wirbelsäulenerkrankungen spezialisiert. Da zu unserem Zentrum auch eine bestens ausgestattete Radiologie sowie die Anbindung an mehrere Kliniken gehören, können wir von der Diagnose über die konventionelle Therapie bis zur minimalinvasiven Operation das komplette Spektrum an modernen Untersuchungsmethoden und Behandlungsmöglichkeiten anbieten." },
-    en: { q: "Is the practice specialised?", a: "Yes, we specialise in all forms of spinal disorders. As our centre also includes a very well equipped radiology department and links to several clinics, we can offer the complete spectrum from diagnosis through conventional therapy to minimally invasive surgery." },
+    en: { q: "Does the centre specialise in spinal conditions?", a: "Yes. We specialise in all types of spinal conditions. With a well-equipped radiology department in the same building and links to several hospitals, we can provide a wide range of modern diagnostic and treatment options, from conservative care to minimally invasive surgery." },
   },
   {
     de: { q: "Wie erreiche ich das Zentrum?", a: "Unsere Praxis befindet sich in der Nymphenburger Str. 1, 80335 München, direkt am Stiglmaierplatz gegenüber dem Löwenbräukeller. Mit öffentlichen Verkehrsmitteln: U-Bahn U1, Haltestelle Stiglmaierplatz, sowie Trambahnlinie 21 vom Hauptbahnhof bzw. Karlsplatz/Stachus. Mit dem Auto: eine gewisse Anzahl an Stellplätzen steht in unserer Tiefgarage zur Verfügung, Zufahrt über die Seidlstraße; es empfiehlt sich, auf die öffentlichen Verkehrsmittel auszuweichen. Öffnungszeiten: Montag bis Freitag 8.00 bis 17.00 Uhr." },
-    en: { q: "How do I get to the centre?", a: "Our practice is at Nymphenburger Str. 1, 80335 Munich, directly at Stiglmaierplatz opposite the Löwenbräukeller. By public transport: underground line U1, stop Stiglmaierplatz, and tram line 21 from the main station or Karlsplatz/Stachus. By car: a certain number of spaces are available in our underground car park, access via Seidlstraße; using public transport is recommended. Opening hours: Monday to Friday 8.00 to 17.00." },
+    en: { q: "How do I get to the centre?", a: "Our practice is at Nymphenburger Str. 1, 80335 Munich, directly on Stiglmaierplatz opposite the Löwenbräukeller. By public transport, take underground line U1 to Stiglmaierplatz or tram 21 from Munich Central Station or Karlsplatz/Stachus. A limited number of spaces are available in our underground car park, accessed via Seidlstraße, although we recommend using public transport. Opening hours are Monday to Friday, 8:00 am to 5:00 pm." },
   },
 ];
 
@@ -181,7 +181,7 @@ function FaqPage() {
       galleryHeading: "A look inside our centre",
       downloadsLabel: "DOWNLOADS",
       downloadsHeading: "Resources",
-      downloadsBody: "Brochures and information sheets to download, read them at your own pace, whenever you like.",
+      downloadsBody: "Download our brochures and patient information sheets to read at your convenience.",
       download: "Download PDF",
       filterLabel: "Filter by topic",
       filterAll: "All",
@@ -189,8 +189,8 @@ function FaqPage() {
       pending: "Coming soon",
       pdfLabel: "PDF",
       bookingHeading: "Still have questions?",
-      bookingBody: "Call us or book an appointment online directly. Our team is happy to help.",
-      bookingCta: "Book appointment",
+      bookingBody: "Call us or book an appointment online. Our team will be happy to help.",
+      bookingCta: "Book an appointment",
       bookingSecondary: "+49 (0)89-54 34 30 30",
     },
   });
@@ -251,7 +251,7 @@ function FaqPage() {
             <h2 className="font-display text-2xl font-semibold text-[#1E2535] mb-6">
               {t.galleryHeading}
             </h2>
-            <div className="flex gap-3 overflow-x-auto pb-2 focus-visible:outline-2 focus-visible:outline-[#AC8F52]" tabIndex={0} role="region" aria-label="Praxis Galerie">
+            <div className="flex gap-3 overflow-x-auto pb-2 focus-visible:outline-2 focus-visible:outline-[#AC8F52]" tabIndex={0} role="region" aria-label={lang === "en" ? "Practice gallery" : "Praxis Galerie"}>
               {GALLERY.map((src, i) => (
                 <div
                   key={i}

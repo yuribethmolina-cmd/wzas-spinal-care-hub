@@ -49,6 +49,7 @@ export function PageHeader({ activeRoute }: { activeRoute?: string }) {
       ] as [string, string][],
       book: "Termin buchen",
       menu: "Menü",
+      close: "Menü schließen",
     },
     en: {
       links: [
@@ -58,8 +59,9 @@ export function PageHeader({ activeRoute }: { activeRoute?: string }) {
         ["FAQ", "/faq"],
         ["News", "/aktuelles"],
       ] as [string, string][],
-      book: "Book appointment",
+      book: "Book an appointment",
       menu: "Menu",
+      close: "Close menu",
     },
   });
 
@@ -138,6 +140,7 @@ export function PageHeader({ activeRoute }: { activeRoute?: string }) {
         links={t.links}
         bookLabel={t.book}
         title={t.menu}
+        closeLabel={t.close}
         activeRoute={activeRoute}
         id="page-header-mobile-nav"
       />

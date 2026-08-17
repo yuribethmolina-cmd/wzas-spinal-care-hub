@@ -17,10 +17,10 @@ export function Vortragsreihe() {
     },
     en: {
       label: "Lecture series",
-      title: "Understanding your back, talks for patients",
+      title: "Understanding your back: talks for patients",
       text:
         "Our doctors regularly explain what lies behind a slipped disc, spinal stenosis and chronic back pain, in plain language, with time for your questions.",
-      cta: "Ask for dates",
+      cta: "Ask about upcoming dates",
       note: "Free admission · registration by phone",
     },
   });
@@ -87,12 +87,12 @@ export function Anfahrt() {
       label: "Getting here",
       h2a: "Central Munich, ",
       h2b: "easy to reach",
-      lead: "Right at Stiglmaierplatz, a few minutes away by underground, tram or bus.",
+      lead: "Located directly at Stiglmaierplatz and easy to reach by underground, tram or bus.",
       items: [
         { k: "Address", v: "Nymphenburger Str. 1\n80335 Munich" },
         { k: "Underground & tram", v: "U1 / U7 Stiglmaierplatz\nTram 20, 21, 22, stop right outside" },
         { k: "By car", v: "Car park close by\nStep-free access to the practice" },
-        { k: "Opening hours", v: "Monday to Friday\n8.00 am, 5.00 pm" },
+        { k: "Opening hours", v: "Monday to Friday\n8:00 am to 5:00 pm" },
       ],
       map: "Open in Google Maps",
       book: "Book an appointment",
@@ -147,7 +147,7 @@ export function Anfahrt() {
 
         <div className="overflow-hidden rounded-xl border border-[#E2E4E7] bg-white min-h-[380px]">
           <iframe
-            title="Karte, Nymphenburger Str. 1, München"
+            title={t.label === "Getting here" ? "Map showing Nymphenburger Str. 1, Munich" : "Karte, Nymphenburger Str. 1, München"}
             src="https://www.openstreetmap.org/export/embed.html?bbox=11.5520%2C48.1425%2C11.5670%2C48.1505&layer=mapnik&marker=48.1466%2C11.5595"
             loading="lazy"
             className="w-full h-[380px] lg:h-[520px] border-0"

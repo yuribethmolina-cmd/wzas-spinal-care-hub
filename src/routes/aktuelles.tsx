@@ -68,7 +68,7 @@ const ITEMS: Item[] = [
     en: {
       date: "June 2026",
       title: "Dr. Walter Demmel joins the team",
-      detail: "Neurosurgeon and pain therapy specialist · WZAS Spine Centre at Stiglmaierplatz",
+      detail: "Neurosurgeon and pain medicine specialist · WZAS Spine Center at Stiglmaierplatz",
     },
   },
   {
@@ -111,7 +111,7 @@ const ITEMS: Item[] = [
     },
     en: {
       date: "11 June 2026",
-      title: "Talk: Neck pain, when tension dictates daily life",
+      title: "Talk: Neck pain—when muscle tension affects everyday life",
       detail: "Public talk · Munich · Free admission",
     },
   },
@@ -125,7 +125,7 @@ const ITEMS: Item[] = [
     },
     en: {
       date: "April 2026",
-      title: "20 years of the Spine Centre at Stiglmaierplatz",
+      title: "20 years of the Spine Center at Stiglmaierplatz",
       detail: "Anniversary · WZAS Munich",
     },
   },
@@ -139,7 +139,7 @@ const ITEMS: Item[] = [
     },
     en: {
       date: "23 April 2026",
-      title: "Talk: Herniated disc, what happens in the body",
+      title: "Talk: What happens when a disc herniates?",
       detail: "Public talk · Munich · Free admission",
     },
   },
@@ -167,7 +167,7 @@ const ITEMS: Item[] = [
     },
     en: {
       date: "24 March 2026",
-      title: "Talk: Spinal stenosis, when the back limits movement",
+      title: "Talk: Spinal stenosis—when back problems limit mobility",
       detail: "Public talk · Munich · Free admission",
     },
   },
@@ -308,8 +308,8 @@ function AktuellesPage() {
     },
     en: {
       eyebrow: "Latest news",
-      h1Main: "Talks, Knowledge",
-      h1Italic: "& Research",
+      h1Main: "Talks, insights",
+      h1Italic: "& research",
       heroPara: "Our specialists share their knowledge through public talks, journal articles and educational videos. Stay informed about new treatment methods.",
       filterAll: "All",
       filterTypes: { Vortrag: "Talk", Veröffentlichung: "Publication", Pressemitteilung: "Press release" } as Record<ItemType, string>,
@@ -322,8 +322,8 @@ function AktuellesPage() {
       newsletterBody: "Our public talks are free of charge and open to patients and their families.",
       newsletterEmail: "Get notified by email",
       ctaH2: "We are here for you.",
-      ctaBody: "Book an appointment, emergencies treated immediately.",
-      ctaBtn: "Book appointment online",
+      ctaBody: "Book an appointment with our specialist team. Urgent cases are seen without delay.",
+      ctaBtn: "Book an appointment online",
     },
   });
 
