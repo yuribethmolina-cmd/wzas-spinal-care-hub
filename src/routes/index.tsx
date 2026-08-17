@@ -543,7 +543,17 @@ function Nav() {
 
 /* ─── Hero ──────────────────────────────────────────────────────── */
 
+/** Hero chips point to the matching condition page. */
+const HERO_CHIP_LINKS = [
+  "/beschwerden/rueckenschmerzen",
+  "/beschwerden/bandscheiben-deg",
+  "/beschwerden/bandscheibenvorfall",
+  "/beschwerden/iliosakralsyndrom",
+  "/behandlungen",
+];
+
 function Hero() {
+
   const t = useT({
     de: {
       kicker: "Wirbelsäulenzentrum am Stiglmaierplatz · München",
@@ -638,14 +648,16 @@ function Hero() {
               {t.chipsLabel}
             </p>
             <div className="flex flex-wrap gap-2">
-              {t.chips.map((c) => (
-                <button
+              {t.chips.map((c, i) => (
+                <Link
                   key={c}
+                  to={HERO_CHIP_LINKS[i]}
                   className="rounded-full border border-white/25 bg-white/5 backdrop-blur-sm min-h-11 inline-flex items-center px-4 py-2.5 text-[13px] sm:text-sm text-white/90 hover:border-white/70 hover:bg-white/12 hover:-translate-y-0.5 transition-[color,background-color,border-color,transform] duration-[420ms] ease-[cubic-bezier(0.16,1,0.3,1)] cursor-pointer"
                 >
                   {c}
-                </button>
+                </Link>
               ))}
+
             </div>
           </div>
           <div className="mt-7" style={introCta}>
@@ -810,16 +822,19 @@ function BeschwerdenCard({
   name,
   sub,
   cta,
+  href,
   delay,
 }: {
   iconKey: string;
   name: string;
   sub: string;
   cta: string;
+  href: string;
   delay: number;
 }) {
   const { ref, style } = useFadeUp(delay);
   const [hovered, setHovered] = useState(false);
+
   return (
     <div
       ref={ref}
@@ -870,10 +885,11 @@ function BeschwerdenCard({
         <p className="mt-2.5 text-[0.9375rem] text-[#5B6472] leading-relaxed">{sub}</p>
       </div>
 
-      <a
-        href="#"
+      <Link
+        to={href}
         className="mt-auto inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-[#8A6E36]"
       >
+
         <span
           style={{
             boxShadow: `inset 0 -1px 0 0 rgba(138,110,54,${hovered ? 1 : 0.28})`,
@@ -891,13 +907,25 @@ function BeschwerdenCard({
         >
           →
         </span>
-      </a>
+      </Link>
+
 
     </div>
   );
 }
 
+/** Where each "Was führt Sie zu uns?" card leads. */
+const BESCHWERDEN_LINKS: Record<string, string> = {
+  akut: "/beschwerden/rueckenschmerzen",
+  chronisch: "/beschwerden/bandscheiben-deg",
+  bandscheibe: "/beschwerden/bandscheibenvorfall",
+  ischias: "/beschwerden/iliosakralsyndrom",
+  reha: "/behandlungen",
+  sport: "/beschwerden",
+};
+
 function Beschwerden() {
+
   const t = useT({
     de: {
       label: "Behandlungsgebiete",
@@ -946,7 +974,7 @@ function Beschwerden() {
         </div>
         <div className="mt-10 sm:mt-14 grid gap-px bg-[#E2E4E7] sm:grid-cols-2 lg:grid-cols-3">
           {t.items.map((item, i) => (
-            <BeschwerdenCard key={item.iconKey} {...item} cta={t.cta} delay={150 + i * 80} />
+            <BeschwerdenCard key={item.iconKey} {...item} href={BESCHWERDEN_LINKS[item.iconKey]} cta={t.cta} delay={150 + i * 80} />
           ))}
         </div>
       </div>
