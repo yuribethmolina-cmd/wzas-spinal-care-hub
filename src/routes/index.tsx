@@ -754,8 +754,10 @@ function Hero() {
       sub: "Konservative Behandlung zuerst — Operation nur, wenn sie wirklich notwendig ist.",
       book: "Termin buchen",
       more: "Mehr erfahren",
-      bookMeta: "Online in ca. 2 Min. ·",
+      bookMeta: "Online in ca. 2 Min.",
+      askPrefix: "Haben Sie Fragen? ",
       askLink: "Anfrage senden",
+      askSuffix: "",
       alt: "Ärztliches Beratungsgespräch mit Wirbelsäulenmodell im Wirbelsäulenzentrum am Stiglmaierplatz",
     },
     en: {
@@ -766,8 +768,10 @@ function Hero() {
       sub: "Conservative treatment first — surgery only when it's truly necessary.",
       book: "Book an appointment",
       more: "Learn more",
-      bookMeta: "Online in ~2 min · Have a question?",
-      askLink: "Send an inquiry",
+      bookMeta: "Online in ~2 min",
+      askPrefix: "If you have questions, ",
+      askLink: "contact us",
+      askSuffix: " here.",
       alt: "Doctor consultation with a spine model at the Spine Center at Stiglmaierplatz",
     },
   });
@@ -846,21 +850,25 @@ function Hero() {
 
             </div>
             <p className="mt-3 text-[13px] text-[#CBD1DA] hidden sm:block">
-              {t.bookMeta}{" "}
+              {t.bookMeta}{" · "}
+              {t.askPrefix}
               <a
                 href={INQUIRY_URL}
                 className="font-semibold text-[#D8BE85] underline underline-offset-4 hover:brightness-110"
               >
                 {t.askLink}
               </a>
+              {t.askSuffix}
             </p>
             <p className="mt-3 text-[13px] text-[#CBD1DA] sm:hidden">
+              {t.askPrefix}
               <a
                 href={INQUIRY_URL}
                 className="font-semibold text-[#D8BE85] underline underline-offset-4"
               >
                 {t.askLink}
               </a>
+              {t.askSuffix}
             </p>
           </div>
 
