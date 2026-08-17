@@ -638,14 +638,16 @@ function Hero() {
               {t.chipsLabel}
             </p>
             <div className="flex flex-wrap gap-2">
-              {t.chips.map((c) => (
-                <button
+              {t.chips.map((c, i) => (
+                <Link
                   key={c}
+                  to={HERO_CHIP_LINKS[i]}
                   className="rounded-full border border-white/25 bg-white/5 backdrop-blur-sm min-h-11 inline-flex items-center px-4 py-2.5 text-[13px] sm:text-sm text-white/90 hover:border-white/70 hover:bg-white/12 hover:-translate-y-0.5 transition-[color,background-color,border-color,transform] duration-[420ms] ease-[cubic-bezier(0.16,1,0.3,1)] cursor-pointer"
                 >
                   {c}
-                </button>
+                </Link>
               ))}
+
             </div>
           </div>
           <div className="mt-7" style={introCta}>
