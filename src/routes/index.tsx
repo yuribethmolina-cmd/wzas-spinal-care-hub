@@ -198,7 +198,7 @@ function SpineLocatorMobile() {
   const active = SPINE_ZONES.find((z) => z.id === activeId) ?? null;
 
   return (
-    <div className="lg:hidden mt-8 w-full">
+    <div className="lg:hidden mt-12 md:mt-8 w-full">
       <div
         className="rounded-2xl border border-white/25 overflow-hidden shadow-[0_18px_44px_-22px_rgba(0,0,0,0.85)]"
         style={{ background: "rgba(16,22,34,0.72)", backdropFilter: "blur(14px) saturate(1.1)" }}
@@ -208,7 +208,29 @@ function SpineLocatorMobile() {
           {!active && <p className="text-[11px] font-medium text-white/55">{hint}</p>}
         </div>
 
-        <div className="flex gap-4 px-4 pb-4">
+        {/* Mobile: compact horizontal chip row */}
+        <div className="md:hidden -mx-0 px-4 pb-4 flex gap-2 overflow-x-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
+          {SPINE_ZONES.map((z) => {
+            const isActive = activeId === z.id;
+            return (
+              <button
+                key={z.id}
+                type="button"
+                onClick={() => setActiveId(isActive ? null : z.id)}
+                aria-pressed={isActive}
+                className={`shrink-0 whitespace-nowrap rounded-full border px-4 min-h-[40px] text-[13px] font-semibold transition-colors active:scale-[0.97] ${
+                  isActive
+                    ? "border-[#E0C288]/70 bg-[#E0C288]/15 text-[#F0DDB6]"
+                    : "border-white/25 bg-white/5 text-white/85"
+                }`}
+              >
+                {lang === "de" ? z.de : z.en}
+              </button>
+            );
+          })}
+        </div>
+
+        <div className="hidden md:flex gap-4 px-4 pb-4">
           <SpineSvg activeId={activeId} onZone={(id) => setActiveId(id)} className="w-9 shrink-0 overflow-visible" />
 
           <div className="flex flex-col gap-0.5 flex-1 min-w-0">
@@ -236,6 +258,7 @@ function SpineLocatorMobile() {
             })}
           </div>
         </div>
+
 
 
         <div
