@@ -962,7 +962,7 @@ function Beschwerden() {
         </div>
         <div className="mt-10 sm:mt-14 grid gap-px bg-[#E2E4E7] sm:grid-cols-2 lg:grid-cols-3">
           {t.items.map((item, i) => (
-            <BeschwerdenCard key={item.iconKey} {...item} cta={t.cta} delay={150 + i * 80} />
+            <BeschwerdenCard key={item.iconKey} {...item} href={BESCHWERDEN_LINKS[item.iconKey]} cta={t.cta} delay={150 + i * 80} />
           ))}
         </div>
       </div>
