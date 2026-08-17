@@ -802,6 +802,7 @@ function Hero() {
             </p>
           </div>
 
+          <SpineLocatorMobile />
 
         </div>
         <div style={introPanel}>
