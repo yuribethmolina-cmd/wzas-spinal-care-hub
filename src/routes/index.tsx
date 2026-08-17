@@ -198,7 +198,7 @@ function SpineLocatorMobile() {
   const active = SPINE_ZONES.find((z) => z.id === activeId) ?? null;
 
   return (
-    <div className="lg:hidden mt-8 w-full">
+    <div className="lg:hidden mt-12 md:mt-8 w-full">
       <div
         className="rounded-2xl border border-white/25 overflow-hidden shadow-[0_18px_44px_-22px_rgba(0,0,0,0.85)]"
         style={{ background: "rgba(16,22,34,0.72)", backdropFilter: "blur(14px) saturate(1.1)" }}
@@ -208,7 +208,29 @@ function SpineLocatorMobile() {
           {!active && <p className="text-[11px] font-medium text-white/55">{hint}</p>}
         </div>
 
-        <div className="flex gap-4 px-4 pb-4">
+        {/* Mobile: compact horizontal chip row */}
+        <div className="md:hidden -mx-0 px-4 pb-4 flex gap-2 overflow-x-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
+          {SPINE_ZONES.map((z) => {
+            const isActive = activeId === z.id;
+            return (
+              <button
+                key={z.id}
+                type="button"
+                onClick={() => setActiveId(isActive ? null : z.id)}
+                aria-pressed={isActive}
+                className={`shrink-0 whitespace-nowrap rounded-full border px-4 min-h-[40px] text-[13px] font-semibold transition-colors active:scale-[0.97] ${
+                  isActive
+                    ? "border-[#E0C288]/70 bg-[#E0C288]/15 text-[#F0DDB6]"
+                    : "border-white/25 bg-white/5 text-white/85"
+                }`}
+              >
+                {lang === "de" ? z.de : z.en}
+              </button>
+            );
+          })}
+        </div>
+
+        <div className="hidden md:flex gap-4 px-4 pb-4">
           <SpineSvg activeId={activeId} onZone={(id) => setActiveId(id)} className="w-9 shrink-0 overflow-visible" />
 
           <div className="flex flex-col gap-0.5 flex-1 min-w-0">
@@ -236,6 +258,7 @@ function SpineLocatorMobile() {
             })}
           </div>
         </div>
+
 
 
         <div
@@ -687,6 +710,11 @@ function Hero() {
   const introPanel = useIntro(560);
   return (
     <section className="relative bg-[#1E2535] text-white overflow-hidden isolate min-h-[78svh] lg:min-h-0">
+      {/* Mobile: solid brand gradient instead of the photo */}
+      <div
+        className="md:hidden absolute inset-0 -z-10"
+        style={{ background: "linear-gradient(160deg, #1E2535 0%, #263044 60%, #1E2535 100%)" }}
+      />
       <img
         src={HERO_BG}
         srcSet={HERO_SRCSET}
@@ -697,14 +725,15 @@ function Hero() {
         loading="eager"
         fetchPriority="high"
         decoding="async"
-        className="absolute inset-0 h-full sm:h-[115%] lg:h-[118%] w-full object-cover object-[40%_84%] sm:object-[42%_52%] lg:object-center -z-10"
+        className="hidden md:block absolute inset-0 h-full sm:h-[115%] lg:h-[118%] w-full object-cover object-[40%_84%] sm:object-[42%_52%] lg:object-center -z-10"
         style={{ transform: `translate3d(0, ${-parallax}px, 0) scale(1)`, willChange: "transform" }}
       />
 
 
-      <div className="absolute inset-0 -z-10 bg-[#161C29]/25 lg:bg-[#161C29]/40" />
-      <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[#141A26]/60 via-[#141A26]/20 to-transparent lg:from-[#141A26]/90 lg:via-[#141A26]/45" />
-      <div className="absolute inset-0 -z-10 bg-gradient-to-t from-[#141A26] via-[#141A26]/35 to-[#141A26]/10 lg:via-[#141A26]/15 lg:to-[#141A26]/35" />
+      <div className="hidden md:block absolute inset-0 -z-10 bg-[#161C29]/25 lg:bg-[#161C29]/40" />
+      <div className="hidden md:block absolute inset-0 -z-10 bg-gradient-to-r from-[#141A26]/60 via-[#141A26]/20 to-transparent lg:from-[#141A26]/90 lg:via-[#141A26]/45" />
+      <div className="hidden md:block absolute inset-0 -z-10 bg-gradient-to-t from-[#141A26] via-[#141A26]/35 to-[#141A26]/10 lg:via-[#141A26]/15 lg:to-[#141A26]/35" />
+
 
       <div
         className="absolute inset-0 pointer-events-none opacity-[0.04] -z-10"
@@ -746,10 +775,11 @@ function Hero() {
               </a>
               <a
                 href="#beschwerden"
-                className="hidden sm:inline-flex items-center rounded-full border border-white/40 bg-white/5 backdrop-blur-sm px-6 py-3 text-sm font-semibold text-white transition-[background-color,border-color,transform] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:bg-white/15 hover:border-white/70 hover:-translate-y-0.5"
+                className="inline-flex items-center justify-center rounded-full border border-white/40 bg-white/5 backdrop-blur-sm px-6 py-3.5 sm:py-3 text-[15px] sm:text-sm font-semibold text-white transition-[background-color,border-color,transform] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:bg-white/15 hover:border-white/70 hover:-translate-y-0.5 active:scale-[0.98]"
               >
                 {t.more}
               </a>
+
             </div>
             <p className="mt-3 text-[13px] text-[#CBD1DA] hidden sm:block">
               {t.bookMeta}{" "}
