@@ -180,7 +180,7 @@ function BeschwerdenDetail() {
             </Link>
           </div>
           <div className="absolute bottom-0 left-0 px-5 pb-10 lg:px-12 lg:pb-14 max-w-7xl mx-auto w-full">
-            <h1 className="font-display text-[2rem] sm:text-4xl lg:text-6xl font-semibold text-white leading-tight [hyphens:auto]" lang={lang}>
+            <h1 className="font-display text-[1.75rem] sm:text-4xl lg:text-6xl font-semibold text-white leading-tight [hyphens:auto]" lang={lang}>
               {content.name}
             </h1>
             {content.subtitle && (
