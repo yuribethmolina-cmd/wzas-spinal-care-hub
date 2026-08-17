@@ -25,10 +25,10 @@ export const STAT_DEFS = [
 ] as const;
 
 export const SPINE_ZONE_DEFS = [
-  { id: "cervical", de: "Halswirbelsäule", en: "Cervical spine", subDe: "Nacken · Arm · Kopf", subEn: "Neck · arm · head", href: "/beschwerden", flex: 1, count: 4, w0: 11, w1: 13 },
-  { id: "thoracic", de: "Brustwirbelsäule", en: "Thoracic spine", subDe: "Oberer & mittlerer Rücken", subEn: "Upper & mid back", href: "/beschwerden/facettengelenksarthrose", flex: 2, count: 7, w0: 14, w1: 18 },
-  { id: "lumbar", de: "LWS · Bandscheiben", en: "Lumbar · discs", subDe: "Unterer Rücken · L4/L5", subEn: "Lower back · L4/L5", href: "/beschwerden/bandscheibenvorfall", flex: 1.8, count: 5, w0: 19, w1: 22 },
-  { id: "sacrum", de: "Sakrum · ISG", en: "Sacrum · SIJ", subDe: "Becken · Hüfte · Bein", subEn: "Pelvis · hip · leg", href: "/beschwerden/iliosakralsyndrom", flex: 1.2, count: 3, w0: 22, w1: 14 },
+  { id: "cervical", de: "Halswirbelsäule", en: "Cervical spine", subDe: "Nacken · Arm · Kopf", subEn: "Neck · arm · head", conditions: ["bandscheibenvorfall", "bandscheiben-deg", "rueckenschmerzen"], flex: 1, count: 4, w0: 11, w1: 13 },
+  { id: "thoracic", de: "Brustwirbelsäule", en: "Thoracic spine", subDe: "Oberer & mittlerer Rücken", subEn: "Upper & mid back", conditions: ["facettengelenksarthrose", "osteoporose", "wirbelkoerperfraktur"], flex: 2, count: 7, w0: 14, w1: 18 },
+  { id: "lumbar", de: "LWS · Bandscheiben", en: "Lumbar · discs", subDe: "Unterer Rücken · L4/L5", subEn: "Lower back · L4/L5", conditions: ["bandscheibenvorfall", "wirbelkanalverengung", "wirbelgleiten"], flex: 1.8, count: 5, w0: 19, w1: 22 },
+  { id: "sacrum", de: "Sakrum · ISG", en: "Sacrum · SIJ", subDe: "Becken · Hüfte · Bein", subEn: "Pelvis · hip · leg", conditions: ["iliosakralsyndrom", "rueckenschmerzen"], flex: 1.2, count: 3, w0: 22, w1: 14 },
 ];
 
 // Lay the vertebrae out once so the drawing and the labels share one rhythm.
