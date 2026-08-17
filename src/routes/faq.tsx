@@ -195,7 +195,7 @@ function FaqPage() {
     },
   });
 
-  const lang = useT({ de: "de" as const, en: "en" as const });
+  const lang: "de" | "en" = useT({ de: "de" as const, en: "en" as const });
 
   const [topic, setTopic] = useState<TopicId | "all">("all");
   const visibleDocs = topic === "all" ? DOCS : DOCS.filter((d) => d.topics.includes(topic));
@@ -251,7 +251,7 @@ function FaqPage() {
             <h2 className="font-display text-2xl font-semibold text-[#1E2535] mb-6">
               {t.galleryHeading}
             </h2>
-            <div className="flex gap-3 overflow-x-auto pb-2 focus-visible:outline-2 focus-visible:outline-[#AC8F52]" tabIndex={0} role="region" aria-label={lang === "en" ? "Practice gallery" : "Praxis Galerie"}>
+            <div className="flex gap-3 overflow-x-auto pb-2 focus-visible:outline-2 focus-visible:outline-[#AC8F52]" tabIndex={0} role="region" aria-label={(lang as string) === "en" ? "Practice gallery" : "Praxis Galerie"}>
               {GALLERY.map((src, i) => (
                 <div
                   key={i}

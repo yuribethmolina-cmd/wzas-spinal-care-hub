@@ -651,15 +651,6 @@ function Nav() {
 
 /* ─── Hero ──────────────────────────────────────────────────────── */
 
-/** Hero chips point to the matching condition page. */
-const HERO_CHIP_LINKS = [
-  "/beschwerden/rueckenschmerzen",
-  "/beschwerden/bandscheiben-deg",
-  "/beschwerden/bandscheibenvorfall",
-  "/beschwerden/iliosakralsyndrom",
-  "/behandlungen",
-];
-
 function Hero() {
 
   const t = useT({
@@ -668,12 +659,10 @@ function Hero() {
       h1a: "Rückhalt",
       h1b: "für München.",
       h1c: "",
-      sub: "20 Jahre Erfahrung.\u00a0\n13 Spezialisten.\u00a0\nKonservative Behandlung zuerst,\u00a0\nOperation nur, wenn nötig.",
-      chipsLabel: "Was führt Sie zu uns?",
-      chips: ["Akuter Rückenschmerz", "Chronische Schmerzen", "Bandscheibenvorfall", "Ischias", "Nach OP"],
+      sub: "Konservative Behandlung zuerst — Operation nur, wenn sie wirklich notwendig ist.",
       book: "Termin buchen",
       more: "Mehr erfahren",
-      bookMeta: "Freie Termine online · ca. 2 Min. · Nur eine Frage?",
+      bookMeta: "Online in ca. 2 Min. ·",
       askLink: "Anfrage senden",
       alt: "Ärztliches Beratungsgespräch mit Wirbelsäulenmodell im Wirbelsäulenzentrum am Stiglmaierplatz",
     },
@@ -682,12 +671,10 @@ function Hero() {
       h1a: "Munich’s trusted",
       h1b: "spine specialists.",
       h1c: "",
-      sub: "20 years of experience.\u00a0\n13 specialists.\u00a0\nConservative treatment first,\u00a0\nsurgery only when necessary.",
-      chipsLabel: "What brings you to us?",
-      chips: ["Acute back pain", "Chronic pain", "Herniated disc", "Sciatica", "Post-surgery"],
+      sub: "Conservative treatment first — surgery only when it's truly necessary.",
       book: "Book an appointment",
       more: "Learn more",
-      bookMeta: "Available appointments online · about 2 min · Have a question?",
+      bookMeta: "Online in ~2 min · Have a question?",
       askLink: "Send an inquiry",
       alt: "Doctor consultation with a spine model at the Spine Center at Stiglmaierplatz",
     },
@@ -696,9 +683,7 @@ function Hero() {
   const parallax = useParallax(0.14);
   const introKicker = useIntro(80);
   const introSub = useIntro(620);
-  const introChips = useIntro(760);
   const introCta = useIntro(880);
-  const introLangs = useIntro(1000);
   const introPanel = useIntro(560);
   return (
     <section className="relative bg-[#1E2535] text-white overflow-hidden isolate min-h-[78svh] lg:min-h-0">
@@ -751,23 +736,6 @@ function Hero() {
           >
             {t.sub}
           </p>
-          <div className="mt-6 sm:mt-8 hidden sm:block" style={introChips}>
-            <p className="text-xs font-medium tracking-[0.15em] uppercase text-[#CBD1DA] mb-3">
-              {t.chipsLabel}
-            </p>
-            <div className="flex flex-wrap gap-2">
-              {t.chips.map((c, i) => (
-                <Link
-                  key={c}
-                  to={HERO_CHIP_LINKS[i]}
-                  className="rounded-full border border-white/25 bg-white/5 backdrop-blur-sm min-h-11 inline-flex items-center px-4 py-2.5 text-[13px] sm:text-sm text-white/90 hover:border-white/70 hover:bg-white/12 hover:-translate-y-0.5 transition-[color,background-color,border-color,transform] duration-[420ms] ease-[cubic-bezier(0.16,1,0.3,1)] cursor-pointer"
-                >
-                  {c}
-                </Link>
-              ))}
-
-            </div>
-          </div>
           <div className="mt-6 sm:mt-7" style={introCta}>
             <div className="flex flex-col sm:flex-row sm:flex-wrap gap-3">
               <a
@@ -802,23 +770,6 @@ function Hero() {
             </p>
           </div>
 
-          <div className="mt-7 hidden sm:block" style={introLangs}>
-            <p className="text-[11px] font-medium tracking-[0.18em] uppercase text-[#CBD1DA] flex items-center gap-2">
-              <span className="inline-block w-5 h-px bg-[#AC8F52]" />
-              {lang === "de" ? "Beratung in Ihrer Sprache" : "Consultation in your language"}
-            </p>
-            <p className="mt-2.5 text-[15px] font-medium text-white/90">
-              {["Deutsch", "English", "Español"].map((n, i) => (
-                <span key={n}>
-                  {i > 0 && <span className="mx-2 text-[#AC8F52]" aria-hidden="true">·</span>}
-                  {n}
-                </span>
-              ))}
-            </p>
-          </div>
-          <p className="mt-4 text-[12px] font-medium tracking-[0.12em] uppercase text-white/60 sm:hidden">
-            Deutsch · English · Español
-          </p>
 
           <SpineLocatorMobile />
 
