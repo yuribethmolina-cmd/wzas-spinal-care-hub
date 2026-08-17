@@ -86,7 +86,7 @@ export function PageFooter() {
           <p className="text-xs text-white/70 text-center sm:text-left">
             Nymphenburger Str. 1 · 80335 München · +49 (0)89-54 34 30 30
           </p>
-          <div className="flex items-center gap-5">
+          <div className="flex w-full flex-col items-center gap-4 sm:w-auto sm:flex-row sm:gap-5">
             <div className="flex items-center gap-3">
               {SOCIALS.map((s) => (
                 <a
