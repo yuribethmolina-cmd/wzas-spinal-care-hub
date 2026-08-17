@@ -3,6 +3,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { PageHeader } from "@/components/wzas/PageHeader";
 import { PageFooter } from "@/components/wzas/PageFooter";
 import { BookingCTA } from "@/components/wzas/BookingCTA";
+import { TerminButton } from "@/components/wzas/TerminButton";
 import { getCondition, getConditionContent, CONDITIONS, TREATMENT_LABELS, type Condition } from "@/lib/conditions";
 import { useLang, useT } from "@/lib/lang";
 
@@ -185,6 +186,7 @@ function BeschwerdenDetail() {
             {content.subtitle && (
               <p className="mt-2 text-white/70 text-lg italic font-display">({content.subtitle})</p>
             )}
+            <TerminButton className="mt-6" />
           </div>
         </section>
 
@@ -222,6 +224,7 @@ function BeschwerdenDetail() {
                   </div>
                 </div>
               </div>
+              <TerminButton variant="outlineDark" size="sm" className="mt-6 w-full sm:w-auto" />
             </div>
           </div>
         </section>
@@ -269,6 +272,7 @@ function BeschwerdenDetail() {
                   </Link>
                 ))}
               </div>
+              <TerminButton className="mt-8" />
             </div>
           </section>
         )}
