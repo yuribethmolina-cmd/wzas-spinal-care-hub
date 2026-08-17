@@ -651,14 +651,13 @@ function Nav() {
 
 /* ─── Hero ──────────────────────────────────────────────────────── */
 
-/** Hero chips point to the matching condition page. */
 const HERO_CHIP_LINKS = [
   "/beschwerden/rueckenschmerzen",
   "/beschwerden/bandscheiben-deg",
   "/beschwerden/bandscheibenvorfall",
   "/beschwerden/iliosakralsyndrom",
   "/behandlungen",
-];
+] as const;
 
 function Hero() {
 
@@ -669,6 +668,7 @@ function Hero() {
       h1b: "für München.",
       h1c: "",
       sub: "20 Jahre Erfahrung.\u00a0\n13 Spezialisten.\u00a0\nKonservative Behandlung zuerst,\u00a0\nOperation nur, wenn nötig.",
+      trust: "",
       chipsLabel: "Was führt Sie zu uns?",
       chips: ["Akuter Rückenschmerz", "Chronische Schmerzen", "Bandscheibenvorfall", "Ischias", "Nach OP"],
       book: "Termin buchen",
@@ -679,14 +679,15 @@ function Hero() {
     },
     en: {
       kicker: "SPINE CENTER AT STIGLMAIERPLATZ · MUNICH",
-      h1a: "Munich’s trusted",
+      h1a: "Munich’s",
       h1b: "spine specialists.",
       h1c: "",
-      sub: "20 years of experience.\u00a0\n13 specialists.\u00a0\nConservative treatment first,\u00a0\nsurgery only when necessary.",
+      sub: "Conservative care first.\nSurgery only when necessary.",
+      trust: "20 years of experience · 13 specialists",
       chipsLabel: "What brings you to us?",
       chips: ["Acute back pain", "Chronic pain", "Herniated disc", "Sciatica", "Post-surgery"],
       book: "Book an appointment",
-      more: "Learn more",
+      more: "Send an inquiry",
       bookMeta: "Available appointments online · about 2 min · Have a question?",
       askLink: "Send an inquiry",
       alt: "Doctor consultation with a spine model at the Spine Center at Stiglmaierplatz",
@@ -696,9 +697,7 @@ function Hero() {
   const parallax = useParallax(0.14);
   const introKicker = useIntro(80);
   const introSub = useIntro(620);
-  const introChips = useIntro(760);
   const introCta = useIntro(880);
-  const introLangs = useIntro(1000);
   const introPanel = useIntro(560);
   return (
     <section className="relative bg-[#1E2535] text-white overflow-hidden isolate min-h-[78svh] lg:min-h-0">
@@ -725,9 +724,13 @@ function Hero() {
         className="absolute inset-0 pointer-events-none opacity-[0.04] -z-10"
         style={{ backgroundImage: NOISE, backgroundSize: "256px 256px" }}
       />
-      <div className="relative mx-auto max-w-7xl px-5 lg:px-8 pt-10 pb-14 lg:pt-20 lg:pb-40 lg:min-h-[min(84vh,860px)] grid lg:grid-cols-2 gap-10 lg:gap-14 items-center">
+      <div className={`relative mx-auto max-w-7xl px-5 lg:px-8 pt-10 pb-14 grid gap-10 items-center ${
+        lang === "en"
+          ? "lg:pt-16 lg:pb-32 lg:min-h-[min(70vh,700px)] lg:grid-cols-1"
+          : "lg:pt-20 lg:pb-40 lg:min-h-[min(84vh,860px)] lg:grid-cols-2 lg:gap-14"
+      }`}>
 
-        <div>
+        <div className={lang === "en" ? "max-w-3xl" : undefined}>
           <p
             className="text-[11px] font-medium tracking-[0.2em] uppercase text-[#AC8F52] flex items-center gap-2"
             style={introKicker}
@@ -737,7 +740,7 @@ function Hero() {
           </p>
           <h1
             className="mt-5 sm:mt-6 leading-[1.12] sm:leading-[1.02] tracking-tight text-white font-display"
-            style={{ fontSize: "clamp(2.4rem, 5.4vw, 5rem)", fontWeight: 500 }}
+            style={{ fontSize: lang === "en" ? "clamp(2.75rem, 5.2vw, 4.75rem)" : "clamp(2.4rem, 5.4vw, 5rem)", fontWeight: 500 }}
           >
             <MaskLine delay={200}>{t.h1a}</MaskLine>
             <MaskLine delay={320}>
@@ -751,7 +754,12 @@ function Hero() {
           >
             {t.sub}
           </p>
-          <div className="mt-6 sm:mt-8 hidden sm:block" style={introChips}>
+          {lang === "en" && (
+            <p className="mt-4 text-sm sm:text-[15px] font-semibold text-[#D8BE85]" style={introSub}>
+              {t.trust}
+            </p>
+          )}
+          {lang === "de" && <div className="mt-6 sm:mt-8 hidden sm:block">
             <p className="text-xs font-medium tracking-[0.15em] uppercase text-[#CBD1DA] mb-3">
               {t.chipsLabel}
             </p>
@@ -767,7 +775,7 @@ function Hero() {
               ))}
 
             </div>
-          </div>
+          </div>}
           <div className="mt-6 sm:mt-7" style={introCta}>
             <div className="flex flex-col sm:flex-row sm:flex-wrap gap-3">
               <a
@@ -777,13 +785,13 @@ function Hero() {
                 {t.book}
               </a>
               <a
-                href="#beschwerden"
-                className="hidden sm:inline-flex items-center rounded-full border border-white/40 bg-white/5 backdrop-blur-sm px-6 py-3 text-sm font-semibold text-white transition-[background-color,border-color,transform] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:bg-white/15 hover:border-white/70 hover:-translate-y-0.5"
+                href={lang === "en" ? INQUIRY_URL : "#beschwerden"}
+                className={`${lang === "de" ? "hidden sm:inline-flex" : "inline-flex"} items-center justify-center rounded-full border border-white/40 bg-white/5 backdrop-blur-sm px-6 py-3 text-sm font-semibold text-white transition-[background-color,border-color,transform] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:bg-white/15 hover:border-white/70 hover:-translate-y-0.5`}
               >
                 {t.more}
               </a>
             </div>
-            <p className="mt-3 text-[13px] text-[#CBD1DA] hidden sm:block">
+            {lang === "de" && <p className="mt-3 text-[13px] text-[#CBD1DA] hidden sm:block">
               {t.bookMeta}{" "}
               <a
                 href={INQUIRY_URL}
@@ -791,18 +799,18 @@ function Hero() {
               >
                 {t.askLink}
               </a>
-            </p>
-            <p className="mt-3 text-[13px] text-[#CBD1DA] sm:hidden">
+            </p>}
+            {lang === "de" && <p className="mt-3 text-[13px] text-[#CBD1DA] sm:hidden">
               <a
                 href={INQUIRY_URL}
                 className="font-semibold text-[#D8BE85] underline underline-offset-4"
               >
                 {t.askLink}
               </a>
-            </p>
+            </p>}
           </div>
 
-          <div className="mt-7 hidden sm:block" style={introLangs}>
+          {lang === "de" && <div className="mt-7 hidden sm:block">
             <p className="text-[11px] font-medium tracking-[0.18em] uppercase text-[#CBD1DA] flex items-center gap-2">
               <span className="inline-block w-5 h-px bg-[#AC8F52]" />
               {lang === "de" ? "Beratung in Ihrer Sprache" : "Consultation in your language"}
@@ -815,24 +823,22 @@ function Hero() {
                 </span>
               ))}
             </p>
-          </div>
-          <p className="mt-4 text-[12px] font-medium tracking-[0.12em] uppercase text-white/60 sm:hidden">
+          </div>}
+          {lang === "de" && <p className="mt-4 text-[12px] font-medium tracking-[0.12em] uppercase text-white/60 sm:hidden">
             Deutsch · English · Español
-          </p>
+          </p>}
 
-          <SpineLocatorMobile />
+          {lang === "de" && <SpineLocatorMobile />}
 
 
         </div>
-        <div style={introPanel}>
-          <SpineLocator />
-        </div>
+        {lang === "de" && <div style={introPanel}><SpineLocator /></div>}
       </div>
 
 
       <div className="relative lg:absolute lg:inset-x-0 lg:bottom-0 bg-[#1E2535]/90 backdrop-blur border-t border-white/10">
-        <div className="mx-auto max-w-7xl px-5 lg:px-8 grid grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-7 items-start py-6 lg:py-7">
-          {STAT_DEFS.map((s) => (
+        <div className={`mx-auto px-5 lg:px-8 grid grid-cols-2 gap-x-6 gap-y-7 items-start py-5 lg:py-6 ${lang === "de" ? "max-w-7xl md:grid-cols-4" : "max-w-2xl"}`}>
+          {(lang === "en" ? STAT_DEFS.slice(0, 2) : STAT_DEFS).map((s) => (
             <div key={s.labelDe}>
               <StatCounter value={s.value} suffix={s.suffix} />
               <div className="text-xs md:text-sm text-[#DDE1E8] mt-1">
