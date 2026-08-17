@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import React, { useEffect, useRef, useState } from "react";
 import { doctors as allDoctors } from "@/lib/doctors";
+import { CONDITIONS } from "@/lib/conditions";
 import { useLang, useT, type Lang } from "@/lib/lang";
 import { PraxisGalerie } from "@/components/PraxisGalerie";
 import { Behandlungen } from "@/components/Behandlungen";
