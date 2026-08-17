@@ -195,7 +195,7 @@ function FaqPage() {
     },
   });
 
-  const lang = useT({ de: "de" as const, en: "en" as const });
+  const lang: "de" | "en" = useT({ de: "de" as const, en: "en" as const });
 
   const [topic, setTopic] = useState<TopicId | "all">("all");
   const visibleDocs = topic === "all" ? DOCS : DOCS.filter((d) => d.topics.includes(topic));
