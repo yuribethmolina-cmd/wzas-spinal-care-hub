@@ -9,7 +9,6 @@ import schmerztherapieImg from "@/assets/wzas/galerie/schmerztherapie.webp.asset
 import consultationImg from "@/assets/wzas/hero-consultation.webp.asset.json";
 import bandscheibeImg from "@/assets/wzas/thumb-bandscheibe.webp.asset.json";
 
-const BASE = "https://www.wzas.de/wp-content/uploads";
 
 export type ConditionContent = {
   name: string;
