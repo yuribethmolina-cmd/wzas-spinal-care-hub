@@ -50,10 +50,11 @@ export const Route = createFileRoute("/beschwerden/")({
   component: BeschwerdenHub,
 });
 
-function ConditionCard({ condition, index, large = false, ctaCopy }: {
+function ConditionCard({ condition, index, large = false, wide = false, ctaCopy }: {
   condition: typeof CONDITIONS[number];
   index: number;
   large?: boolean;
+  wide?: boolean;
   ctaCopy: string;
 }) {
   const { ref, style } = useFadeUp(index * 40);
@@ -68,7 +69,7 @@ function ConditionCard({ condition, index, large = false, ctaCopy }: {
       params={{ slug: condition.id }}
       ref={ref as React.Ref<HTMLAnchorElement>}
       style={style}
-      className={`relative overflow-hidden block group ${large ? "aspect-[16/9]" : "aspect-[3/4]"}`}
+      className={`relative overflow-hidden block group ${large ? "aspect-[16/9]" : wide ? "aspect-[4/3] lg:aspect-[16/10]" : "aspect-[3/4]"}`}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
@@ -202,11 +203,24 @@ function BeschwerdenHub() {
             <div className="mb-3">
               <ConditionCard condition={featured} index={0} large ctaCopy={t.ctaCopy} />
             </div>
-            {/* Rows 2-4: 3-column portrait */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-              {rest.map((c, i) => (
-                <ConditionCard key={c.id} condition={c} index={i + 1} ctaCopy={t.ctaCopy} />
-              ))}
+            {/* Rows 2-4: 3-column portrait, last row splits in two wide cards */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-3">
+              {rest.map((c, i) => {
+                const wide = i >= rest.length - 2;
+                return (
+                  <div
+                    key={c.id}
+                    className={wide ? "lg:col-span-3" : "lg:col-span-2"}
+                  >
+                    <ConditionCard
+                      condition={c}
+                      index={i + 1}
+                      ctaCopy={t.ctaCopy}
+                      wide={wide}
+                    />
+                  </div>
+                );
+              })}
             </div>
           </div>
         </section>
