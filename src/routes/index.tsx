@@ -289,6 +289,7 @@ function SpineLocatorMobile() {
               <div className="mt-3 flex flex-wrap gap-2">
                 {active.conditions.map((slug) => {
                   const subline = CONDITION_SUBLINE[slug]?.[lang];
+                  const primary = CONDITION_WIDGET_NAME[slug]?.[lang] ?? conditionName(slug, lang);
                   return (
                     <Link
                       key={slug}
@@ -297,7 +298,7 @@ function SpineLocatorMobile() {
                       className="inline-flex flex-col justify-center min-h-[44px] rounded-full border border-[#E0C288]/45 bg-white/5 px-4 text-left active:scale-[0.97] transition-transform"
                     >
                       <span className="text-[13px] font-semibold leading-tight text-[#F0DDB6]">
-                        {conditionName(slug, lang)}
+                        {primary}
                       </span>
                       {subline && (
                         <span className="text-[11px] font-medium leading-snug text-[#F0DDB6]/70">
