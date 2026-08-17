@@ -116,9 +116,11 @@ function AerztePage() {
           <p className="text-[10px] font-semibold tracking-[0.28em] uppercase text-[#AC8F52] mb-8">
             {t.teamLabel}
           </p>
-          <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+          <div className="flex flex-wrap justify-center gap-5">
             {team.map((d) => (
-              <TeamCard key={d.slug} d={d} />
+              <div key={d.slug} className="w-full md:w-[calc(50%-10px)] lg:w-[calc(33.333%-14px)] xl:w-[calc(25%-15px)]">
+                <TeamCard d={d} />
+              </div>
             ))}
           </div>
         </div>
@@ -227,7 +229,7 @@ function TeamCard({ d }: { d: ReturnType<typeof localizeDoctor> }) {
     <Link
       to="/aerzte/$slug"
       params={{ slug: d.slug }}
-      className="group bg-white rounded-xl overflow-hidden border border-[#E2E4E7] hover:border-[#AC8F52]/40 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col"
+      className="group bg-white rounded-xl overflow-hidden border border-[#E2E4E7] hover:border-[#AC8F52]/40 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col h-full"
     >
       {/* Photo */}
       <div className="relative aspect-[3/4] overflow-hidden bg-[#263044]">
