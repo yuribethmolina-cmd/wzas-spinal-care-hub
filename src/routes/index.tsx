@@ -1656,7 +1656,7 @@ function Footer() {
               ))}
             </div>
             {/* Legal links */}
-            <div className="flex gap-4">
+            <div className="flex flex-wrap justify-center gap-x-4 gap-y-1 sm:justify-start">
               {t.legal.map((l) => (
                 <a key={l} href="#" className="inline-flex items-center min-h-11 lg:min-h-0 hover:text-[#AC8F52] transition-colors">{l}</a>
               ))}
