@@ -204,9 +204,15 @@ function SpineLocator() {
 function SpineLocatorMobile() {
   const { lang } = useLang();
   const [activeId, setActiveId] = useState<string | null>(null);
+  const [hasScrolled, setHasScrolled] = useState(false);
+  const scrollRef = useRef<HTMLDivElement>(null);
   const header = lang === "de" ? "Wo tut es weh?" : "Where does it hurt?";
-  const hint = lang === "de" ? "Bereich antippen" : "Tap an area";
+  const swipeHint = lang === "de" ? "Wischen →" : "Swipe →";
   const active = SPINE_ZONES.find((z) => z.id === activeId) ?? null;
+
+  const handleScroll = () => {
+    if (!hasScrolled) setHasScrolled(true);
+  };
 
   return (
     <div className="lg:hidden mt-12 md:mt-8 w-full min-w-0">
@@ -216,11 +222,19 @@ function SpineLocatorMobile() {
       >
         <div className="px-4 py-3 flex items-center justify-between gap-3">
           <p className="text-[11px] font-bold tracking-[0.18em] uppercase text-[#E0C288]">{header}</p>
-          {!active && <p className="text-[11px] font-medium text-white/55">{hint}</p>}
+          {!active && (
+            <p className="text-[11px] font-medium text-white/55 flex items-center gap-1 whitespace-nowrap pr-2">
+              {swipeHint}
+            </p>
+          )}
         </div>
 
         {/* Mobile: compact horizontal chip row */}
-        <div className="md:hidden relative w-full min-w-0 px-4 pb-4 flex flex-nowrap gap-2 overflow-x-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
+        <div
+          ref={scrollRef}
+          onScroll={handleScroll}
+          className="md:hidden relative w-full min-w-0 px-4 pb-3 flex flex-nowrap gap-2 overflow-x-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
+        >
           {SPINE_ZONES.map((z) => {
             const isActive = activeId === z.id;
             return (
@@ -239,7 +253,39 @@ function SpineLocatorMobile() {
               </button>
             );
           })}
-          <div className="pointer-events-none absolute inset-y-0 right-0 w-10 bg-gradient-to-l from-[#1E2535] to-transparent" aria-hidden="true" />
+          <div className="pointer-events-none absolute inset-y-0 right-0 w-14 bg-gradient-to-l from-[#1E2535] via-[#1E2535]/80 to-transparent flex items-center justify-end pr-2.5" aria-hidden="true">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className={`w-4 h-4 text-[#E0C288]/70 transition-opacity duration-500 ${hasScrolled ? "opacity-0" : "opacity-100"}`}
+              style={{ animation: hasScrolled ? "none" : "swipeHint 1.6s ease-in-out infinite" }}
+            >
+              <style>{`
+                @keyframes swipeHint {
+                  0%, 100% { transform: translateX(0); opacity: 0.55; }
+                  50% { transform: translateX(5px); opacity: 1; }
+                }
+              `}</style>
+              <path d="M9 18l6-6-6-6" />
+            </svg>
+          </div>
+        </div>
+
+        {/* Pagination dots */}
+        <div className="md:hidden px-4 pb-3 flex items-center justify-center gap-1.5">
+          {SPINE_ZONES.map((z) => (
+            <span
+              key={z.id}
+              className={`block h-1.5 rounded-full transition-all duration-300 ${
+                activeId === z.id ? "w-3 bg-[#E0C288]" : "w-1.5 bg-white/25"
+              }`}
+              aria-hidden="true"
+            />
+          ))}
         </div>
 
         <div className="hidden md:flex gap-4 px-4 pb-4">
