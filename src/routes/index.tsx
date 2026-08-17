@@ -775,10 +775,11 @@ function Hero() {
               </a>
               <a
                 href="#beschwerden"
-                className="hidden sm:inline-flex items-center rounded-full border border-white/40 bg-white/5 backdrop-blur-sm px-6 py-3 text-sm font-semibold text-white transition-[background-color,border-color,transform] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:bg-white/15 hover:border-white/70 hover:-translate-y-0.5"
+                className="inline-flex items-center justify-center rounded-full border border-white/40 bg-white/5 backdrop-blur-sm px-6 py-3.5 sm:py-3 text-[15px] sm:text-sm font-semibold text-white transition-[background-color,border-color,transform] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:bg-white/15 hover:border-white/70 hover:-translate-y-0.5 active:scale-[0.98]"
               >
                 {t.more}
               </a>
+
             </div>
             <p className="mt-3 text-[13px] text-[#CBD1DA] hidden sm:block">
               {t.bookMeta}{" "}
