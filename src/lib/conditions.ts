@@ -6,6 +6,7 @@ import befundungImg from "@/assets/wzas/galerie/befundung.webp.asset.json";
 import untersuchungImg from "@/assets/wzas/galerie/untersuchung.webp.asset.json";
 import beratungImg from "@/assets/wzas/galerie/beratung.webp.asset.json";
 import schmerztherapieImg from "@/assets/wzas/galerie/schmerztherapie.webp.asset.json";
+import consultationImg from "@/assets/wzas/hero-consultation.webp.asset.json";
 import bandscheibeImg from "@/assets/wzas/thumb-bandscheibe.webp.asset.json";
 
 const BASE = "https://www.wzas.de/wp-content/uploads";
@@ -264,7 +265,7 @@ export const CONDITIONS: Condition[] = [
   },
   {
     id: "osteoporose",
-    photo: ctImg.url,
+    photo: consultationImg.url,
     treatmentIds: ["minimalinvasiv", "medikamentoes", "stabilisierung"],
     relatedIds: ["wirbelkoerperfraktur", "rueckenschmerzen", "bandscheiben-deg"],
     doctorSlugs: [],
