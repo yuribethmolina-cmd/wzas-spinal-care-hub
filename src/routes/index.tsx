@@ -231,7 +231,7 @@ function SpineLocatorMobile() {
                     : "border-white/25 bg-white/5 text-white/85"
                 }`}
               >
-                {lang === "de" ? z.de : z.en}
+                {lang === "de" ? z.primaryDe : z.primaryEn}
               </button>
             );
           })}
