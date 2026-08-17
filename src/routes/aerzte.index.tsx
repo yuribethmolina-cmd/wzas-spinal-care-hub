@@ -229,7 +229,7 @@ function TeamCard({ d }: { d: ReturnType<typeof localizeDoctor> }) {
     <Link
       to="/aerzte/$slug"
       params={{ slug: d.slug }}
-      className="group bg-white rounded-xl overflow-hidden border border-[#E2E4E7] hover:border-[#AC8F52]/40 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col"
+      className="group bg-white rounded-xl overflow-hidden border border-[#E2E4E7] hover:border-[#AC8F52]/40 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col h-full"
     >
       {/* Photo */}
       <div className="relative aspect-[3/4] overflow-hidden bg-[#263044]">
