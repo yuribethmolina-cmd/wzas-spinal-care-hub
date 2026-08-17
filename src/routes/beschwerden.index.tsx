@@ -50,10 +50,11 @@ export const Route = createFileRoute("/beschwerden/")({
   component: BeschwerdenHub,
 });
 
-function ConditionCard({ condition, index, large = false, ctaCopy }: {
+function ConditionCard({ condition, index, large = false, wide = false, ctaCopy }: {
   condition: typeof CONDITIONS[number];
   index: number;
   large?: boolean;
+  wide?: boolean;
   ctaCopy: string;
 }) {
   const { ref, style } = useFadeUp(index * 40);
