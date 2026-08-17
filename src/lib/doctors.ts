@@ -14,6 +14,7 @@ export type Specialty =
   | "Neurochirurgie"
   | "Wirbelsäulenchirurgie"
   | "Orthopädie"
+  | "Unfallchirurgie"
   | "Radiologie"
   | "Handchirurgie"
   | "Schmerztherapie";
@@ -62,7 +63,7 @@ export const doctors: Doctor[] = [
     education: [
       "Medizinstudium LMU München",
       "Facharztausbildung Klinikum Großhadern",
-      "Chefarzt Hospital Barmherzige Brüder Regensburg",
+      "Leitender Oberarzt Krankenhaus der Barmherzigen Brüder Regensburg",
     ],
   },
   {
@@ -101,7 +102,7 @@ export const doctors: Doctor[] = [
     languages: ["Deutsch", "Englisch"],
     photo: drEroes.url,
     initials: "CE",
-    focus: ["Neurochirurgie", "Wirbelsäulenchirurgie"],
+    focus: ["Neurochirurgie", "Wirbelsäulenchirurgie", "Moderne Medizin-IT"],
     bio: [
       "Dr. Erös wurde 1976 in München geboren und wuchs auch dort auf.",
       "An der Ludwig-Maximilians-Universität in München absolvierte er sein Studium, das er mit einem mehrmonatigen Aufenthalt in der Unfallchirurgie und Neurochirurgie am MCG in Augusta, Georgia, USA ergänzte.",
@@ -112,7 +113,6 @@ export const doctors: Doctor[] = [
     ],
     education: [
       "Facharztausbildung Neurochirurgie",
-      "Fellowship komplexe Wirbelsäulenchirurgie",
     ],
   },
   {
@@ -217,7 +217,7 @@ export const doctors: Doctor[] = [
     name: "Dr. med. Maike Petersen",
     title: "Fachärztin für Orthopädie und Unfallchirurgie",
     role: "Orthopädin · Unfallchirurgin",
-    specialties: ["Orthopädie", "Schmerztherapie"],
+    specialties: ["Orthopädie", "Unfallchirurgie"],
     availability: "Diese Woche",
     nextSlot: "Do, 10:00",
     languages: ["Deutsch", "Englisch"],
@@ -369,6 +369,7 @@ export const allSpecialties: Specialty[] = [
   "Neurochirurgie",
   "Wirbelsäulenchirurgie",
   "Orthopädie",
+  "Unfallchirurgie",
   "Schmerztherapie",
   "Radiologie",
   "Handchirurgie",
