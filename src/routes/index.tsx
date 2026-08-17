@@ -895,7 +895,8 @@ function BeschwerdenCard({
         >
           →
         </span>
-      </a>
+      </Link>
+
 
     </div>
   );
