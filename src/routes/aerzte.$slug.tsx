@@ -102,14 +102,47 @@ function DoctorDetail() {
         </Link>
       </div>
 
-      <section className="mx-auto max-w-7xl px-5 lg:px-8 pb-12">
-        <div className="grid gap-10 lg:grid-cols-[260px_1fr] xl:grid-cols-[300px_1fr]">
+      <section className="mx-auto max-w-7xl lg:px-8 pb-12">
+        {/* Mobile hero card: full-bleed photo + overlaid identity */}
+        <div className="lg:hidden relative">
+          <div className="relative aspect-[4/5] w-full overflow-hidden bg-[#1E2535]">
+            {d.photo ? (
+              <img src={d.photo} alt={d.name} className="h-full w-full object-cover object-top" />
+            ) : (
+              <div className="h-full w-full flex items-center justify-center text-5xl font-bold text-[#AC8F52]">
+                {d.initials}
+              </div>
+            )}
+            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#1E2535]/90 via-[#1E2535]/25 to-transparent" />
+            <div className="absolute bottom-0 left-0 right-0 p-5 pt-20">
+              <p className="text-[11px] uppercase tracking-[0.2em] text-[#AC8F52] font-medium">{d.title}</p>
+              <h1 className="mt-2 text-3xl font-bold text-white leading-tight">{d.name}</h1>
+              <p className="mt-1 text-[15px] text-[#E2E4E7]">{d.role}</p>
+              <div className="mt-4 flex flex-wrap gap-2">
+                {d.specialties.slice(0, 3).map((s) => (
+                  <span key={s} className="rounded-full bg-white/10 backdrop-blur-sm border border-white/20 px-3 py-1 text-xs font-medium text-white">{s}</span>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <div className="px-5 mt-5">
+            <a
+              href={BOOKING_URL}
+              className="block text-center rounded-full bg-[#AC8F52] px-6 py-3.5 text-sm font-semibold text-[#1E2535] hover:brightness-105 transition"
+            >
+              {t.bookBtn}
+            </a>
+          </div>
+        </div>
+
+        <div className="hidden lg:grid gap-10 lg:grid-cols-[260px_1fr] xl:grid-cols-[300px_1fr]">
           <div>
-            <div className="mx-auto aspect-square w-40 sm:w-52 md:w-60 lg:w-full lg:aspect-[4/5] lg:max-w-[300px] rounded-2xl overflow-hidden bg-[#263044] shadow-lg">
+            <div className="mx-auto aspect-[4/5] w-full max-w-[300px] rounded-2xl overflow-hidden bg-[#263044] shadow-lg">
               {d.photo ? (
                 <img src={d.photo} alt={d.name} className="h-full w-full object-cover object-top" />
               ) : (
-                <div className="h-full w-full flex items-center justify-center text-4xl lg:text-5xl font-bold text-[#AC8F52]">
+                <div className="h-full w-full flex items-center justify-center text-5xl font-bold text-[#AC8F52]">
                   {d.initials}
                 </div>
               )}
@@ -175,6 +208,52 @@ function DoctorDetail() {
                     <span key={l} className="rounded-full bg-white border border-[#E2E4E7] px-3 py-1 text-xs text-[#1E2535]">{l}</span>
                   ))}
                 </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Mobile-only content below the hero card */}
+        <div className="lg:hidden px-5 mt-10 space-y-10">
+          <div>
+            <h2 className="text-xl font-semibold text-[#1E2535]">{t.focusHeading}</h2>
+            <ul className="mt-4 grid gap-2 sm:grid-cols-2">
+              {d.focus.map((f) => (
+                <li key={f} className="flex items-start gap-2 text-sm text-[#1E2535]">
+                  <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#AC8F52] shrink-0" />
+                  {f}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h2 className="text-xl font-semibold text-[#1E2535]">{t.aboutHeading}</h2>
+            <div className="mt-4 space-y-4 text-[15px] text-[#1E2535] leading-relaxed">
+              {d.bio.map((p, i) => (
+                <p key={i}>{p}</p>
+              ))}
+            </div>
+          </div>
+
+          <div className="grid gap-8 md:grid-cols-2">
+            <div>
+              <h3 className="text-sm uppercase tracking-wide text-[#AC8F52] font-semibold">{t.educationLabel}</h3>
+              <ul className="mt-3 space-y-2 text-sm text-[#1E2535]">
+                {d.education.map((e) => (
+                  <li key={e} className="flex items-start gap-2">
+                    <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#1E2535] shrink-0" />
+                    {e}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <h3 className="text-sm uppercase tracking-wide text-[#AC8F52] font-semibold">{t.languagesLabel}</h3>
+              <div className="mt-3 flex flex-wrap gap-2">
+                {d.languages.map((l) => (
+                  <span key={l} className="rounded-full bg-white border border-[#E2E4E7] px-3 py-1 text-xs text-[#1E2535]">{l}</span>
+                ))}
               </div>
             </div>
           </div>
