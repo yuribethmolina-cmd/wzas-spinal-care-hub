@@ -110,6 +110,7 @@ function BeschwerdenDetail() {
       notFound: "Erkrankung nicht gefunden",
       bookingBody: "Vereinbaren Sie jetzt einen Termin. Termine zeitnah nach Verfügbarkeit, ohne Überweisung.",
       bookingCta: "Online buchen",
+      videoHeading: "Video",
     },
     en: {
       breadcrumb: "Spine conditions",
@@ -126,6 +127,7 @@ function BeschwerdenDetail() {
       notFound: "Condition not found",
       bookingBody: "Book an appointment now. Emergencies are treated immediately.",
       bookingCta: "Book online",
+      videoHeading: "Video",
     },
   });
 
