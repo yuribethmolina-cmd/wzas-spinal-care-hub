@@ -104,7 +104,7 @@ export function PageFooter() {
             <div className="flex flex-wrap items-center gap-x-4 gap-y-1">
               <a
                 href={BOOKING_URL}
-                className="inline-flex items-center min-h-11 lg:min-h-0 text-xs font-semibold text-[#D8BE85] hover:brightness-110 transition"
+                className="inline-flex min-h-11 items-center justify-center rounded-full bg-[#AC8F52] px-6 py-2.5 text-xs font-semibold tracking-wide text-[#1E2535] transition hover:brightness-105"
               >
                 {t.cta}
               </a>

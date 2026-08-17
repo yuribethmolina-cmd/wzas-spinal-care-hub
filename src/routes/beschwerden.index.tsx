@@ -3,6 +3,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { PageHeader } from "@/components/wzas/PageHeader";
 import { PageFooter } from "@/components/wzas/PageFooter";
 import { BookingCTA } from "@/components/wzas/BookingCTA";
+import { TerminButton } from "@/components/wzas/TerminButton";
 import { CONDITIONS, getConditionContent } from "@/lib/conditions";
 import { useLang, useT } from "@/lib/lang";
 
@@ -170,6 +171,7 @@ function BeschwerdenHub() {
               {t.h1}
             </h1>
             <p className="mt-3 text-white/75 text-lg">{t.subtitle}</p>
+            <TerminButton className="mt-6" />
           </div>
         </section>
 

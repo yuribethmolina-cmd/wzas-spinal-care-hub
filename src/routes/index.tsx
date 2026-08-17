@@ -1583,6 +1583,7 @@ function Footer() {
       awarded: "Ausgezeichnet",
       copy: "© 2026 Wirbelsäulenzentrum am Stiglmaierplatz · Alle Rechte vorbehalten",
       legal: ["Impressum", "Datenschutz", "Barrierefreiheit"],
+      footerCta: "Termin buchen →",
       city: "80335 München",
     },
     en: {
@@ -1595,6 +1596,7 @@ function Footer() {
       awarded: "Awarded",
       copy: "© 2026 Spine Center at Stiglmaierplatz · All rights reserved",
       legal: ["Imprint", "Privacy", "Accessibility"],
+      footerCta: "Book appointment →",
       city: "80335 Munich",
     },
   });
@@ -1655,6 +1657,13 @@ function Footer() {
                 </a>
               ))}
             </div>
+            {/* Booking CTA */}
+            <a
+              href="/#termin"
+              className="inline-flex min-h-11 items-center justify-center rounded-full bg-[#AC8F52] px-6 py-2.5 text-xs font-semibold tracking-wide text-[#1E2535] transition hover:brightness-105"
+            >
+              {t.footerCta}
+            </a>
             {/* Legal links */}
             <div className="flex flex-wrap justify-center gap-x-4 gap-y-1 sm:justify-start">
               {t.legal.map((l) => (
