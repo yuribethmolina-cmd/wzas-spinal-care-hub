@@ -751,23 +751,6 @@ function Hero() {
           >
             {t.sub}
           </p>
-          <div className="mt-6 sm:mt-8 hidden sm:block" style={introChips}>
-            <p className="text-xs font-medium tracking-[0.15em] uppercase text-[#CBD1DA] mb-3">
-              {t.chipsLabel}
-            </p>
-            <div className="flex flex-wrap gap-2">
-              {t.chips.map((c, i) => (
-                <Link
-                  key={c}
-                  to={HERO_CHIP_LINKS[i]}
-                  className="rounded-full border border-white/25 bg-white/5 backdrop-blur-sm min-h-11 inline-flex items-center px-4 py-2.5 text-[13px] sm:text-sm text-white/90 hover:border-white/70 hover:bg-white/12 hover:-translate-y-0.5 transition-[color,background-color,border-color,transform] duration-[420ms] ease-[cubic-bezier(0.16,1,0.3,1)] cursor-pointer"
-                >
-                  {c}
-                </Link>
-              ))}
-
-            </div>
-          </div>
           <div className="mt-6 sm:mt-7" style={introCta}>
             <div className="flex flex-col sm:flex-row sm:flex-wrap gap-3">
               <a
@@ -802,23 +785,6 @@ function Hero() {
             </p>
           </div>
 
-          <div className="mt-7 hidden sm:block" style={introLangs}>
-            <p className="text-[11px] font-medium tracking-[0.18em] uppercase text-[#CBD1DA] flex items-center gap-2">
-              <span className="inline-block w-5 h-px bg-[#AC8F52]" />
-              {lang === "de" ? "Beratung in Ihrer Sprache" : "Consultation in your language"}
-            </p>
-            <p className="mt-2.5 text-[15px] font-medium text-white/90">
-              {["Deutsch", "English", "Español"].map((n, i) => (
-                <span key={n}>
-                  {i > 0 && <span className="mx-2 text-[#AC8F52]" aria-hidden="true">·</span>}
-                  {n}
-                </span>
-              ))}
-            </p>
-          </div>
-          <p className="mt-4 text-[12px] font-medium tracking-[0.12em] uppercase text-white/60 sm:hidden">
-            Deutsch · English · Español
-          </p>
 
           <SpineLocatorMobile />
 
