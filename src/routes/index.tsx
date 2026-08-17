@@ -254,11 +254,11 @@ function SpineLocatorMobile() {
                   style={{ flex: z.flex, background: isActive ? "rgba(224,194,136,0.12)" : "transparent" }}
                 >
                   <p className={`text-[15px] font-semibold leading-tight ${isActive ? "text-[#E0C288]" : "text-white/90"}`}>
-                    {lang === "de" ? z.de : z.en}
+                    {lang === "de" ? z.primaryDe : z.primaryEn}
                   </p>
                   {isActive && (
                     <p className="text-[12.5px] font-medium leading-snug mt-0.5 text-[#D2B276]">
-                      {lang === "de" ? z.subDe : z.subEn}
+                      {lang === "de" ? z.secondaryDe : z.secondaryEn}
                     </p>
                   )}
                 </button>
