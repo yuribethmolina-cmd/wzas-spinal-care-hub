@@ -198,7 +198,7 @@ function SpineLocatorMobile() {
   const active = SPINE_ZONES.find((z) => z.id === activeId) ?? null;
 
   return (
-    <div className="lg:hidden mt-12 md:mt-8 w-full">
+    <div className="lg:hidden mt-12 md:mt-8 w-full min-w-0">
       <div
         className="rounded-2xl border border-white/25 overflow-hidden shadow-[0_18px_44px_-22px_rgba(0,0,0,0.85)]"
         style={{ background: "rgba(16,22,34,0.72)", backdropFilter: "blur(14px) saturate(1.1)" }}
@@ -209,7 +209,7 @@ function SpineLocatorMobile() {
         </div>
 
         {/* Mobile: compact horizontal chip row */}
-        <div className="md:hidden -mx-0 px-4 pb-4 flex gap-2 overflow-x-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
+        <div className="md:hidden relative w-full min-w-0 px-4 pb-4 flex flex-nowrap gap-2 overflow-x-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
           {SPINE_ZONES.map((z) => {
             const isActive = activeId === z.id;
             return (
@@ -228,6 +228,7 @@ function SpineLocatorMobile() {
               </button>
             );
           })}
+          <div className="pointer-events-none absolute inset-y-0 right-0 w-10 bg-gradient-to-l from-[#1E2535] to-transparent" aria-hidden="true" />
         </div>
 
         <div className="hidden md:flex gap-4 px-4 pb-4">
@@ -709,7 +710,7 @@ function Hero() {
   const introCta = useIntro(880);
   const introPanel = useIntro(560);
   return (
-    <section className="relative bg-[#1E2535] text-white overflow-hidden isolate min-h-[78svh] lg:min-h-0">
+    <section className="relative bg-[#1E2535] text-white overflow-hidden overflow-x-hidden isolate min-h-[78svh] lg:min-h-0">
       {/* Mobile: solid brand gradient instead of the photo */}
       <div
         className="md:hidden absolute inset-0 -z-10"
@@ -741,7 +742,7 @@ function Hero() {
       />
       <div className="relative mx-auto max-w-7xl px-5 lg:px-8 pt-10 pb-14 lg:pt-20 lg:pb-40 lg:min-h-[min(84vh,860px)] grid lg:grid-cols-2 gap-10 lg:gap-14 items-center">
 
-        <div>
+        <div className="w-full min-w-0 overflow-x-hidden">
           <p
             className="text-[11px] font-medium tracking-[0.2em] uppercase text-[#AC8F52] flex items-center gap-2"
             style={introKicker}
