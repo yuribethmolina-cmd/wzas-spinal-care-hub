@@ -52,7 +52,7 @@ export function PageFooter() {
     },
     en: {
       cta: "Book appointment →",
-      ask: "Send inquiry",
+      ask: "Questions? Write us here",
       links: {
         beschwerden: "Spine conditions",
         aerzte: "Our doctors",

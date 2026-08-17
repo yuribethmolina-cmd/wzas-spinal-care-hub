@@ -684,7 +684,7 @@ function Hero() {
       book: "Book appointment",
       more: "Learn more",
       bookMeta: "Live availability · approx. 2 min · Just a question?",
-      askLink: "Send inquiry",
+      askLink: "Questions? Write us here",
       alt: "Doctor consultation with a spine model at the Spine Center at Stiglmaierplatz",
     },
   });
