@@ -651,15 +651,6 @@ function Nav() {
 
 /* ─── Hero ──────────────────────────────────────────────────────── */
 
-/** Hero chips point to the matching condition page. */
-const HERO_CHIP_LINKS = [
-  "/beschwerden/rueckenschmerzen",
-  "/beschwerden/bandscheiben-deg",
-  "/beschwerden/bandscheibenvorfall",
-  "/beschwerden/iliosakralsyndrom",
-  "/behandlungen",
-];
-
 function Hero() {
 
   const t = useT({
@@ -669,8 +660,6 @@ function Hero() {
       h1b: "für München.",
       h1c: "",
       sub: "Konservative Behandlung zuerst — Operation nur, wenn sie wirklich notwendig ist.",
-      chipsLabel: "",
-      chips: [] as string[],
       book: "Termin buchen",
       more: "Mehr erfahren",
       bookMeta: "Online in ca. 2 Min. ·",
@@ -683,8 +672,6 @@ function Hero() {
       h1b: "spine specialists.",
       h1c: "",
       sub: "Conservative treatment first — surgery only when it's truly necessary.",
-      chipsLabel: "",
-      chips: [] as string[],
       book: "Book an appointment",
       more: "Learn more",
       bookMeta: "Online in ~2 min · Have a question?",
@@ -696,9 +683,7 @@ function Hero() {
   const parallax = useParallax(0.14);
   const introKicker = useIntro(80);
   const introSub = useIntro(620);
-  const introChips = useIntro(760);
   const introCta = useIntro(880);
-  const introLangs = useIntro(1000);
   const introPanel = useIntro(560);
   return (
     <section className="relative bg-[#1E2535] text-white overflow-hidden isolate min-h-[78svh] lg:min-h-0">
