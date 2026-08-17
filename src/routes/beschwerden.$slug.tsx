@@ -110,6 +110,7 @@ function BeschwerdenDetail() {
       notFound: "Erkrankung nicht gefunden",
       bookingBody: "Vereinbaren Sie jetzt einen Termin. Termine zeitnah nach Verfügbarkeit, ohne Überweisung.",
       bookingCta: "Online buchen",
+      videoHeading: "Video",
     },
     en: {
       breadcrumb: "Spine conditions",
@@ -126,6 +127,7 @@ function BeschwerdenDetail() {
       notFound: "Condition not found",
       bookingBody: "Book an appointment now. Emergencies are treated immediately.",
       bookingCta: "Book online",
+      videoHeading: "Video",
     },
   });
 
@@ -223,6 +225,27 @@ function BeschwerdenDetail() {
             </div>
           </div>
         </section>
+
+        {/* Embedded video */}
+        {condition.videoEmbed && (
+          <section className="py-12 lg:py-16 bg-[#F8F8F6]">
+            <div className="mx-auto max-w-6xl px-5 lg:px-8">
+              <h2 className="font-display text-2xl lg:text-3xl font-semibold text-[#1E2535] mb-6">
+                {t.videoHeading}
+              </h2>
+              <div className="max-w-3xl aspect-video bg-[#1E2535] rounded-xl overflow-hidden shadow-lg">
+                <iframe
+                  className="w-full h-full"
+                  src={condition.videoEmbed.src}
+                  title={condition.videoEmbed.title}
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                  allowFullScreen
+                />
+              </div>
+            </div>
+          </section>
+        )}
 
         {/* Treatment chips */}
         {condition.treatmentIds.length > 0 && (
