@@ -1639,7 +1639,7 @@ function Footer() {
       <div className="border-t border-white/10">
         <div className="mx-auto max-w-7xl px-5 lg:px-8 py-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 text-xs text-[#A7AEBA]">
           <div>{t.copy}</div>
-          <div className="flex items-center gap-5">
+          <div className="flex w-full flex-col items-center gap-4 md:w-auto md:flex-row md:items-center md:gap-5">
             {/* Social icons */}
             <div className="flex items-center gap-3">
               {[
