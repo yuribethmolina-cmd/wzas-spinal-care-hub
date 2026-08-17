@@ -92,6 +92,52 @@ const WEG_ICONS: React.ReactNode[] = [
 
 /* ─── Spine locator ─────────────────────────────────────────────── */
 
+function conditionName(slug: string, lang: Lang) {
+  const c = CONDITIONS.find((x) => x.id === slug);
+  return c ? (lang === "de" ? c.de.name : c.en.name) : slug;
+}
+
+function SpineSvg({
+  activeId,
+  onZone,
+  className,
+}: {
+  activeId: string | null;
+  onZone: (id: string | null) => void;
+  className: string;
+}) {
+  return (
+    <svg viewBox="0 0 44 288" className={className} aria-hidden>
+      {SPINE_ZONES.map((z) => {
+        const active = activeId === z.id;
+        return (
+          <g
+            key={z.id}
+            onMouseEnter={() => onZone(z.id)}
+            onMouseLeave={() => onZone(null)}
+            onClick={() => onZone(z.id)}
+            style={{
+              cursor: "pointer",
+              color: active ? "#D9BC80" : "rgba(255,255,255,0.42)",
+              transition: `color 320ms ${EASE}, opacity 320ms ${EASE}`,
+              opacity: activeId && !active ? 0.55 : 1,
+            }}
+          >
+            <rect x="0" y={z.y} width="44" height={z.h} fill="transparent" />
+            {z.vertebrae.map((v, i) => (
+              <g key={i} fill="none" stroke="currentColor" strokeWidth="1.25" strokeLinejoin="round" strokeLinecap="round">
+                <rect x={22 - v.w / 2} y={v.y} width={v.w} height={v.vh} rx={v.vh / 2.6} />
+                <path d={`M${22 - v.w / 2} ${v.y + v.vh / 2} h${-v.w * 0.42}`} />
+                <path d={`M${22 + v.w / 2} ${v.y + v.vh / 2} h${v.w * 0.3}`} opacity="0.6" />
+              </g>
+            ))}
+          </g>
+        );
+      })}
+    </svg>
+  );
+}
+
 function SpineLocator() {
   const { lang } = useLang();
   const [activeId, setActiveId] = useState<string | null>(null);
@@ -109,38 +155,7 @@ function SpineLocator() {
           <p className="text-xs font-medium text-white/70">{hint}</p>
         </div>
         <div className="flex gap-5 p-5" style={{ height: 340 }}>
-
-          <svg
-            viewBox="0 0 44 288"
-            className="h-full w-11 shrink-0 overflow-visible"
-            aria-hidden
-          >
-            {SPINE_ZONES.map((z) => {
-              const active = activeId === z.id;
-              return (
-                <g
-                  key={z.id}
-                  onMouseEnter={() => setActiveId(z.id)}
-                  onMouseLeave={() => setActiveId(null)}
-                  style={{
-                    cursor: "pointer",
-                    color: active ? "#D9BC80" : "rgba(255,255,255,0.42)",
-                    transition: `color 320ms ${EASE}, opacity 320ms ${EASE}`,
-                    opacity: activeId && !active ? 0.55 : 1,
-                  }}
-                >
-                  <rect x="0" y={z.y} width="44" height={z.h} fill="transparent" />
-                  {z.vertebrae.map((v, i) => (
-                    <g key={i} fill="none" stroke="currentColor" strokeWidth="1.25" strokeLinejoin="round" strokeLinecap="round">
-                      <rect x={22 - v.w / 2} y={v.y} width={v.w} height={v.vh} rx={v.vh / 2.6} />
-                      <path d={`M${22 - v.w / 2} ${v.y + v.vh / 2} h${-v.w * 0.42}`} />
-                      <path d={`M${22 + v.w / 2} ${v.y + v.vh / 2} h${v.w * 0.3}`} opacity="0.6" />
-                    </g>
-                  ))}
-                </g>
-              );
-            })}
-          </svg>
+          <SpineSvg activeId={activeId} onZone={setActiveId} className="h-full w-11 shrink-0 overflow-visible" />
 
           <div className="flex flex-col gap-1.5 flex-1">
             {SPINE_ZONES.map((z) => {
@@ -148,9 +163,10 @@ function SpineLocator() {
               const label = lang === "de" ? z.de : z.en;
               const sub = lang === "de" ? z.subDe : z.subEn;
               return (
-                <a
+                <Link
                   key={z.id}
-                  href={z.href}
+                  to="/beschwerden/$slug"
+                  params={{ slug: z.conditions[0] }}
                   className="flex flex-col justify-center"
                   style={{ flex: z.flex, textDecoration: "none" }}
                   onMouseEnter={() => setActiveId(z.id)}
@@ -162,8 +178,7 @@ function SpineLocator() {
                   <p className={`text-sm font-medium leading-snug mt-0.5 transition-colors duration-200 ${active ? "text-[#D2B276]" : "text-white/75"}`}>
                     {sub}
                   </p>
-
-                </a>
+                </Link>
               );
             })}
           </div>
@@ -172,6 +187,91 @@ function SpineLocator() {
     </div>
   );
 }
+
+function SpineLocatorMobile() {
+  const { lang } = useLang();
+  const [activeId, setActiveId] = useState<string | null>(null);
+  const header = lang === "de" ? "Wo tut es weh?" : "Where does it hurt?";
+  const hint = lang === "de" ? "Bereich antippen" : "Tap an area";
+  const active = SPINE_ZONES.find((z) => z.id === activeId) ?? null;
+
+  return (
+    <div className="lg:hidden mt-8 w-full">
+      <div
+        className="rounded-2xl border border-white/25 overflow-hidden shadow-[0_18px_44px_-22px_rgba(0,0,0,0.85)]"
+        style={{ background: "rgba(16,22,34,0.72)", backdropFilter: "blur(14px) saturate(1.1)" }}
+      >
+        <div className="px-4 py-3 border-b border-white/15 flex items-center justify-between gap-3">
+          <p className="text-[11px] font-bold tracking-[0.18em] uppercase text-[#E0C288]">{header}</p>
+          <p className="text-[11px] font-medium text-white/70">{hint}</p>
+        </div>
+
+        <div className="flex gap-4 p-4">
+          <SpineSvg activeId={activeId} onZone={(id) => setActiveId(id)} className="w-10 shrink-0 overflow-visible" />
+
+          <div className="flex flex-col gap-1 flex-1 min-w-0">
+            {SPINE_ZONES.map((z) => {
+              const isActive = activeId === z.id;
+              return (
+                <button
+                  key={z.id}
+                  type="button"
+                  onClick={() => setActiveId(isActive ? null : z.id)}
+                  aria-expanded={isActive}
+                  className="text-left rounded-lg px-2 py-2 min-h-[44px] transition-colors active:scale-[0.98]"
+                  style={{ flex: z.flex, background: isActive ? "rgba(224,194,136,0.12)" : "transparent" }}
+                >
+                  <p className={`text-[15px] font-bold leading-tight ${isActive ? "text-[#E0C288]" : "text-white"}`}>
+                    {lang === "de" ? z.de : z.en}
+                  </p>
+                  <p className={`text-[13px] font-medium leading-snug mt-0.5 ${isActive ? "text-[#D2B276]" : "text-white/75"}`}>
+                    {lang === "de" ? z.subDe : z.subEn}
+                  </p>
+                </button>
+              );
+            })}
+          </div>
+        </div>
+
+        <div
+          className="overflow-hidden border-t border-white/10"
+          style={{
+            maxHeight: active ? 260 : 0,
+            opacity: active ? 1 : 0,
+            transition: `max-height 380ms ${EASE_SOFT}, opacity 260ms ${EASE_SOFT}`,
+          }}
+        >
+          {active && (
+            <div className="p-4">
+              <p className="text-[11px] font-semibold tracking-[0.16em] uppercase text-white/60">
+                {lang === "de" ? "Häufige Diagnosen" : "Common diagnoses"}
+              </p>
+              <div className="mt-3 flex flex-wrap gap-2">
+                {active.conditions.map((slug) => (
+                  <Link
+                    key={slug}
+                    to="/beschwerden/$slug"
+                    params={{ slug }}
+                    className="inline-flex items-center min-h-[40px] rounded-full border border-[#E0C288]/45 bg-white/5 px-4 text-[13px] font-semibold text-[#F0DDB6] active:scale-[0.97] transition-transform"
+                  >
+                    {conditionName(slug, lang)}
+                  </Link>
+                ))}
+              </div>
+              <a
+                href={BOOKING_URL}
+                className="mt-4 flex items-center justify-center w-full min-h-[48px] rounded-full bg-[#C9A961] px-5 text-[15px] font-bold text-[#141A26] active:scale-[0.98] transition-transform"
+              >
+                {lang === "de" ? "Termin buchen" : "Book appointment"}
+              </a>
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+}
+
 
 /* ─── Stat counter ──────────────────────────────────────────────── */
 
