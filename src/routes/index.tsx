@@ -543,7 +543,17 @@ function Nav() {
 
 /* ─── Hero ──────────────────────────────────────────────────────── */
 
+/** Hero chips point to the matching condition page. */
+const HERO_CHIP_LINKS = [
+  "/beschwerden/rueckenschmerzen",
+  "/beschwerden/bandscheiben-deg",
+  "/beschwerden/bandscheibenvorfall",
+  "/beschwerden/iliosakralsyndrom",
+  "/behandlungen",
+];
+
 function Hero() {
+
   const t = useT({
     de: {
       kicker: "Wirbelsäulenzentrum am Stiglmaierplatz · München",
