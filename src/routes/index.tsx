@@ -873,10 +873,11 @@ function BeschwerdenCard({
         <p className="mt-2.5 text-[0.9375rem] text-[#5B6472] leading-relaxed">{sub}</p>
       </div>
 
-      <a
-        href="#"
+      <Link
+        to={href}
         className="mt-auto inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-[#8A6E36]"
       >
+
         <span
           style={{
             boxShadow: `inset 0 -1px 0 0 rgba(138,110,54,${hovered ? 1 : 0.28})`,
