@@ -1,6 +1,14 @@
 // src/lib/conditions.ts
+import mrtImg from "@/assets/wzas/galerie/mrt.webp.asset.json";
+import ctImg from "@/assets/wzas/galerie/ct.webp.asset.json";
+import befundImg from "@/assets/wzas/galerie/befund.webp.asset.json";
+import befundungImg from "@/assets/wzas/galerie/befundung.webp.asset.json";
+import untersuchungImg from "@/assets/wzas/galerie/untersuchung.webp.asset.json";
+import beratungImg from "@/assets/wzas/galerie/beratung.webp.asset.json";
+import schmerztherapieImg from "@/assets/wzas/galerie/schmerztherapie.webp.asset.json";
+import consultationImg from "@/assets/wzas/hero-consultation.webp.asset.json";
+import bandscheibeImg from "@/assets/wzas/thumb-bandscheibe.webp.asset.json";
 
-const BASE = "https://www.wzas.de/wp-content/uploads";
 
 export type ConditionContent = {
   name: string;
@@ -35,7 +43,7 @@ export function getConditionContent(
 export const CONDITIONS: Condition[] = [
   {
     id: "rueckenschmerzen",
-    photo: `${BASE}/2026/05/Wirbelsaeulenzentrum-028.webp`,
+    photo: untersuchungImg.url,
     treatmentIds: ["infiltration", "medikamentoes", "physiotherapie"],
     relatedIds: ["bandscheibenvorfall", "iliosakralsyndrom", "bandscheiben-deg"],
     doctorSlugs: [],
@@ -66,7 +74,7 @@ export const CONDITIONS: Condition[] = [
   },
   {
     id: "bandscheibenvorfall",
-    photo: `${BASE}/2026/05/Wirbelsaeulenzentrum-032.webp`,
+    photo: bandscheibeImg.url,
     treatmentIds: ["infiltration", "mikrochirurgie", "medikamentoes"],
     relatedIds: ["rueckenschmerzen", "wirbelkanalverengung", "wirbelgleiten"],
     doctorSlugs: [],
@@ -97,7 +105,7 @@ export const CONDITIONS: Condition[] = [
   },
   {
     id: "bandscheiben-deg",
-    photo: `${BASE}/2026/05/Wirbelsaeulenzentrum-054.webp`,
+    photo: mrtImg.url,
     treatmentIds: ["infiltration", "medikamentoes", "stabilisierung"],
     relatedIds: ["rueckenschmerzen", "facettengelenksarthrose", "wirbelkanalverengung"],
     doctorSlugs: [],
@@ -128,7 +136,7 @@ export const CONDITIONS: Condition[] = [
   },
   {
     id: "wirbelkoerperfraktur",
-    photo: `${BASE}/2026/05/Wirbelsaeulenzentrum-047.webp`,
+    photo: ctImg.url,
     treatmentIds: ["minimalinvasiv", "stabilisierung", "medikamentoes"],
     relatedIds: ["osteoporose", "wirbelkanalverengung", "rueckenschmerzen"],
     doctorSlugs: [],
@@ -159,7 +167,7 @@ export const CONDITIONS: Condition[] = [
   },
   {
     id: "wirbelkanalverengung",
-    photo: `${BASE}/2026/05/Wirbelsaeulenzentrum-029.webp`,
+    photo: befundungImg.url,
     treatmentIds: ["infiltration", "mikrochirurgie", "minimalinvasiv"],
     relatedIds: ["bandscheibenvorfall", "wirbelgleiten", "facettengelenksarthrose"],
     doctorSlugs: [],
@@ -194,7 +202,7 @@ export const CONDITIONS: Condition[] = [
   },
   {
     id: "wirbelgleiten",
-    photo: `${BASE}/2026/05/Wirbelsaeulenzentrum-056.webp`,
+    photo: befundImg.url,
     treatmentIds: ["infiltration", "stabilisierung", "physiotherapie"],
     relatedIds: ["bandscheibenvorfall", "wirbelkanalverengung", "rueckenschmerzen"],
     doctorSlugs: [],
@@ -225,7 +233,7 @@ export const CONDITIONS: Condition[] = [
   },
   {
     id: "iliosakralsyndrom",
-    photo: `${BASE}/2026/05/Wirbelsaeulenzentrum-038.webp`,
+    photo: beratungImg.url,
     treatmentIds: ["infiltration", "minimalinvasiv", "medikamentoes"],
     relatedIds: ["rueckenschmerzen", "facettengelenksarthrose", "bandscheibenvorfall"],
     doctorSlugs: [],
@@ -256,7 +264,7 @@ export const CONDITIONS: Condition[] = [
   },
   {
     id: "osteoporose",
-    photo: `${BASE}/2026/05/Wirbelsaeulenzentrum-026.webp`,
+    photo: consultationImg.url,
     treatmentIds: ["minimalinvasiv", "medikamentoes", "stabilisierung"],
     relatedIds: ["wirbelkoerperfraktur", "rueckenschmerzen", "bandscheiben-deg"],
     doctorSlugs: [],
@@ -287,7 +295,7 @@ export const CONDITIONS: Condition[] = [
   },
   {
     id: "facettengelenksarthrose",
-    photo: `${BASE}/2026/05/Galerie-Wirbelsaeulenzentrum-019.webp`,
+    photo: schmerztherapieImg.url,
     treatmentIds: ["infiltration", "minimalinvasiv", "medikamentoes"],
     relatedIds: ["bandscheiben-deg", "iliosakralsyndrom", "wirbelkanalverengung"],
     doctorSlugs: [],
