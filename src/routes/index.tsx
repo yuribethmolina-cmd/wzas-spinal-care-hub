@@ -742,12 +742,12 @@ function Hero() {
             <MaskLine delay={440}>{t.h1c}</MaskLine>
           </h1>
           <p
-            className="mt-4 sm:mt-5 text-base sm:text-lg text-[#E6E9EF] leading-relaxed max-w-xl whitespace-pre-line"
+            className="mt-4 sm:mt-5 text-[15px] sm:text-lg text-[#E6E9EF] leading-relaxed max-w-xl whitespace-pre-line"
             style={introSub}
           >
             {t.sub}
           </p>
-          <div className="mt-6 sm:mt-8" style={introChips}>
+          <div className="mt-6 sm:mt-8 hidden sm:block" style={introChips}>
             <p className="text-xs font-medium tracking-[0.15em] uppercase text-[#CBD1DA] mb-3">
               {t.chipsLabel}
             </p>
@@ -764,22 +764,22 @@ function Hero() {
 
             </div>
           </div>
-          <div className="mt-7" style={introCta}>
-            <div className="flex flex-wrap gap-3">
+          <div className="mt-6 sm:mt-7" style={introCta}>
+            <div className="flex flex-col sm:flex-row sm:flex-wrap gap-3">
               <a
                 href={BOOKING_URL}
-                className="inline-flex items-center rounded-full bg-[#AC8F52] px-6 py-3 text-sm font-semibold text-[#1E2535] transition-[background-color,transform,box-shadow] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:bg-[#BC9C58] hover:-translate-y-0.5 hover:shadow-[0_16px_34px_-16px_rgba(172,143,82,0.9)]"
+                className="inline-flex items-center justify-center rounded-full bg-[#AC8F52] px-6 py-3.5 sm:py-3 text-[15px] sm:text-sm font-semibold text-[#1E2535] transition-[background-color,transform,box-shadow] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:bg-[#BC9C58] hover:-translate-y-0.5 hover:shadow-[0_16px_34px_-16px_rgba(172,143,82,0.9)]"
               >
                 {t.book}
               </a>
               <a
                 href="#beschwerden"
-                className="inline-flex items-center rounded-full border border-white/40 bg-white/5 backdrop-blur-sm px-6 py-3 text-sm font-semibold text-white transition-[background-color,border-color,transform] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:bg-white/15 hover:border-white/70 hover:-translate-y-0.5"
+                className="hidden sm:inline-flex items-center rounded-full border border-white/40 bg-white/5 backdrop-blur-sm px-6 py-3 text-sm font-semibold text-white transition-[background-color,border-color,transform] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:bg-white/15 hover:border-white/70 hover:-translate-y-0.5"
               >
                 {t.more}
               </a>
             </div>
-            <p className="mt-3 text-[13px] text-[#CBD1DA]">
+            <p className="mt-3 text-[13px] text-[#CBD1DA] hidden sm:block">
               {t.bookMeta}{" "}
               <a
                 href={INQUIRY_URL}
@@ -788,9 +788,17 @@ function Hero() {
                 {t.askLink}
               </a>
             </p>
+            <p className="mt-3 text-[13px] text-[#CBD1DA] sm:hidden">
+              <a
+                href={INQUIRY_URL}
+                className="font-semibold text-[#D8BE85] underline underline-offset-4"
+              >
+                {t.askLink}
+              </a>
+            </p>
           </div>
 
-          <div className="mt-7" style={introLangs}>
+          <div className="mt-7 hidden sm:block" style={introLangs}>
             <p className="text-[11px] font-medium tracking-[0.18em] uppercase text-[#CBD1DA] flex items-center gap-2">
               <span className="inline-block w-5 h-px bg-[#AC8F52]" />
               {lang === "de" ? "Beratung in Ihrer Sprache" : "Consultation in your language"}
@@ -804,8 +812,12 @@ function Hero() {
               ))}
             </p>
           </div>
+          <p className="mt-4 text-[12px] font-medium tracking-[0.12em] uppercase text-white/60 sm:hidden">
+            Deutsch · English · Español
+          </p>
 
           <SpineLocatorMobile />
+
 
         </div>
         <div style={introPanel}>
