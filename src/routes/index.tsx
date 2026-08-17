@@ -902,7 +902,18 @@ function BeschwerdenCard({
   );
 }
 
+/** Where each "Was führt Sie zu uns?" card leads. */
+const BESCHWERDEN_LINKS: Record<string, string> = {
+  akut: "/beschwerden/rueckenschmerzen",
+  chronisch: "/beschwerden/bandscheiben-deg",
+  bandscheibe: "/beschwerden/bandscheibenvorfall",
+  ischias: "/beschwerden/iliosakralsyndrom",
+  reha: "/behandlungen",
+  sport: "/beschwerden",
+};
+
 function Beschwerden() {
+
   const t = useT({
     de: {
       label: "Behandlungsgebiete",
