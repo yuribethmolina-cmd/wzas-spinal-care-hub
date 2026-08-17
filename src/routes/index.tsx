@@ -264,7 +264,7 @@ function SpineLocatorMobile() {
               </div>
               <a
                 href={BOOKING_URL}
-                className="mt-4 flex items-center justify-center w-full min-h-[48px] rounded-full bg-[#C9A961] px-5 text-[15px] font-bold text-[#141A26] active:scale-[0.98] transition-transform"
+                className="mt-3 inline-flex items-center min-h-[40px] text-[13px] font-semibold text-[#E0C288] underline underline-offset-4 active:scale-[0.98] transition-transform"
               >
                 {lang === "de" ? "Termin buchen" : "Book appointment"}
               </a>
