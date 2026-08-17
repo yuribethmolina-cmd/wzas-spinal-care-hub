@@ -710,6 +710,11 @@ function Hero() {
   const introPanel = useIntro(560);
   return (
     <section className="relative bg-[#1E2535] text-white overflow-hidden isolate min-h-[78svh] lg:min-h-0">
+      {/* Mobile: solid brand gradient instead of the photo */}
+      <div
+        className="md:hidden absolute inset-0 -z-10"
+        style={{ background: "linear-gradient(160deg, #1E2535 0%, #263044 60%, #1E2535 100%)" }}
+      />
       <img
         src={HERO_BG}
         srcSet={HERO_SRCSET}
@@ -720,14 +725,15 @@ function Hero() {
         loading="eager"
         fetchPriority="high"
         decoding="async"
-        className="absolute inset-0 h-full sm:h-[115%] lg:h-[118%] w-full object-cover object-[40%_84%] sm:object-[42%_52%] lg:object-center -z-10"
+        className="hidden md:block absolute inset-0 h-full sm:h-[115%] lg:h-[118%] w-full object-cover object-[40%_84%] sm:object-[42%_52%] lg:object-center -z-10"
         style={{ transform: `translate3d(0, ${-parallax}px, 0) scale(1)`, willChange: "transform" }}
       />
 
 
-      <div className="absolute inset-0 -z-10 bg-[#161C29]/25 lg:bg-[#161C29]/40" />
-      <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[#141A26]/60 via-[#141A26]/20 to-transparent lg:from-[#141A26]/90 lg:via-[#141A26]/45" />
-      <div className="absolute inset-0 -z-10 bg-gradient-to-t from-[#141A26] via-[#141A26]/35 to-[#141A26]/10 lg:via-[#141A26]/15 lg:to-[#141A26]/35" />
+      <div className="hidden md:block absolute inset-0 -z-10 bg-[#161C29]/25 lg:bg-[#161C29]/40" />
+      <div className="hidden md:block absolute inset-0 -z-10 bg-gradient-to-r from-[#141A26]/60 via-[#141A26]/20 to-transparent lg:from-[#141A26]/90 lg:via-[#141A26]/45" />
+      <div className="hidden md:block absolute inset-0 -z-10 bg-gradient-to-t from-[#141A26] via-[#141A26]/35 to-[#141A26]/10 lg:via-[#141A26]/15 lg:to-[#141A26]/35" />
+
 
       <div
         className="absolute inset-0 pointer-events-none opacity-[0.04] -z-10"
