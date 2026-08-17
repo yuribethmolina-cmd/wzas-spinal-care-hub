@@ -24,7 +24,7 @@ const ENGLISH_DOCTORS: Record<string, EnglishDoctorCopy> = {
     role: "Neurosurgeon · Spinal surgeon",
     specialties: ["Neurosurgery", "Spinal surgery"],
     languages: ["German", "English"],
-    focus: ["Interventional cryotherapy of the facet joints", "Innovative treatments for back pain", "Spinal neurosurgery"],
+    focus: ["Interventional cryotherapy of the spinal facet joints", "Innovative treatments for back pain (clinical and scientific)", "Mountain and expedition medicine"],
     bio: [
       "Dr Marko Ständer co-founded the Spine Center at Stiglmaierplatz with Dr Medele in 2006.",
       "His clinical and scientific work focuses on innovative treatments for back pain. Together with Professor Steude, he refined a method of interventional cryotherapy for the spinal facet joints.",
