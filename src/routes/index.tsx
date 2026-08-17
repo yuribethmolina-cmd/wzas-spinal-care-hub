@@ -106,6 +106,10 @@ const CONDITION_SUBLINE: Record<string, { de: string; en: string }> = {
   },
 };
 
+const CONDITION_WIDGET_NAME: Record<string, { de?: string; en?: string }> = {
+  "bandscheiben-deg": { en: "Disc degeneration" },
+};
+
 function SpineSvg({
   activeId,
   onZone,
