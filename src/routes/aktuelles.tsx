@@ -352,7 +352,7 @@ function AktuellesPage() {
           <div className="mx-auto max-w-7xl px-5 lg:px-8">
             <div ref={heroRef} style={heroStyle} className="max-w-3xl">
               <SectionLabel>{t.eyebrow}</SectionLabel>
-              <h1 className="mt-4 font-display text-5xl lg:text-6xl font-semibold leading-tight text-white">
+              <h1 className="mt-4 font-display text-[2.35rem] sm:text-5xl lg:text-6xl font-semibold leading-tight text-white">
                 {t.h1Main}{" "}
                 <em className="font-display italic font-normal text-[#AC8F52]">{t.h1Italic}</em>
               </h1>

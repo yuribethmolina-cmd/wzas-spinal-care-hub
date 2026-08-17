@@ -125,7 +125,7 @@ function WolfartPage() {
             <p className="text-[10px] font-semibold tracking-[0.25em] uppercase text-[#AC8F52] mb-3">
               {t.heroEyebrow}
             </p>
-            <h1 className="font-display text-5xl lg:text-7xl font-semibold text-white leading-tight">
+            <h1 className="font-display text-[2.35rem] sm:text-5xl lg:text-7xl font-semibold text-white leading-tight">
               {t.heroH1}
             </h1>
             <p className="mt-3 text-white/75 text-lg">

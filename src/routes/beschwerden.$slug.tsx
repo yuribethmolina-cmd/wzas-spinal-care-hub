@@ -214,7 +214,7 @@ function BeschwerdenDetail() {
                     <ul className="space-y-1">
                       {content.bullets.symptoms.map((s) => (
                         <li key={s} className="text-sm text-[#1E2535] flex gap-2">
-                          <span className="text-[#AC8F52] mt-0.5">, </span>
+                          <span aria-hidden className="mt-[0.55rem] h-1.5 w-1.5 shrink-0 rounded-full bg-[#AC8F52]" />
                           {s}
                         </li>
                       ))}
