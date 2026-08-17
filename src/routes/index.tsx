@@ -708,7 +708,7 @@ function Hero() {
         loading="eager"
         fetchPriority="high"
         decoding="async"
-        className="absolute inset-0 h-full sm:h-[115%] lg:h-[118%] w-full object-cover object-[38%_72%] sm:object-[42%_50%] lg:object-center -z-10"
+        className="absolute inset-0 h-full sm:h-[115%] lg:h-[118%] w-full object-cover object-[38%_86%] sm:object-[42%_52%] lg:object-center -z-10"
         style={{ transform: `translate3d(0, ${-parallax}px, 0) scale(1)`, willChange: "transform" }}
       />
 
