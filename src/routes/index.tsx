@@ -207,8 +207,7 @@ function SpineLocatorMobile() {
   const [hasScrolled, setHasScrolled] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
   const header = lang === "de" ? "Wo tut es weh?" : "Where does it hurt?";
-  const hint = lang === "de" ? "Bereich antippen" : "Tap an area";
-  const swipeHint = lang === "de" ? "Wischen" : "Swipe";
+  const swipeHint = lang === "de" ? "Wischen →" : "Swipe →";
   const active = SPINE_ZONES.find((z) => z.id === activeId) ?? null;
 
   const handleScroll = () => {
