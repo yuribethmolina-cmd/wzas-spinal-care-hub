@@ -56,7 +56,7 @@ export function AppointmentChoice() {
       askTitle: "Ask a question, no fixed date",
       askSteps: ["Describe your concern", "Add your contact details", "Send"],
       askMeta: "Reply within one business day",
-      askCta: "Send inquiry",
+      askCta: "Ask a question",
       next: "Continue",
       back: "Back",
       finish: "Finish",
