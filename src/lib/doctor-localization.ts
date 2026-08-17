@@ -37,7 +37,7 @@ const ENGLISH_DOCTORS: Record<string, EnglishDoctorCopy> = {
     role: "Neurosurgeon",
     specialties: ["Neurosurgery", "Spinal surgery"],
     languages: ["German", "English"],
-    focus: ["Neurosurgery", "Trauma surgery", "Medical IT"],
+    focus: ["Neurosurgery", "Spine surgery"],
     bio: [
       "Dr Christian Erös was born in Munich and studied medicine at LMU Munich. His studies included several months in trauma surgery and neurosurgery at the Medical College of Georgia in Augusta, USA.",
       "He completed his specialist neurosurgical training at LMU University Hospital Grosshadern and qualified as a consultant neurosurgeon in 2011. He joined the Spine Center at Stiglmaierplatz in January 2013.",
@@ -50,7 +50,7 @@ const ENGLISH_DOCTORS: Record<string, EnglishDoctorCopy> = {
     role: "Neurosurgeon",
     specialties: ["Neurosurgery", "Spinal surgery"],
     languages: ["German", "English"],
-    focus: ["Endoscopic spinal surgery", "Minimally invasive and microsurgical procedures", "Non-surgical spine treatments", "3D reconstruction and navigation"],
+    focus: ["Neurosurgery", "Spine surgery"],
     bio: [
       "Dr Markus Donat is an Austrian neurosurgeon who studied medicine at the Medical University of Vienna. During his studies, he played a significant role in research into three-dimensional reconstruction and navigation methods.",
       "He trained in neurosurgery at Vienna University Hospital and completed his specialist training at the Academic State Hospital Feldkirch, where he later served as a senior consultant.",
@@ -63,7 +63,7 @@ const ENGLISH_DOCTORS: Record<string, EnglishDoctorCopy> = {
     role: "Neurosurgeon",
     specialties: ["Neurosurgery", "Spinal surgery", "Pain medicine"],
     languages: ["German", "English"],
-    focus: ["Spinal surgery (DWG certified)", "Neurosurgical intensive care", "Pain medicine", "Emergency medicine"],
+    focus: ["Neurosurgery", "Spine surgery"],
     bio: [
       "Dr Wing Mann Ho, PhD, is an experienced neurosurgeon with extensive clinical and academic training. Her research record includes a PhD, presentations at international medical conferences, journal publications and contributions to specialist textbooks.",
       "Her training included a research placement in the United States and comprehensive neurosurgical training at Innsbruck University Hospital, an internationally recognised maximum-care hospital and spine centre led by Professor Claudius Thomé.",
@@ -76,7 +76,7 @@ const ENGLISH_DOCTORS: Record<string, EnglishDoctorCopy> = {
     role: "Neurosurgeon",
     specialties: ["Neurosurgery", "Spinal surgery"],
     languages: ["German", "English"],
-    focus: ["Microsurgical decompression", "Stabilisation of the cervical, thoracic and lumbar spine", "Kyphoplasty and vertebroplasty", "Interventional pain treatment"],
+    focus: ["Neurosurgery", "Spine surgery"],
     bio: [
       "Dr Florian Scherg is a consultant neurosurgeon with broad medical training and a particular focus on spinal surgery. He trained at Bogenhausen Hospital in Munich and Leopoldina Hospital in Schweinfurt, gaining extensive experience in spinal and other neurosurgical conditions.",
       "His surgical focus includes microsurgical decompression, stabilisation of the cervical, thoracic and lumbar spine, and kyphoplasty and vertebroplasty. He also has substantial experience in interventional pain treatment for spinal conditions.",
@@ -89,7 +89,7 @@ const ENGLISH_DOCTORS: Record<string, EnglishDoctorCopy> = {
     role: "Neurosurgeon",
     specialties: ["Neurosurgery", "Spinal surgery"],
     languages: ["German", "Spanish", "English"],
-    focus: ["Spinal surgery", "Neurotraumatology", "Neuro-oncology", "Neurosurgical intensive care"],
+    focus: ["Neurosurgery", "Spine surgery (DWG certified)"],
     bio: [
       "Luis Alberto Rodriguez Guerrero is a consultant neurosurgeon with more than ten years of inpatient and outpatient experience. His career in Venezuela and Germany has focused on spinal surgery, neurotraumatology, neuro-oncology and intensive care.",
       "He studied medicine at the University of Zulia in Maracaibo, Venezuela, from 2005 to 2011. After working in general medicine and postgraduate specialist training in Maracaibo, he moved to Germany in 2016 and undertook clinical observerships at Halle University Hospital.",

@@ -101,7 +101,7 @@ export const doctors: Doctor[] = [
     languages: ["Deutsch", "Englisch"],
     photo: drEroes.url,
     initials: "CE",
-    focus: ["Neurochirurgie", "Unfallchirurgie", "Moderne Medizin-IT"],
+    focus: ["Neurochirurgie", "Wirbelsäulenchirurgie"],
     bio: [
       "Dr. Erös wurde 1976 in München geboren und wuchs auch dort auf.",
       "An der Ludwig-Maximilians-Universität in München absolvierte er sein Studium, das er mit einem mehrmonatigen Aufenthalt in der Unfallchirurgie und Neurochirurgie am MCG in Augusta, Georgia, USA ergänzte.",
@@ -126,7 +126,7 @@ export const doctors: Doctor[] = [
     languages: ["Deutsch", "Englisch"],
     photo: drDonat.url,
     initials: "MD",
-    focus: ["Endoskopische Wirbelsäulenchirurgie", "Minimal-invasive & mikrochirurgische Verfahren", "Nicht-operative Verfahren an der Wirbelsäule", "3D-Rekonstruktion & Navigation"],
+    focus: ["Neurochirurgie", "Wirbelsäulenchirurgie"],
     bio: [
       "Markus Donat ist Neurochirurg aus Österreich. Das Studium absolvierte er an der Medizinischen Universität Wien. Bereits hier war er intensiv wissenschaftlich tätig und an der Entwicklung dreidimensionaler Rekonstruktions- und Navigationsmethoden maßgeblich beteiligt.",
       "Zum Facharzt ausgebildet wurde er an der Neurochirurgischen Universitätsklinik Wien.",
@@ -149,7 +149,7 @@ export const doctors: Doctor[] = [
     languages: ["Deutsch", "Englisch"],
     photo: drHo.url,
     initials: "WH",
-    focus: ["Wirbelsäulenchirurgie (DWG-zertifiziert)", "Neurochirurgische Intensivmedizin", "Schmerztherapie", "Notfallmedizin"],
+    focus: ["Neurochirurgie", "Wirbelsäulenchirurgie"],
     bio: [
       "Dr. med. univ. Wing Mann Ho, Ph.D. ist langjährig ausgebildete und erfahrene Neurochirurgin.",
       "Umfangreiche wissenschaftlichen Leistungen mit einem PhD Abschluss sowie Vorträge auf internationalen Fachkongressen sowie Fachzeitschriftenpublikationen und Buchkapitelbeiträgen zeigen ihr breites Fachwissen.",
@@ -171,7 +171,7 @@ export const doctors: Doctor[] = [
     languages: ["Deutsch", "Englisch"],
     photo: drScherg.url,
     initials: "FS",
-    focus: ["Mikrochirurgische Dekompressionsoperationen", "Stabilisierende Eingriffe an HWS, BWS und LWS", "Kypho- und Vertebroplastie", "Interventionelle Schmerztherapie"],
+    focus: ["Neurochirurgie", "Wirbelsäulenchirurgie"],
     bio: [
       "Dr. med. Florian Scherg ist Facharzt für Neurochirurgie und verfügt über eine breit angelegte medizinische Ausbildung mit besonderem Schwerpunkt auf der Wirbelsäulenchirurgie.",
       "Seine neurochirurgische Ausbildung absolvierte er am Klinikum Bogenhausen in München sowie am Leopoldina Krankenhaus Schweinfurt. Im Rahmen seiner klinischen Tätigkeit konnte er umfassende Erfahrung in der Behandlung neurochirurgischer Erkrankungen sammeln, insbesondere bei Erkrankungen der Wirbelsäule.",
@@ -193,7 +193,7 @@ export const doctors: Doctor[] = [
     languages: ["Deutsch", "Spanisch", "Englisch"],
     photo: rodriguez.url,
     initials: "LR",
-    focus: ["Wirbelsäulenchirurgie", "Neurotraumatologie", "Neuroonkologie", "Neurochirurgische Intensivmedizin"],
+    focus: ["Neurochirurgie", "Wirbelsäulenchirurgie (DWG-zertifiziert)"],
     bio: [
       "Facharzt für Neurochirurgie mit mehr als zehn Jahren Berufserfahrung in der stationären und ambulanten Patientenversorgung. Er bringt eine breite klinische Expertise, interkulturelle Kompetenz sowie eine fundierte operative Ausbildung mit.",
       "Seine berufliche Laufbahn erstreckt sich über Venezuela und Deutschland, mit besonderem Fokus auf Wirbelsäulenchirurgie, Neurotraumatologie, Neuroonkologie und Intensivmedizin. Sein Anspruch: exzellente medizinische Versorgung mit Menschlichkeit, Präzision und strategischem Denken zu verbinden, sowohl im OP als auch in der interdisziplinären Zusammenarbeit.",
