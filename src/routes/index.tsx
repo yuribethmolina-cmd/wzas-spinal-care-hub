@@ -850,21 +850,25 @@ function Hero() {
 
             </div>
             <p className="mt-3 text-[13px] text-[#CBD1DA] hidden sm:block">
-              {t.bookMeta}{" "}
+              {t.bookMeta}{" · "}
+              {t.askPrefix}
               <a
                 href={INQUIRY_URL}
                 className="font-semibold text-[#D8BE85] underline underline-offset-4 hover:brightness-110"
               >
                 {t.askLink}
               </a>
+              {t.askSuffix}
             </p>
             <p className="mt-3 text-[13px] text-[#CBD1DA] sm:hidden">
+              {t.askPrefix}
               <a
                 href={INQUIRY_URL}
                 className="font-semibold text-[#D8BE85] underline underline-offset-4"
               >
                 {t.askLink}
               </a>
+              {t.askSuffix}
             </p>
           </div>
 
