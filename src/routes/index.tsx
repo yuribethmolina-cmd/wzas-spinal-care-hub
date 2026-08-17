@@ -169,8 +169,8 @@ function SpineLocator() {
           <div className="flex flex-col gap-1.5 flex-1">
             {SPINE_ZONES.map((z) => {
               const active = activeId === z.id;
-              const label = lang === "de" ? z.de : z.en;
-              const sub = lang === "de" ? z.subDe : z.subEn;
+              const primary = lang === "de" ? z.primaryDe : z.primaryEn;
+              const secondary = lang === "de" ? z.secondaryDe : z.secondaryEn;
               return (
                 <Link
                   key={z.id}
@@ -182,10 +182,10 @@ function SpineLocator() {
                   onMouseLeave={() => setActiveId(null)}
                 >
                   <p className={`text-base font-bold leading-tight transition-colors duration-200 ${active ? "text-[#E0C288]" : "text-white"}`}>
-                    {label}
+                    {primary}
                   </p>
                   <p className={`text-sm font-medium leading-snug mt-0.5 transition-colors duration-200 ${active ? "text-[#D2B276]" : "text-white/75"}`}>
-                    {sub}
+                    {secondary}
                   </p>
                 </Link>
               );
