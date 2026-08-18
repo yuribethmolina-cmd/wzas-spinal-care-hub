@@ -1493,6 +1493,8 @@ function Team() {
       teamLabel: "DAS TEAM",
       viewProfile: "Profil ansehen",
       seeAll: (n: number) => `Alle ${n} Spezialisten ansehen →`,
+      founderMedicalDirector: "Gründer & Ärztlicher Leiter",
+      founderDeputyMedicalDirector: "Gründer & Stellvertretender Ärztlicher Leiter",
     },
     en: {
       label: "Our medical team",
@@ -1503,6 +1505,8 @@ function Team() {
       teamLabel: "THE TEAM",
       viewProfile: "View profile",
       seeAll: (n: number) => `View all ${n} specialists →`,
+      founderMedicalDirector: "Founder & Medical Director",
+      founderDeputyMedicalDirector: "Founder & Deputy Medical Director",
     },
   });
   const { ref: headRef, style: headStyle } = useFadeUp(0);
@@ -1530,24 +1534,30 @@ function Team() {
           </p>
           <div className="grid gap-5 lg:grid-cols-2">
             {LEADERSHIP.map((d, i) => (
-              <HomeLeaderCard key={d.slug} d={d} delay={100 + i * 80} cta={t.viewProfile} />
+              <HomeLeaderCard
+                key={d.slug}
+                d={d}
+                delay={100 + i * 80}
+                cta={t.viewProfile}
+                badge={i === 0 ? t.founderMedicalDirector : t.founderDeputyMedicalDirector}
+              />
             ))}
           </div>
         </div>
 
         {/* Team preview */}
-        <div className="mt-10 sm:mt-12">
-          <p className="text-[10px] font-semibold tracking-[0.28em] uppercase text-[#AC8F52] mb-5">
+        <div className="mt-14 sm:mt-16">
+          <p className="text-[10px] font-semibold tracking-[0.28em] uppercase text-[#AC8F52] mb-8">
             {t.teamLabel}
           </p>
-          <div className="grid gap-px bg-[#E2E4E7] md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-10 sm:grid-cols-3 max-w-4xl">
             {TEAM_PREVIEW.map((d, i) => (
               <HomeTeamCard key={d.slug} d={d} delay={200 + i * 80} cta={t.viewProfile} />
             ))}
           </div>
         </div>
 
-        <div className="mt-10">
+        <div className="mt-12">
           <Link
             to="/aerzte"
             className="inline-flex items-center min-h-11 text-sm font-semibold text-[#1E2535] hover:text-[#AC8F52] transition-colors"
