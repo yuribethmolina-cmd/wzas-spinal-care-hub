@@ -1455,29 +1455,27 @@ function HomeLeaderCard({
 function HomeTeamCard({ d, delay, cta }: { d: ReturnType<typeof localizeDoctor>; delay: number; cta: string }) {
   const { ref, style } = useFadeUp(delay);
   return (
-    <div ref={ref} style={style} className="bg-white overflow-hidden group cursor-pointer">
-      <Link to="/aerzte/$slug" params={{ slug: d.slug }} className="block h-full">
-        <div className="aspect-[3/4] bg-[#263044] overflow-hidden">
+    <div ref={ref} style={style} className="group text-center">
+      <Link to="/aerzte/$slug" params={{ slug: d.slug }} className="block">
+        <div className="relative mx-auto mb-5 h-36 w-36 sm:h-40 sm:w-40 rounded-full overflow-hidden border-2 border-[#E2E4E7] group-hover:border-[#AC8F52] transition-colors duration-300 bg-[#263044]">
           {d.photo ? (
             <img
               src={d.photo}
               alt={d.name}
               loading="lazy"
               decoding="async"
-              className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.04]"
+              className="h-full w-full object-cover object-top grayscale-[20%] group-hover:grayscale-0 transition-all duration-500 group-hover:scale-[1.04]"
             />
           ) : (
             <div className="h-full w-full flex items-center justify-center">
-              <span className="font-display text-[#AC8F52] text-4xl font-medium">{d.initials}</span>
+              <span className="font-display text-[#AC8F52] text-3xl font-medium">{d.initials}</span>
             </div>
           )}
         </div>
-        <div className="p-5 border-t-2 border-[#E2E4E7] group-hover:border-[#AC8F52] transition-colors duration-300">
-          <h3 className="font-display text-[#1E2535] leading-snug" style={{ fontSize: "1.15rem", fontWeight: 500 }}>{d.name}</h3>
-          <p className="mt-1 text-sm text-[#5F6771]">{d.role}</p>
-          <p className="mt-1 text-xs text-[#8C939B]">{d.specialties.join(" · ")}</p>
-          <span className="mt-4 block text-sm font-semibold text-[#8C939B] group-hover:text-[#AC8F52] transition-colors">{cta} →</span>
-        </div>
+        <h3 className="font-display text-[#1E2535] leading-snug" style={{ fontSize: "1.15rem", fontWeight: 500 }}>{d.name}</h3>
+        <p className="mt-1 text-sm text-[#5F6771]">{d.role}</p>
+        <p className="mt-1 text-xs text-[#8C939B]">{d.specialties.join(" · ")}</p>
+        <span className="mt-3 inline-block text-xs font-semibold text-[#8C939B] group-hover:text-[#AC8F52] transition-colors">{cta} →</span>
       </Link>
     </div>
   );
