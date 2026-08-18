@@ -780,7 +780,6 @@ function Hero() {
   const introKicker = useIntro(80);
   const introSub = useIntro(620);
   const introCta = useIntro(880);
-  const introPanel = useIntro(560);
   return (
     <section className="relative bg-[#1E2535] text-white overflow-hidden overflow-x-hidden isolate min-h-[78svh] lg:min-h-0">
       <img
@@ -807,9 +806,9 @@ function Hero() {
         className="absolute inset-0 pointer-events-none opacity-[0.04] -z-10"
         style={{ backgroundImage: NOISE, backgroundSize: "256px 256px" }}
       />
-      <div className="relative mx-auto max-w-7xl px-5 lg:px-8 pt-10 pb-14 lg:pt-20 lg:pb-40 lg:min-h-[min(84vh,860px)] grid lg:grid-cols-2 gap-10 lg:gap-14 items-center">
+      <div className="relative mx-auto max-w-7xl px-5 lg:px-8 pt-10 pb-14 lg:pt-20 lg:pb-40 lg:min-h-[min(84vh,860px)] grid grid-cols-1 items-center">
 
-        <div className="w-full min-w-0 overflow-x-hidden">
+        <div className="w-full min-w-0 max-w-3xl overflow-x-hidden">
           <p
             className="text-[11px] font-medium tracking-[0.2em] uppercase text-[#AC8F52] flex items-center gap-2"
             style={introKicker}
@@ -873,12 +872,6 @@ function Hero() {
           </div>
 
 
-          <SpineLocatorMobile />
-
-
-        </div>
-        <div style={introPanel}>
-          <SpineLocator />
         </div>
       </div>
 
@@ -1440,14 +1433,6 @@ function HomeLeaderCard({ d, delay, cta }: { d: ReturnType<typeof localizeDoctor
               {d.name}
             </h3>
             <p className="mt-1 text-sm text-[#5F6771]">{d.role}</p>
-            <ul className="mt-4 space-y-1.5">
-              {d.focus.slice(0, 3).map((f) => (
-                <li key={f} className="flex items-start gap-2 text-sm text-[#4A5568]">
-                  <span className="mt-1.5 w-1 h-1 rounded-full bg-[#AC8F52] shrink-0" />
-                  {f}
-                </li>
-              ))}
-            </ul>
           </div>
           <div className="mt-5 pt-4 border-t border-[#E2E4E7]">
             <span className="text-sm font-semibold text-[#1E2535] group-hover:text-[#AC8F52] transition-colors flex items-center gap-1.5">
@@ -1485,8 +1470,6 @@ function HomeTeamCard({ d, delay, cta }: { d: ReturnType<typeof localizeDoctor>;
         </div>
         <div className="p-5 border-t-2 border-[#E2E4E7] group-hover:border-[#AC8F52] transition-colors duration-300">
           <h3 className="font-display text-[#1E2535] leading-snug" style={{ fontSize: "1.15rem", fontWeight: 500 }}>{d.name}</h3>
-          <p className="mt-1 text-[11px] uppercase tracking-[0.15em] text-[#AC8F52] font-medium">{d.specialties[0]}</p>
-          <p className="mt-2 text-sm text-[#5B6472] line-clamp-2">{d.focus.slice(0, 2).join(" · ")}</p>
           <span className="mt-4 block text-sm font-semibold text-[#8C939B] group-hover:text-[#AC8F52] transition-colors">{cta} →</span>
         </div>
       </Link>

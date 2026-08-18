@@ -119,7 +119,7 @@ function AerztePage() {
           <div className="flex flex-wrap justify-center gap-5">
             {team.map((d) => (
               <div key={d.slug} className="w-full md:w-[calc(50%-10px)] lg:w-[calc(33.333%-14px)] xl:w-[calc(25%-15px)]">
-                <TeamCard d={d} />
+                <TeamCard d={d} profileLabel={t.profileLink} />
               </div>
             ))}
           </div>
@@ -191,24 +191,6 @@ function LeaderCard({ d, profileLabel }: { d: ReturnType<typeof localizeDoctor>;
           </h2>
           <p className="mt-1 text-sm text-[#5F6771]">{d.role}</p>
 
-          {/* Specialty tags */}
-          <div className="mt-4 flex flex-wrap gap-1.5">
-            {d.specialties.map((s) => (
-              <span key={s} className="inline-flex items-center rounded-full border border-[#E2E4E7] bg-[#F8F8F6] px-2.5 py-1 text-[11px] text-[#1E2535] font-medium">
-                {s}
-              </span>
-            ))}
-          </div>
-
-          {/* Focus bullets */}
-          <ul className="mt-5 space-y-1.5">
-            {d.focus.slice(0, 3).map((f) => (
-              <li key={f} className="flex items-start gap-2 text-sm text-[#4A5568]">
-                <span className="mt-1.5 w-1 h-1 rounded-full bg-[#AC8F52] shrink-0" />
-                {f}
-              </li>
-            ))}
-          </ul>
         </div>
 
         <div className="mt-6 flex items-center justify-between border-t border-[#E2E4E7] pt-5">
@@ -224,7 +206,7 @@ function LeaderCard({ d, profileLabel }: { d: ReturnType<typeof localizeDoctor>;
   );
 }
 
-function TeamCard({ d }: { d: ReturnType<typeof localizeDoctor> }) {
+function TeamCard({ d, profileLabel }: { d: ReturnType<typeof localizeDoctor>; profileLabel: string }) {
   return (
     <Link
       to="/aerzte/$slug"
@@ -250,15 +232,9 @@ function TeamCard({ d }: { d: ReturnType<typeof localizeDoctor> }) {
       {/* Info */}
       <div className="p-5 flex flex-col flex-1">
         <h3 className="font-semibold text-[#1E2535] leading-snug text-[15px] line-clamp-2">{d.name}</h3>
-        <p className="mt-1 text-[11px] font-semibold tracking-wide uppercase text-[#AC8F52]">
-          {d.specialties[0]}
-        </p>
-        <p className="mt-2.5 text-xs text-[#5F6771] leading-relaxed line-clamp-2 flex-1">
-          {d.focus.slice(0, 2).join(" · ")}
-        </p>
         <div className="mt-4 pt-3 border-t border-[#E2E4E7]">
           <span className="text-xs font-semibold text-[#8C939B] group-hover:text-[#AC8F52] transition-colors duration-200 flex items-center gap-1">
-            Profil
+            {profileLabel}
             <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="2" className="w-3 h-3 transition-transform duration-200 group-hover:translate-x-0.5">
               <path d="M2 7h10M7 3l4 4-4 4" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
