@@ -1550,7 +1550,7 @@ function Team() {
           <p className="text-[10px] font-semibold tracking-[0.28em] uppercase text-[#AC8F52] mb-8">
             {t.teamLabel}
           </p>
-          <div className="grid gap-10 sm:grid-cols-3 max-w-4xl">
+          <div className="grid gap-10 sm:grid-cols-3 mx-auto">
             {TEAM_PREVIEW.map((d, i) => (
               <HomeTeamCard key={d.slug} d={d} delay={200 + i * 80} cta={t.viewProfile} />
             ))}
