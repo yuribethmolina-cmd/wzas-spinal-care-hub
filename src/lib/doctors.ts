@@ -50,7 +50,7 @@ export const doctors: Doctor[] = [
     languages: ["Deutsch", "Englisch", "Spanisch"],
     photo: drMedele.url,
     initials: "RM",
-    focus: ["Minimal-invasive Operationstechniken", "Spinale Neurochirurgie", "Vaskuläre Neurochirurgie", "Nicht-operative Behandlungsverfahren"],
+    focus: ["Minimal-invasive Operationstechniken", "Spinale Neurochirurgie\u00A0"],
     bio: [
       "Dr. med. Ralph Medele ist als langjährig universitär ausgebildeter und erfahrener Neurochirurg Gründer und Leiter unseres Zentrums.",
       "Nach seinem Medizinstudium an der Ludwig-Maximilians-Universität München und einem Auslandsaufenthalt an der Universidad Nacional Autónoma de México in Mexico City durchlief er eine umfassende neurochirurgische Facharztausbildung bei Prof. Dr. med. Reulen am Münchner Universitätsklinikum Großhadern.",
