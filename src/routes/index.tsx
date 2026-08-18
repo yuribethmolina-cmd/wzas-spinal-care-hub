@@ -908,8 +908,6 @@ function SectionLabel({ children, gold = true }: { children: React.ReactNode; go
 
 /* ─── Beschwerden ───────────────────────────────────────────────── */
 
-/* ─── Symptom image map ──────────────────────────────────────────── */
-
 const SYMPTOM_IMAGES: Record<string, string> = {
   akut:        "/images/symptoms/acute-back-pain.png",
   chronisch:   "/images/symptoms/chronic-back-pain.png",
@@ -919,175 +917,221 @@ const SYMPTOM_IMAGES: Record<string, string> = {
   sport:       "/images/symptoms/sports-injury.png",
 };
 
+/* Per-image scale so differently-proportioned illustrations feel balanced */
+const SYMPTOM_SCALE: Record<string, number> = {
+  akut:        1.00,
+  chronisch:   1.00,
+  bandscheibe: 0.82,
+  ischias:     0.90,
+  reha:        0.95,
+  sport:       0.93,
+};
+
 function BeschwerdenCard({
-  iconKey,
-  num,
-  name,
-  sub,
-  cta,
-  href,
-  delay,
+  iconKey, num, name, sub, cta, href, delay,
 }: {
-  iconKey: string;
-  num: string;
-  name: string;
-  sub: string;
-  cta: string;
-  href: string;
-  delay: number;
+  iconKey: string; num: string; name: string; sub: string;
+  cta: string; href: string; delay: number;
 }) {
   const { ref, style } = useFadeUp(delay);
   const [hovered, setHovered] = useState(false);
+  const scale = SYMPTOM_SCALE[iconKey] ?? 1;
 
   return (
     <div ref={ref} style={style}>
-      <Link
-        to={href as never}
-        className="group block h-full rounded-2xl bg-white focus-visible:outline-2 focus-visible:outline-[#AC8F52] focus-visible:outline-offset-2"
-        style={{
-          border: `1px solid ${hovered ? "rgba(172,143,82,0.45)" : "#E8E3DA"}`,
-          transform: hovered ? "translateY(-4px)" : "translateY(0)",
-          boxShadow: hovered
-            ? "0 16px 40px -20px rgba(30,37,53,0.18)"
-            : "0 1px 4px -1px rgba(30,37,53,0.06)",
-          transition: `border-color 280ms ${EASE}, transform 300ms ${EASE}, box-shadow 300ms ${EASE}`,
-        }}
-        onMouseEnter={() => setHovered(true)}
-        onMouseLeave={() => setHovered(false)}
-        aria-label={name}
-      >
-        {/* badge */}
-        <div className="px-6 pt-6">
-          <span
-            className="inline-flex items-center justify-center text-[11px] font-semibold"
-            style={{
-              width: 34,
-              height: 24,
-              borderRadius: 6,
-              background: "rgba(172,143,82,0.12)",
-              color: "#8A6E36",
-              letterSpacing: "0.12em",
-            }}
-          >
-            {num}
-          </span>
-        </div>
-
-        {/* illustration */}
-        <div className="relative h-[210px] flex items-center justify-center px-4 py-2">
-          <img
-            src={SYMPTOM_IMAGES[iconKey]}
-            alt=""
-            aria-hidden="true"
-            className="w-full h-full object-contain"
-            style={{
-              transition: `opacity 280ms ${EASE}`,
-              opacity: hovered ? 1 : 0.88,
-            }}
-          />
-        </div>
-
-        {/* text */}
-        <div className="px-6 pb-6 pt-2 flex flex-col gap-3">
-          <div>
-            <h3
-              className="font-display leading-snug"
-              style={{
-                fontSize: "1.125rem",
-                fontWeight: 600,
-                letterSpacing: "-0.01em",
-                color: hovered ? "#8A6E36" : "#1E2535",
-                transition: `color 260ms ${EASE}`,
-              }}
-            >
-              {name}
-            </h3>
-            <p className="mt-1.5 text-[0.875rem] text-[#8C939B] leading-relaxed">{sub}</p>
+      {/* active:scale wrapper — only meaningful on mobile touch */}
+      <div className="active:scale-[0.99] sm:active:scale-100 transition-transform duration-100 h-full">
+        <Link
+          to={href as never}
+          className="group flex flex-row sm:flex-col h-full rounded-2xl bg-white overflow-hidden
+            focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#AC8F52] focus-visible:ring-offset-2"
+          style={{
+            border: `1px solid ${hovered ? "rgba(172,143,82,0.45)" : "#E8E3DA"}`,
+            transform: hovered ? "translateY(-3px)" : "translateY(0)",
+            boxShadow: hovered
+              ? "0 12px 32px -16px rgba(30,37,53,0.18)"
+              : "0 1px 4px -1px rgba(30,37,53,0.06)",
+            transition: `border-color 280ms ${EASE}, transform 300ms ${EASE}, box-shadow 300ms ${EASE}`,
+          }}
+          onMouseEnter={() => setHovered(true)}
+          onMouseLeave={() => setHovered(false)}
+          aria-label={name}
+        >
+          {/* ── Mobile illustration — left column ── */}
+          <div className="sm:hidden flex-shrink-0 w-[90px] self-stretch flex items-center justify-center p-2">
+            <img
+              src={SYMPTOM_IMAGES[iconKey]}
+              alt=""
+              aria-hidden="true"
+              className="h-[90px] w-full object-contain"
+              style={{ transform: `scale(${scale})`, transformOrigin: "center" }}
+            />
           </div>
 
-          <span
-            className="inline-flex items-center gap-1.5 text-sm font-semibold mt-1"
-            style={{ color: "#8A6E36" }}
-            aria-hidden
-          >
-            {cta}
-            <span
+          {/* ── Desktop / tablet illustration — top row ── */}
+          <div className="hidden sm:flex h-[210px] items-center justify-center px-4 py-2">
+            <img
+              src={SYMPTOM_IMAGES[iconKey]}
+              alt=""
+              aria-hidden="true"
+              className="w-full h-full object-contain"
               style={{
-                transform: hovered ? "translateX(4px)" : "translateX(0)",
-                transition: `transform 280ms ${EASE}`,
-                display: "inline-block",
+                transform: `scale(${scale})`,
+                transformOrigin: "center",
+                opacity: hovered ? 1 : 0.88,
+                transition: `opacity 280ms ${EASE}`,
               }}
-            >
-              →
-            </span>
-          </span>
-        </div>
-      </Link>
+            />
+          </div>
+
+          {/* ── Content ── */}
+          <div className="flex flex-col flex-1 min-w-0 p-3 sm:px-6 sm:pb-6 sm:pt-0">
+
+            {/* Badge — tablet / desktop only */}
+            <div className="hidden sm:block mb-3">
+              <span
+                className="inline-flex items-center justify-center text-[11px] font-semibold"
+                style={{
+                  width: 34, height: 24, borderRadius: 6,
+                  background: "rgba(172,143,82,0.12)",
+                  color: "#8A6E36", letterSpacing: "0.12em",
+                }}
+              >
+                {num}
+              </span>
+            </div>
+
+            {/* Title + description */}
+            <div className="flex-1">
+              <h3
+                className="font-display leading-snug"
+                style={{
+                  fontSize: "clamp(0.9375rem, 2vw, 1.125rem)",
+                  fontWeight: 600,
+                  letterSpacing: "-0.01em",
+                  color: hovered ? "#8A6E36" : "#1E2535",
+                  transition: `color 260ms ${EASE}`,
+                }}
+              >
+                {name}
+              </h3>
+              <p className="mt-1 text-[0.8125rem] sm:text-[0.875rem] text-[#8C939B] leading-snug sm:leading-relaxed">
+                {sub}
+              </p>
+            </div>
+
+            {/* CTA */}
+            <div className="mt-2 sm:mt-3">
+              {/* Desktop / tablet: full text + arrow */}
+              <span
+                className="hidden sm:inline-flex items-center gap-1.5 text-sm font-semibold"
+                style={{ color: "#8A6E36" }}
+                aria-hidden
+              >
+                {cta}
+                <span
+                  style={{
+                    display: "inline-block",
+                    transform: hovered ? "translateX(4px)" : "translateX(0)",
+                    transition: `transform 280ms ${EASE}`,
+                  }}
+                >
+                  →
+                </span>
+              </span>
+              {/* Mobile: arrow only */}
+              <span
+                className="sm:hidden flex justify-end text-[#AC8F52] font-semibold text-base leading-none"
+                aria-hidden
+                style={{
+                  transform: hovered ? "translateX(2px)" : "translateX(0)",
+                  transition: `transform 240ms ${EASE}`,
+                }}
+              >
+                →
+              </span>
+            </div>
+          </div>
+        </Link>
+      </div>
     </div>
   );
 }
 
 /** Where each "Was führt Sie zu uns?" card leads. */
 const BESCHWERDEN_LINKS: Record<string, string> = {
-  akut: "/beschwerden/rueckenschmerzen",
-  chronisch: "/beschwerden/bandscheiben-deg",
+  akut:        "/beschwerden/rueckenschmerzen",
+  chronisch:   "/beschwerden/bandscheiben-deg",
   bandscheibe: "/beschwerden/bandscheibenvorfall",
-  ischias: "/beschwerden/iliosakralsyndrom",
-  reha: "/behandlungen",
-  sport: "/beschwerden",
+  ischias:     "/beschwerden/iliosakralsyndrom",
+  reha:        "/behandlungen",
+  sport:       "/beschwerden",
 };
 
 function Beschwerden() {
-
   const t = useT({
     de: {
-      label: "Behandlungsgebiete",
-      h2a: "Was führt ",
-      h2b: "Sie zu uns?",
-      lead: "Finden Sie Ihr Beschwerdebild und erfahren Sie, wie unsere Spezialisten helfen können — ohne unnötige Operationen.",
+      label: "BESCHWERDEN & SYMPTOME",
+      h2: "Was führt Sie zu uns?",
+      lead: "Wo haben Sie Schmerzen? Wählen Sie das Beschwerdebild, das am besten zu Ihnen passt.",
       cta: "Mehr erfahren",
       items: [
-        { num: "01", iconKey: "akut",       name: "Akuter Rückenschmerz",       sub: "Plötzlicher Beginn — Verletzung — Muskelkrampf" },
-        { num: "02", iconKey: "chronisch",  name: "Chronische Rückenschmerzen", sub: "Länger als 3 Monate — Wiederkehrend — Degenerativ" },
-        { num: "03", iconKey: "bandscheibe",name: "Bandscheibenvorfall",         sub: "L4/L5 — L5/S1 — Zervikale Bandscheibe" },
-        { num: "04", iconKey: "ischias",    name: "Ischias / Lumboischialgie",   sub: "Ausstrahlender Schmerz — Beinschwäche — Kribbeln" },
-        { num: "05", iconKey: "reha",       name: "Reha nach Operation",         sub: "Nachsorge — Wirbelsäulenreha — Langzeitbetreuung" },
-        { num: "06", iconKey: "sport",      name: "Sport- & Aktivverletzungen",  sub: "Sportler — Überlastungssyndrome — Leistungssport" },
+        { num: "01", iconKey: "akut",       name: "Akuter Rückenschmerz",       sub: "Plötzlich auftretende Rückenschmerzen" },
+        { num: "02", iconKey: "chronisch",  name: "Chronische Rückenschmerzen", sub: "Anhaltende oder wiederkehrende Schmerzen" },
+        { num: "03", iconKey: "bandscheibe",name: "Bandscheibenvorfall",        sub: "Rücken-, Nacken- oder ausstrahlende Schmerzen" },
+        { num: "04", iconKey: "ischias",    name: "Ischias / Lumboischialgie",  sub: "Schmerzen vom Rücken bis ins Bein" },
+        { num: "05", iconKey: "reha",       name: "Beschwerden nach einer OP", sub: "Schmerzen oder eingeschränkte Bewegung nach der Operation" },
+        { num: "06", iconKey: "sport",      name: "Sport- & Aktivverletzungen", sub: "Schmerzen bei Sport und Bewegung" },
       ],
     },
     en: {
-      label: "Conditions we treat",
-      h2a: "What brings ",
-      h2b: "you to us?",
-      lead: "Explore your symptoms and learn how our specialists can help — with surgery only when truly necessary.",
+      label: "CONDITIONS & SYMPTOMS",
+      h2: "What brings you to us?",
+      lead: "Where are you experiencing pain? Choose the condition that best matches your symptoms.",
       cta: "Learn more",
       items: [
-        { num: "01", iconKey: "akut",       name: "Acute back pain",        sub: "Sudden onset — injury — muscle spasm" },
-        { num: "02", iconKey: "chronisch",  name: "Chronic back pain",      sub: "Over 3 months — recurring — degenerative" },
-        { num: "03", iconKey: "bandscheibe",name: "Herniated disc",         sub: "L4/L5 — L5/S1 — cervical disc" },
-        { num: "04", iconKey: "ischias",    name: "Sciatica / lumboischialgia", sub: "Radiating pain — leg weakness — tingling" },
-        { num: "05", iconKey: "reha",       name: "Post-surgery rehab",     sub: "Aftercare — spinal rehab — long-term care" },
-        { num: "06", iconKey: "sport",      name: "Sports & activity injuries", sub: "Athletes — overuse syndromes — high performance" },
+        { num: "01", iconKey: "akut",       name: "Acute back pain",            sub: "Sudden back pain" },
+        { num: "02", iconKey: "chronisch",  name: "Chronic back pain",          sub: "Persistent or recurring back pain" },
+        { num: "03", iconKey: "bandscheibe",name: "Herniated disc",             sub: "Back, neck or radiating pain" },
+        { num: "04", iconKey: "ischias",    name: "Sciatica",                   sub: "Pain radiating from the back into the leg" },
+        { num: "05", iconKey: "reha",       name: "Post-surgery symptoms",      sub: "Pain or limited mobility after surgery" },
+        { num: "06", iconKey: "sport",      name: "Sports & activity injuries", sub: "Pain during sports or movement" },
       ],
     },
   });
+
   const { ref, style } = useFadeUp(0);
+
   return (
-    <section id="beschwerden" className="bg-[#F8F8F6] py-14 sm:py-20 lg:py-28">
-      <div className="mx-auto max-w-7xl px-5 lg:px-8">
+    <section id="beschwerden" className="bg-[#F8F8F6] py-10 sm:py-16 lg:py-28">
+      <div className="mx-auto max-w-7xl px-4 sm:px-5 lg:px-8">
         <div ref={ref} style={style}>
-          <SectionLabel>{t.label}</SectionLabel>
-          <h2
-            className="mt-4 font-display text-[#1E2535] leading-tight"
-            style={{ fontSize: "clamp(2.15rem, 4.4vw, 3.4rem)", fontWeight: 500, letterSpacing: "-0.025em" }}
+          <p
+            className="text-[11px] font-semibold tracking-[0.18em] uppercase"
+            style={{ color: "#AC8F52" }}
           >
-            {t.h2a}<em style={{ fontStyle: "normal", fontWeight: 600 }}>{t.h2b}</em>
+            {t.label}
+          </p>
+          <h2
+            className="mt-3 sm:mt-4 font-display text-[#1E2535] leading-tight"
+            style={{ fontSize: "clamp(1.875rem, 4.4vw, 3.4rem)", fontWeight: 500, letterSpacing: "-0.025em" }}
+          >
+            {t.h2}
           </h2>
-          <p className="mt-5 max-w-2xl text-[17px] text-[#5B6472] leading-[1.7]">{t.lead}</p>
+          <p className="mt-3 sm:mt-5 max-w-2xl text-[15px] sm:text-[17px] text-[#5B6472] leading-[1.5] sm:leading-[1.7]">
+            {t.lead}
+          </p>
         </div>
-        <div className="mt-10 sm:mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+
+        <div className="mt-7 sm:mt-10 lg:mt-14 grid gap-[10px] sm:gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {t.items.map((item, i) => (
-            <BeschwerdenCard key={item.iconKey} {...item} href={BESCHWERDEN_LINKS[item.iconKey]} cta={t.cta} delay={150 + i * 80} />
+            <BeschwerdenCard
+              key={item.iconKey}
+              {...item}
+              href={BESCHWERDEN_LINKS[item.iconKey]}
+              cta={t.cta}
+              delay={150 + i * 80}
+            />
           ))}
         </div>
       </div>
