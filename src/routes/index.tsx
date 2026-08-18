@@ -1395,17 +1395,23 @@ function Kompetenzzentrum() {
 
 /* ─── Team ──────────────────────────────────────────────────────── */
 
-function HomeLeaderCard({ d, delay, cta }: { d: ReturnType<typeof localizeDoctor>; delay: number; cta: string }) {
+function HomeLeaderCard({
+  d,
+  delay,
+  cta,
+  badge,
+}: {
+  d: ReturnType<typeof localizeDoctor>;
+  delay: number;
+  cta: string;
+  badge: string;
+}) {
   const { ref, style } = useFadeUp(delay);
   return (
-    <div ref={ref} style={style}>
-      <Link
-        to="/aerzte/$slug"
-        params={{ slug: d.slug }}
-        className="group bg-white overflow-hidden flex flex-col sm:flex-row border border-[#E2E4E7] hover:border-[#AC8F52]/40 hover:shadow-xl transition-all duration-300 h-full"
-      >
+    <div ref={ref} style={style} className="group bg-white border border-[#E2E4E7] hover:border-[#AC8F52]/40 hover:shadow-xl transition-all duration-300 overflow-hidden h-full">
+      <Link to="/aerzte/$slug" params={{ slug: d.slug }} className="flex flex-col lg:flex-row h-full">
         {/* Photo */}
-        <div className="relative w-full sm:w-[38%] aspect-[4/3] sm:aspect-auto overflow-hidden bg-[#263044] shrink-0">
+        <div className="relative w-full lg:w-[45%] aspect-[3/4] lg:aspect-auto overflow-hidden bg-[#263044] shrink-0">
           {d.photo ? (
             <img
               src={d.photo}
@@ -1419,29 +1425,27 @@ function HomeLeaderCard({ d, delay, cta }: { d: ReturnType<typeof localizeDoctor
               <span className="font-display text-[#AC8F52] text-5xl font-medium">{d.initials}</span>
             </div>
           )}
-          <div className="absolute bottom-0 left-0 w-full h-0.5 bg-[#AC8F52] scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
         </div>
         {/* Info */}
-        <div className="p-6 lg:p-7 flex flex-col justify-between flex-1">
-          <div>
-            <p className="text-[10px] font-semibold tracking-[0.22em] uppercase text-[#AC8F52]">{d.title}</p>
-            <h3
-              className="mt-2 font-display text-[#1E2535] leading-tight"
-              style={{ fontSize: "clamp(1.2rem, 1.8vw, 1.5rem)", fontWeight: 500, letterSpacing: "-0.015em" }}
-            >
-              {d.name}
-            </h3>
-            <p className="mt-1 text-sm text-[#5F6771]">{d.role}</p>
-            <p className="mt-2 text-sm text-[#8C939B]">{d.specialties.join(" · ")}</p>
-          </div>
-          <div className="mt-5 pt-4 border-t border-[#E2E4E7]">
-            <span className="text-sm font-semibold text-[#1E2535] group-hover:text-[#AC8F52] transition-colors flex items-center gap-1.5">
-              {cta}
-              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" className="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-1">
-                <path d="M3 8h10M9 4l4 4-4 4" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            </span>
-          </div>
+        <div className="relative flex-1 p-6 lg:p-8 flex flex-col justify-center">
+          <div className="absolute top-0 right-0 w-14 h-14 border-t-2 border-r-2 border-[#AC8F52]/30" aria-hidden="true" />
+          <p className="text-[10px] font-bold tracking-[0.22em] uppercase text-[#AC8F52]">{badge}</p>
+          <h3
+            className="mt-3 font-display text-[#1E2535] leading-tight"
+            style={{ fontSize: "clamp(1.35rem, 2.2vw, 1.85rem)", fontWeight: 500, letterSpacing: "-0.015em" }}
+          >
+            {d.name}
+          </h3>
+          <p className="mt-1 text-sm text-[#5F6771]">{d.role}</p>
+          <p className="mt-3 text-sm text-[#8C939B] leading-relaxed">
+            {d.focus.slice(0, 3).join(" · ")}
+          </p>
+          <span className="mt-6 self-start text-sm font-semibold text-[#1E2535] group-hover:text-[#AC8F52] transition-colors border-b border-[#AC8F52] pb-1 flex items-center gap-1.5">
+            {cta}
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" className="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-1">
+              <path d="M3 8h10M9 4l4 4-4 4" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </span>
         </div>
       </Link>
     </div>
@@ -1451,29 +1455,27 @@ function HomeLeaderCard({ d, delay, cta }: { d: ReturnType<typeof localizeDoctor
 function HomeTeamCard({ d, delay, cta }: { d: ReturnType<typeof localizeDoctor>; delay: number; cta: string }) {
   const { ref, style } = useFadeUp(delay);
   return (
-    <div ref={ref} style={style} className="bg-white overflow-hidden group cursor-pointer">
-      <Link to="/aerzte/$slug" params={{ slug: d.slug }} className="block h-full">
-        <div className="aspect-[3/4] bg-[#263044] overflow-hidden">
+    <div ref={ref} style={style} className="group text-center">
+      <Link to="/aerzte/$slug" params={{ slug: d.slug }} className="block">
+        <div className="relative mx-auto mb-5 h-36 w-36 sm:h-40 sm:w-40 rounded-full overflow-hidden border-2 border-[#E2E4E7] group-hover:border-[#AC8F52] transition-colors duration-300 bg-[#263044]">
           {d.photo ? (
             <img
               src={d.photo}
               alt={d.name}
               loading="lazy"
               decoding="async"
-              className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.04]"
+              className="h-full w-full object-cover object-top grayscale-[20%] group-hover:grayscale-0 transition-all duration-500 group-hover:scale-[1.04]"
             />
           ) : (
             <div className="h-full w-full flex items-center justify-center">
-              <span className="font-display text-[#AC8F52] text-4xl font-medium">{d.initials}</span>
+              <span className="font-display text-[#AC8F52] text-3xl font-medium">{d.initials}</span>
             </div>
           )}
         </div>
-        <div className="p-5 border-t-2 border-[#E2E4E7] group-hover:border-[#AC8F52] transition-colors duration-300">
-          <h3 className="font-display text-[#1E2535] leading-snug" style={{ fontSize: "1.15rem", fontWeight: 500 }}>{d.name}</h3>
-          <p className="mt-1 text-sm text-[#5F6771]">{d.role}</p>
-          <p className="mt-1 text-xs text-[#8C939B]">{d.specialties.join(" · ")}</p>
-          <span className="mt-4 block text-sm font-semibold text-[#8C939B] group-hover:text-[#AC8F52] transition-colors">{cta} →</span>
-        </div>
+        <h3 className="font-display text-[#1E2535] leading-snug" style={{ fontSize: "1.15rem", fontWeight: 500 }}>{d.name}</h3>
+        <p className="mt-1 text-sm text-[#5F6771]">{d.role}</p>
+        <p className="mt-1 text-xs text-[#8C939B]">{d.specialties.join(" · ")}</p>
+        <span className="mt-3 inline-block text-xs font-semibold text-[#8C939B] group-hover:text-[#AC8F52] transition-colors">{cta} →</span>
       </Link>
     </div>
   );
@@ -1491,6 +1493,8 @@ function Team() {
       teamLabel: "DAS TEAM",
       viewProfile: "Profil ansehen",
       seeAll: (n: number) => `Alle ${n} Spezialisten ansehen →`,
+      founderMedicalDirector: "Gründer & Ärztlicher Leiter",
+      founderDeputyMedicalDirector: "Gründer & Stellvertretender Ärztlicher Leiter",
     },
     en: {
       label: "Our medical team",
@@ -1501,6 +1505,8 @@ function Team() {
       teamLabel: "THE TEAM",
       viewProfile: "View profile",
       seeAll: (n: number) => `View all ${n} specialists →`,
+      founderMedicalDirector: "Founder & Medical Director",
+      founderDeputyMedicalDirector: "Founder & Deputy Medical Director",
     },
   });
   const { ref: headRef, style: headStyle } = useFadeUp(0);
@@ -1528,24 +1534,30 @@ function Team() {
           </p>
           <div className="grid gap-5 lg:grid-cols-2">
             {LEADERSHIP.map((d, i) => (
-              <HomeLeaderCard key={d.slug} d={d} delay={100 + i * 80} cta={t.viewProfile} />
+              <HomeLeaderCard
+                key={d.slug}
+                d={d}
+                delay={100 + i * 80}
+                cta={t.viewProfile}
+                badge={i === 0 ? t.founderMedicalDirector : t.founderDeputyMedicalDirector}
+              />
             ))}
           </div>
         </div>
 
         {/* Team preview */}
-        <div className="mt-10 sm:mt-12">
-          <p className="text-[10px] font-semibold tracking-[0.28em] uppercase text-[#AC8F52] mb-5">
+        <div className="mt-14 sm:mt-16">
+          <p className="text-[10px] font-semibold tracking-[0.28em] uppercase text-[#AC8F52] mb-8">
             {t.teamLabel}
           </p>
-          <div className="grid gap-px bg-[#E2E4E7] md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-10 sm:grid-cols-3 max-w-4xl">
             {TEAM_PREVIEW.map((d, i) => (
               <HomeTeamCard key={d.slug} d={d} delay={200 + i * 80} cta={t.viewProfile} />
             ))}
           </div>
         </div>
 
-        <div className="mt-10">
+        <div className="mt-12">
           <Link
             to="/aerzte"
             className="inline-flex items-center min-h-11 text-sm font-semibold text-[#1E2535] hover:text-[#AC8F52] transition-colors"
