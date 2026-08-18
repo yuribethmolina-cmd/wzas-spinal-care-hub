@@ -53,8 +53,8 @@ export function KonservativZuerst() {
     },
     en: {
       label: "Our principle",
-      h1: "Not every back ",
-      h2: "needs surgery.",
+      h1: "Surgery is not ",
+      h2: "always the first step.",
       lead: "We begin with conservative care. Surgery is considered only when it is medically necessary.",
       stagesLabel: "Treatment in 3 stages",
       cta: "View all treatments",
