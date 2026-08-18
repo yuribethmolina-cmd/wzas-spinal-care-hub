@@ -31,8 +31,8 @@ export function KonservativZuerst() {
   const t = useT({
     de: {
       label: "Unser Grundsatz",
-      h1: "Nicht jeder Rücken ",
-      h2: "muss operiert werden.",
+      h1: "Eine Operation ist ",
+      h2: "nicht immer der erste Schritt.",
       lead: "Wir behandeln zunächst konservativ. Eine Operation kommt nur infrage, wenn sie medizinisch notwendig ist.",
       stagesLabel: "Behandlung in 3 Stufen",
       cta: "Alle Behandlungen ansehen",
