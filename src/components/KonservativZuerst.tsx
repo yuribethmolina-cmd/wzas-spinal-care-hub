@@ -35,6 +35,7 @@ export function KonservativZuerst() {
       h2: "muss operiert werden.",
       lead: "Wir behandeln zunächst konservativ. Eine Operation kommt nur infrage, wenn sie medizinisch notwendig ist.",
       stagesLabel: "Behandlung in 3 Stufen",
+      cta: "Alle Behandlungen ansehen",
       points: [
         {
           k: "Konservativ",
@@ -56,6 +57,7 @@ export function KonservativZuerst() {
       h2: "needs surgery.",
       lead: "We begin with conservative care. Surgery is considered only when it is medically necessary.",
       stagesLabel: "Treatment in 3 stages",
+      cta: "View all treatments",
       points: [
         {
           k: "Conservative care",
@@ -127,6 +129,14 @@ export function KonservativZuerst() {
               </li>
             ))}
           </ol>
+
+          <a
+            href="/behandlungen"
+            className="mt-10 inline-flex min-h-11 items-center gap-2 rounded-full border border-white/25 px-5 py-2.5 text-sm font-semibold text-white transition-[border-color,color,transform] duration-200 ease-out hover:border-[#D8BE85] hover:text-[#D8BE85] active:scale-[0.97]"
+          >
+            {t.cta}
+            <span aria-hidden="true">→</span>
+          </a>
         </div>
       </div>
     </section>

@@ -5,9 +5,8 @@ import { CONDITIONS } from "@/lib/conditions";
 import { useLang, useT, type Lang } from "@/lib/lang";
 import { localizeDoctor } from "@/lib/doctor-localization";
 import { PraxisGalerie } from "@/components/PraxisGalerie";
-import { Behandlungen } from "@/components/Behandlungen";
 import { KonservativZuerst } from "@/components/KonservativZuerst";
-import { Vortragsreihe, Anfahrt } from "@/components/HomeExtras";
+import { Anfahrt } from "@/components/HomeExtras";
 import logoAsset from "@/assets/wzas/logo.png.asset.json";
 import ogShare from "@/assets/wzas/og-share.png.asset.json";
 import { SiteNav } from "@/components/SiteNav";
@@ -1482,8 +1481,8 @@ function Team() {
   const t = useT({
     de: {
       label: "Unser Ärzteteam",
-      h2a: "13 Spezialisten, ",
-      h2b: "ein Ziel",
+      h2a: "Der richtige Spezialist ",
+      h2b: "für Ihre Beschwerden",
       lead: "Jeder Patient wird von Anfang an dem richtigen Spezialisten zugeordnet.",
       leadershipLabel: "ÄRZTLICHE LEITUNG",
       teamLabel: "DAS TEAM",
@@ -1492,8 +1491,8 @@ function Team() {
     },
     en: {
       label: "Our medical team",
-      h2a: "13 specialists, ",
-      h2b: "one goal",
+      h2a: "The right specialist ",
+      h2b: "for your condition",
       lead: "Every patient is matched with the right specialist from the start.",
       leadershipLabel: "MEDICAL LEADERSHIP",
       teamLabel: "THE TEAM",
@@ -1922,17 +1921,14 @@ function Home() {
       <SiteNav />
       <main id="main-content" tabIndex={-1}>
         <Hero />
-        <KonservativZuerst />
         <Beschwerden />
-        <Behandlungen />
-        <Weg />
+        <KonservativZuerst />
+        <Team />
         <Kompetenzzentrum />
         <PraxisGalerie />
-        <Team />
-        <Vortragsreihe />
+        <Aktuelles />
         <Termin />
         <Anfahrt />
-        <Aktuelles />
       </main>
       <Footer />
     </div>

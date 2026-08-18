@@ -3,35 +3,16 @@ import { useLang, useT } from "@/lib/lang";
 
 import empfang from "@/assets/wzas/galerie/empfang.webp.asset.json";
 import beratung from "@/assets/wzas/galerie/beratung.webp.asset.json";
-import befund from "@/assets/wzas/galerie/befund.webp.asset.json";
 import untersuchung from "@/assets/wzas/galerie/untersuchung.webp.asset.json";
-import schmerztherapie from "@/assets/wzas/galerie/schmerztherapie.webp.asset.json";
 import mrt from "@/assets/wzas/galerie/mrt.webp.asset.json";
-import ct from "@/assets/wzas/galerie/ct.webp.asset.json";
-import befundung from "@/assets/wzas/galerie/befundung.webp.asset.json";
 
 type Shot = { src: string; de: string; en: string; subDe: string; subEn: string };
 
 const SHOTS: Shot[] = [
   { src: beratung.url, de: "Aufklärung am Modell", en: "Explaining your condition", subDe: "Jeder Befund wird verständlich erklärt", subEn: "Clear explanations using a spine model" },
   { src: empfang.url, de: "Empfang", en: "Reception", subDe: "Ankommen am Stiglmaierplatz", subEn: "Arriving at Stiglmaierplatz" },
-  { src: befund.url, de: "Befundbesprechung", en: "Reviewing the scans", subDe: "MRT-Bilder gemeinsam durchgehen", subEn: "Going through the MRI together" },
   { src: untersuchung.url, de: "Klinische Untersuchung", en: "Clinical examination", subDe: "Beweglichkeit, Kraft, Nervenfunktion", subEn: "Mobility, strength, nerve function" },
   { src: mrt.url, de: "MRT-Diagnostik", en: "MRI diagnostics", subDe: "Radiologie im selben Haus", subEn: "Radiology in the same building" },
-  { src: schmerztherapie.url, de: "Bildgesteuerte Schmerztherapie", en: "Image-guided pain treatment", subDe: "Millimetergenau an die Schmerzquelle", subEn: "Precise treatment at the source of pain" },
-  { src: ct.url, de: "CT-gestützte Intervention", en: "CT-guided intervention", subDe: "Minimalinvasiv, ambulant", subEn: "Minimally invasive, outpatient" },
-  { src: befundung.url, de: "Befundung", en: "Diagnostic review", subDe: "Zweitmeinung im Team", subEn: "A second opinion from our team" },
-];
-
-const SPANS = [
-  "col-span-2 row-span-2",
-  "",
-  "",
-  "col-span-2",
-  "",
-  "",
-  "",
-  "",
 ];
 
 export function PraxisGalerie() {
@@ -86,14 +67,14 @@ export function PraxisGalerie() {
           <p className="mt-4 text-[17px] text-[#CBD1DA] leading-relaxed">{t.lead}</p>
         </div>
 
-        <div className="mt-10 grid grid-cols-2 sm:grid-cols-4 auto-rows-[140px] sm:auto-rows-[170px] lg:auto-rows-[200px] gap-3">
+        <div className="mt-10 grid grid-cols-2 gap-3 lg:grid-cols-4">
           {SHOTS.map((s, i) => (
             <button
               key={s.src}
               type="button"
               onClick={() => setOpen(i)}
               aria-label={label(s)}
-              className={`group relative overflow-hidden rounded-lg bg-black/30 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#AC8F52] ${SPANS[i] ?? ""}`}
+              className="group relative aspect-[4/3] overflow-hidden rounded-lg bg-black/30 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#AC8F52]"
             >
               <img
                 src={s.src}
