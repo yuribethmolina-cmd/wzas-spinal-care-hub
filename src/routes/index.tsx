@@ -1432,6 +1432,7 @@ function HomeLeaderCard({ d, delay, cta }: { d: ReturnType<typeof localizeDoctor
               {d.name}
             </h3>
             <p className="mt-1 text-sm text-[#5F6771]">{d.role}</p>
+            <p className="mt-2 text-sm text-[#8C939B]">{d.specialties.join(" · ")}</p>
           </div>
           <div className="mt-5 pt-4 border-t border-[#E2E4E7]">
             <span className="text-sm font-semibold text-[#1E2535] group-hover:text-[#AC8F52] transition-colors flex items-center gap-1.5">
@@ -1469,6 +1470,8 @@ function HomeTeamCard({ d, delay, cta }: { d: ReturnType<typeof localizeDoctor>;
         </div>
         <div className="p-5 border-t-2 border-[#E2E4E7] group-hover:border-[#AC8F52] transition-colors duration-300">
           <h3 className="font-display text-[#1E2535] leading-snug" style={{ fontSize: "1.15rem", fontWeight: 500 }}>{d.name}</h3>
+          <p className="mt-1 text-sm text-[#5F6771]">{d.role}</p>
+          <p className="mt-1 text-xs text-[#8C939B]">{d.specialties.join(" · ")}</p>
           <span className="mt-4 block text-sm font-semibold text-[#8C939B] group-hover:text-[#AC8F52] transition-colors">{cta} →</span>
         </div>
       </Link>
