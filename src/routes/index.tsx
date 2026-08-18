@@ -1464,7 +1464,7 @@ function HomeTeamCard({ d, delay, cta }: { d: ReturnType<typeof localizeDoctor>;
               alt={d.name}
               loading="lazy"
               decoding="async"
-              className="h-full w-full object-cover object-top grayscale-[20%] group-hover:grayscale-0 transition-all duration-500 group-hover:scale-[1.04]"
+              className="h-full w-full object-cover object-[50%_15%] grayscale-[20%] group-hover:grayscale-0 transition-all duration-500 group-hover:scale-[1.04]"
             />
           ) : (
             <div className="h-full w-full flex items-center justify-center">
