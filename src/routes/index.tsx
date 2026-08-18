@@ -1395,17 +1395,23 @@ function Kompetenzzentrum() {
 
 /* ─── Team ──────────────────────────────────────────────────────── */
 
-function HomeLeaderCard({ d, delay, cta }: { d: ReturnType<typeof localizeDoctor>; delay: number; cta: string }) {
+function HomeLeaderCard({
+  d,
+  delay,
+  cta,
+  badge,
+}: {
+  d: ReturnType<typeof localizeDoctor>;
+  delay: number;
+  cta: string;
+  badge: string;
+}) {
   const { ref, style } = useFadeUp(delay);
   return (
-    <div ref={ref} style={style}>
-      <Link
-        to="/aerzte/$slug"
-        params={{ slug: d.slug }}
-        className="group bg-white overflow-hidden flex flex-col sm:flex-row border border-[#E2E4E7] hover:border-[#AC8F52]/40 hover:shadow-xl transition-all duration-300 h-full"
-      >
+    <div ref={ref} style={style} className="group bg-white border border-[#E2E4E7] hover:border-[#AC8F52]/40 hover:shadow-xl transition-all duration-300 overflow-hidden h-full">
+      <Link to="/aerzte/$slug" params={{ slug: d.slug }} className="flex flex-col lg:flex-row h-full">
         {/* Photo */}
-        <div className="relative w-full sm:w-[38%] aspect-[4/3] sm:aspect-auto overflow-hidden bg-[#263044] shrink-0">
+        <div className="relative w-full lg:w-[45%] aspect-[3/4] lg:aspect-auto overflow-hidden bg-[#263044] shrink-0">
           {d.photo ? (
             <img
               src={d.photo}
@@ -1419,29 +1425,27 @@ function HomeLeaderCard({ d, delay, cta }: { d: ReturnType<typeof localizeDoctor
               <span className="font-display text-[#AC8F52] text-5xl font-medium">{d.initials}</span>
             </div>
           )}
-          <div className="absolute bottom-0 left-0 w-full h-0.5 bg-[#AC8F52] scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
         </div>
         {/* Info */}
-        <div className="p-6 lg:p-7 flex flex-col justify-between flex-1">
-          <div>
-            <p className="text-[10px] font-semibold tracking-[0.22em] uppercase text-[#AC8F52]">{d.title}</p>
-            <h3
-              className="mt-2 font-display text-[#1E2535] leading-tight"
-              style={{ fontSize: "clamp(1.2rem, 1.8vw, 1.5rem)", fontWeight: 500, letterSpacing: "-0.015em" }}
-            >
-              {d.name}
-            </h3>
-            <p className="mt-1 text-sm text-[#5F6771]">{d.role}</p>
-            <p className="mt-2 text-sm text-[#8C939B]">{d.specialties.join(" · ")}</p>
-          </div>
-          <div className="mt-5 pt-4 border-t border-[#E2E4E7]">
-            <span className="text-sm font-semibold text-[#1E2535] group-hover:text-[#AC8F52] transition-colors flex items-center gap-1.5">
-              {cta}
-              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" className="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-1">
-                <path d="M3 8h10M9 4l4 4-4 4" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            </span>
-          </div>
+        <div className="relative flex-1 p-6 lg:p-8 flex flex-col justify-center">
+          <div className="absolute top-0 right-0 w-14 h-14 border-t-2 border-r-2 border-[#AC8F52]/30" aria-hidden="true" />
+          <p className="text-[10px] font-bold tracking-[0.22em] uppercase text-[#AC8F52]">{badge}</p>
+          <h3
+            className="mt-3 font-display text-[#1E2535] leading-tight"
+            style={{ fontSize: "clamp(1.35rem, 2.2vw, 1.85rem)", fontWeight: 500, letterSpacing: "-0.015em" }}
+          >
+            {d.name}
+          </h3>
+          <p className="mt-1 text-sm text-[#5F6771]">{d.role}</p>
+          <p className="mt-3 text-sm text-[#8C939B] leading-relaxed">
+            {d.focus.slice(0, 3).join(" · ")}
+          </p>
+          <span className="mt-6 self-start text-sm font-semibold text-[#1E2535] group-hover:text-[#AC8F52] transition-colors border-b border-[#AC8F52] pb-1 flex items-center gap-1.5">
+            {cta}
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" className="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-1">
+              <path d="M3 8h10M9 4l4 4-4 4" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </span>
         </div>
       </Link>
     </div>
