@@ -1432,6 +1432,7 @@ function HomeLeaderCard({ d, delay, cta }: { d: ReturnType<typeof localizeDoctor
               {d.name}
             </h3>
             <p className="mt-1 text-sm text-[#5F6771]">{d.role}</p>
+            <p className="mt-2 text-sm text-[#8C939B]">{d.specialties.join(" · ")}</p>
           </div>
           <div className="mt-5 pt-4 border-t border-[#E2E4E7]">
             <span className="text-sm font-semibold text-[#1E2535] group-hover:text-[#AC8F52] transition-colors flex items-center gap-1.5">
