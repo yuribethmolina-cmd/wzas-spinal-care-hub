@@ -920,71 +920,179 @@ const iconProps = {
   className: "w-7 h-7",
 } as const;
 
-const ConditionIcons: Record<string, React.ReactNode> = {
-  // Acute: three vertebrae, impact radiating from the middle one
-  akut: (
-    <svg {...iconProps} aria-hidden>
-      <rect x="7.5" y="3.5" width="9" height="4.4" rx="1.8" />
-      <rect x="7.5" y="9.8" width="9" height="4.4" rx="1.8" />
-      <rect x="7.5" y="16.1" width="9" height="4.4" rx="1.8" />
-      <path d="M7.5 5.7H4.6M7.5 12h-2.9M7.5 18.3H4.6" />
-      <path d="M18.6 10.4l2.4-1.5M19.2 12.6h2.9M18.6 15l2.3 1.4" opacity="0.75" />
-    </svg>
-  ),
-  // Chronic: the same column, wrapped by a slow recurring cycle
-  chronisch: (
-    <svg {...iconProps} aria-hidden>
-      <rect x="8" y="6.6" width="8" height="4.2" rx="1.7" />
-      <rect x="8" y="12.8" width="8" height="4.2" rx="1.7" />
-      <path d="M8 8.7H5.6M8 14.9H5.6" />
-      <path d="M19.4 8.2a8 8 0 0 1-1.2 9.6M5 18.6a8 8 0 0 1 .6-11" opacity="0.8" />
-      <path d="M19.9 4.9l-.5 3.4 3.2.2" opacity="0.8" />
-    </svg>
-  ),
-  // Herniated disc: two bodies, the disc between them bulging onto the nerve
-  bandscheibe: (
-    <svg {...iconProps} aria-hidden>
-      <rect x="6.5" y="3.4" width="11" height="4.6" rx="1.9" />
-      <rect x="6.5" y="16" width="11" height="4.6" rx="1.9" />
-      <path d="M6.5 10.4h9.6c2.6 0 4.6 1.1 4.6 2.2 0 1.1-2 2.2-4.6 2.2H6.5z" />
-      <path d="M4.4 10.4v4.4" opacity="0.75" />
-    </svg>
-  ),
-  // Sciatica: lumbar segment with the nerve radiating down through hip and leg
-  ischias: (
-    <svg {...iconProps} aria-hidden>
-      <rect x="5.5" y="3.2" width="7.5" height="4" rx="1.6" />
-      <rect x="5.5" y="8.8" width="7.5" height="4" rx="1.6" />
-      <path d="M5.5 5.2H3.2M5.5 10.8H3.2" />
-      <path d="M11 14.4c2.6.4 4 1.9 4.2 4 .2 2 1.3 3.4 3.3 4.1" />
-      <path d="M13.6 16.6l1.5-1.3M16.6 20.4l1.9-.8" opacity="0.7" />
-    </svg>
-  ),
-  // Post-op rehab: healing column supported and rising
-  reha: (
-    <svg {...iconProps} aria-hidden>
-      <rect x="9.5" y="4" width="7.5" height="4.1" rx="1.7" />
-      <rect x="9.5" y="10.1" width="7.5" height="4.1" rx="1.7" />
-      <rect x="9.5" y="16.2" width="7.5" height="4.1" rx="1.7" />
-      <path d="M20.4 18.6c1.2-3.6 1-7.4-.7-10.9" opacity="0.8" />
-      <path d="M17.4 9.1l2.3-1.6 1.5 2.3" opacity="0.8" />
-      <path d="M6.6 19.4c-1.8-1.5-2.6-4-2.2-6.5.3-1.9 1.2-3.6 2.5-4.9" opacity="0.6" />
-    </svg>
-  ),
-  // Sport: spine in dynamic extension with motion trace
-  sport: (
-    <svg {...iconProps} aria-hidden>
-      <path d="M8.4 3.6c3.4 1.6 5.6 4.3 6.4 7.9.8 3.6 0 6.8-2.5 9.6" />
-      <path d="M9.9 5.7l3-1.1M11.6 8.5l3.1-1M12.7 11.7l3.2-.6M13 15.1l3.1.2M12.2 18.4l2.8 1" />
-      <path d="M5.2 7.4c-1.2 3-1.2 6.2 0 9.2M2.6 6c-1.5 3.9-1.5 8 0 12" opacity="0.5" />
-    </svg>
-  ),
-};
+/* ─── Symptom illustrations ──────────────────────────────────────── */
 
+function SymptomIllustration({ type }: { type: string }) {
+  const navy = "#1E2535";
+  const gold = "#AC8F52";
+  const goldFaint = "rgba(172,143,82,0.18)";
+  const goldMid = "rgba(172,143,82,0.38)";
+  const stroke = { stroke: navy, fill: "none", strokeWidth: 1.1, strokeLinecap: "round" as const, strokeLinejoin: "round" as const };
+  const strokeGold = { stroke: gold, fill: "none", strokeWidth: 1.4, strokeLinecap: "round" as const, strokeLinejoin: "round" as const };
 
+  switch (type) {
+    /* 01 — Akuter Rückenschmerz: posterior torso, lumbar hotspot */
+    case "akut":
+      return (
+        <svg viewBox="0 0 120 140" aria-hidden className="w-full h-full">
+          <defs>
+            <radialGradient id="akut-glow" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stopColor={gold} stopOpacity="0.55"/>
+              <stop offset="100%" stopColor={gold} stopOpacity="0"/>
+            </radialGradient>
+          </defs>
+          {/* shoulders */}
+          <path {...stroke} d="M28 38 Q24 36 20 38 Q14 42 16 50" />
+          <path {...stroke} d="M92 38 Q96 36 100 38 Q106 42 104 50" />
+          {/* neck */}
+          <path {...stroke} d="M52 18 Q52 26 52 30 M68 18 Q68 26 68 30" />
+          {/* torso outline */}
+          <path {...stroke} d="M28 38 Q26 60 28 85 Q30 105 36 120 Q44 130 60 132 Q76 130 84 120 Q90 105 92 85 Q94 60 92 38" />
+          {/* spine line */}
+          <path {...stroke} d="M60 30 Q60 60 60 120" opacity="0.35" />
+          {/* vertebrae hints */}
+          <rect {...stroke} x="53" y="38" width="14" height="5" rx="2" opacity="0.4"/>
+          <rect {...stroke} x="53" y="47" width="14" height="5" rx="2" opacity="0.4"/>
+          <rect {...stroke} x="53" y="56" width="14" height="5" rx="2" opacity="0.4"/>
+          <rect {...stroke} x="53" y="65" width="14" height="5" rx="2" opacity="0.4"/>
+          {/* lumbar hotspot */}
+          <circle cx="60" cy="95" r="22" fill="url(#akut-glow)" />
+          <circle cx="60" cy="95" r="14" fill={goldFaint} />
+          <circle cx="60" cy="95" r="7" fill={goldMid} />
+          <circle cx="60" cy="95" r="2.5" fill={gold} />
+        </svg>
+      );
+
+    /* 02 — Chronische Rückenschmerzen: full spine, multiple soft zones */
+    case "chronisch":
+      return (
+        <svg viewBox="0 0 120 150" aria-hidden className="w-full h-full">
+          {/* torso */}
+          <path {...stroke} d="M30 40 Q28 70 30 100 Q33 120 38 132 Q48 142 60 144 Q72 142 82 132 Q87 120 90 100 Q92 70 90 40" />
+          <path {...stroke} d="M30 40 Q27 36 22 38 Q16 42 18 50" />
+          <path {...stroke} d="M90 40 Q93 36 98 38 Q104 42 102 50" />
+          {/* spine */}
+          <path {...stroke} d="M60 28 Q60 80 60 132" opacity="0.3"/>
+          {/* cervical zone */}
+          <circle cx="60" cy="42" r="9" fill="rgba(172,143,82,0.13)" />
+          {/* dorsal zone */}
+          <circle cx="60" cy="72" r="11" fill="rgba(172,143,82,0.16)" />
+          {/* lumbar zone */}
+          <circle cx="60" cy="104" r="13" fill="rgba(172,143,82,0.22)" />
+          <circle cx="60" cy="104" r="6" fill="rgba(172,143,82,0.32)" />
+          {/* vertebrae */}
+          {[40,50,60,70,80,90,100].map((y, i) => (
+            <rect key={i} {...stroke} x="53" y={y} width="14" height="5" rx="2" opacity="0.38"/>
+          ))}
+        </svg>
+      );
+
+    /* 03 — Bandscheibenvorfall: lateral 3-vertebrae view, disc protrusion */
+    case "bandscheibe":
+      return (
+        <svg viewBox="0 0 120 140" aria-hidden className="w-full h-full">
+          <defs>
+            <radialGradient id="disc-glow" cx="70%" cy="50%" r="60%">
+              <stop offset="0%" stopColor={gold} stopOpacity="0.5"/>
+              <stop offset="100%" stopColor={gold} stopOpacity="0"/>
+            </radialGradient>
+          </defs>
+          {/* 3 vertebrae lateral view */}
+          <rect {...stroke} x="32" y="22" width="46" height="24" rx="6" />
+          <rect {...stroke} x="32" y="72" width="46" height="24" rx="6" />
+          <rect {...stroke} x="32" y="122" width="46" height="24" rx="6" opacity="0.7"/>
+          {/* processes */}
+          <path {...stroke} d="M78 28 L92 22 M78 90 L92 84" opacity="0.45"/>
+          <path {...stroke} d="M32 30 L20 24 M32 82 L20 76" opacity="0.45"/>
+          {/* normal disc top */}
+          <path {...stroke} d="M32 96 Q55 92 78 96" opacity="0.5" />
+          {/* herniated disc */}
+          <path stroke={gold} fill="rgba(172,143,82,0.22)" strokeWidth="1.4" strokeLinecap="round"
+            d="M32 46 Q55 44 74 46 Q84 48 88 52 Q84 57 74 59 Q55 61 32 59 Q28 55 32 46 Z" />
+          <circle cx="86" cy="53" r="10" fill="url(#disc-glow)" />
+          {/* nerve */}
+          <path {...strokeGold} strokeWidth="1.1" d="M88 50 Q96 53 100 60 Q102 68 98 74" opacity="0.7"/>
+        </svg>
+      );
+
+    /* 04 — Ischias: pelvis + leg, nerve path in gold */
+    case "ischias":
+      return (
+        <svg viewBox="0 0 120 160" aria-hidden className="w-full h-full">
+          {/* pelvis simplified */}
+          <path {...stroke} d="M32 50 Q28 42 30 34 Q34 24 44 22 Q52 20 60 22 Q68 20 76 22 Q86 24 90 34 Q92 42 88 50" />
+          <path {...stroke} d="M32 50 Q30 58 34 66 Q40 76 52 78 Q56 80 60 80" />
+          <path {...stroke} d="M88 50 Q90 58 86 66 Q80 76 68 78 Q64 80 60 80" />
+          {/* lumbar vertebrae */}
+          <rect {...stroke} x="52" y="8" width="16" height="6" rx="2" opacity="0.45"/>
+          <rect {...stroke} x="52" y="18" width="16" height="6" rx="2" opacity="0.45"/>
+          {/* legs outline */}
+          <path {...stroke} d="M52 80 Q48 100 46 120 Q44 138 44 155" />
+          <path {...stroke} d="M68 80 Q72 100 74 120 Q76 138 76 155" />
+          {/* sciatic nerve — gold */}
+          <path stroke={gold} fill="none" strokeWidth="2" strokeLinecap="round"
+            d="M60 24 Q60 40 58 54 Q56 64 52 74 Q48 84 46 95 Q44 110 44 125 Q44 140 46 155" />
+          <circle cx="60" cy="24" r="3.5" fill={gold} opacity="0.6"/>
+        </svg>
+      );
+
+    /* 05 — Reha nach Operation: spine + recovery arc */
+    case "reha":
+      return (
+        <svg viewBox="0 0 120 150" aria-hidden className="w-full h-full">
+          {/* torso */}
+          <path {...stroke} d="M30 38 Q28 68 30 98 Q33 118 38 130 Q48 140 60 142 Q72 140 82 130 Q87 118 90 98 Q92 68 90 38" />
+          <path {...stroke} d="M30 38 Q27 34 22 36 Q16 40 18 48" />
+          <path {...stroke} d="M90 38 Q93 34 98 36 Q104 40 102 48" />
+          {/* spine */}
+          {[36,46,56,66,76,86,96,106,116].map((y, i) => (
+            <rect key={i} {...stroke} x="53" y={y} width="14" height="6" rx="2" opacity="0.38"/>
+          ))}
+          {/* lumbar glow */}
+          <circle cx="60" cy="92" r="12" fill="rgba(172,143,82,0.18)" />
+          {/* recovery arc */}
+          <path stroke={gold} fill="none" strokeWidth="2" strokeLinecap="round"
+            d="M85 110 Q105 90 98 68 Q94 55 85 48" />
+          <path stroke={gold} fill="none" strokeWidth="2" strokeLinecap="round"
+            d="M85 48 L80 55 M85 48 L92 52" />
+        </svg>
+      );
+
+    /* 06 — Sport- & Aktivverletzungen: running figure, lumbar highlight */
+    case "sport":
+      return (
+        <svg viewBox="0 0 120 150" aria-hidden className="w-full h-full">
+          {/* head */}
+          <circle {...stroke} cx="78" cy="18" r="9" />
+          {/* torso */}
+          <path {...stroke} d="M78 27 Q76 42 68 56" />
+          {/* arms */}
+          <path {...stroke} d="M78 34 Q88 42 94 54" />
+          <path {...stroke} d="M76 36 Q64 44 56 52" />
+          {/* legs */}
+          <path {...stroke} d="M68 56 Q62 72 52 84 Q46 92 42 102" />
+          <path {...stroke} d="M68 56 Q72 74 76 90 Q78 100 84 112" />
+          {/* lumbar hotspot */}
+          <circle cx="70" cy="58" r="13" fill="rgba(172,143,82,0.24)" />
+          <circle cx="70" cy="58" r="6" fill="rgba(172,143,82,0.4)" />
+          {/* motion lines */}
+          <path stroke={gold} fill="none" strokeWidth="1.4" strokeLinecap="round"
+            d="M44 40 Q38 46 40 54" opacity="0.7"/>
+          <path stroke={gold} fill="none" strokeWidth="1.4" strokeLinecap="round"
+            d="M38 52 Q32 58 34 66" opacity="0.5"/>
+          <path stroke={gold} fill="none" strokeWidth="1.4" strokeLinecap="round"
+            d="M46 62 Q40 68 42 76" opacity="0.35"/>
+        </svg>
+      );
+
+    default:
+      return null;
+  }
+}
 
 function BeschwerdenCard({
   iconKey,
+  num,
   name,
   sub,
   cta,
@@ -992,6 +1100,7 @@ function BeschwerdenCard({
   delay,
 }: {
   iconKey: string;
+  num: string;
   name: string;
   sub: string;
   cta: string;
@@ -1002,80 +1111,87 @@ function BeschwerdenCard({
   const [hovered, setHovered] = useState(false);
 
   return (
-    <div
-      ref={ref}
-      style={{
-        ...style,
-        backgroundColor: hovered ? "#FCFBF8" : "#FFFFFF",
-        transform: `${style.transform ?? ""} ${hovered ? "translateY(-3px)" : ""}`.trim(),
-        boxShadow: hovered ? "0 18px 40px -28px rgba(30,37,53,0.55)" : "none",
-        transition: `${style.transition}, background-color 240ms ${EASE}, box-shadow 320ms ${EASE}`,
-      }}
-      className="group relative isolate overflow-hidden p-8 lg:p-9 flex flex-col gap-5 cursor-pointer"
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
-    >
-      <span
-        aria-hidden
-        className="pointer-events-none absolute left-0 top-0 h-full w-[3px] bg-[#AC8F52] origin-top"
-        style={{
-          transform: hovered ? "scaleY(1)" : "scaleY(0)",
-          transition: `transform 380ms ${EASE}`,
-        }}
-      />
-      <div
-        className="w-12 h-12 flex items-center justify-center text-[#8A6E36]"
-        style={{
-          borderRadius: 2,
-          background: hovered ? "#F3EDE1" : "#F6F3EC",
-          boxShadow: `inset 0 0 0 1px rgba(172,143,82,${hovered ? 0.45 : 0.22})`,
-          transform: hovered ? "translateY(-2px) scale(1.06)" : "none",
-          transition: `background 260ms ${EASE}, box-shadow 260ms ${EASE}, transform 320ms ${EASE}`,
-        }}
-      >
-        {ConditionIcons[iconKey]}
-      </div>
-      <div>
-        <h3
-          className="font-display leading-snug"
-          style={{
-            fontSize: "1.3125rem",
-            fontWeight: 500,
-            letterSpacing: "-0.015em",
-            color: hovered ? "#8A6E36" : "#1E2535",
-            transition: `color 260ms ${EASE}`,
-          }}
-        >
-          {name}
-        </h3>
-        <p className="mt-2.5 text-[0.9375rem] text-[#5B6472] leading-relaxed">{sub}</p>
-      </div>
-
+    <div ref={ref} style={style}>
       <Link
-        to={href}
-        className="mt-auto inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-[#8A6E36]"
+        to={href as never}
+        className="group block h-full rounded-2xl bg-white focus-visible:outline-2 focus-visible:outline-[#AC8F52] focus-visible:outline-offset-2"
+        style={{
+          border: `1px solid ${hovered ? "rgba(172,143,82,0.45)" : "#E8E3DA"}`,
+          transform: hovered ? "translateY(-4px)" : "translateY(0)",
+          boxShadow: hovered ? "0 16px 40px -20px rgba(30,37,53,0.18)" : "0 1px 4px -1px rgba(30,37,53,0.06)",
+          transition: `border-color 280ms ${EASE}, transform 300ms ${EASE}, box-shadow 300ms ${EASE}`,
+        }}
+        onMouseEnter={() => setHovered(true)}
+        onMouseLeave={() => setHovered(false)}
+        aria-label={name}
       >
+        {/* badge */}
+        <div className="px-6 pt-6">
+          <span
+            className="inline-flex items-center justify-center text-[11px] font-semibold tracking-widest"
+            style={{
+              width: 34,
+              height: 24,
+              borderRadius: 6,
+              background: "rgba(172,143,82,0.12)",
+              color: "#8A6E36",
+              letterSpacing: "0.12em",
+            }}
+          >
+            {num}
+          </span>
+        </div>
 
-        <span
+        {/* illustration */}
+        <div
+          className="mx-auto"
           style={{
-            boxShadow: `inset 0 -1px 0 0 rgba(138,110,54,${hovered ? 1 : 0.28})`,
-            transition: `box-shadow 260ms ${EASE}`,
+            width: "72%",
+            aspectRatio: "1 / 1.1",
+            maxHeight: 200,
+            transition: `opacity 280ms ${EASE}`,
+            opacity: hovered ? 1 : 0.85,
           }}
         >
-          {cta}
-        </span>
-        <span
-          aria-hidden
-          style={{
-            transform: hovered ? "translateX(4px)" : "none",
-            transition: `transform 320ms ${EASE}`,
-          }}
-        >
-          →
-        </span>
+          <SymptomIllustration type={iconKey} />
+        </div>
+
+        {/* text */}
+        <div className="px-6 pb-6 pt-3 flex flex-col gap-3">
+          <div>
+            <h3
+              className="font-display leading-snug"
+              style={{
+                fontSize: "1.125rem",
+                fontWeight: 600,
+                letterSpacing: "-0.01em",
+                color: hovered ? "#8A6E36" : "#1E2535",
+                transition: `color 260ms ${EASE}`,
+              }}
+            >
+              {name}
+            </h3>
+            <p className="mt-1.5 text-[0.875rem] text-[#8C939B] leading-relaxed">{sub}</p>
+          </div>
+
+          <span
+            className="inline-flex items-center gap-1.5 text-sm font-semibold mt-1"
+            style={{ color: "#8A6E36" }}
+            aria-hidden
+          >
+            {cta}
+            <span
+              style={{
+                transform: hovered ? "translateX(4px)" : "translateX(0)",
+                transition: `transform 280ms ${EASE}`,
+                display: "inline-block",
+              }}
+            >
+              →
+            </span>
+          </span>
+        </div>
       </Link>
-
-
     </div>
   );
 }
@@ -1097,30 +1213,30 @@ function Beschwerden() {
       label: "Behandlungsgebiete",
       h2a: "Was führt ",
       h2b: "Sie zu uns?",
-      lead: "Finden Sie Ihr Beschwerdebild und erfahren Sie, wie unsere Spezialisten helfen können, ohne unnötige Operationen.",
+      lead: "Finden Sie Ihr Beschwerdebild und erfahren Sie, wie unsere Spezialisten helfen können — ohne unnötige Operationen.",
       cta: "Behandlungsoptionen ansehen",
       items: [
-        { iconKey: "akut", name: "Akuter Rückenschmerz", sub: "Plötzlicher Beginn · Verletzung · Muskelkrampf" },
-        { iconKey: "chronisch", name: "Chronische Rückenschmerzen", sub: "3+ Monate · Wiederkehrend · Degenerativ" },
-        { iconKey: "bandscheibe", name: "Bandscheibenvorfall", sub: "L4/L5 · L5/S1 · Zervikal" },
-        { iconKey: "ischias", name: "Ischias / Lumboischialgie", sub: "Ausstrahlende Schmerzen · Beinschwäche" },
-        { iconKey: "reha", name: "Reha nach Operation", sub: "Rehabilitation · Nachsorge" },
-        { iconKey: "sport", name: "Sport- & Aktivverletzungen", sub: "Sportler · Hochbelastende Aktivität" },
+        { num: "01", iconKey: "akut",       name: "Akuter Rückenschmerz",       sub: "Plötzlicher Beginn — Verletzung — Muskelkrampf" },
+        { num: "02", iconKey: "chronisch",  name: "Chronische Rückenschmerzen", sub: "Länger als 3 Monate — Wiederkehrend — Degenerativ" },
+        { num: "03", iconKey: "bandscheibe",name: "Bandscheibenvorfall",         sub: "L4/L5 — L5/S1 — Zervikale Bandscheibe" },
+        { num: "04", iconKey: "ischias",    name: "Ischias / Lumboischialgie",   sub: "Ausstrahlender Schmerz — Beinschwäche — Kribbeln" },
+        { num: "05", iconKey: "reha",       name: "Reha nach Operation",         sub: "Nachsorge — Wirbelsäulenreha — Langzeitbetreuung" },
+        { num: "06", iconKey: "sport",      name: "Sport- & Aktivverletzungen",  sub: "Sportler — Überlastungssyndrome — Leistungssport" },
       ],
     },
     en: {
       label: "Conditions we treat",
       h2a: "What brings ",
       h2b: "you to us?",
-      lead: "Explore your symptoms and learn how our specialists can help, with surgery only when necessary.",
+      lead: "Explore your symptoms and learn how our specialists can help — with surgery only when truly necessary.",
       cta: "View treatment options",
       items: [
-        { iconKey: "akut", name: "Acute back pain", sub: "Sudden onset · injury · muscle spasm" },
-        { iconKey: "chronisch", name: "Chronic back pain", sub: "3+ months · recurring · degenerative" },
-        { iconKey: "bandscheibe", name: "Herniated disc", sub: "L4/L5 · L5/S1 · Cervical" },
-        { iconKey: "ischias", name: "Sciatica / lumboischialgia", sub: "Radiating pain · leg weakness" },
-        { iconKey: "reha", name: "Post-surgery rehab", sub: "Rehabilitation · aftercare" },
-        { iconKey: "sport", name: "Sports & activity injuries", sub: "Athletes · high-load activity" },
+        { num: "01", iconKey: "akut",       name: "Acute back pain",        sub: "Sudden onset — injury — muscle spasm" },
+        { num: "02", iconKey: "chronisch",  name: "Chronic back pain",      sub: "Over 3 months — recurring — degenerative" },
+        { num: "03", iconKey: "bandscheibe",name: "Herniated disc",         sub: "L4/L5 — L5/S1 — cervical disc" },
+        { num: "04", iconKey: "ischias",    name: "Sciatica / lumboischialgia", sub: "Radiating pain — leg weakness — tingling" },
+        { num: "05", iconKey: "reha",       name: "Post-surgery rehab",     sub: "Aftercare — spinal rehab — long-term care" },
+        { num: "06", iconKey: "sport",      name: "Sports & activity injuries", sub: "Athletes — overuse syndromes — high performance" },
       ],
     },
   });
@@ -1138,7 +1254,7 @@ function Beschwerden() {
           </h2>
           <p className="mt-5 max-w-2xl text-[17px] text-[#5B6472] leading-[1.7]">{t.lead}</p>
         </div>
-        <div className="mt-10 sm:mt-14 grid gap-px bg-[#E2E4E7] sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-10 sm:mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {t.items.map((item, i) => (
             <BeschwerdenCard key={item.iconKey} {...item} href={BESCHWERDEN_LINKS[item.iconKey]} cta={t.cta} delay={150 + i * 80} />
           ))}
