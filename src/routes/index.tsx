@@ -1158,49 +1158,90 @@ function Beschwerden() {
 
 /* ─── Weg ───────────────────────────────────────────────────────── */
 
+const WEG_LINKS = [
+  { to: "/beschwerden" as const, labelDe: "Beschwerden ansehen", labelEn: "View conditions" },
+  { to: "/aerzte" as const, labelDe: "Ärzte entdecken", labelEn: "Meet our doctors" },
+  { href: BOOKING_URL, labelDe: "Jetzt buchen", labelEn: "Book now" },
+];
+
 function WegStep({
-  n, title, desc, delay, icon, isHighlight, bookLabel,
+  n, title, desc, delay, icon, isHighlight, cta,
 }: {
   n: string; title: string; desc: string; delay: number;
-  icon: React.ReactNode; isHighlight: boolean; bookLabel: string;
+  icon: React.ReactNode; isHighlight: boolean;
+  cta: { to?: string; href?: string; label: string };
 }) {
   const { ref, style } = useFadeUp(delay);
-  return (
-    <div ref={ref} style={style} className="flex-1 min-w-0">
-      <div className={`rounded-2xl p-7 h-full flex flex-col ${isHighlight ? "bg-[#AC8F52]" : "bg-white"}`}>
-        <div className="flex items-start justify-between mb-5">
-          <div className={`w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold shrink-0 ${isHighlight ? "bg-[#1E2535]/15 text-[#1E2535]" : "bg-[#1E2535] text-white"}`}>
-            {n}
-          </div>
-          <div className={`w-6 h-6 shrink-0 ${isHighlight ? "text-[#1E2535]" : "text-[#AC8F52]"}`}>{icon}</div>
+  const inner = (
+    <div className={`rounded-2xl p-6 sm:p-7 h-full flex flex-col relative overflow-hidden border transition-all duration-300 group ${isHighlight ? "bg-[#AC8F52] border-[#AC8F52] hover:shadow-[0_20px_50px_-16px_rgba(172,143,82,0.45)]" : "bg-white border-transparent hover:border-[#AC8F52]/40 hover:shadow-[0_20px_50px_-20px_rgba(0,0,0,0.35)]"}`}>
+      {/* Soft top accent line for non-highlight cards */}
+      {!isHighlight && (
+        <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#AC8F52]/60 to-[#AC8F52]/10 transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
+      )}
+
+      <div className="flex items-start justify-between mb-5">
+        <div className={`w-9 h-9 rounded-full flex items-center justify-center text-sm font-bold shrink-0 transition-transform duration-300 group-hover:scale-110 ${isHighlight ? "bg-[#1E2535]/15 text-[#1E2535]" : "bg-[#1E2535] text-white"}`}>
+          {n}
         </div>
-        <h3 className={`font-display text-[1.3125rem] tracking-[-0.015em] leading-snug ${isHighlight ? "text-[#1E2535] font-semibold" : "text-[#1E2535] font-medium"}`}>{title}</h3>
-        <p className={`mt-3 text-[0.9375rem] leading-[1.7] flex-1 ${isHighlight ? "text-[#1E2535]/75" : "text-[#4A5568]"}`}>{desc}</p>
-        {isHighlight && (
-          <a
-            href={BOOKING_URL}
-            className="mt-6 inline-flex min-h-11 items-center text-sm font-semibold text-[#1E2535] transition-opacity duration-300 hover:opacity-65"
+        <div className={`w-8 h-8 shrink-0 transition-transform duration-300 group-hover:scale-110 ${isHighlight ? "text-[#1E2535]" : "text-[#AC8F52]"}`}>{icon}</div>
+      </div>
+
+      <h3 className={`font-display text-[1.375rem] tracking-[-0.015em] leading-snug ${isHighlight ? "text-[#1E2535] font-semibold" : "text-[#1E2535] font-medium"}`}>{title}</h3>
+      <p className={`mt-3 text-[0.9375rem] leading-[1.7] flex-1 ${isHighlight ? "text-[#1E2535]/80" : "text-[#4A5568]"}`}>{desc}</p>
+
+      <div className="mt-6 pt-5 border-t border-current/10">
+        {cta.to ? (
+          <Link
+            to={cta.to}
+            className={`inline-flex items-center gap-2 text-sm font-semibold transition-all duration-200 ${isHighlight ? "text-[#1E2535] hover:gap-3" : "text-[#AC8F52] hover:gap-3"}`}
           >
-            {bookLabel} →
+            {cta.label}
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" className="w-3.5 h-3.5" aria-hidden>
+              <path d="M3 8h10M9 4l4 4-4 4" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </Link>
+        ) : (
+          <a
+            href={cta.href}
+            className={`inline-flex items-center gap-2 text-sm font-semibold transition-all duration-200 ${isHighlight ? "text-[#1E2535] hover:gap-3" : "text-[#AC8F52] hover:gap-3"}`}
+          >
+            {cta.label}
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" className="w-3.5 h-3.5" aria-hidden>
+              <path d="M3 8h10M9 4l4 4-4 4" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
           </a>
         )}
       </div>
     </div>
   );
+
+  return (
+    <div ref={ref} style={style} className="flex-1 min-w-0">
+      {cta.to ? (
+        <Link to={cta.to} className="block h-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#AC8F52] focus-visible:ring-offset-2 focus-visible:ring-offset-[#1E2535] rounded-2xl">
+          {inner}
+        </Link>
+      ) : (
+        <a href={cta.href} className="block h-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#AC8F52] focus-visible:ring-offset-2 focus-visible:ring-offset-[#1E2535] rounded-2xl">
+          {inner}
+        </a>
+      )}
+    </div>
+  );
 }
 
 function Weg() {
+  const { lang } = useLang();
   const t = useT({
     de: {
       label: "Ihr Weg zur Besserung",
       h2a: "Vom ersten Klick ",
       h2b: "zum Termin",
-      book: "Jetzt buchen",
       steps: [
         {
           n: "1",
           title: "Beschwerdebild wählen",
-          desc: "Suchen oder stöbern Sie nach Symptomen, unsere Übersicht hilft Ihnen zu verstehen, welche Behandlungsoptionen für Ihren Fall geeignet sind.",
+          desc: "Suchen oder stöbern Sie nach Symptomen. Unsere Übersicht zeigt, welche Behandlungsoptionen für Ihren Fall geeignet sind.",
         },
         {
           n: "2",
@@ -1210,7 +1251,7 @@ function Weg() {
         {
           n: "3",
           title: "In 60 Sekunden buchen",
-          desc: "Nutzen Sie unser Online-Buchungssystem und wählen Sie einen passenden Termin. Notfälle behandeln wir sofort. Kein Anruf nötig.",
+          desc: "Nutzen Sie unser Online-Buchungssystem und wählen Sie einen passenden Termin. Notfälle behandeln wir sofort.",
         },
       ],
     },
@@ -1218,7 +1259,6 @@ function Weg() {
       label: "Your path to recovery",
       h2a: "From your first search ",
       h2b: "to your appointment",
-      book: "Book now",
       steps: [
         {
           n: "1",
@@ -1233,7 +1273,7 @@ function Weg() {
         {
           n: "3",
           title: "Book in 60 seconds",
-          desc: "Use our online booking system to choose a convenient appointment. Urgent cases are seen without delay, and no phone call is needed for standard bookings.",
+          desc: "Use our online booking system to choose a convenient appointment. Urgent cases are seen without delay.",
         },
       ],
     },
@@ -1263,13 +1303,21 @@ function Weg() {
                 delay={200 + i * 100}
                 icon={WEG_ICONS[i]}
                 isHighlight={i === 2}
-                bookLabel={t.book}
+                cta={{
+                  ...(WEG_LINKS[i].to ? { to: WEG_LINKS[i].to } : { href: WEG_LINKS[i].href! }),
+                  label: lang === "de" ? WEG_LINKS[i].labelDe : WEG_LINKS[i].labelEn,
+                }}
               />
               {i < arr.length - 1 && (
-                <div className="hidden lg:flex items-center justify-center text-[#AC8F52]/35 shrink-0 w-6" aria-hidden>
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
-                    <path d="M5 12h14M12 5l7 7-7 7"/>
-                  </svg>
+                <div className="hidden lg:flex items-center justify-center text-[#AC8F52]/40 shrink-0 w-6" aria-hidden>
+                  <div className="relative flex items-center justify-center">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
+                      <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                    <span className="absolute -top-5 left-1/2 -translate-x-1/2 text-[10px] font-semibold tracking-wider text-[#AC8F52]/60 uppercase whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity">
+                      {lang === "de" ? "Weiter" : "Next"}
+                    </span>
+                  </div>
                 </div>
               )}
             </React.Fragment>
