@@ -1,7 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import React, { useEffect, useRef, useState } from "react";
 import { doctors as allDoctors } from "@/lib/doctors";
-import { CONDITIONS } from "@/lib/conditions";
 import { useLang, useT, type Lang } from "@/lib/lang";
 import { localizeDoctor } from "@/lib/doctor-localization";
 import { PraxisGalerie } from "@/components/PraxisGalerie";
@@ -33,15 +32,12 @@ import {
   HERO_BG,
   HERO_SRCSET,
   HERO_SIZES,
-  
   BOOKING_URL,
   INQUIRY_URL,
   EASE as EASE_IMPORTED,
   EASE_SOFT as EASE_SOFT_IMPORTED,
   NOISE,
   STAT_DEFS,
-  SPINE_H,
-  SPINE_ZONES,
 } from "./-home-constants";
 
 // Safe fallbacks: if code-splitting ever drops these bindings, motion still works.
@@ -91,282 +87,7 @@ const WEG_ICONS: React.ReactNode[] = [
   <svg key="cal" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" className="w-full h-full" aria-hidden><rect width="18" height="18" x="3" y="4" rx="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/><path d="m9 16 2 2 4-4"/></svg>,
 ];
 
-/* ─── Spine locator ─────────────────────────────────────────────── */
-
-function conditionName(slug: string, lang: Lang) {
-  const c = CONDITIONS.find((x) => x.id === slug);
-  return c ? (lang === "de" ? c.de.name : c.en.name) : slug;
-}
-
-const CONDITION_SUBLINE: Record<string, { de: string; en: string }> = {
-  "bandscheiben-deg": {
-    de: "natürlicher Verschleiß der Bandscheibe",
-    en: "natural wear of the spinal discs",
-  },
-};
-
-const CONDITION_WIDGET_NAME: Record<string, { de?: string; en?: string }> = {
-  "bandscheiben-deg": { en: "Disc degeneration" },
-};
-
-function SpineSvg({
-  activeId,
-  onZone,
-  className,
-}: {
-  activeId: string | null;
-  onZone: (id: string | null) => void;
-  className: string;
-}) {
-  return (
-    <svg viewBox="0 0 44 288" className={className} aria-hidden>
-      {SPINE_ZONES.map((z) => {
-        const active = activeId === z.id;
-        return (
-          <g
-            key={z.id}
-            onMouseEnter={() => onZone(z.id)}
-            onMouseLeave={() => onZone(null)}
-            onClick={() => onZone(z.id)}
-            style={{
-              cursor: "pointer",
-              color: active ? "#D9BC80" : "rgba(255,255,255,0.42)",
-              transition: `color 320ms ${EASE}, opacity 320ms ${EASE}`,
-              opacity: activeId && !active ? 0.55 : 1,
-            }}
-          >
-            <rect x="0" y={z.y} width="44" height={z.h} fill="transparent" />
-            {z.vertebrae.map((v, i) => (
-              <g key={i} fill="none" stroke="currentColor" strokeWidth="1.25" strokeLinejoin="round" strokeLinecap="round">
-                <rect x={22 - v.w / 2} y={v.y} width={v.w} height={v.vh} rx={v.vh / 2.6} />
-                <path d={`M${22 - v.w / 2} ${v.y + v.vh / 2} h${-v.w * 0.42}`} />
-                <path d={`M${22 + v.w / 2} ${v.y + v.vh / 2} h${v.w * 0.3}`} opacity="0.6" />
-              </g>
-            ))}
-          </g>
-        );
-      })}
-    </svg>
-  );
-}
-
-function SpineLocator() {
-  const { lang } = useLang();
-  const [activeId, setActiveId] = useState<string | null>(null);
-  const header = lang === "de" ? "Wo tut es weh?" : "Where does it hurt?";
-  const hint = lang === "de" ? "Bereich anklicken" : "Click an area";
-
-  return (
-    <div className="hidden lg:flex flex-col justify-center items-end h-full">
-      <div
-        className="rounded-2xl border border-white/25 overflow-hidden shadow-[0_24px_60px_-24px_rgba(0,0,0,0.8)]"
-        style={{ width: 340, background: "rgba(16,22,34,0.68)", backdropFilter: "blur(14px) saturate(1.1)" }}
-      >
-        <div className="px-5 py-4 border-b border-white/15 flex items-center justify-between gap-3">
-          <p className="text-xs font-bold tracking-[0.18em] uppercase text-[#E0C288]">{header}</p>
-          <p className="text-xs font-medium text-white/70">{hint}</p>
-        </div>
-        <div className="flex gap-5 p-5" style={{ height: 340 }}>
-          <SpineSvg activeId={activeId} onZone={setActiveId} className="h-full w-11 shrink-0 overflow-visible" />
-
-          <div className="flex flex-col gap-1.5 flex-1">
-            {SPINE_ZONES.map((z) => {
-              const active = activeId === z.id;
-              const primary = lang === "de" ? z.primaryDe : z.primaryEn;
-              const secondary = lang === "de" ? z.secondaryDe : z.secondaryEn;
-              return (
-                <Link
-                  key={z.id}
-                  to="/beschwerden/$slug"
-                  params={{ slug: z.conditions[0] }}
-                  className="flex flex-col justify-center"
-                  style={{ flex: z.flex, textDecoration: "none" }}
-                  onMouseEnter={() => setActiveId(z.id)}
-                  onMouseLeave={() => setActiveId(null)}
-                >
-                  <p className={`text-base font-bold leading-tight transition-colors duration-200 ${active ? "text-[#E0C288]" : "text-white"}`}>
-                    {primary}
-                  </p>
-                  <p className={`text-sm font-medium leading-snug mt-0.5 transition-colors duration-200 ${active ? "text-[#D2B276]" : "text-white/75"}`}>
-                    {secondary}
-                  </p>
-                </Link>
-              );
-            })}
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function SpineLocatorMobile() {
-  const { lang } = useLang();
-  const [activeId, setActiveId] = useState<string | null>(null);
-  const [hasScrolled, setHasScrolled] = useState(false);
-  const scrollRef = useRef<HTMLDivElement>(null);
-  const header = lang === "de" ? "Wo tut es weh?" : "Where does it hurt?";
-  const swipeHint = lang === "de" ? "Wischen →" : "Swipe →";
-  const active = SPINE_ZONES.find((z) => z.id === activeId) ?? null;
-
-  const handleScroll = () => {
-    if (!hasScrolled) setHasScrolled(true);
-  };
-
-  return (
-    <div className="lg:hidden mt-12 md:mt-8 w-full min-w-0">
-      <div
-        className="rounded-2xl border border-white/25 overflow-hidden shadow-[0_18px_44px_-22px_rgba(0,0,0,0.85)]"
-        style={{ background: "rgba(16,22,34,0.72)", backdropFilter: "blur(14px) saturate(1.1)" }}
-      >
-        <div className="px-4 py-3 flex items-center justify-between gap-3">
-          <p className="text-[11px] font-bold tracking-[0.18em] uppercase text-[#E0C288]">{header}</p>
-          {!active && (
-            <p className="text-[11px] font-medium text-white/55 flex items-center gap-1 whitespace-nowrap pr-2">
-              {swipeHint}
-            </p>
-          )}
-        </div>
-
-        {/* Mobile: compact horizontal chip row */}
-        <div
-          ref={scrollRef}
-          onScroll={handleScroll}
-          className="md:hidden relative w-full min-w-0 px-4 pb-3 flex flex-nowrap gap-2 overflow-x-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
-        >
-          {SPINE_ZONES.map((z) => {
-            const isActive = activeId === z.id;
-            return (
-              <button
-                key={z.id}
-                type="button"
-                onClick={() => setActiveId(isActive ? null : z.id)}
-                aria-pressed={isActive}
-                className={`shrink-0 whitespace-nowrap rounded-full border px-4 min-h-[40px] text-[13px] font-semibold transition-colors active:scale-[0.97] ${
-                  isActive
-                    ? "border-[#E0C288]/70 bg-[#E0C288]/15 text-[#F0DDB6]"
-                    : "border-white/25 bg-white/5 text-white/85"
-                }`}
-              >
-                {lang === "de" ? z.primaryDe : z.primaryEn}
-              </button>
-            );
-          })}
-          <div className="pointer-events-none absolute inset-y-0 right-0 w-14 bg-gradient-to-l from-[#1E2535] via-[#1E2535]/80 to-transparent flex items-center justify-end pr-2.5" aria-hidden="true">
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className={`w-4 h-4 text-[#E0C288]/70 transition-opacity duration-500 ${hasScrolled ? "opacity-0" : "opacity-100"}`}
-              style={{ animation: hasScrolled ? "none" : "swipeHint 1.6s ease-in-out infinite" }}
-            >
-              <style>{`
-                @keyframes swipeHint {
-                  0%, 100% { transform: translateX(0); opacity: 0.55; }
-                  50% { transform: translateX(5px); opacity: 1; }
-                }
-              `}</style>
-              <path d="M9 18l6-6-6-6" />
-            </svg>
-          </div>
-        </div>
-
-        {/* Pagination dots */}
-        <div className="md:hidden px-4 pb-3 flex items-center justify-center gap-1.5">
-          {SPINE_ZONES.map((z) => (
-            <span
-              key={z.id}
-              className={`block h-1.5 rounded-full transition-all duration-300 ${
-                activeId === z.id ? "w-3 bg-[#E0C288]" : "w-1.5 bg-white/25"
-              }`}
-              aria-hidden="true"
-            />
-          ))}
-        </div>
-
-        <div className="hidden md:flex gap-4 px-4 pb-4">
-          <SpineSvg activeId={activeId} onZone={(id) => setActiveId(id)} className="w-9 shrink-0 overflow-visible" />
-
-          <div className="flex flex-col gap-0.5 flex-1 min-w-0">
-            {SPINE_ZONES.map((z) => {
-              const isActive = activeId === z.id;
-              return (
-                <button
-                  key={z.id}
-                  type="button"
-                  onClick={() => setActiveId(isActive ? null : z.id)}
-                  aria-expanded={isActive}
-                  className="text-left rounded-xl px-3 py-2 min-h-[44px] flex flex-col justify-center transition-colors active:scale-[0.98]"
-                  style={{ flex: z.flex, background: isActive ? "rgba(224,194,136,0.12)" : "transparent" }}
-                >
-                  <p className={`text-[15px] font-semibold leading-tight ${isActive ? "text-[#E0C288]" : "text-white/90"}`}>
-                    {lang === "de" ? z.primaryDe : z.primaryEn}
-                  </p>
-                  {isActive && (
-                    <p className="text-[12.5px] font-medium leading-snug mt-0.5 text-[#D2B276]">
-                      {lang === "de" ? z.secondaryDe : z.secondaryEn}
-                    </p>
-                  )}
-                </button>
-              );
-            })}
-          </div>
-        </div>
-
-
-
-        <div
-          className="overflow-hidden border-t border-white/10"
-          style={{
-            maxHeight: active ? 260 : 0,
-            opacity: active ? 1 : 0,
-            transition: `max-height 380ms ${EASE_SOFT}, opacity 260ms ${EASE_SOFT}`,
-          }}
-        >
-          {active && (
-            <div className="p-4">
-              <p className="text-[11px] font-semibold tracking-[0.16em] uppercase text-white/60">
-                {lang === "de" ? "Häufige Beschwerden" : "Common conditions"}
-              </p>
-              <div className="mt-3 flex flex-wrap gap-2">
-                {active.conditions.map((slug) => {
-                  const subline = CONDITION_SUBLINE[slug]?.[lang];
-                  const primary = CONDITION_WIDGET_NAME[slug]?.[lang] ?? conditionName(slug, lang);
-                  return (
-                    <Link
-                      key={slug}
-                      to="/beschwerden/$slug"
-                      params={{ slug }}
-                      className="inline-flex flex-col justify-center min-h-[44px] rounded-full border border-[#E0C288]/45 bg-white/5 px-4 text-left active:scale-[0.97] transition-transform"
-                    >
-                      <span className="text-[13px] font-semibold leading-tight text-[#F0DDB6]">
-                        {primary}
-                      </span>
-                      {subline && (
-                        <span className="text-[11px] font-medium leading-snug text-[#F0DDB6]/70">
-                          {subline}
-                        </span>
-                      )}
-                    </Link>
-                  );
-                })}
-              </div>
-              <a
-                href={BOOKING_URL}
-                className="mt-3 inline-flex items-center min-h-[40px] text-[13px] font-semibold text-[#E0C288] underline underline-offset-4 active:scale-[0.98] transition-transform"
-              >
-                {lang === "de" ? "Termin buchen" : "Book an appointment"}
-              </a>
-            </div>
-          )}
-        </div>
-      </div>
-    </div>
-  );
-}
+/* ─── Hero helpers ──────────────────────────────────────────────── */
 
 
 /* ─── Stat counter ──────────────────────────────────────────────── */
@@ -805,9 +526,9 @@ function Hero() {
         className="absolute inset-0 pointer-events-none opacity-[0.04] -z-10"
         style={{ backgroundImage: NOISE, backgroundSize: "256px 256px" }}
       />
-      <div className="relative mx-auto max-w-7xl px-5 lg:px-8 pt-10 pb-14 lg:pt-20 lg:pb-40 lg:min-h-[min(84vh,860px)] grid grid-cols-1 items-center">
+      <div className="relative mx-auto max-w-7xl px-5 lg:px-8 pt-10 pb-14 lg:pt-20 lg:pb-40 lg:min-h-[min(84vh,860px)] flex items-center">
 
-        <div className="w-full min-w-0 max-w-3xl overflow-x-hidden">
+        <div className="w-full min-w-0 max-w-3xl lg:max-w-[58%] overflow-x-hidden">
           <p
             className="text-[11px] font-medium tracking-[0.2em] uppercase text-[#AC8F52] flex items-center gap-2"
             style={introKicker}
