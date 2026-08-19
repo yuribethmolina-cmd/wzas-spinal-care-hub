@@ -91,12 +91,12 @@ export function KonservativZuerst() {
           </p>
           <h2
             className="mt-5 max-w-3xl font-display leading-[1.12] sm:leading-[1.05]"
-            style={{ fontSize: "clamp(2.25rem, 4.8vw, 4rem)", fontWeight: 500 }}
+            style={{ fontSize: "clamp(1.875rem, 4.8vw, 4rem)", fontWeight: 500, hyphens: "none", wordBreak: "normal", overflowWrap: "normal" }}
           >
             {t.h1}
             <span className="font-bold">{t.h2}</span>
           </h2>
-          <p className="mt-5 max-w-2xl text-[17px] leading-relaxed text-[#C7CDD7] sm:text-[18px]">
+          <p className="mt-5 max-w-2xl text-[17px] leading-relaxed text-[#C7CDD7] sm:text-[18px]" style={{ hyphens: "none", wordBreak: "normal", overflowWrap: "normal" }}>
             {t.lead}
           </p>
         </div>
@@ -119,7 +119,7 @@ export function KonservativZuerst() {
                 <h3 className="mt-5 text-[18px] font-semibold leading-snug text-white">
                   {point.k}
                 </h3>
-                <p className="mt-2 max-w-sm text-[15px] leading-relaxed text-[#AEB6C3]">
+                <p className="mt-2 max-w-sm text-[15px] leading-relaxed text-[#AEB6C3]" style={{ hyphens: "none", wordBreak: "normal", overflowWrap: "normal" }}>
                   {point.v}
                 </p>
                 <span
