@@ -799,7 +799,7 @@ function Beschwerden() {
       items: [
         { num: "01", iconKey: "akut",       name: "Akuter Rückenschmerz",       sub: "Plötzlich auftretende Rückenschmerzen" },
         { num: "02", iconKey: "chronisch",  name: "Chronische Rückenschmerzen", sub: "Anhaltende oder wiederkehrende Schmerzen" },
-        { num: "03", iconKey: "bandscheibe",name: "Bandscheibenvorfall",        sub: "Rücken-, Nacken- oder ausstrahlende Schmerzen" },
+        { num: "03", iconKey: "bandscheibe",name: "Bandscheibenvorfall",        sub: "Rücken, Nacken oder ausstrahlende Schmerzen" },
         { num: "04", iconKey: "ischias",    name: "Ischias / Lumboischialgie",  sub: "Schmerzen vom Rücken bis ins Bein" },
         { num: "05", iconKey: "reha",       name: "Beschwerden nach einer OP", sub: "Schmerzen oder eingeschränkte Bewegung nach der Operation" },
         { num: "06", iconKey: "sport",      name: "Sport- & Aktivverletzungen", sub: "Schmerzen bei Sport und Bewegung" },
