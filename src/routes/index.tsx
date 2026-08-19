@@ -471,7 +471,7 @@ function Hero() {
       h1a: "Rückhalt",
       h1b: "für München.",
       h1c: "",
-      sub: "Konservative Behandlung zuerst — Operation nur, wenn sie wirklich notwendig ist.",
+      sub: "Konservative Behandlung zuerst\u00a0\nOperation nur, wenn sie wirklich notwendig ist.",
       book: "Termin buchen",
       more: "Mehr erfahren",
       bookMeta: "Online in ca. 2 Min.",
