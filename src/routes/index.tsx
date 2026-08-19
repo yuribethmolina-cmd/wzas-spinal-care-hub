@@ -397,7 +397,7 @@ function Nav() {
         scrolled ? "shadow-md" : "shadow-none"
       }`}
     >
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 lg:px-8">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-3 lg:py-4 lg:px-8">
         <Link to="/" aria-label={t.menu === "Menu" ? "WZAS, home" : "WZAS, Startseite"}>
           <Logo />
         </Link>
@@ -468,6 +468,7 @@ function Hero() {
   const t = useT({
     de: {
       kicker: "Wirbelsäulenzentrum am Stiglmaierplatz · München",
+      kickerMobile: "Wirbelsäulenzentrum · München",
       h1a: "Rückhalt",
       h1b: "für München.",
       h1c: "",
@@ -482,6 +483,7 @@ function Hero() {
     },
     en: {
       kicker: "SPINE CENTER AT STIGLMAIERPLATZ · MUNICH",
+      kickerMobile: "Spine Center · Munich",
       h1a: "Munich’s trusted",
       h1b: "spine specialists.",
       h1c: "",
@@ -501,7 +503,7 @@ function Hero() {
   const introSub = useIntro(620);
   const introCta = useIntro(880);
   return (
-    <section className="relative bg-[#1E2535] text-white overflow-hidden overflow-x-hidden isolate min-h-[78svh] lg:min-h-0">
+    <section className="relative bg-[#1E2535] text-white overflow-hidden overflow-x-hidden isolate min-h-[62svh] sm:min-h-[72svh] lg:min-h-0">
       <img
         src={HERO_BG}
         srcSet={HERO_SRCSET}
@@ -526,7 +528,7 @@ function Hero() {
         className="absolute inset-0 pointer-events-none opacity-[0.04] -z-10"
         style={{ backgroundImage: NOISE, backgroundSize: "256px 256px" }}
       />
-      <div className="relative mx-auto max-w-7xl px-5 lg:px-8 pt-10 pb-14 lg:pt-20 lg:pb-40 lg:min-h-[min(84vh,860px)] flex items-center">
+      <div className="relative mx-auto max-w-7xl px-5 lg:px-8 pt-7 pb-8 lg:pt-20 lg:pb-40 lg:min-h-[min(84vh,860px)] flex items-center">
 
         <div className="w-full min-w-0 max-w-3xl lg:max-w-[58%] overflow-x-hidden">
           <p
@@ -534,10 +536,11 @@ function Hero() {
             style={introKicker}
           >
             <span className="inline-block w-6 h-px bg-[#AC8F52]" />
-            <span className="min-w-0">{t.kicker}</span>
+            <span className="min-w-0 sm:hidden">{t.kickerMobile}</span>
+            <span className="min-w-0 hidden sm:inline">{t.kicker}</span>
           </p>
           <h1
-            className="mt-5 sm:mt-6 leading-[1.12] sm:leading-[1.02] tracking-tight text-white font-display"
+            className="mt-3 sm:mt-6 leading-[1.12] sm:leading-[1.02] tracking-tight text-white font-display"
             style={{ fontSize: "clamp(2.4rem, 5.4vw, 5rem)", fontWeight: 500 }}
           >
             <MaskLine delay={200}>{t.h1a}</MaskLine>
@@ -547,12 +550,12 @@ function Hero() {
             <MaskLine delay={440}>{t.h1c}</MaskLine>
           </h1>
           <p
-            className="mt-4 sm:mt-5 text-[15px] sm:text-lg text-[#E6E9EF] leading-relaxed max-w-xl whitespace-pre-line"
+            className="mt-3 sm:mt-5 text-[15px] sm:text-lg text-[#E6E9EF] leading-relaxed max-w-xl whitespace-pre-line"
             style={introSub}
           >
             {t.sub}
           </p>
-          <div className="mt-6 sm:mt-7" style={introCta}>
+          <div className="mt-4 sm:mt-7" style={introCta}>
             <div className="flex flex-col sm:flex-row sm:flex-wrap gap-3">
               <a
                 href={BOOKING_URL}
@@ -562,7 +565,7 @@ function Hero() {
               </a>
               <a
                 href="#beschwerden"
-                className="inline-flex items-center justify-center rounded-full border border-white/40 bg-white/5 backdrop-blur-sm px-6 py-3.5 sm:py-3 text-[15px] sm:text-sm font-semibold text-white transition-[background-color,border-color,transform] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:bg-white/15 hover:border-white/70 hover:-translate-y-0.5 active:scale-[0.98]"
+                className="inline-flex min-h-[44px] items-center justify-center rounded-full border border-white/25 sm:border-white/40 bg-white/[0.03] sm:bg-white/5 backdrop-blur-sm px-5 py-2 sm:px-6 sm:py-3 text-sm font-semibold text-white/85 sm:text-white transition-[background-color,border-color,transform] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:bg-white/15 hover:border-white/70 hover:-translate-y-0.5 active:scale-[0.98]"
               >
                 {t.more}
               </a>
@@ -1664,7 +1667,60 @@ function Footer() {
 
 /* ─── Root ──────────────────────────────────────────────────────── */
 
+function MobileStickyBar({ visible }: { visible: boolean }) {
+  const t = useT({
+    de: { book: "Termin buchen", phone: "+49 89 54343030" },
+    en: { book: "Book appointment", phone: "+49 89 54343030" },
+  });
+  return (
+    <div
+      className="lg:hidden fixed bottom-0 inset-x-0 z-40 transition-transform duration-300"
+      style={{
+        transform: visible ? "translateY(0)" : "translateY(100%)",
+        paddingBottom: "env(safe-area-inset-bottom)",
+        backgroundColor: "#1E2535",
+        borderTop: "1px solid rgba(255,255,255,0.1)",
+      }}
+      aria-hidden={!visible}
+    >
+      <div className="flex items-center justify-between gap-3 px-4 py-3">
+        <a
+          href="tel:+498954343030"
+          className="flex items-center gap-2 text-sm font-medium text-white min-h-[44px]"
+          tabIndex={visible ? 0 : -1}
+        >
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#AC8F52" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.87 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.77 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.94a16 16 0 0 0 6.15 6.15l1.1-1.1a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
+          </svg>
+          <span>{t.phone}</span>
+        </a>
+        <a
+          href={BOOKING_URL}
+          className="inline-flex min-h-[44px] items-center justify-center rounded-full bg-[#AC8F52] px-5 py-2.5 text-sm font-semibold text-[#1E2535]"
+          tabIndex={visible ? 0 : -1}
+        >
+          {t.book}
+        </a>
+      </div>
+    </div>
+  );
+}
+
 function Home() {
+  const heroRef = useRef<HTMLDivElement>(null);
+  const [stickyBarVisible, setStickyBarVisible] = useState(false);
+
+  useEffect(() => {
+    const el = heroRef.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(
+      ([entry]) => setStickyBarVisible(!entry.isIntersecting),
+      { threshold: 0 }
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
+
   return (
     <div className="min-h-screen bg-[#F8F8F6]">
       <a href="#main-content" className="skip-link">
@@ -1672,7 +1728,9 @@ function Home() {
       </a>
       <SiteNav />
       <main id="main-content" tabIndex={-1}>
-        <Hero />
+        <div ref={heroRef}>
+          <Hero />
+        </div>
         <Beschwerden />
         <KonservativZuerst />
         <Team />
@@ -1683,6 +1741,7 @@ function Home() {
         <Anfahrt />
       </main>
       <Footer />
+      <MobileStickyBar visible={stickyBarVisible} />
     </div>
   );
 }
