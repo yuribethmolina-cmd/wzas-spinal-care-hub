@@ -1039,61 +1039,67 @@ function Kompetenzzentrum() {
   const t = useT({
     de: {
       label: "Kompetenzzentrum",
-      h2a: "Alles unter ",
-      h2b: "einem Dach",
-      lead: "Wirbelsäulenchirurgie, Radiologie und Orthopädie arbeiten hier Hand in Hand, kürzere Wege, schnellere Diagnosen, lückenlose Behandlung ohne externe Termine.",
+      h2: "Alles unter einem Dach",
+      lead: "Diagnostik, Behandlung und Nachsorge eng vernetzt – mit starken Partnern an Ihrer Seite.",
       partners: [
-        { logo: partnerWz.url, alt: "Wirbelsäulenzentrum am Stiglmaierplatz", name: "Wirbelsäulenzentrum am Stiglmaierplatz", short: "Wirbelsäulenchirurgie · Schmerztherapie" },
-        { logo: partnerRadiologie.url, alt: "Radiologie am Stiglmaierplatz", name: "Radiologie am Stiglmaierplatz", short: "MRT · CT · Neuroradiologie vor Ort" },
-        { logo: partnerOms.url, alt: "Orthopädie München-Schwabing", name: "Orthopädie München-Schwabing", short: "Arthrose · Knie · Hüfte · Schulter" },
-        { logo: partnerHand.url, alt: "BL Handchirurgie Bayern", name: "BL Handchirurgie Bayern", short: "Hand · Handgelenk · Unterarm" },
-        { logo: partnerOberland.url, alt: "Wirbelsäulenzentrum Oberland", name: "Wirbelsäulenzentrum Oberland", short: "Schwesterpraxis · Bayern" },
+        { logo: partnerWz.url,          alt: "Wirbelsäulenzentrum am Stiglmaierplatz", name: "Wirbelsäulenzentrum", short: "Wirbelsäulenchirurgie · Schmerztherapie" },
+        { logo: partnerRadiologie.url,  alt: "Radiologie am Stiglmaierplatz",           name: "Radiologie",          short: "MRT · CT · Neuroradiologie vor Ort" },
+        { logo: partnerOms.url,         alt: "Orthopädie München-Schwabing",            name: "OMS Orthopädie",      short: "Arthrose · Knie · Hüfte · Schulter" },
+        { logo: partnerHand.url,        alt: "BL Handchirurgie Bayern",                 name: "BL Handchirurgie",    short: "Hand · Handgelenk · Unterarm" },
+        { logo: partnerOberland.url,    alt: "Wirbelsäulenzentrum Oberland",            name: "WZ Oberland",         short: "Schwesterpraxis · Bayern" },
       ],
     },
     en: {
       label: "Specialist network",
-      h2a: "Everything under ",
-      h2b: "one roof",
-      lead: "Spine surgery, radiology and orthopaedics work closely together, with shorter routes, faster diagnosis and coordinated care in one location.",
+      h2: "Everything under one roof",
+      lead: "Diagnostics, treatment and aftercare, closely connected through trusted partners.",
       partners: [
-        { logo: partnerWz.url, alt: "Spine Center at Stiglmaierplatz", name: "Spine Center at Stiglmaierplatz", short: "Spine surgery · pain therapy" },
-        { logo: partnerRadiologie.url, alt: "Radiology at Stiglmaierplatz", name: "Radiology at Stiglmaierplatz", short: "MRI · CT · neuroradiology on site" },
-        { logo: partnerOms.url, alt: "Orthopaedics Munich-Schwabing", name: "Orthopaedics Munich-Schwabing", short: "Arthritis · knee · hip · shoulder" },
-        { logo: partnerHand.url, alt: "BL Hand Surgery Bavaria", name: "BL Hand Surgery Bavaria", short: "Hand · wrist · forearm" },
-        { logo: partnerOberland.url, alt: "Spine Center Oberland", name: "Spine Center Oberland", short: "Sister practice · Bavaria" },
+        { logo: partnerWz.url,          alt: "Spine Center at Stiglmaierplatz", name: "Spine Center",        short: "Spine surgery · pain therapy" },
+        { logo: partnerRadiologie.url,  alt: "Radiology at Stiglmaierplatz",    name: "Radiology",           short: "MRI · CT · neuroradiology on site" },
+        { logo: partnerOms.url,         alt: "Orthopaedics Munich-Schwabing",   name: "OMS Orthopaedics",    short: "Arthritis · knee · hip · shoulder" },
+        { logo: partnerHand.url,        alt: "BL Hand Surgery Bavaria",         name: "BL Hand Surgery",     short: "Hand · wrist · forearm" },
+        { logo: partnerOberland.url,    alt: "Spine Center Oberland",           name: "WZ Oberland",         short: "Sister practice · Bavaria" },
       ],
     },
   });
   return (
     <section className="bg-white border-y border-[#E2E4E7] py-12 sm:py-16 lg:py-20">
       <div className="mx-auto max-w-7xl px-5 lg:px-8">
-        <div ref={ref} style={style} className="lg:flex lg:items-center lg:gap-14">
-          <div className="lg:w-72 shrink-0 mb-10 lg:mb-0">
+        <div ref={ref} style={style} className="lg:flex lg:items-start lg:gap-16">
 
+          {/* Left: text block ~32% */}
+          <div className="lg:w-[32%] shrink-0 mb-10 lg:mb-0">
             <SectionLabel>{t.label}</SectionLabel>
             <h2
               className="mt-4 font-display text-[#1E2535] leading-tight"
-              style={{ fontSize: "clamp(1.6rem, 3vw, 2.2rem)", fontWeight: 500 }}
+              style={{ fontSize: "clamp(1.6rem, 2.8vw, 2.2rem)", fontWeight: 500, letterSpacing: "-0.02em" }}
             >
-              {t.h2a}<em style={{ fontStyle: "normal", fontWeight: 600 }}>{t.h2b}</em>
+              {t.h2}
             </h2>
-            <p className="mt-3 text-sm text-[#5B6472] leading-relaxed max-w-xs">{t.lead}</p>
+            <p className="mt-4 text-[15px] text-[#5B6472] leading-relaxed">{t.lead}</p>
           </div>
-          <div className="flex flex-wrap gap-3 sm:gap-4 flex-1">
-            {t.partners.map((p) => (
-              <div key={p.name} className="grow basis-[calc(50%-0.5rem)] sm:basis-[calc(33.333%-0.75rem)] xl:basis-[calc(20%-0.8rem)] bg-white border border-[#E2E4E7] p-4 sm:p-6 flex flex-col items-center text-center gap-3 sm:gap-4 min-h-[160px] sm:min-h-[180px] transition-colors duration-300 hover:border-[#AC8F52]/50">
 
-                <div className="h-14 w-full flex items-center justify-center">
+          {/* Right: partner logos ~68% */}
+          <div className="flex-1 grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4">
+            {t.partners.map((p, i) => (
+              <div
+                key={p.name}
+                className={`bg-[#FAFAF9] border border-[#E8E3DA] hover:border-[#AC8F52]/50 transition-colors duration-300
+                  flex flex-col items-center justify-between text-center p-4 sm:p-5 gap-4
+                  ${i === 4 ? "col-span-2 sm:col-span-1" : ""}`}
+                style={{ borderRadius: 8, minHeight: 148 }}
+              >
+                <div className="h-12 w-full flex items-center justify-center">
                   <img
                     src={p.logo}
                     alt={p.alt}
-                    className="max-h-14 max-w-[160px] w-auto object-contain"
+                    className="max-h-12 max-w-[140px] w-auto object-contain"
                     loading="lazy"
                   />
                 </div>
-                <div className="mt-auto">
-                  <p className="text-xs font-semibold text-[#1E2535] leading-snug">{p.name}</p>
-                  <p className="mt-1 text-[11px] text-[#5B6472] leading-relaxed">{p.short}</p>
+                <div>
+                  <p className="text-[12px] font-semibold text-[#1E2535] leading-snug">{p.name}</p>
+                  <p className="mt-0.5 text-[11px] text-[#8C939B] leading-snug">{p.short}</p>
                 </div>
               </div>
             ))}
@@ -1167,16 +1173,23 @@ function HomeLeaderCard({
 function HomeTeamCard({ d, delay, cta }: { d: ReturnType<typeof localizeDoctor>; delay: number; cta: string }) {
   const { ref, style } = useFadeUp(delay);
   return (
-    <div ref={ref} style={style} className="group text-center">
-      <Link to="/aerzte/$slug" params={{ slug: d.slug }} className="block">
-        <div className="relative mx-auto mb-5 h-36 w-36 sm:h-40 sm:w-40 rounded-full overflow-hidden border-2 border-[#E2E4E7] group-hover:border-[#AC8F52] transition-colors duration-300 bg-[#263044]">
+    <div ref={ref} style={style} className="group h-full">
+      <Link
+        to="/aerzte/$slug"
+        params={{ slug: d.slug }}
+        className="flex flex-row sm:flex-col h-full bg-white border border-[#E2E4E7]
+          group-hover:border-[#AC8F52]/40 group-hover:shadow-md transition-all duration-300 overflow-hidden"
+        style={{ borderRadius: 12 }}
+      >
+        {/* Portrait — left on mobile, top on desktop */}
+        <div className="relative w-[90px] sm:w-full shrink-0 aspect-[3/4] sm:aspect-[3/4] overflow-hidden bg-[#263044]">
           {d.photo ? (
             <img
               src={d.photo}
               alt={d.name}
               loading="lazy"
               decoding="async"
-              className="h-full w-full object-cover object-[50%_15%] grayscale-[20%] group-hover:grayscale-0 transition-all duration-500 group-hover:scale-[1.04]"
+              className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.04]"
             />
           ) : (
             <div className="h-full w-full flex items-center justify-center">
@@ -1184,10 +1197,22 @@ function HomeTeamCard({ d, delay, cta }: { d: ReturnType<typeof localizeDoctor>;
             </div>
           )}
         </div>
-        <h3 className="font-display text-[#1E2535] leading-snug" style={{ fontSize: "1.15rem", fontWeight: 500 }}>{d.name}</h3>
-        <p className="mt-1 text-sm text-[#5F6771]">{d.role}</p>
-        <p className="mt-1 text-xs text-[#8C939B]">{d.specialties.join(" · ")}</p>
-        <span className="mt-3 inline-block text-xs font-semibold text-[#8C939B] group-hover:text-[#AC8F52] transition-colors">{cta} →</span>
+        {/* Info */}
+        <div className="flex flex-col flex-1 justify-between p-4 sm:p-5">
+          <div>
+            <h3 className="font-display text-[#1E2535] leading-snug" style={{ fontSize: "1.05rem", fontWeight: 500 }}>
+              {d.name}
+            </h3>
+            <p className="mt-1 text-sm text-[#5F6771] leading-snug">{d.role}</p>
+            <p className="mt-1.5 text-[11px] text-[#8C939B] leading-snug">{d.specialties[0]}</p>
+          </div>
+          <span className="mt-3 inline-flex items-center gap-1 text-xs font-semibold text-[#8C939B] group-hover:text-[#AC8F52] transition-colors">
+            {cta}
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M3 8h10M9 4l4 4-4 4"/>
+            </svg>
+          </span>
+        </div>
       </Link>
     </div>
   );
@@ -1258,11 +1283,11 @@ function Team() {
         </div>
 
         {/* Team preview */}
-        <div className="mt-14 sm:mt-16">
-          <p className="text-[10px] font-semibold tracking-[0.28em] uppercase text-[#AC8F52] mb-8">
+        <div className="mt-14 sm:mt-18">
+          <p className="text-[10px] font-semibold tracking-[0.28em] uppercase text-[#AC8F52] mb-6">
             {t.teamLabel}
           </p>
-          <div className="grid gap-10 sm:grid-cols-3 mx-auto">
+          <div className="grid gap-4 sm:gap-5 grid-cols-1 sm:grid-cols-3">
             {TEAM_PREVIEW.map((d, i) => (
               <HomeTeamCard key={d.slug} d={d} delay={200 + i * 80} cta={t.viewProfile} />
             ))}
