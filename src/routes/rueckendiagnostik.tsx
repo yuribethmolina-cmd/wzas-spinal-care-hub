@@ -291,6 +291,9 @@ function RueckendiagnostikPage() {
       mrtBody:
         "Patienten mit Platzangst begleiten wir besonders behutsam: Mit viel Zeit, verständlicher Vorbereitung, persönlicher Zuwendung und, wenn medizinisch sinnvoll, angstlösenden Medikamenten unterstützen wir Sie dabei, die MRT-Untersuchung trotz Ihrer Ängste möglichst ruhig und sicher zu bewältigen.",
       mrtCta: "Sprechen Sie uns an",
+      faqEyebrow: "Häufige Fragen",
+      faqHeading: "Antworten zur Rückendiagnostik",
+      faqSub: "Das fragen unsere Patienten am häufigsten rund um Untersuchung, MRT und Befund.",
       bookingHeading: "Bereit für Ihre Diagnose?",
       bookingBody:
         "Vereinbaren Sie einen Termin. Untersuchung, Bildgebung und Befundbesprechung erhalten Sie bei uns an einem Standort.",
