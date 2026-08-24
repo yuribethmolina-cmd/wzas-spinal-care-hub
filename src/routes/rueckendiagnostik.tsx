@@ -205,7 +205,6 @@ function RueckendiagnostikPage() {
   const { ref: faqRef, style: faqStyle } = useFadeUp(0);
 
   const t = useT({
-    de: {
       heroEyebrow: "München · Stiglmaierplatz",
       heroH1: "Rücken­diagnostik",
       heroSubtitle: "Ursachen erkennen. Gezielt behandeln.",
