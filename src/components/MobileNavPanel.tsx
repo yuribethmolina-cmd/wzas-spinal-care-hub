@@ -35,7 +35,7 @@ const SOCIALS = [
   },
 ];
 
-type RouteHref = "/" | "/aerzte" | "/beschwerden" | "/behandlungen" | "/faq" | "/aktuelles";
+type RouteHref = "/" | "/aerzte" | "/beschwerden" | "/rueckendiagnostik" | "/behandlungen" | "/faq" | "/aktuelles";
 
 interface MobileNavPanelProps {
   open: boolean;

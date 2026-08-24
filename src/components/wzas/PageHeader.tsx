@@ -42,8 +42,9 @@ export function PageHeader({ activeRoute }: { activeRoute?: string }) {
     de: {
       links: [
         ["Rückenerkrankungen", "/beschwerden"],
-        ["Ärzteteam", "/aerzte"],
+        ["Rückendiagnostik", "/rueckendiagnostik"],
         ["Behandlungen", "/behandlungen"],
+        ["Ärzteteam", "/aerzte"],
         ["FAQ", "/faq"],
         ["Aktuelles", "/aktuelles"],
       ] as [string, string][],
@@ -54,8 +55,9 @@ export function PageHeader({ activeRoute }: { activeRoute?: string }) {
     en: {
       links: [
         ["Spine conditions", "/beschwerden"],
-        ["Our doctors", "/aerzte"],
+        ["Diagnostics", "/rueckendiagnostik"],
         ["Treatments", "/behandlungen"],
+        ["Our doctors", "/aerzte"],
         ["FAQ", "/faq"],
         ["News", "/aktuelles"],
       ] as [string, string][],
