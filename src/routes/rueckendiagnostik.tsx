@@ -220,7 +220,7 @@ function AnchorNav({ t }: { t: any }) {
       .map((i) => document.getElementById(i.id))
       .filter(Boolean) as HTMLElement[];
     const onScroll = () => {
-      const offset = topOffset + 60;
+      const offset = topOffset + 90;
       let current = "";
       for (const sec of sections) {
         if (sec.getBoundingClientRect().top <= offset) current = sec.id;
