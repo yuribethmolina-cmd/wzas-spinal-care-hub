@@ -507,6 +507,8 @@ function RueckendiagnostikPage() {
           </div>
         </section>
 
+        <AnchorNav t={t} />
+
         {/* Intro + pull quote */}
         <section className="bg-white py-14 lg:py-20">
           <div
