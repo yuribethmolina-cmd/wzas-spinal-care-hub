@@ -201,6 +201,8 @@ function RueckendiagnostikPage() {
   const { ref: pathRef, style: pathStyle } = useFadeUp(0);
   const { ref: findingRef, style: findingStyle } = useFadeUp(0);
   const { ref: mrtRef, style: mrtStyle } = useFadeUp(0);
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const { ref: faqRef, style: faqStyle } = useFadeUp(0);
 
   const t = useT({
     de: {
