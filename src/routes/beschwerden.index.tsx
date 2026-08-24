@@ -16,6 +16,26 @@ const TRUST_ICONS: Record<string, string> = {
   calendar: "M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z",
 };
 
+function DiagnostikLink() {
+  const t = useT({
+    de: { intro: "Noch keine Diagnose?", link: "So läuft Ihre Rückendiagnostik ab" },
+    en: { intro: "No diagnosis yet?", link: "See how our spine diagnostics works" },
+  });
+  return (
+    <p className="mt-5 text-sm text-[#5F6771]">
+      {t.intro}{" "}
+      <Link
+        to="/rueckendiagnostik"
+        className="group inline-flex min-h-11 items-center gap-1.5 font-semibold text-[#7A6029] underline underline-offset-4 hover:brightness-110"
+      >
+        {t.link}
+        <span className="transition-transform group-hover:translate-x-1" aria-hidden>→</span>
+      </Link>
+    </p>
+  );
+}
+
+
 function useFadeUp(delay = 0) {
   const ref = useRef<HTMLDivElement>(null);
   const [vis, setVis] = useState(false);
@@ -183,6 +203,7 @@ function BeschwerdenHub() {
               <p className="text-lg text-[#4A5568] leading-relaxed">
                 {t.introText}
               </p>
+              <DiagnostikLink />
             </div>
             <div className="border-l-4 border-[#AC8F52] pl-6">
               <p className="font-display text-2xl lg:text-3xl italic text-[#1E2535] leading-snug">

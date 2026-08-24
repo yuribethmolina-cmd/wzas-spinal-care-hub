@@ -42,8 +42,9 @@ export function PageHeader({ activeRoute }: { activeRoute?: string }) {
     de: {
       links: [
         ["Rückenerkrankungen", "/beschwerden"],
-        ["Ärzteteam", "/aerzte"],
+        ["Rückendiagnostik", "/rueckendiagnostik"],
         ["Behandlungen", "/behandlungen"],
+        ["Ärzteteam", "/aerzte"],
         ["FAQ", "/faq"],
         ["Aktuelles", "/aktuelles"],
       ] as [string, string][],
@@ -54,8 +55,9 @@ export function PageHeader({ activeRoute }: { activeRoute?: string }) {
     en: {
       links: [
         ["Spine conditions", "/beschwerden"],
-        ["Our doctors", "/aerzte"],
+        ["Diagnostics", "/rueckendiagnostik"],
         ["Treatments", "/behandlungen"],
+        ["Our doctors", "/aerzte"],
         ["FAQ", "/faq"],
         ["News", "/aktuelles"],
       ] as [string, string][],
@@ -82,7 +84,7 @@ export function PageHeader({ activeRoute }: { activeRoute?: string }) {
   const navLink = (to: string, label: string) => (
     <Link
       key={to}
-      to={to as "/beschwerden" | "/aerzte" | "/behandlungen" | "/faq" | "/aktuelles"}
+      to={to as "/beschwerden" | "/rueckendiagnostik" | "/aerzte" | "/behandlungen" | "/faq" | "/aktuelles"}
       className={`text-sm transition-colors ${
         activeRoute === to
           ? "font-semibold text-[#AC8F52]"
