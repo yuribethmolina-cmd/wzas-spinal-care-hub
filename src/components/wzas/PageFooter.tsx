@@ -43,6 +43,7 @@ export function PageFooter() {
       ask: "Anfrage senden",
       links: {
         beschwerden: "Rückenerkrankungen",
+        diagnostik: "Rückendiagnostik",
         aerzte: "Ärzteteam",
         behandlungen: "Behandlungen",
         faq: "Häufige Fragen",
