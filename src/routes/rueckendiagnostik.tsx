@@ -197,7 +197,7 @@ export const Route = createFileRoute("/rueckendiagnostik")({
   component: RueckendiagnostikPage,
 });
 
-function AnchorNav({ t }: { t: Record<string, string> }) {
+function AnchorNav({ t }: { t: Record<string, string | string[]> }) {
   const [topOffset, setTopOffset] = useState(0);
   const [active, setActive] = useState<string>("");
 
