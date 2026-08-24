@@ -297,6 +297,9 @@ function RueckendiagnostikPage() {
       faqEyebrow: "Häufige Fragen",
       faqHeading: "Antworten zur Rückendiagnostik",
       faqSub: "Das fragen unsere Patienten am häufigsten rund um Untersuchung, MRT und Befund.",
+      navFinding: "Befund & Beschwerden",
+      navAblauf: "Ablauf in 5 Schritten",
+      navMrt: "MRT & Platzangst",
       bookingHeading: "Bereit für Ihre Diagnose?",
       bookingBody:
         "Vereinbaren Sie einen Termin. Untersuchung, Bildgebung und Befundbesprechung erhalten Sie bei uns an einem Standort.",
@@ -394,6 +397,9 @@ function RueckendiagnostikPage() {
       faqEyebrow: "Frequently asked questions",
       faqHeading: "Answers about spine diagnostics",
       faqSub: "The questions patients most often ask us about examination, MRI and findings.",
+      navFinding: "Findings & symptoms",
+      navAblauf: "Process in 5 steps",
+      navMrt: "MRI & claustrophobia",
       bookingHeading: "Ready for your diagnosis?",
       bookingBody:
         "Book an appointment. Examination, imaging and the discussion of your findings all happen at one location.",
@@ -517,7 +523,7 @@ function RueckendiagnostikPage() {
         </section>
 
         {/* Finding vs symptoms */}
-        <section className="bg-white py-14 lg:py-20">
+        <section id="befund" className="scroll-mt-36 bg-white py-14 lg:py-20">
           <div
             ref={findingRef}
             style={findingStyle}
@@ -562,7 +568,7 @@ function RueckendiagnostikPage() {
         </section>
 
         {/* 5-step process */}
-        <section id="ablauf" className="scroll-mt-24 bg-[#F8F8F6] py-14 lg:py-20">
+        <section id="ablauf" className="scroll-mt-36 bg-[#F8F8F6] py-14 lg:py-20">
           <div className="mx-auto max-w-6xl px-5 lg:px-8">
             <h2 className="font-display text-3xl font-semibold text-[#1E2535] lg:text-5xl">{t.ablaufHeading}</h2>
             <p className="mt-3 text-[#5F6771]">{t.ablaufSub}</p>
@@ -576,7 +582,7 @@ function RueckendiagnostikPage() {
         </section>
 
         {/* MRI / claustrophobia */}
-        <section className="bg-white py-14 lg:py-20">
+        <section id="mrt" className="scroll-mt-36 bg-white py-14 lg:py-20">
           <div
             ref={mrtRef}
             style={mrtStyle}
