@@ -59,6 +59,120 @@ function CheckIcon() {
   );
 }
 
+type DiagFaqItem = { de: { q: string; a: string }; en: { q: string; a: string } };
+
+const DIAG_FAQ: DiagFaqItem[] = [
+  {
+    de: {
+      q: "Brauche ich eine Überweisung für die Diagnostik?",
+      a: "Nein. Sie können sich direkt an unser Wirbelsäulenzentrum am Stiglmaierplatz wenden, ohne vorher einen Hausarzt aufzusuchen. Wir empfehlen lediglich, vorhandene Arztbriefe und Bildaufnahmen mitzubringen.",
+    },
+    en: {
+      q: "Do I need a referral for diagnostics?",
+      a: "No. You can contact our spine centre at Stiglmaierplatz directly, without seeing a GP first. We simply recommend bringing any existing medical reports and scans with you.",
+    },
+  },
+  {
+    de: {
+      q: "Welche Unterlagen sollte ich zum Termin mitbringen?",
+      a: "Bringen Sie bitte Ihre Versicherungskarte sowie alle Unterlagen mit, die Ihre Wirbelsäule betreffen: MRT- oder CT-Bilder, Röntgenaufnahmen, Befunde und Arztbriefe. Unsere Spezialisten prüfen vorhandene Bilder persönlich.",
+    },
+    en: {
+      q: "What documents should I bring to my appointment?",
+      a: "Please bring your health insurance card and any documents relating to your spine: MRI or CT images, X-rays, medical reports and referral letters. Our specialists review existing scans personally.",
+    },
+  },
+  {
+    de: {
+      q: "Werden MRT und CT direkt bei Ihnen durchgeführt?",
+      a: "Ja. Das Radiologiezentrum RZaS am Stiglmaierplatz verfügt über moderne MRT- und CT-Geräte direkt im Haus. So entfallen lange Wege und Wartezeiten auf externe Termine, und die Ergebnisse werden unmittelbar mit unseren Wirbelsäulenspezialisten besprochen.",
+    },
+    en: {
+      q: "Are MRI and CT performed on site?",
+      a: "Yes. The radiology centre RZaS at Stiglmaierplatz has modern MRI and CT scanners directly in the building. This avoids long journeys and waits for external appointments, and the results are discussed directly with our spine specialists.",
+    },
+  },
+  {
+    de: {
+      q: "Wie lange dauert die MRT-Untersuchung?",
+      a: "Eine einzelne MRT-Untersuchung dauert in der Regel zwischen 15 und 30 Minuten. Die Gesamtdauer Ihres Besuchs hängt davon ab, welche Schritte an diesem Tag noch anstehen. Wenn möglich, koordinieren wir Bildgebung und Ambulanztermin, damit sich Ihr Aufenthalt auf ein Mindestmaß beschränkt.",
+    },
+    en: {
+      q: "How long does an MRI scan take?",
+      a: "A single MRI scan usually takes between 15 and 30 minutes. How long your visit lasts in total depends on which further steps are planned for that day. Whenever possible, we coordinate imaging with your consultation to keep your stay as short as possible.",
+    },
+  },
+  {
+    de: {
+      q: "Ist die Untersuchung schmerzhaft?",
+      a: "Nein. MRT und CT sind schmerzfreie Untersuchungen, bei denen Sie lediglich liegen und stillhalten. Haben Sie Angst vor engen Räumen, begleiten wir Sie besonders behutsam und können, wenn medizinisch sinnvoll, angstlösende Maßnahmen einsetzen.",
+    },
+    en: {
+      q: "Is the examination painful?",
+      a: "No. MRI and CT are painless; you simply lie still for the scan. If you are anxious about enclosed spaces, we support you with particular care and can use anxiety-relieving measures where medically appropriate.",
+    },
+  },
+  {
+    de: {
+      q: "Wann bekomme ich meine Ergebnisse?",
+      a: "Weil Bildgebung und Fachärzte an einem Standort zusammenarbeiten, können wir die Ergebnisse direkt nach der Untersuchung gemeinsam auswerten und mit Ihnen besprechen. Ihr individueller Behandlungsplan entsteht dabei häufig noch am selben Tag.",
+    },
+    en: {
+      q: "When will I receive my results?",
+      a: "Because imaging and specialists work in one location, we can evaluate the results together and discuss them with you immediately after the scan. Your individual treatment plan is often drawn up on the same day.",
+    },
+  },
+  {
+    de: {
+      q: "Was passiert, wenn der Befund keine klare Ursache zeigt?",
+      a: "Viele Veränderungen der Wirbelsäule sind altersbedingt und finden sich auch bei Menschen ohne Beschwerden. Unsere Aufgabe ist es, gemeinsam mit Ihnen herauszuarbeiten, welcher Befund tatsächlich zu Ihren Beschwerden passt – und welche Veränderungen nur Zufallsbefunde ohne klinische Relevanz sind.",
+    },
+    en: {
+      q: "What happens if the finding does not show a clear cause?",
+      a: "Many changes in the spine are age-related and also occur in people without symptoms. Our task is to work out with you which finding actually matches your symptoms – and which changes are merely incidental findings without clinical relevance.",
+    },
+  },
+];
+
+function AccordionItem({
+  q,
+  a,
+  isOpen,
+  onToggle,
+}: {
+  q: string;
+  a: string;
+  isOpen: boolean;
+  onToggle: () => void;
+}) {
+  return (
+    <div className="border-b border-[#E2E4E7]">
+      <button
+        type="button"
+        onClick={onToggle}
+        className="w-full flex items-center justify-between gap-4 py-5 text-left"
+        aria-expanded={isOpen}
+      >
+        <span className="font-display text-lg font-semibold text-[#1E2535]">{q}</span>
+        <span
+          className="flex-shrink-0 w-6 h-6 flex items-center justify-center text-[#AC8F52] transition-transform duration-200"
+          style={{ transform: isOpen ? "rotate(45deg)" : "rotate(0deg)" }}
+          aria-hidden="true"
+        >
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="18" height="18">
+            <path d="M12 5v14M5 12h14" strokeLinecap="round" />
+          </svg>
+        </span>
+      </button>
+      {isOpen && (
+        <div className="pb-5 pr-8">
+          <p className="text-sm text-[#4A5568] leading-relaxed">{a}</p>
+        </div>
+      )}
+    </div>
+  );
+}
+
 export const Route = createFileRoute("/rueckendiagnostik")({
   head: () => ({
     meta: [
@@ -87,6 +201,8 @@ function RueckendiagnostikPage() {
   const { ref: pathRef, style: pathStyle } = useFadeUp(0);
   const { ref: findingRef, style: findingStyle } = useFadeUp(0);
   const { ref: mrtRef, style: mrtStyle } = useFadeUp(0);
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const { ref: faqRef, style: faqStyle } = useFadeUp(0);
 
   const t = useT({
     de: {
@@ -177,6 +293,9 @@ function RueckendiagnostikPage() {
       mrtBody:
         "Patienten mit Platzangst begleiten wir besonders behutsam: Mit viel Zeit, verständlicher Vorbereitung, persönlicher Zuwendung und, wenn medizinisch sinnvoll, angstlösenden Medikamenten unterstützen wir Sie dabei, die MRT-Untersuchung trotz Ihrer Ängste möglichst ruhig und sicher zu bewältigen.",
       mrtCta: "Sprechen Sie uns an",
+      faqEyebrow: "Häufige Fragen",
+      faqHeading: "Antworten zur Rückendiagnostik",
+      faqSub: "Das fragen unsere Patienten am häufigsten rund um Untersuchung, MRT und Befund.",
       bookingHeading: "Bereit für Ihre Diagnose?",
       bookingBody:
         "Vereinbaren Sie einen Termin. Untersuchung, Bildgebung und Befundbesprechung erhalten Sie bei uns an einem Standort.",
@@ -271,6 +390,9 @@ function RueckendiagnostikPage() {
       mrtBody:
         "We support patients with claustrophobia with particular care: with plenty of time, clear preparation, personal attention and, where medically appropriate, anxiety-relieving medication, so that you can get through the MRI scan as calmly and safely as possible.",
       mrtCta: "Talk to us",
+      faqEyebrow: "Frequently asked questions",
+      faqHeading: "Answers about spine diagnostics",
+      faqSub: "The questions patients most often ask us about examination, MRI and findings.",
       bookingHeading: "Ready for your diagnosis?",
       bookingBody:
         "Book an appointment. Examination, imaging and the discussion of your findings all happen at one location.",
@@ -278,6 +400,8 @@ function RueckendiagnostikPage() {
       bookingSecondary: "View treatment options →",
     },
   });
+
+  const lang: "de" | "en" = useT({ de: "de" as const, en: "en" as const });
 
   return (
     <div className="min-h-screen bg-[#F8F8F6]">
@@ -480,6 +604,31 @@ function RueckendiagnostikPage() {
                   <span aria-hidden>→</span>
                 </a>
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* FAQ */}
+        <section className="border-t border-[#E2E4E7] bg-white py-14 lg:py-20">
+          <div ref={faqRef} style={faqStyle} className="mx-auto max-w-3xl px-5 lg:px-8">
+            <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#AC8F52]">
+              {t.faqEyebrow}
+            </p>
+            <h2 className="mt-2 font-display text-3xl font-semibold leading-tight text-[#1E2535] lg:text-4xl">
+              {t.faqHeading}
+            </h2>
+            <p className="mt-3 text-[#5F6771]">{t.faqSub}</p>
+
+            <div className="mt-6 border-t border-[#E2E4E7]">
+              {DIAG_FAQ.map((item, i) => (
+                <AccordionItem
+                  key={i}
+                  q={item[lang].q}
+                  a={item[lang].a}
+                  isOpen={openFaq === i}
+                  onToggle={() => setOpenFaq((prev) => (prev === i ? null : i))}
+                />
+              ))}
             </div>
           </div>
         </section>
