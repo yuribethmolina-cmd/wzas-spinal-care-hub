@@ -388,6 +388,9 @@ function RueckendiagnostikPage() {
       mrtBody:
         "We support patients with claustrophobia with particular care: with plenty of time, clear preparation, personal attention and, where medically appropriate, anxiety-relieving medication, so that you can get through the MRI scan as calmly and safely as possible.",
       mrtCta: "Talk to us",
+      faqEyebrow: "Frequently asked questions",
+      faqHeading: "Answers about spine diagnostics",
+      faqSub: "The questions patients most often ask us about examination, MRI and findings.",
       bookingHeading: "Ready for your diagnosis?",
       bookingBody:
         "Book an appointment. Examination, imaging and the discussion of your findings all happen at one location.",
