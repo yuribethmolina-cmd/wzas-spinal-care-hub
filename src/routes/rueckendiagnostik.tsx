@@ -4,6 +4,7 @@ import { PageHeader } from "@/components/wzas/PageHeader";
 import { PageFooter } from "@/components/wzas/PageFooter";
 import { BookingCTA } from "@/components/wzas/BookingCTA";
 import { useT } from "@/lib/lang";
+import { DiagnostikTerminForm } from "@/components/DiagnostikTerminForm";
 
 const EASE = "cubic-bezier(0.23, 1, 0.32, 1)";
 const BASE = "https://www.wzas.de/wp-content/uploads";
@@ -607,6 +608,8 @@ function RueckendiagnostikPage() {
             </div>
           </div>
         </section>
+
+        <DiagnostikTerminForm />
 
         {/* FAQ */}
         <section className="border-t border-[#E2E4E7] bg-white py-14 lg:py-20">
