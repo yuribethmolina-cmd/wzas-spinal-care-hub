@@ -608,6 +608,8 @@ function RueckendiagnostikPage() {
           </div>
         </section>
 
+        <DiagnostikTerminForm />
+
         {/* FAQ */}
         <section className="border-t border-[#E2E4E7] bg-white py-14 lg:py-20">
           <div ref={faqRef} style={faqStyle} className="mx-auto max-w-3xl px-5 lg:px-8">
