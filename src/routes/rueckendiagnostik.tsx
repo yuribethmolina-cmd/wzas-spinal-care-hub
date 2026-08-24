@@ -197,6 +197,70 @@ export const Route = createFileRoute("/rueckendiagnostik")({
   component: RueckendiagnostikPage,
 });
 
+function AnchorNav({ t }: { t: any }) {
+  const [topOffset, setTopOffset] = useState(0);
+  const [active, setActive] = useState<string>("");
+
+  const items = [
+    { id: "befund", label: t.navFinding },
+    { id: "ablauf", label: t.navAblauf },
+    { id: "mrt", label: t.navMrt },
+  ];
+
+  useEffect(() => {
+    const header = document.querySelector("header");
+    const measure = () => setTopOffset(header ? header.getBoundingClientRect().height : 0);
+    measure();
+    window.addEventListener("resize", measure);
+    return () => window.removeEventListener("resize", measure);
+  }, []);
+
+  useEffect(() => {
+    const sections = items
+      .map((i) => document.getElementById(i.id))
+      .filter(Boolean) as HTMLElement[];
+    const onScroll = () => {
+      const offset = topOffset + 90;
+      let current = "";
+      for (const sec of sections) {
+        if (sec.getBoundingClientRect().top <= offset) current = sec.id;
+      }
+      setActive(current);
+    };
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, [topOffset]);
+
+  return (
+    <nav
+      aria-label="Section navigation"
+      className="sticky z-40 border-b border-[#E2E4E7] bg-white/95 backdrop-blur"
+      style={{ top: topOffset }}
+    >
+      <div className="mx-auto flex max-w-6xl items-center gap-1 overflow-x-auto px-5 lg:px-8 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+        {items.map((it) => {
+          const isActive = active === it.id;
+          return (
+            <a
+              key={it.id}
+              href={`#${it.id}`}
+              aria-current={isActive ? "true" : undefined}
+              className={`whitespace-nowrap border-b-2 px-4 py-3.5 text-sm font-semibold transition-colors duration-200 ${
+                isActive
+                  ? "border-[#AC8F52] text-[#7A6029]"
+                  : "border-transparent text-[#5F6771] hover:text-[#1E2535]"
+              }`}
+            >
+              {it.label}
+            </a>
+          );
+        })}
+      </div>
+    </nav>
+  );
+}
+
 function RueckendiagnostikPage() {
   const { ref: introRef, style: introStyle } = useFadeUp(100);
   const { ref: pathRef, style: pathStyle } = useFadeUp(0);
@@ -297,6 +361,9 @@ function RueckendiagnostikPage() {
       faqEyebrow: "Häufige Fragen",
       faqHeading: "Antworten zur Rückendiagnostik",
       faqSub: "Das fragen unsere Patienten am häufigsten rund um Untersuchung, MRT und Befund.",
+      navFinding: "Befund & Beschwerden",
+      navAblauf: "Ablauf in 5 Schritten",
+      navMrt: "MRT & Platzangst",
       bookingHeading: "Bereit für Ihre Diagnose?",
       bookingBody:
         "Vereinbaren Sie einen Termin. Untersuchung, Bildgebung und Befundbesprechung erhalten Sie bei uns an einem Standort.",
@@ -394,6 +461,9 @@ function RueckendiagnostikPage() {
       faqEyebrow: "Frequently asked questions",
       faqHeading: "Answers about spine diagnostics",
       faqSub: "The questions patients most often ask us about examination, MRI and findings.",
+      navFinding: "Findings & symptoms",
+      navAblauf: "Process in 5 steps",
+      navMrt: "MRI & claustrophobia",
       bookingHeading: "Ready for your diagnosis?",
       bookingBody:
         "Book an appointment. Examination, imaging and the discussion of your findings all happen at one location.",
@@ -436,6 +506,8 @@ function RueckendiagnostikPage() {
             </a>
           </div>
         </section>
+
+        <AnchorNav t={t} />
 
         {/* Intro + pull quote */}
         <section className="bg-white py-14 lg:py-20">
@@ -517,7 +589,7 @@ function RueckendiagnostikPage() {
         </section>
 
         {/* Finding vs symptoms */}
-        <section className="bg-white py-14 lg:py-20">
+        <section id="befund" className="scroll-mt-36 bg-white py-14 lg:py-20">
           <div
             ref={findingRef}
             style={findingStyle}
@@ -562,7 +634,7 @@ function RueckendiagnostikPage() {
         </section>
 
         {/* 5-step process */}
-        <section id="ablauf" className="scroll-mt-24 bg-[#F8F8F6] py-14 lg:py-20">
+        <section id="ablauf" className="scroll-mt-36 bg-[#F8F8F6] py-14 lg:py-20">
           <div className="mx-auto max-w-6xl px-5 lg:px-8">
             <h2 className="font-display text-3xl font-semibold text-[#1E2535] lg:text-5xl">{t.ablaufHeading}</h2>
             <p className="mt-3 text-[#5F6771]">{t.ablaufSub}</p>
@@ -576,7 +648,7 @@ function RueckendiagnostikPage() {
         </section>
 
         {/* MRI / claustrophobia */}
-        <section className="bg-white py-14 lg:py-20">
+        <section id="mrt" className="scroll-mt-36 bg-white py-14 lg:py-20">
           <div
             ref={mrtRef}
             style={mrtStyle}
