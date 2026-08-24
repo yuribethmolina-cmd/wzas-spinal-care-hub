@@ -362,6 +362,13 @@ function BehandlungenPage() {
               {t.bridgeParagraph}
             </p>
             <div className="flex flex-wrap justify-center gap-3">
+              <Link
+                to="/rueckendiagnostik"
+                className="group inline-flex items-center gap-2 rounded-full border border-[#AC8F52] bg-[#AC8F52]/10 px-5 py-2.5 text-sm font-semibold text-[#7A6029] transition-all hover:bg-[#AC8F52] hover:text-[#1E2535]"
+              >
+                {t.bridgeParagraph.startsWith("No diagnosis") ? "Spine diagnostics" : "Rückendiagnostik"}
+                <span className="transition-transform group-hover:translate-x-1" aria-hidden>→</span>
+              </Link>
               {bridgeConditions.map((c) => (
                 <Link
                   key={c.id}
