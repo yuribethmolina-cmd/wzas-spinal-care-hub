@@ -401,6 +401,8 @@ function RueckendiagnostikPage() {
     },
   });
 
+  const lang: "de" | "en" = useT({ de: "de" as const, en: "en" as const });
+
   return (
     <div className="min-h-screen bg-[#F8F8F6]">
       <PageHeader activeRoute="/rueckendiagnostik" />
