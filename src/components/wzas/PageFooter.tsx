@@ -56,6 +56,7 @@ export function PageFooter() {
       ask: "Send an inquiry",
       links: {
         beschwerden: "Spine conditions",
+        diagnostik: "Diagnostics",
         aerzte: "Our doctors",
         behandlungen: "Treatments",
         faq: "FAQ",
