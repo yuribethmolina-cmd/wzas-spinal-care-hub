@@ -197,6 +197,70 @@ export const Route = createFileRoute("/rueckendiagnostik")({
   component: RueckendiagnostikPage,
 });
 
+function AnchorNav({ t }: { t: Record<string, string> }) {
+  const [topOffset, setTopOffset] = useState(0);
+  const [active, setActive] = useState<string>("");
+
+  const items = [
+    { id: "befund", label: t.navFinding },
+    { id: "ablauf", label: t.navAblauf },
+    { id: "mrt", label: t.navMrt },
+  ];
+
+  useEffect(() => {
+    const header = document.querySelector("header");
+    const measure = () => setTopOffset(header ? header.getBoundingClientRect().height : 0);
+    measure();
+    window.addEventListener("resize", measure);
+    return () => window.removeEventListener("resize", measure);
+  }, []);
+
+  useEffect(() => {
+    const sections = items
+      .map((i) => document.getElementById(i.id))
+      .filter(Boolean) as HTMLElement[];
+    const onScroll = () => {
+      const offset = topOffset + 60;
+      let current = "";
+      for (const sec of sections) {
+        if (sec.getBoundingClientRect().top <= offset) current = sec.id;
+      }
+      setActive(current);
+    };
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, [topOffset]);
+
+  return (
+    <nav
+      aria-label="Section navigation"
+      className="sticky z-40 border-b border-[#E2E4E7] bg-white/95 backdrop-blur"
+      style={{ top: topOffset }}
+    >
+      <div className="mx-auto flex max-w-6xl items-center gap-1 overflow-x-auto px-5 lg:px-8 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+        {items.map((it) => {
+          const isActive = active === it.id;
+          return (
+            <a
+              key={it.id}
+              href={`#${it.id}`}
+              aria-current={isActive ? "true" : undefined}
+              className={`whitespace-nowrap border-b-2 px-4 py-3.5 text-sm font-semibold transition-colors duration-200 ${
+                isActive
+                  ? "border-[#AC8F52] text-[#7A6029]"
+                  : "border-transparent text-[#5F6771] hover:text-[#1E2535]"
+              }`}
+            >
+              {it.label}
+            </a>
+          );
+        })}
+      </div>
+    </nav>
+  );
+}
+
 function RueckendiagnostikPage() {
   const { ref: introRef, style: introStyle } = useFadeUp(100);
   const { ref: pathRef, style: pathStyle } = useFadeUp(0);
