@@ -76,6 +76,7 @@ export function PageFooter() {
           </Link>
           <nav className="flex flex-wrap gap-x-8 gap-y-3">
             <Link to="/beschwerden" className="inline-flex items-center min-h-11 lg:min-h-0 text-sm text-white/70 hover:text-white transition">{t.links.beschwerden}</Link>
+            <Link to="/rueckendiagnostik" className="inline-flex items-center min-h-11 lg:min-h-0 text-sm text-white/70 hover:text-white transition">{t.links.diagnostik}</Link>
             <Link to="/aerzte" className="inline-flex items-center min-h-11 lg:min-h-0 text-sm text-white/70 hover:text-white transition">{t.links.aerzte}</Link>
             <Link to="/behandlungen" className="inline-flex items-center min-h-11 lg:min-h-0 text-sm text-white/70 hover:text-white transition">{t.links.behandlungen}</Link>
             <Link to="/faq" className="inline-flex items-center min-h-11 lg:min-h-0 text-sm text-white/70 hover:text-white transition">{t.links.faq}</Link>
