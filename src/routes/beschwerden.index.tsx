@@ -183,6 +183,7 @@ function BeschwerdenHub() {
               <p className="text-lg text-[#4A5568] leading-relaxed">
                 {t.introText}
               </p>
+              <DiagnostikLink />
             </div>
             <div className="border-l-4 border-[#AC8F52] pl-6">
               <p className="font-display text-2xl lg:text-3xl italic text-[#1E2535] leading-snug">
