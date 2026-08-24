@@ -606,6 +606,31 @@ function RueckendiagnostikPage() {
           </div>
         </section>
 
+        {/* FAQ */}
+        <section className="border-t border-[#E2E4E7] bg-white py-14 lg:py-20">
+          <div ref={faqRef} style={faqStyle} className="mx-auto max-w-3xl px-5 lg:px-8">
+            <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#AC8F52]">
+              {t.faqEyebrow}
+            </p>
+            <h2 className="mt-2 font-display text-3xl font-semibold leading-tight text-[#1E2535] lg:text-4xl">
+              {t.faqHeading}
+            </h2>
+            <p className="mt-3 text-[#5F6771]">{t.faqSub}</p>
+
+            <div className="mt-6 border-t border-[#E2E4E7]">
+              {DIAG_FAQ.map((item, i) => (
+                <AccordionItem
+                  key={i}
+                  q={item[lang].q}
+                  a={item[lang].a}
+                  isOpen={openFaq === i}
+                  onToggle={() => setOpenFaq((prev) => (prev === i ? null : i))}
+                />
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* Bridge to conditions */}
         <section className="border-t border-[#E2E4E7] bg-[#F8F8F6] py-12">
           <div className="mx-auto max-w-6xl px-5 text-center lg:px-8">
