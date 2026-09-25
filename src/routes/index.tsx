@@ -31,6 +31,8 @@ import partnerWz from "@/assets/wzas/partners/wz-stiglmaier.png.asset.json";
 import {
   HERO_BG,
   HERO_SRCSET,
+  HERO_AVIF,
+  HERO_AVIF_SRCSET,
   HERO_SIZES,
   BOOKING_URL,
   INQUIRY_URL,
@@ -69,8 +71,9 @@ export const Route = createFileRoute("/")({
       {
         rel: "preload",
         as: "image",
-        href: HERO_BG,
-        imageSrcSet: HERO_SRCSET,
+        href: HERO_AVIF,
+        type: "image/avif",
+        imageSrcSet: HERO_AVIF_SRCSET,
         imageSizes: HERO_SIZES,
         fetchPriority: "high",
       },
@@ -504,19 +507,21 @@ function Hero() {
   const introCta = useIntro(880);
   return (
     <section className="relative bg-[#1E2535] text-white overflow-hidden overflow-x-hidden isolate min-h-[62svh] sm:min-h-[72svh] lg:min-h-0">
-      <img
-        src={HERO_BG}
-        srcSet={HERO_SRCSET}
-        sizes={HERO_SIZES}
-        alt={t.alt}
-        width={1920}
-        height={1080}
-        loading="eager"
-        fetchPriority="high"
-        decoding="async"
-        className="absolute inset-0 h-full sm:h-[115%] lg:h-[118%] w-full object-cover object-[34%_58%] sm:object-[42%_52%] lg:object-center -z-10"
-        style={{ transform: `translate3d(0, ${-parallax}px, 0) scale(1)`, willChange: "transform" }}
-      />
+      <picture className="absolute inset-0 -z-10 block h-full sm:h-[115%] lg:h-[118%] w-full">
+        <source type="image/avif" srcSet={HERO_AVIF_SRCSET} sizes={HERO_SIZES} />
+        <source type="image/webp" srcSet={HERO_SRCSET} sizes={HERO_SIZES} />
+        <img
+          src={HERO_BG}
+          alt={t.alt}
+          width={1920}
+          height={1080}
+          loading="eager"
+          fetchPriority="high"
+          decoding="async"
+          className="h-full w-full object-cover object-[34%_58%] sm:object-[42%_52%] lg:object-center"
+          style={{ transform: `translate3d(0, ${-parallax}px, 0) scale(1)`, willChange: "transform" }}
+        />
+      </picture>
 
 
       <div className="absolute inset-0 -z-10 bg-[#161C29]/35 lg:bg-[#161C29]/40" />

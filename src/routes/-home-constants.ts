@@ -5,6 +5,13 @@ export const HERO_SRCSET = [
   "/__l5e/assets-v1/22491e28-0770-4c1d-b6b0-c786da6184e2/hero-gespraech-1280.webp 1280w",
   "/__l5e/assets-v1/8bd434b5-dc3b-4545-8041-e286f5b3bf89/hero-gespraech-1920.webp 1920w",
 ].join(", ");
+export const HERO_AVIF = "/__l5e/assets-v1/bb83b7dc-3c17-4cec-9163-7426b42221d2/hero-gespraech-1920.avif";
+export const HERO_AVIF_SRCSET = [
+  "/__l5e/assets-v1/820d69c1-0392-498d-bb86-1f9ba5f41bf5/hero-gespraech-640.avif 640w",
+  "/__l5e/assets-v1/322aa84c-0a29-4a6a-820f-0baa153f4d66/hero-gespraech-960.avif 960w",
+  "/__l5e/assets-v1/c8d670a9-ed9a-414a-9c34-895a82efa152/hero-gespraech-1280.avif 1280w",
+  "/__l5e/assets-v1/bb83b7dc-3c17-4cec-9163-7426b42221d2/hero-gespraech-1920.avif 1920w",
+].join(", ");
 export const HERO_SIZES = "100vw";
 export const HERO_VIDEO = "/__l5e/assets-v1/949da178-930e-4139-b75b-d822f0d6020d/hero-columna.mp4";
 
