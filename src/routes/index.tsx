@@ -535,7 +535,7 @@ function Hero() {
       />
       <div className="relative mx-auto max-w-7xl px-5 lg:px-8 pt-7 pb-8 lg:pt-20 lg:pb-40 lg:min-h-[min(84vh,860px)] flex items-center">
 
-        <div className="w-full min-w-0 max-w-3xl lg:max-w-[58%] overflow-x-hidden">
+        <div className="w-full min-w-0 max-w-3xl lg:max-w-[58%] overflow-x-clip">
           <p
             className="text-[11px] font-medium tracking-[0.2em] uppercase text-[#AC8F52] flex items-center gap-2"
             style={introKicker}
