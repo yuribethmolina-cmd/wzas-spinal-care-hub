@@ -477,7 +477,7 @@ function Hero() {
       h1a: "Rückhalt",
       h1b: "für München.",
       h1c: "",
-      sub: "Chronische Rückenschmerzen?\u00a0\nBandscheibenvorfall?\u00a0\nWir finden Ihre Lösung —\u00a0\nkonservativ wo möglich, operativ nur wenn nötig.",
+      sub: "Chronische Rückenschmerzen?\u00a0\nBandscheibenvorfall?\u00a0\nWir finden Ihre Lösung\u00a0\u00a0\nkonservativ wo möglich, operativ nur wenn nötig.",
       book: "Termin buchen",
       more: "Mehr erfahren",
       bookMeta: "Online in ca. 2 Min.",
