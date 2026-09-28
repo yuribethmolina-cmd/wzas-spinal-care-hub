@@ -21,7 +21,7 @@ export function BookingCTA({
   const defaultCta = useT({ de: "Online buchen", en: "Book online" });
   const resolvedCta = ctaCopy ?? defaultCta;
   return (
-    <section className="bg-[#1E2535] py-16 lg:py-20 relative overflow-hidden">
+    <section className="bg-wz-dark py-16 lg:py-20 relative overflow-hidden">
       <div
         className="pointer-events-none absolute inset-0 opacity-[0.03]"
         style={{
@@ -29,12 +29,12 @@ export function BookingCTA({
         }}
       />
       <div className="mx-auto max-w-7xl px-5 lg:px-8 text-center">
-        <h2 className="font-display text-4xl font-semibold text-white">{heading}</h2>
-        <p className="mt-4 text-[#8C939B] max-w-lg mx-auto">{body}</p>
+        <h2 className="font-display text-4xl font-bold text-wz-white">{heading}</h2>
+        <p className="mt-4 text-wz-gray max-w-lg mx-auto">{body}</p>
         <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
           <a
             href={BOOKING_URL}
-            className="inline-flex items-center gap-2 rounded-full bg-[#AC8F52] px-7 py-3.5 text-sm font-semibold text-[#1E2535] hover:brightness-105 transition"
+            className="inline-flex items-center gap-2 rounded-[10px] border border-wz-gold bg-wz-gold px-7 py-3.5 text-[15px] font-semibold text-wz-dark hover:brightness-105 transition"
           >
             {resolvedCta}
           </a>
