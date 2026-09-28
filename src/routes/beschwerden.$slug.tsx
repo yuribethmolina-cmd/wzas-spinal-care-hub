@@ -134,11 +134,11 @@ function BeschwerdenDetail() {
 
   if (!condition) {
     return (
-      <div className="min-h-screen bg-[#F8F8F6]">
+      <div className="min-h-screen bg-[#F9F8F4]">
         <PageHeader activeRoute="/beschwerden" />
         <div className="flex items-center justify-center py-40">
           <div className="text-center">
-            <p className="font-display text-3xl text-[#1E2535] mb-4">{t.notFound}</p>
+            <p className="font-display text-3xl text-[#212121] mb-4">{t.notFound}</p>
             <Link to="/beschwerden" className="text-sm text-[#AC8F52] hover:underline">
               {t.backLink}
             </Link>
@@ -156,7 +156,7 @@ function BeschwerdenDetail() {
     .filter(Boolean) as Condition[];
 
   return (
-    <div className="min-h-screen bg-[#F8F8F6]">
+    <div className="min-h-screen bg-[#F9F8F4]">
       <PageHeader activeRoute="/beschwerden" />
 
       <main>
@@ -179,7 +179,7 @@ function BeschwerdenDetail() {
               ← {t.breadcrumb}
             </Link>
           </div>
-          <div className="absolute bottom-0 left-0 px-5 pb-10 lg:px-12 lg:pb-14 max-w-7xl mx-auto w-full">
+          <div className="absolute bottom-0 left-0 px-5 pb-10 lg:px-12 lg:pb-14 max-w-[1440px] mx-auto w-full">
             <h1 className="font-display text-[1.75rem] sm:text-4xl lg:text-6xl font-semibold text-white leading-tight [hyphens:auto]" lang={lang}>
               {content.name}
             </h1>
@@ -194,8 +194,8 @@ function BeschwerdenDetail() {
         <section className="py-14 lg:py-20 bg-white">
           <div ref={overviewRef} style={overviewStyle} className="mx-auto max-w-6xl px-5 lg:px-8 grid grid-cols-1 lg:grid-cols-3 gap-10 lg:gap-16">
             <div className="lg:col-span-2">
-              <h2 className="font-display text-3xl font-semibold text-[#1E2535] mb-5">{t.whatIsIt}</h2>
-              <p className="text-lg text-[#4A5568] leading-relaxed">{content.bodyText}</p>
+              <h2 className="font-display text-3xl font-semibold text-[#212121] mb-5">{t.whatIsIt}</h2>
+              <p className="text-lg text-[#595959] leading-relaxed">{content.bodyText}</p>
             </div>
             <div>
               <div className="border-l-4 border-[#AC8F52] pl-5 py-2">
@@ -204,19 +204,19 @@ function BeschwerdenDetail() {
                 </p>
                 <div className="space-y-3">
                   <div>
-                    <p className="text-xs text-[#8C939B] uppercase tracking-wider mb-0.5">{t.region}</p>
-                    <p className="text-sm font-medium text-[#1E2535]">{content.bullets.region}</p>
+                    <p className="text-xs text-[#747474] uppercase tracking-wider mb-0.5">{t.region}</p>
+                    <p className="text-sm font-medium text-[#212121]">{content.bullets.region}</p>
                   </div>
                   <div>
-                    <p className="text-xs text-[#8C939B] uppercase tracking-wider mb-0.5">{t.frequency}</p>
-                    <p className="text-sm font-medium text-[#1E2535]">{content.bullets.frequency}</p>
+                    <p className="text-xs text-[#747474] uppercase tracking-wider mb-0.5">{t.frequency}</p>
+                    <p className="text-sm font-medium text-[#212121]">{content.bullets.frequency}</p>
                   </div>
                   <div>
-                    <p className="text-xs text-[#8C939B] uppercase tracking-wider mb-1">{t.symptoms}</p>
+                    <p className="text-xs text-[#747474] uppercase tracking-wider mb-1">{t.symptoms}</p>
                     <ul className="space-y-1">
                       {content.bullets.symptoms.map((s) => (
-                        <li key={s} className="text-sm text-[#1E2535] flex gap-2">
-                          <span aria-hidden className="mt-[0.55rem] h-1.5 w-1.5 shrink-0 rounded-full bg-[#AC8F52]" />
+                        <li key={s} className="text-sm text-[#212121] flex gap-2">
+                          <span aria-hidden className="mt-[0.55rem] h-1.5 w-1.5 shrink-0 rounded-[10px] bg-[#AC8F52]" />
                           {s}
                         </li>
                       ))}
@@ -231,12 +231,12 @@ function BeschwerdenDetail() {
 
         {/* Embedded video */}
         {condition.videoEmbed && (
-          <section className="py-12 lg:py-16 bg-[#F8F8F6]">
+          <section className="py-12 lg:py-16 bg-[#F9F8F4]">
             <div className="mx-auto max-w-6xl px-5 lg:px-8">
-              <h2 className="font-display text-2xl lg:text-3xl font-semibold text-[#1E2535] mb-6">
+              <h2 className="font-display text-2xl lg:text-3xl font-semibold text-[#212121] mb-6">
                 {t.videoHeading}
               </h2>
-              <div className="max-w-3xl aspect-video bg-[#1E2535] rounded-xl overflow-hidden shadow-lg">
+              <div className="max-w-3xl aspect-video bg-[#212121] rounded-[10px] overflow-hidden shadow-lg">
                 <iframe
                   className="w-full h-full"
                   src={condition.videoEmbed.src}
@@ -252,9 +252,9 @@ function BeschwerdenDetail() {
 
         {/* Treatment chips */}
         {condition.treatmentIds.length > 0 && (
-          <section className="py-12 lg:py-16 bg-[#F8F8F6]">
+          <section className="py-12 lg:py-16 bg-[#F9F8F4]">
             <div ref={treatRef} style={treatStyle} className="mx-auto max-w-6xl px-5 lg:px-8">
-              <h2 className="font-display text-2xl lg:text-3xl font-semibold text-[#1E2535] mb-6">
+              <h2 className="font-display text-2xl lg:text-3xl font-semibold text-[#212121] mb-6">
                 {t.howWetreat}
               </h2>
               <div className="flex flex-wrap gap-3">
@@ -262,7 +262,7 @@ function BeschwerdenDetail() {
                   <Link
                     key={id}
                     to="/behandlungen"
-                    className="group inline-flex items-center gap-2 rounded-full border border-[#AC8F52] px-5 py-2.5 text-sm font-medium text-[#AC8F52] transition-all hover:bg-[#AC8F52] hover:text-[#1E2535]"
+                    className="group inline-flex items-center gap-2 rounded-[10px] border border-[#AC8F52] px-5 py-2.5 text-sm font-medium text-[#AC8F52] transition-all hover:bg-[#AC8F52] hover:text-[#212121]"
                   >
                     {TREATMENT_LABELS[id]?.[lang] ?? id}
                     <span
@@ -290,9 +290,9 @@ function BeschwerdenDetail() {
                     key={docSlug}
                     to="/aerzte/$slug"
                     params={{ slug: docSlug }}
-                    className="flex items-center gap-4 bg-white border border-[#E2E4E7] rounded-xl p-4 hover:border-[#AC8F52] transition-colors"
+                    className="flex items-center gap-4 bg-white border border-[#E6E3DC] rounded-[10px] p-4 hover:border-[#AC8F52] transition-colors"
                   >
-                    <p className="text-sm font-semibold text-[#1E2535]">{t.doctorLink} →</p>
+                    <p className="text-sm font-semibold text-[#212121]">{t.doctorLink} →</p>
                   </Link>
                 ))}
               </div>
@@ -302,9 +302,9 @@ function BeschwerdenDetail() {
 
         {/* Related conditions */}
         {relatedConditions.length > 0 && (
-          <section className="py-12 lg:py-16 bg-[#F8F8F6]">
+          <section className="py-12 lg:py-16 bg-[#F9F8F4]">
             <div ref={relRef} style={relStyle} className="mx-auto max-w-6xl px-5 lg:px-8">
-              <h2 className="font-display text-2xl font-semibold text-[#1E2535] mb-6">
+              <h2 className="font-display text-2xl font-semibold text-[#212121] mb-6">
                 {t.relatedConditions}
               </h2>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">

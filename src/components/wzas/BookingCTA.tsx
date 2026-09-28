@@ -28,7 +28,7 @@ export function BookingCTA({
           backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`,
         }}
       />
-      <div className="mx-auto max-w-7xl px-5 lg:px-8 text-center">
+      <div className="mx-auto max-w-[1440px] px-5 lg:px-8 text-center">
         <h2 className="font-display text-4xl font-bold text-wz-white">{heading}</h2>
         <p className="mt-4 text-wz-gray max-w-lg mx-auto">{body}</p>
         <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">

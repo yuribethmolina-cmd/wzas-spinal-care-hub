@@ -22,11 +22,11 @@ function DiagnostikLink() {
     en: { intro: "No diagnosis yet?", link: "See how our spine diagnostics works" },
   });
   return (
-    <p className="mt-5 text-sm text-[#5F6771]">
+    <p className="mt-5 text-sm text-[#666666]">
       {t.intro}{" "}
       <Link
         to="/rueckendiagnostik"
-        className="group inline-flex min-h-11 items-center gap-1.5 font-semibold text-[#7A6029] underline underline-offset-4 hover:brightness-110"
+        className="group inline-flex min-h-11 items-center gap-1.5 font-semibold text-[#97745B] underline underline-offset-4 hover:brightness-110"
       >
         {t.link}
         <span className="transition-transform group-hover:translate-x-1" aria-hidden>→</span>
@@ -170,7 +170,7 @@ function BeschwerdenHub() {
   const rest = CONDITIONS.slice(1);    // 8 remaining
 
   return (
-    <div className="min-h-screen bg-[#F8F8F6]">
+    <div className="min-h-screen bg-[#F9F8F4]">
       <PageHeader activeRoute="/beschwerden" />
 
       <main>
@@ -184,7 +184,7 @@ function BeschwerdenHub() {
             }}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/25 to-transparent" />
-          <div className="absolute bottom-0 left-0 px-5 pb-10 lg:px-12 lg:pb-14 max-w-7xl mx-auto w-full">
+          <div className="absolute bottom-0 left-0 px-5 pb-10 lg:px-12 lg:pb-14 max-w-[1440px] mx-auto w-full">
             <p className="text-[10px] font-semibold tracking-[0.25em] uppercase text-[#AC8F52] mb-3">
               {t.eyebrow}
             </p>
@@ -200,24 +200,24 @@ function BeschwerdenHub() {
         <section className="py-14 lg:py-20 bg-white">
           <div ref={introRef} style={introStyle} className="mx-auto max-w-6xl px-5 lg:px-8 grid grid-cols-1 lg:grid-cols-3 gap-10 lg:gap-16 items-start">
             <div className="lg:col-span-2">
-              <p className="text-lg text-[#4A5568] leading-relaxed">
+              <p className="text-lg text-[#595959] leading-relaxed">
                 {t.introText}
               </p>
               <DiagnostikLink />
             </div>
             <div className="border-l-4 border-[#AC8F52] pl-6">
-              <p className="font-display text-2xl lg:text-3xl italic text-[#1E2535] leading-snug">
+              <p className="font-display text-2xl lg:text-3xl italic text-[#212121] leading-snug">
                 {t.pullQuote}
               </p>
-              <p className="mt-3 text-xs text-[#5F6771] tracking-widest uppercase">{t.attribution}</p>
+              <p className="mt-3 text-xs text-[#666666] tracking-widest uppercase">{t.attribution}</p>
             </div>
           </div>
         </section>
 
         {/* Conditions, magazine grid */}
-        <section id="conditions" className="py-12 lg:py-16 bg-[#F8F8F6]">
-          <div className="mx-auto max-w-7xl px-5 lg:px-8">
-            <h2 className="font-display text-4xl lg:text-5xl font-semibold text-[#1E2535] mb-8">
+        <section id="conditions" className="py-12 lg:py-16 bg-[#F9F8F4]">
+          <div className="mx-auto max-w-[1440px] px-5 lg:px-8">
+            <h2 className="font-display text-4xl lg:text-5xl font-semibold text-[#212121] mb-8">
               {t.sectionHeading}
             </h2>
             {/* Row 1: featured */}
@@ -247,7 +247,7 @@ function BeschwerdenHub() {
         </section>
 
         {/* Trust strip */}
-        <section className="py-12 bg-white border-t border-[#E2E4E7]">
+        <section className="py-12 bg-white border-t border-[#E6E3DC]">
           <div className="mx-auto max-w-4xl px-5 lg:px-8">
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 text-center">
               {t.trustItems.map(({ icon, label }) => (
@@ -255,7 +255,7 @@ function BeschwerdenHub() {
                   <svg className="w-7 h-7 text-[#AC8F52]" viewBox="0 0 24 24" fill="currentColor">
                     <path d={TRUST_ICONS[icon]} />
                   </svg>
-                  <p className="text-sm font-semibold text-[#1E2535]">{label}</p>
+                  <p className="text-sm font-semibold text-[#212121]">{label}</p>
                 </div>
               ))}
             </div>

@@ -50,8 +50,8 @@ export function PraxisGalerie() {
   const active = open === null ? null : SHOTS[open]!;
 
   return (
-    <section className="bg-[#1E2535] py-14 sm:py-20 lg:py-28">
-      <div className="mx-auto max-w-7xl px-5 lg:px-8">
+    <section className="bg-[#212121] py-14 sm:py-20 lg:py-28">
+      <div className="mx-auto max-w-[1440px] px-5 lg:px-8">
         <div className="max-w-2xl">
           <p className="text-[11px] font-semibold tracking-[0.22em] uppercase text-[#AC8F52] flex items-center gap-3">
             <span className="inline-block w-6 h-px bg-[#AC8F52]" />
@@ -64,7 +64,7 @@ export function PraxisGalerie() {
             {t.h2a}
             <span style={{ fontWeight: 700 }}>{t.h2b}</span>
           </h2>
-          <p className="mt-4 text-[17px] text-[#CBD1DA] leading-relaxed">{t.lead}</p>
+          <p className="mt-4 text-[17px] text-[#D6D3CD] leading-relaxed">{t.lead}</p>
         </div>
 
         <div className="mt-10 grid grid-cols-2 gap-3 lg:grid-cols-4">
@@ -83,12 +83,12 @@ export function PraxisGalerie() {
                 decoding="async"
                 className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.06]"
               />
-              <span className="absolute inset-0 bg-gradient-to-t from-[#0F131C]/85 via-[#0F131C]/10 to-transparent opacity-80 group-hover:opacity-95 transition-opacity duration-500" />
+              <span className="absolute inset-0 bg-gradient-to-t from-[#181818]/85 via-[#181818]/10 to-transparent opacity-80 group-hover:opacity-95 transition-opacity duration-500" />
               <span className="absolute inset-x-0 bottom-0 p-3 sm:p-4 text-left">
                 <span className="block text-[13px] sm:text-[15px] font-semibold text-white leading-snug">
                   {label(s)}
                 </span>
-                <span className="block mt-0.5 text-[11px] sm:text-xs text-[#CBD1DA] opacity-0 translate-y-1 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500">
+                <span className="block mt-0.5 text-[11px] sm:text-xs text-[#D6D3CD] opacity-0 translate-y-1 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500">
                   {sub(s)}
                 </span>
               </span>
@@ -110,14 +110,14 @@ export function PraxisGalerie() {
             <div className="mt-4 flex items-center justify-between gap-4">
               <div>
                 <p className="text-base font-semibold text-white">{label(active)}</p>
-                <p className="text-sm text-[#CBD1DA]">{sub(active)}</p>
+                <p className="text-sm text-[#D6D3CD]">{sub(active)}</p>
               </div>
               <div className="flex items-center gap-2">
                 <button
                   type="button"
                   aria-label={t.prev}
                   onClick={() => step(-1)}
-                  className="h-10 w-10 rounded-full border border-white/25 text-white hover:bg-white/10 transition"
+                  className="h-10 w-10 rounded-[10px] border border-white/25 text-white hover:bg-white/10 transition"
                 >
                   ‹
                 </button>
@@ -125,7 +125,7 @@ export function PraxisGalerie() {
                   type="button"
                   aria-label={t.next}
                   onClick={() => step(1)}
-                  className="h-10 w-10 rounded-full border border-white/25 text-white hover:bg-white/10 transition"
+                  className="h-10 w-10 rounded-[10px] border border-white/25 text-white hover:bg-white/10 transition"
                 >
                   ›
                 </button>
@@ -133,7 +133,7 @@ export function PraxisGalerie() {
                   ref={closeRef}
                   type="button"
                   onClick={() => setOpen(null)}
-                  className="h-10 px-4 rounded-full bg-[#AC8F52] text-[#12161F] text-sm font-semibold hover:bg-[#c0a161] transition"
+                  className="h-10 px-4 rounded-[10px] bg-[#AC8F52] text-[#12161F] text-sm font-semibold hover:bg-[#c0a161] transition"
                 >
                   {t.close}
                 </button>

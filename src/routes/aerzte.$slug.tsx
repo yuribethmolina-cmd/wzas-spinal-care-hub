@@ -49,12 +49,12 @@ function DoctorNotFound() {
     },
   });
   return (
-    <div className="min-h-screen flex items-center justify-center bg-[#F8F8F6] px-5">
+    <div className="min-h-screen flex items-center justify-center bg-[#F9F8F4] px-5">
       <div className="text-center max-w-md">
         <p className="text-[11px] uppercase tracking-[0.2em] text-[#AC8F52] font-medium">404</p>
-        <h1 className="mt-3 text-3xl font-bold text-[#1E2535]">{t.heading}</h1>
-        <p className="mt-3 text-[#8C939B]">{t.body}</p>
-        <Link to="/aerzte" className="mt-6 inline-flex rounded-full bg-[#1E2535] px-6 py-3 text-sm font-semibold text-white hover:bg-[#263044] transition">
+        <h1 className="mt-3 text-3xl font-bold text-[#212121]">{t.heading}</h1>
+        <p className="mt-3 text-[#747474]">{t.body}</p>
+        <Link to="/aerzte" className="mt-6 inline-flex rounded-[10px] bg-[#212121] px-6 py-3 text-sm font-semibold text-white hover:bg-[#2D2D2D] transition">
           {t.link}
         </Link>
       </div>
@@ -93,19 +93,19 @@ function DoctorDetail() {
   });
 
   return (
-    <div className="min-h-screen bg-[#F8F8F6]">
+    <div className="min-h-screen bg-[#F9F8F4]">
       <SiteNav />
 
-      <div className="mx-auto max-w-7xl px-5 lg:px-8 py-6">
-        <Link to="/aerzte" className="inline-flex items-center gap-2 text-sm text-[#8C939B] hover:text-[#1E2535]">
+      <div className="mx-auto max-w-[1440px] px-5 lg:px-8 py-6">
+        <Link to="/aerzte" className="inline-flex items-center gap-2 text-sm text-[#747474] hover:text-[#212121]">
           {t.backLink}
         </Link>
       </div>
 
-      <section className="mx-auto max-w-7xl lg:px-8 pb-12">
+      <section className="mx-auto max-w-[1440px] lg:px-8 pb-12">
         {/* Mobile hero card: full-bleed photo + overlaid identity */}
         <div className="lg:hidden relative">
-          <div className="relative aspect-[4/5] w-full overflow-hidden bg-[#1E2535]">
+          <div className="relative aspect-[4/5] w-full overflow-hidden bg-[#212121]">
             {d.photo ? (
               <img src={d.photo} alt={d.name} className="h-full w-full object-cover object-top" />
             ) : (
@@ -113,14 +113,14 @@ function DoctorDetail() {
                 {d.initials}
               </div>
             )}
-            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#1E2535]/90 via-[#1E2535]/25 to-transparent" />
+            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#212121]/90 via-[#212121]/25 to-transparent" />
             <div className="absolute bottom-0 left-0 right-0 p-5 pt-20">
               <p className="text-[11px] uppercase tracking-[0.2em] text-[#AC8F52] font-medium">{d.title}</p>
               <h1 className="mt-2 text-3xl font-bold text-white leading-tight">{d.name}</h1>
-              <p className="mt-1 text-[15px] text-[#E2E4E7]">{d.role}</p>
+              <p className="mt-1 text-[15px] text-[#E6E3DC]">{d.role}</p>
               <div className="mt-4 flex flex-wrap gap-2">
                 {d.specialties.slice(0, 3).map((s) => (
-                  <span key={s} className="rounded-full bg-white/10 backdrop-blur-sm border border-white/20 px-3 py-1 text-xs font-medium text-white">{s}</span>
+                  <span key={s} className="rounded-[10px] bg-white/10 backdrop-blur-sm border border-white/20 px-3 py-1 text-xs font-medium text-white">{s}</span>
                 ))}
               </div>
             </div>
@@ -129,7 +129,7 @@ function DoctorDetail() {
           <div className="px-5 mt-5">
             <a
               href={BOOKING_URL}
-              className="block text-center rounded-full bg-[#AC8F52] px-6 py-3.5 text-sm font-semibold text-[#1E2535] hover:brightness-105 transition"
+              className="block text-center rounded-[10px] bg-[#AC8F52] px-6 py-3.5 text-sm font-semibold text-[#212121] hover:brightness-105 transition"
             >
               {t.bookBtn}
             </a>
@@ -138,7 +138,7 @@ function DoctorDetail() {
 
         <div className="hidden lg:grid gap-10 lg:grid-cols-[260px_1fr] xl:grid-cols-[300px_1fr]">
           <div>
-            <div className="mx-auto aspect-[4/5] w-full max-w-[300px] rounded-2xl overflow-hidden bg-[#263044] shadow-lg">
+            <div className="mx-auto aspect-[4/5] w-full max-w-[300px] rounded-[10px] overflow-hidden bg-[#2D2D2D] shadow-lg">
               {d.photo ? (
                 <img src={d.photo} alt={d.name} className="h-full w-full object-cover object-top" />
               ) : (
@@ -147,10 +147,10 @@ function DoctorDetail() {
                 </div>
               )}
             </div>
-            <div className="mt-6 rounded-xl bg-white p-6 shadow-sm">
+            <div className="mt-6 rounded-[10px] bg-white p-6 shadow-sm">
               <a
                 href={BOOKING_URL}
-                className="block text-center rounded-full bg-[#AC8F52] px-6 py-3 text-sm font-semibold text-[#1E2535] hover:brightness-105 transition"
+                className="block text-center rounded-[10px] bg-[#AC8F52] px-6 py-3 text-sm font-semibold text-[#212121] hover:brightness-105 transition"
               >
                 {t.bookBtn}
               </a>
@@ -159,21 +159,21 @@ function DoctorDetail() {
 
           <div>
             <p className="text-[11px] uppercase tracking-[0.2em] text-[#AC8F52] font-medium">{d.title}</p>
-            <h1 className="mt-3 text-4xl md:text-5xl font-bold text-[#1E2535]">{d.name}</h1>
-            <p className="mt-3 text-lg text-[#8C939B]">{d.role}</p>
+            <h1 className="mt-3 text-4xl md:text-5xl font-bold text-[#212121]">{d.name}</h1>
+            <p className="mt-3 text-lg text-[#747474]">{d.role}</p>
 
             <div className="mt-6 flex flex-wrap gap-2">
               {d.specialties.map((s) => (
-                <span key={s} className="rounded-full bg-white border border-[#E2E4E7] px-3 py-1.5 text-xs font-medium text-[#1E2535]">{s}</span>
+                <span key={s} className="rounded-[10px] bg-white border border-[#E6E3DC] px-3 py-1.5 text-xs font-medium text-[#212121]">{s}</span>
               ))}
             </div>
 
             <div className="mt-10">
-              <h2 className="text-xl font-semibold text-[#1E2535]">{t.focusHeading}</h2>
+              <h2 className="text-xl font-semibold text-[#212121]">{t.focusHeading}</h2>
               <ul className="mt-4 grid gap-2 sm:grid-cols-2">
                 {d.focus.map((f) => (
-                  <li key={f} className="flex items-start gap-2 text-sm text-[#1E2535]">
-                    <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#AC8F52] shrink-0" />
+                  <li key={f} className="flex items-start gap-2 text-sm text-[#212121]">
+                    <span className="mt-1.5 w-1.5 h-1.5 rounded-[10px] bg-[#AC8F52] shrink-0" />
                     {f}
                   </li>
                 ))}
@@ -181,8 +181,8 @@ function DoctorDetail() {
             </div>
 
             <div className="mt-10">
-              <h2 className="text-xl font-semibold text-[#1E2535]">{t.aboutHeading}</h2>
-              <div className="mt-4 space-y-4 text-[15px] text-[#1E2535] leading-relaxed">
+              <h2 className="text-xl font-semibold text-[#212121]">{t.aboutHeading}</h2>
+              <div className="mt-4 space-y-4 text-[15px] text-[#212121] leading-relaxed">
                 {d.bio.map((p, i) => (
                   <p key={i}>{p}</p>
                 ))}
@@ -192,10 +192,10 @@ function DoctorDetail() {
             <div className="mt-10 grid gap-8 md:grid-cols-2">
               <div>
                 <h3 className="text-sm uppercase tracking-wide text-[#AC8F52] font-semibold">{t.educationLabel}</h3>
-                <ul className="mt-3 space-y-2 text-sm text-[#1E2535]">
+                <ul className="mt-3 space-y-2 text-sm text-[#212121]">
                   {d.education.map((e) => (
                     <li key={e} className="flex items-start gap-2">
-                      <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#1E2535] shrink-0" />
+                      <span className="mt-1.5 w-1.5 h-1.5 rounded-[10px] bg-[#212121] shrink-0" />
                       {e}
                     </li>
                   ))}
@@ -205,7 +205,7 @@ function DoctorDetail() {
                 <h3 className="text-sm uppercase tracking-wide text-[#AC8F52] font-semibold">{t.languagesLabel}</h3>
                 <div className="mt-3 flex flex-wrap gap-2">
                   {d.languages.map((l) => (
-                    <span key={l} className="rounded-full bg-white border border-[#E2E4E7] px-3 py-1 text-xs text-[#1E2535]">{l}</span>
+                    <span key={l} className="rounded-[10px] bg-white border border-[#E6E3DC] px-3 py-1 text-xs text-[#212121]">{l}</span>
                   ))}
                 </div>
               </div>
@@ -216,11 +216,11 @@ function DoctorDetail() {
         {/* Mobile-only content below the hero card */}
         <div className="lg:hidden px-5 mt-10 space-y-10">
           <div>
-            <h2 className="text-xl font-semibold text-[#1E2535]">{t.focusHeading}</h2>
+            <h2 className="text-xl font-semibold text-[#212121]">{t.focusHeading}</h2>
             <ul className="mt-4 grid gap-2 sm:grid-cols-2">
               {d.focus.map((f) => (
-                <li key={f} className="flex items-start gap-2 text-sm text-[#1E2535]">
-                  <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#AC8F52] shrink-0" />
+                <li key={f} className="flex items-start gap-2 text-sm text-[#212121]">
+                  <span className="mt-1.5 w-1.5 h-1.5 rounded-[10px] bg-[#AC8F52] shrink-0" />
                   {f}
                 </li>
               ))}
@@ -228,8 +228,8 @@ function DoctorDetail() {
           </div>
 
           <div>
-            <h2 className="text-xl font-semibold text-[#1E2535]">{t.aboutHeading}</h2>
-            <div className="mt-4 space-y-4 text-[15px] text-[#1E2535] leading-relaxed">
+            <h2 className="text-xl font-semibold text-[#212121]">{t.aboutHeading}</h2>
+            <div className="mt-4 space-y-4 text-[15px] text-[#212121] leading-relaxed">
               {d.bio.map((p, i) => (
                 <p key={i}>{p}</p>
               ))}
@@ -239,10 +239,10 @@ function DoctorDetail() {
           <div className="grid gap-8 md:grid-cols-2">
             <div>
               <h3 className="text-sm uppercase tracking-wide text-[#AC8F52] font-semibold">{t.educationLabel}</h3>
-              <ul className="mt-3 space-y-2 text-sm text-[#1E2535]">
+              <ul className="mt-3 space-y-2 text-sm text-[#212121]">
                 {d.education.map((e) => (
                   <li key={e} className="flex items-start gap-2">
-                    <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#1E2535] shrink-0" />
+                    <span className="mt-1.5 w-1.5 h-1.5 rounded-[10px] bg-[#212121] shrink-0" />
                     {e}
                   </li>
                 ))}
@@ -252,7 +252,7 @@ function DoctorDetail() {
               <h3 className="text-sm uppercase tracking-wide text-[#AC8F52] font-semibold">{t.languagesLabel}</h3>
               <div className="mt-3 flex flex-wrap gap-2">
                 {d.languages.map((l) => (
-                  <span key={l} className="rounded-full bg-white border border-[#E2E4E7] px-3 py-1 text-xs text-[#1E2535]">{l}</span>
+                  <span key={l} className="rounded-[10px] bg-white border border-[#E6E3DC] px-3 py-1 text-xs text-[#212121]">{l}</span>
                 ))}
               </div>
             </div>
@@ -261,18 +261,18 @@ function DoctorDetail() {
       </section>
 
       {related.length > 0 && (
-        <section className="bg-white py-16 border-t border-[#E2E4E7]">
-          <div className="mx-auto max-w-7xl px-5 lg:px-8">
-            <h2 className="text-2xl font-bold text-[#1E2535]">{t.relatedHeading}</h2>
+        <section className="bg-white py-16 border-t border-[#E6E3DC]">
+          <div className="mx-auto max-w-[1440px] px-5 lg:px-8">
+            <h2 className="text-2xl font-bold text-[#212121]">{t.relatedHeading}</h2>
             <div className="mt-8 grid gap-6 md:grid-cols-3">
               {related.map((r) => (
                 <Link
                   key={r.slug}
                   to="/aerzte/$slug"
                   params={{ slug: r.slug }}
-                  className="group bg-[#F8F8F6] rounded-xl overflow-hidden hover:shadow-lg transition"
+                  className="group bg-[#F9F8F4] rounded-[10px] overflow-hidden hover:shadow-lg transition"
                 >
-                  <div className="aspect-square sm:aspect-[4/5] bg-[#263044] overflow-hidden">
+                  <div className="aspect-square sm:aspect-[4/5] bg-[#2D2D2D] overflow-hidden">
                     {r.photo ? (
                       <img src={r.photo} alt={r.name} className="h-full w-full object-cover object-top transition-transform duration-500 ease-out group-hover:scale-[1.04]" />
                     ) : (
@@ -282,7 +282,7 @@ function DoctorDetail() {
 
                   <div className="p-5">
                     <p className="text-xs uppercase tracking-wide text-[#AC8F52] font-medium">{r.specialties[0]}</p>
-                    <p className="mt-2 font-semibold text-[#1E2535] group-hover:text-[#AC8F52] transition">{r.name}</p>
+                    <p className="mt-2 font-semibold text-[#212121] group-hover:text-[#AC8F52] transition">{r.name}</p>
                   </div>
                 </Link>
               ))}

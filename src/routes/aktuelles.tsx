@@ -206,14 +206,14 @@ function TypeBadge({ type }: { type: ItemType }) {
   const c = TYPE_COLORS[type];
   const label = lang === "en" ? TYPE_EN[type] : type;
   return (
-    <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-semibold tracking-wide border ${c.bg} ${c.text} ${c.border}`}>
+    <span className={`inline-flex items-center px-2.5 py-0.5 rounded-[10px] text-[11px] font-semibold tracking-wide border ${c.bg} ${c.text} ${c.border}`}>
       {label.toUpperCase()}
     </span>
   );
 }
 
 function SectionLabel({ children }: { children: React.ReactNode }) {
-  return <p className="text-[11px] font-semibold tracking-[0.2em] uppercase text-[#7A6029]">{children}</p>;
+  return <p className="text-[11px] font-semibold tracking-[0.2em] uppercase text-[#97745B]">{children}</p>;
 }
 
 function FeaturedCard({ item, index }: { item: Item; index: number }) {
@@ -222,7 +222,7 @@ function FeaturedCard({ item, index }: { item: Item; index: number }) {
   const { ref, style } = useFadeUp(index * 80);
   const c = lang === "en" ? item.en : item.de;
   return (
-    <div ref={ref} style={style} className="bg-white rounded-2xl border border-[#E2E4E7] overflow-hidden hover:shadow-md transition-shadow duration-300 flex flex-col">
+    <div ref={ref} style={style} className="bg-white rounded-[10px] border border-[#E6E3DC] overflow-hidden hover:shadow-md transition-shadow duration-300 flex flex-col">
       {item.img && (
         <div className="aspect-[16/9] overflow-hidden">
           <img
@@ -238,14 +238,14 @@ function FeaturedCard({ item, index }: { item: Item; index: number }) {
       <div className="p-6 flex flex-col gap-3 flex-1">
         <div className="flex items-center justify-between">
           <TypeBadge type={item.type} />
-          <span className="text-xs text-[#5F6771]">{c.date}</span>
+          <span className="text-xs text-[#666666]">{c.date}</span>
         </div>
-        <h3 className="font-display text-xl font-semibold text-[#1E2535] leading-snug">{c.title}</h3>
-        <p className="text-sm text-[#5F6771]">{c.detail}</p>
+        <h3 className="font-display text-xl font-semibold text-[#212121] leading-snug">{c.title}</h3>
+        <p className="text-sm text-[#666666]">{c.detail}</p>
         <div className="mt-auto pt-3">
           <a
             href={BOOKING_URL}
-            className="inline-flex min-h-11 items-center gap-1.5 text-sm font-semibold text-[#7A6029] hover:gap-2.5 transition-all duration-200"
+            className="inline-flex min-h-11 items-center gap-1.5 text-sm font-semibold text-[#97745B] hover:gap-2.5 transition-all duration-200"
           >
             {t.learnMore}
             <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" className="w-3.5 h-3.5">
@@ -262,17 +262,17 @@ function ListCard({ item }: { item: Item }) {
   const { lang } = useLang();
   const c = lang === "en" ? item.en : item.de;
   return (
-    <div className="flex flex-col sm:flex-row items-start gap-3 sm:gap-4 py-5 border-b border-[#E2E4E7] last:border-0 group">
+    <div className="flex flex-col sm:flex-row items-start gap-3 sm:gap-4 py-5 border-b border-[#E6E3DC] last:border-0 group">
       <div className="flex w-full sm:w-auto items-center justify-between gap-3 sm:block shrink-0 sm:mt-0.5">
         <TypeBadge type={item.type} />
-        <span className="text-xs text-[#5F6771] sm:hidden">{c.date}</span>
+        <span className="text-xs text-[#666666] sm:hidden">{c.date}</span>
       </div>
       <div className="flex-1 min-w-0 w-full">
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 mb-1">
-          <h4 className="font-semibold text-[#1E2535] leading-snug group-hover:text-[#AC8F52] transition-colors duration-200 break-words">{c.title}</h4>
-          <span className="hidden sm:inline text-xs text-[#8C939B] shrink-0">{c.date}</span>
+          <h4 className="font-semibold text-[#212121] leading-snug group-hover:text-[#AC8F52] transition-colors duration-200 break-words">{c.title}</h4>
+          <span className="hidden sm:inline text-xs text-[#747474] shrink-0">{c.date}</span>
         </div>
-        <p className="text-sm text-[#5F6771] break-words">{c.detail}</p>
+        <p className="text-sm text-[#666666] break-words">{c.detail}</p>
       </div>
       <div className="hidden sm:block shrink-0 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
         <svg viewBox="0 0 16 16" fill="none" stroke="#AC8F52" strokeWidth="2" className="w-4 h-4">
@@ -337,26 +337,26 @@ function AktuellesPage() {
   const filteredRest = activeFilter === "Alle" ? rest : rest.filter((i) => i.type === activeFilter);
 
   return (
-    <div className="min-h-screen bg-[#F8F8F6]">
+    <div className="min-h-screen bg-[#F9F8F4]">
       <SiteNav />
 
       <main>
         {/* Hero */}
-        <section className="bg-[#1E2535] py-20 lg:py-28 relative overflow-hidden">
+        <section className="bg-[#212121] py-20 lg:py-28 relative overflow-hidden">
           <div
             className="pointer-events-none absolute inset-0 opacity-[0.03]"
             style={{
               backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`,
             }}
           />
-          <div className="mx-auto max-w-7xl px-5 lg:px-8">
+          <div className="mx-auto max-w-[1440px] px-5 lg:px-8">
             <div ref={heroRef} style={heroStyle} className="max-w-3xl">
               <SectionLabel>{t.eyebrow}</SectionLabel>
               <h1 className="mt-4 font-display text-[2.35rem] sm:text-5xl lg:text-6xl font-semibold leading-tight text-white">
                 {t.h1Main}{" "}
                 <em className="font-display italic font-normal text-[#AC8F52]">{t.h1Italic}</em>
               </h1>
-              <p className="mt-6 text-lg text-[#8C939B] leading-relaxed max-w-xl">
+              <p className="mt-6 text-lg text-[#747474] leading-relaxed max-w-xl">
                 {t.heroPara}
               </p>
             </div>
@@ -365,7 +365,7 @@ function AktuellesPage() {
 
         {/* Filter + content */}
         <section className="py-12 lg:py-16">
-          <div className="mx-auto max-w-7xl px-5 lg:px-8">
+          <div className="mx-auto max-w-[1440px] px-5 lg:px-8">
             {/* Filter pills */}
             <div className="flex items-center gap-2 mb-10 overflow-x-auto pb-2">
               {FILTERS.map((f) => {
@@ -374,10 +374,10 @@ function AktuellesPage() {
                   <button
                     key={f}
                     onClick={() => setActiveFilter(f)}
-                    className={`shrink-0 min-h-11 inline-flex items-center px-4 py-2 rounded-full text-sm font-semibold transition-colors duration-200 ${
+                    className={`shrink-0 min-h-11 inline-flex items-center px-4 py-2 rounded-[10px] text-sm font-semibold transition-colors duration-200 ${
                       activeFilter === f
-                        ? "bg-[#1E2535] text-white"
-                        : "bg-white border border-[#E2E4E7] text-[#1E2535] hover:border-[#AC8F52] hover:text-[#AC8F52]"
+                        ? "bg-[#212121] text-white"
+                        : "bg-white border border-[#E6E3DC] text-[#212121] hover:border-[#AC8F52] hover:text-[#AC8F52]"
                     }`}
                   >
                     {label}
@@ -407,7 +407,7 @@ function AktuellesPage() {
             {filteredRest.length > 0 && (
               <div>
                 <SectionLabel>{t.morePosts}</SectionLabel>
-                <div className="mt-5 bg-white rounded-2xl border border-[#E2E4E7] px-4 sm:px-6 divide-y divide-[#E2E4E7]">
+                <div className="mt-5 bg-white rounded-[10px] border border-[#E6E3DC] px-4 sm:px-6 divide-y divide-[#E6E3DC]">
                   {filteredRest.map((item) => (
                     <ListCard key={item.de.title} item={item} />
                   ))}
@@ -417,7 +417,7 @@ function AktuellesPage() {
 
             {filteredFeatured.length === 0 && filteredRest.length === 0 && (
               <div className="text-center py-16">
-                <p className="text-[#8C939B]">{t.empty}</p>
+                <p className="text-[#747474]">{t.empty}</p>
                 <button
                   onClick={() => setActiveFilter("Alle")}
                   className="mt-4 text-sm font-semibold text-[#AC8F52]"
@@ -430,22 +430,22 @@ function AktuellesPage() {
         </section>
 
         {/* Newsletter / alert signup stub */}
-        <section className="bg-white border-y border-[#E2E4E7] py-12">
-          <div className="mx-auto max-w-7xl px-5 lg:px-8">
+        <section className="bg-white border-y border-[#E6E3DC] py-12">
+          <div className="mx-auto max-w-[1440px] px-5 lg:px-8">
             <div className="lg:flex lg:items-center lg:justify-between gap-10">
               <div className="mb-6 lg:mb-0">
                 <SectionLabel>{t.newsletterLabel}</SectionLabel>
-                <h2 className="mt-3 font-display text-3xl font-semibold text-[#1E2535]">
+                <h2 className="mt-3 font-display text-3xl font-semibold text-[#212121]">
                   {t.newsletterH2}
                 </h2>
-                <p className="mt-2 text-sm text-[#5F6771]">
+                <p className="mt-2 text-sm text-[#666666]">
                   {t.newsletterBody}
                 </p>
               </div>
               <div className="flex flex-col sm:flex-row gap-3">
                 <a
                   href={`mailto:info@wzas.de?subject=${lang === "en" ? "Event+announcements" : "Veranstaltungshinweise"}`}
-                  className="inline-flex items-center justify-center gap-2 rounded-full bg-[#1E2535] px-6 py-3 text-sm font-semibold text-white hover:bg-[#263044] transition-colors"
+                  className="inline-flex items-center justify-center gap-2 rounded-[10px] bg-[#212121] px-6 py-3 text-sm font-semibold text-white hover:bg-[#2D2D2D] transition-colors"
                 >
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-4 h-4">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
@@ -454,7 +454,7 @@ function AktuellesPage() {
                 </a>
                 <a
                   href="tel:+498954343030"
-                  className="inline-flex items-center justify-center gap-2 rounded-full border border-[#E2E4E7] px-6 py-3 text-sm font-semibold text-[#1E2535] hover:border-[#AC8F52] transition-colors"
+                  className="inline-flex items-center justify-center gap-2 rounded-[10px] border border-[#E6E3DC] px-6 py-3 text-sm font-semibold text-[#212121] hover:border-[#AC8F52] transition-colors"
                 >
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-4 h-4">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
@@ -467,21 +467,21 @@ function AktuellesPage() {
         </section>
 
         {/* Booking CTA */}
-        <section className="bg-[#1E2535] py-16 relative overflow-hidden">
+        <section className="bg-[#212121] py-16 relative overflow-hidden">
           <div
             className="pointer-events-none absolute inset-0 opacity-[0.03]"
             style={{
               backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`,
             }}
           />
-          <div className="mx-auto max-w-7xl px-5 lg:px-8 text-center">
+          <div className="mx-auto max-w-[1440px] px-5 lg:px-8 text-center">
             <h2 className="font-display text-4xl font-semibold text-white">{t.ctaH2}</h2>
-            <p className="mt-4 text-[#8C939B] max-w-md mx-auto">
+            <p className="mt-4 text-[#747474] max-w-md mx-auto">
               {t.ctaBody}
             </p>
             <a
               href={BOOKING_URL}
-              className="mt-7 inline-flex items-center gap-2 rounded-full bg-[#AC8F52] px-7 py-3.5 text-sm font-semibold text-[#1E2535] hover:brightness-105 transition"
+              className="mt-7 inline-flex items-center gap-2 rounded-[10px] bg-[#AC8F52] px-7 py-3.5 text-sm font-semibold text-[#212121] hover:brightness-105 transition"
             >
               {t.ctaBtn}
             </a>

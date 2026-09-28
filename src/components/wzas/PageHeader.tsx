@@ -12,8 +12,8 @@ const EASE = "cubic-bezier(0.23, 1, 0.32, 1)";
 function LangToggle() {
   const { lang, setLang } = useLang();
   const btn = (l: Lang) =>
-    `inline-flex items-center justify-center px-3 py-1 text-xs font-semibold uppercase tracking-wide rounded-full transition-colors min-h-11 min-w-11 lg:min-h-9 lg:min-w-9 ${
-      lang === l ? "bg-[#1E2535] text-white" : "text-[#1E2535] hover:text-[#AC8F52]"
+    `inline-flex items-center justify-center px-3 py-1 text-xs font-semibold uppercase tracking-wide rounded-[10px] transition-colors min-h-11 min-w-11 lg:min-h-9 lg:min-w-9 ${
+      lang === l ? "bg-[#212121] text-white" : "text-[#212121] hover:text-[#AC8F52]"
     }`;
   const onKey = (e: React.KeyboardEvent<HTMLDivElement>) => {
     if (e.key === "ArrowRight" || e.key === "ArrowLeft") {
@@ -23,7 +23,7 @@ function LangToggle() {
   };
   return (
     <div
-      className="inline-flex items-center gap-1 rounded-full border border-[#E2E4E7] p-1"
+      className="inline-flex items-center gap-1 rounded-[10px] border border-[#E6E3DC] p-1"
       role="group"
       aria-label="Sprache auswählen / Choose language"
       onKeyDown={onKey}
@@ -88,7 +88,7 @@ export function PageHeader({ activeRoute }: { activeRoute?: string }) {
       className={`text-sm transition-colors ${
         activeRoute === to
           ? "font-semibold text-[#AC8F52]"
-          : "font-medium text-[#1E2535] hover:text-[#AC8F52]"
+          : "font-medium text-[#212121] hover:text-[#AC8F52]"
       }`}
     >
       {label}
@@ -101,7 +101,7 @@ export function PageHeader({ activeRoute }: { activeRoute?: string }) {
         scrolled ? "shadow-md" : "shadow-none"
       }`}
     >
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 lg:px-8">
+      <div className="mx-auto flex max-w-[1440px] items-center justify-between px-5 py-4 lg:px-8">
         <Link to="/" className="flex items-center gap-3" aria-label="WZAS, Home">
           <img src={logoAsset.url} alt="WZAS Wirbelsäulenzentrum am Stiglmaierplatz" className="h-10 w-auto" />
         </Link>
@@ -112,7 +112,7 @@ export function PageHeader({ activeRoute }: { activeRoute?: string }) {
           <LangToggle />
           <a
             href={BOOKING_URL}
-            className="inline-flex items-center rounded-full bg-[#AC8F52] px-5 py-2.5 text-sm font-semibold text-[#1E2535]"
+            className="inline-flex items-center rounded-[10px] bg-[#AC8F52] px-5 py-2.5 text-sm font-semibold text-[#212121]"
             style={{ transition: `filter 150ms ${EASE}` }}
             onMouseEnter={(e) => (e.currentTarget.style.filter = "brightness(1.08)")}
             onMouseLeave={(e) => (e.currentTarget.style.filter = "")}
@@ -124,7 +124,7 @@ export function PageHeader({ activeRoute }: { activeRoute?: string }) {
           <LangToggle />
           <button
             type="button"
-            className="inline-flex items-center justify-center rounded-md p-2 text-[#1E2535] min-h-11 min-w-11"
+            className="inline-flex items-center justify-center rounded-md p-2 text-[#212121] min-h-11 min-w-11"
             onClick={() => setOpen((v) => !v)}
             aria-label={t.menu}
             aria-expanded={open}

@@ -306,8 +306,8 @@ function Logo({ light = false }: { light?: boolean }) {
 function LangToggle({ compact = false }: { compact?: boolean }) {
   const { lang, setLang } = useLang();
   const btn = (l: Lang) =>
-    `px-2.5 py-1 text-xs font-semibold uppercase tracking-wide rounded-full transition-colors min-h-8 ${
-      lang === l ? "bg-[#1E2535] text-white" : "text-[#1E2535] hover:text-[#AC8F52]"
+    `px-2.5 py-1 text-xs font-semibold uppercase tracking-wide rounded-[10px] transition-colors min-h-8 ${
+      lang === l ? "bg-[#212121] text-white" : "text-[#212121] hover:text-[#AC8F52]"
     }`;
   const onKey = (e: React.KeyboardEvent<HTMLDivElement>) => {
     if (e.key === "ArrowRight" || e.key === "ArrowLeft") {
@@ -317,7 +317,7 @@ function LangToggle({ compact = false }: { compact?: boolean }) {
   };
   return (
     <div
-      className={`inline-flex items-center gap-1 rounded-full border border-[#E2E4E7] p-1 ${
+      className={`inline-flex items-center gap-1 rounded-[10px] border border-[#E6E3DC] p-1 ${
         compact ? "" : ""
       }`}
       role="group"
@@ -393,14 +393,14 @@ function Nav() {
     return () => window.removeEventListener("keydown", onKey);
   }, [open]);
   const linkClass =
-    "relative text-sm font-medium text-[#1E2535] transition-colors hover:text-[#AC8F52] after:absolute after:bottom-0 after:left-0 after:h-px after:w-0 after:bg-[#AC8F52] after:transition-[width] hover:after:w-full after:duration-200";
+    "relative text-sm font-medium text-[#212121] transition-colors hover:text-[#AC8F52] after:absolute after:bottom-0 after:left-0 after:h-px after:w-0 after:bg-[#AC8F52] after:transition-[width] hover:after:w-full after:duration-200";
   return (
     <header
       className={`sticky top-0 z-50 bg-white transition-shadow duration-300 ${
         scrolled ? "shadow-md" : "shadow-none"
       }`}
     >
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-3 lg:py-4 lg:px-8">
+      <div className="mx-auto flex max-w-[1440px] items-center justify-between px-5 py-3 lg:py-4 lg:px-8">
         <Link to="/" aria-label={t.menu === "Menu" ? "WZAS, home" : "WZAS, Startseite"}>
           <Logo />
         </Link>
@@ -426,7 +426,7 @@ function Nav() {
           <LangToggle />
           <a
             href={BOOKING_URL}
-            className="inline-flex items-center rounded-full bg-[#AC8F52] px-5 py-2.5 text-sm font-semibold text-[#1E2535] transition-[background-color,transform,box-shadow] duration-300 hover:bg-[#BC9C58] hover:-translate-y-0.5 hover:shadow-[0_12px_28px_-14px_rgba(172,143,82,0.85)]"
+            className="inline-flex items-center rounded-[10px] bg-[#AC8F52] px-5 py-2.5 text-sm font-semibold text-[#212121] transition-[background-color,transform,box-shadow] duration-300 hover:bg-[#BC9C58] hover:-translate-y-0.5 hover:shadow-[0_12px_28px_-14px_rgba(172,143,82,0.85)]"
             style={{ transition: `filter 150ms ${EASE}, transform 160ms ${EASE}` }}
             onMouseEnter={(e) => (e.currentTarget.style.filter = "brightness(1.08)")}
             onMouseLeave={(e) => (e.currentTarget.style.filter = "")}
@@ -438,7 +438,7 @@ function Nav() {
           <LangToggle />
           <button
             type="button"
-            className="inline-flex items-center justify-center rounded-md p-2 text-[#1E2535] min-h-11 min-w-11"
+            className="inline-flex items-center justify-center rounded-md p-2 text-[#212121] min-h-11 min-w-11"
             onClick={() => setOpen((v) => !v)}
             aria-label={t.menu}
             aria-expanded={open}
@@ -506,7 +506,7 @@ function Hero() {
   const introSub = useIntro(620);
   const introCta = useIntro(880);
   return (
-    <section className="relative bg-[#1E2535] text-white overflow-hidden overflow-x-hidden isolate min-h-[62svh] sm:min-h-[72svh] lg:min-h-0">
+    <section className="relative bg-[#212121] text-white overflow-hidden overflow-x-hidden isolate min-h-[62svh] sm:min-h-[72svh] lg:min-h-0">
       <picture className="absolute inset-0 -z-10 block h-full sm:h-[115%] lg:h-[118%] w-full">
         <source type="image/avif" srcSet={HERO_AVIF_SRCSET} sizes={HERO_SIZES} />
         <source type="image/webp" srcSet={HERO_SRCSET} sizes={HERO_SIZES} />
@@ -524,16 +524,16 @@ function Hero() {
       </picture>
 
 
-      <div className="absolute inset-0 -z-10 bg-[#161C29]/35 lg:bg-[#161C29]/40" />
-      <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[#141A26]/85 via-[#141A26]/45 to-transparent lg:from-[#141A26]/90 lg:via-[#141A26]/45" />
-      <div className="absolute inset-0 -z-10 bg-gradient-to-t from-[#141A26] via-[#141A26]/45 to-[#141A26]/20 lg:via-[#141A26]/15 lg:to-[#141A26]/35" />
+      <div className="absolute inset-0 -z-10 bg-[#1C1C1C]/35 lg:bg-[#1C1C1C]/40" />
+      <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[#1C1C1C]/85 via-[#1C1C1C]/45 to-transparent lg:from-[#1C1C1C]/90 lg:via-[#1C1C1C]/45" />
+      <div className="absolute inset-0 -z-10 bg-gradient-to-t from-[#1C1C1C] via-[#1C1C1C]/45 to-[#1C1C1C]/20 lg:via-[#1C1C1C]/15 lg:to-[#1C1C1C]/35" />
 
 
       <div
         className="absolute inset-0 pointer-events-none opacity-[0.04] -z-10"
         style={{ backgroundImage: NOISE, backgroundSize: "256px 256px" }}
       />
-      <div className="relative mx-auto max-w-7xl px-5 lg:px-8 pt-7 pb-8 lg:pt-20 lg:pb-40 lg:min-h-[min(84vh,860px)] flex items-center">
+      <div className="relative mx-auto max-w-[1440px] px-5 lg:px-8 pt-7 pb-8 lg:pt-20 lg:pb-40 lg:min-h-[min(84vh,860px)] flex items-center">
 
         <div className="w-full min-w-0 max-w-3xl lg:max-w-[58%] overflow-x-clip">
           <p
@@ -555,7 +555,7 @@ function Hero() {
             <MaskLine delay={440}>{t.h1c}</MaskLine>
           </h1>
           <p
-            className="mt-3 sm:mt-5 text-[15px] sm:text-lg text-[#E6E9EF] leading-relaxed max-w-xl whitespace-pre-line"
+            className="mt-3 sm:mt-5 text-[15px] sm:text-lg text-[#EEECE7] leading-relaxed max-w-xl whitespace-pre-line"
             style={introSub}
           >
             {t.sub}
@@ -564,34 +564,34 @@ function Hero() {
             <div className="flex flex-col sm:flex-row sm:flex-wrap gap-3">
               <a
                 href={BOOKING_URL}
-                className="inline-flex items-center justify-center rounded-full bg-[#AC8F52] px-6 py-3.5 sm:py-3 text-[15px] sm:text-sm font-semibold text-[#1E2535] transition-[background-color,transform,box-shadow] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:bg-[#BC9C58] hover:-translate-y-0.5 hover:shadow-[0_16px_34px_-16px_rgba(172,143,82,0.9)]"
+                className="inline-flex items-center justify-center rounded-[10px] bg-[#AC8F52] px-6 py-3.5 sm:py-3 text-[15px] sm:text-sm font-semibold text-[#212121] transition-[background-color,transform,box-shadow] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:bg-[#BC9C58] hover:-translate-y-0.5 hover:shadow-[0_16px_34px_-16px_rgba(172,143,82,0.9)]"
               >
                 {t.book}
               </a>
               <a
                 href="#beschwerden"
-                className="inline-flex min-h-[44px] items-center justify-center rounded-full border border-white/25 sm:border-white/40 bg-white/[0.03] sm:bg-white/5 backdrop-blur-sm px-5 py-2 sm:px-6 sm:py-3 text-sm font-semibold text-white/85 sm:text-white transition-[background-color,border-color,transform] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:bg-white/15 hover:border-white/70 hover:-translate-y-0.5 active:scale-[0.98]"
+                className="inline-flex min-h-[44px] items-center justify-center rounded-[10px] border border-white/25 sm:border-white/40 bg-white/[0.03] sm:bg-white/5 backdrop-blur-sm px-5 py-2 sm:px-6 sm:py-3 text-sm font-semibold text-white/85 sm:text-white transition-[background-color,border-color,transform] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:bg-white/15 hover:border-white/70 hover:-translate-y-0.5 active:scale-[0.98]"
               >
                 {t.more}
               </a>
 
             </div>
-            <p className="mt-3 text-[13px] text-[#CBD1DA] hidden sm:block">
+            <p className="mt-3 text-[13px] text-[#D6D3CD] hidden sm:block">
               {t.bookMeta}{" · "}
               {t.askPrefix}
               <a
                 href={INQUIRY_URL}
-                className="font-semibold text-[#D8BE85] underline underline-offset-4 hover:brightness-110"
+                className="font-semibold text-[#CDB681] underline underline-offset-4 hover:brightness-110"
               >
                 {t.askLink}
               </a>
               {t.askSuffix}
             </p>
-            <p className="mt-3 text-[13px] text-[#CBD1DA] sm:hidden">
+            <p className="mt-3 text-[13px] text-[#D6D3CD] sm:hidden">
               {t.askPrefix}
               <a
                 href={INQUIRY_URL}
-                className="font-semibold text-[#D8BE85] underline underline-offset-4"
+                className="font-semibold text-[#CDB681] underline underline-offset-4"
               >
                 {t.askLink}
               </a>
@@ -604,12 +604,12 @@ function Hero() {
       </div>
 
 
-      <div className="relative lg:absolute lg:inset-x-0 lg:bottom-0 bg-[#1E2535]/90 backdrop-blur border-t border-white/10">
-        <div className="mx-auto max-w-7xl px-5 lg:px-8 grid grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-7 items-start py-6 lg:py-7">
+      <div className="relative lg:absolute lg:inset-x-0 lg:bottom-0 bg-[#212121]/90 backdrop-blur border-t border-white/10">
+        <div className="mx-auto max-w-[1440px] px-5 lg:px-8 grid grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-7 items-start py-6 lg:py-7">
           {STAT_DEFS.map((s) => (
             <div key={s.labelDe}>
               <StatCounter value={s.value} suffix={s.suffix} />
-              <div className="text-xs md:text-sm text-[#DDE1E8] mt-1">
+              <div className="text-xs md:text-sm text-[#E0DDD7] mt-1">
                 {lang === "de" ? s.labelDe : s.labelEn}
               </div>
             </div>
@@ -626,7 +626,7 @@ function SectionLabel({ children, gold = true }: { children: React.ReactNode; go
   return (
     <p
       className={`text-[11px] font-medium tracking-[0.2em] uppercase flex items-center gap-2 ${
-        gold ? "text-[#AC8F52]" : "text-[#8C939B]"
+        gold ? "text-[#AC8F52]" : "text-[#747474]"
       }`}
     >
       {gold && <span className="inline-block w-5 h-px bg-[#AC8F52]" />}
@@ -672,10 +672,10 @@ function BeschwerdenCard({
       <div className="active:scale-[0.99] sm:active:scale-100 transition-transform duration-100 h-full">
         <Link
           to={href as never}
-          className="group flex flex-row sm:flex-col h-full rounded-2xl bg-white overflow-hidden
+          className="group flex flex-row sm:flex-col h-full rounded-[10px] bg-white overflow-hidden
             focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#AC8F52] focus-visible:ring-offset-2"
           style={{
-            border: `1px solid ${hovered ? "rgba(172,143,82,0.45)" : "#E8E3DA"}`,
+            border: `1px solid ${hovered ? "rgba(172,143,82,0.45)" : "#E6E3DC"}`,
             transform: hovered ? "translateY(-3px)" : "translateY(0)",
             boxShadow: hovered
               ? "0 12px 32px -16px rgba(30,37,53,0.18)"
@@ -723,7 +723,7 @@ function BeschwerdenCard({
                 style={{
                   width: 34, height: 24, borderRadius: 6,
                   background: "rgba(172,143,82,0.12)",
-                  color: "#8A6E36", letterSpacing: "0.12em",
+                  color: "#97745B", letterSpacing: "0.12em",
                 }}
               >
                 {num}
@@ -738,13 +738,13 @@ function BeschwerdenCard({
                   fontSize: "clamp(0.9375rem, 2vw, 1.125rem)",
                   fontWeight: 600,
                   letterSpacing: "-0.01em",
-                  color: hovered ? "#8A6E36" : "#1E2535",
+                  color: hovered ? "#97745B" : "#212121",
                   transition: `color 260ms ${EASE}`,
                 }}
               >
                 {name}
               </h3>
-              <p className="mt-1 text-[0.8125rem] sm:text-[0.875rem] text-[#8C939B] leading-snug sm:leading-relaxed">
+              <p className="mt-1 text-[0.8125rem] sm:text-[0.875rem] text-[#747474] leading-snug sm:leading-relaxed">
                 {sub}
               </p>
             </div>
@@ -754,7 +754,7 @@ function BeschwerdenCard({
               {/* Desktop / tablet: full text + arrow */}
               <span
                 className="hidden sm:inline-flex items-center gap-1.5 text-sm font-semibold"
-                style={{ color: "#8A6E36" }}
+                style={{ color: "#97745B" }}
                 aria-hidden
               >
                 {cta}
@@ -832,8 +832,8 @@ function Beschwerden() {
   const { ref, style } = useFadeUp(0);
 
   return (
-    <section id="beschwerden" className="bg-[#F8F8F6] py-10 sm:py-16 lg:py-28">
-      <div className="mx-auto max-w-7xl px-4 sm:px-5 lg:px-8">
+    <section id="beschwerden" className="bg-[#F9F8F4] py-10 sm:py-16 lg:py-28">
+      <div className="mx-auto max-w-[1440px] px-4 sm:px-5 lg:px-8">
         <div ref={ref} style={style}>
           <p
             className="text-[11px] font-semibold tracking-[0.18em] uppercase"
@@ -842,12 +842,12 @@ function Beschwerden() {
             {t.label}
           </p>
           <h2
-            className="mt-3 sm:mt-4 font-display text-[#1E2535] leading-tight"
+            className="mt-3 sm:mt-4 font-display text-[#212121] leading-tight"
             style={{ fontSize: "clamp(1.875rem, 4.4vw, 3.4rem)", fontWeight: 500, letterSpacing: "-0.025em" }}
           >
             {t.h2}
           </h2>
-          <p className="mt-3 sm:mt-5 max-w-2xl text-[15px] sm:text-[17px] text-[#5B6472] leading-[1.5] sm:leading-[1.7]">
+          <p className="mt-3 sm:mt-5 max-w-2xl text-[15px] sm:text-[17px] text-[#666666] leading-[1.5] sm:leading-[1.7]">
             {t.lead}
           </p>
         </div>
@@ -885,27 +885,27 @@ function WegStep({
 }) {
   const { ref, style } = useFadeUp(delay);
   const inner = (
-    <div className={`rounded-2xl p-6 sm:p-7 h-full flex flex-col relative overflow-hidden border transition-all duration-300 group ${isHighlight ? "bg-[#AC8F52] border-[#AC8F52] hover:shadow-[0_20px_50px_-16px_rgba(172,143,82,0.45)]" : "bg-white border-transparent hover:border-[#AC8F52]/40 hover:shadow-[0_20px_50px_-20px_rgba(0,0,0,0.35)]"}`}>
+    <div className={`rounded-[10px] p-6 sm:p-7 h-full flex flex-col relative overflow-hidden border transition-all duration-300 group ${isHighlight ? "bg-[#AC8F52] border-[#AC8F52] hover:shadow-[0_20px_50px_-16px_rgba(172,143,82,0.45)]" : "bg-white border-transparent hover:border-[#AC8F52]/40 hover:shadow-[0_20px_50px_-20px_rgba(0,0,0,0.35)]"}`}>
       {/* Soft top accent line for non-highlight cards */}
       {!isHighlight && (
         <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#AC8F52]/60 to-[#AC8F52]/10 transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
       )}
 
       <div className="flex items-start justify-between mb-5">
-        <div className={`w-9 h-9 rounded-full flex items-center justify-center text-sm font-bold shrink-0 transition-transform duration-300 group-hover:scale-110 ${isHighlight ? "bg-[#1E2535]/15 text-[#1E2535]" : "bg-[#1E2535] text-white"}`}>
+        <div className={`w-9 h-9 rounded-[10px] flex items-center justify-center text-sm font-bold shrink-0 transition-transform duration-300 group-hover:scale-110 ${isHighlight ? "bg-[#212121]/15 text-[#212121]" : "bg-[#212121] text-white"}`}>
           {n}
         </div>
-        <div className={`w-8 h-8 shrink-0 transition-transform duration-300 group-hover:scale-110 ${isHighlight ? "text-[#1E2535]" : "text-[#AC8F52]"}`}>{icon}</div>
+        <div className={`w-8 h-8 shrink-0 transition-transform duration-300 group-hover:scale-110 ${isHighlight ? "text-[#212121]" : "text-[#AC8F52]"}`}>{icon}</div>
       </div>
 
-      <h3 className={`font-display text-[1.375rem] tracking-[-0.015em] leading-snug ${isHighlight ? "text-[#1E2535] font-semibold" : "text-[#1E2535] font-medium"}`}>{title}</h3>
-      <p className={`mt-3 text-[0.9375rem] leading-[1.7] flex-1 ${isHighlight ? "text-[#1E2535]/80" : "text-[#4A5568]"}`}>{desc}</p>
+      <h3 className={`font-display text-[1.375rem] tracking-[-0.015em] leading-snug ${isHighlight ? "text-[#212121] font-semibold" : "text-[#212121] font-medium"}`}>{title}</h3>
+      <p className={`mt-3 text-[0.9375rem] leading-[1.7] flex-1 ${isHighlight ? "text-[#212121]/80" : "text-[#595959]"}`}>{desc}</p>
 
       <div className="mt-6 pt-5 border-t border-current/10">
         {cta.to ? (
           <Link
             to={cta.to}
-            className={`inline-flex items-center gap-2 text-sm font-semibold transition-all duration-200 ${isHighlight ? "text-[#1E2535] hover:gap-3" : "text-[#AC8F52] hover:gap-3"}`}
+            className={`inline-flex items-center gap-2 text-sm font-semibold transition-all duration-200 ${isHighlight ? "text-[#212121] hover:gap-3" : "text-[#AC8F52] hover:gap-3"}`}
           >
             {cta.label}
             <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" className="w-3.5 h-3.5" aria-hidden>
@@ -915,7 +915,7 @@ function WegStep({
         ) : (
           <a
             href={cta.href}
-            className={`inline-flex items-center gap-2 text-sm font-semibold transition-all duration-200 ${isHighlight ? "text-[#1E2535] hover:gap-3" : "text-[#AC8F52] hover:gap-3"}`}
+            className={`inline-flex items-center gap-2 text-sm font-semibold transition-all duration-200 ${isHighlight ? "text-[#212121] hover:gap-3" : "text-[#AC8F52] hover:gap-3"}`}
           >
             {cta.label}
             <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" className="w-3.5 h-3.5" aria-hidden>
@@ -930,11 +930,11 @@ function WegStep({
   return (
     <div ref={ref} style={style} className="flex-1 min-w-0">
       {cta.to ? (
-        <Link to={cta.to} className="block h-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#AC8F52] focus-visible:ring-offset-2 focus-visible:ring-offset-[#1E2535] rounded-2xl">
+        <Link to={cta.to} className="block h-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#AC8F52] focus-visible:ring-offset-2 focus-visible:ring-offset-[#212121] rounded-[10px]">
           {inner}
         </Link>
       ) : (
-        <a href={cta.href} className="block h-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#AC8F52] focus-visible:ring-offset-2 focus-visible:ring-offset-[#1E2535] rounded-2xl">
+        <a href={cta.href} className="block h-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#AC8F52] focus-visible:ring-offset-2 focus-visible:ring-offset-[#212121] rounded-[10px]">
           {inner}
         </a>
       )}
@@ -992,12 +992,12 @@ function Weg() {
   });
   const { ref: headRef, style: headStyle } = useFadeUp(0);
   return (
-    <section id="weg" className="relative bg-[#1E2535] py-14 sm:py-20 lg:py-28 overflow-hidden">
+    <section id="weg" className="relative bg-[#212121] py-14 sm:py-20 lg:py-28 overflow-hidden">
       <div
         className="absolute inset-0 pointer-events-none opacity-[0.03]"
         style={{ backgroundImage: NOISE, backgroundSize: "256px 256px" }}
       />
-      <div className="relative mx-auto max-w-7xl px-5 lg:px-8">
+      <div className="relative mx-auto max-w-[1440px] px-5 lg:px-8">
         <div ref={headRef} style={headStyle}>
           <SectionLabel gold={false}>{t.label}</SectionLabel>
           <h2
@@ -1071,20 +1071,20 @@ function Kompetenzzentrum() {
     },
   });
   return (
-    <section className="bg-white border-y border-[#E2E4E7] py-12 sm:py-16 lg:py-20">
-      <div className="mx-auto max-w-7xl px-5 lg:px-8">
+    <section className="bg-white border-y border-[#E6E3DC] py-12 sm:py-16 lg:py-20">
+      <div className="mx-auto max-w-[1440px] px-5 lg:px-8">
         <div ref={ref} style={style} className="lg:flex lg:items-start lg:gap-16">
 
           {/* Left: text block ~32% */}
           <div className="lg:w-[32%] shrink-0 mb-10 lg:mb-0">
             <SectionLabel>{t.label}</SectionLabel>
             <h2
-              className="mt-4 font-display text-[#1E2535] leading-tight"
+              className="mt-4 font-display text-[#212121] leading-tight"
               style={{ fontSize: "clamp(1.6rem, 2.8vw, 2.2rem)", fontWeight: 500, letterSpacing: "-0.02em" }}
             >
               {t.h2}
             </h2>
-            <p className="mt-4 text-[15px] text-[#5B6472] leading-relaxed">{t.lead}</p>
+            <p className="mt-4 text-[15px] text-[#666666] leading-relaxed">{t.lead}</p>
           </div>
 
           {/* Right: partner logos ~68% */}
@@ -1092,7 +1092,7 @@ function Kompetenzzentrum() {
             {t.partners.map((p, i) => (
               <div
                 key={p.name}
-                className={`bg-[#FAFAF9] border border-[#E8E3DA] hover:border-[#AC8F52]/50 transition-colors duration-300
+                className={`bg-[#FCFBF8] border border-[#E6E3DC] hover:border-[#AC8F52]/50 transition-colors duration-300
                   flex flex-col items-center justify-between text-center p-4 sm:p-5 gap-4
                   ${i === 4 ? "col-span-2 sm:col-span-1" : ""}`}
                 style={{ borderRadius: 8, minHeight: 148 }}
@@ -1106,8 +1106,8 @@ function Kompetenzzentrum() {
                   />
                 </div>
                 <div>
-                  <p className="text-[12px] font-semibold text-[#1E2535] leading-snug">{p.name}</p>
-                  <p className="mt-0.5 text-[11px] text-[#8C939B] leading-snug">{p.short}</p>
+                  <p className="text-[12px] font-semibold text-[#212121] leading-snug">{p.name}</p>
+                  <p className="mt-0.5 text-[11px] text-[#747474] leading-snug">{p.short}</p>
                 </div>
               </div>
             ))}
@@ -1134,10 +1134,10 @@ function HomeLeaderCard({
 }) {
   const { ref, style } = useFadeUp(delay);
   return (
-    <div ref={ref} style={style} className="group bg-white border border-[#E2E4E7] hover:border-[#AC8F52]/40 hover:shadow-xl transition-all duration-300 overflow-hidden h-full">
+    <div ref={ref} style={style} className="group bg-white border border-[#E6E3DC] hover:border-[#AC8F52]/40 hover:shadow-xl transition-all duration-300 overflow-hidden h-full">
       <Link to="/aerzte/$slug" params={{ slug: d.slug }} className="flex flex-col lg:flex-row h-full">
         {/* Photo */}
-        <div className="relative w-full lg:w-[45%] aspect-[3/4] lg:aspect-auto overflow-hidden bg-[#263044] shrink-0">
+        <div className="relative w-full lg:w-[45%] aspect-[3/4] lg:aspect-auto overflow-hidden bg-[#2D2D2D] shrink-0">
           {d.photo ? (
             <img
               src={d.photo}
@@ -1157,16 +1157,16 @@ function HomeLeaderCard({
           <div className="absolute top-0 right-0 w-14 h-14 border-t-2 border-r-2 border-[#AC8F52]/30" aria-hidden="true" />
           <p className="text-[10px] font-bold tracking-[0.22em] uppercase text-[#AC8F52]">{badge}</p>
           <h3
-            className="mt-3 font-display text-[#1E2535] leading-tight"
+            className="mt-3 font-display text-[#212121] leading-tight"
             style={{ fontSize: "clamp(1.35rem, 2.2vw, 1.85rem)", fontWeight: 500, letterSpacing: "-0.015em" }}
           >
             {d.name}
           </h3>
-          <p className="mt-1 text-sm text-[#5F6771]">{d.role}</p>
-          <p className="mt-3 text-sm text-[#8C939B] leading-relaxed">
+          <p className="mt-1 text-sm text-[#666666]">{d.role}</p>
+          <p className="mt-3 text-sm text-[#747474] leading-relaxed">
             {d.focus.slice(0, 3).join(" · ")}
           </p>
-          <span className="mt-6 self-start text-sm font-semibold text-[#1E2535] group-hover:text-[#AC8F52] transition-colors border-b border-[#AC8F52] pb-1 flex items-center gap-1.5">
+          <span className="mt-6 self-start text-sm font-semibold text-[#212121] group-hover:text-[#AC8F52] transition-colors border-b border-[#AC8F52] pb-1 flex items-center gap-1.5">
             {cta}
             <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" className="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-1">
               <path d="M3 8h10M9 4l4 4-4 4" strokeLinecap="round" strokeLinejoin="round" />
@@ -1185,12 +1185,12 @@ function HomeTeamCard({ d, delay, cta }: { d: ReturnType<typeof localizeDoctor>;
       <Link
         to="/aerzte/$slug"
         params={{ slug: d.slug }}
-        className="flex flex-row sm:flex-col h-full bg-white border border-[#E2E4E7]
+        className="flex flex-row sm:flex-col h-full bg-white border border-[#E6E3DC]
           group-hover:border-[#AC8F52]/40 group-hover:shadow-md transition-all duration-300 overflow-hidden"
         style={{ borderRadius: 12 }}
       >
         {/* Portrait — left on mobile, top on desktop */}
-        <div className="relative w-[90px] sm:w-full shrink-0 aspect-[3/4] sm:aspect-[3/4] overflow-hidden bg-[#263044]">
+        <div className="relative w-[90px] sm:w-full shrink-0 aspect-[3/4] sm:aspect-[3/4] overflow-hidden bg-[#2D2D2D]">
           {d.photo ? (
             <img
               src={d.photo}
@@ -1208,13 +1208,13 @@ function HomeTeamCard({ d, delay, cta }: { d: ReturnType<typeof localizeDoctor>;
         {/* Info */}
         <div className="flex flex-col flex-1 justify-between p-4 sm:p-5">
           <div>
-            <h3 className="font-display text-[#1E2535] leading-snug" style={{ fontSize: "1.05rem", fontWeight: 500 }}>
+            <h3 className="font-display text-[#212121] leading-snug" style={{ fontSize: "1.05rem", fontWeight: 500 }}>
               {d.name}
             </h3>
-            <p className="mt-1 text-sm text-[#5F6771] leading-snug">{d.role}</p>
-            <p className="mt-1.5 text-[11px] text-[#8C939B] leading-snug">{d.specialties[0]}</p>
+            <p className="mt-1 text-sm text-[#666666] leading-snug">{d.role}</p>
+            <p className="mt-1.5 text-[11px] text-[#747474] leading-snug">{d.specialties[0]}</p>
           </div>
-          <span className="mt-3 inline-flex items-center gap-1 text-xs font-semibold text-[#8C939B] group-hover:text-[#AC8F52] transition-colors">
+          <span className="mt-3 inline-flex items-center gap-1 text-xs font-semibold text-[#747474] group-hover:text-[#AC8F52] transition-colors">
             {cta}
             <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" strokeLinecap="round" strokeLinejoin="round">
               <path d="M3 8h10M9 4l4 4-4 4"/>
@@ -1259,17 +1259,17 @@ function Team() {
   const TEAM_PREVIEW = allDoctors.slice(2, 5).map((doctor) => localizeDoctor(doctor, lang));
 
   return (
-    <section id="team" className="bg-[#F8F8F6] py-14 sm:py-20 lg:py-28">
-      <div className="mx-auto max-w-7xl px-5 lg:px-8">
+    <section id="team" className="bg-[#F9F8F4] py-14 sm:py-20 lg:py-28">
+      <div className="mx-auto max-w-[1440px] px-5 lg:px-8">
         <div ref={headRef} style={headStyle}>
           <SectionLabel>{t.label}</SectionLabel>
           <h2
-            className="mt-4 font-display text-[#1E2535] leading-tight"
+            className="mt-4 font-display text-[#212121] leading-tight"
             style={{ fontSize: "clamp(2.15rem, 4.4vw, 3.4rem)", fontWeight: 500, letterSpacing: "-0.025em" }}
           >
             {t.h2a}<em style={{ fontStyle: "normal", fontWeight: 600 }}>{t.h2b}</em>
           </h2>
-          <p className="mt-5 max-w-2xl text-[17px] text-[#5B6472] leading-[1.7]">{t.lead}</p>
+          <p className="mt-5 max-w-2xl text-[17px] text-[#666666] leading-[1.7]">{t.lead}</p>
         </div>
 
         {/* Leadership */}
@@ -1305,7 +1305,7 @@ function Team() {
         <div className="mt-12">
           <Link
             to="/aerzte"
-            className="inline-flex items-center min-h-11 text-sm font-semibold text-[#1E2535] hover:text-[#AC8F52] transition-colors"
+            className="inline-flex items-center min-h-11 text-sm font-semibold text-[#212121] hover:text-[#AC8F52] transition-colors"
           >
             {t.seeAll(allDoctors.length)}
           </Link>
@@ -1350,12 +1350,12 @@ function Termin() {
   });
   const { ref, style } = useFadeUp(0);
   return (
-    <section id="termin" className="relative bg-[#1E2535] py-14 sm:py-20 lg:py-28 border-t-4 border-[#AC8F52] overflow-hidden">
+    <section id="termin" className="relative bg-[#212121] py-14 sm:py-20 lg:py-28 border-t-4 border-[#AC8F52] overflow-hidden">
       <div
         className="absolute inset-0 pointer-events-none opacity-[0.03]"
         style={{ backgroundImage: NOISE, backgroundSize: "256px 256px" }}
       />
-      <div className="relative mx-auto max-w-7xl px-5 lg:px-8">
+      <div className="relative mx-auto max-w-[1440px] px-5 lg:px-8">
         <div ref={ref} style={style}>
           <h2
             className="font-display text-white leading-tight"
@@ -1363,10 +1363,10 @@ function Termin() {
           >
             {t.h2a}<em style={{ fontStyle: "normal", fontWeight: 600 }}>{t.h2b}</em>
           </h2>
-          <p className="mt-4 text-[#C8CBD2] leading-relaxed max-w-lg">{t.lead}</p>
+          <p className="mt-4 text-[#D0CDC7] leading-relaxed max-w-lg">{t.lead}</p>
           <AppointmentChoice />
         </div>
-        <div className="mt-10 rounded-xl bg-[#263044] p-7">
+        <div className="mt-10 rounded-[10px] bg-[#2D2D2D] p-7">
 
           <h3 className="text-white font-semibold text-lg">{t.otherTitle}</h3>
           <div className="mt-6 grid gap-6 text-sm sm:grid-cols-2 lg:grid-cols-4">
@@ -1415,7 +1415,7 @@ function Termin() {
                 {icon}
                 <div>
                   <div className="text-white">{primary}</div>
-                  <div className="text-[#A7AEBA]">{secondary}</div>
+                  <div className="text-[#AAA6A0]">{secondary}</div>
                 </div>
               </div>
             ))}
@@ -1447,7 +1447,7 @@ function AktuellesCard({ item, delay, cta }: { item: AktuellesItem; delay: numbe
       ref={ref}
       style={{
         ...style,
-        borderTopColor: hovered ? item.accentColor : "#E2E4E7",
+        borderTopColor: hovered ? item.accentColor : "#E6E3DC",
         boxShadow: hovered ? "0 4px 20px rgba(0,0,0,0.06)" : "none",
         transition: `${style.transition}, border-top-color 250ms ${EASE}, box-shadow 250ms ${EASE}`,
       }}
@@ -1455,7 +1455,7 @@ function AktuellesCard({ item, delay, cta }: { item: AktuellesItem; delay: numbe
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
-      <div className="overflow-hidden bg-[#F1F2F4]">
+      <div className="overflow-hidden bg-[#F2F0EB]">
         <img
           src={item.image}
           alt={item.title}
@@ -1477,15 +1477,15 @@ function AktuellesCard({ item, delay, cta }: { item: AktuellesItem; delay: numbe
           >
             {item.type}
           </span>
-          <span className="text-xs text-[#5B6472]">{item.date}</span>
+          <span className="text-xs text-[#666666]">{item.date}</span>
         </div>
         <h3
-          className="mt-2 font-display text-[#1E2535] leading-snug"
+          className="mt-2 font-display text-[#212121] leading-snug"
           style={{ fontSize: "1.15rem", fontWeight: 500 }}
         >
           {item.title}
         </h3>
-        <p className="mt-1 text-sm text-[#5B6472]">{item.detail}</p>
+        <p className="mt-1 text-sm text-[#666666]">{item.detail}</p>
       </div>
       <a
         href="#"
@@ -1535,25 +1535,25 @@ function Aktuelles() {
   const items: AktuellesItem[] = t.items.map((it, i) => ({ ...it, ...meta[i] }));
   const { ref: headRef, style: headStyle } = useFadeUp(0);
   return (
-    <section id="aktuelles" className="bg-[#F8F8F6] py-14 sm:py-20 lg:py-28">
-      <div className="mx-auto max-w-7xl px-5 lg:px-8">
+    <section id="aktuelles" className="bg-[#F9F8F4] py-14 sm:py-20 lg:py-28">
+      <div className="mx-auto max-w-[1440px] px-5 lg:px-8">
         <div ref={headRef} style={headStyle}>
           <SectionLabel>{t.label}</SectionLabel>
           <h2
-            className="mt-4 font-display text-[#1E2535] leading-tight"
+            className="mt-4 font-display text-[#212121] leading-tight"
             style={{ fontSize: "clamp(2.15rem, 4.4vw, 3.4rem)", fontWeight: 500, letterSpacing: "-0.025em" }}
           >
             {t.h2a}<em style={{ fontStyle: "normal", fontWeight: 600 }}>{t.h2b}</em>
           </h2>
-          <p className="mt-5 max-w-2xl text-[17px] text-[#5B6472] leading-[1.7]">{t.lead}</p>
+          <p className="mt-5 max-w-2xl text-[17px] text-[#666666] leading-[1.7]">{t.lead}</p>
         </div>
-        <div className="mt-12 flex flex-col gap-px bg-[#E2E4E7]">
+        <div className="mt-12 flex flex-col gap-px bg-[#E6E3DC]">
           {items.map((item, i) => (
             <AktuellesCard key={item.title} item={item} delay={150 + i * 100} cta={t.cta} />
           ))}
         </div>
         <div className="mt-10">
-          <a href="#" className="inline-flex items-center min-h-11 text-sm font-semibold text-[#1E2535] hover:text-[#AC8F52] transition-colors">
+          <a href="#" className="inline-flex items-center min-h-11 text-sm font-semibold text-[#212121] hover:text-[#AC8F52] transition-colors">
             {t.all}
           </a>
         </div>
@@ -1594,11 +1594,11 @@ function Footer() {
     },
   });
   return (
-    <footer className="bg-[#1E2535] border-t-2 border-[#AC8F52] text-[#C8CBD2]">
-      <div className="mx-auto max-w-7xl px-5 lg:px-8 py-16 grid gap-10 md:grid-cols-2 lg:grid-cols-5">
+    <footer className="bg-[#212121] border-t-2 border-[#AC8F52] text-[#D0CDC7]">
+      <div className="mx-auto max-w-[1440px] px-5 lg:px-8 py-16 grid gap-10 md:grid-cols-2 lg:grid-cols-5">
         <div>
           <Logo light />
-          <div className="mt-5 space-y-1 text-sm text-[#A7AEBA]">
+          <div className="mt-5 space-y-1 text-sm text-[#AAA6A0]">
             <div>Dr. Medele &amp; Kollegen</div>
             <div>Nymphenburger Str. 1</div>
             <div>{t.city}</div>
@@ -1610,7 +1610,7 @@ function Footer() {
         {t.cols.map((c) => (
           <div key={c.title}>
             <h4 className="text-white font-semibold text-sm tracking-wide">{c.title}</h4>
-            <ul className="mt-4 space-y-2 text-sm text-[#A7AEBA]">
+            <ul className="mt-4 space-y-2 text-sm text-[#AAA6A0]">
               {c.items.map((i) => (
                 <li key={i}>
                   <a href="#" className="inline-flex items-center min-h-11 lg:min-h-0 hover:text-[#AC8F52] transition-colors duration-200">
@@ -1624,15 +1624,15 @@ function Footer() {
       </div>
 
       <div className="border-t border-white/10">
-        <div className="mx-auto max-w-7xl px-5 lg:px-8 py-8 flex flex-wrap items-center gap-8">
-          <span className="text-[11px] font-medium tracking-[0.2em] uppercase text-[#A7AEBA]">{t.awarded}</span>
+        <div className="mx-auto max-w-[1440px] px-5 lg:px-8 py-8 flex flex-wrap items-center gap-8">
+          <span className="text-[11px] font-medium tracking-[0.2em] uppercase text-[#AAA6A0]">{t.awarded}</span>
           <img src={focusImg.url} alt="Focus Top-Mediziner" loading="lazy" decoding="async" className="h-14 w-auto bg-white/95 rounded p-2" />
           <img src={isoImg.url} alt="ISO 9001 zertifiziert" loading="lazy" decoding="async" className="h-14 w-auto bg-white/95 rounded p-2" />
         </div>
       </div>
 
       <div className="border-t border-white/10">
-        <div className="mx-auto max-w-7xl px-5 lg:px-8 py-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 text-xs text-[#A7AEBA]">
+        <div className="mx-auto max-w-[1440px] px-5 lg:px-8 py-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 text-xs text-[#AAA6A0]">
           <div>{t.copy}</div>
           <div className="flex w-full flex-col items-center gap-4 md:w-auto md:flex-row md:items-center md:gap-5">
             {/* Social icons */}
@@ -1643,7 +1643,7 @@ function Footer() {
                 { href: "https://www.youtube.com/channel/UCzwMBjHV_AtZB9Ubu2ISm9w", label: "YouTube", d: <><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></> },
               ].map((s) => (
                 <a key={s.label} href={s.href} target="_blank" rel="noreferrer" aria-label={s.label}
-                  className="inline-flex items-center justify-center w-8 h-8 rounded-full text-[#A7AEBA] hover:text-[#AC8F52] transition-colors duration-200">
+                  className="inline-flex items-center justify-center w-8 h-8 rounded-[10px] text-[#AAA6A0] hover:text-[#AC8F52] transition-colors duration-200">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4" aria-hidden>
                     {s.d}
                   </svg>
@@ -1653,7 +1653,7 @@ function Footer() {
             {/* Booking CTA */}
             <a
               href="/#termin"
-              className="inline-flex min-h-11 items-center justify-center rounded-full bg-[#AC8F52] px-6 py-2.5 text-xs font-semibold tracking-wide text-[#1E2535] transition hover:brightness-105"
+              className="inline-flex min-h-11 items-center justify-center rounded-[10px] bg-[#AC8F52] px-6 py-2.5 text-xs font-semibold tracking-wide text-[#212121] transition hover:brightness-105"
             >
               {t.footerCta}
             </a>
@@ -1683,7 +1683,7 @@ function MobileStickyBar({ visible }: { visible: boolean }) {
       style={{
         transform: visible ? "translateY(0)" : "translateY(100%)",
         paddingBottom: "env(safe-area-inset-bottom)",
-        backgroundColor: "#1E2535",
+        backgroundColor: "#212121",
         borderTop: "1px solid rgba(255,255,255,0.1)",
       }}
       aria-hidden={!visible}
@@ -1701,7 +1701,7 @@ function MobileStickyBar({ visible }: { visible: boolean }) {
         </a>
         <a
           href={BOOKING_URL}
-          className="inline-flex min-h-[44px] items-center justify-center rounded-full bg-[#AC8F52] px-5 py-2.5 text-sm font-semibold text-[#1E2535]"
+          className="inline-flex min-h-[44px] items-center justify-center rounded-[10px] bg-[#AC8F52] px-5 py-2.5 text-sm font-semibold text-[#212121]"
           tabIndex={visible ? 0 : -1}
         >
           {t.book}
@@ -1727,7 +1727,7 @@ function Home() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#F8F8F6]">
+    <div className="min-h-screen bg-[#F9F8F4]">
       <a href="#main-content" className="skip-link">
         Zum Inhalt springen
       </a>

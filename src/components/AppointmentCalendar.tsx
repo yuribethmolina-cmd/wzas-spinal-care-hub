@@ -65,14 +65,14 @@ export function AppointmentCalendar({ value, onChange }: Props) {
 
   return (
     <div className="mt-4">
-      <div className="rounded-xl border border-white/15 bg-white/[0.04] p-4">
+      <div className="rounded-[10px] border border-white/15 bg-white/[0.04] p-4">
         <div className="flex items-center justify-between">
           <button
             type="button"
             aria-label={copy.prev}
             disabled={!canGoBack}
             onClick={() => setCursor(new Date(cursor.getFullYear(), cursor.getMonth() - 1, 1))}
-            className="flex h-9 w-9 items-center justify-center rounded-full border border-white/20 text-white transition hover:bg-white/10 disabled:opacity-30"
+            className="flex h-9 w-9 items-center justify-center rounded-[10px] border border-white/20 text-white transition hover:bg-white/10 disabled:opacity-30"
           >
             ‹
           </button>
@@ -81,13 +81,13 @@ export function AppointmentCalendar({ value, onChange }: Props) {
             type="button"
             aria-label={copy.next}
             onClick={() => setCursor(new Date(cursor.getFullYear(), cursor.getMonth() + 1, 1))}
-            className="flex h-9 w-9 items-center justify-center rounded-full border border-white/20 text-white transition hover:bg-white/10"
+            className="flex h-9 w-9 items-center justify-center rounded-[10px] border border-white/20 text-white transition hover:bg-white/10"
           >
             ›
           </button>
         </div>
 
-        <div className="mt-4 grid grid-cols-7 gap-1 text-center text-[11px] uppercase tracking-wide text-[#A7AEBA]">
+        <div className="mt-4 grid grid-cols-7 gap-1 text-center text-[11px] uppercase tracking-wide text-[#AAA6A0]">
           {weekdays.map((w) => (
             <span key={w}>{w}</span>
           ))}
@@ -107,7 +107,7 @@ export function AppointmentCalendar({ value, onChange }: Props) {
                 className="aspect-square rounded-lg text-sm font-medium transition-colors duration-150 disabled:cursor-not-allowed"
                 style={{
                   backgroundColor: active ? "#AC8F52" : disabled ? "transparent" : "rgba(255,255,255,0.06)",
-                  color: active ? "#1E2535" : disabled ? "rgba(167,174,186,0.35)" : "#E6E8EC",
+                  color: active ? "#212121" : disabled ? "rgba(167,174,186,0.35)" : "#E6E8EC",
                   border: active ? "1px solid #AC8F52" : "1px solid transparent",
                 }}
               >
@@ -118,7 +118,7 @@ export function AppointmentCalendar({ value, onChange }: Props) {
         </div>
       </div>
 
-      <p className="mt-4 text-xs uppercase tracking-[0.15em] text-[#A7AEBA]">
+      <p className="mt-4 text-xs uppercase tracking-[0.15em] text-[#AAA6A0]">
         {selected ? copy.pickTime : copy.pickDay}
       </p>
       {selected && (
@@ -134,7 +134,7 @@ export function AppointmentCalendar({ value, onChange }: Props) {
                 style={{
                   backgroundColor: active ? "rgba(172,143,82,0.18)" : "rgba(255,255,255,0.04)",
                   border: `1px solid ${active ? "#AC8F52" : "rgba(255,255,255,0.15)"}`,
-                  color: active ? "#F1E4C8" : "#C8CBD2",
+                  color: active ? "#F1E4C8" : "#D0CDC7",
                 }}
               >
                 {s}
@@ -143,7 +143,7 @@ export function AppointmentCalendar({ value, onChange }: Props) {
           })}
         </div>
       )}
-      {value && <p className="mt-3 text-sm text-[#D8BE85]">{value}</p>}
+      {value && <p className="mt-3 text-sm text-[#CDB681]">{value}</p>}
     </div>
   );
 }

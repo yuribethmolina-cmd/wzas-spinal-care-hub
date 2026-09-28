@@ -19,13 +19,13 @@ function Column({
     <div
       className={
         dark
-          ? "bg-[#1E2535] text-white p-8 lg:p-12"
-          : "bg-white text-[#1E2535] p-8 lg:p-12 border border-[#E2E4E7]"
+          ? "bg-[#212121] text-white p-8 lg:p-12"
+          : "bg-white text-[#212121] p-8 lg:p-12 border border-[#E6E3DC]"
       }
     >
       <p
         className={`text-[11px] font-semibold tracking-[0.22em] uppercase ${
-          dark ? "text-[#D8BE85]" : "text-[#7A6029]"
+          dark ? "text-[#CDB681]" : "text-[#97745B]"
         }`}
       >
         {kicker}
@@ -36,14 +36,14 @@ function Column({
       >
         {heading}
       </h3>
-      <p className={`mt-3 text-[16px] leading-relaxed ${dark ? "text-[#CBD1DA]" : "text-[#4A5462]"}`}>
+      <p className={`mt-3 text-[16px] leading-relaxed ${dark ? "text-[#D6D3CD]" : "text-[#595959]"}`}>
         {intro}
       </p>
-      <ul className={`mt-8 divide-y ${dark ? "divide-white/12" : "divide-[#E2E4E7]"}`}>
+      <ul className={`mt-8 divide-y ${dark ? "divide-white/12" : "divide-[#E6E3DC]"}`}>
         {rows.map((r) => (
           <li key={r.title} className="py-4">
             <p className="text-[17px] font-semibold leading-snug">{r.title}</p>
-            <p className={`mt-1 text-[15px] leading-relaxed ${dark ? "text-[#A7AEBA]" : "text-[#5B6472]"}`}>
+            <p className={`mt-1 text-[15px] leading-relaxed ${dark ? "text-[#AAA6A0]" : "text-[#666666]"}`}>
               {r.text}
             </p>
           </li>
@@ -122,21 +122,21 @@ export function Behandlungen() {
   });
 
   return (
-    <section className="bg-[#F8F8F6] py-14 sm:py-20 lg:py-28">
-      <div className="mx-auto max-w-7xl px-5 lg:px-8">
+    <section className="bg-[#F9F8F4] py-14 sm:py-20 lg:py-28">
+      <div className="mx-auto max-w-[1440px] px-5 lg:px-8">
         <div className="max-w-3xl">
-          <p className="text-[11px] font-semibold tracking-[0.22em] uppercase text-[#7A6029] flex items-center gap-3">
+          <p className="text-[11px] font-semibold tracking-[0.22em] uppercase text-[#97745B] flex items-center gap-3">
             <span className="inline-block w-6 h-px bg-[#AC8F52]" />
             {t.label}
           </p>
           <h2
-            className="mt-4 font-display text-[#1E2535] leading-[1.14] sm:leading-[1.05]"
+            className="mt-4 font-display text-[#212121] leading-[1.14] sm:leading-[1.05]"
             style={{ fontSize: "clamp(2rem, 4.4vw, 3.1rem)", fontWeight: 500 }}
           >
             {t.h2a}
             <span style={{ fontWeight: 700 }}>{t.h2b}</span>
           </h2>
-          <p className="mt-4 text-[17px] text-[#4A5462] leading-relaxed">{t.lead}</p>
+          <p className="mt-4 text-[17px] text-[#595959] leading-relaxed">{t.lead}</p>
         </div>
 
         <div className="mt-12 grid gap-6 lg:grid-cols-3">

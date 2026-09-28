@@ -97,7 +97,7 @@ function KarrierePage() {
   ];
 
   return (
-    <div className="min-h-screen bg-[#F8F8F6]">
+    <div className="min-h-screen bg-[#F9F8F4]">
       <PageHeader />
 
       <main>
@@ -108,7 +108,7 @@ function KarrierePage() {
             style={{ backgroundImage: "url(/gallery/karriere.webp)" }}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/25 to-transparent" />
-          <div className="absolute bottom-0 left-0 px-5 pb-10 lg:px-12 lg:pb-14 max-w-7xl mx-auto w-full">
+          <div className="absolute bottom-0 left-0 px-5 pb-10 lg:px-12 lg:pb-14 max-w-[1440px] mx-auto w-full">
             <p className="text-[10px] font-semibold tracking-[0.25em] uppercase text-[#AC8F52] mb-3">
               {t.heroEyebrow}
             </p>
@@ -125,7 +125,7 @@ function KarrierePage() {
         <section className="py-16 bg-white">
           <div className="mx-auto max-w-4xl px-5 lg:px-8">
             <div ref={contentRef} style={contentStyle}>
-              <p className="text-lg text-[#4A5568] leading-relaxed mb-12">
+              <p className="text-lg text-[#595959] leading-relaxed mb-12">
                 {t.introParagraph}
               </p>
             </div>
@@ -135,10 +135,10 @@ function KarrierePage() {
               {roles.map((role, i) => (
                 <div
                   key={i}
-                  className="bg-[#F8F8F6] border border-[#E2E4E7] p-6 rounded-sm"
+                  className="bg-[#F9F8F4] border border-[#E6E3DC] p-6 rounded-sm"
                 >
-                  <p className="font-semibold text-[#1E2535] mb-2">{role.heading}</p>
-                  <p className="text-sm text-[#4A5568] leading-relaxed">{role.text}</p>
+                  <p className="font-semibold text-[#212121] mb-2">{role.heading}</p>
+                  <p className="text-sm text-[#595959] leading-relaxed">{role.text}</p>
                 </div>
               ))}
             </div>
@@ -148,16 +148,16 @@ function KarrierePage() {
               <p className="text-[10px] font-semibold tracking-[0.25em] uppercase text-[#AC8F52] mb-5">
                 {t.openingsLabel}
               </p>
-              <div className="divide-y divide-[#E2E4E7] border border-[#E2E4E7] rounded-sm">
+              <div className="divide-y divide-[#E6E3DC] border border-[#E6E3DC] rounded-sm">
                 {t.openings.map((pos) => (
                   <div key={pos.title} className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 px-5 py-4">
                     <div>
-                      <p className="font-semibold text-[#1E2535] text-sm">{pos.title}</p>
-                      <p className="text-xs text-[#5F6771] mt-0.5">{pos.detail}</p>
+                      <p className="font-semibold text-[#212121] text-sm">{pos.title}</p>
+                      <p className="text-xs text-[#666666] mt-0.5">{pos.detail}</p>
                     </div>
                     <a
                       href="mailto:info@wzas.de"
-                      className="shrink-0 text-xs font-semibold text-[#7A6029] hover:brightness-110 transition mt-1 sm:mt-0"
+                      className="shrink-0 text-xs font-semibold text-[#97745B] hover:brightness-110 transition mt-1 sm:mt-0"
                     >
                       {t.apply}
                     </a>
@@ -168,17 +168,17 @@ function KarrierePage() {
 
             {/* Contact block */}
             <div ref={contactRef} style={contactStyle} className="text-center mt-12">
-              <h2 className="font-display text-2xl font-semibold text-[#1E2535] mb-3">
+              <h2 className="font-display text-2xl font-semibold text-[#212121] mb-3">
                 {t.contactHeading}
               </h2>
-              <p className="text-[#4A5568] mb-3">{t.contactText}</p>
+              <p className="text-[#595959] mb-3">{t.contactText}</p>
               <a
                 href="mailto:info@wzas.de"
-                className="inline-flex min-h-11 items-center text-[#7A6029] font-semibold hover:brightness-110 transition"
+                className="inline-flex min-h-11 items-center text-[#97745B] font-semibold hover:brightness-110 transition"
               >
                 info@wzas.de
               </a>
-              <p className="mt-4 text-xs text-[#8C939B]">{t.contactSmall}</p>
+              <p className="mt-4 text-xs text-[#747474]">{t.contactSmall}</p>
             </div>
           </div>
         </section>

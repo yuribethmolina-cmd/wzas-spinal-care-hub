@@ -26,31 +26,31 @@ export function Vortragsreihe() {
   });
 
   return (
-    <section className="bg-white border-y border-[#E2E4E7]">
-      <div className="mx-auto max-w-7xl px-5 lg:px-8 py-12 sm:py-14 lg:py-20 grid gap-10 lg:grid-cols-[1.1fr_1fr] lg:items-center">
+    <section className="bg-white border-y border-[#E6E3DC]">
+      <div className="mx-auto max-w-[1440px] px-5 lg:px-8 py-12 sm:py-14 lg:py-20 grid gap-10 lg:grid-cols-[1.1fr_1fr] lg:items-center">
         <div>
-          <p className="text-[11px] font-semibold tracking-[0.22em] uppercase text-[#7A6029] flex items-center gap-3">
+          <p className="text-[11px] font-semibold tracking-[0.22em] uppercase text-[#97745B] flex items-center gap-3">
             <span className="inline-block w-6 h-px bg-[#AC8F52]" />
             {t.label}
           </p>
           <h2
-            className="mt-4 font-display text-[#1E2535] leading-[1.1]"
+            className="mt-4 font-display text-[#212121] leading-[1.1]"
             style={{ fontSize: "clamp(1.8rem, 3.4vw, 2.6rem)", fontWeight: 600 }}
           >
             {t.title}
           </h2>
-          <p className="mt-4 text-[17px] text-[#4A5462] leading-relaxed max-w-xl">{t.text}</p>
+          <p className="mt-4 text-[17px] text-[#595959] leading-relaxed max-w-xl">{t.text}</p>
           <div className="mt-7 flex flex-wrap items-center gap-4">
             <a
               href="tel:+4989543430300"
-              className="inline-flex items-center rounded-full bg-[#1E2535] px-6 py-3 text-[15px] font-semibold text-white transition-transform duration-300 hover:-translate-y-0.5"
+              className="inline-flex items-center rounded-[10px] bg-[#212121] px-6 py-3 text-[15px] font-semibold text-white transition-transform duration-300 hover:-translate-y-0.5"
             >
               {t.cta}
             </a>
-            <span className="text-sm text-[#5B6472]">{t.note}</span>
+            <span className="text-sm text-[#666666]">{t.note}</span>
           </div>
         </div>
-        <div className="relative overflow-hidden rounded-xl">
+        <div className="relative overflow-hidden rounded-[10px]">
           <img
             src={vortraegeImg.url}
             alt={t.label}
@@ -58,7 +58,7 @@ export function Vortragsreihe() {
             decoding="async"
             className="w-full h-[260px] sm:h-[320px] object-cover"
           />
-          <span className="absolute inset-0 ring-1 ring-inset ring-black/10 rounded-xl" />
+          <span className="absolute inset-0 ring-1 ring-inset ring-black/10 rounded-[10px]" />
         </div>
       </div>
     </section>
@@ -100,27 +100,27 @@ export function Anfahrt() {
   });
 
   return (
-    <section id="anfahrt" className="bg-[#F1F1EE] py-14 sm:py-20 lg:py-28 border-t border-[#E2E4E7]">
-      <div className="mx-auto max-w-7xl px-5 lg:px-8 grid gap-12 lg:grid-cols-[1fr_1.15fr] lg:items-start">
+    <section id="anfahrt" className="bg-[#F3F1EC] py-14 sm:py-20 lg:py-28 border-t border-[#E6E3DC]">
+      <div className="mx-auto max-w-[1440px] px-5 lg:px-8 grid gap-12 lg:grid-cols-[1fr_1.15fr] lg:items-start">
         <div>
-          <p className="text-[11px] font-semibold tracking-[0.22em] uppercase text-[#7A6029] flex items-center gap-3">
+          <p className="text-[11px] font-semibold tracking-[0.22em] uppercase text-[#97745B] flex items-center gap-3">
             <span className="inline-block w-6 h-px bg-[#AC8F52]" />
             {t.label}
           </p>
           <h2
-            className="mt-4 font-display text-[#1E2535] leading-[1.14] sm:leading-[1.05]"
+            className="mt-4 font-display text-[#212121] leading-[1.14] sm:leading-[1.05]"
             style={{ fontSize: "clamp(2rem, 4vw, 2.9rem)", fontWeight: 500 }}
           >
             {t.h2a}
             <span style={{ fontWeight: 700 }}>{t.h2b}</span>
           </h2>
-          <p className="mt-4 text-[17px] text-[#4A5462] leading-relaxed max-w-md">{t.lead}</p>
+          <p className="mt-4 text-[17px] text-[#595959] leading-relaxed max-w-md">{t.lead}</p>
 
-          <dl className="mt-8 grid gap-px bg-[#E2E4E7] sm:grid-cols-2 rounded-lg overflow-hidden">
+          <dl className="mt-8 grid gap-px bg-[#E6E3DC] sm:grid-cols-2 rounded-lg overflow-hidden">
             {t.items.map((i) => (
               <div key={i.k} className="bg-white p-5">
-                <dt className="text-[11px] font-semibold uppercase tracking-[0.16em] text-[#7A6029]">{i.k}</dt>
-                <dd className="mt-2 text-[16px] font-medium text-[#1E2535] leading-relaxed whitespace-pre-line">
+                <dt className="text-[11px] font-semibold uppercase tracking-[0.16em] text-[#97745B]">{i.k}</dt>
+                <dd className="mt-2 text-[16px] font-medium text-[#212121] leading-relaxed whitespace-pre-line">
                   {i.v}
                 </dd>
               </div>
@@ -132,20 +132,20 @@ export function Anfahrt() {
               href="https://www.google.com/maps/search/?api=1&query=Nymphenburger+Str.+1+80335+M%C3%BCnchen"
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center rounded-full border border-[#1E2535]/25 px-5 py-2.5 text-[15px] font-semibold text-[#1E2535] hover:bg-white transition-colors"
+              className="inline-flex items-center rounded-[10px] border border-[#212121]/25 px-5 py-2.5 text-[15px] font-semibold text-[#212121] hover:bg-white transition-colors"
             >
               {t.map}
             </a>
             <a
               href={BOOKING}
-              className="inline-flex items-center rounded-full bg-[#AC8F52] px-5 py-2.5 text-[15px] font-semibold text-[#1E2535] hover:bg-[#BC9C58] transition-colors"
+              className="inline-flex items-center rounded-[10px] bg-[#AC8F52] px-5 py-2.5 text-[15px] font-semibold text-[#212121] hover:bg-[#BC9C58] transition-colors"
             >
               {t.book}
             </a>
           </div>
         </div>
 
-        <div className="overflow-hidden rounded-2xl border border-[#D9DDE2] bg-white min-h-[380px] shadow-[0_24px_60px_-34px_rgba(30,37,53,0.45)]">
+        <div className="overflow-hidden rounded-[10px] border border-[#D9DDE2] bg-white min-h-[380px] shadow-[0_24px_60px_-34px_rgba(30,37,53,0.45)]">
           <iframe
             title={t.label === "Getting here" ? "Map showing Nymphenburger Str. 1, Munich" : "Karte, Nymphenburger Str. 1, München"}
             src="https://www.google.com/maps?q=Nymphenburger+Str.+1,+80335+M%C3%BCnchen&z=16&output=embed"

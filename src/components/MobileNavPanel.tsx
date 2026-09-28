@@ -81,7 +81,7 @@ export function MobileNavPanel({
       {/* Overlay */}
       <div
         onClick={onClose}
-        className={`fixed inset-0 z-40 bg-[#0F131C]/60 backdrop-blur-[2px] transition-opacity duration-300 ${
+        className={`fixed inset-0 z-40 bg-[#181818]/60 backdrop-blur-[2px] transition-opacity duration-300 ${
           open ? "opacity-100" : "pointer-events-none opacity-0"
         }`}
       />
@@ -100,15 +100,15 @@ export function MobileNavPanel({
           transitionProperty: "transform, visibility",
         }}
       >
-        <div className="flex items-center justify-between border-b border-[#E2E4E7] px-5 py-4">
-          <span className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[#8C939B]">
+        <div className="flex items-center justify-between border-b border-[#E6E3DC] px-5 py-4">
+          <span className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[#747474]">
             {title}
           </span>
           <button
             type="button"
             onClick={onClose}
             aria-label={closeLabel}
-            className="inline-flex min-h-11 min-w-11 items-center justify-center rounded-md text-[#1E2535] hover:text-[#AC8F52]"
+            className="inline-flex min-h-11 min-w-11 items-center justify-center rounded-md text-[#212121] hover:text-[#AC8F52]"
           >
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
               <path d="M6 6l12 12M6 18L18 6" />
@@ -120,7 +120,7 @@ export function MobileNavPanel({
           {links.map(([label, href], i) => {
             const isActive = activeRoute === href;
             const cls = `flex items-center justify-between border-b border-[#EEF0F2] py-4 text-[17px] font-semibold transition-colors ${
-              isActive ? "text-[#AC8F52]" : "text-[#1E2535] hover:text-[#AC8F52]"
+              isActive ? "text-[#AC8F52]" : "text-[#212121] hover:text-[#AC8F52]"
             }`;
             const inner = (
               <>
@@ -155,11 +155,11 @@ export function MobileNavPanel({
           })}
         </nav>
 
-        <div className="border-t border-[#E2E4E7] px-5 py-5" style={{ paddingBottom: "calc(1.25rem + env(safe-area-inset-bottom))" }}>
+        <div className="border-t border-[#E6E3DC] px-5 py-5" style={{ paddingBottom: "calc(1.25rem + env(safe-area-inset-bottom))" }}>
           <a
             href={BOOKING_URL}
             onClick={onClose}
-            className="block rounded-full bg-[#AC8F52] px-5 py-4 text-center text-[15px] font-semibold text-[#1E2535] transition-colors duration-300 hover:bg-[#BC9C58]"
+            className="block rounded-[10px] bg-[#AC8F52] px-5 py-4 text-center text-[15px] font-semibold text-[#212121] transition-colors duration-300 hover:bg-[#BC9C58]"
           >
             {bookLabel}
           </a>
@@ -171,16 +171,16 @@ export function MobileNavPanel({
                 target="_blank"
                 rel="noreferrer"
                 aria-label={s.label}
-                className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[#F4F5F6] text-[#1E2535] hover:bg-[#AC8F52] hover:text-white transition-colors duration-200"
+                className="inline-flex items-center justify-center w-10 h-10 rounded-[10px] bg-[#F4F5F6] text-[#212121] hover:bg-[#AC8F52] hover:text-white transition-colors duration-200"
               >
                 {s.icon}
               </a>
             ))}
           </div>
-          <p className="mt-4 text-center text-xs leading-relaxed text-[#5F6771]">
+          <p className="mt-4 text-center text-xs leading-relaxed text-[#666666]">
             Nymphenburger Str. 1 · 80335 München
             <br />
-            <a href="tel:+498954343030" className="inline-flex items-center min-h-11 font-semibold text-[#1E2535]">
+            <a href="tel:+498954343030" className="inline-flex items-center min-h-11 font-semibold text-[#212121]">
               +49 (0)89-54 34 30 30
             </a>
           </p>

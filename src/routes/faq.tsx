@@ -117,14 +117,14 @@ function AccordionItem({
   onToggle: () => void;
 }) {
   return (
-    <div className="border-b border-[#E2E4E7]">
+    <div className="border-b border-[#E6E3DC]">
       <button
         type="button"
         onClick={onToggle}
         className="w-full flex items-center justify-between gap-4 py-5 text-left"
         aria-expanded={isOpen}
       >
-        <span className="font-semibold text-[#1E2535]">{q}</span>
+        <span className="font-semibold text-[#212121]">{q}</span>
         <span
           className="flex-shrink-0 w-6 h-6 flex items-center justify-center text-[#AC8F52] transition-transform duration-200"
           style={{ transform: isOpen ? "rotate(45deg)" : "rotate(0deg)" }}
@@ -137,7 +137,7 @@ function AccordionItem({
       </button>
       {isOpen && (
         <div className="pb-5 pr-8">
-          <p className="text-sm text-[#4A5568] leading-relaxed">{a}</p>
+          <p className="text-sm text-[#595959] leading-relaxed">{a}</p>
         </div>
       )}
     </div>
@@ -205,16 +205,16 @@ function FaqPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#F8F8F6]">
+    <div className="min-h-screen bg-[#F9F8F4]">
       <PageHeader activeRoute="/faq" />
 
       <main>
         {/* Hero, color bg, no photo */}
         <section
           className="relative flex items-end"
-          style={{ background: "#1E2535", minHeight: "40vh" }}
+          style={{ background: "#212121", minHeight: "40vh" }}
         >
-          <div className="px-5 pb-10 lg:px-12 lg:pb-14 max-w-7xl mx-auto w-full">
+          <div className="px-5 pb-10 lg:px-12 lg:pb-14 max-w-[1440px] mx-auto w-full">
             <p className="text-[10px] font-semibold tracking-[0.25em] uppercase text-[#AC8F52] mb-3">
               {t.heroEyebrow}
             </p>
@@ -243,12 +243,12 @@ function FaqPage() {
         </section>
 
         {/* Gallery strip */}
-        <section className="py-12 bg-[#F8F8F6]">
-          <div ref={galleryRef} style={galleryStyle} className="mx-auto max-w-7xl px-5 lg:px-8">
+        <section className="py-12 bg-[#F9F8F4]">
+          <div ref={galleryRef} style={galleryStyle} className="mx-auto max-w-[1440px] px-5 lg:px-8">
             <p className="text-[10px] font-semibold tracking-[0.25em] uppercase text-[#AC8F52] mb-2">
               {t.galleryLabel}
             </p>
-            <h2 className="font-display text-2xl font-semibold text-[#1E2535] mb-6">
+            <h2 className="font-display text-2xl font-semibold text-[#212121] mb-6">
               {t.galleryHeading}
             </h2>
             <div className="flex gap-3 overflow-x-auto pb-2 focus-visible:outline-2 focus-visible:outline-[#AC8F52]" tabIndex={0} role="region" aria-label={(lang as string) === "en" ? "Practice gallery" : "Praxis Galerie"}>
@@ -266,18 +266,18 @@ function FaqPage() {
         </section>
 
         {/* Downloads */}
-        <section className="py-16 bg-white border-t border-[#E2E4E7]">
+        <section className="py-16 bg-white border-t border-[#E6E3DC]">
           <div ref={downloadsRef} style={downloadsStyle} className="mx-auto max-w-3xl px-5 lg:px-8">
             <p className="text-[10px] font-semibold tracking-[0.25em] uppercase text-[#AC8F52] mb-2">
               {t.downloadsLabel}
             </p>
-            <h2 className="font-display text-2xl font-semibold text-[#1E2535]">
+            <h2 className="font-display text-2xl font-semibold text-[#212121]">
               {t.downloadsHeading}
             </h2>
-            <p className="mt-3 text-sm text-[#4A5568] leading-relaxed">{t.downloadsBody}</p>
+            <p className="mt-3 text-sm text-[#595959] leading-relaxed">{t.downloadsBody}</p>
 
             <div className="mt-6" role="group" aria-label={t.filterLabel}>
-              <p className="text-[11px] font-semibold tracking-wide uppercase text-[#8C939B] mb-3">
+              <p className="text-[11px] font-semibold tracking-wide uppercase text-[#747474] mb-3">
                 {t.filterLabel}
               </p>
               <div className="flex flex-wrap gap-2">
@@ -289,10 +289,10 @@ function FaqPage() {
                       type="button"
                       aria-pressed={active}
                       onClick={() => setTopic(tp.id)}
-                      className={`rounded-full border px-4 py-1.5 text-xs font-semibold transition ${
+                      className={`rounded-[10px] border px-4 py-1.5 text-xs font-semibold transition ${
                         active
-                          ? "border-[#AC8F52] bg-[#AC8F52] text-[#1E2535]"
-                          : "border-[#E2E4E7] bg-white text-[#4A5568] hover:border-[#AC8F52]"
+                          ? "border-[#AC8F52] bg-[#AC8F52] text-[#212121]"
+                          : "border-[#E6E3DC] bg-white text-[#595959] hover:border-[#AC8F52]"
                       }`}
                     >
                       {tp.label}
@@ -306,14 +306,14 @@ function FaqPage() {
               {visibleDocs.map((doc, i) => (
                 <li
                   key={i}
-                  className="flex flex-col gap-4 border border-[#E2E4E7] rounded-sm p-5 bg-white sm:flex-row sm:items-start"
+                  className="flex flex-col gap-4 border border-[#E6E3DC] rounded-sm p-5 bg-white sm:flex-row sm:items-start"
                 >
                   <div className="flex-shrink-0">
                     <PdfIcon />
                   </div>
                   <div className="min-w-0 flex-1">
-                    <h3 className="font-semibold text-[#1E2535]">{doc[lang].title}</h3>
-                    <p className="mt-1 text-sm text-[#4A5568] leading-relaxed">{doc[lang].desc}</p>
+                    <h3 className="font-semibold text-[#212121]">{doc[lang].title}</h3>
+                    <p className="mt-1 text-sm text-[#595959] leading-relaxed">{doc[lang].desc}</p>
                     <div className="mt-3 flex flex-wrap gap-1.5">
                       {doc.topics.map((id) => {
                         const tp = TOPICS.find((x) => x.id === id);
@@ -323,14 +323,14 @@ function FaqPage() {
                             key={id}
                             type="button"
                             onClick={() => setTopic(id)}
-                            className="rounded-full bg-[#F3F0E9] px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wide text-[#8A7440] hover:bg-[#E8E1D2] transition"
+                            className="rounded-[10px] bg-[#F3F0E9] px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wide text-[#97745B] hover:bg-[#E8E1D2] transition"
                           >
                             {tp[lang]}
                           </button>
                         );
                       })}
                     </div>
-                    <p className="mt-2 text-[11px] font-semibold tracking-wide uppercase text-[#8C939B]">
+                    <p className="mt-2 text-[11px] font-semibold tracking-wide uppercase text-[#747474]">
                       {t.pdfLabel}
                       {doc.file && doc.size ? ` · ${doc.size}` : ""}
                     </p>
@@ -342,7 +342,7 @@ function FaqPage() {
                         download
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex w-full justify-center items-center gap-2 rounded-full bg-[#AC8F52] px-5 py-2.5 text-xs font-semibold text-[#1E2535] hover:brightness-105 transition sm:w-auto"
+                        className="inline-flex w-full justify-center items-center gap-2 rounded-[10px] bg-[#AC8F52] px-5 py-2.5 text-xs font-semibold text-[#212121] hover:brightness-105 transition sm:w-auto"
                       >
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="14" height="14" aria-hidden="true">
                           <path d="M12 3v12M7 12l5 5 5-5M5 21h14" strokeLinecap="round" strokeLinejoin="round" />
@@ -350,7 +350,7 @@ function FaqPage() {
                         {t.download}
                       </a>
                     ) : (
-                      <span className="inline-flex w-full justify-center items-center rounded-full border border-[#E2E4E7] px-4 py-2 text-xs font-semibold text-[#8C939B] sm:w-auto">
+                      <span className="inline-flex w-full justify-center items-center rounded-[10px] border border-[#E6E3DC] px-4 py-2 text-xs font-semibold text-[#747474] sm:w-auto">
                         {t.pending}
                       </span>
                     )}
@@ -360,7 +360,7 @@ function FaqPage() {
               ))}
             </ul>
             {visibleDocs.length === 0 && (
-              <p className="mt-8 text-sm text-[#4A5568]">{t.noResults}</p>
+              <p className="mt-8 text-sm text-[#595959]">{t.noResults}</p>
             )}
           </div>
         </section>
