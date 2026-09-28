@@ -14,6 +14,7 @@ import { AppointmentChoice } from "@/components/AppointmentChoice";
 
 import vortraegeImg from "@/assets/wzas/vortraege.webp.asset.json";
 import empfangImg from "@/assets/wzas/galerie/empfang.webp.asset.json";
+import jubilaeumImg from "@/assets/wzas/20-jahre-wzas.webp.asset.json";
 import thumbBandscheibe from "@/assets/wzas/thumb-bandscheibe.webp.asset.json";
 import aktuellesImg from "@/assets/wzas/aktuelles.jpg.asset.json";
 import focusImg from "@/assets/wzas/focus.jpeg.asset.json";
