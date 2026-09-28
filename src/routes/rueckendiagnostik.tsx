@@ -147,14 +147,14 @@ function AccordionItem({
   onToggle: () => void;
 }) {
   return (
-    <div className="border-b border-[#E2E4E7]">
+    <div className="border-b border-[#E6E3DC]">
       <button
         type="button"
         onClick={onToggle}
         className="w-full flex items-center justify-between gap-4 py-5 text-left"
         aria-expanded={isOpen}
       >
-        <span className="font-display text-lg font-semibold text-[#1E2535]">{q}</span>
+        <span className="font-display text-lg font-semibold text-[#212121]">{q}</span>
         <span
           className="flex-shrink-0 w-6 h-6 flex items-center justify-center text-[#AC8F52] transition-transform duration-200"
           style={{ transform: isOpen ? "rotate(45deg)" : "rotate(0deg)" }}
@@ -167,7 +167,7 @@ function AccordionItem({
       </button>
       {isOpen && (
         <div className="pb-5 pr-8">
-          <p className="text-sm text-[#4A5568] leading-relaxed">{a}</p>
+          <p className="text-sm text-[#595959] leading-relaxed">{a}</p>
         </div>
       )}
     </div>
@@ -235,7 +235,7 @@ function AnchorNav({ t }: { t: any }) {
   return (
     <nav
       aria-label="Section navigation"
-      className="sticky z-40 border-b border-[#E2E4E7] bg-white/95 backdrop-blur"
+      className="sticky z-40 border-b border-[#E6E3DC] bg-white/95 backdrop-blur"
       style={{ top: topOffset }}
     >
       <div className="mx-auto flex max-w-6xl items-center gap-1 overflow-x-auto px-5 lg:px-8 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
@@ -248,8 +248,8 @@ function AnchorNav({ t }: { t: any }) {
               aria-current={isActive ? "true" : undefined}
               className={`whitespace-nowrap border-b-2 px-4 py-3.5 text-sm font-semibold transition-colors duration-200 ${
                 isActive
-                  ? "border-[#AC8F52] text-[#7A6029]"
-                  : "border-transparent text-[#5F6771] hover:text-[#1E2535]"
+                  ? "border-[#AC8F52] text-[#97745B]"
+                  : "border-transparent text-[#666666] hover:text-[#212121]"
               }`}
             >
               {it.label}
@@ -475,7 +475,7 @@ function RueckendiagnostikPage() {
   const lang: "de" | "en" = useT({ de: "de" as const, en: "en" as const });
 
   return (
-    <div className="min-h-screen bg-[#F8F8F6]">
+    <div className="min-h-screen bg-[#F9F8F4]">
       <PageHeader activeRoute="/rueckendiagnostik" />
 
       <main>
@@ -489,7 +489,7 @@ function RueckendiagnostikPage() {
             }}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/25 to-transparent" />
-          <div className="absolute bottom-0 left-0 mx-auto w-full max-w-7xl px-5 pb-10 lg:px-12 lg:pb-14">
+          <div className="absolute bottom-0 left-0 mx-auto w-full max-w-[1440px] px-5 pb-10 lg:px-12 lg:pb-14">
             <p className="mb-3 text-[10px] font-semibold uppercase tracking-[0.25em] text-[#AC8F52]">
               {t.heroEyebrow}
             </p>
@@ -499,7 +499,7 @@ function RueckendiagnostikPage() {
             <p className="mt-3 text-lg text-white/75">{t.heroSubtitle}</p>
             <a
               href="#ablauf"
-              className="mt-6 inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-white/85 transition-colors hover:text-[#D8BE85]"
+              className="mt-6 inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-white/85 transition-colors hover:text-[#CDB681]"
             >
               {t.heroScroll}
               <span aria-hidden>↓</span>
@@ -517,29 +517,29 @@ function RueckendiagnostikPage() {
             className="mx-auto grid max-w-6xl grid-cols-1 items-start gap-10 px-5 lg:grid-cols-3 lg:gap-16 lg:px-8"
           >
             <div className="lg:col-span-2">
-              <h2 className="mb-5 font-display text-2xl font-semibold text-[#1E2535]">{t.introHeading}</h2>
-              <p className="text-lg leading-relaxed text-[#4A5568]">{t.introParagraph}</p>
+              <h2 className="mb-5 font-display text-2xl font-semibold text-[#212121]">{t.introHeading}</h2>
+              <p className="text-lg leading-relaxed text-[#595959]">{t.introParagraph}</p>
             </div>
             <div className="border-l-4 border-[#AC8F52] pl-6">
-              <p className="font-display text-2xl italic leading-snug text-[#1E2535] lg:text-3xl">{t.pullQuote}</p>
-              <p className="mt-3 text-xs uppercase tracking-widest text-[#5F6771]">{t.pullQuoteAttribution}</p>
+               <p className="font-display text-2xl font-bold leading-snug text-[#212121] lg:text-3xl">{t.pullQuote}</p>
+              <p className="mt-3 text-xs uppercase tracking-widest text-[#666666]">{t.pullQuoteAttribution}</p>
             </div>
           </div>
         </section>
 
         {/* Care path */}
-        <section className="bg-[#F8F8F6] py-14 lg:py-20">
+        <section className="bg-[#F9F8F4] py-14 lg:py-20">
           <div ref={pathRef} style={pathStyle} className="mx-auto max-w-6xl px-5 lg:px-8">
-            <h2 className="font-display text-3xl font-semibold text-[#1E2535] lg:text-4xl">{t.pathHeading}</h2>
-            <p className="mt-4 max-w-3xl leading-relaxed text-[#4A5568]">{t.pathIntro}</p>
+            <h2 className="font-display text-3xl font-semibold text-[#212121] lg:text-4xl">{t.pathHeading}</h2>
+            <p className="mt-4 max-w-3xl leading-relaxed text-[#595959]">{t.pathIntro}</p>
 
             {/* Desktop connected path */}
             <div className="mt-10 hidden items-start lg:flex">
               {t.pathSteps.map((step, i) => (
                 <React.Fragment key={step}>
                   <div className="flex flex-shrink-0 flex-col items-center gap-2">
-                    <div className="h-3 w-3 rounded-full bg-[#AC8F52]" />
-                    <p className="whitespace-nowrap text-[11px] font-semibold uppercase tracking-[0.18em] text-[#1E2535]">
+                    <div className="h-3 w-3 rounded-[10px] bg-[#AC8F52]" />
+                    <p className="whitespace-nowrap text-[11px] font-semibold uppercase tracking-[0.18em] text-[#212121]">
                       {step}
                     </p>
                   </div>
@@ -553,10 +553,10 @@ function RueckendiagnostikPage() {
               {t.pathSteps.map((step, i) => (
                 <li key={step} className="relative flex gap-4 pb-6 last:pb-0">
                   <div className="flex flex-col items-center">
-                    <span className="mt-1 h-3 w-3 flex-shrink-0 rounded-full bg-[#AC8F52]" />
+                    <span className="mt-1 h-3 w-3 flex-shrink-0 rounded-[10px] bg-[#AC8F52]" />
                     {i < t.pathSteps.length - 1 && <span className="mt-1 w-px flex-1 bg-[#AC8F52]/40" />}
                   </div>
-                  <p className="text-[15px] font-semibold text-[#1E2535]">{step}</p>
+                  <p className="text-[15px] font-semibold text-[#212121]">{step}</p>
                 </li>
               ))}
             </ol>
@@ -579,7 +579,7 @@ function RueckendiagnostikPage() {
                   {t.benefits.map((b) => (
                     <li key={b} className="flex gap-3">
                       <CheckIcon />
-                      <span className="text-sm leading-relaxed text-[#1E2535]">{b}</span>
+                      <span className="text-sm leading-relaxed text-[#212121]">{b}</span>
                     </li>
                   ))}
                 </ul>
@@ -599,14 +599,14 @@ function RueckendiagnostikPage() {
               <p className="mb-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-[#AC8F52]">
                 {t.findingLabel}
               </p>
-              <h2 className="font-display text-3xl font-semibold leading-tight text-[#1E2535] lg:text-4xl">
+              <h2 className="font-display text-3xl font-semibold leading-tight text-[#212121] lg:text-4xl">
                 {t.findingHeading}
               </h2>
-              <p className="mt-5 leading-relaxed text-[#4A5568]">{t.findingP1}</p>
-              <p className="mt-4 border-l-4 border-[#AC8F52] bg-[#F8F8F6] py-4 pl-5 pr-4 leading-relaxed text-[#1E2535]">
+              <p className="mt-5 leading-relaxed text-[#595959]">{t.findingP1}</p>
+              <p className="mt-4 border-l-4 border-[#AC8F52] bg-[#F9F8F4] py-4 pl-5 pr-4 leading-relaxed text-[#212121]">
                 {t.findingP2}
               </p>
-              <p className="mt-4 leading-relaxed text-[#4A5568]">{t.findingP3}</p>
+              <p className="mt-4 leading-relaxed text-[#595959]">{t.findingP3}</p>
 
               <p className="mt-8 text-[10px] font-semibold uppercase tracking-[0.2em] text-[#AC8F52]">
                 {t.sameDayLabel}
@@ -615,7 +615,7 @@ function RueckendiagnostikPage() {
                 {t.sameDay.map((m) => (
                   <span
                     key={m}
-                    className="rounded-full border border-[#AC8F52] px-4 py-2 text-xs font-medium text-[#7A6029]"
+                    className="rounded-[10px] border border-[#AC8F52] px-4 py-2 text-xs font-medium text-[#97745B]"
                   >
                     {m}
                   </span>
@@ -634,10 +634,10 @@ function RueckendiagnostikPage() {
         </section>
 
         {/* 5-step process */}
-        <section id="ablauf" className="scroll-mt-36 bg-[#F8F8F6] py-14 lg:py-20">
+        <section id="ablauf" className="scroll-mt-36 bg-[#F9F8F4] py-14 lg:py-20">
           <div className="mx-auto max-w-6xl px-5 lg:px-8">
-            <h2 className="font-display text-3xl font-semibold text-[#1E2535] lg:text-5xl">{t.ablaufHeading}</h2>
-            <p className="mt-3 text-[#5F6771]">{t.ablaufSub}</p>
+            <h2 className="font-display text-3xl font-semibold text-[#212121] lg:text-5xl">{t.ablaufHeading}</h2>
+            <p className="mt-3 text-[#666666]">{t.ablaufSub}</p>
 
             <ol className="mt-10 space-y-4">
               {t.steps.map((step, i) => (
@@ -665,13 +665,13 @@ function RueckendiagnostikPage() {
                 <p className="mb-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-[#AC8F52]">
                   {t.mrtLabel}
                 </p>
-                <h2 className="font-display text-2xl font-semibold leading-tight text-[#1E2535] lg:text-3xl">
+                <h2 className="font-display text-2xl font-semibold leading-tight text-[#212121] lg:text-3xl">
                   {t.mrtHeading}
                 </h2>
-                <p className="mt-4 leading-relaxed text-[#4A5568]">{t.mrtBody}</p>
+                <p className="mt-4 leading-relaxed text-[#595959]">{t.mrtBody}</p>
                 <a
                   href="/#termin"
-                  className="mt-6 inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-[#7A6029] transition hover:brightness-110"
+                  className="mt-6 inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-[#97745B] transition hover:brightness-110"
                 >
                   {t.mrtCta}
                   <span aria-hidden>→</span>
@@ -684,17 +684,17 @@ function RueckendiagnostikPage() {
         <DiagnostikTerminForm />
 
         {/* FAQ */}
-        <section className="border-t border-[#E2E4E7] bg-white py-14 lg:py-20">
+        <section className="border-t border-[#E6E3DC] bg-white py-14 lg:py-20">
           <div ref={faqRef} style={faqStyle} className="mx-auto max-w-3xl px-5 lg:px-8">
             <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#AC8F52]">
               {t.faqEyebrow}
             </p>
-            <h2 className="mt-2 font-display text-3xl font-semibold leading-tight text-[#1E2535] lg:text-4xl">
+            <h2 className="mt-2 font-display text-3xl font-semibold leading-tight text-[#212121] lg:text-4xl">
               {t.faqHeading}
             </h2>
-            <p className="mt-3 text-[#5F6771]">{t.faqSub}</p>
+            <p className="mt-3 text-[#666666]">{t.faqSub}</p>
 
-            <div className="mt-6 border-t border-[#E2E4E7]">
+            <div className="mt-6 border-t border-[#E6E3DC]">
               {DIAG_FAQ.map((item, i) => (
                 <AccordionItem
                   key={i}
@@ -709,19 +709,19 @@ function RueckendiagnostikPage() {
         </section>
 
         {/* Bridge to conditions */}
-        <section className="border-t border-[#E2E4E7] bg-[#F8F8F6] py-12">
+        <section className="border-t border-[#E6E3DC] bg-[#F9F8F4] py-12">
           <div className="mx-auto max-w-6xl px-5 text-center lg:px-8">
             <div className="flex flex-wrap justify-center gap-3">
               <Link
                 to="/beschwerden"
-                className="group inline-flex items-center gap-2 rounded-full border border-[#1E2535] px-5 py-2.5 text-sm font-medium text-[#1E2535] transition-all hover:border-[#AC8F52] hover:bg-[#AC8F52]"
+                className="group inline-flex items-center gap-2 rounded-[10px] border border-[#212121] px-5 py-2.5 text-sm font-medium text-[#212121] transition-all hover:border-[#AC8F52] hover:bg-[#AC8F52]"
               >
                 {t.bookingSecondary === "View treatment options →" ? "Spine conditions" : "Rückenerkrankungen"}
                 <span className="transition-transform group-hover:translate-x-1" aria-hidden>→</span>
               </Link>
               <Link
                 to="/behandlungen"
-                className="group inline-flex items-center gap-2 rounded-full border border-[#1E2535] px-5 py-2.5 text-sm font-medium text-[#1E2535] transition-all hover:border-[#AC8F52] hover:bg-[#AC8F52]"
+                className="group inline-flex items-center gap-2 rounded-[10px] border border-[#212121] px-5 py-2.5 text-sm font-medium text-[#212121] transition-all hover:border-[#AC8F52] hover:bg-[#AC8F52]"
               >
                 {t.bookingSecondary === "View treatment options →" ? "Treatments" : "Behandlungen"}
                 <span className="transition-transform group-hover:translate-x-1" aria-hidden>→</span>
@@ -753,25 +753,25 @@ function StepCard({ step, index }: { step: Step; index: number }) {
       <div
         ref={ref}
         style={style}
-        className="flex flex-col gap-4 border-l-2 border-[#E2E4E7] bg-white p-6 transition-colors duration-300 hover:border-[#AC8F52] sm:flex-row sm:gap-7 lg:p-8"
+        className="flex flex-col gap-4 border-l-2 border-[#E6E3DC] bg-white p-6 transition-colors duration-300 hover:border-[#AC8F52] sm:flex-row sm:gap-7 lg:p-8"
       >
         <span className="font-display text-4xl font-semibold leading-none text-[#AC8F52] sm:w-14 sm:flex-shrink-0 lg:text-5xl">
           {index + 1}
         </span>
         <div className="min-w-0">
-          <h3 className="font-display text-xl font-semibold text-[#1E2535] lg:text-2xl">{step.title}</h3>
-          <p className="mt-2 leading-relaxed text-[#4A5568]">{step.intro}</p>
+          <h3 className="font-display text-xl font-semibold text-[#212121] lg:text-2xl">{step.title}</h3>
+          <p className="mt-2 leading-relaxed text-[#595959]">{step.intro}</p>
           {step.points.length > 0 && (
             <ul className="mt-4 grid grid-cols-1 gap-x-8 gap-y-2.5 sm:grid-cols-2">
               {step.points.map((p) => (
-                <li key={p} className="flex gap-3 text-sm leading-relaxed text-[#1E2535]">
-                  <span className="mt-2 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[#AC8F52]" aria-hidden />
+                <li key={p} className="flex gap-3 text-sm leading-relaxed text-[#212121]">
+                  <span className="mt-2 h-1.5 w-1.5 flex-shrink-0 rounded-[10px] bg-[#AC8F52]" aria-hidden />
                   {p}
                 </li>
               ))}
             </ul>
           )}
-          {step.note && <p className="mt-4 text-sm italic leading-relaxed text-[#5F6771]">{step.note}</p>}
+          {step.note && <p className="mt-4 text-sm not-italic leading-relaxed text-[#666666]">{step.note}</p>}
         </div>
       </div>
     </li>

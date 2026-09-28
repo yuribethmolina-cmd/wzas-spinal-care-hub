@@ -39,7 +39,7 @@ export function MobileCTABar() {
         <a
           href="tel:+498954343030"
           aria-label={`${t.call} +49 89 5434 3030`}
-          className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-[#1E2535]/15 text-[#1E2535] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-wz-gold)]"
+          className="flex h-12 w-12 shrink-0 items-center justify-center rounded-[10px] border border-wz-dark/15 text-wz-dark focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-wz-gold"
         >
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
             <path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.8a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.8 2.1Z" />
@@ -56,7 +56,7 @@ export function MobileCTABar() {
               setTimeout(go, 300);
             }
           }}
-          className="flex h-12 flex-1 items-center justify-center rounded-xl bg-[var(--color-wz-gold,#B99456)] px-4 text-[15px] font-bold text-[#1E2535] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1E2535]"
+          className="flex h-12 flex-1 items-center justify-center rounded-[10px] border border-wz-gold bg-wz-gold px-4 text-[15px] font-semibold text-wz-dark focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-wz-dark"
         >
           {t.book}
         </button>

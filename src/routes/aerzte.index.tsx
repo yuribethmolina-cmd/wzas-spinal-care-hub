@@ -52,7 +52,7 @@ function AerztePage() {
   });
 
   return (
-    <div className="min-h-screen bg-[#F8F8F6]">
+    <div className="min-h-screen bg-[#F9F8F4]">
       <SiteNav />
 
       {/* ── Hero, team photo full-bleed ── */}
@@ -61,19 +61,19 @@ function AerztePage() {
           className="absolute inset-0 bg-cover bg-center bg-[center_40%] scale-[1.02]"
           style={{ backgroundImage: `url(${TEAM_HERO})`, transition: `transform 8s ${EASE}` }}
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#1E2535] via-[#1E2535]/40 to-[#1E2535]/5" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#212121] via-[#212121]/40 to-[#212121]/5" />
 
         {/* Decorative gold rule */}
         <div className="absolute top-0 left-0 w-full h-px bg-[#AC8F52]/40" />
 
         <div className="absolute bottom-0 left-0 w-full">
-          <div className="mx-auto max-w-7xl px-5 pb-12 lg:px-8 lg:pb-16">
+          <div className="mx-auto max-w-[1440px] px-5 pb-12 lg:px-8 lg:pb-16">
             <p className="text-[10px] font-semibold tracking-[0.28em] uppercase text-[#AC8F52] mb-3">
               {t.heroEyebrow}
             </p>
             <h1
               className="font-display text-white leading-[0.95]"
-              style={{ fontSize: "clamp(3rem, 7vw, 5.5rem)", fontWeight: 500, letterSpacing: "-0.025em" }}
+              style={{ fontSize: "clamp(3rem, 7vw, 5.5rem)", fontWeight: 700 }}
             >
               {t.heroH1}
             </h1>
@@ -86,7 +86,7 @@ function AerztePage() {
             {["Neurochirurgie", "Wirbelsäulenchirurgie", "Orthopädie", "Radiologie"].map((s) => (
                 <span
                   key={s}
-                  className="inline-flex items-center rounded-full border border-white/20 bg-white/8 backdrop-blur-sm px-3.5 py-1 text-[11px] font-medium text-white/75"
+                  className="inline-flex items-center rounded-[10px] border border-white/20 bg-white/8 backdrop-blur-sm px-3.5 py-1 text-[11px] font-medium text-white/75"
                 >
                   {s}
                 </span>
@@ -98,7 +98,7 @@ function AerztePage() {
 
       {/* ── Leadership ── */}
       <section className="py-16 lg:py-20 bg-white">
-        <div className="mx-auto max-w-7xl px-5 lg:px-8">
+        <div className="mx-auto max-w-[1440px] px-5 lg:px-8">
           <p className="text-[10px] font-semibold tracking-[0.28em] uppercase text-[#AC8F52] mb-8">
             {t.leadershipLabel}
           </p>
@@ -111,8 +111,8 @@ function AerztePage() {
       </section>
 
       {/* ── Full team ── */}
-      <section className="py-16 lg:py-20 bg-[#F8F8F6] border-t border-[#E2E4E7]">
-        <div className="mx-auto max-w-7xl px-5 lg:px-8">
+      <section className="py-16 lg:py-20 bg-[#F9F8F4] border-t border-[#E6E3DC]">
+        <div className="mx-auto max-w-[1440px] px-5 lg:px-8">
           <p className="text-[10px] font-semibold tracking-[0.28em] uppercase text-[#AC8F52] mb-8">
             {t.teamLabel}
           </p>
@@ -127,20 +127,20 @@ function AerztePage() {
       </section>
 
       {/* ── CTA ── */}
-      <section className="bg-[#1E2535] py-16">
-        <div className="mx-auto max-w-7xl px-5 lg:px-8 text-center">
+      <section className="bg-[#212121] py-16">
+        <div className="mx-auto max-w-[1440px] px-5 lg:px-8 text-center">
           <h2
             className="font-display text-white"
-            style={{ fontSize: "clamp(2rem, 4vw, 3rem)", fontWeight: 500, letterSpacing: "-0.02em" }}
+            style={{ fontSize: "clamp(2rem, 4vw, 3rem)", fontWeight: 700 }}
           >
             {t.ctaH2}
           </h2>
-          <p className="mt-4 text-[#8C939B] max-w-md mx-auto text-sm leading-relaxed">
+          <p className="mt-4 text-[#747474] max-w-md mx-auto text-sm leading-relaxed">
             {t.ctaBody}
           </p>
           <a
             href={BOOKING_URL}
-            className="mt-7 inline-flex items-center gap-2 rounded-full bg-[#AC8F52] px-7 py-3.5 text-sm font-semibold text-[#1E2535] hover:brightness-105 transition"
+            className="mt-7 inline-flex items-center gap-2 rounded-[10px] bg-[#AC8F52] px-7 py-3.5 text-sm font-semibold text-[#212121] hover:brightness-105 transition"
           >
             {t.ctaBtn}
             <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" className="w-3.5 h-3.5">
@@ -158,10 +158,10 @@ function LeaderCard({ d, profileLabel }: { d: ReturnType<typeof localizeDoctor>;
     <Link
       to="/aerzte/$slug"
       params={{ slug: d.slug }}
-      className="group bg-white rounded-2xl overflow-hidden border border-[#E2E4E7] hover:border-[#AC8F52]/40 hover:shadow-xl transition-all duration-300 flex flex-col sm:flex-row"
+      className="group bg-white rounded-[10px] overflow-hidden border border-[#E6E3DC] hover:border-[#AC8F52]/40 hover:shadow-xl transition-all duration-300 flex flex-col sm:flex-row"
     >
       {/* Photo */}
-      <div className="relative w-full sm:w-[42%] aspect-[4/5] sm:aspect-auto overflow-hidden bg-[#263044] shrink-0">
+      <div className="relative w-full sm:w-[42%] aspect-[4/5] sm:aspect-auto overflow-hidden bg-[#2D2D2D] shrink-0">
         {d.photo ? (
           <img
             src={d.photo}
@@ -184,17 +184,17 @@ function LeaderCard({ d, profileLabel }: { d: ReturnType<typeof localizeDoctor>;
             {d.title}
           </p>
           <h2
-            className="mt-2 font-display text-[#1E2535] leading-tight"
-            style={{ fontSize: "clamp(1.35rem, 2.2vw, 1.75rem)", fontWeight: 500, letterSpacing: "-0.015em" }}
+            className="mt-2 font-display text-[#212121] leading-tight"
+            style={{ fontSize: "clamp(1.35rem, 2.2vw, 1.75rem)", fontWeight: 700 }}
           >
             {d.name}
           </h2>
-          <p className="mt-1 text-sm text-[#5F6771]">{d.role}</p>
+          <p className="mt-1 text-sm text-[#666666]">{d.role}</p>
 
         </div>
 
-        <div className="mt-6 flex items-center justify-between border-t border-[#E2E4E7] pt-5">
-          <span className="text-sm font-semibold text-[#1E2535] group-hover:text-[#AC8F52] transition-colors duration-200 flex items-center gap-1.5">
+        <div className="mt-6 flex items-center justify-between border-t border-[#E6E3DC] pt-5">
+          <span className="text-sm font-semibold text-[#212121] group-hover:text-[#AC8F52] transition-colors duration-200 flex items-center gap-1.5">
             {profileLabel}
             <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" className="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-1">
               <path d="M3 8h10M9 4l4 4-4 4" strokeLinecap="round" strokeLinejoin="round" />
@@ -211,10 +211,10 @@ function TeamCard({ d, profileLabel }: { d: ReturnType<typeof localizeDoctor>; p
     <Link
       to="/aerzte/$slug"
       params={{ slug: d.slug }}
-      className="group bg-white rounded-xl overflow-hidden border border-[#E2E4E7] hover:border-[#AC8F52]/40 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col h-full"
+      className="group bg-white rounded-[10px] overflow-hidden border border-[#E6E3DC] hover:border-[#AC8F52]/40 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col h-full"
     >
       {/* Photo */}
-      <div className="relative aspect-[3/4] overflow-hidden bg-[#263044]">
+      <div className="relative aspect-[3/4] overflow-hidden bg-[#2D2D2D]">
         {d.photo ? (
           <img
             src={d.photo}
@@ -226,14 +226,14 @@ function TeamCard({ d, profileLabel }: { d: ReturnType<typeof localizeDoctor>; p
             {d.initials}
           </div>
         )}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#1E2535]/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#212121]/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
       </div>
 
       {/* Info */}
       <div className="p-5 flex flex-col flex-1">
-        <h3 className="font-semibold text-[#1E2535] leading-snug text-[15px] line-clamp-2">{d.name}</h3>
-        <div className="mt-4 pt-3 border-t border-[#E2E4E7]">
-          <span className="text-xs font-semibold text-[#8C939B] group-hover:text-[#AC8F52] transition-colors duration-200 flex items-center gap-1">
+        <h3 className="font-semibold text-[#212121] leading-snug text-[15px] line-clamp-2">{d.name}</h3>
+        <div className="mt-4 pt-3 border-t border-[#E6E3DC]">
+          <span className="text-xs font-semibold text-[#747474] group-hover:text-[#AC8F52] transition-colors duration-200 flex items-center gap-1">
             {profileLabel}
             <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="2" className="w-3 h-3 transition-transform duration-200 group-hover:translate-x-0.5">
               <path d="M2 7h10M7 3l4 4-4 4" strokeLinecap="round" strokeLinejoin="round" />

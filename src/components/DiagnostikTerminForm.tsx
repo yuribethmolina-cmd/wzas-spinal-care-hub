@@ -19,8 +19,8 @@ const schema = z.object({
 type FieldKey = "name" | "email" | "phone" | "birthdate" | "insurance" | "concern" | "availability" | "message" | "consent";
 
 const inputCls =
-  "w-full rounded-lg border border-[#E2E4E7] bg-white px-4 py-3 text-[15px] text-[#1E2535] outline-none transition focus:border-[#AC8F52] focus:ring-2 focus:ring-[#AC8F52]/25 placeholder:text-[#98A0AA]";
-const labelCls = "block text-sm font-medium text-[#1E2535]";
+  "w-full rounded-lg border border-[#E6E3DC] bg-white px-4 py-3 text-[15px] text-[#212121] outline-none transition focus:border-[#AC8F52] focus:ring-2 focus:ring-[#AC8F52]/25 placeholder:text-[#98A0AA]";
+const labelCls = "block text-sm font-medium text-[#212121]";
 
 export function DiagnostikTerminForm() {
   const t = useT({
@@ -174,29 +174,29 @@ export function DiagnostikTerminForm() {
   }
 
   return (
-    <section id="termin-diagnostik" className="scroll-mt-24 border-t border-[#E2E4E7] bg-[#F8F8F6] py-14 lg:py-20">
+    <section id="termin-diagnostik" className="scroll-mt-24 border-t border-[#E6E3DC] bg-[#F9F8F4] py-14 lg:py-20">
       <div className="mx-auto max-w-3xl px-5 lg:px-8">
         <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#AC8F52]">{t.eyebrow}</p>
-        <h2 className="mt-2 font-display text-3xl font-semibold leading-tight text-[#1E2535] lg:text-4xl">
+        <h2 className="mt-2 font-display text-3xl font-semibold leading-tight text-[#212121] lg:text-4xl">
           {t.heading}
         </h2>
-        <p className="mt-3 text-[#5F6771]">{t.sub}</p>
+        <p className="mt-3 text-[#666666]">{t.sub}</p>
 
         {sent ? (
-          <div className="mt-8 rounded-2xl border border-[#AC8F52]/40 bg-white p-6 lg:p-8">
-            <h3 className="font-display text-xl font-semibold text-[#1E2535]">{t.sent}</h3>
-            <p className="mt-2 text-[#4A5568]">{t.sentBody}</p>
+          <div className="mt-8 rounded-[10px] border border-[#AC8F52]/40 bg-white p-6 lg:p-8">
+            <h3 className="font-display text-xl font-semibold text-[#212121]">{t.sent}</h3>
+            <p className="mt-2 text-[#595959]">{t.sentBody}</p>
             <button
               type="button"
               onClick={() => setSent(false)}
-              className="mt-5 inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-[#7A6029] transition hover:brightness-110"
+              className="mt-5 inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-[#97745B] transition hover:brightness-110"
             >
               {t.again}
               <span aria-hidden>→</span>
             </button>
           </div>
         ) : (
-          <form noValidate onSubmit={onSubmit} className="mt-8 rounded-2xl border border-[#E2E4E7] bg-white p-6 lg:p-8">
+          <form noValidate onSubmit={onSubmit} className="mt-8 rounded-[10px] border border-[#E6E3DC] bg-white p-6 lg:p-8">
             <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
               <div className="sm:col-span-2">
                 <label className={labelCls} htmlFor="dtf-name">{t.name}</label>
@@ -277,10 +277,10 @@ export function DiagnostikTerminForm() {
                         type="button"
                         onClick={() => set("concern", c)}
                         aria-pressed={active}
-                        className={`min-h-11 rounded-full border px-4 py-2 text-sm font-medium transition ${
+                        className={`min-h-11 rounded-[10px] border px-4 py-2 text-sm font-medium transition ${
                           active
-                            ? "border-[#AC8F52] bg-[#AC8F52] text-[#1E2535]"
-                            : "border-[#E2E4E7] bg-white text-[#4A5568] hover:border-[#AC8F52]"
+                            ? "border-[#AC8F52] bg-[#AC8F52] text-[#212121]"
+                            : "border-[#E6E3DC] bg-white text-[#595959] hover:border-[#AC8F52]"
                         }`}
                       >
                         {c}
@@ -317,7 +317,7 @@ export function DiagnostikTerminForm() {
               </div>
             </div>
 
-            <label className="mt-6 flex cursor-pointer items-start gap-3 text-sm leading-relaxed text-[#4A5568]">
+            <label className="mt-6 flex cursor-pointer items-start gap-3 text-sm leading-relaxed text-[#595959]">
               <input
                 type="checkbox"
                 className="mt-0.5 h-5 w-5 flex-shrink-0 accent-[#AC8F52]"
@@ -330,13 +330,13 @@ export function DiagnostikTerminForm() {
 
             <button
               type="submit"
-              className="mt-6 inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full bg-[#1E2535] px-7 text-sm font-semibold text-white transition hover:bg-[#263044] sm:w-auto"
+              className="mt-6 inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-[10px] border border-wz-dark bg-wz-dark px-[30px] text-[15px] font-semibold text-white transition hover:bg-wz-mid sm:w-auto"
             >
               {t.submit}
               <span aria-hidden>→</span>
             </button>
 
-            <p className="mt-4 text-xs leading-relaxed text-[#5F6771]">{t.note}</p>
+            <p className="mt-4 text-xs leading-relaxed text-[#666666]">{t.note}</p>
           </form>
         )}
       </div>

@@ -41,8 +41,8 @@ const SOCIALS = [
 function LangToggle() {
   const { lang, setLang } = useLang();
   const btn = (l: Lang) =>
-    `inline-flex items-center justify-center px-3 py-1 text-xs font-semibold uppercase tracking-wide rounded-full transition-colors min-h-11 min-w-11 lg:min-h-9 lg:min-w-9 ${
-      lang === l ? "bg-[#1E2535] text-white" : "text-[#1E2535] hover:text-[#AC8F52]"
+    `inline-flex items-center justify-center px-3 py-1 text-xs font-semibold uppercase rounded-[10px] transition-colors min-h-11 min-w-11 lg:min-h-9 lg:min-w-9 ${
+      lang === l ? "bg-wz-dark text-wz-white" : "text-wz-dark hover:text-wz-gold"
     }`;
   const onKey = (e: React.KeyboardEvent<HTMLDivElement>) => {
     if (e.key === "ArrowRight" || e.key === "ArrowLeft") {
@@ -52,7 +52,7 @@ function LangToggle() {
   };
   return (
     <div
-      className="inline-flex items-center gap-1 rounded-full border border-[#E2E4E7] p-1"
+      className="inline-flex items-center gap-1 rounded-[10px] border border-wz-lgray p-1"
       role="group"
       aria-label="Sprache auswählen / Choose language"
       onKeyDown={onKey}
@@ -107,12 +107,12 @@ export function SiteNav() {
     return () => window.removeEventListener("keydown", onKey);
   }, [open]);
   const linkClass =
-    "relative text-sm font-medium text-[#1E2535] transition-colors hover:text-[#AC8F52] after:absolute after:bottom-0 after:left-0 after:h-px after:w-0 after:bg-[#AC8F52] after:transition-[width] hover:after:w-full after:duration-200";
+    "relative text-sm font-medium text-wz-dark transition-colors hover:text-wz-gold after:absolute after:bottom-0 after:left-0 after:h-px after:w-0 after:bg-wz-gold after:transition-[width] hover:after:w-full after:duration-200";
   return (
     <header className={`sticky top-0 z-50 bg-white transition-shadow duration-300 ${scrolled ? "shadow-md" : "shadow-none"}`}>
       {/* ── Top bar, solo desktop ── */}
-      <div className="hidden lg:block bg-[#263044] border-b border-white/5">
-        <div className="mx-auto max-w-7xl px-8 flex items-center justify-between h-9">
+      <div className="hidden lg:block bg-wz-dark border-b border-white/10">
+        <div className="mx-auto max-w-[1440px] px-8 flex items-center justify-between h-9">
           <div className="flex items-center gap-5 text-[11px] text-white/55">
             <span className="flex items-center gap-1.5">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" className="w-3 h-3 text-[#AC8F52] shrink-0" aria-hidden>
@@ -147,7 +147,7 @@ export function SiteNav() {
         </div>
       </div>
 
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 lg:px-8">
+      <div className="mx-auto flex max-w-[1440px] items-center justify-between px-5 py-4 lg:px-8">
         <Link to="/" aria-label={t.links[0]?.[0] === "Home" ? "WZAS, home" : "WZAS, Startseite"} className="flex items-center gap-3">
           <img src={logoAsset.url} alt="WZAS Wirbelsäulenzentrum am Stiglmaierplatz" className="h-11 w-auto" />
         </Link>
@@ -168,7 +168,7 @@ export function SiteNav() {
           <LangToggle />
           <a
             href={BOOKING_URL}
-            className="inline-flex items-center rounded-full bg-[#AC8F52] px-5 py-2.5 text-sm font-semibold text-[#1E2535]"
+          className="inline-flex items-center rounded-[10px] border border-wz-gold bg-wz-gold px-5 py-2.5 text-[15px] font-semibold text-wz-dark"
             style={{ transition: `filter 150ms ${EASE}` }}
             onMouseEnter={(e) => (e.currentTarget.style.filter = "brightness(1.08)")}
             onMouseLeave={(e) => (e.currentTarget.style.filter = "")}
@@ -180,7 +180,7 @@ export function SiteNav() {
           <LangToggle />
           <button
             type="button"
-            className="inline-flex items-center justify-center rounded-md p-2 text-[#1E2535] min-h-11 min-w-11"
+            className="inline-flex items-center justify-center rounded-md p-2 text-[#212121] min-h-11 min-w-11"
             onClick={() => setOpen((v) => !v)}
             aria-label={t.menu}
             aria-expanded={open}

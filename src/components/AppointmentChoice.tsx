@@ -127,7 +127,7 @@ export function AppointmentChoice() {
 
   if (flow) {
     return (
-      <div className="mt-8 rounded-xl bg-[#263044] p-6 sm:p-7 border-t-2 border-[#AC8F52]">
+      <div className="mt-8 rounded-[10px] bg-[#2D2D2D] p-6 sm:p-7 border-t-2 border-[#AC8F52]">
         <div className="flex items-start justify-between gap-4">
           <p className="text-[11px] uppercase tracking-[0.2em] text-[#AC8F52] font-medium">
             {flow === "ask" ? t.askKicker : t.bookKicker}
@@ -135,7 +135,7 @@ export function AppointmentChoice() {
           <button
             type="button"
             onClick={reset}
-            className="text-xs font-semibold text-[#A7AEBA] hover:text-white transition-colors"
+            className="text-xs font-semibold text-[#AAA6A0] hover:text-white transition-colors"
           >
             {t.close}
           </button>
@@ -146,7 +146,7 @@ export function AppointmentChoice() {
           {labels.map((l, i) => (
             <span
               key={l}
-              className="h-1 flex-1 rounded-full transition-colors duration-300"
+              className="h-1 flex-1 rounded-[10px] transition-colors duration-300"
               style={{ backgroundColor: i < step || done ? "#AC8F52" : "rgba(255,255,255,0.15)" }}
             />
           ))}
@@ -158,25 +158,25 @@ export function AppointmentChoice() {
             <dl className="mt-4 divide-y divide-white/10 border-y border-white/10">
               {labels.map((l, i) => (
                 <div key={l} className="flex flex-wrap justify-between gap-2 py-3 text-sm">
-                  <dt className="text-[#A7AEBA]">{l}</dt>
+                  <dt className="text-[#AAA6A0]">{l}</dt>
                   <dd className="text-white font-medium">{answers[i]}</dd>
                 </div>
               ))}
             </dl>
-            <p className="mt-4 text-sm text-[#D8BE85]">{flow === "ask" ? t.askDone : t.bookDone}</p>
-            <p className="mt-1 text-xs text-[#A7AEBA]">{t.prototype}</p>
+            <p className="mt-4 text-sm text-[#CDB681]">{flow === "ask" ? t.askDone : t.bookDone}</p>
+            <p className="mt-1 text-xs text-[#AAA6A0]">{t.prototype}</p>
             <div className="mt-6 flex flex-wrap gap-3">
               <button
                 type="button"
                 onClick={() => setStep(total - 1)}
-                className="inline-flex min-h-11 items-center justify-center rounded-full border border-white/40 px-6 py-3 text-sm font-semibold text-white hover:bg-white/10 transition-colors"
+                className="inline-flex min-h-11 items-center justify-center rounded-[10px] border border-white/40 px-[30px] py-5 text-[15px] font-semibold leading-none text-white hover:bg-white/10 transition-colors"
               >
                 {t.back}
               </button>
               <button
                 type="button"
                 onClick={reset}
-                className="inline-flex min-h-11 items-center justify-center rounded-full bg-[#AC8F52] px-6 py-3 text-sm font-semibold text-[#1E2535] hover:brightness-110 transition"
+                className="inline-flex min-h-11 items-center justify-center rounded-[10px] border border-wz-gold bg-wz-gold px-[30px] py-5 text-[15px] font-semibold leading-none text-wz-dark hover:brightness-105 transition"
               >
                 {t.restart}
               </button>
@@ -184,7 +184,7 @@ export function AppointmentChoice() {
           </div>
         ) : (
           <div className="mt-5">
-            <p className="text-xs text-[#A7AEBA]">{t.step(step + 1, total)}</p>
+            <p className="text-xs text-[#AAA6A0]">{t.step(step + 1, total)}</p>
             <p className="mt-1 text-white font-semibold text-lg">{labels[step]}</p>
             {isDateStep ? (
               <AppointmentCalendar value={answers[step]} onChange={pick} />
@@ -208,22 +208,22 @@ export function AppointmentChoice() {
                       style={{
                         backgroundColor: active ? "rgba(172,143,82,0.18)" : "rgba(255,255,255,0.04)",
                         border: `1px solid ${active ? "#AC8F52" : "rgba(255,255,255,0.15)"}`,
-                        color: active ? "#F1E4C8" : "#C8CBD2",
+                        color: active ? "#F1E4C8" : "#D0CDC7",
                       }}
                     >
                       {o}
-                      {role && <span className="mt-0.5 block text-xs text-[#A7AEBA]">{role}</span>}
+                      {role && <span className="mt-0.5 block text-xs text-[#AAA6A0]">{role}</span>}
                     </button>
                   );
                 })}
               </div>
             )}
-            {!answers[step] && <p className="mt-3 text-xs text-[#A7AEBA]">{t.chooseHint}</p>}
+            {!answers[step] && <p className="mt-3 text-xs text-[#AAA6A0]">{t.chooseHint}</p>}
             <div className="mt-6 flex flex-wrap gap-3">
               <button
                 type="button"
                 onClick={() => (step === 0 ? reset() : setStep(step - 1))}
-                className="inline-flex min-h-11 items-center justify-center rounded-full border border-white/40 px-6 py-3 text-sm font-semibold text-white hover:bg-white/10 transition-colors"
+                className="inline-flex min-h-11 items-center justify-center rounded-[10px] border border-white/40 px-[30px] py-5 text-[15px] font-semibold leading-none text-white hover:bg-white/10 transition-colors"
               >
                 {t.back}
               </button>
@@ -231,7 +231,7 @@ export function AppointmentChoice() {
                 type="button"
                 disabled={!answers[step]}
                 onClick={() => setStep(step + 1)}
-                className="inline-flex min-h-11 items-center justify-center rounded-full bg-[#AC8F52] px-6 py-3 text-sm font-semibold text-[#1E2535] transition hover:brightness-110 disabled:opacity-40 disabled:cursor-not-allowed"
+                className="inline-flex min-h-11 items-center justify-center rounded-[10px] border border-wz-gold bg-wz-gold px-[30px] py-5 text-[15px] font-semibold leading-none text-wz-dark transition hover:brightness-105 disabled:opacity-40 disabled:cursor-not-allowed"
               >
                 {step === total - 1 ? t.finish : t.next}
               </button>
@@ -245,54 +245,54 @@ export function AppointmentChoice() {
   return (
     <div className="mt-8 grid gap-4 sm:grid-cols-2">
       {/* Primary, real booking */}
-      <div className="flex flex-col rounded-xl bg-[#263044] p-6 sm:p-7 border-t-2 border-[#AC8F52]">
+      <div className="flex flex-col rounded-[10px] bg-[#2D2D2D] p-6 sm:p-7 border-t-2 border-[#AC8F52]">
         <p className="text-[11px] uppercase tracking-[0.2em] text-[#AC8F52] font-medium flex items-center gap-2">
           <span className="inline-block w-4 h-px bg-[#AC8F52]" />
           {t.bookKicker}
         </p>
         <p className="mt-3 text-white font-semibold text-lg leading-snug">{t.bookTitle}</p>
-        <ol className="mt-4 space-y-2 text-sm text-[#C8CBD2]">
+        <ol className="mt-4 space-y-2 text-sm text-[#D0CDC7]">
           {t.bookSteps.map((s, i) => (
             <li key={s} className="flex items-start gap-2.5">
-              <span className="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#AC8F52]/20 text-[11px] font-semibold text-[#D8BE85]">
+              <span className="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-[10px] bg-[#AC8F52]/20 text-[11px] font-semibold text-[#CDB681]">
                 {i + 1}
               </span>
               {s}
             </li>
           ))}
         </ol>
-        <p className="mt-4 text-xs text-[#A7AEBA]">{t.bookMeta}</p>
+        <p className="mt-4 text-xs text-[#AAA6A0]">{t.bookMeta}</p>
         <button
           type="button"
           onClick={() => start("book")}
-          className="mt-6 inline-flex min-h-11 items-center justify-center rounded-full bg-[#AC8F52] px-6 py-3 text-sm font-semibold text-[#1E2535] transition-[filter,transform,box-shadow] duration-300 hover:brightness-110 hover:-translate-y-0.5 hover:shadow-[0_12px_28px_-14px_rgba(172,143,82,0.85)]"
+          className="mt-6 inline-flex min-h-11 items-center justify-center rounded-[10px] bg-[#AC8F52] px-6 py-3 text-sm font-semibold text-[#212121] transition-[filter,transform,box-shadow] duration-300 hover:brightness-110 hover:-translate-y-0.5 hover:shadow-[0_12px_28px_-14px_rgba(172,143,82,0.85)]"
         >
           {t.bookCta}
         </button>
       </div>
 
       {/* Secondary, inquiry */}
-      <div className="flex flex-col rounded-xl border border-white/15 bg-white/[0.03] p-6 sm:p-7">
-        <p className="text-[11px] uppercase tracking-[0.2em] text-[#A7AEBA] font-medium flex items-center gap-2">
-          <span className="inline-block w-4 h-px bg-[#A7AEBA]" />
+      <div className="flex flex-col rounded-[10px] border border-white/15 bg-white/[0.03] p-6 sm:p-7">
+        <p className="text-[11px] uppercase tracking-[0.2em] text-[#AAA6A0] font-medium flex items-center gap-2">
+          <span className="inline-block w-4 h-px bg-[#AAA6A0]" />
           {t.askKicker}
         </p>
         <p className="mt-3 text-white font-semibold text-lg leading-snug">{t.askTitle}</p>
-        <ol className="mt-4 space-y-2 text-sm text-[#C8CBD2]">
+        <ol className="mt-4 space-y-2 text-sm text-[#D0CDC7]">
           {t.askSteps.map((s, i) => (
             <li key={s} className="flex items-start gap-2.5">
-              <span className="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-white/10 text-[11px] font-semibold text-white/80">
+              <span className="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-[10px] bg-white/10 text-[11px] font-semibold text-white/80">
                 {i + 1}
               </span>
               {s}
             </li>
           ))}
         </ol>
-        <p className="mt-4 text-xs text-[#A7AEBA]">{t.askMeta}</p>
+        <p className="mt-4 text-xs text-[#AAA6A0]">{t.askMeta}</p>
         <button
           type="button"
           onClick={() => start("ask")}
-          className="mt-6 inline-flex min-h-11 items-center justify-center rounded-full border border-white/40 px-6 py-3 text-sm font-semibold text-white transition-[background-color,border-color,transform] duration-300 hover:bg-white/10 hover:border-white/70 hover:-translate-y-0.5"
+          className="mt-6 inline-flex min-h-11 items-center justify-center rounded-[10px] border border-white/40 px-6 py-3 text-sm font-semibold text-white transition-[background-color,border-color,transform] duration-300 hover:bg-white/10 hover:border-white/70 hover:-translate-y-0.5"
         >
           {t.askCta}
         </button>

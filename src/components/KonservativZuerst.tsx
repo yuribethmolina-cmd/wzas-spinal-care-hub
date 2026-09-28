@@ -82,16 +82,16 @@ export function KonservativZuerst() {
   });
 
   return (
-    <section ref={sectionRef} className="overflow-hidden bg-[#1E2535] py-16 text-white sm:py-20 lg:py-28">
-      <div className="mx-auto max-w-7xl px-5 lg:px-8">
+    <section ref={sectionRef} className="overflow-hidden bg-[#212121] py-16 text-white sm:py-20 lg:py-28">
+      <div className="mx-auto max-w-[1440px] px-5 lg:px-8">
         <div className="max-w-4xl" style={reveal(0)}>
-          <p className="flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.22em] text-[#D8BE85]">
-            <span className="inline-block h-px w-6 bg-[#D8BE85]" />
+          <p className="flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.22em] text-[#CDB681]">
+            <span className="inline-block h-px w-6 bg-[#CDB681]" />
             {t.label}
           </p>
           <h2
             className="mt-5 max-w-3xl font-display leading-[1.12] sm:leading-[1.05]"
-            style={{ fontSize: "clamp(1.875rem, 4.8vw, 4rem)", fontWeight: 500, hyphens: "none", wordBreak: "normal", overflowWrap: "normal" }}
+            style={{ fontSize: "clamp(1.875rem, 4.8vw, 4rem)", fontWeight: 700, hyphens: "none", wordBreak: "normal", overflowWrap: "normal" }}
           >
             {t.h1}
             <span className="font-bold">{t.h2}</span>
@@ -102,7 +102,7 @@ export function KonservativZuerst() {
         </div>
 
         <div className="mt-14 border-t border-white/15 pt-6 lg:mt-20" style={reveal(100)}>
-          <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#D8BE85]">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#CDB681]">
             {t.stagesLabel}
           </p>
 
@@ -113,7 +113,7 @@ export function KonservativZuerst() {
                 className="group border-t border-white/20 pt-5 md:border-l md:border-t-0 md:px-7 md:pt-0 first:md:border-l-0 first:md:pl-0 last:md:pr-0"
                 style={reveal(180 + index * 70)}
               >
-                <span className="font-display text-3xl font-semibold tabular-nums text-[#D8BE85]">
+                <span className="font-display text-3xl font-semibold tabular-nums text-[#CDB681]">
                   {String(index + 1).padStart(2, "0")}
                 </span>
                 <h3 className="mt-5 text-[18px] font-semibold leading-snug text-white">
@@ -124,7 +124,7 @@ export function KonservativZuerst() {
                 </p>
                 <span
                   aria-hidden="true"
-                  className="mt-6 block h-px w-8 bg-[#D8BE85]/45 transition-[width,background-color] duration-200 ease-out group-hover:w-14 group-hover:bg-[#D8BE85]"
+                  className="mt-6 block h-px w-8 bg-[#CDB681]/45 transition-[width,background-color] duration-200 ease-out group-hover:w-14 group-hover:bg-[#CDB681]"
                 />
               </li>
             ))}
@@ -132,7 +132,7 @@ export function KonservativZuerst() {
 
           <a
             href="/behandlungen"
-            className="mt-10 inline-flex min-h-11 items-center gap-2 rounded-full border border-white/25 px-5 py-2.5 text-sm font-semibold text-white transition-[border-color,color,transform] duration-200 ease-out hover:border-[#D8BE85] hover:text-[#D8BE85] active:scale-[0.97]"
+            className="mt-10 inline-flex min-h-11 items-center gap-2 rounded-[10px] border border-white/25 px-5 py-2.5 text-sm font-semibold text-white transition-[border-color,color,transform] duration-200 ease-out hover:border-[#CDB681] hover:text-[#CDB681] active:scale-[0.97]"
           >
             {t.cta}
             <span aria-hidden="true">→</span>

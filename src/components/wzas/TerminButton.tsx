@@ -7,9 +7,9 @@ type Variant = "solid" | "outlineLight" | "outlineDark";
 type Size = "sm" | "md";
 
 const VARIANTS: Record<Variant, string> = {
-  solid: "bg-[#AC8F52] text-[#1E2535] hover:brightness-105",
-  outlineLight: "border border-white/70 text-white hover:bg-white hover:text-[#1E2535]",
-  outlineDark: "border border-[#AC8F52] text-[#AC8F52] hover:bg-[#AC8F52] hover:text-[#1E2535]",
+  solid: "border border-wz-gold bg-wz-gold text-wz-dark hover:brightness-105",
+  outlineLight: "border border-white/70 text-wz-white hover:bg-wz-white hover:text-wz-dark",
+  outlineDark: "border border-wz-gold text-wz-gold hover:bg-wz-gold hover:text-wz-dark",
 };
 
 const SIZES: Record<Size, string> = {
@@ -35,7 +35,7 @@ export function TerminButton({
   return (
     <a
       href={BOOKING_URL}
-      className={`inline-flex min-h-11 items-center justify-center gap-2 rounded-full font-semibold tracking-wide transition ${VARIANTS[variant]} ${SIZES[size]} ${className}`}
+      className={`inline-flex min-h-11 items-center justify-center gap-2 rounded-[10px] font-semibold transition ${VARIANTS[variant]} ${SIZES[size]} ${className}`}
     >
       {label ?? defaultLabel}
       <span aria-hidden>→</span>

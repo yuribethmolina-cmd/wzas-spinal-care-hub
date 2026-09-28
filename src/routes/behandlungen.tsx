@@ -92,11 +92,11 @@ function WolfartCallout() {
     },
   });
   return (
-    <div className="mt-6 border-l-4 border-[#AC8F52] bg-[#F8F8F6] pl-5 py-4 pr-4">
+    <div className="mt-6 border-l-4 border-[#AC8F52] bg-[#F9F8F4] pl-5 py-4 pr-4">
       <p className="text-[10px] font-semibold tracking-widest uppercase text-[#AC8F52] mb-1">{t.label}</p>
-      <p className="font-display text-lg font-semibold text-[#1E2535] mb-2">{t.heading}</p>
-      <p className="text-sm text-[#4A5568] leading-relaxed">{t.body}</p>
-      <a href="/wolfart" className="inline-flex min-h-11 items-center mt-3 text-xs font-semibold text-[#7A6029] hover:brightness-110 transition">
+      <p className="font-display text-lg font-semibold text-[#212121] mb-2">{t.heading}</p>
+      <p className="text-sm text-[#595959] leading-relaxed">{t.body}</p>
+      <a href="/wolfart" className="inline-flex min-h-11 items-center mt-3 text-xs font-semibold text-[#97745B] hover:brightness-110 transition">
         {t.link}
       </a>
     </div>
@@ -239,7 +239,7 @@ function BehandlungenPage() {
   });
 
   return (
-    <div className="min-h-screen bg-[#F8F8F6]">
+    <div className="min-h-screen bg-[#F9F8F4]">
       <PageHeader activeRoute="/behandlungen" />
 
       <main>
@@ -253,7 +253,7 @@ function BehandlungenPage() {
             }}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/25 to-transparent" />
-          <div className="absolute bottom-0 left-0 px-5 pb-10 lg:px-12 lg:pb-14 max-w-7xl mx-auto w-full">
+          <div className="absolute bottom-0 left-0 px-5 pb-10 lg:px-12 lg:pb-14 max-w-[1440px] mx-auto w-full">
             <p className="text-[10px] font-semibold tracking-[0.25em] uppercase text-[#AC8F52] mb-3">
               {t.heroEyebrow}
             </p>
@@ -270,26 +270,26 @@ function BehandlungenPage() {
         <section className="py-14 lg:py-20 bg-white">
           <div ref={introRef} style={introStyle} className="mx-auto max-w-6xl px-5 lg:px-8 grid grid-cols-1 lg:grid-cols-3 gap-10 lg:gap-16 items-start">
             <div className="lg:col-span-2">
-              <h2 className="font-display text-2xl font-semibold text-[#1E2535] mb-5">
+              <h2 className="font-display text-2xl font-semibold text-[#212121] mb-5">
                 {t.introHeading}
               </h2>
-              <p className="text-lg text-[#4A5568] leading-relaxed">
+              <p className="text-lg text-[#595959] leading-relaxed">
                 {t.introParagraph}
               </p>
             </div>
             <div className="border-l-4 border-[#AC8F52] pl-6">
-              <p className="font-display text-2xl lg:text-3xl italic text-[#1E2535] leading-snug">
+              <p className="font-display text-2xl lg:text-3xl font-bold text-[#212121] leading-snug">
                 {t.pullQuote}
               </p>
-              <p className="mt-3 text-xs text-[#5F6771] tracking-widest uppercase">{t.pullQuoteAttribution}</p>
+              <p className="mt-3 text-xs text-[#666666] tracking-widest uppercase">{t.pullQuoteAttribution}</p>
             </div>
           </div>
         </section>
 
         {/* Treatment spectrum */}
-        <section className="py-12 lg:py-16 bg-[#F8F8F6]">
-          <div className="mx-auto max-w-7xl px-5 lg:px-8">
-            <h2 className="font-display text-4xl lg:text-5xl font-semibold text-[#1E2535] mb-3">
+        <section className="py-12 lg:py-16 bg-[#F9F8F4]">
+          <div className="mx-auto max-w-[1440px] px-5 lg:px-8">
+            <h2 className="font-display text-4xl lg:text-5xl font-semibold text-[#212121] mb-3">
               {t.spectrumHeading}
             </h2>
             {/* Gold connector line with dots, desktop only */}
@@ -297,7 +297,7 @@ function BehandlungenPage() {
               {categories.map((cat, i) => (
                 <React.Fragment key={cat.id}>
                   <div className="flex flex-col items-center gap-1 flex-shrink-0">
-                    <div className="w-2.5 h-2.5 rounded-full bg-[#AC8F52]" />
+                    <div className="w-2.5 h-2.5 rounded-[10px] bg-[#AC8F52]" />
                     <p className="text-[10px] font-semibold tracking-widest uppercase text-[#AC8F52] whitespace-nowrap">
                       {cat.name}
                     </p>
@@ -324,7 +324,7 @@ function BehandlungenPage() {
                 <p className="text-[10px] font-semibold tracking-[0.2em] uppercase text-[#AC8F52] mb-1">
                   {cat.name}
                 </p>
-                <div className="h-px bg-[#E2E4E7] mb-6" />
+                <div className="h-px bg-[#E6E3DC] mb-6" />
                 <div className="flex flex-col lg:flex-row gap-8 items-start">
                   {/* Photo */}
                   <div className="w-full lg:w-2/5 flex-shrink-0">
@@ -341,8 +341,8 @@ function BehandlungenPage() {
                           <path d="M12 5v14M5 12h14" strokeLinecap="round" />
                         </svg>
                         <div>
-                          <p className="font-semibold text-[#1E2535]">{method.name}</p>
-                          <p className="text-sm text-[#4A5568] leading-relaxed mt-0.5">{method.desc}</p>
+                          <p className="font-semibold text-[#212121]">{method.name}</p>
+                          <p className="text-sm text-[#595959] leading-relaxed mt-0.5">{method.desc}</p>
                         </div>
                       </div>
                     ))}
@@ -356,15 +356,15 @@ function BehandlungenPage() {
         </section>
 
         {/* Bridge to beschwerden */}
-        <section className="py-12 bg-[#F8F8F6] border-t border-[#E2E4E7]">
+        <section className="py-12 bg-[#F9F8F4] border-t border-[#E6E3DC]">
           <div ref={bridgeRef} style={bridgeStyle} className="mx-auto max-w-6xl px-5 lg:px-8 text-center">
-            <p className="text-[#8C939B] mb-5">
+            <p className="text-[#747474] mb-5">
               {t.bridgeParagraph}
             </p>
             <div className="flex flex-wrap justify-center gap-3">
               <Link
                 to="/rueckendiagnostik"
-                className="group inline-flex items-center gap-2 rounded-full border border-[#AC8F52] bg-[#AC8F52]/10 px-5 py-2.5 text-sm font-semibold text-[#7A6029] transition-all hover:bg-[#AC8F52] hover:text-[#1E2535]"
+                className="group inline-flex items-center gap-2 rounded-[10px] border border-[#AC8F52] bg-[#AC8F52]/10 px-5 py-2.5 text-sm font-semibold text-[#97745B] transition-all hover:bg-[#AC8F52] hover:text-[#212121]"
               >
                 {t.bridgeParagraph.startsWith("No diagnosis") ? "Spine diagnostics" : "Rückendiagnostik"}
                 <span className="transition-transform group-hover:translate-x-1" aria-hidden>→</span>
@@ -374,7 +374,7 @@ function BehandlungenPage() {
                   key={c.id}
                   to="/beschwerden/$slug"
                   params={{ slug: c.id }}
-                  className="group inline-flex items-center gap-2 rounded-full border border-[#1E2535] px-5 py-2.5 text-sm font-medium text-[#1E2535] transition-all hover:bg-[#AC8F52] hover:border-[#AC8F52] hover:text-[#1E2535]"
+                  className="group inline-flex items-center gap-2 rounded-[10px] border border-[#212121] px-5 py-2.5 text-sm font-medium text-[#212121] transition-all hover:bg-[#AC8F52] hover:border-[#AC8F52] hover:text-[#212121]"
                 >
                   {c.name}
                   <span className="transition-transform group-hover:translate-x-1" aria-hidden>→</span>
