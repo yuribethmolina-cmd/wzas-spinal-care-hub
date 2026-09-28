@@ -1824,13 +1824,13 @@ function Jubilaeum() {
               ))}
             </ul>
             <p className="mt-4 border-l-2 border-[#AC8F52] pl-3 text-sm italic leading-relaxed text-[#97745B]">{reportContent.closing}</p>
-            <Link
-              to="/#termin"
+            <a
+              href="/#termin"
               onClick={() => setReportOpen(false)}
               className="mt-6 inline-flex min-h-[44px] w-full items-center justify-center rounded-[10px] bg-[#AC8F52] px-5 py-2.5 text-sm font-semibold text-[#212121]"
             >
               {lang === "de" ? "Termin vereinbaren" : "Book an appointment"}
-            </Link>
+            </a>
           </div>
         </div>
       )}
