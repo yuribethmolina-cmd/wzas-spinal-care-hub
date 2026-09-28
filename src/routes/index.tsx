@@ -13,6 +13,7 @@ import { MobileNavPanel } from "@/components/MobileNavPanel";
 import { AppointmentChoice } from "@/components/AppointmentChoice";
 
 import vortraegeImg from "@/assets/wzas/vortraege.webp.asset.json";
+import empfangImg from "@/assets/wzas/galerie/empfang.webp.asset.json";
 import thumbBandscheibe from "@/assets/wzas/thumb-bandscheibe.webp.asset.json";
 import aktuellesImg from "@/assets/wzas/aktuelles.jpg.asset.json";
 import focusImg from "@/assets/wzas/focus.jpeg.asset.json";
@@ -1711,7 +1712,8 @@ function MobileStickyBar({ visible }: { visible: boolean }) {
   );
 }
 
-const JUBILAEUM_IMG = "/jubileum-20-jahre.jpg";
+// Temporary photo until the official anniversary image is supplied
+const JUBILAEUM_IMG = empfangImg.url;
 
 function Jubilaeum() {
   const { lang } = useLang();
@@ -1767,9 +1769,9 @@ function Home() {
         <div ref={heroRef}>
           <Hero />
         </div>
+        <Beschwerden />
         <KonservativZuerst />
         <Jubilaeum />
-        <Beschwerden />
         <Team />
         <Kompetenzzentrum />
         <PraxisGalerie />
