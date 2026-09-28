@@ -13,6 +13,7 @@ import { MobileNavPanel } from "@/components/MobileNavPanel";
 import { AppointmentChoice } from "@/components/AppointmentChoice";
 
 import vortraegeImg from "@/assets/wzas/vortraege.webp.asset.json";
+import empfangImg from "@/assets/wzas/galerie/empfang.webp.asset.json";
 import thumbBandscheibe from "@/assets/wzas/thumb-bandscheibe.webp.asset.json";
 import aktuellesImg from "@/assets/wzas/aktuelles.jpg.asset.json";
 import focusImg from "@/assets/wzas/focus.jpeg.asset.json";
@@ -475,7 +476,7 @@ function Hero() {
       h1a: "Rückhalt",
       h1b: "für München.",
       h1c: "",
-      sub: "Konservative Behandlung zuerst\u00a0\nOperation nur, wenn sie wirklich notwendig ist.",
+      sub: "Chronische Rückenschmerzen?\u00a0\nBandscheibenvorfall?\u00a0\nWir finden Ihre Lösung —\u00a0\nkonservativ wo möglich, operativ nur wenn nötig.",
       book: "Termin buchen",
       more: "Mehr erfahren",
       bookMeta: "Online in ca. 2 Min.",
@@ -490,7 +491,7 @@ function Hero() {
       h1a: "Munich’s trusted",
       h1b: "spine specialists.",
       h1c: "",
-      sub: "Conservative treatment first — surgery only when it's truly necessary.",
+      sub: "Chronic back pain?\u00a0\nHerniated disc?\u00a0\nWe will find your solution —\u00a0\nconservative first, surgery only when necessary.",
       book: "Book an appointment",
       more: "Learn more",
       bookMeta: "Online in ~2 min",
@@ -1508,9 +1509,9 @@ function Aktuelles() {
       cta: "Mehr erfahren",
       all: "Alle Veranstaltungen & Inhalte ansehen →",
       items: [
+        { type: "JUBILÄUM", date: "Juni 2026", title: "20 Jahre WZAS: Ein unvergesslicher Jubiläumsabend", detail: "Ein Wirbelsäulenzentrum lebt nicht von Wirbelsäulen — es lebt von Menschen." },
         { type: "VORTRAG", date: "15. September 2026", title: "Rücken ohne OP: Wann ist Chirurgie wirklich nötig?", detail: "Gasteig HP8 · München · 19:00 Uhr" },
-        { type: "VIDEO", date: "Online verfügbar", title: "Bandscheibenvorfall verstehen: Ursachen, Therapie und Wege zur Schmerzfreiheit", detail: "45 Min. · Dr. Wing Mann Ho" },
-        { type: "ARTIKEL", date: "Juli 2026", title: "Neue minimalinvasive Techniken in der Wirbelsäulenchirurgie", detail: "Fachbeitrag · Neurochirurgie aktuell" },
+        { type: "ARTIKEL", date: "Juli 2026", title: "Dr. Walter Demmel verstärkt das WZAS", detail: "Einer der führenden Spezialisten für Schmerztherapie Deutschlands" },
       ],
     },
     en: {
@@ -1521,15 +1522,15 @@ function Aktuelles() {
       cta: "Learn more",
       all: "View all events & articles →",
       items: [
+        { type: "ANNIVERSARY", date: "June 2026", title: "20 Years WZAS: An unforgettable anniversary evening", detail: "A spine centre doesn't live from spines — it lives from people." },
         { type: "TALK", date: "15 September 2026", title: "A back without surgery: when is an operation really needed?", detail: "Gasteig HP8 · Munich · 7:00 pm" },
-        { type: "VIDEO", date: "Available online", title: "Understanding a herniated disc: causes, therapy and paths to pain relief", detail: "45 min · Dr. Wing Mann Ho" },
-        { type: "ARTICLE", date: "July 2026", title: "New minimally invasive techniques in spine surgery", detail: "Article · Neurochirurgie aktuell" },
+        { type: "ARTICLE", date: "July 2026", title: "Dr. Walter Demmel joins WZAS", detail: "One of Germany's leading specialists in pain therapy" },
       ],
     },
   });
   const meta = [
+    { accentColor: "#AC8F52", badgeBg: "rgba(172,143,82,0.12)", badgeText: "#8A6E36", image: JUBILAEUM_IMG },
     { accentColor: "#2563EB", badgeBg: "rgba(37,99,235,0.1)", badgeText: "#1d4ed8", image: vortraegeImg.url },
-    { accentColor: "#7C3AED", badgeBg: "rgba(124,58,237,0.1)", badgeText: "#6d28d9", image: thumbBandscheibe.url },
     { accentColor: "#059669", badgeBg: "rgba(5,150,105,0.1)", badgeText: "#047857", image: aktuellesImg.url },
   ];
   const items: AktuellesItem[] = t.items.map((it, i) => ({ ...it, ...meta[i] }));
@@ -1711,6 +1712,38 @@ function MobileStickyBar({ visible }: { visible: boolean }) {
   );
 }
 
+// Temporary photo until the official anniversary image is supplied
+const JUBILAEUM_IMG = empfangImg.url;
+
+function Jubilaeum() {
+  const { lang } = useLang();
+  const { ref, style } = useFadeUp(0);
+  return (
+    <section className="bg-white border-y border-[#E8E2D6]">
+      <div ref={ref} style={style} className="mx-auto max-w-7xl px-5 lg:px-8 py-10 lg:py-0 grid lg:grid-cols-2 items-stretch gap-0">
+        <div className="relative overflow-hidden rounded-[10px] lg:rounded-none">
+          <img src={JUBILAEUM_IMG} alt={lang === "de" ? "20 Jahre WZAS Jubiläumsfeier" : "20 years WZAS anniversary celebration"} loading="lazy" decoding="async" className="w-full h-full object-cover object-center" style={{ minHeight: 240 }} />
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent to-white/10 pointer-events-none" />
+        </div>
+        <div className="lg:pl-14 py-10 lg:py-14 flex flex-col justify-center gap-5">
+          <span className="inline-flex items-center gap-2 text-[11px] font-semibold tracking-[0.2em] uppercase text-[#AC8F52]">
+            <span className="inline-block w-5 h-px bg-[#AC8F52]" />
+            {lang === "de" ? "Unser Jubiläum" : "Our anniversary"}
+          </span>
+          <p className="font-display text-[#1E2535] leading-snug" style={{ fontSize: "clamp(1.5rem, 2.8vw, 2.1rem)", fontWeight: 500, letterSpacing: "-0.02em" }}>
+            {lang === "de"
+              ? <>Im Juni 2026 haben wir <strong style={{ fontWeight: 600 }}>20 Jahre gefeiert</strong> — mit unserem Team, unseren Partnern und den Menschen, für die wir jeden Tag da sind.</>
+              : <>In June 2026 we celebrated <strong style={{ fontWeight: 600 }}>20 years</strong> — with our team, our partners and the people we work for every day.</>}
+          </p>
+          <a href="/aktuelles" className="inline-flex items-center gap-2 text-sm font-semibold text-[#AC8F52] hover:opacity-75 transition-opacity self-start">
+            {lang === "de" ? "Zum Jubiläumsbericht" : "Read the anniversary report"} →
+          </a>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function Home() {
   const heroRef = useRef<HTMLDivElement>(null);
   const [stickyBarVisible, setStickyBarVisible] = useState(false);
@@ -1738,6 +1771,7 @@ function Home() {
         </div>
         <Beschwerden />
         <KonservativZuerst />
+        <Jubilaeum />
         <Team />
         <Kompetenzzentrum />
         <PraxisGalerie />
