@@ -14,6 +14,7 @@ import { AppointmentChoice } from "@/components/AppointmentChoice";
 
 import vortraegeImg from "@/assets/wzas/vortraege.webp.asset.json";
 import empfangImg from "@/assets/wzas/galerie/empfang.webp.asset.json";
+import jubilaeumImg from "@/assets/wzas/20-jahre-wzas.webp.asset.json";
 import thumbBandscheibe from "@/assets/wzas/thumb-bandscheibe.webp.asset.json";
 import aktuellesImg from "@/assets/wzas/aktuelles.jpg.asset.json";
 import focusImg from "@/assets/wzas/focus.jpeg.asset.json";
@@ -1712,12 +1713,53 @@ function MobileStickyBar({ visible }: { visible: boolean }) {
   );
 }
 
-// Temporary photo until the official anniversary image is supplied
-const JUBILAEUM_IMG = empfangImg.url;
+const JUBILAEUM_IMG = jubilaeumImg.url;
 
 function Jubilaeum() {
   const { lang } = useLang();
   const { ref, style } = useFadeUp(0);
+  const [reportOpen, setReportOpen] = useState(false);
+
+  useEffect(() => {
+    if (!reportOpen) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setReportOpen(false);
+    };
+    document.addEventListener("keydown", onKey);
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      document.body.style.overflow = "";
+    };
+  }, [reportOpen]);
+
+  const reportContent =
+    lang === "de"
+      ? {
+          title: "Umfassende Betreuung seit über 20 Jahren",
+          intro:
+            "Rückenschmerzen sind oft komplex. Deshalb gehören bei uns Diagnostik, Beratung und Behandlung eng zusammen.",
+          points: [
+            "Eigene Radiologie mit MRT und CT — Befunde schnell vor Ort.",
+            "Kurze Wege: Neurochirurgie und Radiologie unter einem Dach.",
+            "Individueller Behandlungsweg mit Spezialisten, Therapeuten und Kliniken.",
+          ],
+          closing:
+            "Eine gute Behandlung beginnt nicht erst mit der Therapie, sondern mit dem genauen Verstehen der Beschwerden.",
+        }
+      : {
+          title: "Comprehensive care for over 20 years",
+          intro:
+            "Back pain is often complex. That's why diagnostics, consultation and treatment are closely connected here.",
+          points: [
+            "In-house radiology with MRI and CT — fast findings on site.",
+            "Short distances: neurosurgery and radiology under one roof.",
+            "An individual treatment path with specialists, therapists and clinics.",
+          ],
+          closing:
+            "Good treatment doesn't start with therapy — it starts with truly understanding your symptoms.",
+        };
+
   return (
     <section className="bg-white border-y border-[#E8E2D6]">
       <div ref={ref} style={style} className="mx-auto max-w-7xl px-5 lg:px-8 py-10 lg:py-0 grid lg:grid-cols-2 items-stretch gap-0">
@@ -1735,11 +1777,63 @@ function Jubilaeum() {
               ? <>Im Juni 2026 haben wir <strong style={{ fontWeight: 600 }}>20 Jahre gefeiert</strong> — mit unserem Team, unseren Partnern und den Menschen, für die wir jeden Tag da sind.</>
               : <>In June 2026 we celebrated <strong style={{ fontWeight: 600 }}>20 years</strong> — with our team, our partners and the people we work for every day.</>}
           </p>
-          <a href="/aktuelles" className="inline-flex items-center gap-2 text-sm font-semibold text-[#AC8F52] hover:opacity-75 transition-opacity self-start">
+          <button
+            type="button"
+            onClick={() => setReportOpen(true)}
+            className="inline-flex items-center gap-2 text-sm font-semibold text-[#AC8F52] hover:opacity-75 transition-opacity self-start"
+          >
             {lang === "de" ? "Zum Jubiläumsbericht" : "Read the anniversary report"} →
-          </a>
+          </button>
         </div>
       </div>
+
+      {reportOpen && (
+        <div
+          className="fixed inset-0 z-[90] flex items-center justify-center p-4 bg-[#1E2535]/60"
+          role="dialog"
+          aria-modal="true"
+          aria-label={reportContent.title}
+          onClick={() => setReportOpen(false)}
+        >
+          <div
+            className="relative w-full max-w-lg max-h-[85vh] overflow-y-auto rounded-[10px] bg-white p-6 sm:p-8 shadow-xl"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              type="button"
+              onClick={() => setReportOpen(false)}
+              aria-label={lang === "de" ? "Schließen" : "Close"}
+              className="absolute top-3 right-3 inline-flex h-9 w-9 items-center justify-center rounded-full text-[#212121] hover:bg-[#F9F8F4]"
+            >
+              ✕
+            </button>
+            <span className="inline-flex items-center gap-2 text-[11px] font-semibold tracking-[0.2em] uppercase text-[#AC8F52]">
+              <span className="inline-block w-5 h-px bg-[#AC8F52]" />
+              {lang === "de" ? "20 Jahre WZAS" : "20 years WZAS"}
+            </span>
+            <h3 className="font-display mt-3 text-[#1E2535] text-2xl leading-snug" style={{ fontWeight: 500, letterSpacing: "-0.02em" }}>
+              {reportContent.title}
+            </h3>
+            <p className="mt-3 text-sm leading-relaxed text-[#212121]">{reportContent.intro}</p>
+            <ul className="mt-4 space-y-2.5">
+              {reportContent.points.map((p) => (
+                <li key={p} className="flex gap-3 text-sm leading-relaxed text-[#212121]">
+                  <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[#AC8F52]" />
+                  <span>{p}</span>
+                </li>
+              ))}
+            </ul>
+            <p className="mt-4 border-l-2 border-[#AC8F52] pl-3 text-sm italic leading-relaxed text-[#97745B]">{reportContent.closing}</p>
+            <a
+              href="/#termin"
+              onClick={() => setReportOpen(false)}
+              className="mt-6 inline-flex min-h-[44px] w-full items-center justify-center rounded-[10px] bg-[#AC8F52] px-5 py-2.5 text-sm font-semibold text-[#212121]"
+            >
+              {lang === "de" ? "Termin vereinbaren" : "Book an appointment"}
+            </a>
+          </div>
+        </div>
+      )}
     </section>
   );
 }
