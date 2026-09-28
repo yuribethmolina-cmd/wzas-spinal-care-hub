@@ -524,18 +524,18 @@ function Hero() {
       </picture>
 
 
-      <div className="absolute inset-0 -z-10 bg-[#1C1C1C]/35 lg:bg-[#1C1C1C]/40" />
-      <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[#1C1C1C]/85 via-[#1C1C1C]/45 to-transparent lg:from-[#1C1C1C]/90 lg:via-[#1C1C1C]/45" />
-      <div className="absolute inset-0 -z-10 bg-gradient-to-t from-[#1C1C1C] via-[#1C1C1C]/45 to-[#1C1C1C]/20 lg:via-[#1C1C1C]/15 lg:to-[#1C1C1C]/35" />
+      <div className="absolute inset-0 -z-10 bg-[#212121]/35 lg:bg-transparent" />
+      <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[#212121]/90 via-[#212121]/50 to-transparent lg:from-[#212121] lg:via-[#212121]/90 lg:via-45% lg:to-[#212121]/10" />
+      <div className="absolute inset-0 -z-10 bg-gradient-to-t from-[#212121] via-[#212121]/35 to-[#212121]/10 lg:from-[#212121]/70 lg:via-transparent" />
 
 
       <div
         className="absolute inset-0 pointer-events-none opacity-[0.04] -z-10"
         style={{ backgroundImage: NOISE, backgroundSize: "256px 256px" }}
       />
-      <div className="relative mx-auto max-w-[1440px] px-5 lg:px-8 pt-7 pb-8 lg:pt-20 lg:pb-40 lg:min-h-[min(84vh,860px)] flex items-center">
+      <div className="relative mx-auto max-w-[1440px] px-5 lg:px-[70px] pt-7 pb-8 lg:pt-20 lg:pb-40 lg:min-h-[min(84vh,860px)] flex items-center">
 
-        <div className="w-full min-w-0 max-w-3xl lg:max-w-[58%] overflow-x-clip">
+        <div className="w-full min-w-0 max-w-3xl lg:max-w-[45%] overflow-x-clip">
           <p
             className="text-[11px] font-medium tracking-[0.2em] uppercase text-[#AC8F52] flex items-center gap-2"
             style={introKicker}
@@ -545,12 +545,12 @@ function Hero() {
             <span className="min-w-0 hidden sm:inline">{t.kicker}</span>
           </p>
           <h1
-            className="mt-3 sm:mt-6 leading-[1.12] sm:leading-[1.02] tracking-tight text-white font-display"
-            style={{ fontSize: "clamp(2.4rem, 5.4vw, 5rem)", fontWeight: 700 }}
+            className="mt-3 sm:mt-6 text-white font-display"
+            style={{ fontSize: "clamp(2.25rem, 4.2vw, 3.375rem)", lineHeight: 1.2, fontWeight: 700 }}
           >
             <MaskLine delay={200}>{t.h1a}</MaskLine>
             <MaskLine delay={320}>
-              <span style={{ fontWeight: 700 }}>{t.h1b}</span>
+              <span>{t.h1b}</span>
             </MaskLine>
             <MaskLine delay={440}>{t.h1c}</MaskLine>
           </h1>
@@ -564,13 +564,13 @@ function Hero() {
             <div className="flex flex-col sm:flex-row sm:flex-wrap gap-3">
               <a
                 href={BOOKING_URL}
-                className="inline-flex items-center justify-center rounded-[10px] bg-[#AC8F52] px-6 py-3.5 sm:py-3 text-[15px] sm:text-sm font-semibold text-[#212121] transition-[background-color,transform,box-shadow] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:bg-[#BC9C58] hover:-translate-y-0.5 hover:shadow-[0_16px_34px_-16px_rgba(172,143,82,0.9)]"
+                className="inline-flex items-center justify-center rounded-[10px] border border-wz-gold bg-wz-gold px-[30px] py-5 text-[15px] font-semibold leading-none text-wz-dark transition-[filter,transform] duration-300 hover:brightness-105 hover:-translate-y-0.5"
               >
                 {t.book}
               </a>
               <a
                 href="#beschwerden"
-                className="inline-flex min-h-[44px] items-center justify-center rounded-[10px] border border-white/25 sm:border-white/40 bg-white/[0.03] sm:bg-white/5 backdrop-blur-sm px-5 py-2 sm:px-6 sm:py-3 text-sm font-semibold text-white/85 sm:text-white transition-[background-color,border-color,transform] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:bg-white/15 hover:border-white/70 hover:-translate-y-0.5 active:scale-[0.98]"
+                className="inline-flex min-h-[44px] items-center justify-center rounded-[10px] border border-white/50 bg-white/[0.03] px-[30px] py-5 text-[15px] font-semibold leading-none text-white transition-[background-color,border-color,transform] duration-300 hover:bg-white/10 hover:border-white hover:-translate-y-0.5 active:scale-[0.98]"
               >
                 {t.more}
               </a>

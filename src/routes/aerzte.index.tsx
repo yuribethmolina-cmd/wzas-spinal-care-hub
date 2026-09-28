@@ -73,7 +73,7 @@ function AerztePage() {
             </p>
             <h1
               className="font-display text-white leading-[0.95]"
-              style={{ fontSize: "clamp(3rem, 7vw, 5.5rem)", fontWeight: 700, letterSpacing: "-0.025em" }}
+              style={{ fontSize: "clamp(3rem, 7vw, 5.5rem)", fontWeight: 700 }}
             >
               {t.heroH1}
             </h1>
@@ -131,7 +131,7 @@ function AerztePage() {
         <div className="mx-auto max-w-[1440px] px-5 lg:px-8 text-center">
           <h2
             className="font-display text-white"
-            style={{ fontSize: "clamp(2rem, 4vw, 3rem)", fontWeight: 700, letterSpacing: "-0.02em" }}
+            style={{ fontSize: "clamp(2rem, 4vw, 3rem)", fontWeight: 700 }}
           >
             {t.ctaH2}
           </h2>
@@ -185,7 +185,7 @@ function LeaderCard({ d, profileLabel }: { d: ReturnType<typeof localizeDoctor>;
           </p>
           <h2
             className="mt-2 font-display text-[#212121] leading-tight"
-            style={{ fontSize: "clamp(1.35rem, 2.2vw, 1.75rem)", fontWeight: 700, letterSpacing: "-0.015em" }}
+            style={{ fontSize: "clamp(1.35rem, 2.2vw, 1.75rem)", fontWeight: 700 }}
           >
             {d.name}
           </h2>

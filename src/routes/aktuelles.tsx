@@ -352,9 +352,9 @@ function AktuellesPage() {
           <div className="mx-auto max-w-[1440px] px-5 lg:px-8">
             <div ref={heroRef} style={heroStyle} className="max-w-3xl">
               <SectionLabel>{t.eyebrow}</SectionLabel>
-              <h1 className="mt-4 font-display text-[2.35rem] sm:text-5xl lg:text-6xl font-semibold leading-tight text-white">
+              <h1 className="mt-4 font-display text-[2.25rem] sm:text-[54px] font-bold leading-[1.2] text-white">
                 {t.h1Main}{" "}
-                <em className="font-display not-italic font-bold text-[#AC8F52]">{t.h1Italic}</em>
+                <span className="font-display font-bold text-[#AC8F52]">{t.h1Italic}</span>
               </h1>
               <p className="mt-6 text-lg text-[#747474] leading-relaxed max-w-xl">
                 {t.heroPara}

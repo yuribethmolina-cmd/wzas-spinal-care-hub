@@ -330,7 +330,7 @@ export function DiagnostikTerminForm() {
 
             <button
               type="submit"
-              className="mt-6 inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-[10px] bg-[#212121] px-7 text-sm font-semibold text-white transition hover:bg-[#2D2D2D] sm:w-auto"
+              className="mt-6 inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-[10px] border border-wz-dark bg-wz-dark px-[30px] text-[15px] font-semibold text-white transition hover:bg-wz-mid sm:w-auto"
             >
               {t.submit}
               <span aria-hidden>→</span>

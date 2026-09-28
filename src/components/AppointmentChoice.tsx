@@ -169,14 +169,14 @@ export function AppointmentChoice() {
               <button
                 type="button"
                 onClick={() => setStep(total - 1)}
-                className="inline-flex min-h-11 items-center justify-center rounded-[10px] border border-white/40 px-6 py-3 text-sm font-semibold text-white hover:bg-white/10 transition-colors"
+                className="inline-flex min-h-11 items-center justify-center rounded-[10px] border border-white/40 px-[30px] py-5 text-[15px] font-semibold leading-none text-white hover:bg-white/10 transition-colors"
               >
                 {t.back}
               </button>
               <button
                 type="button"
                 onClick={reset}
-                className="inline-flex min-h-11 items-center justify-center rounded-[10px] bg-[#AC8F52] px-6 py-3 text-sm font-semibold text-[#212121] hover:brightness-110 transition"
+                className="inline-flex min-h-11 items-center justify-center rounded-[10px] border border-wz-gold bg-wz-gold px-[30px] py-5 text-[15px] font-semibold leading-none text-wz-dark hover:brightness-105 transition"
               >
                 {t.restart}
               </button>
@@ -223,7 +223,7 @@ export function AppointmentChoice() {
               <button
                 type="button"
                 onClick={() => (step === 0 ? reset() : setStep(step - 1))}
-                className="inline-flex min-h-11 items-center justify-center rounded-[10px] border border-white/40 px-6 py-3 text-sm font-semibold text-white hover:bg-white/10 transition-colors"
+                className="inline-flex min-h-11 items-center justify-center rounded-[10px] border border-white/40 px-[30px] py-5 text-[15px] font-semibold leading-none text-white hover:bg-white/10 transition-colors"
               >
                 {t.back}
               </button>
@@ -231,7 +231,7 @@ export function AppointmentChoice() {
                 type="button"
                 disabled={!answers[step]}
                 onClick={() => setStep(step + 1)}
-                className="inline-flex min-h-11 items-center justify-center rounded-[10px] bg-[#AC8F52] px-6 py-3 text-sm font-semibold text-[#212121] transition hover:brightness-110 disabled:opacity-40 disabled:cursor-not-allowed"
+                className="inline-flex min-h-11 items-center justify-center rounded-[10px] border border-wz-gold bg-wz-gold px-[30px] py-5 text-[15px] font-semibold leading-none text-wz-dark transition hover:brightness-105 disabled:opacity-40 disabled:cursor-not-allowed"
               >
                 {step === total - 1 ? t.finish : t.next}
               </button>
