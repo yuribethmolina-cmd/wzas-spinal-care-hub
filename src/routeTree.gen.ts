@@ -19,6 +19,7 @@ import { Route as AktuellesRouteImport } from './routes/aktuelles'
 import { Route as AerzteRouteImport } from './routes/aerzte'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as BeschwerdenIndexRouteImport } from './routes/beschwerden.index'
+import { Route as AktuellesIndexRouteImport } from './routes/aktuelles.index'
 import { Route as AerzteIndexRouteImport } from './routes/aerzte.index'
 import { Route as BeschwerdenSlugRouteImport } from './routes/beschwerden.$slug'
 import { Route as AktuellesDrWalterDemmelRouteImport } from './routes/aktuelles.dr-walter-demmel'
@@ -74,6 +75,11 @@ const BeschwerdenIndexRoute = BeschwerdenIndexRouteImport.update({
   path: '/',
   getParentRoute: () => BeschwerdenRoute,
 } as any)
+const AktuellesIndexRoute = AktuellesIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => AktuellesRoute,
+} as any)
 const AerzteIndexRoute = AerzteIndexRouteImport.update({
   id: '/',
   path: '/',
@@ -109,11 +115,11 @@ export interface FileRoutesByFullPath {
   '/aktuelles/dr-walter-demmel': typeof AktuellesDrWalterDemmelRoute
   '/beschwerden/$slug': typeof BeschwerdenSlugRoute
   '/aerzte/': typeof AerzteIndexRoute
+  '/aktuelles/': typeof AktuellesIndexRoute
   '/beschwerden/': typeof BeschwerdenIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/aktuelles': typeof AktuellesRouteWithChildren
   '/behandlungen': typeof BehandlungenRoute
   '/faq': typeof FaqRoute
   '/karriere': typeof KarriereRoute
@@ -123,6 +129,7 @@ export interface FileRoutesByTo {
   '/aktuelles/dr-walter-demmel': typeof AktuellesDrWalterDemmelRoute
   '/beschwerden/$slug': typeof BeschwerdenSlugRoute
   '/aerzte': typeof AerzteIndexRoute
+  '/aktuelles': typeof AktuellesIndexRoute
   '/beschwerden': typeof BeschwerdenIndexRoute
 }
 export interface FileRoutesById {
@@ -140,6 +147,7 @@ export interface FileRoutesById {
   '/aktuelles/dr-walter-demmel': typeof AktuellesDrWalterDemmelRoute
   '/beschwerden/$slug': typeof BeschwerdenSlugRoute
   '/aerzte/': typeof AerzteIndexRoute
+  '/aktuelles/': typeof AktuellesIndexRoute
   '/beschwerden/': typeof BeschwerdenIndexRoute
 }
 export interface FileRouteTypes {
@@ -158,11 +166,11 @@ export interface FileRouteTypes {
     | '/aktuelles/dr-walter-demmel'
     | '/beschwerden/$slug'
     | '/aerzte/'
+    | '/aktuelles/'
     | '/beschwerden/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
-    | '/aktuelles'
     | '/behandlungen'
     | '/faq'
     | '/karriere'
@@ -172,6 +180,7 @@ export interface FileRouteTypes {
     | '/aktuelles/dr-walter-demmel'
     | '/beschwerden/$slug'
     | '/aerzte'
+    | '/aktuelles'
     | '/beschwerden'
   id:
     | '__root__'
@@ -188,6 +197,7 @@ export interface FileRouteTypes {
     | '/aktuelles/dr-walter-demmel'
     | '/beschwerden/$slug'
     | '/aerzte/'
+    | '/aktuelles/'
     | '/beschwerden/'
   fileRoutesById: FileRoutesById
 }
@@ -275,6 +285,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BeschwerdenIndexRouteImport
       parentRoute: typeof BeschwerdenRoute
     }
+    '/aktuelles/': {
+      id: '/aktuelles/'
+      path: '/'
+      fullPath: '/aktuelles/'
+      preLoaderRoute: typeof AktuellesIndexRouteImport
+      parentRoute: typeof AktuellesRoute
+    }
     '/aerzte/': {
       id: '/aerzte/'
       path: '/'
@@ -321,10 +338,12 @@ const AerzteRouteWithChildren =
 
 interface AktuellesRouteChildren {
   AktuellesDrWalterDemmelRoute: typeof AktuellesDrWalterDemmelRoute
+  AktuellesIndexRoute: typeof AktuellesIndexRoute
 }
 
 const AktuellesRouteChildren: AktuellesRouteChildren = {
   AktuellesDrWalterDemmelRoute: AktuellesDrWalterDemmelRoute,
+  AktuellesIndexRoute: AktuellesIndexRoute,
 }
 
 const AktuellesRouteWithChildren = AktuellesRoute._addFileChildren(
