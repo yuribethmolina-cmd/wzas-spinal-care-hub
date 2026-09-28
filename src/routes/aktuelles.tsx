@@ -45,17 +45,50 @@ export const Route = createFileRoute("/aktuelles")({
   component: AktuellesPage,
 });
 
-type ItemType = "Vortrag" | "Veröffentlichung" | "Pressemitteilung";
+type ItemType = "Vortrag" | "Veröffentlichung" | "Pressemitteilung" | "Patienteninformation";
 
 type Item = {
   type: ItemType;
   featured?: boolean;
   img?: string;
+  href?: string;
   de: { date: string; title: string; detail: string };
   en: { date: string; title: string; detail: string };
 };
 
 const ITEMS: Item[] = [
+  {
+    type: "Patienteninformation",
+    href: "/facettengelenk-infiltration.html",
+    img: "/treatment-ct-injection.webp",
+    featured: true,
+    de: {
+      date: "September 2026",
+      title: "Facettengelenk-Infiltration: Was Patienten wissen sollten",
+      detail: "Patienteninformation · Minimalinvasiv · DE · EN · ES · IT",
+    },
+    en: {
+      date: "September 2026",
+      title: "Facet Joint Injection: What patients need to know",
+      detail: "Patient guide · Minimally invasive · DE · EN · ES · IT",
+    },
+  },
+  {
+    type: "Patienteninformation",
+    href: "/facettengelenk-thermodenervation.html",
+    img: "/treatment-minimalinvasiv.webp",
+    featured: true,
+    de: {
+      date: "September 2026",
+      title: "Facettengelenk-Thermodenervation: Schmerzlinderung durch Wärme",
+      detail: "Patienteninformation · Minimalinvasiv · DE · EN · ES · IT",
+    },
+    en: {
+      date: "September 2026",
+      title: "Facet Joint Thermodenervation: Pain relief through heat",
+      detail: "Patient guide · Minimally invasive · DE · EN · ES · IT",
+    },
+  },
   {
     type: "Pressemitteilung",
     img: aktuellesImg.url,
@@ -191,15 +224,17 @@ const TYPE_COLORS: Record<ItemType, { bg: string; text: string; border: string }
   Vortrag: { bg: "bg-blue-50", text: "text-blue-700", border: "border-blue-200" },
   Veröffentlichung: { bg: "bg-emerald-50", text: "text-emerald-700", border: "border-emerald-200" },
   Pressemitteilung: { bg: "bg-amber-50", text: "text-amber-700", border: "border-amber-200" },
+  Patienteninformation: { bg: "bg-[#FAF6EE]", text: "text-[#AC8F52]", border: "border-[#DDD0B0]" },
 };
 
 const TYPE_EN: Record<ItemType, string> = {
   Vortrag: "Talk",
   Veröffentlichung: "Publication",
   Pressemitteilung: "Press release",
+  Patienteninformation: "Patient guide",
 };
 
-const FILTERS: (ItemType | "Alle")[] = ["Alle", "Vortrag", "Veröffentlichung", "Pressemitteilung"];
+const FILTERS: (ItemType | "Alle")[] = ["Alle", "Vortrag", "Veröffentlichung", "Pressemitteilung", "Patienteninformation"];
 
 function TypeBadge({ type }: { type: ItemType }) {
   const { lang } = useLang();
@@ -244,7 +279,7 @@ function FeaturedCard({ item, index }: { item: Item; index: number }) {
         <p className="text-sm text-[#666666]">{c.detail}</p>
         <div className="mt-auto pt-3">
           <a
-            href={BOOKING_URL}
+            href={item.href ?? BOOKING_URL}
             className="inline-flex min-h-11 items-center gap-1.5 text-sm font-semibold text-[#97745B] hover:gap-2.5 transition-all duration-200"
           >
             {t.learnMore}
@@ -293,7 +328,7 @@ function AktuellesPage() {
       h1Italic: "& Forschung",
       heroPara: "Unsere Spezialisten teilen ihr Wissen in öffentlichen Vorträgen, Fachartikeln und Lehrvideos. Bleiben Sie über neue Behandlungsmethoden informiert.",
       filterAll: "Alle",
-      filterTypes: { Vortrag: "Vortrag", Veröffentlichung: "Veröffentlichung", Pressemitteilung: "Pressemitteilung" } as Record<ItemType, string>,
+      filterTypes: { Vortrag: "Vortrag", Veröffentlichung: "Veröffentlichung", Pressemitteilung: "Pressemitteilung", Patienteninformation: "Patienteninformation" } as Record<ItemType, string>,
       featured: "Hervorgehoben",
       morePosts: "Weitere Beiträge",
       empty: "Keine Beiträge in dieser Kategorie.",
@@ -312,7 +347,7 @@ function AktuellesPage() {
       h1Italic: "& research",
       heroPara: "Our specialists share their knowledge through public talks, journal articles and educational videos. Stay informed about new treatment methods.",
       filterAll: "All",
-      filterTypes: { Vortrag: "Talk", Veröffentlichung: "Publication", Pressemitteilung: "Press release" } as Record<ItemType, string>,
+      filterTypes: { Vortrag: "Talk", Veröffentlichung: "Publication", Pressemitteilung: "Press release", Patienteninformation: "Patient guide" } as Record<ItemType, string>,
       featured: "Featured",
       morePosts: "More articles",
       empty: "No content in this category.",
