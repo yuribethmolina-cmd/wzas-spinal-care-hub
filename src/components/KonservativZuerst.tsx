@@ -91,7 +91,7 @@ export function KonservativZuerst() {
           </p>
           <h2
             className="mt-5 max-w-3xl font-display leading-[1.12] sm:leading-[1.05]"
-            style={{ fontSize: "clamp(1.875rem, 4.8vw, 4rem)", fontWeight: 500, hyphens: "none", wordBreak: "normal", overflowWrap: "normal" }}
+            style={{ fontSize: "clamp(1.875rem, 4.8vw, 4rem)", fontWeight: 700, hyphens: "none", wordBreak: "normal", overflowWrap: "normal" }}
           >
             {t.h1}
             <span className="font-bold">{t.h2}</span>

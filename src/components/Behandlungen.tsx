@@ -32,7 +32,7 @@ function Column({
       </p>
       <h3
         className="mt-3 font-display leading-tight"
-        style={{ fontSize: "clamp(1.6rem, 2.6vw, 2.1rem)", fontWeight: 600 }}
+        style={{ fontSize: "clamp(1.6rem, 2.6vw, 2.1rem)", fontWeight: 700 }}
       >
         {heading}
       </h3>
@@ -131,7 +131,7 @@ export function Behandlungen() {
           </p>
           <h2
             className="mt-4 font-display text-[#212121] leading-[1.14] sm:leading-[1.05]"
-            style={{ fontSize: "clamp(2rem, 4.4vw, 3.1rem)", fontWeight: 500 }}
+            style={{ fontSize: "clamp(2rem, 4.4vw, 3.1rem)", fontWeight: 700 }}
           >
             {t.h2a}
             <span style={{ fontWeight: 700 }}>{t.h2b}</span>

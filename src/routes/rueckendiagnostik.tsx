@@ -521,7 +521,7 @@ function RueckendiagnostikPage() {
               <p className="text-lg leading-relaxed text-[#595959]">{t.introParagraph}</p>
             </div>
             <div className="border-l-4 border-[#AC8F52] pl-6">
-              <p className="font-display text-2xl italic leading-snug text-[#212121] lg:text-3xl">{t.pullQuote}</p>
+              <p className="font-display text-2xl not-italic leading-snug text-[#212121] lg:text-3xl">{t.pullQuote}</p>
               <p className="mt-3 text-xs uppercase tracking-widest text-[#666666]">{t.pullQuoteAttribution}</p>
             </div>
           </div>
@@ -771,7 +771,7 @@ function StepCard({ step, index }: { step: Step; index: number }) {
               ))}
             </ul>
           )}
-          {step.note && <p className="mt-4 text-sm italic leading-relaxed text-[#666666]">{step.note}</p>}
+          {step.note && <p className="mt-4 text-sm not-italic leading-relaxed text-[#666666]">{step.note}</p>}
         </div>
       </div>
     </li>

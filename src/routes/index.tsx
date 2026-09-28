@@ -132,7 +132,7 @@ function StatCounter({ value, suffix }: { value: number; suffix: string }) {
     : count.toString();
 
   return (
-    <div ref={ref} className="font-display text-2xl md:text-3xl text-[#AC8F52]" style={{ fontWeight: 600 }}>
+    <div ref={ref} className="font-display text-2xl md:text-3xl text-[#AC8F52]" style={{ fontWeight: 700 }}>
       {display}{suffix}
     </div>
   );
@@ -546,11 +546,11 @@ function Hero() {
           </p>
           <h1
             className="mt-3 sm:mt-6 leading-[1.12] sm:leading-[1.02] tracking-tight text-white font-display"
-            style={{ fontSize: "clamp(2.4rem, 5.4vw, 5rem)", fontWeight: 500 }}
+            style={{ fontSize: "clamp(2.4rem, 5.4vw, 5rem)", fontWeight: 700 }}
           >
             <MaskLine delay={200}>{t.h1a}</MaskLine>
             <MaskLine delay={320}>
-              <span style={{ fontWeight: 600 }}>{t.h1b}</span>
+              <span style={{ fontWeight: 700 }}>{t.h1b}</span>
             </MaskLine>
             <MaskLine delay={440}>{t.h1c}</MaskLine>
           </h1>
@@ -736,7 +736,7 @@ function BeschwerdenCard({
                 className="font-display leading-snug"
                 style={{
                   fontSize: "clamp(0.9375rem, 2vw, 1.125rem)",
-                  fontWeight: 600,
+                  fontWeight: 700,
                   letterSpacing: "-0.01em",
                   color: hovered ? "#97745B" : "#212121",
                   transition: `color 260ms ${EASE}`,
@@ -843,7 +843,7 @@ function Beschwerden() {
           </p>
           <h2
             className="mt-3 sm:mt-4 font-display text-[#212121] leading-tight"
-            style={{ fontSize: "clamp(1.875rem, 4.4vw, 3.4rem)", fontWeight: 500, letterSpacing: "-0.025em" }}
+            style={{ fontSize: "clamp(1.875rem, 4.4vw, 3.4rem)", fontWeight: 700, letterSpacing: "-0.025em" }}
           >
             {t.h2}
           </h2>
@@ -1002,9 +1002,9 @@ function Weg() {
           <SectionLabel gold={false}>{t.label}</SectionLabel>
           <h2
             className="mt-4 font-display text-white leading-tight"
-            style={{ fontSize: "clamp(2.15rem, 4.4vw, 3.4rem)", fontWeight: 500, letterSpacing: "-0.025em" }}
+            style={{ fontSize: "clamp(2.15rem, 4.4vw, 3.4rem)", fontWeight: 700, letterSpacing: "-0.025em" }}
           >
-            {t.h2a}<em style={{ fontStyle: "normal", fontWeight: 600 }}>{t.h2b}</em>
+            {t.h2a}<em style={{ fontStyle: "normal", fontWeight: 700 }}>{t.h2b}</em>
           </h2>
         </div>
         <div className="mt-14 flex flex-col lg:flex-row gap-5 items-stretch">
@@ -1080,7 +1080,7 @@ function Kompetenzzentrum() {
             <SectionLabel>{t.label}</SectionLabel>
             <h2
               className="mt-4 font-display text-[#212121] leading-tight"
-              style={{ fontSize: "clamp(1.6rem, 2.8vw, 2.2rem)", fontWeight: 500, letterSpacing: "-0.02em" }}
+              style={{ fontSize: "clamp(1.6rem, 2.8vw, 2.2rem)", fontWeight: 700, letterSpacing: "-0.02em" }}
             >
               {t.h2}
             </h2>
@@ -1158,7 +1158,7 @@ function HomeLeaderCard({
           <p className="text-[10px] font-bold tracking-[0.22em] uppercase text-[#AC8F52]">{badge}</p>
           <h3
             className="mt-3 font-display text-[#212121] leading-tight"
-            style={{ fontSize: "clamp(1.35rem, 2.2vw, 1.85rem)", fontWeight: 500, letterSpacing: "-0.015em" }}
+            style={{ fontSize: "clamp(1.35rem, 2.2vw, 1.85rem)", fontWeight: 700, letterSpacing: "-0.015em" }}
           >
             {d.name}
           </h3>
@@ -1208,7 +1208,7 @@ function HomeTeamCard({ d, delay, cta }: { d: ReturnType<typeof localizeDoctor>;
         {/* Info */}
         <div className="flex flex-col flex-1 justify-between p-4 sm:p-5">
           <div>
-            <h3 className="font-display text-[#212121] leading-snug" style={{ fontSize: "1.05rem", fontWeight: 500 }}>
+            <h3 className="font-display text-[#212121] leading-snug" style={{ fontSize: "1.05rem", fontWeight: 700 }}>
               {d.name}
             </h3>
             <p className="mt-1 text-sm text-[#666666] leading-snug">{d.role}</p>
@@ -1265,9 +1265,9 @@ function Team() {
           <SectionLabel>{t.label}</SectionLabel>
           <h2
             className="mt-4 font-display text-[#212121] leading-tight"
-            style={{ fontSize: "clamp(2.15rem, 4.4vw, 3.4rem)", fontWeight: 500, letterSpacing: "-0.025em" }}
+            style={{ fontSize: "clamp(2.15rem, 4.4vw, 3.4rem)", fontWeight: 700, letterSpacing: "-0.025em" }}
           >
-            {t.h2a}<em style={{ fontStyle: "normal", fontWeight: 600 }}>{t.h2b}</em>
+            {t.h2a}<em style={{ fontStyle: "normal", fontWeight: 700 }}>{t.h2b}</em>
           </h2>
           <p className="mt-5 max-w-2xl text-[17px] text-[#666666] leading-[1.7]">{t.lead}</p>
         </div>
@@ -1359,9 +1359,9 @@ function Termin() {
         <div ref={ref} style={style}>
           <h2
             className="font-display text-white leading-tight"
-            style={{ fontSize: "clamp(2.15rem, 4.4vw, 3.4rem)", fontWeight: 500, letterSpacing: "-0.025em" }}
+            style={{ fontSize: "clamp(2.15rem, 4.4vw, 3.4rem)", fontWeight: 700, letterSpacing: "-0.025em" }}
           >
-            {t.h2a}<em style={{ fontStyle: "normal", fontWeight: 600 }}>{t.h2b}</em>
+            {t.h2a}<em style={{ fontStyle: "normal", fontWeight: 700 }}>{t.h2b}</em>
           </h2>
           <p className="mt-4 text-[#D0CDC7] leading-relaxed max-w-lg">{t.lead}</p>
           <AppointmentChoice />
@@ -1481,7 +1481,7 @@ function AktuellesCard({ item, delay, cta }: { item: AktuellesItem; delay: numbe
         </div>
         <h3
           className="mt-2 font-display text-[#212121] leading-snug"
-          style={{ fontSize: "1.15rem", fontWeight: 500 }}
+          style={{ fontSize: "1.15rem", fontWeight: 700 }}
         >
           {item.title}
         </h3>
@@ -1541,9 +1541,9 @@ function Aktuelles() {
           <SectionLabel>{t.label}</SectionLabel>
           <h2
             className="mt-4 font-display text-[#212121] leading-tight"
-            style={{ fontSize: "clamp(2.15rem, 4.4vw, 3.4rem)", fontWeight: 500, letterSpacing: "-0.025em" }}
+            style={{ fontSize: "clamp(2.15rem, 4.4vw, 3.4rem)", fontWeight: 700, letterSpacing: "-0.025em" }}
           >
-            {t.h2a}<em style={{ fontStyle: "normal", fontWeight: 600 }}>{t.h2b}</em>
+            {t.h2a}<em style={{ fontStyle: "normal", fontWeight: 700 }}>{t.h2b}</em>
           </h2>
           <p className="mt-5 max-w-2xl text-[17px] text-[#666666] leading-[1.7]">{t.lead}</p>
         </div>

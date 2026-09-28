@@ -184,7 +184,7 @@ function BeschwerdenDetail() {
               {content.name}
             </h1>
             {content.subtitle && (
-              <p className="mt-2 text-white/70 text-lg italic font-display">({content.subtitle})</p>
+              <p className="mt-2 text-white/70 text-lg not-italic font-display">({content.subtitle})</p>
             )}
             <TerminButton className="mt-6" />
           </div>

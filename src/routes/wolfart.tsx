@@ -150,7 +150,7 @@ function WolfartPage() {
               </p>
             </div>
             <div className="border-l-4 border-[#AC8F52] pl-6">
-              <p className="font-display text-2xl lg:text-3xl italic text-[#212121] leading-snug">
+              <p className="font-display text-2xl lg:text-3xl not-italic text-[#212121] leading-snug">
                 {t.pullQuote}
               </p>
               <p className="mt-3 text-xs text-[#666666] tracking-widest uppercase">{t.attribution}</p>

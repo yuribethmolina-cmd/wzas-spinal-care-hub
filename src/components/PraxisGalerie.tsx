@@ -59,7 +59,7 @@ export function PraxisGalerie() {
           </p>
           <h2
             className="mt-4 font-display text-white leading-[1.14] sm:leading-[1.05]"
-            style={{ fontSize: "clamp(2rem, 4.4vw, 3.1rem)", fontWeight: 500 }}
+            style={{ fontSize: "clamp(2rem, 4.4vw, 3.1rem)", fontWeight: 700 }}
           >
             {t.h2a}
             <span style={{ fontWeight: 700 }}>{t.h2b}</span>

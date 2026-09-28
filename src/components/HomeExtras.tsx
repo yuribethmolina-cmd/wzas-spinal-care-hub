@@ -35,7 +35,7 @@ export function Vortragsreihe() {
           </p>
           <h2
             className="mt-4 font-display text-[#212121] leading-[1.1]"
-            style={{ fontSize: "clamp(1.8rem, 3.4vw, 2.6rem)", fontWeight: 600 }}
+            style={{ fontSize: "clamp(1.8rem, 3.4vw, 2.6rem)", fontWeight: 700 }}
           >
             {t.title}
           </h2>
@@ -109,7 +109,7 @@ export function Anfahrt() {
           </p>
           <h2
             className="mt-4 font-display text-[#212121] leading-[1.14] sm:leading-[1.05]"
-            style={{ fontSize: "clamp(2rem, 4vw, 2.9rem)", fontWeight: 500 }}
+            style={{ fontSize: "clamp(2rem, 4vw, 2.9rem)", fontWeight: 700 }}
           >
             {t.h2a}
             <span style={{ fontWeight: 700 }}>{t.h2b}</span>

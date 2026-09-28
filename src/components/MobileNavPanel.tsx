@@ -159,7 +159,7 @@ export function MobileNavPanel({
           <a
             href={BOOKING_URL}
             onClick={onClose}
-            className="block rounded-[10px] bg-[#AC8F52] px-5 py-4 text-center text-[15px] font-semibold text-[#212121] transition-colors duration-300 hover:bg-[#BC9C58]"
+            className="block rounded-[10px] border border-wz-gold bg-wz-gold px-5 py-4 text-center text-[15px] font-semibold text-wz-dark transition-colors duration-300 hover:brightness-105"
           >
             {bookLabel}
           </a>

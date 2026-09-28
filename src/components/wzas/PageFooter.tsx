@@ -67,7 +67,7 @@ export function PageFooter() {
   });
 
   return (
-    <footer className="bg-[#212121] text-white pt-12 pb-8">
+    <footer className="border-t-2 border-wz-gold bg-wz-dark text-wz-white pt-12 pb-8">
       <div className="mx-auto max-w-[1440px] px-5 lg:px-8">
         {/* Top row: logo + links */}
         <div className="flex flex-col lg:flex-row justify-between gap-10 mb-10">
@@ -107,7 +107,7 @@ export function PageFooter() {
             <div className="flex flex-wrap items-center gap-x-4 gap-y-1">
               <a
                 href={BOOKING_URL}
-                className="inline-flex min-h-11 items-center justify-center rounded-[10px] bg-[#AC8F52] px-6 py-2.5 text-xs font-semibold tracking-wide text-[#212121] transition hover:brightness-105"
+                className="inline-flex min-h-11 items-center justify-center rounded-[10px] border border-wz-gold bg-wz-gold px-6 py-2.5 text-[15px] font-semibold text-wz-dark transition hover:brightness-105"
               >
                 {t.cta}
               </a>

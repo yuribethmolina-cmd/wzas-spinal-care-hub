@@ -41,8 +41,8 @@ const SOCIALS = [
 function LangToggle() {
   const { lang, setLang } = useLang();
   const btn = (l: Lang) =>
-    `inline-flex items-center justify-center px-3 py-1 text-xs font-semibold uppercase tracking-wide rounded-[10px] transition-colors min-h-11 min-w-11 lg:min-h-9 lg:min-w-9 ${
-      lang === l ? "bg-[#212121] text-white" : "text-[#212121] hover:text-[#AC8F52]"
+    `inline-flex items-center justify-center px-3 py-1 text-xs font-semibold uppercase rounded-[10px] transition-colors min-h-11 min-w-11 lg:min-h-9 lg:min-w-9 ${
+      lang === l ? "bg-wz-dark text-wz-white" : "text-wz-dark hover:text-wz-gold"
     }`;
   const onKey = (e: React.KeyboardEvent<HTMLDivElement>) => {
     if (e.key === "ArrowRight" || e.key === "ArrowLeft") {
@@ -52,7 +52,7 @@ function LangToggle() {
   };
   return (
     <div
-      className="inline-flex items-center gap-1 rounded-[10px] border border-[#E6E3DC] p-1"
+      className="inline-flex items-center gap-1 rounded-[10px] border border-wz-lgray p-1"
       role="group"
       aria-label="Sprache auswählen / Choose language"
       onKeyDown={onKey}
@@ -107,11 +107,11 @@ export function SiteNav() {
     return () => window.removeEventListener("keydown", onKey);
   }, [open]);
   const linkClass =
-    "relative text-sm font-medium text-[#212121] transition-colors hover:text-[#AC8F52] after:absolute after:bottom-0 after:left-0 after:h-px after:w-0 after:bg-[#AC8F52] after:transition-[width] hover:after:w-full after:duration-200";
+    "relative text-sm font-medium text-wz-dark transition-colors hover:text-wz-gold after:absolute after:bottom-0 after:left-0 after:h-px after:w-0 after:bg-wz-gold after:transition-[width] hover:after:w-full after:duration-200";
   return (
     <header className={`sticky top-0 z-50 bg-white transition-shadow duration-300 ${scrolled ? "shadow-md" : "shadow-none"}`}>
       {/* ── Top bar, solo desktop ── */}
-      <div className="hidden lg:block bg-[#2D2D2D] border-b border-white/5">
+      <div className="hidden lg:block bg-wz-dark border-b border-white/10">
         <div className="mx-auto max-w-[1440px] px-8 flex items-center justify-between h-9">
           <div className="flex items-center gap-5 text-[11px] text-white/55">
             <span className="flex items-center gap-1.5">
@@ -168,7 +168,7 @@ export function SiteNav() {
           <LangToggle />
           <a
             href={BOOKING_URL}
-            className="inline-flex items-center rounded-[10px] bg-[#AC8F52] px-5 py-2.5 text-sm font-semibold text-[#212121]"
+          className="inline-flex items-center rounded-[10px] border border-wz-gold bg-wz-gold px-5 py-2.5 text-[15px] font-semibold text-wz-dark"
             style={{ transition: `filter 150ms ${EASE}` }}
             onMouseEnter={(e) => (e.currentTarget.style.filter = "brightness(1.08)")}
             onMouseLeave={(e) => (e.currentTarget.style.filter = "")}

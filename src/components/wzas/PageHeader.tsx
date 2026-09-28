@@ -12,7 +12,7 @@ const EASE = "cubic-bezier(0.23, 1, 0.32, 1)";
 function LangToggle() {
   const { lang, setLang } = useLang();
   const btn = (l: Lang) =>
-    `inline-flex items-center justify-center px-3 py-1 text-xs font-semibold uppercase tracking-wide rounded-[10px] transition-colors min-h-11 min-w-11 lg:min-h-9 lg:min-w-9 ${
+    `inline-flex items-center justify-center px-3 py-1 text-xs font-semibold uppercase rounded-[10px] transition-colors min-h-11 min-w-11 lg:min-h-9 lg:min-w-9 ${
       lang === l ? "bg-[#212121] text-white" : "text-[#212121] hover:text-[#AC8F52]"
     }`;
   const onKey = (e: React.KeyboardEvent<HTMLDivElement>) => {
@@ -112,7 +112,7 @@ export function PageHeader({ activeRoute }: { activeRoute?: string }) {
           <LangToggle />
           <a
             href={BOOKING_URL}
-            className="inline-flex items-center rounded-[10px] bg-[#AC8F52] px-5 py-2.5 text-sm font-semibold text-[#212121]"
+            className="inline-flex items-center rounded-[10px] border border-wz-gold bg-wz-gold px-5 py-2.5 text-[15px] font-semibold text-wz-dark"
             style={{ transition: `filter 150ms ${EASE}` }}
             onMouseEnter={(e) => (e.currentTarget.style.filter = "brightness(1.08)")}
             onMouseLeave={(e) => (e.currentTarget.style.filter = "")}
