@@ -3,6 +3,7 @@ import React, { useEffect, useRef, useState } from "react";
 import aktuellesImg from "@/assets/wzas/aktuelles.jpg.asset.json";
 import vortraegeImg from "@/assets/wzas/vortraege.webp.asset.json";
 import thumbBandscheibe from "@/assets/wzas/thumb-bandscheibe.webp.asset.json";
+import drDemmelTreatmentImg from "@/assets/wzas/hp-demmel.jpg.asset.json";
 import { SiteNav } from "@/components/SiteNav";
 import { PageFooter } from "@/components/wzas/PageFooter";
 import { useLang, useT } from "@/lib/lang";
@@ -91,7 +92,8 @@ const ITEMS: Item[] = [
   },
   {
     type: "Pressemitteilung",
-    img: aktuellesImg.url,
+    href: "/aktuelles/dr-walter-demmel",
+    img: drDemmelTreatmentImg.url,
     featured: true,
     de: {
       date: "Juni 2026",

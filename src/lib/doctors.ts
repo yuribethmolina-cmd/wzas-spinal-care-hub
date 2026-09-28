@@ -6,7 +6,7 @@ import drHo from "@/assets/wzas/dr-ho.jpg.asset.json";
 import drScherg from "@/assets/wzas/dr-scherg.webp.asset.json";
 import rodriguez from "@/assets/wzas/rodriguez.webp.asset.json";
 import drPetersen from "@/assets/wzas/dr-petersen.webp.asset.json";
-import drDemmel from "@/assets/wzas/dr-demmel.webp.asset.json";
+import drDemmel from "@/assets/wzas/hp-demmel.jpg.asset.json";
 import drGrosse from "@/assets/wzas/dr-grosse.webp.asset.json";
 import drLukas from "@/assets/wzas/dr-lukas.jpg.asset.json";
 
