@@ -525,7 +525,7 @@ function Hero() {
 
 
       <div className="absolute inset-0 -z-10 bg-[#212121]/35 lg:bg-transparent" />
-      <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[#212121]/90 via-[#212121]/50 to-transparent lg:from-[#212121] lg:via-[#212121]/90 lg:via-45% lg:to-[#212121]/10" />
+      <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[#212121]/90 via-[#212121]/50 to-transparent lg:from-[#212121] lg:via-[#212121]/90 lg:via-[45%] lg:to-[#212121]/10" />
       <div className="absolute inset-0 -z-10 bg-gradient-to-t from-[#212121] via-[#212121]/35 to-[#212121]/10 lg:from-[#212121]/70 lg:via-transparent" />
 
 
@@ -737,7 +737,7 @@ function BeschwerdenCard({
                 style={{
                   fontSize: "clamp(0.9375rem, 2vw, 1.125rem)",
                   fontWeight: 700,
-                  letterSpacing: "-0.01em",
+                  letterSpacing: "0",
                   color: hovered ? "#97745B" : "#212121",
                   transition: `color 260ms ${EASE}`,
                 }}
@@ -843,7 +843,7 @@ function Beschwerden() {
           </p>
           <h2
             className="mt-3 sm:mt-4 font-display text-[#212121] leading-tight"
-            style={{ fontSize: "clamp(1.875rem, 4.4vw, 3.4rem)", fontWeight: 700, letterSpacing: "-0.025em" }}
+            style={{ fontSize: "clamp(1.875rem, 4.4vw, 3.4rem)", fontWeight: 700, letterSpacing: "0" }}
           >
             {t.h2}
           </h2>
@@ -898,7 +898,7 @@ function WegStep({
         <div className={`w-8 h-8 shrink-0 transition-transform duration-300 group-hover:scale-110 ${isHighlight ? "text-[#212121]" : "text-[#AC8F52]"}`}>{icon}</div>
       </div>
 
-      <h3 className={`font-display text-[1.375rem] tracking-[-0.015em] leading-snug ${isHighlight ? "text-[#212121] font-semibold" : "text-[#212121] font-medium"}`}>{title}</h3>
+      <h3 className={`font-display text-[1.375rem] leading-snug ${isHighlight ? "text-[#212121] font-semibold" : "text-[#212121] font-medium"}`}>{title}</h3>
       <p className={`mt-3 text-[0.9375rem] leading-[1.7] flex-1 ${isHighlight ? "text-[#212121]/80" : "text-[#595959]"}`}>{desc}</p>
 
       <div className="mt-6 pt-5 border-t border-current/10">
@@ -1002,7 +1002,7 @@ function Weg() {
           <SectionLabel gold={false}>{t.label}</SectionLabel>
           <h2
             className="mt-4 font-display text-white leading-tight"
-            style={{ fontSize: "clamp(2.15rem, 4.4vw, 3.4rem)", fontWeight: 700, letterSpacing: "-0.025em" }}
+            style={{ fontSize: "clamp(2.15rem, 4.4vw, 3.4rem)", fontWeight: 700, letterSpacing: "0" }}
           >
             {t.h2a}<em style={{ fontStyle: "normal", fontWeight: 700 }}>{t.h2b}</em>
           </h2>
@@ -1080,7 +1080,7 @@ function Kompetenzzentrum() {
             <SectionLabel>{t.label}</SectionLabel>
             <h2
               className="mt-4 font-display text-[#212121] leading-tight"
-              style={{ fontSize: "clamp(1.6rem, 2.8vw, 2.2rem)", fontWeight: 700, letterSpacing: "-0.02em" }}
+              style={{ fontSize: "clamp(1.6rem, 2.8vw, 2.2rem)", fontWeight: 700, letterSpacing: "0" }}
             >
               {t.h2}
             </h2>
@@ -1158,7 +1158,7 @@ function HomeLeaderCard({
           <p className="text-[10px] font-bold tracking-[0.22em] uppercase text-[#AC8F52]">{badge}</p>
           <h3
             className="mt-3 font-display text-[#212121] leading-tight"
-            style={{ fontSize: "clamp(1.35rem, 2.2vw, 1.85rem)", fontWeight: 700, letterSpacing: "-0.015em" }}
+            style={{ fontSize: "clamp(1.35rem, 2.2vw, 1.85rem)", fontWeight: 700, letterSpacing: "0" }}
           >
             {d.name}
           </h3>
@@ -1265,7 +1265,7 @@ function Team() {
           <SectionLabel>{t.label}</SectionLabel>
           <h2
             className="mt-4 font-display text-[#212121] leading-tight"
-            style={{ fontSize: "clamp(2.15rem, 4.4vw, 3.4rem)", fontWeight: 700, letterSpacing: "-0.025em" }}
+            style={{ fontSize: "clamp(2.15rem, 4.4vw, 3.4rem)", fontWeight: 700, letterSpacing: "0" }}
           >
             {t.h2a}<em style={{ fontStyle: "normal", fontWeight: 700 }}>{t.h2b}</em>
           </h2>
@@ -1359,7 +1359,7 @@ function Termin() {
         <div ref={ref} style={style}>
           <h2
             className="font-display text-white leading-tight"
-            style={{ fontSize: "clamp(2.15rem, 4.4vw, 3.4rem)", fontWeight: 700, letterSpacing: "-0.025em" }}
+            style={{ fontSize: "clamp(2.15rem, 4.4vw, 3.4rem)", fontWeight: 700, letterSpacing: "0" }}
           >
             {t.h2a}<em style={{ fontStyle: "normal", fontWeight: 700 }}>{t.h2b}</em>
           </h2>
@@ -1541,7 +1541,7 @@ function Aktuelles() {
           <SectionLabel>{t.label}</SectionLabel>
           <h2
             className="mt-4 font-display text-[#212121] leading-tight"
-            style={{ fontSize: "clamp(2.15rem, 4.4vw, 3.4rem)", fontWeight: 700, letterSpacing: "-0.025em" }}
+            style={{ fontSize: "clamp(2.15rem, 4.4vw, 3.4rem)", fontWeight: 700, letterSpacing: "0" }}
           >
             {t.h2a}<em style={{ fontStyle: "normal", fontWeight: 700 }}>{t.h2b}</em>
           </h2>
