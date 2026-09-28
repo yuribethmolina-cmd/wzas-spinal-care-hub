@@ -1775,7 +1775,7 @@ function Jubilaeum() {
           <p className="font-display text-[#1E2535] leading-snug" style={{ fontSize: "clamp(1.5rem, 2.8vw, 2.1rem)", fontWeight: 500, letterSpacing: "-0.02em" }}>
             {lang === "de"
               ? <>Im Juni 2026 haben wir <strong style={{ fontWeight: 600 }}>20 Jahre gefeiert</strong> — mit unserem Team, unseren Partnern und den Menschen, für die wir jeden Tag da sind.</>
-              : <>In June 2026 we celebrated <strong style={{ fontWeight: 600 }}>20 years</strong> — with our team, our partners and the people we work for every day.</>}
+              : <>In June 2026 we celebrated <strong style={{ fontWeight: 600 }}>20 years</strong>&nbsp;with our team, our partners and the people we work for every day.</>}
           </p>
           <button
             type="button"
