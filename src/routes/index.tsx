@@ -492,7 +492,7 @@ function Hero() {
       h1a: "Munich’s trusted",
       h1b: "spine specialists.",
       h1c: "",
-      sub: "Chronic back pain?\u00a0\nHerniated disc?\u00a0\nWe will find your solution —\u00a0\nconservative first, surgery only when necessary.",
+      sub: "Chronic back pain?\u00a0\nHerniated disc?\u00a0\nWe will find your solution\u00a0\nconservative first, surgery only when necessary.",
       book: "Book an appointment",
       more: "Learn more",
       bookMeta: "Online in ~2 min",
