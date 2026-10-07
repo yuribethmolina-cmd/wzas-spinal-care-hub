@@ -607,7 +607,7 @@ function Hero() {
 
 
       <div className="relative lg:absolute lg:inset-x-0 lg:bottom-0 bg-[#212121]/90 backdrop-blur border-t border-white/10">
-        <div className="mx-auto max-w-[1440px] px-5 lg:px-8 grid grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-7 items-start py-6 lg:py-7">
+        <div className="mx-auto max-w-[1440px] px-5 lg:px-8 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-x-6 gap-y-7 items-start py-6 lg:py-7">
           {STAT_DEFS.map((s) => (
             <div key={s.labelDe}>
               <StatCounter value={s.value} suffix={s.suffix} />
@@ -1051,6 +1051,13 @@ function Kompetenzzentrum() {
       label: "Kompetenzzentrum",
       h2: "Alles unter einem Dach",
       lead: "Diagnostik, Behandlung und Nachsorge eng vernetzt – mit starken Partnern an Ihrer Seite.",
+      mrtHeading: "MRT und CT direkt im Haus",
+      mrtIntro: "Unser Radiologiezentrum am Stiglmaierplatz verfügt über eigene MRT- und CT-Geräte – so werden viele Untersuchungen direkt vor Ort durchgeführt, ohne lange Wartezeiten und ohne unnötige Wege.",
+      mrtBenefits: [
+        { title: "Kürzere Wege", desc: "Diagnostik und Behandlung unter einem Dach – kein Pendeln zwischen verschiedenen Einrichtungen." },
+        { title: "Schnellere Diagnosen", desc: "Befunde stehen zeitnah zur Verfügung und ermöglichen eine rasche Einleitung der Therapie." },
+        { title: "Behandlung aus einer Hand", desc: "Neurochirurgen und Radiologen arbeiten eng zusammen. Oft sind noch am selben Tag gezielte Infiltrationen möglich." },
+      ],
       partners: [
         { logo: partnerWz.url,          alt: "Wirbelsäulenzentrum am Stiglmaierplatz", name: "Wirbelsäulenzentrum", short: "Wirbelsäulenchirurgie · Schmerztherapie" },
         { logo: partnerRadiologie.url,  alt: "Radiologie am Stiglmaierplatz",           name: "Radiologie",          short: "MRT · CT · Neuroradiologie vor Ort" },
@@ -1063,6 +1070,13 @@ function Kompetenzzentrum() {
       label: "Specialist network",
       h2: "Everything under one roof",
       lead: "Diagnostics, treatment and aftercare, closely connected through trusted partners.",
+      mrtHeading: "MRI and CT in-house",
+      mrtIntro: "Our radiology centre at Stiglmaierplatz has its own MRI and CT equipment – many examinations can be carried out directly on site, without long waiting times.",
+      mrtBenefits: [
+        { title: "Shorter distances", desc: "Diagnostics and treatment under one roof – no travelling between different facilities." },
+        { title: "Faster diagnoses", desc: "Results are available quickly, allowing treatment to begin without delay." },
+        { title: "Care from one team", desc: "Neurosurgeons and radiologists work closely together. Targeted infiltrations are often possible the same day." },
+      ],
       partners: [
         { logo: partnerWz.url,          alt: "Spine Center at Stiglmaierplatz", name: "Spine Center",        short: "Spine surgery · pain therapy" },
         { logo: partnerRadiologie.url,  alt: "Radiology at Stiglmaierplatz",    name: "Radiology",           short: "MRI · CT · neuroradiology on site" },
@@ -1075,7 +1089,42 @@ function Kompetenzzentrum() {
   return (
     <section className="bg-white border-y border-[#E6E3DC] py-12 sm:py-16 lg:py-20">
       <div className="mx-auto max-w-[1440px] px-5 lg:px-8">
-        <div ref={ref} style={style} className="lg:flex lg:items-start lg:gap-16">
+
+        {/* MRT/CT highlight card */}
+        <div ref={ref} style={style} className="mb-10 lg:mb-12 rounded-2xl bg-[#EEF5F6] border border-[#C8DDE0] p-6 sm:p-8 grid gap-8 lg:grid-cols-[1fr_2fr] lg:items-center">
+          <div>
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#2D7A86" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="mb-4" aria-hidden="true">
+              <rect x="2" y="6" width="20" height="12" rx="2"/>
+              <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
+              <line x1="12" y1="12" x2="12" y2="12.01"/>
+              <path d="M7 12h2l2 3 2-6 2 3h2"/>
+            </svg>
+            <p className="text-[11px] font-semibold tracking-[0.2em] uppercase text-[#2D7A86] mb-3">Radiologie direkt vor Ort</p>
+            <h3
+              className="font-display text-[#212121] leading-tight mb-3"
+              style={{ fontSize: "clamp(1.3rem, 2.2vw, 1.75rem)", fontWeight: 700 }}
+            >
+              {t.mrtHeading}
+            </h3>
+            <p className="text-[15px] text-[#595959] leading-relaxed">{t.mrtIntro}</p>
+          </div>
+          <div className="grid gap-4 sm:grid-cols-3">
+            {t.mrtBenefits.map((b) => (
+              <div key={b.title} className="flex gap-3">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2D7A86" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="shrink-0 mt-0.5" aria-hidden="true">
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                  <polyline points="22 4 12 14.01 9 11.01"/>
+                </svg>
+                <div>
+                  <p className="text-[14px] font-semibold text-[#212121] leading-snug">{b.title}</p>
+                  <p className="mt-1 text-[13px] text-[#666666] leading-relaxed">{b.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="lg:flex lg:items-start lg:gap-16">
 
           {/* Left: text block ~32% */}
           <div className="lg:w-[32%] shrink-0 mb-10 lg:mb-0">
@@ -1511,7 +1560,7 @@ function Aktuelles() {
       all: "Alle Veranstaltungen & Inhalte ansehen →",
       items: [
         { type: "JUBILÄUM", date: "Juni 2026", title: "20 Jahre WZAS: Ein unvergesslicher Jubiläumsabend", detail: "Ein Wirbelsäulenzentrum lebt nicht von Wirbelsäulen — es lebt von Menschen." },
-        { type: "VORTRAG", date: "15. September 2026", title: "Rücken ohne OP: Wann ist Chirurgie wirklich nötig?", detail: "Gasteig HP8 · München · 19:00 Uhr" },
+        { type: "VORTRAG", date: "13. Oktober 2026", title: "Schmerzen im unteren Rücken: Ist es die Bandscheibe oder das ISG?", detail: "Gasteig HP8 · München · 19:00 Uhr" },
         { type: "ARTIKEL", date: "Juli 2026", title: "Dr. Walter Demmel verstärkt das WZAS", detail: "Einer der führenden Spezialisten für Schmerztherapie Deutschlands" },
       ],
     },
@@ -1524,7 +1573,7 @@ function Aktuelles() {
       all: "View all events & articles →",
       items: [
         { type: "ANNIVERSARY", date: "June 2026", title: "20 Years WZAS: An unforgettable anniversary evening", detail: "A spine centre doesn't live from spines — it lives from people." },
-        { type: "TALK", date: "15 September 2026", title: "A back without surgery: when is an operation really needed?", detail: "Gasteig HP8 · Munich · 7:00 pm" },
+        { type: "TALK", date: "13 October 2026", title: "Lower back pain: is it the disc or the SI joint?", detail: "Gasteig HP8 · Munich · 7:00 pm" },
         { type: "ARTICLE", date: "July 2026", title: "Dr. Walter Demmel joins WZAS", detail: "One of Germany's leading specialists in pain therapy" },
       ],
     },

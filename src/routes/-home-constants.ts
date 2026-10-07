@@ -27,6 +27,8 @@ export const NOISE = `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns
 export const STAT_DEFS = [
   { value: 30000, suffix: "", labelDe: "Patientenkontakte pro Jahr", labelEn: "patient contacts per year" },
   { value: 90, suffix: "%", labelDe: "der Fälle ohne Operation behandelt", labelEn: "of cases treated without surgery" },
+  { value: 15000, suffix: "", labelDe: "bildgestützte Interventionen pro Jahr", labelEn: "image-guided interventions per year" },
+  { value: 350, suffix: "", labelDe: "Bandscheiben-Operationen pro Jahr", labelEn: "disc operations per year" },
   { value: 20, suffix: "", labelDe: "Jahre Erfahrung", labelEn: "years of experience" },
   { value: 13, suffix: "", labelDe: "Wirbelsäulenspezialisten", labelEn: "spine specialists" },
 ] as const;
