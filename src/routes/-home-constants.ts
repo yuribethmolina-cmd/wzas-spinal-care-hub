@@ -24,14 +24,16 @@ export const EASE_SOFT = "cubic-bezier(0.16, 1, 0.3, 1)";
 
 export const NOISE = `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`;
 
-export const STAT_DEFS = [
-  { value: 30000, suffix: "", labelDe: "Patientenkontakte pro Jahr", labelEn: "patient contacts per year" },
-  { value: 90, suffix: "%", labelDe: "der Fälle ohne Operation behandelt", labelEn: "of cases treated without surgery" },
-  { value: 15000, suffix: "", labelDe: "bildgestützte Interventionen pro Jahr", labelEn: "image-guided interventions per year" },
-  { value: 350, suffix: "", labelDe: "Bandscheiben-Operationen pro Jahr", labelEn: "disc operations per year" },
-  { value: 20, suffix: "", labelDe: "Jahre Erfahrung", labelEn: "years of experience" },
-  { value: 13, suffix: "", labelDe: "Wirbelsäulenspezialisten", labelEn: "spine specialists" },
-] as const;
+export type StatDef =
+  | { value: number; suffix: string; labelDe: string; labelEn: string }
+  | { display: string; labelDe: string; labelEn: string };
+
+export const STAT_DEFS: StatDef[] = [
+  { value: 90,  suffix: "%", labelDe: "ohne Operation behandelt",   labelEn: "of cases treated without surgery" },
+  { value: 20,  suffix: "",  labelDe: "Jahre Erfahrung · seit 2006", labelEn: "years of experience · since 2006" },
+  { display: "GKV + PKV",        labelDe: "beide willkommen",   labelEn: "both accepted"        },
+  { display: "Ohne Überweisung", labelDe: "direkt zum Termin",  labelEn: "no referral needed"   },
+];
 
 export const SPINE_ZONE_DEFS = [
   {

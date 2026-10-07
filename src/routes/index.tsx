@@ -607,10 +607,16 @@ function Hero() {
 
 
       <div className="relative lg:absolute lg:inset-x-0 lg:bottom-0 bg-[#212121]/90 backdrop-blur border-t border-white/10">
-        <div className="mx-auto max-w-[1440px] px-5 lg:px-8 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-x-6 gap-y-7 items-start py-6 lg:py-7">
+        <div className="mx-auto max-w-[1440px] px-5 lg:px-8 grid grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-7 items-start py-6 lg:py-7">
           {STAT_DEFS.map((s) => (
             <div key={s.labelDe}>
-              <StatCounter value={s.value} suffix={s.suffix} />
+              {"value" in s ? (
+                <StatCounter value={s.value} suffix={s.suffix} />
+              ) : (
+                <div className="text-2xl md:text-3xl font-bold text-[#AC8F52] tabular-nums">
+                  {s.display}
+                </div>
+              )}
               <div className="text-xs md:text-sm text-[#E0DDD7] mt-1">
                 {lang === "de" ? s.labelDe : s.labelEn}
               </div>
