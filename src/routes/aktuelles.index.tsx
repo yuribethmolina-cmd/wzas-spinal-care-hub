@@ -4,6 +4,7 @@ import aktuellesImg from "@/assets/wzas/aktuelles.jpg.asset.json";
 import vortraegeImg from "@/assets/wzas/vortraege.webp.asset.json";
 import thumbBandscheibe from "@/assets/wzas/thumb-bandscheibe.webp.asset.json";
 import drDemmelTreatmentImg from "@/assets/wzas/hp-demmel.jpg.asset.json";
+import jubilaeumImg from "@/assets/wzas/20-jahre-wzas.webp.asset.json";
 import { SiteNav } from "@/components/SiteNav";
 import { PageFooter } from "@/components/wzas/PageFooter";
 import { useLang, useT } from "@/lib/lang";
@@ -58,36 +59,35 @@ type Item = {
 };
 
 const ITEMS: Item[] = [
+  // ── Upcoming / most recent ─────────────────────────────────────
   {
-    type: "Patienteninformation",
-    href: "/facettengelenk-infiltration.html",
-    img: "/treatment-ct-injection.webp",
+    type: "Vortrag",
+    img: vortraegeImg.url,
     featured: true,
     de: {
-      date: "September 2026",
-      title: "Facettengelenk-Infiltration: Was Patienten wissen sollten",
-      detail: "Patienteninformation · Minimalinvasiv · DE · EN · ES · IT",
+      date: "13. Oktober 2026",
+      title: "Vortrag: Schmerzen im unteren Rücken – Ist es die Bandscheibe oder das ISG?",
+      detail: "Gasteig HP8 · München · 19:00 Uhr · Eintritt frei",
     },
     en: {
-      date: "September 2026",
-      title: "Facet Joint Injection: What patients need to know",
-      detail: "Patient guide · Minimally invasive · DE · EN · ES · IT",
+      date: "13 October 2026",
+      title: "Talk: Lower back pain – the disc or the sacroiliac joint?",
+      detail: "Gasteig HP8 · Munich · 7:00 pm · Free admission",
     },
   },
   {
-    type: "Patienteninformation",
-    href: "/facettengelenk-thermodenervation.html",
-    img: "/treatment-minimalinvasiv.webp",
+    type: "Pressemitteilung",
+    img: jubilaeumImg.url,
     featured: true,
     de: {
-      date: "September 2026",
-      title: "Facettengelenk-Thermodenervation: Schmerzlinderung durch Wärme",
-      detail: "Patienteninformation · Minimalinvasiv · DE · EN · ES · IT",
+      date: "Juni 2026",
+      title: "20 Jahre WZAS: Ein unvergesslicher Jubiläumsabend",
+      detail: "Ein Wirbelsäulenzentrum lebt nicht von Wirbelsäulen. Es lebt von Menschen.",
     },
     en: {
-      date: "September 2026",
-      title: "Facet Joint Thermodenervation: Pain relief through heat",
-      detail: "Patient guide · Minimally invasive · DE · EN · ES · IT",
+      date: "June 2026",
+      title: "20 Years WZAS: An unforgettable anniversary evening",
+      detail: "A spine centre doesn't live from spines — it lives from people.",
     },
   },
   {
@@ -97,12 +97,12 @@ const ITEMS: Item[] = [
     featured: true,
     de: {
       date: "Juni 2026",
-      title: "Dr. Walter Demmel verstärkt das Team",
+      title: "Dr. Walter Demmel: Einer der führenden Spezialisten für Schmerztherapie Deutschlands verstärkt das WZAS",
       detail: "Neurochirurg und Schmerztherapie-Spezialist · WZAS Wirbelsäulenzentrum am Stiglmaierplatz",
     },
     en: {
       date: "June 2026",
-      title: "Dr. Walter Demmel joins the team",
+      title: "Dr. Walter Demmel: One of Germany's leading pain therapy specialists joins WZAS",
       detail: "Neurosurgeon and pain medicine specialist · WZAS Spine Center at Stiglmaierplatz",
     },
   },
@@ -112,41 +112,42 @@ const ITEMS: Item[] = [
     featured: true,
     de: {
       date: "7. Juli 2026",
-      title: "Vortrag: Rückenschmerzen, häufig und oft unterschätzt",
+      title: "Vortrag: Rückenschmerzen – häufig und oft unterschätzt",
       detail: "Öffentlicher Vortrag · München · Eintritt frei",
     },
     en: {
       date: "7 July 2026",
-      title: "Talk: Back pain, common and often underestimated",
+      title: "Talk: Back pain – common and often underestimated",
       detail: "Public talk · Munich · Free admission",
     },
   },
   {
     type: "Veröffentlichung",
-    img: thumbBandscheibe.url,
+    img: aktuellesImg.url,
     featured: true,
     de: {
       date: "Juni 2026",
-      title: "Bildgeführte Schmerztherapie: Wie gezielte Injektionen wirken",
-      detail: "Fachbeitrag · Neurochirurgie aktuell",
+      title: "Die Spritze an die richtige Stelle: Wie bildgesteuerte Schmerztherapie funktioniert",
+      detail: "Fachbeitrag · Rückenschmerzen · Interventionelle Therapie",
     },
     en: {
       date: "June 2026",
-      title: "Image-guided pain therapy: how targeted injections work",
-      detail: "Journal article · Neurochirurgie aktuell",
+      title: "The injection at the right spot: how image-guided pain therapy works",
+      detail: "Article · Back pain · Interventional therapy",
     },
   },
+  // ── Earlier / archive ──────────────────────────────────────────
   {
     type: "Vortrag",
     featured: false,
     de: {
       date: "11. Juni 2026",
-      title: "Vortrag: Nackenschmerzen, wenn Verspannungen den Alltag bestimmen",
+      title: "Vortrag: Nackenbeschwerden – wenn Verspannungen den Alltag bestimmen",
       detail: "Öffentlicher Vortrag · München · Eintritt frei",
     },
     en: {
       date: "11 June 2026",
-      title: "Talk: Neck pain—when muscle tension affects everyday life",
+      title: "Talk: Neck pain – when muscle tension affects everyday life",
       detail: "Public talk · Munich · Free admission",
     },
   },
@@ -156,12 +157,12 @@ const ITEMS: Item[] = [
     de: {
       date: "April 2026",
       title: "20 Jahre Wirbelsäulenzentrum am Stiglmaierplatz",
-      detail: "Jubiläum · WZAS München",
+      detail: "Jubiläum · WZAS München · gegründet 2006 von Dr. Medele und Dr. Ständer",
     },
     en: {
       date: "April 2026",
       title: "20 years of the Spine Center at Stiglmaierplatz",
-      detail: "Anniversary · WZAS Munich",
+      detail: "Anniversary · WZAS Munich · founded in 2006 by Dr. Medele and Dr. Ständer",
     },
   },
   {
@@ -169,7 +170,7 @@ const ITEMS: Item[] = [
     featured: false,
     de: {
       date: "23. April 2026",
-      title: "Vortrag: Bandscheibenvorfall, was im Körper passiert",
+      title: "Vortrag: Bandscheibenvorfall – was im Körper passiert",
       detail: "Öffentlicher Vortrag · München · Eintritt frei",
     },
     en: {
@@ -190,34 +191,6 @@ const ITEMS: Item[] = [
       date: "May 2026",
       title: "TÜV confirms quality management: recertification to DIN EN ISO 9001",
       detail: "TÜV · Quality management · DIN EN ISO 9001",
-    },
-  },
-  {
-    type: "Vortrag",
-    featured: false,
-    de: {
-      date: "24. März 2026",
-      title: "Vortrag: Wirbelkanalverengung, wenn der Rücken die Bewegung einschränkt",
-      detail: "Öffentlicher Vortrag · München · Eintritt frei",
-    },
-    en: {
-      date: "24 March 2026",
-      title: "Talk: Spinal stenosis—when back problems limit mobility",
-      detail: "Public talk · Munich · Free admission",
-    },
-  },
-  {
-    type: "Veröffentlichung",
-    featured: false,
-    de: {
-      date: "Mai 2026",
-      title: "DWG-zertifizierte Wirbelsäulenmedizin",
-      detail: "Deutsche Wirbelsäulengesellschaft · Qualitätszertifizierung",
-    },
-    en: {
-      date: "May 2026",
-      title: "DWG-certified spinal medicine",
-      detail: "German Spine Society · Quality certification",
     },
   },
 ];

@@ -1632,9 +1632,9 @@ function Aktuelles() {
       cta: "Mehr erfahren",
       all: "Alle Veranstaltungen & Inhalte ansehen →",
       items: [
+        { type: "VORTRAG", date: "13. Oktober 2026", title: "Schmerzen im unteren Rücken: Ist es die Bandscheibe oder das ISG?", detail: "Gasteig HP8 · München · 19:00 Uhr · Eintritt frei" },
         { type: "JUBILÄUM", date: "Juni 2026", title: "20 Jahre WZAS: Ein unvergesslicher Jubiläumsabend", detail: "Ein Wirbelsäulenzentrum lebt nicht von Wirbelsäulen — es lebt von Menschen." },
-        { type: "VORTRAG", date: "13. Oktober 2026", title: "Schmerzen im unteren Rücken: Ist es die Bandscheibe oder das ISG?", detail: "Gasteig HP8 · München · 19:00 Uhr" },
-        { type: "ARTIKEL", date: "Juli 2026", title: "Dr. Walter Demmel verstärkt das WZAS", detail: "Einer der führenden Spezialisten für Schmerztherapie Deutschlands" },
+        { type: "ARTIKEL", date: "Juni 2026", title: "Dr. Walter Demmel: Führender Schmerztherapie-Spezialist verstärkt das WZAS", detail: "Neurochirurg und Spezialist für Neuromodulation" },
       ],
     },
     en: {
@@ -1645,15 +1645,15 @@ function Aktuelles() {
       cta: "Learn more",
       all: "View all events & articles →",
       items: [
+        { type: "TALK", date: "13 October 2026", title: "Lower back pain: the disc or the sacroiliac joint?", detail: "Gasteig HP8 · Munich · 7:00 pm · Free admission" },
         { type: "ANNIVERSARY", date: "June 2026", title: "20 Years WZAS: An unforgettable anniversary evening", detail: "A spine centre doesn't live from spines — it lives from people." },
-        { type: "TALK", date: "13 October 2026", title: "Lower back pain: is it the disc or the SI joint?", detail: "Gasteig HP8 · Munich · 7:00 pm" },
-        { type: "ARTICLE", date: "July 2026", title: "Dr. Walter Demmel joins WZAS", detail: "One of Germany's leading specialists in pain therapy" },
+        { type: "ARTICLE", date: "June 2026", title: "Dr. Walter Demmel: Leading pain therapy specialist joins WZAS", detail: "Neurosurgeon and neuromodulation specialist" },
       ],
     },
   });
   const meta = [
-    { accentColor: "#AC8F52", badgeBg: "rgba(172,143,82,0.12)", badgeText: "#8A6E36", image: JUBILAEUM_IMG },
     { accentColor: "#2563EB", badgeBg: "rgba(37,99,235,0.1)", badgeText: "#1d4ed8", image: vortraegeImg.url },
+    { accentColor: "#AC8F52", badgeBg: "rgba(172,143,82,0.12)", badgeText: "#8A6E36", image: JUBILAEUM_IMG },
     { accentColor: "#059669", badgeBg: "rgba(5,150,105,0.1)", badgeText: "#047857", image: aktuellesImg.url },
   ];
   const items: AktuellesItem[] = t.items.map((it, i) => ({ ...it, ...meta[i] }));
@@ -1677,9 +1677,9 @@ function Aktuelles() {
           ))}
         </div>
         <div className="mt-10">
-          <a href="#" className="inline-flex items-center min-h-11 text-sm font-semibold text-[#212121] hover:text-[#AC8F52] transition-colors">
+          <Link to="/aktuelles" className="inline-flex items-center min-h-11 text-sm font-semibold text-[#212121] hover:text-[#AC8F52] transition-colors">
             {t.all}
-          </a>
+          </Link>
         </div>
       </div>
     </section>
