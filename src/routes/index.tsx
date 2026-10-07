@@ -1067,11 +1067,6 @@ function Kompetenzzentrum() {
       lead: "Diagnostics, treatment and aftercare, closely connected through trusted partners.",
       mrtHeading: "MRI and CT in-house",
       mrtIntro: "Our radiology centre at Stiglmaierplatz has its own MRI and CT equipment – many examinations can be carried out directly on site, without long waiting times.",
-      mrtBenefits: [
-        { title: "Shorter distances", desc: "Diagnostics and treatment under one roof – no travelling between different facilities." },
-        { title: "Faster diagnoses", desc: "Results are available quickly, allowing treatment to begin without delay." },
-        { title: "Care from one team", desc: "Neurosurgeons and radiologists work closely together. Targeted infiltrations are often possible the same day." },
-      ],
       partners: [
         { logo: partnerWz.url,          alt: "Spine Center at Stiglmaierplatz", name: "Spine Center",        short: "Spine surgery · pain therapy" },
         { logo: partnerRadiologie.url,  alt: "Radiology at Stiglmaierplatz",    name: "Radiology",           short: "MRI · CT · neuroradiology on site" },
