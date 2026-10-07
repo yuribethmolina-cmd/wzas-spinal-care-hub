@@ -1091,36 +1091,43 @@ function Kompetenzzentrum() {
       <div className="mx-auto max-w-[1440px] px-5 lg:px-8">
 
         {/* MRT/CT highlight card */}
-        <div ref={ref} style={style} className="mb-10 lg:mb-12 rounded-2xl bg-[#EEF5F6] border border-[#C8DDE0] p-6 sm:p-8 grid gap-8 lg:grid-cols-[1fr_2fr] lg:items-center">
-          <div>
-            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#2D7A86" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="mb-4" aria-hidden="true">
-              <rect x="2" y="6" width="20" height="12" rx="2"/>
-              <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
-              <line x1="12" y1="12" x2="12" y2="12.01"/>
-              <path d="M7 12h2l2 3 2-6 2 3h2"/>
-            </svg>
-            <p className="text-[11px] font-semibold tracking-[0.2em] uppercase text-[#2D7A86] mb-3">Radiologie direkt vor Ort</p>
-            <h3
-              className="font-display text-[#212121] leading-tight mb-3"
-              style={{ fontSize: "clamp(1.3rem, 2.2vw, 1.75rem)", fontWeight: 700 }}
-            >
-              {t.mrtHeading}
-            </h3>
-            <p className="text-[15px] text-[#595959] leading-relaxed">{t.mrtIntro}</p>
+        <div ref={ref} style={style} className="mb-10 lg:mb-12 overflow-hidden rounded-2xl border border-[#C8DDE0] grid lg:grid-cols-[1fr_1.4fr]">
+          {/* Photo */}
+          <div className="relative h-56 sm:h-72 lg:h-auto overflow-hidden">
+            <img
+              src="/Wirbelsaeulenzentrum-mrt.webp"
+              alt="MRT-Gerät im Radiologiezentrum am Stiglmaierplatz"
+              loading="lazy"
+              decoding="async"
+              className="absolute inset-0 h-full w-full object-cover"
+            />
           </div>
-          <div className="grid gap-4 sm:grid-cols-3">
-            {t.mrtBenefits.map((b) => (
-              <div key={b.title} className="flex gap-3">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2D7A86" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="shrink-0 mt-0.5" aria-hidden="true">
-                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
-                  <polyline points="22 4 12 14.01 9 11.01"/>
-                </svg>
-                <div>
-                  <p className="text-[14px] font-semibold text-[#212121] leading-snug">{b.title}</p>
-                  <p className="mt-1 text-[13px] text-[#666666] leading-relaxed">{b.desc}</p>
+          {/* Text + benefits */}
+          <div className="bg-[#EEF5F6] p-6 sm:p-8 flex flex-col justify-center gap-6">
+            <div>
+              <p className="text-[11px] font-semibold tracking-[0.2em] uppercase text-[#2D7A86] mb-3">Radiologie direkt vor Ort</p>
+              <h3
+                className="font-display text-[#212121] leading-tight mb-3"
+                style={{ fontSize: "clamp(1.3rem, 2vw, 1.7rem)", fontWeight: 700 }}
+              >
+                {t.mrtHeading}
+              </h3>
+              <p className="text-[15px] text-[#595959] leading-relaxed">{t.mrtIntro}</p>
+            </div>
+            <div className="grid gap-4 sm:grid-cols-3">
+              {t.mrtBenefits.map((b) => (
+                <div key={b.title} className="flex gap-3">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2D7A86" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="shrink-0 mt-0.5" aria-hidden="true">
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                    <polyline points="22 4 12 14.01 9 11.01"/>
+                  </svg>
+                  <div>
+                    <p className="text-[13px] font-semibold text-[#212121] leading-snug">{b.title}</p>
+                    <p className="mt-0.5 text-[12px] text-[#666666] leading-relaxed">{b.desc}</p>
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
 
