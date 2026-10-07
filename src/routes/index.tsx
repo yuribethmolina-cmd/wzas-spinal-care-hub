@@ -1053,11 +1053,6 @@ function Kompetenzzentrum() {
       lead: "Diagnostik, Behandlung und Nachsorge eng vernetzt – mit starken Partnern an Ihrer Seite.",
       mrtHeading: "MRT und CT direkt im Haus",
       mrtIntro: "Unser Radiologiezentrum am Stiglmaierplatz verfügt über eigene MRT- und CT-Geräte – so werden viele Untersuchungen direkt vor Ort durchgeführt, ohne lange Wartezeiten und ohne unnötige Wege.",
-      mrtBenefits: [
-        { title: "Kürzere Wege", desc: "Diagnostik und Behandlung unter einem Dach – kein Pendeln zwischen verschiedenen Einrichtungen." },
-        { title: "Schnellere Diagnosen", desc: "Befunde stehen zeitnah zur Verfügung und ermöglichen eine rasche Einleitung der Therapie." },
-        { title: "Behandlung aus einer Hand", desc: "Neurochirurgen und Radiologen arbeiten eng zusammen. Oft sind noch am selben Tag gezielte Infiltrationen möglich." },
-      ],
       partners: [
         { logo: partnerWz.url,          alt: "Wirbelsäulenzentrum am Stiglmaierplatz", name: "Wirbelsäulenzentrum", short: "Wirbelsäulenchirurgie · Schmerztherapie" },
         { logo: partnerRadiologie.url,  alt: "Radiologie am Stiglmaierplatz",           name: "Radiologie",          short: "MRT · CT · Neuroradiologie vor Ort" },
@@ -1072,11 +1067,6 @@ function Kompetenzzentrum() {
       lead: "Diagnostics, treatment and aftercare, closely connected through trusted partners.",
       mrtHeading: "MRI and CT in-house",
       mrtIntro: "Our radiology centre at Stiglmaierplatz has its own MRI and CT equipment – many examinations can be carried out directly on site, without long waiting times.",
-      mrtBenefits: [
-        { title: "Shorter distances", desc: "Diagnostics and treatment under one roof – no travelling between different facilities." },
-        { title: "Faster diagnoses", desc: "Results are available quickly, allowing treatment to begin without delay." },
-        { title: "Care from one team", desc: "Neurosurgeons and radiologists work closely together. Targeted infiltrations are often possible the same day." },
-      ],
       partners: [
         { logo: partnerWz.url,          alt: "Spine Center at Stiglmaierplatz", name: "Spine Center",        short: "Spine surgery · pain therapy" },
         { logo: partnerRadiologie.url,  alt: "Radiology at Stiglmaierplatz",    name: "Radiology",           short: "MRI · CT · neuroradiology on site" },
@@ -1103,7 +1093,7 @@ function Kompetenzzentrum() {
             />
           </div>
           {/* Text + benefits */}
-          <div className="bg-[#EEF5F6] p-6 sm:p-8 flex flex-col justify-center gap-6">
+          <div className="bg-[#EEF5F6] p-6 sm:p-8 flex flex-col justify-center">
             <div>
               <p className="text-[11px] font-semibold tracking-[0.2em] uppercase text-[#2D7A86] mb-3">Radiologie direkt vor Ort</p>
               <h3
@@ -1113,20 +1103,6 @@ function Kompetenzzentrum() {
                 {t.mrtHeading}
               </h3>
               <p className="text-[15px] text-[#595959] leading-relaxed">{t.mrtIntro}</p>
-            </div>
-            <div className="grid gap-4 sm:grid-cols-3">
-              {t.mrtBenefits.map((b) => (
-                <div key={b.title} className="flex gap-3">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2D7A86" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="shrink-0 mt-0.5" aria-hidden="true">
-                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
-                    <polyline points="22 4 12 14.01 9 11.01"/>
-                  </svg>
-                  <div>
-                    <p className="text-[13px] font-semibold text-[#212121] leading-snug">{b.title}</p>
-                    <p className="mt-0.5 text-[12px] text-[#666666] leading-relaxed">{b.desc}</p>
-                  </div>
-                </div>
-              ))}
             </div>
           </div>
         </div>
