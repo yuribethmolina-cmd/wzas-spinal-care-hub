@@ -1053,11 +1053,6 @@ function Kompetenzzentrum() {
       lead: "Diagnostik, Behandlung und Nachsorge eng vernetzt – mit starken Partnern an Ihrer Seite.",
       mrtHeading: "MRT und CT direkt im Haus",
       mrtIntro: "Unser Radiologiezentrum am Stiglmaierplatz verfügt über eigene MRT- und CT-Geräte – so werden viele Untersuchungen direkt vor Ort durchgeführt, ohne lange Wartezeiten und ohne unnötige Wege.",
-      mrtBenefits: [
-        { title: "Kürzere Wege", desc: "Diagnostik und Behandlung unter einem Dach – kein Pendeln zwischen verschiedenen Einrichtungen." },
-        { title: "Schnellere Diagnosen", desc: "Befunde stehen zeitnah zur Verfügung und ermöglichen eine rasche Einleitung der Therapie." },
-        { title: "Behandlung aus einer Hand", desc: "Neurochirurgen und Radiologen arbeiten eng zusammen. Oft sind noch am selben Tag gezielte Infiltrationen möglich." },
-      ],
       partners: [
         { logo: partnerWz.url,          alt: "Wirbelsäulenzentrum am Stiglmaierplatz", name: "Wirbelsäulenzentrum", short: "Wirbelsäulenchirurgie · Schmerztherapie" },
         { logo: partnerRadiologie.url,  alt: "Radiologie am Stiglmaierplatz",           name: "Radiologie",          short: "MRT · CT · Neuroradiologie vor Ort" },
