@@ -11,17 +11,17 @@ const BASE = "https://www.wzas.de/wp-content/uploads";
 
 const BASE_CATEGORIES = [
   { id: "ohne-operation", photo: `${BASE}/2026/05/Wirbelsaeulenzentrum-021.webp` },
-  { id: "minimalinvasiv", photo: `${BASE}/2026/05/Galerie-Wirbelsaeulenzentrum-053.webp` },
+  { id: "interventionell", photo: `${BASE}/2026/05/Galerie-Wirbelsaeulenzentrum-053.webp` },
   { id: "chirurgie", photo: `${BASE}/2026/05/db640b7718e314a38996cce985205bc2.jpg` },
 ];
 
 const CATEGORY_PHOTOS: Record<string, string> = {
   "ohne-operation": "/gallery/praxis-01.webp",
-  "minimalinvasiv": "/treatment-minimalinvasiv.webp",
+  "interventionell": "/treatment-minimalinvasiv.webp",
   "chirurgie": "/wolfart-klinik.jpg",
 };
 
-type Method = { name: string; desc: string };
+type Method = { name: string; desc: string; slug?: string };
 type Category = { id: string; name: string; description: string; photo: string; methods: Method[] };
 
 function useFadeUp(delay = 0) {
@@ -121,67 +121,61 @@ function BehandlungenPage() {
   const catTranslations = useT({
     de: [
       {
-        name: "Verfahren ohne Operation",
-        description: "Die meisten Rückenerkrankungen müssen nicht operiert werden, gezielte Infiltrationen, medikamentöse Schmerztherapie, Physiotherapie und physikalische Behandlungen sind der erste Schritt.",
+        name: "Medikamentöse Therapie",
+        description: "Schmerz- und entzündungshemmende Medikamente durchbrechen den Teufelskreis aus Schmerz, Schonhaltung und Verspannung — immer individuell auf den Befund abgestimmt.",
         methods: [
-          { name: "Infiltrationstherapie", desc: "Gezielte Injektionen mit entzündungshemmenden Wirkstoffen direkt an die Schmerzquelle." },
-          { name: "Medikamentöse Therapie", desc: "Schmerz- und entzündungshemmende Medikamente durchbrechen den Teufelskreis aus Schmerz, Schonhaltung und Verspannung, individuell auf Ihren Befund abgestimmt." },
-          { name: "Tabletten", desc: "Die einfachste Form der Schmerztherapie, stets unter ärztlicher Aufsicht, damit Dosierung und Verträglichkeit passen und Nebenwirkungen gering bleiben." },
+          { name: "Medikamentöse Therapie", desc: "Schmerz- und entzündungshemmende Medikamente, individuell auf Ihren Befund abgestimmt." },
+          { name: "Tabletten", desc: "Die einfachste Form der Schmerztherapie, stets unter ärztlicher Aufsicht für optimale Dosierung und geringe Nebenwirkungen." },
           { name: "Infusionstherapie", desc: "Reichen Tabletten nicht aus, wird das Schmerzmittel direkt in eine Vene geleitet und wirkt rasch im gesamten Körper." },
-          { name: "Physiotherapie & physikalische Behandlungen", desc: "Begleitend zur medikamentösen Therapie: gezielte Übungen kräftigen die Rückenmuskulatur, stabilisieren die Wirbelsäule und beugen einem Rückfall vor." },
-
         ],
       },
       {
-        name: "Minimalinvasive Verfahren",
-        description: "Schonender als eine klassische OP, gezielter als Tabletten oder Physiotherapie allein, viele Patienten sind schneller wieder im Alltag.",
+        name: "Interventionelle Verfahren",
+        description: "Gezielter als Tabletten allein, schonender als eine OP — bildgestützte Eingriffe direkt an der Schmerzquelle oder am Nervensystem.",
         methods: [
-          { name: "Hitzesonden-Behandlung", desc: "Eine Sonde erhitzt die feinen Nerven am Wirbelgelenk unter Bildkontrolle und unterbricht so die Schmerzleitung." },
-          { name: "Schmerzpumpen (IDD)", desc: "Ein kleines Implantat gibt Schmerzmittel kontinuierlich direkt im Bereich des Rückenmarks ab." },
-          { name: "Schmerz-Schrittmacher (SCS)", desc: "Schwache elektrische Impulse an das Rückenmark unterbrechen die Weiterleitung der Schmerzsignale." },
-          { name: "Injektionen in die Bandscheibe", desc: "Medikamente werden unter Röntgenkontrolle direkt ins Bandscheibengewebe eingebracht, um Druck von Nervenwurzeln zu nehmen." },
+          { name: "Infiltrationstherapie", desc: "Gezielte Injektionen mit entzündungshemmenden Wirkstoffen unter Röntgen- oder CT-Kontrolle direkt an die Schmerzquelle.", slug: "infiltrationstherapie" },
+          { name: "Hitzesonden-Behandlung", desc: "Eine Sonde erhitzt die feinen Nerven am Wirbelgelenk unter Bildkontrolle und unterbricht so dauerhaft die Schmerzleitung.", slug: "hitzesonden-behandlung" },
+          { name: "Schmerzpumpen (IDD)", desc: "Ein kleines Implantat gibt Schmerzmittel kontinuierlich direkt im Bereich des Rückenmarks ab.", slug: "schmerzpumpen-idd" },
+          { name: "Schmerz-Schrittmacher (SCS)", desc: "Schwache elektrische Impulse ans Rückenmark unterbrechen die Weiterleitung der Schmerzsignale — Studien belegen bis zu 80 % Reduktion.", slug: "schmerz-schrittmacher-scs" },
         ],
       },
       {
         name: "Wirbelsäulenchirurgie",
         description: "Modernste mikrochirurgische Techniken: präzise, schonend und mit dem klaren Ziel, Ihre natürliche Beweglichkeit zu erhalten.",
         methods: [
-          { name: "Mikrochirurgische Verfahren", desc: "Operation unter dem hochauflösenden Operationsmikroskop über kleinste Schnitte, präzise und gewebeschonend." },
-          { name: "Bewegungserhaltende Verfahren", desc: "Dynamische Rekonstruktion und Stabilisierung erkrankter Segmente als Alternative zur Versteifung." },
-          { name: "Stabilisierende Verfahren", desc: "Implantate, Verschraubungen oder Spondylodese, wenn eine Instabilität die Beschwerden verursacht." },
+          { name: "Mikrochirurgische Verfahren", desc: "Operation unter dem hochauflösenden Operationsmikroskop über kleinste Schnitte, präzise und gewebeschonend.", slug: "mikrochirurgische-verfahren" },
+          { name: "Bewegungserhaltende Verfahren", desc: "Dynamische Rekonstruktion und Stabilisierung erkrankter Segmente als Alternative zur Versteifung.", slug: "bewegungserhaltende-verfahren" },
+          { name: "Stabilisierende Verfahren", desc: "Implantate, Verschraubungen oder Spondylodese, wenn eine Instabilität die Beschwerden verursacht.", slug: "stabilisierende-verfahren" },
         ],
       },
     ],
     en: [
       {
-        name: "Non-surgical treatments",
-        description: "Most back conditions do not require surgery. Targeted injections, pain medication, physiotherapy and physical treatments are usually the first step.",
+        name: "Medical / Non-surgical Therapy",
+        description: "Pain-relieving and anti-inflammatory medication breaks the cycle of pain, guarded movement and muscle tension — always tailored to the individual diagnosis.",
         methods: [
-          { name: "Injection Therapy", desc: "Targeted injections with anti-inflammatory agents directly at the source of pain." },
-          { name: "Medication", desc: "Pain-relieving and anti-inflammatory medication can break the cycle of pain, guarded movement and muscle tension. Treatment is tailored to your diagnosis." },
-          { name: "Oral medication", desc: "A straightforward form of pain management, prescribed and monitored to ensure the right dose, good tolerability and minimal side effects." },
+          { name: "Medication", desc: "Pain-relieving and anti-inflammatory medication tailored to your diagnosis." },
+          { name: "Oral medication", desc: "A straightforward form of pain management, prescribed and monitored for the right dose, good tolerability and minimal side effects." },
           { name: "Infusion Therapy", desc: "If tablets are not enough, the painkiller goes straight into a vein and takes effect quickly throughout the body." },
-          { name: "Physiotherapy & physical treatments", desc: "Alongside medication: targeted exercises strengthen the back muscles, stabilise the spine and help prevent a relapse." },
-
         ],
       },
       {
-        name: "Minimally invasive procedures",
-        description: "Less invasive than conventional surgery and more targeted than medication or physiotherapy alone. Many patients can return to everyday activities sooner.",
+        name: "Interventional Procedures",
+        description: "More targeted than medication alone, less invasive than surgery — image-guided procedures at the source of pain or directly on the nervous system.",
         methods: [
-          { name: "Heat Probe Treatment", desc: "A probe heats the fine nerves at the facet joint under image guidance, interrupting pain conduction." },
-          { name: "Pain Pumps (IDD)", desc: "A small implant delivers pain medication continuously right at the spinal cord." },
-          { name: "Spinal cord stimulation (SCS)", desc: "Mild electrical impulses to the spinal cord modify pain signals before they reach the brain." },
-          { name: "Intradiscal Injections", desc: "Medication is placed directly into the disc under X-ray guidance to relieve pressure on nerve roots." },
+          { name: "Injection Therapy", desc: "Targeted injections with anti-inflammatory agents under X-ray or CT guidance, directly at the source of pain.", slug: "infiltrationstherapie" },
+          { name: "Heat Probe Treatment", desc: "A probe heats the fine nerves at the facet joint under image guidance, permanently interrupting pain conduction.", slug: "hitzesonden-behandlung" },
+          { name: "Pain Pumps (IDD)", desc: "A small implant delivers pain medication continuously right at the spinal cord.", slug: "schmerzpumpen-idd" },
+          { name: "Spinal Cord Stimulation (SCS)", desc: "Mild electrical impulses to the spinal cord modify pain signals — studies show up to 80 % reduction.", slug: "schmerz-schrittmacher-scs" },
         ],
       },
       {
-        name: "Spinal surgery",
+        name: "Spinal Surgery",
         description: "Modern microsurgical techniques are designed to be precise and tissue-sparing, with the aim of preserving natural mobility wherever possible.",
         methods: [
-          { name: "Microsurgical Procedures", desc: "Surgery through the smallest incisions using a high-resolution operating microscope, precise and tissue-sparing." },
-          { name: "Motion-preserving Procedures", desc: "Dynamic reconstruction and stabilisation of affected segments as an alternative to fusion." },
-          { name: "Stabilisation Procedures", desc: "Implants, screw fixation or spondylodesis when instability is causing the symptoms." },
+          { name: "Microsurgical Procedures", desc: "Surgery through the smallest incisions using a high-resolution operating microscope, precise and tissue-sparing.", slug: "mikrochirurgische-verfahren" },
+          { name: "Motion-Preserving Procedures", desc: "Dynamic reconstruction and stabilisation of affected segments as an alternative to fusion.", slug: "bewegungserhaltende-verfahren" },
+          { name: "Stabilisation Procedures", desc: "Implants, screw fixation or spondylodesis when instability is causing the symptoms.", slug: "stabilisierende-verfahren" },
         ],
       },
     ],
@@ -207,6 +201,7 @@ function BehandlungenPage() {
 
   const t = useT({
     de: {
+      readMore: "Mehr lesen →",
       heroEyebrow: "München · Stiglmaierplatz",
       heroH1: "Rücken­behandlungen",
       heroSubtitle: "Von der Infiltration bis zur Mikrochirurgie, individuell abgestimmt.",
@@ -222,6 +217,7 @@ function BehandlungenPage() {
       bookingSecondary: "Zuerst Beschwerdebild ansehen →",
     },
     en: {
+      readMore: "Learn more →",
       heroEyebrow: "Munich · Stiglmaierplatz",
       heroH1: "Spine Treatments",
       heroSubtitle: "From injection therapy to microsurgery, individually tailored.",
@@ -343,6 +339,15 @@ function BehandlungenPage() {
                         <div>
                           <p className="font-semibold text-[#212121]">{method.name}</p>
                           <p className="text-sm text-[#595959] leading-relaxed mt-0.5">{method.desc}</p>
+                          {method.slug && (
+                            <Link
+                              to="/behandlungen/$slug"
+                              params={{ slug: method.slug }}
+                              className="inline-flex items-center mt-1.5 text-xs font-semibold text-[#AC8F52] hover:brightness-110 transition"
+                            >
+                              {t.readMore}
+                            </Link>
+                          )}
                         </div>
                       </div>
                     ))}
