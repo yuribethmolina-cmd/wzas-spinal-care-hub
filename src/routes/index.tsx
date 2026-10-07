@@ -1042,111 +1042,201 @@ function Weg() {
   );
 }
 
-/* ─── Kompetenzzentrum ──────────────────────────────────────────── */
+/* ─── Kompetenzzentrum / Netzwerk ───────────────────────────────── */
+
+const NETZWERK_ICONS = {
+  diagnose: (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6" aria-hidden>
+      <circle cx="12" cy="12" r="9"/>
+      <path d="M9 12h6M12 9v6"/>
+      <circle cx="12" cy="12" r="3" fill="currentColor" stroke="none" opacity="0.2"/>
+    </svg>
+  ),
+  chirurgie: (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6" aria-hidden>
+      <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+      <polyline points="9 22 9 12 15 12 15 22"/>
+    </svg>
+  ),
+  netzwerk: (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6" aria-hidden>
+      <circle cx="12" cy="5" r="2"/><circle cx="5" cy="19" r="2"/><circle cx="19" cy="19" r="2"/>
+      <line x1="12" y1="7" x2="5" y2="17"/><line x1="12" y1="7" x2="19" y2="17"/><line x1="5" y1="19" x2="19" y2="19"/>
+    </svg>
+  ),
+};
+
+function NetzwerkCard({
+  icon, tag, tagColor, heading, body, partners, delay,
+}: {
+  icon: React.ReactNode; tag: string; tagColor: string;
+  heading: string; body: string; partners: string; delay: number;
+}) {
+  const { ref, style } = useFadeUp(delay);
+  const [hovered, setHovered] = useState(false);
+  return (
+    <div ref={ref} style={style} className="flex-1 min-w-0">
+      <div
+        className="h-full rounded-[10px] bg-white border flex flex-col p-6 sm:p-7 transition-all duration-300"
+        style={{
+          borderColor: hovered ? "rgba(172,143,82,0.45)" : "#E6E3DC",
+          boxShadow: hovered ? "0 16px 40px -20px rgba(30,37,53,0.16)" : "0 1px 4px -1px rgba(30,37,53,0.06)",
+          transform: hovered ? "translateY(-3px)" : "translateY(0)",
+        }}
+        onMouseEnter={() => setHovered(true)}
+        onMouseLeave={() => setHovered(false)}
+      >
+        {/* Icon + tag */}
+        <div className="flex items-center gap-3 mb-5">
+          <div
+            className="w-10 h-10 rounded-[8px] flex items-center justify-center shrink-0"
+            style={{ background: tagColor + "18", color: tagColor }}
+          >
+            {icon}
+          </div>
+          <span
+            className="text-[10px] font-bold tracking-[0.22em] uppercase"
+            style={{ color: tagColor }}
+          >
+            {tag}
+          </span>
+        </div>
+
+        {/* Heading + body */}
+        <h3
+          className="font-display text-[#212121] leading-snug mb-3"
+          style={{ fontSize: "clamp(1.05rem, 1.8vw, 1.25rem)", fontWeight: 700 }}
+        >
+          {heading}
+        </h3>
+        <p className="text-[0.9rem] text-[#595959] leading-relaxed flex-1">
+          {body}
+        </p>
+
+        {/* Partners strip */}
+        <div className="mt-5 pt-4 border-t border-[#E6E3DC]">
+          <p className="text-[11px] text-[#999] uppercase tracking-wider mb-1">Partner</p>
+          <p className="text-[12px] font-medium text-[#555]">{partners}</p>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 function Kompetenzzentrum() {
-  const { ref, style } = useFadeUp(0);
+  const { ref: headRef, style: headStyle } = useFadeUp(0);
   const t = useT({
     de: {
-      label: "Kompetenzzentrum",
-      h2: "Alles unter einem Dach",
-      lead: "Diagnostik, Behandlung und Nachsorge eng vernetzt – mit starken Partnern an Ihrer Seite.",
-      mrtHeading: "MRT und CT direkt im Haus",
-      mrtIntro: "Unser Radiologiezentrum am Stiglmaierplatz verfügt über eigene MRT- und CT-Geräte – so werden viele Untersuchungen direkt vor Ort durchgeführt, ohne lange Wartezeiten und ohne unnötige Wege.",
-      partners: [
-        { logo: partnerWz.url,          alt: "Wirbelsäulenzentrum am Stiglmaierplatz", name: "Wirbelsäulenzentrum", short: "Wirbelsäulenchirurgie · Schmerztherapie" },
-        { logo: partnerRadiologie.url,  alt: "Radiologie am Stiglmaierplatz",           name: "Radiologie",          short: "MRT · CT · Neuroradiologie vor Ort" },
-        { logo: partnerOms.url,         alt: "Orthopädie München-Schwabing",            name: "OMS Orthopädie",      short: "Arthrose · Knie · Hüfte · Schulter" },
-        { logo: partnerHand.url,        alt: "BL Handchirurgie Bayern",                 name: "BL Handchirurgie",    short: "Hand · Handgelenk · Unterarm" },
-        { logo: partnerOberland.url,    alt: "Wirbelsäulenzentrum Oberland",            name: "WZ Oberland",         short: "Schwesterpraxis · Bayern" },
+      label: "Unser Netzwerk",
+      h2a: "Das Netzwerk ",
+      h2b: "hinter Ihrer Behandlung",
+      lead: "Gute Wirbelsäulenmedizin endet nicht an der Praxistür. Mit einem abgestimmten Netz aus Spezialisten begleiten wir Sie durch jeden Schritt — von der ersten Bildgebung bis zur Nachsorge.",
+      cards: [
+        {
+          tag: "Diagnose",
+          tagColor: "#2D7A86",
+          heading: "Bildgebung direkt im Haus",
+          body: "Unser Radiologiezentrum verfügt über eigene MRT- und CT-Geräte. Kein separater Termin, kein langer Weg — die Untersuchung findet direkt hier, im gleichen Gebäude, statt.",
+          partners: "Radiologiezentrum am Stiglmaierplatz (RZaS)",
+        },
+        {
+          tag: "Chirurgie",
+          tagColor: "#AC8F52",
+          heading: "Wenn eine Operation nötig wird",
+          body: "Operationen koordinieren wir gemeinsam mit der WolfartKlinik und erfahrenen Anästhesisten. Jeder Schritt ist abgestimmt — nahtlos, sicher und ohne unnötige Verzögerungen.",
+          partners: "WolfartKlinik · Anästhesiegemeinschaft Bayern",
+        },
+        {
+          tag: "Spezialistenverbund",
+          tagColor: "#6B5B9E",
+          heading: "Wenn der Schmerz weitergeht",
+          body: "Beschwerden an Knie, Hüfte, Hand oder Schulter? Wir verweisen gezielt an spezialisierte Partner — Sie müssen Ihre Geschichte nirgendwo von vorne erzählen.",
+          partners: "OMS Orthopädie · BL Handchirurgie Bayern · Wirbelsäulenzentrum Oberland",
+        },
       ],
     },
     en: {
-      label: "Specialist network",
-      h2: "Everything under one roof",
-      lead: "Diagnostics, treatment and aftercare, closely connected through trusted partners.",
-      mrtHeading: "MRI and CT in-house",
-      mrtIntro: "Our radiology centre at Stiglmaierplatz has its own MRI and CT equipment – many examinations can be carried out directly on site, without long waiting times.",
-      partners: [
-        { logo: partnerWz.url,          alt: "Spine Center at Stiglmaierplatz", name: "Spine Center",        short: "Spine surgery · pain therapy" },
-        { logo: partnerRadiologie.url,  alt: "Radiology at Stiglmaierplatz",    name: "Radiology",           short: "MRI · CT · neuroradiology on site" },
-        { logo: partnerOms.url,         alt: "Orthopaedics Munich-Schwabing",   name: "OMS Orthopaedics",    short: "Arthritis · knee · hip · shoulder" },
-        { logo: partnerHand.url,        alt: "BL Hand Surgery Bavaria",         name: "BL Hand Surgery",     short: "Hand · wrist · forearm" },
-        { logo: partnerOberland.url,    alt: "Spine Center Oberland",           name: "WZ Oberland",         short: "Sister practice · Bavaria" },
+      label: "Our network",
+      h2a: "The network ",
+      h2b: "behind your care",
+      lead: "Good spine medicine does not end at the practice door. With a coordinated network of specialists, we accompany you through every step — from the first scan to aftercare.",
+      cards: [
+        {
+          tag: "Diagnostics",
+          tagColor: "#2D7A86",
+          heading: "Imaging right here",
+          body: "Our radiology centre has its own MRI and CT equipment. No separate appointment, no extra journey — the examination happens right here, in the same building.",
+          partners: "Radiologiezentrum am Stiglmaierplatz (RZaS)",
+        },
+        {
+          tag: "Surgery",
+          tagColor: "#AC8F52",
+          heading: "When surgery becomes necessary",
+          body: "We coordinate operations together with WolfartKlinik and experienced anaesthetists. Every step is aligned — seamless, safe and without unnecessary delays.",
+          partners: "WolfartKlinik · Anästhesiegemeinschaft Bayern",
+        },
+        {
+          tag: "Specialist network",
+          tagColor: "#6B5B9E",
+          heading: "When pain goes beyond the spine",
+          body: "Complaints at the knee, hip, hand or shoulder? We refer you directly to specialised partners — you will not have to start from scratch.",
+          partners: "OMS Orthopaedics · BL Hand Surgery Bavaria · Wirbelsäulenzentrum Oberland",
+        },
       ],
     },
   });
+
+  const icons = [NETZWERK_ICONS.diagnose, NETZWERK_ICONS.chirurgie, NETZWERK_ICONS.netzwerk];
+
   return (
-    <section className="bg-white border-y border-[#E6E3DC] py-12 sm:py-16 lg:py-20">
+    <section className="bg-[#F9F8F4] border-y border-[#E6E3DC] py-14 sm:py-20 lg:py-28">
       <div className="mx-auto max-w-[1440px] px-5 lg:px-8">
 
-        {/* MRT/CT highlight card */}
-        <div ref={ref} style={style} className="mb-10 lg:mb-12 overflow-hidden rounded-2xl border border-[#C8DDE0] grid lg:grid-cols-[1fr_1.4fr]">
-          {/* Photo */}
-          <div className="relative h-56 sm:h-72 lg:h-auto overflow-hidden">
-            <img
-              src="/Wirbelsaeulenzentrum-mrt.webp"
-              alt="MRT-Gerät im Radiologiezentrum am Stiglmaierplatz"
-              loading="lazy"
-              decoding="async"
-              className="absolute inset-0 h-full w-full object-cover"
-            />
-          </div>
-          {/* Text + benefits */}
-          <div className="bg-[#EEF5F6] p-6 sm:p-8 flex flex-col justify-center">
-            <div>
-              <p className="text-[11px] font-semibold tracking-[0.2em] uppercase text-[#2D7A86] mb-3">Radiologie direkt vor Ort</p>
-              <h3
-                className="font-display text-[#212121] leading-tight mb-3"
-                style={{ fontSize: "clamp(1.3rem, 2vw, 1.7rem)", fontWeight: 700 }}
-              >
-                {t.mrtHeading}
-              </h3>
-              <p className="text-[15px] text-[#595959] leading-relaxed">{t.mrtIntro}</p>
-            </div>
-          </div>
+        {/* Heading */}
+        <div ref={headRef} style={headStyle} className="max-w-2xl mb-12 lg:mb-16">
+          <SectionLabel>{t.label}</SectionLabel>
+          <h2
+            className="mt-4 font-display text-[#212121] leading-tight"
+            style={{ fontSize: "clamp(2.15rem, 4.4vw, 3.4rem)", fontWeight: 700, letterSpacing: "0" }}
+          >
+            {t.h2a}<em style={{ fontStyle: "normal", fontWeight: 700 }}>{t.h2b}</em>
+          </h2>
+          <p className="mt-5 text-[17px] text-[#666666] leading-[1.7]">{t.lead}</p>
         </div>
 
-        <div className="lg:flex lg:items-start lg:gap-16">
+        {/* 3 story cards */}
+        <div className="flex flex-col lg:flex-row gap-5 items-stretch">
+          {t.cards.map((card, i) => (
+            <NetzwerkCard
+              key={card.tag}
+              icon={icons[i]}
+              tag={card.tag}
+              tagColor={card.tagColor}
+              heading={card.heading}
+              body={card.body}
+              partners={card.partners}
+              delay={150 + i * 100}
+            />
+          ))}
+        </div>
 
-          {/* Left: text block ~32% */}
-          <div className="lg:w-[32%] shrink-0 mb-10 lg:mb-0">
-            <SectionLabel>{t.label}</SectionLabel>
-            <h2
-              className="mt-4 font-display text-[#212121] leading-tight"
-              style={{ fontSize: "clamp(1.6rem, 2.8vw, 2.2rem)", fontWeight: 700, letterSpacing: "0" }}
-            >
-              {t.h2}
-            </h2>
-            <p className="mt-4 text-[15px] text-[#666666] leading-relaxed">{t.lead}</p>
-          </div>
-
-          {/* Right: partner logos ~68% */}
-          <div className="flex-1 grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4">
-            {t.partners.map((p, i) => (
-              <div
-                key={p.name}
-                className={`bg-[#FCFBF8] border border-[#E6E3DC] hover:border-[#AC8F52]/50 transition-colors duration-300
-                  flex flex-col items-center justify-between text-center p-4 sm:p-5 gap-4
-                  ${i === 4 ? "col-span-2 sm:col-span-1" : ""}`}
-                style={{ borderRadius: 8, minHeight: 148 }}
-              >
-                <div className="h-12 w-full flex items-center justify-center">
-                  <img
-                    src={p.logo}
-                    alt={p.alt}
-                    className="max-h-12 max-w-[140px] w-auto object-contain"
-                    loading="lazy"
-                  />
-                </div>
-                <div>
-                  <p className="text-[12px] font-semibold text-[#212121] leading-snug">{p.name}</p>
-                  <p className="mt-0.5 text-[11px] text-[#747474] leading-snug">{p.short}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-
+        {/* Partner logos strip */}
+        <div className="mt-10 pt-8 border-t border-[#E6E3DC] flex flex-wrap items-center gap-5 sm:gap-8">
+          {[
+            { logo: partnerRadiologie.url, alt: "Radiologie am Stiglmaierplatz" },
+            { logo: partnerWz.url, alt: "Wirbelsäulenzentrum am Stiglmaierplatz" },
+            { logo: partnerOms.url, alt: "OMS Orthopädie München-Schwabing" },
+            { logo: partnerHand.url, alt: "BL Handchirurgie Bayern" },
+            { logo: partnerOberland.url, alt: "Wirbelsäulenzentrum Oberland" },
+          ].map((p) => (
+            <img
+              key={p.alt}
+              src={p.logo}
+              alt={p.alt}
+              loading="lazy"
+              className="h-8 sm:h-10 w-auto object-contain opacity-60 hover:opacity-100 transition-opacity duration-300 grayscale hover:grayscale-0"
+            />
+          ))}
         </div>
       </div>
     </section>
