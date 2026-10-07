@@ -6,7 +6,6 @@ import { localizeDoctor } from "@/lib/doctor-localization";
 
 const BOOKING_URL = "/#termin";
 
-
 export const Route = createFileRoute("/aerzte/$slug")({
   loader: ({ params }) => {
     const doctor = getDoctorBySlug(params.slug);
@@ -62,6 +61,32 @@ function DoctorNotFound() {
   );
 }
 
+/* Shared sub-components */
+
+function FocusPills({ items }: { items: string[] }) {
+  if (!items.length) return null;
+  return (
+    <div className="flex flex-wrap gap-2">
+      {items.map((f) => (
+        <span
+          key={f}
+          className="rounded-full border border-[#212121]/12 bg-[#212121]/[0.05] px-3 py-1 text-[12px] font-medium text-[#3A3A3A]"
+        >
+          {f}
+        </span>
+      ))}
+    </div>
+  );
+}
+
+function BioBlock({ paragraphs }: { paragraphs: string[] }) {
+  return (
+    <div className="space-y-4 text-[15px] text-[#595959] leading-[1.75]">
+      {paragraphs.map((p, i) => <p key={i}>{p}</p>)}
+    </div>
+  );
+}
+
 function DoctorDetail() {
   const { lang } = useLang();
   const { doctor } = Route.useLoaderData() as { doctor: import("@/lib/doctors").Doctor };
@@ -75,7 +100,7 @@ function DoctorDetail() {
     de: {
       backLink: "← Zurück zum Ärzteverzeichnis",
       bookBtn: "Termin buchen",
-      focusHeading: "Schwerpunkte",
+      focusLabel: "Schwerpunkte",
       aboutHeading: "Zur Person",
       educationLabel: "Werdegang",
       languagesLabel: "Sprachen",
@@ -84,9 +109,9 @@ function DoctorDetail() {
     en: {
       backLink: "← Back to doctor directory",
       bookBtn: "Book an appointment",
-      focusHeading: "Areas of focus",
+      focusLabel: "Areas of focus",
       aboutHeading: "About",
-      educationLabel: "Training and career",
+      educationLabel: "Training & career",
       languagesLabel: "Languages",
       relatedHeading: "Other specialists",
     },
@@ -102,9 +127,10 @@ function DoctorDetail() {
         </Link>
       </div>
 
-      <section className="mx-auto max-w-[1440px] lg:px-8 pb-12">
-        {/* Mobile hero card: full-bleed photo + overlaid identity */}
-        <div className="lg:hidden relative">
+      <section className="mx-auto max-w-[1440px] lg:px-8 pb-16">
+
+        {/* ── Mobile hero ─────────────────────────────────────────── */}
+        <div className="lg:hidden">
           <div className="relative aspect-[4/5] w-full overflow-hidden bg-[#212121]">
             {d.photo ? (
               <img src={d.photo} alt={d.name} className="h-full w-full object-cover object-top" />
@@ -117,28 +143,62 @@ function DoctorDetail() {
             <div className="absolute bottom-0 left-0 right-0 p-5 pt-20">
               <p className="text-[11px] uppercase tracking-[0.2em] text-[#AC8F52] font-medium">{d.title}</p>
               <h1 className="mt-2 text-3xl font-bold text-white leading-tight">{d.name}</h1>
-              <p className="mt-1 text-[15px] text-[#E6E3DC]">{d.role}</p>
-              <div className="mt-4 flex flex-wrap gap-2">
-                {d.specialties.slice(0, 3).map((s) => (
-                  <span key={s} className="rounded-[10px] bg-white/10 backdrop-blur-sm border border-white/20 px-3 py-1 text-xs font-medium text-white">{s}</span>
-                ))}
-              </div>
             </div>
           </div>
 
-          <div className="px-5 mt-5">
+          {/* Mobile content */}
+          <div className="px-5 mt-6 space-y-8">
             <a
               href={BOOKING_URL}
               className="block text-center rounded-[10px] bg-[#AC8F52] px-6 py-3.5 text-sm font-semibold text-[#212121] hover:brightness-105 transition"
             >
               {t.bookBtn}
             </a>
+
+            {d.focus.length > 0 && (
+              <div>
+                <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-[#AC8F52]">{t.focusLabel}</p>
+                <FocusPills items={d.focus} />
+              </div>
+            )}
+
+            <div>
+              <h2 className="mb-4 text-xl font-bold text-[#212121]">{t.aboutHeading}</h2>
+              <BioBlock paragraphs={d.bio} />
+            </div>
+
+            <div className="pt-6 border-t border-[#E6E3DC] grid gap-7 sm:grid-cols-2">
+              <div>
+                <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-[#AC8F52]">{t.educationLabel}</p>
+                <ul className="space-y-2.5">
+                  {d.education.map((e) => (
+                    <li key={e} className="flex items-start gap-2.5 text-[14px] text-[#212121]">
+                      <span className="mt-[7px] w-1.5 h-1.5 rounded-full bg-[#AC8F52] shrink-0" />
+                      {e}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              {d.languages.length > 0 && (
+                <div>
+                  <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-[#AC8F52]">{t.languagesLabel}</p>
+                  <div className="flex flex-wrap gap-2">
+                    {d.languages.map((l) => (
+                      <span key={l} className="rounded-[8px] bg-white border border-[#E6E3DC] px-3 py-1 text-xs text-[#212121]">{l}</span>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
           </div>
         </div>
 
-        <div className="hidden lg:grid gap-10 lg:grid-cols-[260px_1fr] xl:grid-cols-[300px_1fr]">
-          <div>
-            <div className="mx-auto aspect-[4/5] w-full max-w-[300px] rounded-[10px] overflow-hidden bg-[#2D2D2D] shadow-lg">
+        {/* ── Desktop layout ──────────────────────────────────────── */}
+        <div className="hidden lg:grid gap-12 lg:grid-cols-[260px_1fr] xl:grid-cols-[300px_1fr]">
+
+          {/* Sidebar */}
+          <div className="space-y-5">
+            <div className="aspect-[4/5] w-full rounded-[10px] overflow-hidden bg-[#2D2D2D] shadow-md">
               {d.photo ? (
                 <img src={d.photo} alt={d.name} className="h-full w-full object-cover object-top" />
               ) : (
@@ -147,142 +207,90 @@ function DoctorDetail() {
                 </div>
               )}
             </div>
-            <div className="mt-6 rounded-[10px] bg-white p-6 shadow-sm">
-              <a
-                href={BOOKING_URL}
-                className="block text-center rounded-[10px] bg-[#AC8F52] px-6 py-3 text-sm font-semibold text-[#212121] hover:brightness-105 transition"
-              >
-                {t.bookBtn}
-              </a>
-            </div>
+            <a
+              href={BOOKING_URL}
+              className="block text-center rounded-[10px] bg-[#AC8F52] px-6 py-3 text-sm font-semibold text-[#212121] hover:brightness-105 transition"
+            >
+              {t.bookBtn}
+            </a>
           </div>
 
+          {/* Main content */}
           <div>
+            {/* Identity */}
             <p className="text-[11px] uppercase tracking-[0.2em] text-[#AC8F52] font-medium">{d.title}</p>
-            <h1 className="mt-3 text-4xl md:text-5xl font-bold text-[#212121]">{d.name}</h1>
-            <p className="mt-3 text-lg text-[#747474]">{d.role}</p>
+            <h1
+              className="mt-3 font-display text-[#212121] leading-tight"
+              style={{ fontSize: "clamp(2rem, 3.5vw, 3rem)", fontWeight: 700 }}
+            >
+              {d.name}
+            </h1>
 
-            <div className="mt-6 flex flex-wrap gap-2">
-              {d.specialties.map((s) => (
-                <span key={s} className="rounded-[10px] bg-white border border-[#E6E3DC] px-3 py-1.5 text-xs font-medium text-[#212121]">{s}</span>
-              ))}
-            </div>
-
-            <div className="mt-10">
-              <h2 className="text-xl font-semibold text-[#212121]">{t.focusHeading}</h2>
-              <ul className="mt-4 grid gap-2 sm:grid-cols-2">
-                {d.focus.map((f) => (
-                  <li key={f} className="flex items-start gap-2 text-sm text-[#212121]">
-                    <span className="mt-1.5 w-1.5 h-1.5 rounded-[10px] bg-[#AC8F52] shrink-0" />
-                    {f}
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div className="mt-10">
-              <h2 className="text-xl font-semibold text-[#212121]">{t.aboutHeading}</h2>
-              <div className="mt-4 space-y-4 text-[15px] text-[#212121] leading-relaxed">
-                {d.bio.map((p, i) => (
-                  <p key={i}>{p}</p>
-                ))}
+            {/* Focus pills — one clean row, no duplicate section */}
+            {d.focus.length > 0 && (
+              <div className="mt-5 flex flex-wrap items-center gap-x-4 gap-y-3">
+                <span className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[#AC8F52] shrink-0">{t.focusLabel}</span>
+                <FocusPills items={d.focus} />
               </div>
-            </div>
+            )}
 
-            <div className="mt-10 grid gap-8 md:grid-cols-2">
+            <div className="mt-1 h-px bg-[#E6E3DC] my-8" />
+
+            {/* Bio */}
+            <h2 className="mb-4 text-[11px] font-semibold uppercase tracking-[0.18em] text-[#AC8F52]">{t.aboutHeading}</h2>
+            <BioBlock paragraphs={d.bio} />
+
+            {/* Education + Languages */}
+            <div className="mt-10 pt-8 border-t border-[#E6E3DC] grid gap-8 md:grid-cols-2">
               <div>
-                <h3 className="text-sm uppercase tracking-wide text-[#AC8F52] font-semibold">{t.educationLabel}</h3>
-                <ul className="mt-3 space-y-2 text-sm text-[#212121]">
+                <p className="mb-4 text-[11px] font-semibold uppercase tracking-[0.18em] text-[#AC8F52]">{t.educationLabel}</p>
+                <ul className="space-y-3">
                   {d.education.map((e) => (
-                    <li key={e} className="flex items-start gap-2">
-                      <span className="mt-1.5 w-1.5 h-1.5 rounded-[10px] bg-[#212121] shrink-0" />
+                    <li key={e} className="flex items-start gap-2.5 text-[14px] text-[#212121] leading-snug">
+                      <span className="mt-[6px] w-1.5 h-1.5 rounded-full bg-[#AC8F52] shrink-0" />
                       {e}
                     </li>
                   ))}
                 </ul>
               </div>
-              <div>
-                <h3 className="text-sm uppercase tracking-wide text-[#AC8F52] font-semibold">{t.languagesLabel}</h3>
-                <div className="mt-3 flex flex-wrap gap-2">
-                  {d.languages.map((l) => (
-                    <span key={l} className="rounded-[10px] bg-white border border-[#E6E3DC] px-3 py-1 text-xs text-[#212121]">{l}</span>
-                  ))}
+              {d.languages.length > 0 && (
+                <div>
+                  <p className="mb-4 text-[11px] font-semibold uppercase tracking-[0.18em] text-[#AC8F52]">{t.languagesLabel}</p>
+                  <div className="flex flex-wrap gap-2">
+                    {d.languages.map((l) => (
+                      <span key={l} className="rounded-[8px] bg-white border border-[#E6E3DC] px-3 py-1.5 text-[13px] text-[#212121]">{l}</span>
+                    ))}
+                  </div>
                 </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Mobile-only content below the hero card */}
-        <div className="lg:hidden px-5 mt-10 space-y-10">
-          <div>
-            <h2 className="text-xl font-semibold text-[#212121]">{t.focusHeading}</h2>
-            <ul className="mt-4 grid gap-2 sm:grid-cols-2">
-              {d.focus.map((f) => (
-                <li key={f} className="flex items-start gap-2 text-sm text-[#212121]">
-                  <span className="mt-1.5 w-1.5 h-1.5 rounded-[10px] bg-[#AC8F52] shrink-0" />
-                  {f}
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div>
-            <h2 className="text-xl font-semibold text-[#212121]">{t.aboutHeading}</h2>
-            <div className="mt-4 space-y-4 text-[15px] text-[#212121] leading-relaxed">
-              {d.bio.map((p, i) => (
-                <p key={i}>{p}</p>
-              ))}
-            </div>
-          </div>
-
-          <div className="grid gap-8 md:grid-cols-2">
-            <div>
-              <h3 className="text-sm uppercase tracking-wide text-[#AC8F52] font-semibold">{t.educationLabel}</h3>
-              <ul className="mt-3 space-y-2 text-sm text-[#212121]">
-                {d.education.map((e) => (
-                  <li key={e} className="flex items-start gap-2">
-                    <span className="mt-1.5 w-1.5 h-1.5 rounded-[10px] bg-[#212121] shrink-0" />
-                    {e}
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <h3 className="text-sm uppercase tracking-wide text-[#AC8F52] font-semibold">{t.languagesLabel}</h3>
-              <div className="mt-3 flex flex-wrap gap-2">
-                {d.languages.map((l) => (
-                  <span key={l} className="rounded-[10px] bg-white border border-[#E6E3DC] px-3 py-1 text-xs text-[#212121]">{l}</span>
-                ))}
-              </div>
+              )}
             </div>
           </div>
         </div>
       </section>
 
+      {/* Related specialists */}
       {related.length > 0 && (
         <section className="bg-white py-16 border-t border-[#E6E3DC]">
           <div className="mx-auto max-w-[1440px] px-5 lg:px-8">
-            <h2 className="text-2xl font-bold text-[#212121]">{t.relatedHeading}</h2>
-            <div className="mt-8 grid gap-6 md:grid-cols-3">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#AC8F52] mb-6">{t.relatedHeading}</p>
+            <div className="grid gap-5 md:grid-cols-3">
               {related.map((r) => (
                 <Link
                   key={r.slug}
                   to="/aerzte/$slug"
                   params={{ slug: r.slug }}
-                  className="group bg-[#F9F8F4] rounded-[10px] overflow-hidden hover:shadow-lg transition"
+                  className="group flex items-center gap-4 bg-[#F9F8F4] border border-[#E6E3DC] hover:border-[#AC8F52]/40 rounded-[10px] p-4 transition"
                 >
-                  <div className="aspect-square sm:aspect-[4/5] bg-[#2D2D2D] overflow-hidden">
+                  <div className="w-16 h-16 rounded-full overflow-hidden bg-[#2D2D2D] shrink-0">
                     {r.photo ? (
-                      <img src={r.photo} alt={r.name} className="h-full w-full object-cover object-top transition-transform duration-500 ease-out group-hover:scale-[1.04]" />
+                      <img src={r.photo} alt={r.name} className="h-full w-full object-cover object-top" />
                     ) : (
-                      <div className="h-full w-full flex items-center justify-center text-3xl font-bold text-[#AC8F52]">{r.initials}</div>
+                      <div className="h-full w-full flex items-center justify-center text-lg font-bold text-[#AC8F52]">{r.initials}</div>
                     )}
                   </div>
-
-                  <div className="p-5">
-                    <p className="text-xs uppercase tracking-wide text-[#AC8F52] font-medium">{r.specialties[0]}</p>
-                    <p className="mt-2 font-semibold text-[#212121] group-hover:text-[#AC8F52] transition">{r.name}</p>
+                  <div className="min-w-0">
+                    <p className="text-[11px] uppercase tracking-wide text-[#AC8F52] font-medium truncate">{r.specialties[0]}</p>
+                    <p className="mt-0.5 text-[14px] font-semibold text-[#212121] group-hover:text-[#AC8F52] transition leading-snug">{r.name}</p>
                   </div>
                 </Link>
               ))}
