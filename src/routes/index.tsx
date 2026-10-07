@@ -1103,7 +1103,7 @@ function Kompetenzzentrum() {
             />
           </div>
           {/* Text + benefits */}
-          <div className="bg-[#EEF5F6] p-6 sm:p-8 flex flex-col justify-center gap-6">
+          <div className="bg-[#EEF5F6] p-6 sm:p-8 flex flex-col justify-center">
             <div>
               <p className="text-[11px] font-semibold tracking-[0.2em] uppercase text-[#2D7A86] mb-3">Radiologie direkt vor Ort</p>
               <h3
@@ -1113,20 +1113,6 @@ function Kompetenzzentrum() {
                 {t.mrtHeading}
               </h3>
               <p className="text-[15px] text-[#595959] leading-relaxed">{t.mrtIntro}</p>
-            </div>
-            <div className="grid gap-4 sm:grid-cols-3">
-              {t.mrtBenefits.map((b) => (
-                <div key={b.title} className="flex gap-3">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2D7A86" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="shrink-0 mt-0.5" aria-hidden="true">
-                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
-                    <polyline points="22 4 12 14.01 9 11.01"/>
-                  </svg>
-                  <div>
-                    <p className="text-[13px] font-semibold text-[#212121] leading-snug">{b.title}</p>
-                    <p className="mt-0.5 text-[12px] text-[#666666] leading-relaxed">{b.desc}</p>
-                  </div>
-                </div>
-              ))}
             </div>
           </div>
         </div>
