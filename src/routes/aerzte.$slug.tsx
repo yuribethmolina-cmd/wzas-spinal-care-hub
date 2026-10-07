@@ -5,6 +5,7 @@ import { useLang, useT } from "@/lib/lang";
 import { localizeDoctor } from "@/lib/doctor-localization";
 
 const BOOKING_URL = "/#termin";
+const FOUNDER_SLUGS = new Set(["ralph-medele", "marko-staender"]);
 
 export const Route = createFileRoute("/aerzte/$slug")({
   loader: ({ params }) => {
@@ -20,9 +21,9 @@ export const Route = createFileRoute("/aerzte/$slug")({
     return {
       meta: [
         { title: `${d.name} · WZAS München` },
-        { name: "description", content: `${d.role} am Wirbelsäulenzentrum am Stiglmaierplatz. Schwerpunkte: ${d.focus.slice(0, 3).join(", ")}.` },
+        { name: "description", content: `${d.title} am Wirbelsäulenzentrum am Stiglmaierplatz. Schwerpunkte: ${d.focus.slice(0, 3).join(", ")}.` },
         { property: "og:title", content: `${d.name} · WZAS München` },
-        { property: "og:description", content: `${d.role}. Schwerpunkte: ${d.focus.slice(0, 3).join(", ")}.` },
+        { property: "og:description", content: `${d.title}. Schwerpunkte: ${d.focus.slice(0, 3).join(", ")}.` },
         ...(d.photo ? [
           { property: "og:image", content: d.photo },
           { name: "twitter:image", content: d.photo },
@@ -36,16 +37,8 @@ export const Route = createFileRoute("/aerzte/$slug")({
 
 function DoctorNotFound() {
   const t = useT({
-    de: {
-      heading: "Arzt nicht gefunden",
-      body: "Der gesuchte Spezialist ist nicht in unserem Verzeichnis.",
-      link: "Zum Ärzteverzeichnis",
-    },
-    en: {
-      heading: "Doctor not found",
-      body: "The specialist you are looking for is not in our directory.",
-      link: "Doctor directory",
-    },
+    de: { heading: "Arzt nicht gefunden", body: "Der gesuchte Spezialist ist nicht in unserem Verzeichnis.", link: "Zum Ärzteverzeichnis" },
+    en: { heading: "Doctor not found", body: "The specialist you are looking for is not in our directory.", link: "Doctor directory" },
   });
   return (
     <div className="min-h-screen flex items-center justify-center bg-[#F9F8F4] px-5">
@@ -61,36 +54,39 @@ function DoctorNotFound() {
   );
 }
 
-/* Shared sub-components */
+/* ── Shared sub-components ─────────────────────────────────────── */
 
-function FocusPills({ items }: { items: string[] }) {
+function FocusPills({ items, size = "md" }: { items: string[]; size?: "sm" | "md" }) {
   if (!items.length) return null;
+  const cls = size === "sm"
+    ? "rounded-full border border-white/20 bg-white/10 backdrop-blur-sm px-3 py-1 text-[11px] font-medium text-white"
+    : "rounded-full border border-[#212121]/12 bg-[#212121]/[0.05] px-3 py-1 text-[12px] font-medium text-[#3A3A3A]";
   return (
     <div className="flex flex-wrap gap-2">
-      {items.map((f) => (
-        <span
-          key={f}
-          className="rounded-full border border-[#212121]/12 bg-[#212121]/[0.05] px-3 py-1 text-[12px] font-medium text-[#3A3A3A]"
-        >
-          {f}
-        </span>
-      ))}
+      {items.map((f) => <span key={f} className={cls}>{f}</span>)}
     </div>
   );
 }
 
-function BioBlock({ paragraphs }: { paragraphs: string[] }) {
+function FounderBadge({ label }: { label: string }) {
   return (
-    <div className="space-y-4 text-[15px] text-[#595959] leading-[1.75]">
-      {paragraphs.map((p, i) => <p key={i}>{p}</p>)}
-    </div>
+    <span className="inline-flex items-center gap-1.5 rounded-full border border-[#AC8F52]/40 bg-[#AC8F52]/8 px-3 py-1 text-[11px] font-semibold tracking-[0.12em] uppercase text-[#8A6E36]">
+      <svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor" aria-hidden="true">
+        <path d="M5 0 L6.12 3.45 H9.76 L6.82 5.59 L7.94 9.04 L5 6.9 L2.06 9.04 L3.18 5.59 L0.24 3.45 H3.88 Z"/>
+      </svg>
+      {label}
+    </span>
   );
 }
+
+/* ── Main component ────────────────────────────────────────────── */
 
 function DoctorDetail() {
   const { lang } = useLang();
   const { doctor } = Route.useLoaderData() as { doctor: import("@/lib/doctors").Doctor };
   const d = localizeDoctor(doctor, lang);
+  const isFounder = FOUNDER_SLUGS.has(doctor.slug);
+
   const related = doctors
     .filter((x) => x.slug !== doctor.slug && x.specialties.some((s) => doctor.specialties.includes(s)))
     .slice(0, 3)
@@ -129,42 +125,38 @@ function DoctorDetail() {
 
       <section className="mx-auto max-w-[1440px] lg:px-8 pb-16">
 
-        {/* ── Mobile hero ─────────────────────────────────────────── */}
+        {/* ── Mobile ──────────────────────────────────────────────── */}
         <div className="lg:hidden">
+          {/* Hero photo with name overlaid */}
           <div className="relative aspect-[4/5] w-full overflow-hidden bg-[#212121]">
             {d.photo ? (
               <img src={d.photo} alt={d.name} className="h-full w-full object-cover object-top" />
             ) : (
-              <div className="h-full w-full flex items-center justify-center text-5xl font-bold text-[#AC8F52]">
-                {d.initials}
-              </div>
+              <div className="h-full w-full flex items-center justify-center text-5xl font-bold text-[#AC8F52]">{d.initials}</div>
             )}
-            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#212121]/90 via-[#212121]/25 to-transparent" />
-            <div className="absolute bottom-0 left-0 right-0 p-5 pt-20">
-              <p className="text-[11px] uppercase tracking-[0.2em] text-[#AC8F52] font-medium">{d.title}</p>
-              <h1 className="mt-2 text-3xl font-bold text-white leading-tight">{d.name}</h1>
+            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#212121]/90 via-[#212121]/20 to-transparent" />
+            <div className="absolute bottom-0 left-0 right-0 p-5 pt-24 space-y-3">
+              {/* Focus pills first — over the gradient */}
+              <FocusPills items={d.focus.slice(0, 3)} size="sm" />
+              <h1 className="text-[1.75rem] font-bold text-white leading-tight">{d.name}</h1>
+              {isFounder
+                ? <FounderBadge label={d.title} />
+                : <p className="text-[13px] text-[#E6E3DC]/80">{d.title}</p>
+              }
             </div>
           </div>
 
           {/* Mobile content */}
           <div className="px-5 mt-6 space-y-8">
-            <a
-              href={BOOKING_URL}
-              className="block text-center rounded-[10px] bg-[#AC8F52] px-6 py-3.5 text-sm font-semibold text-[#212121] hover:brightness-105 transition"
-            >
+            <a href={BOOKING_URL} className="block text-center rounded-[10px] bg-[#AC8F52] px-6 py-3.5 text-sm font-semibold text-[#212121] hover:brightness-105 transition">
               {t.bookBtn}
             </a>
 
-            {d.focus.length > 0 && (
-              <div>
-                <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-[#AC8F52]">{t.focusLabel}</p>
-                <FocusPills items={d.focus} />
-              </div>
-            )}
-
             <div>
               <h2 className="mb-4 text-xl font-bold text-[#212121]">{t.aboutHeading}</h2>
-              <BioBlock paragraphs={d.bio} />
+              <div className="space-y-4 text-[15px] text-[#595959] leading-[1.75]">
+                {d.bio.map((p, i) => <p key={i}>{p}</p>)}
+              </div>
             </div>
 
             <div className="pt-6 border-t border-[#E6E3DC] grid gap-7 sm:grid-cols-2">
@@ -193,54 +185,60 @@ function DoctorDetail() {
           </div>
         </div>
 
-        {/* ── Desktop layout ──────────────────────────────────────── */}
+        {/* ── Desktop ─────────────────────────────────────────────── */}
         <div className="hidden lg:grid gap-12 lg:grid-cols-[260px_1fr] xl:grid-cols-[300px_1fr]">
 
-          {/* Sidebar */}
+          {/* Sidebar: photo + CTA */}
           <div className="space-y-5">
             <div className="aspect-[4/5] w-full rounded-[10px] overflow-hidden bg-[#2D2D2D] shadow-md">
               {d.photo ? (
                 <img src={d.photo} alt={d.name} className="h-full w-full object-cover object-top" />
               ) : (
-                <div className="h-full w-full flex items-center justify-center text-5xl font-bold text-[#AC8F52]">
-                  {d.initials}
-                </div>
+                <div className="h-full w-full flex items-center justify-center text-5xl font-bold text-[#AC8F52]">{d.initials}</div>
               )}
             </div>
-            <a
-              href={BOOKING_URL}
-              className="block text-center rounded-[10px] bg-[#AC8F52] px-6 py-3 text-sm font-semibold text-[#212121] hover:brightness-105 transition"
-            >
+            <a href={BOOKING_URL} className="block text-center rounded-[10px] bg-[#AC8F52] px-6 py-3 text-sm font-semibold text-[#212121] hover:brightness-105 transition">
               {t.bookBtn}
             </a>
           </div>
 
-          {/* Main content */}
+          {/* Main: focus → name → credential → [founder] → bio → education */}
           <div>
-            {/* Identity */}
-            <p className="text-[11px] uppercase tracking-[0.2em] text-[#AC8F52] font-medium">{d.title}</p>
-            <h1
-              className="mt-3 font-display text-[#212121] leading-tight"
-              style={{ fontSize: "clamp(2rem, 3.5vw, 3rem)", fontWeight: 700 }}
-            >
-              {d.name}
-            </h1>
 
-            {/* Focus pills — one clean row, no duplicate section */}
+            {/* 1. Focus pills — first question answered: "kann der mich behandeln?" */}
             {d.focus.length > 0 && (
-              <div className="mt-5 flex flex-wrap items-center gap-x-4 gap-y-3">
-                <span className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[#AC8F52] shrink-0">{t.focusLabel}</span>
+              <div className="mb-5">
+                <p className="mb-2.5 text-[10px] font-semibold uppercase tracking-[0.22em] text-[#AC8F52]">{t.focusLabel}</p>
                 <FocusPills items={d.focus} />
               </div>
             )}
 
-            <div className="mt-1 h-px bg-[#E6E3DC] my-8" />
+            {/* 2. Name */}
+            <h1
+              className="font-display text-[#212121] leading-tight"
+              style={{ fontSize: "clamp(1.9rem, 3.2vw, 2.8rem)", fontWeight: 700 }}
+            >
+              {d.name}
+            </h1>
 
-            {/* Bio */}
-            <h2 className="mb-4 text-[11px] font-semibold uppercase tracking-[0.18em] text-[#AC8F52]">{t.aboutHeading}</h2>
-            <BioBlock paragraphs={d.bio} />
+            {/* 3. Credential or founder badge — mutually exclusive */}
+            {isFounder ? (
+              <div className="mt-3">
+                <FounderBadge label={d.title} />
+              </div>
+            ) : (
+              <p className="mt-2 text-[15px] text-[#747474]">{d.title}</p>
+            )}
 
-            {/* Education + Languages */}
+            <div className="h-px bg-[#E6E3DC] my-8" />
+
+            {/* 5. Bio */}
+            <p className="mb-4 text-[11px] font-semibold uppercase tracking-[0.18em] text-[#AC8F52]">{t.aboutHeading}</p>
+            <div className="space-y-4 text-[15px] text-[#595959] leading-[1.75]">
+              {d.bio.map((p, i) => <p key={i}>{p}</p>)}
+            </div>
+
+            {/* 6. Education + Languages */}
             <div className="mt-10 pt-8 border-t border-[#E6E3DC] grid gap-8 md:grid-cols-2">
               <div>
                 <p className="mb-4 text-[11px] font-semibold uppercase tracking-[0.18em] text-[#AC8F52]">{t.educationLabel}</p>
@@ -268,28 +266,28 @@ function DoctorDetail() {
         </div>
       </section>
 
-      {/* Related specialists */}
+      {/* ── Related specialists ──────────────────────────────────── */}
       {related.length > 0 && (
-        <section className="bg-white py-16 border-t border-[#E6E3DC]">
+        <section className="bg-white py-14 border-t border-[#E6E3DC]">
           <div className="mx-auto max-w-[1440px] px-5 lg:px-8">
             <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#AC8F52] mb-6">{t.relatedHeading}</p>
-            <div className="grid gap-5 md:grid-cols-3">
+            <div className="grid gap-4 md:grid-cols-3">
               {related.map((r) => (
                 <Link
                   key={r.slug}
                   to="/aerzte/$slug"
                   params={{ slug: r.slug }}
-                  className="group flex items-center gap-4 bg-[#F9F8F4] border border-[#E6E3DC] hover:border-[#AC8F52]/40 rounded-[10px] p-4 transition"
+                  className="group flex items-center gap-4 rounded-[10px] border border-[#E6E3DC] bg-[#F9F8F4] p-4 hover:border-[#AC8F52]/40 hover:bg-white transition-all"
                 >
-                  <div className="w-16 h-16 rounded-full overflow-hidden bg-[#2D2D2D] shrink-0">
+                  <div className="w-14 h-14 rounded-full overflow-hidden bg-[#2D2D2D] shrink-0">
                     {r.photo ? (
                       <img src={r.photo} alt={r.name} className="h-full w-full object-cover object-top" />
                     ) : (
-                      <div className="h-full w-full flex items-center justify-center text-lg font-bold text-[#AC8F52]">{r.initials}</div>
+                      <div className="h-full w-full flex items-center justify-center text-base font-bold text-[#AC8F52]">{r.initials}</div>
                     )}
                   </div>
                   <div className="min-w-0">
-                    <p className="text-[11px] uppercase tracking-wide text-[#AC8F52] font-medium truncate">{r.specialties[0]}</p>
+                    <p className="text-[10px] uppercase tracking-[0.16em] text-[#AC8F52] font-medium truncate">{r.specialties[0]}</p>
                     <p className="mt-0.5 text-[14px] font-semibold text-[#212121] group-hover:text-[#AC8F52] transition leading-snug">{r.name}</p>
                   </div>
                 </Link>
